@@ -1,0 +1,30 @@
+# Dependencies
+/node_modules
+
+# Production
+/build
+
+# Generated files
+.docusaurus
+.cache-loader
+
+# Misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Local review/preview deployment folder — regenerable build output (154 MB), made by:
+#   VONK_PREVIEW=1 npm run build -- --out-dir preview/VonkUltra
+# Ignored because the repo is now the deploy SOURCE (GitHub Pages builds from it), so the
+# prebuilt copy has no ongoing role. Keep it out of git regardless: 154 MB on a Hobby
+# Vercel account exceeds the 100 MB CLI upload ceiling, and it would double the repo.
+# ⚠️ preview/ also holds three HAND-WRITTEN files at its root — index.html, _redirects,
+# vercel.json — that no build regenerates. Recreate them if the Vercel/Netlify route is
+# ever needed again; they are documented in 00-planning/remaining-work.md.
+/preview

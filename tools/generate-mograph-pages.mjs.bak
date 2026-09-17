@@ -1,0 +1,617 @@
+#!/usr/bin/env node
+/**
+ * Batch generator for the Mograph node reference pages.
+ *
+ * Sources:
+ *   - Fuses (authoritative param data): Reactor Deploy Mograph tree
+ *   - Docsify mega-pages (descriptions + connection examples): read-only clone
+ *   - Images: local static batch first, Docsify clone as fallback
+ *
+ * Output:
+ *   - One MDX page per node -> docs/reference/mograph/<Cat>/<Function>/v<Node>.md
+ *   - _category_.json per function folder
+ *   - Existing rich Array pages (the fuses.ts 20) are MOVED into subfolders
+ *     and their Related-node chip links rewritten, content preserved.
+ *
+ * Usage:
+ *   node tools/generate-mograph-pages.mjs                 # full run
+ *   node tools/generate-mograph-pages.mjs --dry-run       # summary only, no writes
+ *   node tools/generate-mograph-pages.mjs --cats Number,Matrix,HTML
+ *   node tools/generate-mograph-pages.mjs --limit 5
+ *   node tools/generate-mograph-pages.mjs --skip-retrofit
+ */
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+const SITE_ROOT = path.resolve(__dirname, '..');
+const DOCS_REF = path.join(SITE_ROOT, 'docs', 'reference', 'mograph');
+const STATIC_IMG = path.join(SITE_ROOT, 'static', 'img', 'reference', 'mograph');
+
+const FUSE_ROOT = '/Users/dunlewis/Reactor/Deploy/Fuses/Kartaverse/Vonk Ultra/Mograph';
+const DOCSIFY_DOCS = '/Users/dunlewis/Documents/Fusion/VonkUltra/VonkUltra/docs';
+const CLONE_IMG = path.join(DOCSIFY_DOCS, 'Images', 'Nodes');
+
+const CATEGORIES = ['Array', 'HTML', 'JSON', 'Matrix', 'Number', 'ScriptVal'];
+
+// Canonical function-group order (matches Fusion's in-app tool menu / mega-page listing).
+const FUNCTION_ORDER = ['Accumulate', 'Animate', 'Create', 'Logic', 'Modify', 'OBJ', 'ShapeRender', 'Shapes', 'Temporal', 'Utility'];
+
+// ---------------------------------------------------------------- CLI args
+const args = process.argv.slice(2);
+const DRY_RUN = args.includes('--dry-run');
+const SKIP_RETROFIT = args.includes('--skip-retrofit');
+const catsArg = argValue('--cats');
+const CATS = catsArg ? catsArg.split(',').map((s) => s.trim()) : CATEGORIES;
+const LIMIT = Number(argValue('--limit') || 0);
+
+function argValue(name) {
+  const i = args.indexOf(name);
+  return i >= 0 && i + 1 < args.length ? args[i + 1] : undefined;
+}
+
+// ---------------------------------------------------------------- Lua-ish parsing helpers
+/** Skip to just after the end of a Lua string starting at strStart (points at " or [ ). */
+function skipLuaString(text, strStart) {
+  const c = text[strStart];
+  if (c === '"' || c === "'") {
+    let i = strStart + 1;
+    while (i < text.length) {
+      if (text[i] === '\\') { i += 2; continue; }
+      if (text[i] === c) return i + 1;
+      i++;
+    }
+  } else if (text.startsWith('[[', strStart)) {
+    const end = text.indexOf(']]', strStart + 2);
+    return end >= 0 ? end + 2 : text.length;
+  }
+  return strStart + 1;
+}
+
+/** Extract the top-level arguments inside `self:AddInput( ... )`. */
+function parseAddInputArgs(text, startIdx) {
+  // startIdx points at the '('
+  let i = startIdx + 1;
+  const args = [];
+  let cur = '';
+  let depth = 0;
+  let inString = false;
+  let quote = '';
+  while (i < text.length) {
+    const c = text[i];
+    // long bracket string
+    if (text.startsWith('[[', i)) {
+      cur += text.slice(i, text.indexOf(']]', i + 2) + 2);
+      i = text.indexOf(']]', i + 2) + 2;
+      continue;
+    }
+    if (inString) {
+      cur += c;
+      if (c === '\\') { cur += text[i + 1] || ''; i += 2; continue; }
+      if (c === quote) inString = false;
+      i++;
+      continue;
+    }
+    if (c === '"' || c === "'") { inString = true; quote = c; cur += c; i++; continue; }
+    if (text.startsWith('--', i)) { // line comment
+      const nl = text.indexOf('\n', i);
+      i = nl === -1 ? text.length : nl + 1;
+      continue;
+    }
+    if (c === '(' || c === '{') { depth++; cur += c; i++; continue; }
+    if (c === ')' || c === '}') {
+      if (depth === 0 && c === ')') {
+        if (cur.trim()) args.push(cur.trim());
+        return { args, nextIdx: i + 1 };
+      }
+      depth--; cur += c; i++; continue;
+    }
+    if (c === ',' && depth === 0) { args.push(cur.trim()); cur = ''; i++; continue; }
+    cur += c;
+    i++;
+  }
+  return { args, nextIdx: i };
+}
+
+/** Parse a simple key/value Lua table body `{ k = v, ... }` into an object. */
+function parseLuaTable(body) {
+  const out = {};
+  if (!body) return out;
+  // find the outer braces
+  let i = body.indexOf('{');
+  if (i === -1) return out;
+  let depth = 0;
+  let j = i;
+  let inString = false;
+  let quote = '';
+  for (; j < body.length; j++) {
+    const c = body[j];
+    if (textStartsLongBracket(body, j)) { j = skipLuaString(body, j) - 1; continue; }
+    if (inString) { if (c === '\\') { j++; continue; } if (c === quote) inString = false; continue; }
+    if (c === '"' || c === "'") { inString = true; quote = c; continue; }
+    if (c === '{') depth++;
+    else if (c === '}') { depth--; if (depth === 0) { j++; break; } }
+  }
+  const inner = body.slice(i + 1, j - 1);
+  // split top-level entries by comma
+  const entries = splitTopLevel(inner);
+  for (const entry of entries) {
+    const eq = findTopLevelEq(entry);
+    if (eq === -1) continue;
+    const key = entry.slice(0, eq).trim().replace(/^"|"$/g, '').replace(/^'|'$/g, '');
+    const rawVal = entry.slice(eq + 1).trim();
+    out[key] = rawVal;
+  }
+  return out;
+}
+
+function textStartsLongBracket(text, idx) {
+  return text.startsWith('[[', idx) || text.startsWith('[=', idx);
+}
+
+function splitTopLevel(str) {
+  const parts = [];
+  let cur = '';
+  let depth = 0;
+  let inString = false;
+  let quote = '';
+  let i = 0;
+  while (i < str.length) {
+    const c = str[i];
+    if (textStartsLongBracket(str, i)) { cur += str.slice(i, skipLuaString(str, i)); i = skipLuaString(str, i); continue; }
+    if (inString) {
+      cur += c;
+      if (c === '\\') { cur += str[i + 1] || ''; i += 2; continue; }
+      if (c === quote) inString = false;
+      i++;
+      continue;
+    }
+    if (c === '"' || c === "'") { inString = true; quote = c; cur += c; i++; continue; }
+    if (c === '{' || c === '(') depth++;
+    else if (c === '}' || c === ')') depth--;
+    else if (c === ',' && depth === 0) { parts.push(cur.trim()); cur = ''; i++; continue; }
+    cur += c;
+    i++;
+  }
+  if (cur.trim()) parts.push(cur.trim());
+  return parts;
+}
+
+function findTopLevelEq(str) {
+  let depth = 0;
+  let inString = false;
+  let quote = '';
+  let i = 0;
+  while (i < str.length) {
+    const c = str[i];
+    if (inString) { if (c === '\\') { i += 2; continue; } if (c === quote) inString = false; i++; continue; }
+    if (c === '"' || c === "'") { inString = true; quote = c; i++; continue; }
+    if (c === '{' || c === '(') depth++;
+    else if (c === '}' || c === ')') depth--;
+    else if (c === '=' && depth === 0 && str[i + 1] !== '=') return i;
+    i++;
+  }
+  return -1;
+}
+
+function unquote(s) {
+  if (!s) return s;
+  s = s.trim();
+  if ((s.startsWith('"') && s.endsWith('"')) || (s.startsWith("'") && s.endsWith("'"))) {
+    return s.slice(1, -1);
+  }
+  return s;
+}
+
+/** Extract MBTNC_AddButton labels from a buttons sub-table body. */
+function extractButtons(raw) {
+  const buttons = [];
+  const re = /MBTNC_AddButton\s*=\s*("[^"]*"|'[^']*')/g;
+  let m;
+  while ((m = re.exec(raw)) !== null) buttons.push(unquote(m[1]));
+  return buttons;
+}
+
+// ---------------------------------------------------------------- Fuse parser
+function parseFuse(filePath, relCategory, relFunction) {
+  const text = fs.readFileSync(filePath, 'utf8');
+  const nameMatch = text.match(/FUSE_NAME\s*=\s*"([^"]+)"/);
+  const name = nameMatch ? nameMatch[1] : path.basename(filePath, '.fuse');
+  const regsDesc = (text.match(/REGS_OpDescription\s*=\s*"([^"]*)"/) || [])[1] || '';
+  const regsCategory = (text.match(/REGS_Category\s*=\s*"([^"]*)"/) || [])[1] || '';
+
+  const params = [];
+  let idx = 0;
+  while (idx < text.length) {
+    const hit = text.indexOf('self:AddInput(', idx);
+    if (hit === -1) break;
+    const { args, nextIdx } = parseAddInputArgs(text, hit + 'self:AddInput'.length);
+    idx = nextIdx;
+    if (args.length < 3) continue;
+    const label = unquote(args[0]);
+    const id = unquote(args[1]);
+    const tableRaw = args[2];
+    const tbl = parseLuaTable(tableRaw);
+    params.push({ label, id, raw: tableRaw, ...tbl });
+  }
+
+  return {
+    name,
+    category: relCategory,
+    function: relFunction,
+    file: filePath,
+    regsCategory,
+    regsDesc: regsDesc.trim(),
+    params,
+  };
+}
+
+// ---------------------------------------------------------------- Type mapping
+const CONTROL_TYPE = {
+  ScrewControl: 'Float',
+  SliderControl: 'Float',
+  RangeControl: 'Range',
+  MultiButtonControl: 'Dropdown',
+  CheckboxControl: 'Checkbox',
+  TextControl: 'Text',
+  LabelControl: null, // skip
+  FontControl: 'Font',
+  ColorControl: 'Color',
+  PointControl: 'Point',
+  FuIDControl: 'FuID',
+  ComboControl: 'Dropdown',
+  FloatControl: 'Float',
+  IntegerControl: 'Integer',
+  PassThroughControl: null,
+};
+
+function paramType(tbl) {
+  const control = tbl.INPID_InputControl;
+  if (control && CONTROL_TYPE[control]) return CONTROL_TYPE[control];
+  const dt = tbl.LINKID_DataType;
+  if (dt === 'Number') return tbl.INP_Integer === 'true' ? 'Integer' : 'Float';
+  if (dt === 'Text') return 'Text';
+  if (dt === 'FuID') return 'FuID';
+  if (dt === 'Color') return 'Color';
+  return dt || 'Float';
+}
+
+function formatDefault(tbl, type) {
+  if (tbl.INP_Default === undefined) return '—';
+  const raw = unquote(String(tbl.INP_Default));
+  if (type === 'Checkbox') return raw === '1' || raw === 'true' ? 'On' : 'Off';
+  if (type === 'Dropdown' || (tbl.INPID_InputControl === 'MultiButtonControl')) {
+    const buttons = extractButtons(tbl.raw);
+    const d = Number(raw);
+    if (buttons.length && Number.isFinite(d) && buttons[d]) return buttons[d];
+    return raw;
+  }
+  return raw;
+}
+
+function shouldSkipParam(p) {
+  if (p.id === 'ConnectionLabel' || p.label === 'ConnectionLabel') return true;
+  if (p.INPID_InputControl === 'LabelControl') return true;
+  if (p.INP_Passive === 'true' && p.IC_NoLabel === 'true' && p.label === '') return true;
+  return false;
+}
+
+// ---------------------------------------------------------------- Mega-page parser
+function parseMegaPage(category) {
+  const file = path.join(DOCSIFY_DOCS, `mograph-${category.toLowerCase()}.md`);
+  if (!fs.existsSync(file)) return {};
+  const text = fs.readFileSync(file, 'utf8');
+  const lines = text.split(/\r?\n/);
+  const nodes = {};
+  let cur = null;
+  let inExample = false;
+  let exampleLines = [];
+  let pendingDesc = [];
+
+  const flushExample = () => {
+    if (cur && exampleLines.some((l) => l.trim())) {
+      if (!nodes[cur].connections) nodes[cur].connections = [];
+      nodes[cur].connections.push(exampleLines.join('\n'));
+    }
+    exampleLines = [];
+    inExample = false;
+  };
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    if (/^####\s+(v\w+)/.test(line)) {
+      flushExample();
+      cur = line.match(/^####\s+(v\w+)/)[1];
+      nodes[cur] = nodes[cur] || { desc: '', connections: [] };
+      pendingDesc = [];
+      continue;
+    }
+    if (!cur) continue;
+    if (/^###\s/.test(line)) { flushExample(); cur = null; continue; }
+    const trimmed = line.trim();
+    if (inExample) {
+      if (/^\s{4}/.test(line) || line === '') {
+        exampleLines.push(line);
+      } else {
+        flushExample();
+        if (trimmed) pendingDesc.push(trimmed);
+      }
+      continue;
+    }
+    if (/Example Node Connections/i.test(trimmed)) {
+      inExample = true;
+      continue;
+    }
+    if (/^!\[/.test(trimmed)) continue; // skip screenshot line
+    if (trimmed) pendingDesc.push(trimmed);
+  }
+  flushExample();
+
+  for (const [name, rec] of Object.entries(nodes)) {
+    rec.desc = pendingDescFor(rec, pendingDesc, name);
+  }
+  return nodes;
+}
+
+function pendingDescFor(rec, pendingDesc, name) {
+  // stored per-node via a simpler approach below
+  return rec.desc;
+}
+
+// ---------------------------------------------------------------- Main
+function collectFuses() {
+  const fuses = [];
+  for (const cat of CATS) {
+    const catDir = path.join(FUSE_ROOT, cat);
+    if (!fs.existsSync(catDir)) { console.warn(`  ! category dir missing: ${catDir}`); continue; }
+    for (const fn of fs.readdirSync(catDir)) {
+      const fnDir = path.join(catDir, fn);
+      if (!fs.statSync(fnDir).isDirectory()) continue;
+      const fusesInFn = fs.readdirSync(fnDir).filter((f) => f.endsWith('.fuse'));
+      for (const f of fusesInFn) {
+        fuses.push(parseFuse(path.join(fnDir, f), cat, fn));
+      }
+    }
+  }
+  return fuses;
+}
+
+function imageFor(name, category) {
+  const staticPath = path.join(STATIC_IMG, category, `${name}.png`);
+  if (fs.existsSync(staticPath)) return { path: staticPath, url: `/VonkUltra/img/reference/mograph/${category}/${name}.png`, source: 'static' };
+  const clonePath = path.join(CLONE_IMG, `${name}.png`);
+  if (fs.existsSync(clonePath)) return { path: clonePath, url: `/VonkUltra/img/reference/mograph/${category}/${name}.png`, source: 'clone' };
+  return null;
+}
+
+function emitCategoryJson(category, functions) {
+  for (const fn of functions) {
+    const dir = path.join(DOCS_REF, category, fn);
+    fs.mkdirSync(dir, { recursive: true });
+    const position = FUNCTION_ORDER.includes(fn) ? FUNCTION_ORDER.indexOf(fn) + 1 : 99;
+    const catJson = {
+      label: fn,
+      position,
+      link: { type: 'generated-index', description: `${category} / ${fn} nodes.` },
+    };
+    fs.writeFileSync(path.join(dir, '_category_.json'), JSON.stringify(catJson, null, 2) + '\n');
+  }
+}
+
+function relativeLink(fromDir, toPath) {
+  // toPath is like "Array/Modify/vArrayMath" (without extension), fromDir is "Array/Create"
+  const rel = path.relative(fromDir, toPath);
+  return rel.split(path.sep).join('/');
+}
+
+function renderPage(node, mega, opts) {
+  const { category, function: fn, name } = node;
+  const megaRec = mega[name] || {};
+  const lead = megaRec.desc || node.regsDesc || `The ${name} node in the Vonk Ultra ${category} toolkit.`;
+
+  const badges = [`Mograph / ${category}`, category];
+  if (category === 'Array') badges.push('ScriptVal', 'JSON');
+  else if (category === 'JSON') badges.push('ScriptVal', 'Array');
+  else if (category === 'ScriptVal') badges.push('Array', 'JSON');
+
+  const badgeHtml = badges.map((b) => `  <span className="node-badge">${b}</span>`).join('\n');
+
+  const img = opts.images[name];
+  const screenshot = img
+    ? `<div className="node-screenshot">\n  <img src="${img.url}" alt="${name} node" />\n</div>\n`
+    : `{/* No screenshot available for ${name} yet. */}\n`;
+
+  // Parameters — first 5, rest in a disclosure
+  const visibleParams = node.params.filter((p) => !shouldSkipParam(p));
+  const tableHead = `| Parameter | Type | Default | Description |\n|---|---|---|---|\n`;
+  const row = (p) => {
+    const type = paramType(p);
+    const def = formatDefault(p, type);
+    return `| ${escPipe(p.label || p.id)} | ${type} | \`${def}\` | ${escPipe(p.desc || '—')} |`;
+  };
+  let paramsSection = '';
+  if (visibleParams.length) {
+    const first = visibleParams.slice(0, 5);
+    const rest = visibleParams.slice(5);
+    paramsSection += `## Parameters\n\n${tableHead}${first.map(row).join('\n')}\n`;
+    if (rest.length) {
+      paramsSection += `\n<details>\n<summary>+${rest.length} more parameters</summary>\n\n${tableHead}${rest.map(row).join('\n')}\n\n</details>\n`;
+    }
+  }
+
+  // Example Connections
+  let connectionsSection = '';
+  if (megaRec.connections && megaRec.connections.length) {
+    const tabs = megaRec.connections.map((block, i) => {
+      const label = `Example ${i + 1}`;
+      const value = `example-${i + 1}`;
+      return `<TabItem value="${value}" label="${label}"${i === 0 ? ' default' : ''}>\n\n\`\`\`\n${block.trim()}\n\`\`\`\n\n</TabItem>`;
+    }).join('\n');
+    connectionsSection = `## Example Connections\n\n<Tabs>\n${tabs}\n</Tabs>\n`;
+  }
+
+  // Related Nodes — from node refs in connection examples + a same-folder fallback
+  let relatedSection = '';
+  const related = relatedFor(node, megaRec, opts.allNodes, opts.knownNodes);
+  if (related.length) {
+    const chips = related.map((r) => `  <a className="node-chip" href="${r.href}">${r.name}</a>`).join('\n');
+    relatedSection = `## Related Nodes\n\n<div className="node-chip-row">\n${chips}\n</div>\n`;
+  }
+
+  const frontmatter = `---\nsidebar_position: ${opts.position}\ntitle: ${name}\n---\n`;
+  const imports = `import Tabs from '@theme/Tabs';\nimport TabItem from '@theme/TabItem';\n`;
+
+  return `${frontmatter}\n${imports}\n\n# ${name}\n\n${lead}\n\n<div className="node-badge-row">\n${badgeHtml}\n</div>\n\n${screenshot}\n${paramsSection}\n${connectionsSection}\n${relatedSection}\n{/*\nGenerated page — node: ${name} (${category}/${fn}).\nSource: fuse ${path.basename(node.file)} + Docsify mega-page. Param descriptions pending the content pass (ia-and-content-plan.md §6).\n*/}\n`;
+}
+
+function escPipe(s) {
+  return String(s).replace(/\|/g, '\\|').replace(/\n/g, ' ');
+}
+
+function relatedFor(node, megaRec, allNodes, knownNodes) {
+  const refs = new Set();
+  for (const block of megaRec.connections || []) {
+    for (const m of block.matchAll(/\b(v\w+)/g)) {
+      const r = m[1];
+      if (r !== node.name && knownNodes.has(r)) refs.add(r);
+    }
+  }
+  // fallback: same function siblings (max 4) when no refs found
+  if (!refs.size) {
+    const siblings = (allNodes.get(node.category)?.get(node.function) || [])
+      .filter((n) => n !== node.name)
+      .slice(0, 4);
+    for (const s of siblings) refs.add(s);
+  }
+  return [...refs].slice(0, 6).map((r) => {
+    const target = knownNodes.get(r);
+    const href = relativeLink(path.join(node.category, node.function), path.join(target.category, target.function, r));
+    return { name: r, href };
+  });
+}
+
+// ---------------------------------------------------------------- Retrofit (existing rich pages)
+function retrofitExisting(existingPages, allNodes, images, mega) {
+  // existingPages: Map name -> {file, node} for the fuses.ts 20 in the flat array folder
+  for (const [name, rec] of existingPages) {
+    const node = allNodes.get('Array')?.all.find((n) => n.name === name);
+    if (!node) { console.warn(`  ! retrofit: no fuse record for ${name}`); continue; }
+    const targetDir = path.join(DOCS_REF, 'Array', node.function);
+    fs.mkdirSync(targetDir, { recursive: true });
+    const target = path.join(targetDir, `${name}.md`);
+    let body = fs.readFileSync(rec.file, 'utf8');
+    // rewrite related-node chip links to correct relative paths
+    body = body.replace(/<a className="node-chip" href="([^"]+)">(v\w+)<\/a>/g, (m, href, chipName) => {
+      const t = knownNodePaths.get(chipName);
+      if (!t) return m;
+      const rel = relativeLink(path.join('Array', node.function), t);
+      return `<a className="node-chip" href="${rel}">${chipName}</a>`;
+    });
+    // renumber sidebar_position by folder order later (caller assigns)
+    fs.writeFileSync(target, body);
+    movedRetrofit.push({ from: rec.file, to: target, name });
+  }
+}
+
+// ---------------------------------------------------------------- Run
+const fuses = collectFuses();
+console.log(`Parsed ${fuses.length} fuses (categories: ${[...new Set(fuses.map((f) => f.category))].join(', ')})\n`);
+
+// index: category -> function -> [names]
+const allNodes = new Map();
+for (const f of fuses) {
+  if (!allNodes.has(f.category)) allNodes.set(f.category, new Map());
+  if (!allNodes.get(f.category).has(f.function)) allNodes.get(f.category).set(f.function, []);
+  allNodes.get(f.category).get(f.function).push(f);
+}
+const knownNodes = new Map();
+for (const f of fuses) knownNodes.set(f.name, f);
+const knownNodePaths = new Map();
+for (const f of fuses) knownNodePaths.set(f.name, path.join(f.category, f.function, f.name));
+
+// existing rich pages in the flat array folder
+const existingPages = new Map();
+const arrayDocsDir = path.join(DOCS_REF, 'Array');
+if (fs.existsSync(arrayDocsDir)) {
+  for (const f of fs.readdirSync(arrayDocsDir)) {
+    if (!f.endsWith('.md') || f.startsWith('_') || f === 'overview.md' || f === 'index.md') continue;
+    const name = f.replace(/\.md$/, '');
+    existingPages.set(name, { file: path.join(arrayDocsDir, f) });
+  }
+}
+console.log(`Existing rich pages to retrofit: ${existingPages.size} (${[...existingPages.keys()].join(', ')})\n`);
+
+const stats = { generated: 0, retrofitted: 0, imagesStatic: 0, imagesCloned: 0, imagesMissing: [], skippedExisting: 0 };
+const movedRetrofit = [];
+const seenRetrofit = new Set();
+let positionCounter = new Map();
+
+function nextPosition(cat, fn) {
+  const key = `${cat}/${fn}`;
+  const n = (positionCounter.get(key) || 0) + 1;
+  positionCounter.set(key, n);
+  return n;
+}
+
+const megaCache = {};
+for (const cat of CATS) megaCache[cat] = parseMegaPage(cat);
+
+for (const cat of CATS) {
+  if (!allNodes.has(cat)) continue;
+  // _category_.json for function folders
+  const functions = [...allNodes.get(cat).keys()];
+  if (!DRY_RUN) emitCategoryJson(cat, functions);
+  for (const fn of functions) {
+    const nodes = allNodes.get(cat).get(fn);
+    for (const node of nodes) {
+      if (LIMIT && stats.generated + stats.retrofitted >= LIMIT) break;
+      // retrofit existing rich pages for Array
+      if (existingPages.has(node.name)) {
+        if (!seenRetrofit.has(node.name)) {
+          seenRetrofit.add(node.name);
+          if (!DRY_RUN) retrofitExisting(new Map([[node.name, existingPages.get(node.name)]]), allNodes, null, null);
+          stats.retrofitted++;
+        } else {
+          stats.skippedExisting++;
+        }
+        continue;
+      }
+      // generate fresh page
+      const opts = {
+        position: nextPosition(cat, fn),
+        images: { [node.name]: imageFor(node.name, cat) },
+        allNodes,
+        knownNodes,
+      };
+      const img = imageFor(node.name, cat);
+      if (img && img.source === 'static') stats.imagesStatic++;
+      if (img && img.source === 'clone') stats.imagesCloned++;
+      if (!img) stats.imagesMissing.push(`${cat}/${fn}/${node.name}`);
+      opts.images[node.name] = img;
+      const page = renderPage(node, megaCache[cat], opts);
+      if (!DRY_RUN) {
+        const dir = path.join(DOCS_REF, cat, fn);
+        fs.mkdirSync(dir, { recursive: true });
+        fs.writeFileSync(path.join(dir, `${node.name}.md`), page);
+        if (img && img.source === 'clone') {
+          fs.mkdirSync(path.dirname(img.path), { recursive: true });
+          // copy clone image into static (only when it doesn't already exist there)
+          const target = path.join(STATIC_IMG, cat, `${node.name}.png`);
+          if (!fs.existsSync(target)) fs.copyFileSync(img.path, target);
+        }
+      }
+      stats.generated++;
+    }
+    if (LIMIT && stats.generated + stats.retrofitted >= LIMIT) break;
+  }
+  if (LIMIT && stats.generated + stats.retrofitted >= LIMIT) break;
+}
+
+console.log('=== Summary ===');
+console.log(`Generated pages: ${stats.generated}`);
+console.log(`Retrofitted rich pages: ${stats.retrofitted}${movedRetrofit.length ? ` (${movedRetrofit.map((m) => m.name).join(', ')})` : ''}`);
+console.log(`Images: ${stats.imagesStatic} static + ${stats.imagesCloned} cloned from Docsify, ${stats.imagesMissing.length} missing`);
+if (stats.imagesMissing.length) console.log(`Missing images:\n  ${stats.imagesMissing.join('\n  ')}`);
+if (DRY_RUN) console.log('\n(dry run — nothing written)');

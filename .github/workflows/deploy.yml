@@ -1,0 +1,81 @@
+# Deploy the site to GitHub Pages.
+#
+# The repo root IS the site (this is the contents of 02-docusaurus-site), so every path
+# here is relative to the repo root — no working-directory indirection needed.
+#
+# ⚠️ One-time prerequisite: repo Settings → Pages → Source must be set to "GitHub Actions".
+#    From the CLI:  gh api -X POST repos/<owner>/<repo>/pages -f build_type=workflow
+#    Without it the deploy job fails with "Get Pages site failed. Please verify that the
+#    repository has Pages enabled".
+#
+# ⚠️ The site MUST be served at /VonkUltra/ — a project Pages site is served at /<repo>/,
+#    which is why the repo is named `VonkUltra` and not something like `VonkUltra-docs`.
+#    992 built pages hardcode /VonkUltra/img/... and the config's baseUrl is '/VonkUltra/'.
+#    Renaming the repo (or transferring it under a different name) breaks every image.
+#
+# ⚠️ VONK_PREVIEW=1 below turns ON the dated announcement bar and the `noindex, nofollow`
+#    meta tag, so this public URL stays out of search results while the content pass is
+#    unfinished. REMOVE that env block (and flip `url` in docusaurus.config.js to the
+#    kartaverse origin) when launching for real — both are tracked in
+#    00-planning/remaining-work.md §D. It does NOT affect baseUrl or the build output.
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  # Lets the deploy be re-run from the Actions tab without pushing a commit.
+  workflow_dispatch:
+
+# Required by actions/deploy-pages: it publishes through the Pages API using an OIDC
+# token, so the workflow needs pages:write + id-token:write.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Never let two Pages deploys overlap. NOT cancel-in-progress: cancelling mid-publish can
+# leave the Pages site in a half-deployed state.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      VONK_PREVIEW: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          # Matches the Node Docusaurus 3.10 supports; local dev is on v24.
+          node-version: 22
+          # Requires a package-lock.json in sync with package.json — verified, so
+          # `npm ci` is safe. If it ever goes out of sync CI fails loudly rather than
+          # silently resolving different versions.
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Build
+        run: npm run build
+        # onBrokenLinks is 'throw', so a broken internal link fails CI here. That is the
+        # intended QA gate — see the workflow comment in docusaurus.config.js.
+      - uses: actions/configure-pages@v5
+        with:
+          # Creates the Pages site on first run if it doesn't exist yet, so a fresh repo
+          # needs no manual Settings → Pages step. Without this, deploy-pages fails with
+          # "Get Pages site failed. Please verify that the repository has Pages enabled".
+          enablement: true
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: build
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,999 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* ── Fonts ───────────────────────────────────────────────
+ * IBM Plex system: IBM Plex Sans for headings and body,
+ * IBM Plex Mono for code/tables/counts/labels. The two faces share the same
+ * design DNA, so switching between prose and technical data stays coherent.
+ */
+:root {
+  --ifm-font-family-base: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --ifm-font-family-monospace: 'IBM Plex Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --ifm-heading-font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --ifm-code-font-size: 90%;
+
+  /* Brand gold, taken from the original Docsify site. */
+  --vonk-gold: #ffcb6b;
+
+  /* THE CARD / PANEL COLOUR — single knob. Change this one value to re-tune card
+   * backgrounds; the dark-theme value is set in html[data-theme='dark'] below.
+   * Used directly by `.cat-card` and `.navCard`, and
+   * `--ifm-background-surface-color` derives from it, so `.pill` and `.node-chip`
+   * (which read that var) follow along automatically.
+   * NOT covered by this knob — tune separately if needed: `--ifm-color-emphasis-100`
+   * fills badges, screenshot frames, table headers, zebra stripes and inline code. */
+  --vonk-card-bg: #ffffff;
+  --ifm-background-surface-color: var(--vonk-card-bg);
+}
+
+/* Two-tone brand wordmark — "Kartaverse" in gold, "Vonk Ultra" default.
+ * Used by the navbar brand (src/theme/Logo) and the homepage H1.
+ * NOTE: #ffcb6b is low-contrast on white (~1.5:1) — see the note in
+ * 00-planning/remaining-work.md before rolling it out further. */
+.brand-gold {
+  color: var(--vonk-gold);
+}
+
+/* The rest of the wordmark. It previously inherited the heading colour, which
+ * is now the indigo accent — so "Vonk Ultra" read as a link rather than as part
+ * of the title. Pinned to plain ink instead: near-black on light, pure white on
+ * dark, in both cases matching how body text behaves. */
+.brand-plain {
+  color: #1c1e21;
+}
+
+[data-theme='dark'] .brand-plain {
+  color: #ffffff;
+}
+
+/* ── Modern tech color theme ─────────────────────────────
+ * Light mode: clean slate with vibrant indigo accent
+ */
+:root {
+  --ifm-color-primary: #4f46e5;
+  --ifm-color-primary-dark: #4338ca;
+  --ifm-color-primary-darker: #3730a3;
+  --ifm-color-primary-darkest: #312e81;
+  --ifm-color-primary-light: #6366f1;
+  --ifm-color-primary-lighter: #818cf8;
+  --ifm-color-primary-lightest: #a5b4fc;
+  --ifm-background-color: #ffffff;
+  --ifm-navbar-background-color: rgba(255, 255, 255, 0.85);
+  --ifm-footer-background-color: #05070b; /* fallback only — the live value is on .footer--dark below */
+  --ifm-toc-border-color: #e2e8f0;
+  --ifm-code-background: #f1f5f9;
+  --docusaurus-highlighted-code-line-bg: rgba(79, 70, 229, 0.08);
+}
+
+/* ── Dark mode: deep space with a gold accent ──
+ * SELECTOR MUST KEEP THE `html` PREFIX. Infima declares its dark scale on
+ * `html[data-theme=dark]` — specificity (0,1,1) — which beats a bare
+ * `[data-theme='dark']` at (0,1,0). Without the prefix, the emphasis scale, the
+ * surface colour, the hover overlay, the code background and the TOC border below
+ * are silently ignored and Infima's grey defaults win instead.
+ */
+html[data-theme='dark'] {
+
+  --ifm-color-primary: #ffcb6b;
+  --ifm-color-primary-dark: #e6c700;
+  --ifm-color-primary-darker: #d9bc00;
+  --ifm-color-primary-darkest: #b39b00;
+  --ifm-color-primary-light: #ffe01a;
+  --ifm-color-primary-lighter: #ffe226;
+  --ifm-color-primary-lightest: #ffe74d;
+
+  /* Swapped: the page is the deeper blue-black, and cards sit lighter on top of
+   * it so they read as raised panels. The card outline follows
+   * --ifm-background-color, so it stays invisible against the page.
+   * Card colour = --vonk-card-bg (see :root). These two are only ~1.04:1 apart —
+   * widen the gap here if the cards need to read more strongly.#1b1b1d; #1e293b */
+  --ifm-background-color: #131820;
+  --vonk-card-bg: #0c0f14;
+
+
+
+  --ifm-background-surface-color: var(--vonk-card-bg);
+
+  --ifm-navbar-background-color: rgba(19, 24, 32, 0.85);
+  --ifm-footer-background-color: #05070b; /* fallback only — the live value is on .footer--dark below */
+  --ifm-dropdown-background-color: #131820;
+  --ifm-card-background-color: #131820;
+  --ifm-code-background: #1a202c;
+  --ifm-color-emphasis-0: #090c10;
+  --ifm-color-emphasis-100: #131820;
+  --ifm-color-emphasis-200: #1e293b;
+  --ifm-color-emphasis-300: #2d3748;
+  --ifm-color-emphasis-400: #4a5568;
+  --ifm-color-emphasis-500: #64748b;
+  --ifm-color-emphasis-600: #94a3b8;
+  --ifm-color-emphasis-700: #cbd5e1;
+  --ifm-color-emphasis-800: #e2e8f0;
+  --ifm-color-emphasis-900: #f1f5f9;
+  --ifm-color-emphasis-1000: #f8fafc;
+  --ifm-font-color-base: #e2e8f0;
+  --ifm-heading-color: #f1f5f9;
+  --ifm-menu-color: #94a3b8;
+  --ifm-toc-link-color: #94a3b8;
+  --ifm-toc-border-color: #1e293b;
+  /* Links use the brand gold so dark mode runs one accent, not two. The hover
+   * value is a lighter tint of the same gold — the old #a5b4fc would have flipped
+   * a gold link to indigo on hover. Contrast on #1b1b1d: 11.47:1 (gold). */
+  --ifm-link-color: var(--vonk-gold);
+  --ifm-link-hover-color: #ffe0a3;
+  --ifm-breadcrumb-color-active: var(--vonk-gold);
+  --ifm-menu-color-active: #f1f5f9;
+  /* Gold tints rather than the old indigo ones — dark mode runs a single accent. */
+  --ifm-hover-overlay: rgba(255, 203, 107, 0.1);
+  --docusaurus-highlighted-code-line-bg: rgba(255, 203, 107, 0.15);
+  --docsearch-searchbox-background: #131820;
+  --docsearch-footer-background: #131820;
+  --docsearch-modal-background: #090c10;
+}
+
+/* Heading typography — one family, one weight, one colour.
+   Every heading level is IBM Plex Sans at weight 500 in the accent colour, so
+   hierarchy is carried by SIZE alone. This suits a technical reference: no
+   display flourishes, nothing extra to load, nothing to fall back to.
+
+   The original Smooch Sans + `font-stretch: 62.5%` approach was removed: Google
+   Fonts serves Smooch Sans WITHOUT a width axis, so those stretch values never
+   applied, and the family was not loading at all — headings silently rendered
+   in the system font.
+
+   `h1[class^='title_']` is the generated-index (Level-3) page title, which
+   lives in a <header> rather than an <article>, so it needs the same rule
+   to match the markdown H1 (Level-2) styling. */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+h1[class^='title_'] {
+  font-family: var(--ifm-heading-font-family);
+  font-weight: 500;
+  color: var(--ifm-color-primary);
+}
+
+/* Page titles sit one step heavier than section headings, so the title still
+   reads as the top of the hierarchy even though every heading shares a colour.
+   `h1[class^='title_']` must be repeated here: it is more specific than a bare
+   `h1`, so it would otherwise keep the 500 above. */
+h1,
+h1[class^='title_'] {
+  font-weight: 600;
+}
+
+/* Page title (markdown H1 + the generated-index header title). */
+article h1,
+h1[class^='title_'] {
+  font-size: 33px;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+/* Section headings — `Parameters` and `Related Nodes` are both h2, so they
+   match by design. */
+article h2 {
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+
+article h3 {
+  line-height: 1.2;
+}
+
+/* Sidebar tweaks for dark mode */
+[data-theme='dark'] .menu__link--active {
+  background: rgba(129, 140, 248, 0.12);
+  border-right: 2px solid var(--ifm-color-primary);
+}
+
+[data-theme='dark'] .table-of-contents__link--active {
+  color: #e2e8f0;
+}
+
+[data-theme='dark'] .navbar {
+  border-bottom: 1px solid #1e293b;
+  box-shadow: none;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Footer background.
+ * docusaurus.config.js sets `footer.style: 'dark'`, so Docusaurus puts
+ * `footer--dark` on the <footer> ELEMENT, and Infima's own `.footer--dark` rule
+ * declares --ifm-footer-background-color (#303846) right there on that element.
+ * A custom property declared on an element always beats one inherited from
+ * :root / html[data-theme='dark'], so the --ifm-footer-background-color values in
+ * the two theme blocks above never actually reach the footer — this is the
+ * declaration that has to carry the value. (Those theme-block values still act as
+ * the fallback if `footer.style` is ever changed away from 'dark'.)
+ * Text stays legible either way: `.footer--dark` also switches the footer text to
+ * --ifm-color-secondary (#ebedf0, the same in both themes) and titles to white. */
+.footer--dark {
+  --ifm-footer-background-color: #05070b;
+}
+
+/* Footer type scale.
+ * Stock Infima renders every footer level at the SAME size: `.footer__link-item`
+ * and the copyright line inherit the 16px base, and `.footer__title` is a bold
+ * `font:` shorthand at --ifm-h4-font-size — which Infima also defines as 1rem.
+ * So only weight separated the column headings from their links, and 12 links at
+ * 16px with `line-height: 2` (~32px per row) made the whole block read as one
+ * heavy mass rather than three tidy groups.
+ * Shrinking the links and copyright below the title gives hierarchy through size
+ * as well as weight, and keeps the 4-row columns compact.
+ * These three values are the footer's density knob — tune them together. */
+.footer__title {
+  font-size: 0.95rem;
+}
+
+.footer__link-item {
+  font-size: 0.85rem;
+}
+
+/* Copyright line, inside `.footer__bottom`. Infima declares no size for it, so it
+ * inherited the base and matched the links exactly. */
+.footer__bottom {
+  font-size: 0.8rem;
+}
+
+[data-theme='dark'] .footer {
+  border-top: 1px solid #1e293b;
+}
+
+/* Light mode navbar glass effect */
+.navbar {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Navbar bottom border glow in dark mode */
+[data-theme='dark'] .navbar::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ifm-color-primary), transparent);
+  opacity: 0.3;
+}
+
+/* Subtle link underline effect */
+article a:not(.node-chip):not(.menu__link):not(.toc__link) {
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  transition: background-size 0.2s ease;
+}
+
+article a:not(.node-chip):not(.menu__link):not(.toc__link):hover {
+  background-size: 100% 1px;
+}
+
+/* Code blocks get a subtle border in dark mode */
+[data-theme='dark'] pre {
+  border: 1px solid #1e293b;
+}
+
+/* Sidebar category headers in dark mode */
+[data-theme='dark'] .menu__link--sublist {
+  color: #94a3b8;
+}
+
+/* Collapsible parameter panel ("+11 more parameters"), dark mode.
+ * Docusaurus renders `<details>` with Infima's `alert alert--info` classes, so
+ * this panel is not styled by the Details component at all — it is the info
+ * admonition. `.alert--info` routes everything through two variables: the fill
+ * (--ifm-alert-background-color) and the 1px frame, which the ▼ arrow and the
+ * rule above the content also inherit via --docusaurus-details-decoration-color.
+ * Infima's dark values for those are a solid rgb(25,60,71) teal inside a bright
+ * rgb(76,179,212) cyan frame, which fights the blue-black + gold palette.
+ * Rather than substituting another solid colour, both are dialled down with alpha
+ * so the page background shows through and the panel reads as a faint tint. These
+ * two alphas are the knob: raise them for a stronger panel, drop to ~0 to erase
+ * it. Text stays fully opaque (--ifm-alert-foreground-color, #eef9fd) — only the
+ * surface fades.
+ * Scoped to `details.alert--info` deliberately: overriding the global
+ * --ifm-color-info-contrast-background pair instead would repaint every `:::note`
+ * admonition too. `alert` and `alert--info` are literal strings in the Docusaurus
+ * Details component, so unlike the hashed `.details` CSS-module class they are
+ * stable selectors.
+ * Note the rows striped by `.markdown table tbody tr:nth-child(2n)` keep using
+ * --ifm-color-emphasis-100 (#131820, opaque), so they stay visible as darker
+ * bands — which is lost if the panel is instead given a solid #131820 fill. */
+[data-theme='dark'] details.alert--info {
+  --ifm-alert-background-color: rgba(25, 60, 71, 0.4);
+  --ifm-alert-border-color: rgba(76, 179, 212, 0.4);
+}
+
+/* ── Mermaid node-graph styling ──────────────────────────
+ * Reset: no color/font overrides on Mermaid's internal elements.
+ * Mermaid sizes and positions labels (nodes and edges) using its own
+ * theme variables at render time; overriding those styles afterward
+ * via CSS !important put the visible text out of sync with the
+ * background boxes Mermaid had already sized for its own theme font.
+ * Branding (colors, font) should go through docusaurus.config.js
+ * themeVariables instead, since that's what Mermaid actually measures
+ * against. Only layout of the container itself is safe to touch here.
+ */
+.docusaurus-mermaid-container {
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem 0;
+}
+
+.docusaurus-mermaid-container svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Per-diagram classDef fills (in the .md files) are static light pastels
+   that don't adapt to color mode, but Mermaid's "dark" theme still picks
+   a light label color meant for its own dark node fills - washing text
+   out on those pastel boxes. This overrides text color only (not
+   font-size/display, which affect Mermaid's own box-sizing math and
+   caused the earlier edge-label misalignment) so it can't reintroduce
+   that bug. */
+[data-theme='dark'] .docusaurus-mermaid-container .node .label {
+  color: #1e293b !important;
+}
+
+/**
+ * Shared building blocks for node reference pages
+ * (docs/reference/**). Used by the per-node MDX template —
+ * see 00-planning/content-plan.md §3.
+ */
+.node-badge-row {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.node-badge {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--ifm-global-radius);
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-emphasis-800);
+  white-space: nowrap;
+}
+
+.node-badge--beginner {
+  background: var(--ifm-color-success-contrast-background);
+  color: var(--ifm-color-success-contrast-foreground);
+}
+
+.node-badge--intermediate {
+  background: var(--ifm-color-warning-contrast-background);
+  color: var(--ifm-color-warning-contrast-foreground);
+}
+
+.node-badge--advanced {
+  background: var(--ifm-color-danger-contrast-background);
+  color: var(--ifm-color-danger-contrast-foreground);
+}
+
+/* Breadcrumbs.
+   - Extra breathing room before the page title (the default sits close to the H1).
+   - padding-left reset so the trail aligns with the content edge.
+   - Squared-off link radius, matching the node badges (Docusaurus's default
+     breadcrumb link uses a fully-rounded pill radius). */
+.breadcrumbs {
+  margin-bottom: 40px;
+  padding-left: 0;
+}
+
+.theme-doc-breadcrumbs .breadcrumbs__link,
+.breadcrumbs__link {
+  border-radius: var(--ifm-global-radius);
+}
+
+.node-screenshot {
+  background: var(--ifm-color-emphasis-100);
+  border-radius: 12px;
+  padding: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.node-screenshot img {
+  border-radius: 8px;
+  display: block;
+  width: 100%;
+}
+
+.node-chip-row {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.node-chip {
+  font-size: 0.85rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--ifm-global-radius);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  background: var(--ifm-background-surface-color);
+  text-decoration: none !important;
+  color: var(--ifm-font-color-base);
+}
+
+.node-chip:hover {
+  border-color: var(--ifm-color-emphasis-500);
+}
+
+/**
+ * Category overview cards (docs/reference/<family>/index pages).
+ * Lightweight card grid rendered by src/components/CategoryCards.jsx —
+ * plain CSS, no framework. Matches the theme's quiet, rounded style.
+ */
+.cat-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.cat-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding: 1.25rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--ifm-global-radius);
+  background: var(--vonk-card-bg);
+  text-decoration: none !important;
+  color: var(--ifm-font-color-base);
+  transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.cat-card:hover {
+  border-color: var(--ifm-color-emphasis-400);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.07);
+}
+
+/* Dark mode: outline the hovered card in the gold accent, matching the heading
+ * and link colour. The default grey hover border reads as "slightly lighter grey"
+ * rather than as a highlight against the dark background. */
+[data-theme='dark'] .cat-card:hover {
+  border-color: var(--vonk-gold);
+}
+
+/* Dark mode: the resting outline is painted in the page background colour, so
+ * cards read as flat panels with no visible box. The gold hover outline above is
+ * then the only edge that ever shows. */
+[data-theme='dark'] .cat-card {
+  border-color: var(--ifm-background-color);
+}
+
+.cat-card-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--ifm-global-radius);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #fff;
+}
+
+/* SVG data-type icon (Level 1). The artwork at static/img/icons/<Family>_<Label>.svg
+ * has its baked-in rounded-rect background stripped out, so the tile colour above
+ * shows through and the artwork is used as a MASK painted in currentColor — i.e. the
+ * tile's own `color`. So: the tile's `background` colours the shape, and the tile's
+ * `color` colours the icon. Both are retunable from CSS alone. */
+.cat-card-icon-glyph {
+  width: 100%;
+  height: 100%;
+  background-color: currentColor;
+  -webkit-mask: var(--cat-card-icon) center / contain no-repeat;
+  mask: var(--cat-card-icon) center / contain no-repeat;
+}
+
+.cat-card-icon--array { background: #3b82f6; }
+.cat-card-icon--html { background: #f97316; }
+.cat-card-icon--json { background: #ca8a04; }
+.cat-card-icon--matrix { background: #6366f1; }
+.cat-card-icon--number { background: #16a34a; }
+.cat-card-icon--scriptval { background: #db2777; }
+
+/* Level-2 function-group icon colors (shared across data types) */
+.cat-card-icon--accumulate { background: #0d9488; }
+.cat-card-icon--animate { background: #6366f1; }
+.cat-card-icon--create { background: #059669; }
+.cat-card-icon--io { background: #0284c7; }
+.cat-card-icon--logic { background: #d97706; }
+.cat-card-icon--modify { background: #2563eb; }
+.cat-card-icon--obj { background: #0891b2; }
+.cat-card-icon--shaperender { background: #db2777; }
+.cat-card-icon--shapes { background: #7c3aed; }
+.cat-card-icon--temporal { background: #ea580c; }
+.cat-card-icon--trigonometry { background: #e11d48; }
+.cat-card-icon--utility { background: #64748b; }
+
+/* Core data-type icon colors (Level 1) */
+.cat-card-icon--type-3d { background: #0f766e; }
+.cat-card-icon--type-base64 { background: #a16207; }
+.cat-card-icon--type-cbor { background: #64748b; }
+.cat-card-icon--type-color { background: #ea580c; }
+.cat-card-icon--type-filesystem { background: #059669; }
+.cat-card-icon--type-gradient { background: #d946ef; }
+.cat-card-icon--type-guide { background: #78716c; }
+.cat-card-icon--type-image { background: #db2777; }
+.cat-card-icon--type-meta { background: #4f46e5; }
+.cat-card-icon--type-mtlx { background: #475569; }
+.cat-card-icon--type-point { background: #2563eb; }
+.cat-card-icon--type-shape { background: #7c3aed; }
+.cat-card-icon--type-text { background: #dc2626; }
+.cat-card-icon--type-usd { background: #0ea5e9; }
+.cat-card-icon--type-vector { background: #16a34a; }
+.cat-card-icon--type-yaml { background: #b45309; }
+
+/* Core function-group icon colors (Level 2) */
+.cat-card-icon--fn-array { background: #3b82f6; }
+.cat-card-icon--fn-case { background: #0891b2; }
+.cat-card-icon--fn-color { background: #ea580c; }
+.cat-card-icon--fn-comp { background: #475569; }
+.cat-card-icon--fn-custom-data { background: #7c3aed; }
+.cat-card-icon--fn-decode { background: #059669; }
+.cat-card-icon--fn-encode { background: #0d9488; }
+.cat-card-icon--fn-flow { background: #0ea5e9; }
+.cat-card-icon--fn-font { background: #a16207; }
+.cat-card-icon--fn-fusion { background: #dc2626; }
+.cat-card-icon--fn-image { background: #db2777; }
+.cat-card-icon--fn-json { background: #ca8a04; }
+.cat-card-icon--fn-key-value { background: #64748b; }
+.cat-card-icon--fn-matte { background: #9333ea; }
+.cat-card-icon--fn-matrix { background: #6366f1; }
+.cat-card-icon--fn-meta { background: #4f46e5; }
+.cat-card-icon--fn-number { background: #16a34a; }
+.cat-card-icon--fn-operators { background: #d97706; }
+.cat-card-icon--fn-order { background: #78716c; }
+.cat-card-icon--fn-pixel { background: #db2777; }
+.cat-card-icon--fn-point { background: #2563eb; }
+.cat-card-icon--fn-resolve { background: #059669; }
+.cat-card-icon--fn-script { background: #b45309; }
+.cat-card-icon--fn-scriptval { background: #db2777; }
+.cat-card-icon--fn-shape { background: #7c3aed; }
+.cat-card-icon--fn-substring { background: #dc2626; }
+.cat-card-icon--fn-subtitle { background: #ca8a04; }
+.cat-card-icon--fn-surface { background: #0f766e; }
+.cat-card-icon--fn-text { background: #2563eb; }
+.cat-card-icon--fn-transform { background: #6366f1; }
+.cat-card-icon--fn-vector { background: #16a34a; }
+.cat-card-icon--fn-xml { background: #0ea5e9; }
+.cat-card-icon--fn-yaml { background: #b45309; }
+
+.cat-card-icon--default { background: var(--ifm-color-emphasis-500); }
+
+/* Level-3 node-card group icon: same size and glyph as the Level-2 cards,
+   but with a lighter (tinted) background instead of the solid colour.
+   (see src/theme/DocCard/index.js) */
+.doc-group-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--ifm-global-radius);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.doc-group-icon--default { background: var(--ifm-color-emphasis-200); color: var(--ifm-color-emphasis-600); }
+.doc-group-icon--accumulate { background: #ccfbf1; color: #0d9488; }
+.doc-group-icon--animate { background: #e0e7ff; color: #6366f1; }
+.doc-group-icon--create { background: #d1fae5; color: #059669; }
+.doc-group-icon--io { background: #e0f2fe; color: #0284c7; }
+.doc-group-icon--logic { background: #fef3c7; color: #d97706; }
+.doc-group-icon--modify { background: #dbeafe; color: #2563eb; }
+.doc-group-icon--obj { background: #cffafe; color: #0891b2; }
+.doc-group-icon--shaperender { background: #fce7f3; color: #db2777; }
+.doc-group-icon--shapes { background: #ede9fe; color: #7c3aed; }
+.doc-group-icon--temporal { background: #ffedd5; color: #ea580c; }
+.doc-group-icon--trigonometry { background: #ffe4e6; color: #e11d48; }
+.doc-group-icon--utility { background: #e2e8f0; color: #64748b; }
+
+/* Core function-group light tints (Level 3 node cards) */
+.doc-group-icon--fn-array { background: #dbeafe; color: #3b82f6; }
+.doc-group-icon--fn-case { background: #cffafe; color: #0891b2; }
+.doc-group-icon--fn-color { background: #ffedd5; color: #ea580c; }
+.doc-group-icon--fn-comp { background: #e2e8f0; color: #475569; }
+.doc-group-icon--fn-custom-data { background: #ede9fe; color: #7c3aed; }
+.doc-group-icon--fn-decode { background: #d1fae5; color: #059669; }
+.doc-group-icon--fn-encode { background: #ccfbf1; color: #0d9488; }
+.doc-group-icon--fn-flow { background: #e0f2fe; color: #0ea5e9; }
+.doc-group-icon--fn-font { background: #fef3c7; color: #a16207; }
+.doc-group-icon--fn-fusion { background: #fee2e2; color: #dc2626; }
+.doc-group-icon--fn-image { background: #fce7f3; color: #db2777; }
+.doc-group-icon--fn-json { background: #fef3c7; color: #ca8a04; }
+.doc-group-icon--fn-key-value { background: #e2e8f0; color: #64748b; }
+.doc-group-icon--fn-matte { background: #f3e8ff; color: #9333ea; }
+.doc-group-icon--fn-matrix { background: #e0e7ff; color: #6366f1; }
+.doc-group-icon--fn-meta { background: #e0e7ff; color: #4f46e5; }
+.doc-group-icon--fn-number { background: #dcfce7; color: #16a34a; }
+.doc-group-icon--fn-operators { background: #fef3c7; color: #d97706; }
+.doc-group-icon--fn-order { background: #e7e5e4; color: #78716c; }
+.doc-group-icon--fn-pixel { background: #fce7f3; color: #db2777; }
+.doc-group-icon--fn-point { background: #dbeafe; color: #2563eb; }
+.doc-group-icon--fn-resolve { background: #d1fae5; color: #059669; }
+.doc-group-icon--fn-script { background: #fef3c7; color: #b45309; }
+.doc-group-icon--fn-scriptval { background: #fce7f3; color: #db2777; }
+.doc-group-icon--fn-shape { background: #ede9fe; color: #7c3aed; }
+.doc-group-icon--fn-substring { background: #fee2e2; color: #dc2626; }
+.doc-group-icon--fn-subtitle { background: #fef3c7; color: #ca8a04; }
+.doc-group-icon--fn-surface { background: #ccfbf1; color: #0f766e; }
+.doc-group-icon--fn-text { background: #dbeafe; color: #2563eb; }
+.doc-group-icon--fn-transform { background: #e0e7ff; color: #6366f1; }
+.doc-group-icon--fn-vector { background: #dcfce7; color: #16a34a; }
+.doc-group-icon--fn-xml { background: #e0f2fe; color: #0ea5e9; }
+.doc-group-icon--fn-yaml { background: #fef3c7; color: #b45309; }
+
+.cat-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.cat-card-title {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.cat-card-count {
+  /* Monospace: this is meta data (a node count), which sits in the Mono face
+     under the IBM Plex system. Previously it inherited the body family here
+     while the homepage grid set it to mono, so the same element rendered
+     differently in two places. */
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.cat-card-desc {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--ifm-color-emphasis-700);
+}
+
+/**
+ * Modern parameter tables (docs/reference/**).
+ * Infima's default table is a dense bordered grid — this replaces the
+ * per-cell borders with row-only dividers, a quiet eyebrow-style header,
+ * row hover, and a chip treatment for the backtick-wrapped Default
+ * values. Scoped to .markdown so it only affects doc content, not
+ * admonitions/sidebars.
+ *
+ * No outer card border/shadow here on purpose: on pages that split one
+ * node's parameters into several tables (Inputs / Dots layer / Lines
+ * layer / ...), a bordered+shadowed box around every single one reads as
+ * a stack of repeated cards and feels cramped even with normal spacing
+ * between them. Dropping the frame and leaning on the heading + header
+ * row to mark each section's start reads lighter at that density. A
+ * one-off table (most other reference pages have exactly one) still
+ * reads clearly without the box.
+ */
+/*
+ * Desktop tables run on CSS Grid, not native table layout. Reason: two
+ * separate <tr> elements are independent boxes with no shared sizing
+ * context, so nothing in table layout can make row 3 match row 5's
+ * height — min-height on a <td> is only weakly/inconsistently honored by
+ * Chrome's table algorithm (measured a 1-line cell settle at 51.8px
+ * against a 69.6px floor; it only partially worked). Grid row-tracks are
+ * real shared tracks, so grid-auto-rows reliably floors every row.
+ * thead/tbody/tr get display:contents so the semantic table markup
+ * (needed for accessibility/plain-text extraction) stays in the DOM
+ * without generating their own boxes — th/td become the actual grid
+ * items, auto-placed in DOM order exactly like table cells would be.
+ */
+.markdown table {
+  display: grid;
+  grid-template-columns: max-content max-content max-content minmax(0, 1fr);
+  grid-template-rows: auto;
+  grid-auto-rows: minmax(4.5rem, auto);
+  font-size: 0.92rem;
+  margin-bottom: 2rem;
+}
+
+.markdown table thead,
+.markdown table tbody,
+.markdown table tr {
+  display: contents;
+}
+
+/* Give each new h3 section (Inputs / Dots layer / Lines layer / ...) real
+   separation from the table above it — otherwise one section's bottom
+   row sits almost flush against the next heading and the whole page
+   reads as one dense block instead of distinct groups. */
+.markdown table + h3 {
+  margin-top: 3rem;
+}
+
+.markdown table th,
+.markdown table td {
+  border: none;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  padding: 0.65rem 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.markdown table th {
+  border-bottom: 2px solid var(--ifm-color-emphasis-300);
+  background-color: var(--ifm-color-emphasis-100);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ifm-color-emphasis-600);
+}
+
+/* tr has no box of its own (display: contents), so the stripe/hover/
+   border-bottom-removal rules below target the cells directly, scoped
+   by which tr they're a child of. */
+.markdown table tbody tr:nth-child(2n) > td {
+  background-color: var(--ifm-color-emphasis-100);
+}
+
+/* Row hover disabled for now — re-enable by uncommenting if wanted later.
+.markdown table tbody tr:hover > td {
+  background-color: var(--ifm-color-emphasis-200);
+}
+*/
+
+.markdown table tr:last-child > td {
+  border-bottom: none;
+}
+
+.markdown table td:first-child {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Type and Default are short, badge-like values — centering them in
+   their (content-width) column reads as a deliberate, tidy layout
+   instead of everything hugging the left edge. Parameter and
+   Description stay left-aligned: centering a bold heading or a
+   paragraph of prose hurts readability, it's only the short values
+   that benefit. */
+.markdown table td:nth-child(2),
+.markdown table th:nth-child(2) {
+  justify-content: center;
+  text-align: center;
+}
+
+.markdown table td:nth-child(2) {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.82rem;
+  color: var(--ifm-color-emphasis-700);
+  white-space: nowrap;
+}
+
+.markdown table td code {
+  background: var(--ifm-color-emphasis-100);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 6px;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.82rem;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+/* Default column: never let the pill wrap mid-value (e.g. RGBA defaults),
+   and center the pill itself in the column like Type's value. */
+.markdown table td:nth-child(3),
+.markdown table th:nth-child(3) {
+  white-space: nowrap;
+  justify-content: center;
+  text-align: center;
+}
+
+/*
+ * Below 768px, four rigid columns leave Description too narrow to read —
+ * text wraps every 2-3 words and long values (RGBA defaults, long param
+ * names) get clipped at the viewport edge. Switch each row to a stacked
+ * card instead: no horizontal scroll, no clipped text. Labels are static
+ * CSS content rather than markdown data-attributes because every table on
+ * the site shares the same fixed column order (Parameter/Type/Default/
+ * Description) — this works for all of them with no per-file changes.
+ */
+@media (max-width: 768px) {
+  .markdown table {
+    border: none;
+    box-shadow: none;
+    display: block;
+  }
+
+  .markdown table thead {
+    display: none;
+  }
+
+  .markdown table tbody,
+  .markdown table tr,
+  .markdown table td {
+    display: block;
+    width: 100%;
+  }
+
+  .markdown table tr {
+    border: 1px solid var(--ifm-color-emphasis-300);
+    border-radius: 10px;
+    margin-bottom: 0.75rem;
+    padding: 0.25rem 0;
+    background-color: transparent !important;
+  }
+
+  .markdown table td {
+    border: none;
+    padding: 0.35rem 1rem;
+    white-space: normal;
+  }
+
+  /* Desktop centers Type/Default within their (narrow, content-width)
+     grid column — there's no equivalent "narrow column" on a full-width
+     mobile card, so centered text there just looks like an accident.
+     Reset to left for the stacked-card layout. */
+  .markdown table td:nth-child(2),
+  .markdown table td:nth-child(3) {
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  .markdown table td:first-child {
+    padding-top: 0.6rem;
+  }
+
+  .markdown table td:last-child {
+    padding-bottom: 0.6rem;
+  }
+
+  /*
+   * Only Type gets a caption. Parameter is already bold — it reads as the
+   * card's heading with no label needed. Default is already a bordered
+   * pill (same treatment used everywhere else on the site), so the shape
+   * alone says "this is a value," not free text. Description is
+   * self-evidently the prose that comes last once the rest is compact.
+   * Labeling all four the way the first draft did meant 136 repeated
+   * captions down this one page — worse than the header repetition we
+   * fixed on desktop, just spread per-row instead of per-table.
+   */
+  .markdown table td:nth-child(2)::before {
+    display: block;
+    content: 'Type';
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ifm-color-emphasis-500);
+    margin-bottom: 0.2rem;
+  }
+
+  .markdown table td:nth-child(1) {
+    font-size: 0.98rem;
+  }
+
+  .markdown table td:nth-child(3) {
+    margin-top: -0.15rem;
+  }
+
+  .markdown table td:last-child {
+    border-top: 1px solid var(--ifm-color-emphasis-200);
+    margin-top: 0.3rem;
+    padding-top: 0.65rem;
+  }
+}
+
+/**
+ * Connection chips (Example Connections sections).
+ * Replaces the plain `NodeName.Port -> NodeName.Port` code-fence lines with
+ * a chip pair + arrow, styled after cavalry.studio's connection docs
+ * (value.id -> shape1.position.x). The colour bar follows the same
+ * source/destination convention: purple = output (the port being read
+ * from), gold = input (the port being written to) — every connection
+ * example on this site is written source-first, so the mapping is
+ * mechanical, not per-line judgment.
+ */
+.connection-flow {
+  display: grid;
+  grid-template-columns: max-content max-content minmax(0, 1fr);
+  align-items: center;
+  gap: 0.6rem 0.75rem;
+  margin: 1rem 0 1.5rem;
+}
+
+/* Flatten each row into the parent grid so source chips, arrows, and
+   destination chips align into shared columns across every line — the
+   div stays in the DOM (for the mobile fallback below) but stops being
+   a box for grid purposes. */
+.connection-line {
+  display: contents;
+}
+
+.connection-chip {
+  display: inline-flex;
+  align-items: stretch;
+  background: var(--ifm-color-emphasis-100);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.connection-chip--output {
+  justify-self: start;
+}
+
+/* Destination chip fills whatever width is left in the row instead of
+   hugging its own text — this is what makes the flow use the full
+   content width rather than leaving the right side of the page blank. */
+.connection-chip--input {
+  justify-self: stretch;
+  width: 100%;
+}
+
+.connection-chip__bar {
+  width: 4px;
+  flex-shrink: 0;
+}
+
+.connection-chip--output .connection-chip__bar {
+  background: #8b5cf6;
+}
+
+.connection-chip--input .connection-chip__bar {
+  background: #d97706;
+}
+
+.connection-chip__label {
+  padding: 0.3rem 0.7rem;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.85rem;
+  color: var(--ifm-color-emphasis-800);
+  white-space: nowrap;
+}
+
+.connection-arrow {
+  justify-self: center;
+  color: var(--ifm-color-emphasis-500);
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
+@media (max-width: 480px) {
+  .connection-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .connection-line {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+  }
+
+  .connection-chip--input {
+    width: auto;
+  }
+
+  .connection-arrow {
+    transform: rotate(90deg);
+    margin-left: 0.5rem;
+  }
+}

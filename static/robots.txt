@@ -1,0 +1,14 @@
+# Review/preview hosting.
+#
+# These pages are not ready to be indexed: an indexed half-built site competes
+# with the real documentation once it launches. The authoritative half of that
+# intent is the preview-only `noindex, nofollow` meta tag in the `headTags` key
+# of docusaurus.config.js — this file only asks crawlers nicely.
+#
+# NOTE: robots.txt is only honoured at the DOMAIN ROOT. It works for preview
+# builds because they are built with `baseUrl: '/'` (VONK_PREVIEW=1). The same
+# file is copied into the normal /VonkUltra/ build, where it lands at
+# /VonkUltra/robots.txt and does nothing — replace it with an indexing policy
+# before the real launch, or delete it then.
+User-agent: *
+Disallow: /
