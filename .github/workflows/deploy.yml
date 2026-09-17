@@ -18,6 +18,12 @@
 #    unfinished. REMOVE that env block (and flip `url` in docusaurus.config.js to the
 #    kartaverse origin) when launching for real — both are tracked in
 #    00-planning/remaining-work.md §D. It does NOT affect baseUrl or the build output.
+# ⚠️ Action versions are pinned to current majors (checkout v7, setup-node v7,
+#    configure-pages v6, upload-pages-artifact v5, deploy-pages v5). Earlier majors
+#    (checkout/setup-node v4, configure-pages v5, upload-pages-artifact v3,
+#    deploy-pages v4) target Node.js 20, which GitHub runners now force onto Node 24 and
+#    warn about on every run. upload-pages-artifact + deploy-pages move together — bump
+#    them as a pair.
 name: Deploy to GitHub Pages
 
 on:
@@ -45,8 +51,8 @@ jobs:
     env:
       VONK_PREVIEW: '1'
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           # Matches the Node Docusaurus 3.10 supports; local dev is on v24.
           node-version: 22
@@ -60,13 +66,13 @@ jobs:
         run: npm run build
         # onBrokenLinks is 'throw', so a broken internal link fails CI here. That is the
         # intended QA gate — see the workflow comment in docusaurus.config.js.
-      - uses: actions/configure-pages@v5
+      - uses: actions/configure-pages@v6
         with:
           # Creates the Pages site on first run if it doesn't exist yet, so a fresh repo
           # needs no manual Settings → Pages step. Without this, deploy-pages fails with
           # "Get Pages site failed. Please verify that the repository has Pages enabled".
           enablement: true
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: build
 
@@ -78,4 +84,4 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
