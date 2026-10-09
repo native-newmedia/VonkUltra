@@ -411,6 +411,14 @@ article a:not(.node-chip):not(.menu__link):not(.toc__link):hover {
   width: 100%;
 }
 
+/* Inline SVG diagrams reuse the node-screenshot panel (docs/getting-started). */
+.node-screenshot svg {
+  border-radius: 8px;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .node-chip-row {
   display: flex;
   gap: 0.5rem;
