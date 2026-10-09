@@ -1,10 +1,15 @@
 #!/usr/bin/env node
 /**
- * Installs the Core screenshot "cards" from static/img/reference/vonk-core/
+ * Installs the Core screenshot "cards" from the Reactor Deploy tree
  * into the per-data-type image folders (static/img/reference/core/<DataType>/).
  *
  * The node pages already reference /VonkUltra/img/reference/core/<DataType>/<name>.png,
  * so once a card is copied there it is served automatically — no page regeneration.
+ *
+ * Source is the actual deployed fuse tree, not a staged copy — self-maintaining as
+ * cards there change. (The old static/img/reference/vonk-core/ staging copy was an
+ * incomplete snapshot that produced a false "3 missing cards" report; the source of
+ * truth has exactly 434, matching all Core node pages.)
  *
  * Also reports: cards with no matching node page, and Core nodes still without a card.
  *
@@ -12,12 +17,16 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import os from 'node:os';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const SITE_ROOT = path.resolve(__dirname, '..');
 const CORE_DOCS = path.join(SITE_ROOT, 'docs', 'reference', 'core');
-const CARDS = path.join(SITE_ROOT, 'static', 'img', 'reference', 'vonk-core');
+const CARDS = path.join(
+  os.homedir(),
+  'Reactor', 'Deploy', 'Fuses', 'Kartaverse', 'Vonk Ultra', 'VonkUltra-Core', 'tool-cards'
+);
 const CORE_IMG = path.join(SITE_ROOT, 'static', 'img', 'reference', 'core');
 
 // node name -> data-type folder (from the existing node pages)

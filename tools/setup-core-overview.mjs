@@ -21,7 +21,7 @@ const TYPES = {
   'filesystem': 'FileSystem', 'gradient': 'Gradient', 'guide': 'Guide', 'image': 'Image',
   'json': 'JSON', 'matrix': 'Matrix', 'meta': 'Meta', 'mtlx': 'MTLX', 'number': 'Number',
   'point': 'Point', 'scriptval': 'ScriptVal', 'shape': 'Shape', 'text': 'Text',
-  'usd': 'USD', 'vector': 'Vector', 'yaml': 'YAML',
+  'usd': 'USD', 'vector': 'Vector', 'xml': 'XML', 'yaml': 'YAML',
 };
 
 function indexDoc(label, intro) {

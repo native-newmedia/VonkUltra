@@ -46,6 +46,22 @@ const catsArg = argValue('--cats');
 const CATS = catsArg ? catsArg.split(',').map((s) => s.trim()) : CATEGORY_ORDER;
 const LIMIT = Number(argValue('--limit') || 0);
 
+// Short, single-line summary for frontmatter `description`. Docusaurus falls
+// back to the raw first paragraph when this is absent, which is fine for a
+// one-sentence node but dumps the entire lead onto the function-group
+// overview page's auto-generated node cards for any node with a longer
+// writeup. Mirrors the Core generator's shortDescription().
+function shortDescription(raw, maxLen = 160) {
+  const text = String(raw ?? '').replace(/\s+/g, ' ').trim();
+  if (!text) return '';
+  const sentence = text.match(/^.{1,200}?[.!?](?=\s|$)/);
+  if (sentence && sentence[0].length <= maxLen + 40) return sentence[0].trim();
+  if (text.length <= maxLen) return text;
+  const cut = text.slice(0, maxLen);
+  const lastSpace = cut.lastIndexOf(' ');
+  return `${(lastSpace > 40 ? cut.slice(0, lastSpace) : cut).trim()}…`;
+}
+
 function argValue(name) {
   const i = args.indexOf(name);
   return i >= 0 && i + 1 < args.length ? args[i + 1] : undefined;
@@ -201,7 +217,10 @@ function parseLuaTable(body) {
 
 function extractButtons(raw) {
   const buttons = [];
-  const re = /MBTNC_AddButton\s*=\s*("[^"]*"|'[^']*')/g;
+  // MBTNC_AddButton = MultiButtonControl option labels; CCS_AddString = ComboControl
+  // (dropdown) option labels — both list options in declaration order, matching the
+  // numeric index stored as the parameter's value/default.
+  const re = /(?:MBTNC_AddButton|CCS_AddString)\s*=\s*("[^"]*"|'[^']*')/g;
   let m;
   while ((m = re.exec(raw)) !== null) buttons.push(unquote(m[1]));
   return buttons;
@@ -239,10 +258,15 @@ const CONTROL_TYPE = {
 };
 
 function paramType(tbl) {
+  const control = tbl.INPID_InputControl;
+  // Dropdowns (ComboControl/MultiButtonControl) store their selection as a plain
+  // Number under the hood, so the Number/Integer check below would otherwise win
+  // first and silently discard the option labels — check for these explicitly
+  // before falling through to the datatype-based logic.
+  if (control === 'ComboControl' || control === 'MultiButtonControl') return 'Dropdown';
   const dt = tbl.LINKID_DataType;
   // Numeric data types: honour the integer flag before the control widget.
   if (dt === 'Number') return tbl.INP_Integer === 'true' ? 'Integer' : 'Float';
-  const control = tbl.INPID_InputControl;
   if (control && CONTROL_TYPE[control] != null) return CONTROL_TYPE[control];
   if (dt === 'Text') return 'Text';
   if (dt === 'FuID') return 'FuID';
@@ -411,6 +435,7 @@ function renderPage(node, mega, opts) {
   const { category, function: fn, name } = node;
   const megaRec = mega[name] || {};
   const lead = megaRec.desc || node.regsDesc || `The ${name} node in the Vonk Ultra ${category} toolkit.`;
+  const frontDesc = shortDescription(lead);
 
   const badges = [`Mograph / ${category}`, category];
   if (category === 'Array') badges.push('ScriptVal', 'JSON');
@@ -454,7 +479,7 @@ function renderPage(node, mega, opts) {
     relatedSection = `## Related Nodes\n\n<div className="node-chip-row">\n${chips}\n</div>\n`;
   }
 
-  const frontmatter = `---\nsidebar_position: ${opts.position}\ntitle: ${name}\n---\n`;
+  const frontmatter = `---\nsidebar_position: ${opts.position}\ntitle: ${name}\ndescription: ${JSON.stringify(frontDesc)}\n---\n`;
   return `${frontmatter}\nimport Tabs from '@theme/Tabs';\nimport TabItem from '@theme/TabItem';\n\n# ${name}\n\n${lead}\n\n<div className="node-badge-row">\n${badgeHtml}\n</div>\n\n${screenshot}\n${paramsSection}\n${connectionsSection}\n${relatedSection}\n{/*\nGenerated page — node: ${name} (${category}/${fn}).\nSource: fuse ${path.basename(node.file)} + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).\n*/}\n`;
 }
 

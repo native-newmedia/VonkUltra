@@ -4,7 +4,8 @@
  *
  * Sources:
  *   - Fuses (authoritative param data): Reactor Deploy top-level Core data-type
- *     folders under "Vonk Ultra" (excludes Mograph/, XML/, VonkUltra-Core/)
+ *     folders under "Vonk Ultra" (excludes Mograph/ — separate generator — and
+ *     VonkUltra-Core/ — staged assets, not fuse source)
  *   - Docsify mega-pages (core-*.md): descriptions + connection examples
  *   - Images: local static batch first, Docsify clone as fallback
  *
@@ -40,8 +41,8 @@ const DOCSIFY_DOCS = '/Users/dunlewis/Documents/Fusion/VonkUltra/VonkUltra/docs'
 const CLONE_IMG = path.join(DOCSIFY_DOCS, 'Images', 'Nodes');
 
 // Order mirrors the IA plan §2 Core list; display labels (folders are lowercase).
-const CORE_CATEGORY_ORDER = ['3D', 'Array', 'Base64', 'CBOR', 'Color', 'FileSystem', 'Gradient', 'Guide', 'Image', 'JSON', 'Matrix', 'Meta', 'MTLX', 'Number', 'Point', 'ScriptVal', 'Shape', 'Text', 'USD', 'Vector', 'YAML'];
-const EXCLUDE_DIRS = new Set(['Mograph', 'XML', 'VonkUltra-Core']);
+const CORE_CATEGORY_ORDER = ['3D', 'Array', 'Base64', 'CBOR', 'Color', 'FileSystem', 'Gradient', 'Guide', 'Image', 'JSON', 'Matrix', 'Meta', 'MTLX', 'Number', 'Point', 'ScriptVal', 'Shape', 'Text', 'USD', 'Vector', 'XML', 'YAML'];
+const EXCLUDE_DIRS = new Set(['Mograph', 'VonkUltra-Core']);
 
 // ---------------------------------------------------------------- CLI args
 const args = process.argv.slice(2);
@@ -201,7 +202,10 @@ function parseLuaTable(body) {
 
 function extractButtons(raw) {
   const buttons = [];
-  const re = /MBTNC_AddButton\s*=\s*("[^"]*"|'[^']*')/g;
+  // MBTNC_AddButton = MultiButtonControl option labels; CCS_AddString = ComboControl
+  // (dropdown) option labels — both list options in declaration order, matching the
+  // numeric index stored as the parameter's value/default.
+  const re = /(?:MBTNC_AddButton|CCS_AddString)\s*=\s*("[^"]*"|'[^']*')/g;
   let m;
   while ((m = re.exec(raw)) !== null) buttons.push(unquote(m[1]));
   return buttons;
@@ -239,9 +243,14 @@ const CONTROL_TYPE = {
 };
 
 function paramType(tbl) {
+  const control = tbl.INPID_InputControl;
+  // Dropdowns (ComboControl/MultiButtonControl) store their selection as a plain
+  // Number under the hood, so the Number/Integer check below would otherwise win
+  // first and silently discard the option labels — check for these explicitly
+  // before falling through to the datatype-based logic.
+  if (control === 'ComboControl' || control === 'MultiButtonControl') return 'Dropdown';
   const dt = tbl.LINKID_DataType;
   if (dt === 'Number') return tbl.INP_Integer === 'true' ? 'Integer' : 'Float';
-  const control = tbl.INPID_InputControl;
   if (control && CONTROL_TYPE[control] != null) return CONTROL_TYPE[control];
   if (dt === 'Text') return 'Text';
   if (dt === 'FuID') return 'FuID';
@@ -359,6 +368,23 @@ function imageFor(name, dataType) {
 const escPipe = (s) => String(s ?? '').replace(/\|/g, '\\|').replace(/\n/g, ' ');
 
 /** Make prose safe for MDX: bare `<` is parsed as JSX, and `{ }` as expressions. */
+// Short, single-line summary for frontmatter `description`. Docusaurus falls
+// back to the raw first paragraph when this is absent, which is fine for a
+// one-sentence node but dumps the entire lead — Lua table examples and all —
+// onto the function-group overview page's auto-generated node cards for any
+// node with a longer writeup (e.g. vMetadataFromMediaIn). Runs on the RAW
+// (pre-mdxSafe) text so no literal `\{`/`\}` escaping leaks into the excerpt.
+function shortDescription(raw, maxLen = 160) {
+  const text = String(raw ?? '').replace(/\s+/g, ' ').trim();
+  if (!text) return '';
+  const sentence = text.match(/^.{1,200}?[.!?](?=\s|$)/);
+  if (sentence && sentence[0].length <= maxLen + 40) return sentence[0].trim();
+  if (text.length <= maxLen) return text;
+  const cut = text.slice(0, maxLen);
+  const lastSpace = cut.lastIndexOf(' ');
+  return `${(lastSpace > 40 ? cut.slice(0, lastSpace) : cut).trim()}…`;
+}
+
 function mdxSafe(s) {
   return String(s ?? '')
     .replace(/</g, '&lt;')
@@ -431,7 +457,9 @@ function relatedFor(node, megaRec, allNodes, knownNodes) {
 function renderPage(node, mega, opts) {
   const { category, function: fn, name } = node;
   const megaRec = mega[name] || {};
-  const lead = mdxSafe(megaRec.desc || node.regsDesc || `The ${name} node in the Vonk Ultra Core ${category} toolkit.`);
+  const rawLead = megaRec.desc || node.regsDesc || `The ${name} node in the Vonk Ultra Core ${category} toolkit.`;
+  const lead = mdxSafe(rawLead);
+  const frontDesc = shortDescription(rawLead);
 
   const badges = [`Core / ${category}`, category];
   const badgeHtml = badges.map((b) => `  <span className="node-badge">${b}</span>`).join('\n');
@@ -473,6 +501,7 @@ function renderPage(node, mega, opts) {
   return `---
 sidebar_position: ${opts.position}
 title: ${name}
+description: ${JSON.stringify(frontDesc)}
 ---
 
 import Tabs from '@theme/Tabs';
