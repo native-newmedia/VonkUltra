@@ -1,6 +1,7 @@
 ---
-sidebar_position: 63
+sidebar_position: 66
 title: vJSONTextWrap
+description: "Text wrap Operations on a JSON"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,7 +26,7 @@ Text wrap Operations on a JSON
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Output As: | Integer | `String` | — |
+| Output As: | Dropdown | `String` | — |
 | Line length | Integer | `25` | — |
 | Number of Paragraphs | Integer | `1` | — |
 | Show Input | Integer | `0.0` | — |

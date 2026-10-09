@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vNumberMaterialEasing
+description: "Material Design 3 Easing Curve Tool"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -34,7 +35,7 @@ Material Design 3 Easing Curve Tool
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Easing Type | Integer | `0` | — |
+| Easing Type | Dropdown | `Emphasized Accelerate` | — |
 | line1Separator | Float | `—` | — |
 | Preview Spline | LookUpTable | `—` | — |
 

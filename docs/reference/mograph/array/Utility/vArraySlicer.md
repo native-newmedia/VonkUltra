@@ -1,6 +1,7 @@
 ---
-sidebar_position: 10
+sidebar_position: 11
 title: vArraySlicer
+description: "Trim the start and end of single or multi-dimensional arrays"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,7 @@
 ---
-sidebar_position: 10
+sidebar_position: 13
 title: vScriptValCreateFrustum
+description: "Generate points on a cone or frustum."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -47,8 +48,8 @@ Generate points on a cone or frustum.
 <div className="node-chip-row">
   <a className="node-chip" href="./vScriptValBuffer">vScriptValBuffer</a>
   <a className="node-chip" href="./vScriptValCircularPoints">vScriptValCircularPoints</a>
-  <a className="node-chip" href="./vScriptValCreate">vScriptValCreate</a>
   <a className="node-chip" href="./vScriptValCreateAsset">vScriptValCreateAsset</a>
+  <a className="node-chip" href="./vScriptValCreateAttractorPoints">vScriptValCreateAttractorPoints</a>
 </div>
 
 {/*

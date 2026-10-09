@@ -1,6 +1,7 @@
 ---
-sidebar_position: 66
+sidebar_position: 69
 title: vJSONWave
+description: "Animates an Array Wave options include: - Line - Saw - Tri - Square - Sine - Noise"
 ---
 
 import Tabs from '@theme/Tabs';

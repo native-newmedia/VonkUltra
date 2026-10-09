@@ -1,6 +1,7 @@
 ---
 sidebar_position: 20
 title: vArrayWordPacker
+description: "Fills a letter shape with tightly packed text, using FitTo and custom algorithms"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -40,7 +41,7 @@ Fills a letter shape with tightly packed text, using FitTo and custom algorithms
 | Grid Size | Integer | `30` | — |
 | Resolution | Float | `5` | — |
 | Spacing | Float | `—` | — |
-| Font Select | Integer | `Use Font` | — |
+| Font Select | Dropdown | `Use Font` | — |
 | Font | Text | `—` | — |
 | Size | Float | `1.0` | — |
 | Style | Text | `—` | — |

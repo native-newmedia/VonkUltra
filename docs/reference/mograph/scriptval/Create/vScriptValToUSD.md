@@ -1,6 +1,7 @@
 ---
-sidebar_position: 52
+sidebar_position: 57
 title: vScriptValToUSD
+description: "Convert a Fusion ScriptVal object into OpenUSD ASCII Text"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -27,17 +28,15 @@ Convert a Fusion ScriptVal object into OpenUSD ASCII Text
 |---|---|---|---|
 | ScriptVal Edges | ScriptVal | `—` | — |
 | ScriptVal Points | ScriptVal | `—` | — |
-| UISeparator1 | Float | `—` | — |
 | ScriptVal UVs | ScriptVal | `—` | — |
 | ScriptVal UV Edges | ScriptVal | `—` | — |
+| Matrix | Text | `—` | — |
 
 <details>
-<summary>+5 more parameters</summary>
+<summary>+3 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| UISeparator2 | Float | `—` | — |
-| Matrix | Text | `—` | — |
 | Object Sort | Text | `—` | — |
 | Object Path | Text | `—` | — |
 | Show Input | Integer | `1.0` | — |
@@ -50,8 +49,8 @@ Convert a Fusion ScriptVal object into OpenUSD ASCII Text
 <div className="node-chip-row">
   <a className="node-chip" href="./vScriptValBuffer">vScriptValBuffer</a>
   <a className="node-chip" href="./vScriptValCircularPoints">vScriptValCircularPoints</a>
-  <a className="node-chip" href="./vScriptValCreate">vScriptValCreate</a>
   <a className="node-chip" href="./vScriptValCreateAsset">vScriptValCreateAsset</a>
+  <a className="node-chip" href="./vScriptValCreateAttractorPoints">vScriptValCreateAttractorPoints</a>
 </div>
 
 {/*

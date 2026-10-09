@@ -1,6 +1,7 @@
 ---
-sidebar_position: 41
+sidebar_position: 46
 title: vScriptValLogarithmicSpiral
+description: "Generate a Logarithmic Spiral spline"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,7 +26,7 @@ Generate a Logarithmic Spiral spline
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Mode | Integer | `Spiral` | — |
+| Mode | Dropdown | `Spiral` | — |
 | Growth coefficient | Float | `0.04` | — |
 | Expansion factor | Float | `0.22` | — |
 | Max angle | Integer | `6` | — |

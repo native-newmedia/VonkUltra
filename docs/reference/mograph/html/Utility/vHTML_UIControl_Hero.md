@@ -1,6 +1,7 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 title: vHTML_UIControl_Hero
+description: "The vHTML_UIControl_Hero node in the Vonk Ultra HTML toolkit."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -30,6 +31,7 @@ The vHTML_UIControl_Hero node in the Vonk Ultra HTML toolkit.
 ## Related Nodes
 
 <div className="node-chip-row">
+  <a className="node-chip" href="./vHTML_OGrafManifest">vHTML_OGrafManifest</a>
   <a className="node-chip" href="./vHTML_UIControl_Color">vHTML_UIControl_Color</a>
 </div>
 

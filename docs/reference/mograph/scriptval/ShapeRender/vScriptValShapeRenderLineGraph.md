@@ -1,6 +1,7 @@
 ---
 sidebar_position: 11
 title: vScriptValShapeRenderLineGraph
+description: "Render a line graph from a ScriptVal of scalar values."
 ---
 
 import Tabs from '@theme/Tabs';

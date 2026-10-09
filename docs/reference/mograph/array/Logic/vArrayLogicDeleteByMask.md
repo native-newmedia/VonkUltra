@@ -1,6 +1,7 @@
 ---
-sidebar_position: 8
+sidebar_position: 9
 title: vArrayLogicDeleteByMask
+description: "Filter input by 0/1 mask (keep or delete masked elements)."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,7 +26,7 @@ Filter input by 0/1 mask (keep or delete masked elements).
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Mode | Integer | `0` | — |
+| Mode | Dropdown | `Keep Masked` | — |
 | Invert Mask | Integer | `0` | — |
 | Input | DATATYPE | `—` | — |
 | Mask | DATATYPE | `—` | — |
@@ -34,10 +35,10 @@ Filter input by 0/1 mask (keep or delete masked elements).
 ## Related Nodes
 
 <div className="node-chip-row">
+  <a className="node-chip" href="./vArrayCountMask">vArrayCountMask</a>
   <a className="node-chip" href="./vArrayLogicAND">vArrayLogicAND</a>
   <a className="node-chip" href="./vArrayLogicAll">vArrayLogicAll</a>
   <a className="node-chip" href="./vArrayLogicAny">vArrayLogicAny</a>
-  <a className="node-chip" href="./vArrayLogicBetween">vArrayLogicBetween</a>
 </div>
 
 {/*

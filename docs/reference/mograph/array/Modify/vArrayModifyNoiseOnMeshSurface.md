@@ -1,6 +1,7 @@
 ---
-sidebar_position: 28
+sidebar_position: 30
 title: vArrayModifyNoiseOnMeshSurface
+description: "Displace input points with Perlin/Fractal noise along mesh surface normal or in 3D."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -27,8 +28,8 @@ Displace input points with Perlin/Fractal noise along mesh surface normal or in 
 |---|---|---|---|
 | Points | DATATYPE | `—` | — |
 | Scale File Units By | Float | `1` | — |
-| Noise Mode | Integer | `Normal Only` | — |
-| Noise Type | Integer | `Perlin` | — |
+| Noise Mode | Dropdown | `Normal Only` | — |
+| Noise Type | Dropdown | `Perlin` | — |
 | Amplitude | Float | `0.1` | — |
 
 <details>
@@ -46,7 +47,7 @@ Displace input points with Perlin/Fractal noise along mesh surface normal or in 
 | Affect X | Float | `1` | — |
 | Affect Y | Float | `1` | — |
 | Affect Z | Float | `1` | — |
-| Mesh Source | Integer | `File` | — |
+| Mesh Source | Dropdown | `File` | — |
 | Filename | Text | `—` | — |
 | URL | Text | `—` | — |
 | OBJ Text | Text | `—` | — |

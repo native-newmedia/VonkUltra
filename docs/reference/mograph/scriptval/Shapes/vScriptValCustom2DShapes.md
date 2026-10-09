@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vScriptValCustom2DShapes
+description: "Dynamically create 2D Shape elements"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,7 +26,7 @@ Dynamically create 2D Shape elements
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Shape Type | Float | `Ticks` | — |
+| Shape Type | Dropdown | `Ticks` | — |
 | Shape Selector | Integer | `1` | — |
 | X Offset | Float | `—` | — |
 | Y Offset | Float | `—` | — |

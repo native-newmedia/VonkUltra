@@ -1,6 +1,7 @@
 ---
 sidebar_position: 12
 title: vJSONShapeRenderMesh
+description: "Render a sweep mesh packet (vertices + faces) from vJSONShapeRenderSweepProfile as a shaded 2D image."
 ---
 
 import Tabs from '@theme/Tabs';

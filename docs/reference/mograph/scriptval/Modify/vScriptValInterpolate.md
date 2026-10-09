@@ -1,6 +1,7 @@
 ---
-sidebar_position: 5
+sidebar_position: 6
 title: vScriptValInterpolate
+description: "Interpolate between corresponding values in two arrays Select Easing options include: - linear - easeInQuad - easeOutQuad - easeInOutQuad - easeInExpo -…"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -26,7 +27,7 @@ Interpolate between corresponding values in two arrays Select Easing options inc
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | Progress | Float | `0` | — |
-| Select Easing | Integer | `linear` | — |
+| Select Easing | Dropdown | `linear` | — |
 | Show Input | Integer | `0.0` | — |
 | ScriptVal1 | DATATYPE | `—` | — |
 | ScriptVal2 | DATATYPE | `—` | — |

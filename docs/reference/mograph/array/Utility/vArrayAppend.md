@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vArrayAppend
+description: "Append Array to an array"
 ---
 
 import Tabs from '@theme/Tabs';

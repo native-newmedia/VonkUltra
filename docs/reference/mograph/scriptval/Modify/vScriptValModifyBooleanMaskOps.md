@@ -1,6 +1,7 @@
 ---
-sidebar_position: 14
+sidebar_position: 16
 title: vScriptValModifyBooleanMaskOps
+description: "Combine two mask or point arrays with boolean operations and point-aware output modes."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,20 +26,21 @@ Combine two mask or point arrays with boolean operations and point-aware output 
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Operation | Integer | `0` | — |
+| Operation | Dropdown | `AND` | — |
 | Show Input | Integer | `0.0` | — |
-| Output Mode | Integer | `0` | — |
+| Output Mode | Dropdown | `Mask Scalars (0/1, any axis true)` | — |
 | Threshold | Float | `0` | — |
 | Output Amount | Float | `1` | — |
 
 <details>
-<summary>+5 more parameters</summary>
+<summary>+6 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | X Amount | Float | `1` | — |
 | Y Amount | Float | `1` | — |
 | Z Amount | Float | `1` | — |
+| Trim Zeros | Integer | `0` | — |
 | Mask A | DATATYPE | `—` | — |
 | Mask B | DATATYPE | `—` | — |
 

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vArrayCircuitBoardPattern
+description: "Generates a pattern circuit board with lines and components"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -26,7 +27,7 @@ Generates a pattern circuit board with lines and components
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | Random Seed | Integer | `42` | — |
-| Line Angle Mode | Integer | `0` | — |
+| Line Angle Mode | Dropdown | `Orthogonal` | — |
 | Grid Rows | Integer | `5` | — |
 | Grid Cols | Integer | `5` | — |
 | Center | Point | `—` | — |
@@ -42,7 +43,7 @@ Generates a pattern circuit board with lines and components
 | Scroll Grid | Float | `0` | — |
 | Show Nodes | Float | `0` | — |
 | Show Nodes Outline  | Float | `1` | — |
-| Input Source | Integer | `Default` | — |
+| Input Source | Dropdown | `Default` | — |
 | Nodes Shape | Integer | `1.0` | — |
 | Nodes Size | Float | `1.0` | — |
 | Nodes Thickness | Float | `0.003` | — |
@@ -50,10 +51,10 @@ Generates a pattern circuit board with lines and components
 | Red | Float | `0.25` | — |
 | Green | Float | `0.57` | — |
 | Blue | Float | `0.96` | — |
-| Filter | Float | `Gaussian` | — |
+| Filter | Dropdown | `Gaussian` | — |
 | Soft Edge | Float | `0` | — |
-| Line Type | Float | `Solid` | — |
-| Join Type | Float | `2.0` | — |
+| Line Type | Dropdown | `Solid` | — |
+| Join Type | Dropdown | `2.0` | — |
 | Show Pulse | Float | `0` | — |
 | Pulse Thickness | Float | `0.002` | — |
 | Pulse Speed | Float | `0.0` | — |

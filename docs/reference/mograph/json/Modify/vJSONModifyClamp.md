@@ -1,6 +1,7 @@
 ---
-sidebar_position: 15
+sidebar_position: 17
 title: vJSONModifyClamp
+description: "Clamp numeric values in nested arrays/tables."
 ---
 
 import Tabs from '@theme/Tabs';

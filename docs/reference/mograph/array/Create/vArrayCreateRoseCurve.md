@@ -1,6 +1,7 @@
 ---
-sidebar_position: 30
+sidebar_position: 31
 title: vArrayCreateRoseCurve
+description: "Generate points on a rose curve."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -47,8 +48,8 @@ Generate points on a rose curve.
 <div className="node-chip-row">
   <a className="node-chip" href="./vArrayBuffer">vArrayBuffer</a>
   <a className="node-chip" href="./vArrayCircularPoints">vArrayCircularPoints</a>
-  <a className="node-chip" href="./vArrayCreate">vArrayCreate</a>
   <a className="node-chip" href="./vArrayCreateAsset">vArrayCreateAsset</a>
+  <a className="node-chip" href="./vArrayCreateAttractorPoints">vArrayCreateAttractorPoints</a>
 </div>
 
 {/*

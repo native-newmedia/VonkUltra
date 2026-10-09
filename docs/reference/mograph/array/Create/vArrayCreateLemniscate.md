@@ -1,6 +1,7 @@
 ---
 sidebar_position: 19
 title: vArrayCreateLemniscate
+description: "Generate points on a lemniscate."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -46,8 +47,8 @@ Generate points on a lemniscate.
 <div className="node-chip-row">
   <a className="node-chip" href="./vArrayBuffer">vArrayBuffer</a>
   <a className="node-chip" href="./vArrayCircularPoints">vArrayCircularPoints</a>
-  <a className="node-chip" href="./vArrayCreate">vArrayCreate</a>
   <a className="node-chip" href="./vArrayCreateAsset">vArrayCreateAsset</a>
+  <a className="node-chip" href="./vArrayCreateAttractorPoints">vArrayCreateAttractorPoints</a>
 </div>
 
 {/*

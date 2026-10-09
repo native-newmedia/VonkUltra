@@ -1,6 +1,7 @@
 ---
-sidebar_position: 46
+sidebar_position: 48
 title: vArrayPhyllotaxis
+description: "Generate points on Phyllotaxis"
 ---
 
 import Tabs from '@theme/Tabs';

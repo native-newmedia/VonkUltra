@@ -1,6 +1,7 @@
 ---
 sidebar_position: 7
 title: vJSONTemporalTrailFromPoints
+description: "Build temporal trails by concatenating point arrays across frames."
 ---
 
 import Tabs from '@theme/Tabs';

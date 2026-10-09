@@ -1,6 +1,7 @@
 ---
-sidebar_position: 27
+sidebar_position: 29
 title: vArrayModifyMirrorThroughMeshSurface
+description: "Reflect each input point through the nearest OBJ mesh surface point."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -26,7 +27,7 @@ Reflect each input point through the nearest OBJ mesh surface point.
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | Points | DATATYPE | `—` | — |
-| Mirror Through | Integer | `Surface` | — |
+| Mirror Through | Dropdown | `Surface` | — |
 | Blend | Float | `1` | — |
 | Scale File Units By | Float | `1` | — |
 | Affect X | Float | `1` | — |
@@ -38,7 +39,7 @@ Reflect each input point through the nearest OBJ mesh surface point.
 |---|---|---|---|
 | Affect Y | Float | `1` | — |
 | Affect Z | Float | `1` | — |
-| Mesh Source | Integer | `File` | — |
+| Mesh Source | Dropdown | `File` | — |
 | Filename | Text | `—` | — |
 | URL | Text | `—` | — |
 | OBJ Text | Text | `—` | — |

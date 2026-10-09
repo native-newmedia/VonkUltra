@@ -1,6 +1,7 @@
 ---
-sidebar_position: 39
+sidebar_position: 40
 title: vArrayGenerateSphere
+description: "Generates a Sphere with longitude/latitude lines"
 ---
 
 import Tabs from '@theme/Tabs';

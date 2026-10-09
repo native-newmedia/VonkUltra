@@ -1,6 +1,7 @@
 ---
 sidebar_position: 5
 title: vJSONShapeTextArray
+description: "Example, using Text and Strings"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,10 +26,10 @@ Example, using Text and Strings
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Generate Random →  | Integer | `3.0` | — |
+| Generate Random →  | Dropdown | `Bool` | — |
 | Array length | Integer | `2` | — |
 | Seed | Float | `0` | — |
-| Font Select | Integer | `Use Font` | — |
+| Font Select | Dropdown | `Use Font` | — |
 | Font | Text | `—` | — |
 
 <details>
@@ -40,8 +41,8 @@ Example, using Text and Strings
 | Font Select Probability | Float | `0` | — |
 | Size | Float | `0.08` | — |
 | Character Spacing | Float | `0.0` | — |
-| Letter Case | Integer | `NONE` | — |
-| Justification | Integer | `Center` | — |
+| Letter Case | Dropdown | `NONE` | — |
+| Justification | Dropdown | `Center` | — |
 | Horizontal Adjustment | Float | `0.0` | — |
 | Vertical Adjustment | Float | `0.0` | — |
 | Show Box Background | Integer | `0.0` | — |

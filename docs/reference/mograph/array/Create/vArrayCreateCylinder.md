@@ -1,6 +1,7 @@
 ---
 sidebar_position: 7
 title: vArrayCreateCylinder
+description: "Generate points on a cylinder."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -29,7 +30,7 @@ Generate points on a cylinder.
 | Height | Float | `0.5` | — |
 | Radial Segments | Integer | `24` | — |
 | Height Segments | Integer | `8` | — |
-| Cap Mode | Integer | `Both` | — |
+| Cap Mode | Dropdown | `Both` | — |
 
 <details>
 <summary>+2 more parameters</summary>
@@ -47,8 +48,8 @@ Generate points on a cylinder.
 <div className="node-chip-row">
   <a className="node-chip" href="./vArrayBuffer">vArrayBuffer</a>
   <a className="node-chip" href="./vArrayCircularPoints">vArrayCircularPoints</a>
-  <a className="node-chip" href="./vArrayCreate">vArrayCreate</a>
   <a className="node-chip" href="./vArrayCreateAsset">vArrayCreateAsset</a>
+  <a className="node-chip" href="./vArrayCreateAttractorPoints">vArrayCreateAttractorPoints</a>
 </div>
 
 {/*

@@ -1,6 +1,7 @@
 ---
-sidebar_position: 45
+sidebar_position: 50
 title: vJSONPointsHexagonGrid
+description: "Generate points on Hexagon Grid"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -36,7 +37,7 @@ Generate points on Hexagon Grid
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Direction | Integer | `Vertical` | — |
+| Direction | Dropdown | `Vertical` | — |
 | line6Separator | Float | `—` | — |
 | Show Input | Integer | `0.0` | — |
 

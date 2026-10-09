@@ -1,6 +1,7 @@
 ---
 sidebar_position: 8
 title: vArrayShapeRenderFlowField
+description: "Render a noise-driven flow field of line segments."
 ---
 
 import Tabs from '@theme/Tabs';

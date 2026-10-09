@@ -1,6 +1,7 @@
 ---
 sidebar_position: 9
 title: vArrayCreateFromPolyline
+description: "Sample a drawn Polyline into a vArray point list using arc-length uniform sampling."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -51,8 +52,8 @@ Sample a drawn Polyline into a vArray point list using arc-length uniform sampli
 <div className="node-chip-row">
   <a className="node-chip" href="./vArrayBuffer">vArrayBuffer</a>
   <a className="node-chip" href="./vArrayCircularPoints">vArrayCircularPoints</a>
-  <a className="node-chip" href="./vArrayCreate">vArrayCreate</a>
   <a className="node-chip" href="./vArrayCreateAsset">vArrayCreateAsset</a>
+  <a className="node-chip" href="./vArrayCreateAttractorPoints">vArrayCreateAttractorPoints</a>
 </div>
 
 {/*

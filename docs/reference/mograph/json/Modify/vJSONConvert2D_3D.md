@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 title: vJSONConvert2D_3D
+description: "Convert 2D array to 3D array"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,7 +26,7 @@ Convert 2D array to 3D array
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Convert To: | Integer | `X` | — |
+| Convert To: | Dropdown | `X` | — |
 | Show Input | Integer | `0.0` | — |
 | Array A | DATATYPE | `—` | — |
 
@@ -36,7 +37,7 @@ Convert 2D array to 3D array
   <a className="node-chip" href="./vJSONBoundingBox">vJSONBoundingBox</a>
   <a className="node-chip" href="./vJSONCameraProjection">vJSONCameraProjection</a>
   <a className="node-chip" href="./vJSONDisplaceValues">vJSONDisplaceValues</a>
-  <a className="node-chip" href="./vJSONInterpolate">vJSONInterpolate</a>
+  <a className="node-chip" href="./vJSONGridConnect">vJSONGridConnect</a>
 </div>
 
 {/*

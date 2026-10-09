@@ -1,6 +1,7 @@
 ---
-sidebar_position: 51
+sidebar_position: 53
 title: vJSONPacker
+description: "Pack an array into a new array"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,7 +26,7 @@ Pack an array into a new array
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Pack To: | Integer | `——` | — |
+| Pack To: | Dropdown | `——` | — |
 | Custom Group Size | Integer | `0` | — |
 | Show Input | Integer | `0.0` | — |
 | Array A | DATATYPE | `—` | — |

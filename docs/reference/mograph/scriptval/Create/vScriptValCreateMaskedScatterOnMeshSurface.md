@@ -1,6 +1,7 @@
 ---
-sidebar_position: 19
+sidebar_position: 22
 title: vScriptValCreateMaskedScatterOnMeshSurface
+description: "Scatter points across OBJ mesh surface area using a density mask."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,11 +26,11 @@ Scatter points across OBJ mesh surface area using a density mask.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input Source | Integer | `File` | — |
+| Input Source | Dropdown | `File` | — |
 | Filename | Text | `—` | — |
 | URL | Text | `—` | — |
 | Input | Text | `—` | — |
-| Mask Source | Integer | `None` | — |
+| Mask Source | Dropdown | `None` | — |
 
 <details>
 <summary>+15 more parameters</summary>
@@ -60,8 +61,8 @@ Scatter points across OBJ mesh surface area using a density mask.
 <div className="node-chip-row">
   <a className="node-chip" href="./vScriptValBuffer">vScriptValBuffer</a>
   <a className="node-chip" href="./vScriptValCircularPoints">vScriptValCircularPoints</a>
-  <a className="node-chip" href="./vScriptValCreate">vScriptValCreate</a>
   <a className="node-chip" href="./vScriptValCreateAsset">vScriptValCreateAsset</a>
+  <a className="node-chip" href="./vScriptValCreateAttractorPoints">vScriptValCreateAttractorPoints</a>
 </div>
 
 {/*

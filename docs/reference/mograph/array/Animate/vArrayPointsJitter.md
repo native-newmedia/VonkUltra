@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vArrayPointsJitter
+description: "Add jitter to array points."
 ---
 
 import Tabs from '@theme/Tabs';

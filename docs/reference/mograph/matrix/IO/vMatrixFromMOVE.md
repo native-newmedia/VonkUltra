@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vMatrixFromMOVE
+description: "Import translation matrix content from the Maya MOVE ASCII format"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,22 +24,22 @@ Import translation matrix content from the Maya MOVE ASCII format
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input Source | Integer | `File` | — |
+| Input Source | Dropdown | `File` | — |
 | Filename | Text | `—` | — |
 | URL | Text | `—` | — |
 | Input | Text | `—` | — |
-| Channel 1 | Float | `0` | — |
+| Channel 1 | Dropdown | `Translate` | — |
 
 <details>
 <summary>+5 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Channel 2 | Float | `2` | — |
-| Channel 3 | Float | `3` | — |
-| Rotation Order | Float | ` XYZ ` | — |
+| Channel 2 | Dropdown | `Rotate` | — |
+| Channel 3 | Dropdown | `Scale` | — |
+| Rotation Order | Dropdown | ` XYZ ` | — |
 | Scale File Units By | Float | `1` | — |
-| Timing Mode | Float | `Timecode` | — |
+| Timing Mode | Dropdown | `Timecode` | — |
 
 </details>
 

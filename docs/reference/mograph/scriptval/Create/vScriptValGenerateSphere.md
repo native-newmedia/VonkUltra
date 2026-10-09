@@ -1,6 +1,7 @@
 ---
-sidebar_position: 36
+sidebar_position: 40
 title: vScriptValGenerateSphere
+description: "Generates a Sphere with longitude/latitude lines"
 ---
 
 import Tabs from '@theme/Tabs';

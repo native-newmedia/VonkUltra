@@ -1,6 +1,7 @@
 ---
-sidebar_position: 14
+sidebar_position: 15
 title: vScriptValLogicSelect
+description: "Select XYZ points from A/B using mask array."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -33,10 +34,10 @@ Select XYZ points from A/B using mask array.
 ## Related Nodes
 
 <div className="node-chip-row">
+  <a className="node-chip" href="./vScriptValCountMask">vScriptValCountMask</a>
   <a className="node-chip" href="./vScriptValLogicAND">vScriptValLogicAND</a>
   <a className="node-chip" href="./vScriptValLogicAll">vScriptValLogicAll</a>
   <a className="node-chip" href="./vScriptValLogicAny">vScriptValLogicAny</a>
-  <a className="node-chip" href="./vScriptValLogicBetween">vScriptValLogicBetween</a>
 </div>
 
 {/*

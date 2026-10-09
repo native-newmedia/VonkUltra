@@ -1,6 +1,7 @@
 ---
 sidebar_position: 4
 title: vJSONFontArray
+description: "Return multiple font measurements as a Fusion ScriptVal object"
 ---
 
 import Tabs from '@theme/Tabs';

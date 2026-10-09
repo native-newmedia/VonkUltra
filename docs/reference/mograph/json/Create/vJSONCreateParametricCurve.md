@@ -1,6 +1,7 @@
 ---
-sidebar_position: 22
+sidebar_position: 25
 title: vJSONCreateParametricCurve
+description: "Generate points from parametric expressions."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -49,8 +50,8 @@ Generate points from parametric expressions.
 <div className="node-chip-row">
   <a className="node-chip" href="./vJSONBuffer">vJSONBuffer</a>
   <a className="node-chip" href="./vJSONCircularPoints">vJSONCircularPoints</a>
-  <a className="node-chip" href="./vJSONCreate">vJSONCreate</a>
   <a className="node-chip" href="./vJSONCreateAsset">vJSONCreateAsset</a>
+  <a className="node-chip" href="./vJSONCreateAttractorPoints">vJSONCreateAttractorPoints</a>
 </div>
 
 {/*

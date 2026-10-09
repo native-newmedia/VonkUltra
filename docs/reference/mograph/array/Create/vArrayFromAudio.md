@@ -1,6 +1,7 @@
 ---
-sidebar_position: 36
+sidebar_position: 37
 title: vArrayFromAudio
+description: "Convert .wav audio data into a vArray format"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -59,8 +60,8 @@ vTextCreateBrowse.Output -> vArrayFromAudio.WaveFile
 <div className="node-chip-row">
   <a className="node-chip" href="./vArrayBuffer">vArrayBuffer</a>
   <a className="node-chip" href="./vArrayCircularPoints">vArrayCircularPoints</a>
-  <a className="node-chip" href="./vArrayCreate">vArrayCreate</a>
   <a className="node-chip" href="./vArrayCreateAsset">vArrayCreateAsset</a>
+  <a className="node-chip" href="./vArrayCreateAttractorPoints">vArrayCreateAttractorPoints</a>
 </div>
 
 {/*

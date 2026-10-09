@@ -1,6 +1,7 @@
 ---
-sidebar_position: 13
+sidebar_position: 15
 title: vArrayModifyAttributeTransfer
+description: "Transfer scalar values from source to target and optionally bake them into XYZ output positions."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,11 +26,11 @@ Transfer scalar values from source to target and optionally bake them into XYZ o
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Transfer Mode | Integer | `0` | — |
+| Transfer Mode | Dropdown | `Nearest` | — |
 | Radius | Float | `0.25` | — |
 | Falloff Power | Float | `2` | — |
 | Default Value | Float | `0` | — |
-| Output Mode | Integer | `0` | — |
+| Output Mode | Dropdown | `Store Attribute in 4th Value` | — |
 
 <details>
 <summary>+3 more parameters</summary>

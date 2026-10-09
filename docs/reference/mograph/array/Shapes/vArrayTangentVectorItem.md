@@ -1,6 +1,7 @@
 ---
 sidebar_position: 6
 title: vArrayTangentVectorItem
+description: "Create a vector that is tangent to a curve or surface at a given point"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -38,7 +39,7 @@ Create a vector that is tangent to a curve or surface at a given point
 |---|---|---|---|
 | Frequency | Float | `0` | — |
 | Phase | Float | `0` | — |
-| Damping Mode | Integer | `--` | — |
+| Damping Mode | Dropdown | `--` | — |
 | Damping | Float | `0` | — |
 | line2Separator | Float | `—` | — |
 | Node Sides | Float | `6` | — |

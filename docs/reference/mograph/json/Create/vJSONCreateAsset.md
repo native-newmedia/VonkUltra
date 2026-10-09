@@ -1,6 +1,7 @@
 ---
 sidebar_position: 4
 title: vJSONCreateAsset
+description: "Create a JSON-based 3D asset from JSON text payload of Points, Edges, and Matrix data."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -53,8 +54,8 @@ Create a JSON-based 3D asset from JSON text payload of Points, Edges, and Matrix
 <div className="node-chip-row">
   <a className="node-chip" href="./vJSONBuffer">vJSONBuffer</a>
   <a className="node-chip" href="./vJSONCircularPoints">vJSONCircularPoints</a>
-  <a className="node-chip" href="./vJSONCreate">vJSONCreate</a>
   <a className="node-chip" href="./vJSONCreateAttractorPoints">vJSONCreateAttractorPoints</a>
+  <a className="node-chip" href="./vJSONCreateCubicBezier">vJSONCreateCubicBezier</a>
 </div>
 
 {/*

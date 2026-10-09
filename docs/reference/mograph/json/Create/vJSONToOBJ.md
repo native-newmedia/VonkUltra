@@ -1,6 +1,7 @@
 ---
-sidebar_position: 2
+sidebar_position: 56
 title: vJSONToOBJ
+description: "Convert an Array into Wavefront OBJ ASCII Text."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -33,10 +34,13 @@ Convert an Array into Wavefront OBJ ASCII Text.
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="./vJSONMergeOBJ">vJSONMergeOBJ</a>
+  <a className="node-chip" href="./vJSONBuffer">vJSONBuffer</a>
+  <a className="node-chip" href="./vJSONCircularPoints">vJSONCircularPoints</a>
+  <a className="node-chip" href="./vJSONCreateAsset">vJSONCreateAsset</a>
+  <a className="node-chip" href="./vJSONCreateAttractorPoints">vJSONCreateAttractorPoints</a>
 </div>
 
 {/*
-Generated page — node: vJSONToOBJ (JSON/OBJ).
+Generated page — node: vJSONToOBJ (JSON/Create).
 Source: fuse vJSONToOBJ.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
 */}

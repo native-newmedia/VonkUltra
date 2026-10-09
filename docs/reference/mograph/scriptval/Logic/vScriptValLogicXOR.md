@@ -1,6 +1,7 @@
 ---
-sidebar_position: 16
+sidebar_position: 17
 title: vScriptValLogicXOR
+description: "Element-wise logical XOR of two 0/1 mask arrays."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -32,10 +33,10 @@ Element-wise logical XOR of two 0/1 mask arrays.
 ## Related Nodes
 
 <div className="node-chip-row">
+  <a className="node-chip" href="./vScriptValCountMask">vScriptValCountMask</a>
   <a className="node-chip" href="./vScriptValLogicAND">vScriptValLogicAND</a>
   <a className="node-chip" href="./vScriptValLogicAll">vScriptValLogicAll</a>
   <a className="node-chip" href="./vScriptValLogicAny">vScriptValLogicAny</a>
-  <a className="node-chip" href="./vScriptValLogicBetween">vScriptValLogicBetween</a>
 </div>
 
 {/*

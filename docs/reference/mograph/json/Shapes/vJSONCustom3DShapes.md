@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vJSONCustom3DShapes
+description: "Dynamically create Shape elements"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,7 +26,7 @@ Dynamically create Shape elements
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Shape Selector | Float | `Cube` | — |
+| Shape Selector | Dropdown | `Cube` | — |
 | X Offset | Float | `—` | — |
 | Y Offset | Float | `—` | — |
 | Z Offset | Float | `—` | — |

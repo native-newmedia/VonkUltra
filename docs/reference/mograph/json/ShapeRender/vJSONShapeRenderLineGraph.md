@@ -1,6 +1,7 @@
 ---
 sidebar_position: 11
 title: vJSONShapeRenderLineGraph
+description: "Render a line graph from a JSON array of scalar values."
 ---
 
 import Tabs from '@theme/Tabs';

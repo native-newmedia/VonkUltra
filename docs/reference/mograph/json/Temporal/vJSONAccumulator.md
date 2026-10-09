@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vJSONAccumulator
+description: "Temporally concatenate array elements"
 ---
 
 import Tabs from '@theme/Tabs';

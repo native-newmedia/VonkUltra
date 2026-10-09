@@ -1,6 +1,7 @@
 ---
-sidebar_position: 53
+sidebar_position: 58
 title: vScriptValToXYZ
+description: "Convert a Fusion ScriptVal object into XYZ ASCII Text"
 ---
 
 import Tabs from '@theme/Tabs';

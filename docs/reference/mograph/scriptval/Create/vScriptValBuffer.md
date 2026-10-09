@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vScriptValBuffer
+description: "FIFO (first in first out) in an array"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -49,9 +50,9 @@ vScriptValBuffer.Low = 1
 
 <div className="node-chip-row">
   <a className="node-chip" href="./vScriptValCircularPoints">vScriptValCircularPoints</a>
-  <a className="node-chip" href="./vScriptValCreate">vScriptValCreate</a>
   <a className="node-chip" href="./vScriptValCreateAsset">vScriptValCreateAsset</a>
   <a className="node-chip" href="./vScriptValCreateAttractorPoints">vScriptValCreateAttractorPoints</a>
+  <a className="node-chip" href="./vScriptValCreateCubicBezier">vScriptValCreateCubicBezier</a>
 </div>
 
 {/*

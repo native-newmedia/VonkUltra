@@ -1,6 +1,7 @@
 ---
-sidebar_position: 41
+sidebar_position: 42
 title: vArrayGenerateText
+description: "Example, generating random Text and Strings The following Generate Random options are available: - Pick from → input Array - Lorem ipsum Basics: - Bool -…"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,11 +26,11 @@ Example, generating random Text and Strings The following Generate Random option
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Generate Random →  | Integer | `2.0` | — |
+| Generate Random →  | Dropdown | `Lorem ipsum` | — |
 | Array length | Integer | `1` | — |
 | Seed | Float | `0` | — |
 | line1Separator | Float | `—` | — |
-| Select Mode →  | Integer | `0.0` | — |
+| Select Mode →  | Dropdown | `none` | — |
 
 <details>
 <summary>+8 more parameters</summary>
@@ -41,7 +42,7 @@ Example, generating random Text and Strings The following Generate Random option
 | Sentence Count | Integer | `1` | — |
 | Paragraph Count | Integer | `1` | — |
 | line2Separator | Float | `—` | — |
-| Letter Case | Integer | `NONE` | — |
+| Letter Case | Dropdown | `NONE` | — |
 | Show Input | Integer | `1.0` | — |
 | ScriptVal Text | ScriptVal | `—` | — |
 

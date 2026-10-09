@@ -1,6 +1,7 @@
 ---
-sidebar_position: 34
+sidebar_position: 38
 title: vScriptValFromOBJ
+description: "Convert Wavefront OBJ mesh data into a ScriptVal"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,20 +26,11 @@ Convert Wavefront OBJ mesh data into a ScriptVal
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input Source | Integer | `File` | — |
+| Input Source | Dropdown | `File` | — |
 | Filename | Text | `—` | — |
 | URL | Text | `—` | — |
 | Input | Text | `—` | — |
-| UISeparator1 | Float | `—` | — |
-
-<details>
-<summary>+1 more parameters</summary>
-
-| Parameter | Type | Default | Description |
-|---|---|---|---|
 | Scale File Units By | Float | `1` | — |
-
-</details>
 
 ## Example Connections
 

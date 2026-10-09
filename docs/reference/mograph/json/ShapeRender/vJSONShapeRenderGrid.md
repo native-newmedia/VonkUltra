@@ -1,6 +1,7 @@
 ---
 sidebar_position: 9
 title: vJSONShapeRenderGrid
+description: "Render a reference grid overlay with optional axis lines."
 ---
 
 import Tabs from '@theme/Tabs';

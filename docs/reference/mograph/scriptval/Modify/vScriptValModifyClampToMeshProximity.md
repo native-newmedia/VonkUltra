@@ -1,6 +1,7 @@
 ---
-sidebar_position: 16
+sidebar_position: 18
 title: vScriptValModifyClampToMeshProximity
+description: "Clamp points farther than max distance from mesh down to that max distance."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -28,8 +29,8 @@ Clamp points farther than max distance from mesh down to that max distance.
 | Points | DATATYPE | `—` | — |
 | Scale File Units By | Float | `1` | — |
 | Max Distance | Float | `1` | — |
-| Clamp Mode | Integer | `Outside > Max` | — |
-| Reference | Integer | `Surface` | — |
+| Clamp Mode | Dropdown | `Outside > Max` | — |
+| Reference | Dropdown | `Surface` | — |
 
 <details>
 <summary>+11 more parameters</summary>
@@ -43,7 +44,7 @@ Clamp points farther than max distance from mesh down to that max distance.
 | Affect Z | Float | `1` | — |
 | Preserve Extra Values | Float | `1` | — |
 | Pass Through If No Mesh | Float | `1` | — |
-| Mesh Source | Integer | `File` | — |
+| Mesh Source | Dropdown | `File` | — |
 | Filename | Text | `—` | — |
 | URL | Text | `—` | — |
 | OBJ Text | Text | `—` | — |

@@ -1,6 +1,7 @@
 ---
-sidebar_position: 35
+sidebar_position: 36
 title: vArrayCreateVoronoi
+description: "Creates a Voronoi Array."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -49,8 +50,8 @@ Creates a Voronoi Array.
 <div className="node-chip-row">
   <a className="node-chip" href="./vArrayBuffer">vArrayBuffer</a>
   <a className="node-chip" href="./vArrayCircularPoints">vArrayCircularPoints</a>
-  <a className="node-chip" href="./vArrayCreate">vArrayCreate</a>
   <a className="node-chip" href="./vArrayCreateAsset">vArrayCreateAsset</a>
+  <a className="node-chip" href="./vArrayCreateAttractorPoints">vArrayCreateAttractorPoints</a>
 </div>
 
 {/*

@@ -1,6 +1,7 @@
 ---
-sidebar_position: 38
+sidebar_position: 39
 title: vArrayFromXYZ
+description: "Convert ASCII XYZ point cloud data into a vArray format Transform XYZ Points Node Connections:"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,18 +26,17 @@ Convert ASCII XYZ point cloud data into a vArray format Transform XYZ Points Nod
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input Source | Integer | `File` | — |
+| Input Source | Dropdown | `File` | — |
 | Filename | Text | `—` | — |
 | URL | Text | `—` | — |
 | Input | Text | `—` | — |
-| UISeparator1 | Float | `—` | — |
+| Point Cloud Density | Integer | `100` | — |
 
 <details>
-<summary>+2 more parameters</summary>
+<summary>+1 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Point Cloud Density | Integer | `100` | — |
 | Scale File Units By | Float | `1` | — |
 
 </details>

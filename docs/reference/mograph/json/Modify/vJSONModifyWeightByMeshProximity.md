@@ -1,6 +1,7 @@
 ---
-sidebar_position: 49
+sidebar_position: 51
 title: vJSONModifyWeightByMeshProximity
+description: "Output a 1D weight per input point based on distance to the closest point on an OBJ mesh surface."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -26,7 +27,7 @@ Output a 1D weight per input point based on distance to the closest point on an 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | Points | DATATYPE | `—` | — |
-| Mesh Source | Integer | `File` | — |
+| Mesh Source | Dropdown | `File` | — |
 | Filename | Text | `—` | — |
 | URL | Text | `—` | — |
 | OBJ Text | Text | `—` | — |
@@ -38,7 +39,7 @@ Output a 1D weight per input point based on distance to the closest point on an 
 |---|---|---|---|
 | Scale File Units By | Float | `1` | — |
 | Max Distance | Float | `0.5` | — |
-| Falloff | Integer | `Linear` | — |
+| Falloff | Dropdown | `Linear` | — |
 | Invert Weight | Integer | `0` | — |
 | Project Amount | Float | `1` | — |
 

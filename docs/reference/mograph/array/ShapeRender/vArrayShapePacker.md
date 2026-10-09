@@ -1,6 +1,7 @@
 ---
 sidebar_position: 6
 title: vArrayShapePacker
+description: "Fills a letter-shaped area with tightly packed shapes using multiple algorithms"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,7 +26,7 @@ Fills a letter-shaped area with tightly packed shapes using multiple algorithms
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Algorithm | Integer | `0` | — |
+| Algorithm | Dropdown | `Simple Grid Fill` | — |
 | Global Scale | Float | `0.1` | — |
 | Separator_2 | Float | `—` | — |
 | Horizontal Adjustment | Float | `0.0` | — |
@@ -41,12 +42,12 @@ Fills a letter-shaped area with tightly packed shapes using multiple algorithms
 | Resolution | Integer | `5` | — |
 | Spacing | Integer | `0` | — |
 | Character Spacing | Float | `0.05` | — |
-| Select Shape | Integer | `Defalut` | — |
+| Select Shape | Dropdown | `Defalut` | — |
 | Sides | Integer | `6` | — |
 | Radius | Float | `0.03` | — |
 | Angle | Float | `0.0` | — |
 | Separator_5 | Float | `—` | — |
-| Select Fill | Integer | `Outline` | — |
+| Select Fill | Dropdown | `Outline` | — |
 | Thickness | Float | `0.02` | — |
 | Separator_6 | Float | `—` | — |
 | Red | Float | `1.0` | — |

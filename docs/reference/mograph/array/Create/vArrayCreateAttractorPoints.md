@@ -1,6 +1,7 @@
 ---
 sidebar_position: 5
 title: vArrayCreateAttractorPoints
+description: "Generate a point path from a strange attractor."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,7 +26,7 @@ Generate a point path from a strange attractor.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| System | Integer | `Lorenz` | — |
+| System | Dropdown | `Lorenz` | — |
 | Point Count | Integer | `2000` | — |
 | Warmup Steps | Integer | `100` | — |
 | Step Size | Float | `0.01` | — |
@@ -48,8 +49,8 @@ Generate a point path from a strange attractor.
 <div className="node-chip-row">
   <a className="node-chip" href="./vArrayBuffer">vArrayBuffer</a>
   <a className="node-chip" href="./vArrayCircularPoints">vArrayCircularPoints</a>
-  <a className="node-chip" href="./vArrayCreate">vArrayCreate</a>
   <a className="node-chip" href="./vArrayCreateAsset">vArrayCreateAsset</a>
+  <a className="node-chip" href="./vArrayCreateCubicBezier">vArrayCreateCubicBezier</a>
 </div>
 
 {/*

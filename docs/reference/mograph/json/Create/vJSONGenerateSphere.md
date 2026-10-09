@@ -1,6 +1,7 @@
 ---
-sidebar_position: 36
+sidebar_position: 41
 title: vJSONGenerateSphere
+description: "Generates a Sphere with longitude/latitude lines"
 ---
 
 import Tabs from '@theme/Tabs';

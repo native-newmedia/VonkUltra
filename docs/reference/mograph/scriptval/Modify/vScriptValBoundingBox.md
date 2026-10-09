@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vScriptValBoundingBox
+description: "Calculate a 3D, 2D, or 1D bounding box volume from a ScriptVal object of XYZ/XY/X points"
 ---
 
 import Tabs from '@theme/Tabs';

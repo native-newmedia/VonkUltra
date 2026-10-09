@@ -1,6 +1,7 @@
 ---
-sidebar_position: 13
+sidebar_position: 16
 title: vScriptValCreateHelix
+description: "Creates a Helix Array."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -37,8 +38,8 @@ Creates a Helix Array.
 <div className="node-chip-row">
   <a className="node-chip" href="./vScriptValBuffer">vScriptValBuffer</a>
   <a className="node-chip" href="./vScriptValCircularPoints">vScriptValCircularPoints</a>
-  <a className="node-chip" href="./vScriptValCreate">vScriptValCreate</a>
   <a className="node-chip" href="./vScriptValCreateAsset">vScriptValCreateAsset</a>
+  <a className="node-chip" href="./vScriptValCreateAttractorPoints">vScriptValCreateAttractorPoints</a>
 </div>
 
 {/*

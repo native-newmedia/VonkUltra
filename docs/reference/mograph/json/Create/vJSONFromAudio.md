@@ -1,6 +1,7 @@
 ---
-sidebar_position: 33
+sidebar_position: 38
 title: vJSONFromAudio
+description: "Convert .wav audio data into a JSON format"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,7 +26,7 @@ Convert .wav audio data into a JSON format
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input Source | Integer | `File` | — |
+| Input Source | Dropdown | `File` | — |
 | Wave File | Text | `—` | — |
 | Wave URL | Text | `—` | — |
 | Base64 Wave Text Input | Text | `—` | — |
@@ -49,8 +50,8 @@ Convert .wav audio data into a JSON format
 <div className="node-chip-row">
   <a className="node-chip" href="./vJSONBuffer">vJSONBuffer</a>
   <a className="node-chip" href="./vJSONCircularPoints">vJSONCircularPoints</a>
-  <a className="node-chip" href="./vJSONCreate">vJSONCreate</a>
   <a className="node-chip" href="./vJSONCreateAsset">vJSONCreateAsset</a>
+  <a className="node-chip" href="./vJSONCreateAttractorPoints">vJSONCreateAttractorPoints</a>
 </div>
 
 {/*

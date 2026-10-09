@@ -1,6 +1,7 @@
 ---
-sidebar_position: 21
+sidebar_position: 24
 title: vJSONCreateNoise
+description: "Creates a Noise Array."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -51,8 +52,8 @@ Creates a Noise Array.
 <div className="node-chip-row">
   <a className="node-chip" href="./vJSONBuffer">vJSONBuffer</a>
   <a className="node-chip" href="./vJSONCircularPoints">vJSONCircularPoints</a>
-  <a className="node-chip" href="./vJSONCreate">vJSONCreate</a>
   <a className="node-chip" href="./vJSONCreateAsset">vJSONCreateAsset</a>
+  <a className="node-chip" href="./vJSONCreateAttractorPoints">vJSONCreateAttractorPoints</a>
 </div>
 
 {/*

@@ -1,6 +1,7 @@
 ---
-sidebar_position: 50
+sidebar_position: 52
 title: vArrayPointsOnCube
+description: "Generate points on cube"
 ---
 
 import Tabs from '@theme/Tabs';

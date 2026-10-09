@@ -1,6 +1,7 @@
 ---
-sidebar_position: 45
+sidebar_position: 47
 title: vJSONModifySnapToFaceCentroid
+description: "Snap each input point to the nearest OBJ triangle face centroid."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -38,7 +39,7 @@ Snap each input point to the nearest OBJ triangle face centroid.
 |---|---|---|---|
 | Affect Y | Float | `1` | — |
 | Affect Z | Float | `1` | — |
-| Mesh Source | Integer | `File` | — |
+| Mesh Source | Dropdown | `File` | — |
 | Filename | Text | `—` | — |
 | URL | Text | `—` | — |
 | OBJ Text | Text | `—` | — |

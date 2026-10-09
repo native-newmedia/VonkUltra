@@ -1,6 +1,7 @@
 ---
 sidebar_position: 4
 title: vArrayCreateAsset
+description: "Create an Array-based 3D asset from JSON text payload of Points, Edges, and Matrix data."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -53,8 +54,8 @@ Create an Array-based 3D asset from JSON text payload of Points, Edges, and Matr
 <div className="node-chip-row">
   <a className="node-chip" href="./vArrayBuffer">vArrayBuffer</a>
   <a className="node-chip" href="./vArrayCircularPoints">vArrayCircularPoints</a>
-  <a className="node-chip" href="./vArrayCreate">vArrayCreate</a>
   <a className="node-chip" href="./vArrayCreateAttractorPoints">vArrayCreateAttractorPoints</a>
+  <a className="node-chip" href="./vArrayCreateCubicBezier">vArrayCreateCubicBezier</a>
 </div>
 
 {/*

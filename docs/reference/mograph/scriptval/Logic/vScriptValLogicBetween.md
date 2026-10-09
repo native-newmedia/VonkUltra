@@ -1,6 +1,7 @@
 ---
-sidebar_position: 4
+sidebar_position: 5
 title: vScriptValLogicBetween
+description: "Logic Between Operations on an Array"
 ---
 
 import Tabs from '@theme/Tabs';

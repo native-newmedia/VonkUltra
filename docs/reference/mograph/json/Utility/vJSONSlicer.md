@@ -1,6 +1,7 @@
 ---
-sidebar_position: 9
+sidebar_position: 11
 title: vJSONSlicer
+description: "Trimming the start and end of single or multi-dimensional arrays"
 ---
 
 import Tabs from '@theme/Tabs';

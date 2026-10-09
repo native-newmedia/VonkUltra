@@ -1,6 +1,7 @@
 ---
-sidebar_position: 11
+sidebar_position: 12
 title: vScriptValLogicNOT
+description: "Invert a 0/1 mask array — non-zero becomes 0, zero becomes 1."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -31,10 +32,10 @@ Invert a 0/1 mask array — non-zero becomes 0, zero becomes 1.
 ## Related Nodes
 
 <div className="node-chip-row">
+  <a className="node-chip" href="./vScriptValCountMask">vScriptValCountMask</a>
   <a className="node-chip" href="./vScriptValLogicAND">vScriptValLogicAND</a>
   <a className="node-chip" href="./vScriptValLogicAll">vScriptValLogicAll</a>
   <a className="node-chip" href="./vScriptValLogicAny">vScriptValLogicAny</a>
-  <a className="node-chip" href="./vScriptValLogicBetween">vScriptValLogicBetween</a>
 </div>
 
 {/*

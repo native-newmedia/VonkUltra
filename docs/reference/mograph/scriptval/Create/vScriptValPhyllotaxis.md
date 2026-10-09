@@ -1,6 +1,7 @@
 ---
-sidebar_position: 43
+sidebar_position: 48
 title: vScriptValPhyllotaxis
+description: "Generate points on Phyllotaxis"
 ---
 
 import Tabs from '@theme/Tabs';

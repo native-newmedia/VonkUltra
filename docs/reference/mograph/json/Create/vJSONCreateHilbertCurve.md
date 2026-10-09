@@ -1,6 +1,7 @@
 ---
-sidebar_position: 14
+sidebar_position: 17
 title: vJSONCreateHilbertCurve
+description: "Generate points on a 2D Hilbert curve."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -35,8 +36,8 @@ Generate points on a 2D Hilbert curve.
 <div className="node-chip-row">
   <a className="node-chip" href="./vJSONBuffer">vJSONBuffer</a>
   <a className="node-chip" href="./vJSONCircularPoints">vJSONCircularPoints</a>
-  <a className="node-chip" href="./vJSONCreate">vJSONCreate</a>
   <a className="node-chip" href="./vJSONCreateAsset">vJSONCreateAsset</a>
+  <a className="node-chip" href="./vJSONCreateAttractorPoints">vJSONCreateAttractorPoints</a>
 </div>
 
 {/*

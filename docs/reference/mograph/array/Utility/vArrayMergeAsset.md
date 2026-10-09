@@ -1,6 +1,7 @@
 ---
 sidebar_position: 7
 title: vArrayMergeAsset
+description: "Dynamically join Array Asset elements from JSON text payload into one table."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -27,17 +28,15 @@ Dynamically join Array Asset elements from JSON text payload into one table.
 |---|---|---|---|
 | Which | Integer | `—` | — |
 | Array1 | DATATYPE | `—` | — |
-| UISeparator1 | Float | `—` | — |
 | Display Lines | Integer | `20` | — |
-| UISeparator2 | Float | `—` | — |
+| Info | ScriptVal | `—` | — |
+| "Array" .. i | Text | `—` | — |
 
 <details>
-<summary>+3 more parameters</summary>
+<summary>+1 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Info | ScriptVal | `—` | — |
-| "Array" .. i | Text | `—` | — |
 | "Array" .. (inp_nr + 1) | Text | `—` | — |
 
 </details>

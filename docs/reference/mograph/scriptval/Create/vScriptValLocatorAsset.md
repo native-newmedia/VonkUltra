@@ -1,6 +1,7 @@
 ---
-sidebar_position: 40
+sidebar_position: 45
 title: vScriptValLocatorAsset
+description: "Create a ScriptVal based 3D locator cursor asset"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -27,7 +28,7 @@ Create a ScriptVal based 3D locator cursor asset
 |---|---|---|---|
 | Asset Name | Text | `—` | — |
 | Asset Version | Integer | `1` | — |
-| Locator | Float | `0` | — |
+| Locator | Dropdown | `Gnomon Locator` | — |
 | Matrix | Text | `—` | — |
 | Red | Float | `0.0` | — |
 

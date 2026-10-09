@@ -1,6 +1,7 @@
 ---
-sidebar_position: 27
+sidebar_position: 29
 title: vScriptValModifyMirrorThroughMeshSurface
+description: "Reflect each input point through the nearest OBJ mesh surface point."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -36,7 +37,7 @@ Reflect each input point through the nearest OBJ mesh surface point.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Mesh Source | Integer | `File` | — |
+| Mesh Source | Dropdown | `File` | — |
 | Filename | Text | `—` | — |
 | URL | Text | `—` | — |
 | OBJ Text | Text | `—` | — |

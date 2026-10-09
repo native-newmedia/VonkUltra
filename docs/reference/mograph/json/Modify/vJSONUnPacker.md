@@ -1,6 +1,7 @@
 ---
-sidebar_position: 65
+sidebar_position: 68
 title: vJSONUnPacker
+description: "Unpack Operations on an Array"
 ---
 
 import Tabs from '@theme/Tabs';

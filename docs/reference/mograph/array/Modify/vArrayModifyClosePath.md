@@ -1,6 +1,7 @@
 ---
-sidebar_position: 18
+sidebar_position: 20
 title: vArrayModifyClosePath
+description: "Open, close, or toggle path closure with seam controls."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,8 +26,8 @@ Open, close, or toggle path closure with seam controls.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Operation | Integer | `0` | — |
-| Seam | Integer | `0` | — |
+| Operation | Dropdown | `Close Path` | — |
+| Seam | Dropdown | `Keep Start` | — |
 | Duplicate Endpoint | Integer | `1` | — |
 | Points | DATATYPE | `—` | — |
 

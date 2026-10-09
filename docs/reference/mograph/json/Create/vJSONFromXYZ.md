@@ -1,6 +1,7 @@
 ---
-sidebar_position: 35
+sidebar_position: 40
 title: vJSONFromXYZ
+description: "Convert ASCII XYZ point cloud data into a JSON format"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,18 +26,17 @@ Convert ASCII XYZ point cloud data into a JSON format
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input Source | Integer | `File` | — |
+| Input Source | Dropdown | `File` | — |
 | Filename | Text | `—` | — |
 | URL | Text | `—` | — |
 | Input | Text | `—` | — |
-| UISeparator1 | Float | `—` | — |
+| Point Cloud Density | Integer | `100` | — |
 
 <details>
-<summary>+2 more parameters</summary>
+<summary>+1 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Point Cloud Density | Integer | `100` | — |
 | Scale File Units By | Float | `1` | — |
 
 </details>

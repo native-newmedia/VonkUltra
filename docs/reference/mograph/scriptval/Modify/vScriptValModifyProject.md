@@ -1,6 +1,7 @@
 ---
-sidebar_position: 34
+sidebar_position: 36
 title: vScriptValModifyProject
+description: "Project point arrays to plane/sphere/cylinder."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,7 +26,7 @@ Project point arrays to plane/sphere/cylinder.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Mode | Integer | `0` | — |
+| Mode | Dropdown | `Plane Z` | — |
 | Plane Z | Float | `0` | — |
 | Center X | Float | `0` | — |
 | Center Y | Float | `0` | — |

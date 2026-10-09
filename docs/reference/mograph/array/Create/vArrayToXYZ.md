@@ -1,6 +1,7 @@
 ---
-sidebar_position: 56
+sidebar_position: 58
 title: vArrayToXYZ
+description: "Convert an Array into XYZ ASCII Text"
 ---
 
 import Tabs from '@theme/Tabs';

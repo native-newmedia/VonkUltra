@@ -1,6 +1,7 @@
 ---
-sidebar_position: 13
+sidebar_position: 14
 title: vJSONLogicPartition
+description: "Split array into Pass (mask=1) and Fail (mask=0) outputs."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -32,10 +33,10 @@ Split array into Pass (mask=1) and Fail (mask=0) outputs.
 ## Related Nodes
 
 <div className="node-chip-row">
+  <a className="node-chip" href="./vJSONCountMask">vJSONCountMask</a>
   <a className="node-chip" href="./vJSONLogicAND">vJSONLogicAND</a>
   <a className="node-chip" href="./vJSONLogicAll">vJSONLogicAll</a>
   <a className="node-chip" href="./vJSONLogicAny">vJSONLogicAny</a>
-  <a className="node-chip" href="./vJSONLogicBetween">vJSONLogicBetween</a>
 </div>
 
 {/*

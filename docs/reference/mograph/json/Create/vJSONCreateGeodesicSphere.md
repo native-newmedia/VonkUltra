@@ -1,6 +1,7 @@
 ---
-sidebar_position: 11
+sidebar_position: 14
 title: vJSONCreateGeodesicSphere
+description: "Generate points from an icosphere subdivision."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -34,8 +35,8 @@ Generate points from an icosphere subdivision.
 <div className="node-chip-row">
   <a className="node-chip" href="./vJSONBuffer">vJSONBuffer</a>
   <a className="node-chip" href="./vJSONCircularPoints">vJSONCircularPoints</a>
-  <a className="node-chip" href="./vJSONCreate">vJSONCreate</a>
   <a className="node-chip" href="./vJSONCreateAsset">vJSONCreateAsset</a>
+  <a className="node-chip" href="./vJSONCreateAttractorPoints">vJSONCreateAttractorPoints</a>
 </div>
 
 {/*

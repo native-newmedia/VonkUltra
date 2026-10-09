@@ -1,6 +1,7 @@
 ---
-sidebar_position: 12
+sidebar_position: 15
 title: vJSONCreateGridPolar
+description: "Creates a Polar Grid Array."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -48,8 +49,8 @@ Creates a Polar Grid Array.
 <div className="node-chip-row">
   <a className="node-chip" href="./vJSONBuffer">vJSONBuffer</a>
   <a className="node-chip" href="./vJSONCircularPoints">vJSONCircularPoints</a>
-  <a className="node-chip" href="./vJSONCreate">vJSONCreate</a>
   <a className="node-chip" href="./vJSONCreateAsset">vJSONCreateAsset</a>
+  <a className="node-chip" href="./vJSONCreateAttractorPoints">vJSONCreateAttractorPoints</a>
 </div>
 
 {/*

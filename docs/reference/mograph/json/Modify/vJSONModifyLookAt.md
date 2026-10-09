@@ -1,6 +1,7 @@
 ---
-sidebar_position: 24
+sidebar_position: 26
 title: vJSONModifyLookAt
+description: "Build per-point look-at direction vectors."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -28,7 +29,7 @@ Build per-point look-at direction vectors.
 | Target X | Float | `0` | — |
 | Target Y | Float | `0` | — |
 | Target Z | Float | `0` | — |
-| Forward Axis | Integer | `0` | — |
+| Forward Axis | Dropdown | `+Z (default)` | — |
 | Invert Direction | Integer | `0` | — |
 
 <details>
@@ -40,7 +41,7 @@ Build per-point look-at direction vectors.
 | Up X | Integer | `0` | — |
 | Up Y | Integer | `1` | — |
 | Up Z | Integer | `0` | — |
-| Output Mode | Integer | `0` | — |
+| Output Mode | Dropdown | `Direction Vector` | — |
 | Show Input | Integer | `0.0` | — |
 | Per-Point Target | Integer | `0` | — |
 | Points | DATATYPE | `—` | — |

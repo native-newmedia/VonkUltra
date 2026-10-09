@@ -1,6 +1,7 @@
 ---
 sidebar_position: 4
 title: vScriptValCreateAsset
+description: "Create a ScriptVal based 3D asset from Edge, Point, and vMatrix data"
 ---
 
 import Tabs from '@theme/Tabs';

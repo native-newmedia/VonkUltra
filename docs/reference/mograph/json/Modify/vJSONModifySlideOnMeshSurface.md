@@ -1,6 +1,7 @@
 ---
-sidebar_position: 44
+sidebar_position: 46
 title: vJSONModifySlideOnMeshSurface
+description: "Slide input points in a world-space direction then reproject onto OBJ mesh surface."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -41,7 +42,7 @@ Slide input points in a world-space direction then reproject onto OBJ mesh surfa
 | Affect X | Float | `1` | — |
 | Affect Y | Float | `1` | — |
 | Affect Z | Float | `1` | — |
-| Mesh Source | Integer | `File` | — |
+| Mesh Source | Dropdown | `File` | — |
 | Filename | Text | `—` | — |
 | URL | Text | `—` | — |
 | OBJ Text | Text | `—` | — |

@@ -1,6 +1,7 @@
 ---
-sidebar_position: 51
+sidebar_position: 53
 title: vArrayPacker
+description: "Pack Operations on an Array"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,7 +26,7 @@ Pack Operations on an Array
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Pack To: | Integer | `X` | — |
+| Pack To: | Dropdown | `X` | — |
 | Custom Group Size | Integer | `0` | — |
 | Show Input | Integer | `0.0` | — |
 | Array A | DATATYPE | `—` | — |

@@ -1,6 +1,7 @@
 ---
-sidebar_position: 1
+sidebar_position: 8
 title: vJSONMergeOBJ
+description: "Merge Wavefront OBJ geometry with edge and point JSON Arrays"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -34,10 +35,13 @@ Merge Wavefront OBJ geometry with edge and point JSON Arrays
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="./vJSONToOBJ">vJSONToOBJ</a>
+  <a className="node-chip" href="./vJSONAppend">vJSONAppend</a>
+  <a className="node-chip" href="./vJSONAppendGroup">vJSONAppendGroup</a>
+  <a className="node-chip" href="./vJSONDataComposite">vJSONDataComposite</a>
+  <a className="node-chip" href="./vJSONFontArray">vJSONFontArray</a>
 </div>
 
 {/*
-Generated page — node: vJSONMergeOBJ (JSON/OBJ).
+Generated page — node: vJSONMergeOBJ (JSON/Utility).
 Source: fuse vJSONMergeOBJ.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
 */}

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vMatrixCreateTRS
+description: "Creates a 4x4 matrix using traditional XYZ translation, rotation, and scale controls"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -26,7 +27,7 @@ Creates a 4x4 matrix using traditional XYZ translation, rotation, and scale cont
 | X Offset | Float | `—` | — |
 | Y Offset | Float | `—` | — |
 | Z Offset | Float | `0.0` | — |
-| Rotation Order | Float | ` XYZ ` | — |
+| Rotation Order | Dropdown | ` XYZ ` | — |
 | X Rotation | Float | `—` | — |
 
 <details>

@@ -1,6 +1,7 @@
 ---
-sidebar_position: 7
+sidebar_position: 8
 title: vArrayMap
+description: "Normalize Array Values using various methods."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,7 +26,7 @@ Normalize Array Values using various methods.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Normalization Method | Integer | `0.0` | — |
+| Normalization Method | Dropdown | `Min-Max (0 to 1)` | — |
 | line1Separator | Float | `—` | — |
 | CustomMin | Float | `0` | — |
 | CustomMax | Float | `1` | — |

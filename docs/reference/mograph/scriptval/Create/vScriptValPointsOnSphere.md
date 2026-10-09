@@ -1,6 +1,7 @@
 ---
-sidebar_position: 50
+sidebar_position: 55
 title: vScriptValPointsOnSphere
+description: "Generate points on Sphere"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,7 +26,7 @@ Generate points on Sphere
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Create | Integer | `Fibonacci Sphere` | — |
+| Create | Dropdown | `Fibonacci Sphere` | — |
 | Amount of points | Integer | `100` | — |
 | Sphere size | Float | `0.3` | — |
 | Random distance | Float | `0` | — |
@@ -36,10 +37,10 @@ Generate points on Sphere
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Distribution | Integer | `Uniform` | — |
+| Distribution | Dropdown | `Uniform` | — |
 | Trim Top | Float | `-1` | — |
 | Trim Bottom | Float | `1` | — |
-| Random Distance | Integer | `False` | — |
+| Random Distance | Dropdown | `False` | — |
 | line6Separator | Float | `—` | — |
 | Scale Factor | Float | `1` | — |
 | Rotate Factor | Float | `0` | — |

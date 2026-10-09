@@ -1,6 +1,7 @@
 ---
-sidebar_position: 29
+sidebar_position: 31
 title: vScriptValModifyOffsetByMeshNormal
+description: "Offset each input point along the nearest OBJ mesh surface normal."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -37,7 +38,7 @@ Offset each input point along the nearest OBJ mesh surface normal.
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | Affect Z | Float | `1` | — |
-| Mesh Source | Integer | `File` | — |
+| Mesh Source | Dropdown | `File` | — |
 | Filename | Text | `—` | — |
 | URL | Text | `—` | — |
 | OBJ Text | Text | `—` | — |

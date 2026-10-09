@@ -1,6 +1,7 @@
 ---
-sidebar_position: 41
+sidebar_position: 43
 title: vArrayModifyReverse
+description: "Reverse or reorder array within specified index range."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -26,7 +27,7 @@ Reverse or reorder array within specified index range. Supports full/partial rev
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | Input | DATATYPE | `—` | — |
-| Direction | Integer | `Reverse` | — |
+| Direction | Dropdown | `Reverse` | — |
 | Start Index | Integer | `1` | — |
 | End Index | Integer | `-1` | — |
 | Preserve Metadata | Integer | `0` | — |

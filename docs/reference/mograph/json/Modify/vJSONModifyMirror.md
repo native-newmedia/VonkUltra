@@ -1,6 +1,7 @@
 ---
-sidebar_position: 26
+sidebar_position: 28
 title: vJSONModifyMirror
+description: "Mirror point arrays across X/Y/Z axis with optional combine."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,7 +26,7 @@ Mirror point arrays across X/Y/Z axis with optional combine.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Mirror Axis | Integer | `X` | — |
+| Mirror Axis | Dropdown | `X` | — |
 | Axis Pivot | Float | `0` | — |
 | Keep Original | Integer | `1` | — |
 | Show Input | Integer | `0.0` | — |

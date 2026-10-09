@@ -1,6 +1,7 @@
 ---
-sidebar_position: 24
+sidebar_position: 27
 title: vJSONCreateRadialSymmetry
+description: "Create radial symmetry from source points."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -48,8 +49,8 @@ Create radial symmetry from source points.
 <div className="node-chip-row">
   <a className="node-chip" href="./vJSONBuffer">vJSONBuffer</a>
   <a className="node-chip" href="./vJSONCircularPoints">vJSONCircularPoints</a>
-  <a className="node-chip" href="./vJSONCreate">vJSONCreate</a>
   <a className="node-chip" href="./vJSONCreateAsset">vJSONCreateAsset</a>
+  <a className="node-chip" href="./vJSONCreateAttractorPoints">vJSONCreateAttractorPoints</a>
 </div>
 
 {/*

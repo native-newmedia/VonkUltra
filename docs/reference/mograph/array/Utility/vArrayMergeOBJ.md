@@ -1,6 +1,7 @@
 ---
 sidebar_position: 8
 title: vArrayMergeOBJ
+description: "Merge Wavefront OBJ geometry with edge and point Arrays"
 ---
 
 import Tabs from '@theme/Tabs';

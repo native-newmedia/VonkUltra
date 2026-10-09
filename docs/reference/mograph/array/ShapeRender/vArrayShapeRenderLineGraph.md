@@ -1,6 +1,7 @@
 ---
 sidebar_position: 11
 title: vArrayShapeRenderLineGraph
+description: "Render a line graph from an array of scalar values."
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,7 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 title: vHTML_UIControl_Color
+description: "The vHTML_UIControl_Color node in the Vonk Ultra HTML toolkit."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -32,6 +33,7 @@ The vHTML_UIControl_Color node in the Vonk Ultra HTML toolkit.
 ## Related Nodes
 
 <div className="node-chip-row">
+  <a className="node-chip" href="./vHTML_OGrafManifest">vHTML_OGrafManifest</a>
   <a className="node-chip" href="./vHTML_UIControl_Hero">vHTML_UIControl_Hero</a>
 </div>
 

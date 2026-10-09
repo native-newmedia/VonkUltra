@@ -1,6 +1,7 @@
 ---
-sidebar_position: 18
+sidebar_position: 21
 title: vJSONCreateList
+description: "Create an array by entering each value manually"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -26,7 +27,7 @@ Create an array by entering each value manually
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | Array Length | Integer | `1` | — |
-| Pack To: | Integer | `X` | — |
+| Pack To: | Dropdown | `X` | — |
 | line1Separator | Float | `—` | — |
 |  [ " .. j .. " ]  | Float | `0` | — |
 | Reverse Array | Integer | `0.0` | — |

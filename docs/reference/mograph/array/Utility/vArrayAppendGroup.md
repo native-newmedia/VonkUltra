@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vArrayAppendGroup
+description: "Append Array Groups to an array"
 ---
 
 import Tabs from '@theme/Tabs';

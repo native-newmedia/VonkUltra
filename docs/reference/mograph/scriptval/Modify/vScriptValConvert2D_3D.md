@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 title: vScriptValConvert2D_3D
+description: "Convert 2D array to 3D array"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,7 +26,7 @@ Convert 2D array to 3D array
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Convert To: | Integer | `X` | — |
+| Convert To: | Dropdown | `X` | — |
 | Show Input | Integer | `0.0` | — |
 | ScriptVal | DATATYPE | `—` | — |
 
@@ -36,7 +37,7 @@ Convert 2D array to 3D array
   <a className="node-chip" href="./vScriptValBoundingBox">vScriptValBoundingBox</a>
   <a className="node-chip" href="./vScriptValCameraProjection">vScriptValCameraProjection</a>
   <a className="node-chip" href="./vScriptValDisplaceValues">vScriptValDisplaceValues</a>
-  <a className="node-chip" href="./vScriptValInterpolate">vScriptValInterpolate</a>
+  <a className="node-chip" href="./vScriptValGridConnect">vScriptValGridConnect</a>
 </div>
 
 {/*

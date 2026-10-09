@@ -1,6 +1,7 @@
 ---
 sidebar_position: 14
 title: vScriptValShapeRenderRadialBurst
+description: "Render lines radiating from a center point."
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,7 @@
 ---
-sidebar_position: 13
+sidebar_position: 14
 title: vArrayLogicPartition
+description: "Split array into Pass (mask=1) and Fail (mask=0) outputs."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -32,10 +33,10 @@ Split array into Pass (mask=1) and Fail (mask=0) outputs.
 ## Related Nodes
 
 <div className="node-chip-row">
+  <a className="node-chip" href="./vArrayCountMask">vArrayCountMask</a>
   <a className="node-chip" href="./vArrayLogicAND">vArrayLogicAND</a>
   <a className="node-chip" href="./vArrayLogicAll">vArrayLogicAll</a>
   <a className="node-chip" href="./vArrayLogicAny">vArrayLogicAny</a>
-  <a className="node-chip" href="./vArrayLogicBetween">vArrayLogicBetween</a>
 </div>
 
 {/*

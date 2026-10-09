@@ -1,6 +1,7 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 title: vScriptValAccumulatorOBJ
+description: "Temporally concatenate Wavefront OBJ geometry with edge and point ScriptVal arrays"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -44,10 +45,13 @@ Temporally concatenate Wavefront OBJ geometry with edge and point ScriptVal arra
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="./vScriptValAccumulator">vScriptValAccumulator</a>
+  <a className="node-chip" href="./vScriptValAccumulatorXform">vScriptValAccumulatorXform</a>
+  <a className="node-chip" href="./vScriptValTemporalDelta">vScriptValTemporalDelta</a>
+  <a className="node-chip" href="./vScriptValTemporalSmooth">vScriptValTemporalSmooth</a>
+  <a className="node-chip" href="./vScriptValTemporalSolverStep">vScriptValTemporalSolverStep</a>
 </div>
 
 {/*
-Generated page — node: vScriptValAccumulatorOBJ (ScriptVal/Accumulate).
+Generated page — node: vScriptValAccumulatorOBJ (ScriptVal/Temporal).
 Source: fuse vScriptValAccumulatorOBJ.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
 */}

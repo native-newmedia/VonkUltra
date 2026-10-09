@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vScriptValCircuitBoardAbstract
+description: "Generates a absract circuit board with lines and components"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -26,8 +27,8 @@ Generates a absract circuit board with lines and components
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | Random Seed | Integer | `42` | — |
-| Pattern Type | Integer | `Radial` | — |
-| Connection Style | Integer | `Manhattan` | — |
+| Pattern Type | Dropdown | `Radial` | — |
+| Connection Style | Dropdown | `Manhattan` | — |
 | No Duplicate Connections | Float | `1.0` | — |
 | Curvature | Float | `0.0` | — |
 
@@ -49,15 +50,15 @@ Generates a absract circuit board with lines and components
 | Trace Green | Float | `0.8` | — |
 | Trace Blue | Float | `1.0` | — |
 | Show Nodes | Float | `0` | — |
-| Node Shape | Integer | `Circle` | — |
+| Node Shape | Dropdown | `Circle` | — |
 | Node Size | Float | `0.02` | — |
 | Node Red | Float | `0.1` | — |
 | Node Green | Float | `0.9` | — |
 | Node Blue | Float | `1.0` | — |
-| Filter | Float | `Gaussian` | — |
+| Filter | Dropdown | `Gaussian` | — |
 | Soft Edge | Float | `0` | — |
-| Line Type | Float | `Solid` | — |
-| Join Type | Float | `2.0` | — |
+| Line Type | Dropdown | `Solid` | — |
+| Join Type | Dropdown | `2.0` | — |
 | Input | Image | `—` | — |
 | JSON Custom Shape | ScriptVal | `—` | — |
 

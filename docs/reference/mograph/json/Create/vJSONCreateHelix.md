@@ -1,6 +1,7 @@
 ---
-sidebar_position: 13
+sidebar_position: 16
 title: vJSONCreateHelix
+description: "Creates a Helix Array."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -37,8 +38,8 @@ Creates a Helix Array.
 <div className="node-chip-row">
   <a className="node-chip" href="./vJSONBuffer">vJSONBuffer</a>
   <a className="node-chip" href="./vJSONCircularPoints">vJSONCircularPoints</a>
-  <a className="node-chip" href="./vJSONCreate">vJSONCreate</a>
   <a className="node-chip" href="./vJSONCreateAsset">vJSONCreateAsset</a>
+  <a className="node-chip" href="./vJSONCreateAttractorPoints">vJSONCreateAttractorPoints</a>
 </div>
 
 {/*

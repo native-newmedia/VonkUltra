@@ -1,6 +1,7 @@
 ---
-sidebar_position: 48
+sidebar_position: 53
 title: vScriptValPointsOnGrid
+description: "Generate point on Array Grid"
 ---
 
 import Tabs from '@theme/Tabs';

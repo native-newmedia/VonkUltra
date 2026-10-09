@@ -1,6 +1,7 @@
 ---
-sidebar_position: 6
+sidebar_position: 7
 title: vArrayLogicCompare
+description: "Element-wise compare arrays and return 0/1 mask."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,7 +26,7 @@ Element-wise compare arrays and return 0/1 mask.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Compare | Integer | `0` | — |
+| Compare | Dropdown | `==` | — |
 | Array A | DATATYPE | `—` | — |
 | Array B | DATATYPE | `—` | — |
 
@@ -33,10 +34,10 @@ Element-wise compare arrays and return 0/1 mask.
 ## Related Nodes
 
 <div className="node-chip-row">
+  <a className="node-chip" href="./vArrayCountMask">vArrayCountMask</a>
   <a className="node-chip" href="./vArrayLogicAND">vArrayLogicAND</a>
   <a className="node-chip" href="./vArrayLogicAll">vArrayLogicAll</a>
   <a className="node-chip" href="./vArrayLogicAny">vArrayLogicAny</a>
-  <a className="node-chip" href="./vArrayLogicBetween">vArrayLogicBetween</a>
 </div>
 
 {/*

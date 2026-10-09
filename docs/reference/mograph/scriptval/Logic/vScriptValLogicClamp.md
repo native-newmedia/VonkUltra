@@ -1,6 +1,7 @@
 ---
-sidebar_position: 5
+sidebar_position: 6
 title: vScriptValLogicClamp
+description: "Clamp array values to [min, max] range."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -33,10 +34,10 @@ Clamp array values to [min, max] range.
 ## Related Nodes
 
 <div className="node-chip-row">
+  <a className="node-chip" href="./vScriptValCountMask">vScriptValCountMask</a>
   <a className="node-chip" href="./vScriptValLogicAND">vScriptValLogicAND</a>
   <a className="node-chip" href="./vScriptValLogicAll">vScriptValLogicAll</a>
   <a className="node-chip" href="./vScriptValLogicAny">vScriptValLogicAny</a>
-  <a className="node-chip" href="./vScriptValLogicBetween">vScriptValLogicBetween</a>
 </div>
 
 {/*

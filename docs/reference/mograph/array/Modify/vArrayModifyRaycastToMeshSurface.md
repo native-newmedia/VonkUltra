@@ -1,6 +1,7 @@
 ---
-sidebar_position: 37
+sidebar_position: 39
 title: vArrayModifyRaycastToMeshSurface
+description: "Cast rays from input points against OBJ mesh surface to find intersection hits."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -28,7 +29,7 @@ Cast rays from input points against OBJ mesh surface to find intersection hits.
 | Points | DATATYPE | `—` | — |
 | Direction Array | DATATYPE | `—` | — |
 | Scale File Units By | Float | `1` | — |
-| Ray Mode | Integer | `Global Dir` | — |
+| Ray Mode | Dropdown | `Global Dir` | — |
 | Direction X | Float | `0` | — |
 
 <details>
@@ -41,11 +42,11 @@ Cast rays from input points against OBJ mesh surface to find intersection hits.
 | Target X | Float | `0` | — |
 | Target Y | Float | `0` | — |
 | Target Z | Float | `0` | — |
-| Miss Behavior | Integer | `0` | — |
+| Miss Behavior | Dropdown | `Pass Through` | — |
 | Affect X | Float | `1` | — |
 | Affect Y | Float | `1` | — |
 | Affect Z | Float | `1` | — |
-| Mesh Source | Integer | `File` | — |
+| Mesh Source | Dropdown | `File` | — |
 | Filename | Text | `—` | — |
 | URL | Text | `—` | — |
 | OBJ Text | Text | `—` | — |

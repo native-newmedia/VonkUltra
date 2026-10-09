@@ -1,6 +1,7 @@
 ---
-sidebar_position: 65
+sidebar_position: 68
 title: vScriptValUnPacker
+description: "Unpack Operations on a ScriptVal object"
 ---
 
 import Tabs from '@theme/Tabs';

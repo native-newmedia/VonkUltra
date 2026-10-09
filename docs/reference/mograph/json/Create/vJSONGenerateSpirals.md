@@ -1,6 +1,7 @@
 ---
-sidebar_position: 37
+sidebar_position: 42
 title: vJSONGenerateSpirals
+description: "Generate Spiral splines"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,8 +26,8 @@ Generate Spiral splines
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Spiral Type | Integer | `Logarithmic Spiral` | — |
-| Shape Mode | Integer | `line` | — |
+| Spiral Type | Dropdown | `Logarithmic Spiral` | — |
+| Shape Mode | Dropdown | `line` | — |
 | Growth coefficient | Float | `0.04` | — |
 | Expansion factor | Float | `0.22` | — |
 | Max angle | Integer | `6` | — |

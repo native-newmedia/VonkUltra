@@ -1,6 +1,7 @@
 ---
-sidebar_position: 3
+sidebar_position: 5
 title: vScriptValTemporalSolverStep
+description: "Temporal feedback solver step with add/multiply/lerp operations."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,7 +26,7 @@ Temporal feedback solver step with add/multiply/lerp operations.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Operation | Integer | `0` | — |
+| Operation | Dropdown | `Add` | — |
 | Feedback Blend | Float | `0.5` | — |
 | Lerp Amount | Float | `0.5` | — |
 | Clamp Displacement | Integer | `0` | — |
@@ -46,10 +47,10 @@ Temporal feedback solver step with add/multiply/lerp operations.
 ## Related Nodes
 
 <div className="node-chip-row">
+  <a className="node-chip" href="./vScriptValAccumulatorOBJ">vScriptValAccumulatorOBJ</a>
+  <a className="node-chip" href="./vScriptValAccumulatorXform">vScriptValAccumulatorXform</a>
   <a className="node-chip" href="./vScriptValTemporalDelta">vScriptValTemporalDelta</a>
   <a className="node-chip" href="./vScriptValTemporalSmooth">vScriptValTemporalSmooth</a>
-  <a className="node-chip" href="./vScriptValTemporalTimeShiftArray">vScriptValTemporalTimeShiftArray</a>
-  <a className="node-chip" href="./vScriptValTemporalTrailFromPoints">vScriptValTemporalTrailFromPoints</a>
 </div>
 
 {/*

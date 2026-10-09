@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vMatrixToMOVE
+description: "Export translation matrix content to the Maya MOVE ASCII format"
 ---
 
 import Tabs from '@theme/Tabs';

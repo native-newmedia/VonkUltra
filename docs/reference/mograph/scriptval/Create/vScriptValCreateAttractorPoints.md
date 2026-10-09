@@ -1,6 +1,7 @@
 ---
 sidebar_position: 5
 title: vScriptValCreateAttractorPoints
+description: "Generate a point path from a strange attractor."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,7 +26,7 @@ Generate a point path from a strange attractor.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| System | Integer | `Lorenz` | — |
+| System | Dropdown | `Lorenz` | — |
 | Point Count | Integer | `2000` | — |
 | Warmup Steps | Integer | `100` | — |
 | Step Size | Float | `0.01` | — |
@@ -48,8 +49,8 @@ Generate a point path from a strange attractor.
 <div className="node-chip-row">
   <a className="node-chip" href="./vScriptValBuffer">vScriptValBuffer</a>
   <a className="node-chip" href="./vScriptValCircularPoints">vScriptValCircularPoints</a>
-  <a className="node-chip" href="./vScriptValCreate">vScriptValCreate</a>
   <a className="node-chip" href="./vScriptValCreateAsset">vScriptValCreateAsset</a>
+  <a className="node-chip" href="./vScriptValCreateCubicBezier">vScriptValCreateCubicBezier</a>
 </div>
 
 {/*

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 4
 title: vJSONDisplaceValues
+description: "Displace XYZ positions using noise with spherical falloff"
 ---
 
 import Tabs from '@theme/Tabs';

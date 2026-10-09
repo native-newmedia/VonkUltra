@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 title: vScriptValDataComposite
+description: "Passes an image through unchanged while forcing one or two connected ScriptVal data branches to cook every frame the image is required — even though their values never touch the pixels."
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,7 @@
 ---
-sidebar_position: 29
+sidebar_position: 33
 title: vScriptValCreateSuperellipse
+description: "Generate points on a superellipse."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -48,8 +49,8 @@ Generate points on a superellipse.
 <div className="node-chip-row">
   <a className="node-chip" href="./vScriptValBuffer">vScriptValBuffer</a>
   <a className="node-chip" href="./vScriptValCircularPoints">vScriptValCircularPoints</a>
-  <a className="node-chip" href="./vScriptValCreate">vScriptValCreate</a>
   <a className="node-chip" href="./vScriptValCreateAsset">vScriptValCreateAsset</a>
+  <a className="node-chip" href="./vScriptValCreateAttractorPoints">vScriptValCreateAttractorPoints</a>
 </div>
 
 {/*

@@ -1,6 +1,7 @@
 ---
-sidebar_position: 25
+sidebar_position: 28
 title: vJSONCreateRandom
+description: "Creates a random JSON Array"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -38,7 +39,7 @@ Creates a random JSON Array
 |---|---|---|---|
 | Seed | Integer | `0` | — |
 | line3Separator | Float | `—` | — |
-| Pack To: | Integer | `X` | — |
+| Pack To: | Dropdown | `X` | — |
 | line4Separator | Float | `—` | — |
 | Show Input | Integer | `0.0` | — |
 

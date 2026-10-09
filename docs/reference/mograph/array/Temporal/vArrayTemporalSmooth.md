@@ -1,6 +1,7 @@
 ---
 sidebar_position: 4
 title: vArrayTemporalSmooth
+description: "Temporal low-pass smoothing for Array text payloads."
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,7 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 title: vScriptValLogicAND
+description: "Element-wise logical AND of two 0/1 mask arrays."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -32,10 +33,10 @@ Element-wise logical AND of two 0/1 mask arrays.
 ## Related Nodes
 
 <div className="node-chip-row">
+  <a className="node-chip" href="./vScriptValCountMask">vScriptValCountMask</a>
   <a className="node-chip" href="./vScriptValLogicAll">vScriptValLogicAll</a>
   <a className="node-chip" href="./vScriptValLogicAny">vScriptValLogicAny</a>
   <a className="node-chip" href="./vScriptValLogicBetween">vScriptValLogicBetween</a>
-  <a className="node-chip" href="./vScriptValLogicClamp">vScriptValLogicClamp</a>
 </div>
 
 {/*

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 4
 title: vJSONTemporalSmooth
+description: "Temporal low-pass smoothing for JSON arrays."
 ---
 
 import Tabs from '@theme/Tabs';

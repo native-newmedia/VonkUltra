@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vJSONPointsJitter
+description: "Add jitter to JSON array points."
 ---
 
 import Tabs from '@theme/Tabs';

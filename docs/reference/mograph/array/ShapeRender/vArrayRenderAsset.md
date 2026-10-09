@@ -1,6 +1,7 @@
 ---
 sidebar_position: 4
 title: vArrayRenderAsset
+description: "Render 3D wireframe from a JSON text payload of vGeometry mesh data."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,7 +26,7 @@ Render 3D wireframe from a JSON text payload of vGeometry mesh data.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| View Mode | Integer | `0` | — |
+| View Mode | Dropdown | `Geometry` | — |
 | Show Bounding Box | Integer | `0` | — |
 | Field of View | Float | `90.0` | — |
 | Screen aspect ratio | Float | `16 / 9` | — |
@@ -63,7 +64,7 @@ Render 3D wireframe from a JSON text payload of vGeometry mesh data.
 | Blue | Float | `0.56` | — |
 | Alpha | Float | `1.0` | — |
 | Text Size | Float | `0.02` | — |
-| Text Style | Float | `Bold` | — |
+| Text Style | Dropdown | `Bold` | — |
 | Separator_4 | Float | `—` | — |
 | Red | Float | `1.0` | — |
 | Green | Float | `1` | — |
@@ -72,14 +73,14 @@ Render 3D wireframe from a JSON text payload of vGeometry mesh data.
 | Separator_5 | Float | `—` | — |
 | Fade Color | Float | `0.1` | — |
 | Separator_6 | Float | `—` | — |
-| Filter | Float | `Gaussian` | — |
+| Filter | Dropdown | `Gaussian` | — |
 | Soft Edge | Float | `0` | — |
-| Line Type | Float | `Solid` | — |
-| Join Type | Float | `2.0` | — |
+| Line Type | Dropdown | `Solid` | — |
+| Join Type | Dropdown | `2.0` | — |
 | X Offset | Float | `—` | — |
 | Y Offset | Float | `—` | — |
 | Z Offset | Float | `1.0` | — |
-| Rotation Order | Float | ` XYZ ` | — |
+| Rotation Order | Dropdown | ` XYZ ` | — |
 | X Rotation | Float | `—` | — |
 | Y Rotation | Float | `—` | — |
 | Z Rotation | Float | `—` | — |

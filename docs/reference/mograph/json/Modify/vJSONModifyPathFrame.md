@@ -1,6 +1,7 @@
 ---
-sidebar_position: 30
+sidebar_position: 32
 title: vJSONModifyPathFrame
+description: "Build tangent/normal/binormal frames along a path."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,7 +26,7 @@ Build tangent/normal/binormal frames along a path.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Up Mode | Integer | `0` | — |
+| Up Mode | Dropdown | `World Y` | — |
 | Custom Up X | Float | `0` | — |
 | Custom Up Y | Float | `1` | — |
 | Custom Up Z | Float | `0` | — |

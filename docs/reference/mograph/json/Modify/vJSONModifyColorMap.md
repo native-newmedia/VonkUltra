@@ -1,6 +1,7 @@
 ---
-sidebar_position: 19
+sidebar_position: 21
 title: vJSONModifyColorMap
+description: "Map scalar sources to per-point RGBA colors."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,7 +26,7 @@ Map scalar sources to per-point RGBA colors.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Source | Integer | `0` | — |
+| Source | Dropdown | `Index` | — |
 | Auto Range | Integer | `1.0` | — |
 | RangeMin | Float | `0` | — |
 | RangeMax | Float | `1` | — |

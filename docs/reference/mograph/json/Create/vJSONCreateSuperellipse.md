@@ -1,6 +1,7 @@
 ---
-sidebar_position: 29
+sidebar_position: 33
 title: vJSONCreateSuperellipse
+description: "Generate points on a superellipse."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -48,8 +49,8 @@ Generate points on a superellipse.
 <div className="node-chip-row">
   <a className="node-chip" href="./vJSONBuffer">vJSONBuffer</a>
   <a className="node-chip" href="./vJSONCircularPoints">vJSONCircularPoints</a>
-  <a className="node-chip" href="./vJSONCreate">vJSONCreate</a>
   <a className="node-chip" href="./vJSONCreateAsset">vJSONCreateAsset</a>
+  <a className="node-chip" href="./vJSONCreateAttractorPoints">vJSONCreateAttractorPoints</a>
 </div>
 
 {/*

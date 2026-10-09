@@ -1,6 +1,7 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 title: vArrayLogicAll
+description: "Reduce array to 1 if all elements are non-zero, else 0."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -31,10 +32,10 @@ Reduce array to 1 if all elements are non-zero, else 0.
 ## Related Nodes
 
 <div className="node-chip-row">
+  <a className="node-chip" href="./vArrayCountMask">vArrayCountMask</a>
   <a className="node-chip" href="./vArrayLogicAND">vArrayLogicAND</a>
   <a className="node-chip" href="./vArrayLogicAny">vArrayLogicAny</a>
   <a className="node-chip" href="./vArrayLogicBetween">vArrayLogicBetween</a>
-  <a className="node-chip" href="./vArrayLogicClamp">vArrayLogicClamp</a>
 </div>
 
 {/*

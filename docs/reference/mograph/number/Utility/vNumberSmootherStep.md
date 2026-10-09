@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vNumberSmootherStep
+description: "Performs a interpolate smoothly between two input values, ensuring smooth acceleration and deceleration"
 ---
 
 import Tabs from '@theme/Tabs';

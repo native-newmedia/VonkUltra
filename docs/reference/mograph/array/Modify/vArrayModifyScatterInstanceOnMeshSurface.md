@@ -1,6 +1,7 @@
 ---
-sidebar_position: 43
+sidebar_position: 45
 title: vArrayModifyScatterInstanceOnMeshSurface
+description: "Stamp a template point cloud at each surface scatter point, oriented to surface normal."
 ---
 
 import Tabs from '@theme/Tabs';

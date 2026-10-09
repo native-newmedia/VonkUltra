@@ -1,6 +1,7 @@
 ---
 sidebar_position: 5
 title: vJSONInfo
+description: "Returns info of an array"
 ---
 
 import Tabs from '@theme/Tabs';

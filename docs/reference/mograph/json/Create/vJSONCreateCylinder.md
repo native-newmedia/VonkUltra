@@ -1,6 +1,7 @@
 ---
 sidebar_position: 7
 title: vJSONCreateCylinder
+description: "Generate points on a cylinder."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -29,7 +30,7 @@ Generate points on a cylinder.
 | Height | Float | `0.5` | — |
 | Radial Segments | Integer | `24` | — |
 | Height Segments | Integer | `8` | — |
-| Cap Mode | Integer | `Both` | — |
+| Cap Mode | Dropdown | `Both` | — |
 
 <details>
 <summary>+2 more parameters</summary>
@@ -47,8 +48,8 @@ Generate points on a cylinder.
 <div className="node-chip-row">
   <a className="node-chip" href="./vJSONBuffer">vJSONBuffer</a>
   <a className="node-chip" href="./vJSONCircularPoints">vJSONCircularPoints</a>
-  <a className="node-chip" href="./vJSONCreate">vJSONCreate</a>
   <a className="node-chip" href="./vJSONCreateAsset">vJSONCreateAsset</a>
+  <a className="node-chip" href="./vJSONCreateAttractorPoints">vJSONCreateAttractorPoints</a>
 </div>
 
 {/*

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 16
 title: vJSONShapeRenderSweepProfile
+description: "Sweep a profile along a path and output ribbon/tube mesh data."
 ---
 
 import Tabs from '@theme/Tabs';

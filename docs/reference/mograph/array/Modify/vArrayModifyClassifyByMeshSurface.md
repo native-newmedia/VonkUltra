@@ -1,6 +1,7 @@
 ---
-sidebar_position: 17
+sidebar_position: 19
 title: vArrayModifyClassifyByMeshSurface
+description: "Classify input points as inside or outside a closed OBJ mesh using ray casting."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -26,7 +27,7 @@ Classify input points as inside or outside a closed OBJ mesh using ray casting.
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | Points | DATATYPE | `—` | — |
-| Mesh Source | Integer | `File` | — |
+| Mesh Source | Dropdown | `File` | — |
 | Filename | Text | `—` | — |
 | URL | Text | `—` | — |
 | OBJ Text | Text | `—` | — |
@@ -37,7 +38,7 @@ Classify input points as inside or outside a closed OBJ mesh using ray casting.
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | Scale File Units By | Float | `1` | — |
-| Offset Space | Integer | `Normal` | — |
+| Offset Space | Dropdown | `Normal` | — |
 | Surface Offset Distance | Float | `0` | — |
 | Flip Normal | Float | `0` | — |
 | World Offset X | Float | `0` | — |

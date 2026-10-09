@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vJSONAccumulatorOBJ
+description: "Temporally concatenate Wavefront OBJ geometry with edge and point array elements"
 ---
 
 import Tabs from '@theme/Tabs';

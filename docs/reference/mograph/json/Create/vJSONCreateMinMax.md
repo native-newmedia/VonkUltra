@@ -1,6 +1,7 @@
 ---
-sidebar_position: 20
+sidebar_position: 23
 title: vJSONCreateMinMax
+description: "Creates Array based on Max/Min operations"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -26,7 +27,7 @@ Creates Array based on Max/Min operations
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | Array length | Integer | `1` | — |
-| Mode Select  | Integer | `XY` | — |
+| Mode Select  | Dropdown | `XY` | — |
 | line1Separator | Float | `—` | — |
 | Min1 | Float | `-1` | — |
 | Max1 | Float | `1` | — |

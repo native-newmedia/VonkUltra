@@ -1,6 +1,7 @@
 ---
 sidebar_position: 4
 title: vScriptValRandomShape
+description: "Random shape and text generator with font support"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,8 +26,8 @@ Random shape and text generator with font support
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Generate Random →  | Integer | `2.0` | — |
-| Shape Type | Float | `Ticks` | — |
+| Generate Random →  | Dropdown | `Character` | — |
+| Shape Type | Dropdown | `Ticks` | — |
 | Array length | Integer | `2` | — |
 | Seed | Float | `0` | — |
 | Shape Scale | Float | `0.05` | — |
@@ -37,13 +38,13 @@ Random shape and text generator with font support
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | Shape Rotation | Float | `0.0` | — |
-| Font Select | Integer | `Use Font` | — |
+| Font Select | Dropdown | `Use Font` | — |
 | Font | Text | `—` | — |
 | Style | Text | `—` | — |
 | Size | Float | `0.08` | — |
 | Character Spacing | Float | `0.0` | — |
-| Letter Case | Integer | `NONE` | — |
-| Justification | Integer | `Center` | — |
+| Letter Case | Dropdown | `NONE` | — |
+| Justification | Dropdown | `Center` | — |
 | Horizontal Adjustment | Float | `0.0` | — |
 | Vertical Adjustment | Float | `0.0` | — |
 | Show Box Background | Integer | `0.0` | — |

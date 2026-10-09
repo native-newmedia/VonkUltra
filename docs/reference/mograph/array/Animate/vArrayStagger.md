@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 title: vArrayStagger
+description: "Animate points using staggered offsets"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,7 +26,7 @@ Animate points using staggered offsets
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Mode | Integer | `0.0` | — |
+| Mode | Dropdown | `Linear` | — |
 | Stagger X | Float | `0.0` | — |
 | Stagger Y | Float | `0.0` | — |
 | Stagger Z | Float | `0.0` | — |

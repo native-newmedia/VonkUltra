@@ -1,6 +1,7 @@
 ---
-sidebar_position: 32
+sidebar_position: 34
 title: vArrayModifyPathWidthMap
+description: "Generate per-point width/radius maps for path sweep."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,7 +26,7 @@ Generate per-point width/radius maps for path sweep.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Source | Integer | `0` | — |
+| Source | Dropdown | `Index` | — |
 | Width Min | Float | `0.05` | — |
 | Width Max | Float | `0.2` | — |
 | Power | Float | `1` | — |

@@ -1,6 +1,7 @@
 ---
-sidebar_position: 32
+sidebar_position: 36
 title: vScriptValCreateVoronoi
+description: "Creates a Voronoi Array."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -49,8 +50,8 @@ Creates a Voronoi Array.
 <div className="node-chip-row">
   <a className="node-chip" href="./vScriptValBuffer">vScriptValBuffer</a>
   <a className="node-chip" href="./vScriptValCircularPoints">vScriptValCircularPoints</a>
-  <a className="node-chip" href="./vScriptValCreate">vScriptValCreate</a>
   <a className="node-chip" href="./vScriptValCreateAsset">vScriptValCreateAsset</a>
+  <a className="node-chip" href="./vScriptValCreateAttractorPoints">vScriptValCreateAttractorPoints</a>
 </div>
 
 {/*

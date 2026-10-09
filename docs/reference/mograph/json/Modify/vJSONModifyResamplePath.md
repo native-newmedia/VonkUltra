@@ -1,6 +1,7 @@
 ---
-sidebar_position: 40
+sidebar_position: 42
 title: vJSONModifyResamplePath
+description: "Resample ordered paths to even spacing by count or distance."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,11 +26,11 @@ Resample ordered paths to even spacing by count or distance.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Mode | Integer | `0` | — |
+| Mode | Dropdown | `Target Count` | — |
 | Target Count | Integer | `32` | — |
 | Target Spacing | Float | `0.05` | — |
 | Closed Path | Integer | `0.0` | — |
-| Interpolation | Integer | `0` | — |
+| Interpolation | Dropdown | `Linear` | — |
 
 <details>
 <summary>+3 more parameters</summary>

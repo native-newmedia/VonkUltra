@@ -1,6 +1,7 @@
 ---
 sidebar_position: 17
 title: vScriptValShapeRenderTextPath
+description: "Using Text and Strings on Array based Lua table of XY points path"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -36,8 +37,8 @@ Using Text and Strings on Array based Lua table of XY points path
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Text Mode | Integer | `Input` | — |
-| Generate Random →  | Integer | `0.0` | — |
+| Text Mode | Dropdown | `Input` | — |
+| Generate Random →  | Dropdown | `None` | — |
 | Array length | Integer | `0` | — |
 | Seed | Float | `0` | — |
 | Styled Text | Text | `—` | — |
@@ -45,8 +46,8 @@ Using Text and Strings on Array based Lua table of XY points path
 | Style | Text | `—` | — |
 | Size | Float | `0.03` | — |
 | Character Spacing | Float | `0.02` | — |
-| Letter Case | Integer | `NONE` | — |
-| Justification | Integer | `Center` | — |
+| Letter Case | Dropdown | `NONE` | — |
+| Justification | Dropdown | `Center` | — |
 | Horizontal Adjustment | Float | `0.0` | — |
 | Vertical Adjustment | Float | `0.0` | — |
 | Show Box Background | Integer | `0.0` | — |

@@ -1,6 +1,7 @@
 ---
-sidebar_position: 9
+sidebar_position: 10
 title: vScriptValMath
+description: "Math Operations on a ScriptVal Tip: If you want to apply math operations to arrays of XY or XYZ value pairs, the vScriptValUnPacker node will extract all the…"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -26,8 +27,8 @@ Math Operations on a ScriptVal Tip: If you want to apply math operations to arra
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | Which | Integer | `—` | — |
-| Operation  | Integer | `0.0` | — |
-| Input Number | Integer | `Use Number` | — |
+| Operation  | Dropdown | `Add` | — |
+| Input Number | Dropdown | `Use Number` | — |
 | Number | Float | `1` | — |
 | line4Separator | Float | `—` | — |
 

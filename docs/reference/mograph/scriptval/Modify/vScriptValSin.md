@@ -1,6 +1,7 @@
 ---
-sidebar_position: 60
+sidebar_position: 63
 title: vScriptValSin
+description: "Math Sin - Cos Operations on an Array"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,7 +26,7 @@ Math Sin - Cos Operations on an Array
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Math Function | Integer | `Sin` | — |
+| Math Function | Dropdown | `Sin` | — |
 | Phase | Float | `0.0` | — |
 | Frequency | Float | `0.1` | — |
 | Amplitude | Float | `0.01` | — |

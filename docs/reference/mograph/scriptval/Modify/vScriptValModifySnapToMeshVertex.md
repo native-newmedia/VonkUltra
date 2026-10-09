@@ -1,6 +1,7 @@
 ---
-sidebar_position: 46
+sidebar_position: 48
 title: vScriptValModifySnapToMeshVertex
+description: "Snap each input point to the nearest OBJ mesh vertex."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -36,7 +37,7 @@ Snap each input point to the nearest OBJ mesh vertex.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Mesh Source | Integer | `File` | — |
+| Mesh Source | Dropdown | `File` | — |
 | Filename | Text | `—` | — |
 | URL | Text | `—` | — |
 | OBJ Text | Text | `—` | — |

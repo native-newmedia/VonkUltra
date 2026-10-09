@@ -1,6 +1,7 @@
 ---
-sidebar_position: 49
+sidebar_position: 54
 title: vScriptValPointsOnRectangle
+description: "Generate points on Rectangle"
 ---
 
 import Tabs from '@theme/Tabs';

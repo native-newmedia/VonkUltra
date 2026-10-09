@@ -1,6 +1,7 @@
 ---
 sidebar_position: 7
 title: vScriptValMergeAsset
+description: "Dynamically join ScriptVal Asset elements into one table"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -27,17 +28,15 @@ Dynamically join ScriptVal Asset elements into one table
 |---|---|---|---|
 | Which | Integer | `—` | — |
 | ScriptVal1 | DATATYPE | `—` | — |
-| UISeparator1 | Float | `—` | — |
 | Display Lines | Integer | `20` | — |
-| UISeparator2 | Float | `—` | — |
+| Info | ScriptVal | `—` | — |
+| "ScriptVal" .. i | ScriptVal | `—` | — |
 
 <details>
-<summary>+3 more parameters</summary>
+<summary>+1 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Info | ScriptVal | `—` | — |
-| "ScriptVal" .. i | ScriptVal | `—` | — |
 | "ScriptVal" .. (inp_nr + 1) | ScriptVal | `—` | — |
 
 </details>

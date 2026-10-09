@@ -1,6 +1,7 @@
 ---
-sidebar_position: 14
+sidebar_position: 15
 title: vArrayLogicSelect
+description: "Select XYZ points from A/B using mask array."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -33,10 +34,10 @@ Select XYZ points from A/B using mask array.
 ## Related Nodes
 
 <div className="node-chip-row">
+  <a className="node-chip" href="./vArrayCountMask">vArrayCountMask</a>
   <a className="node-chip" href="./vArrayLogicAND">vArrayLogicAND</a>
   <a className="node-chip" href="./vArrayLogicAll">vArrayLogicAll</a>
   <a className="node-chip" href="./vArrayLogicAny">vArrayLogicAny</a>
-  <a className="node-chip" href="./vArrayLogicBetween">vArrayLogicBetween</a>
 </div>
 
 {/*

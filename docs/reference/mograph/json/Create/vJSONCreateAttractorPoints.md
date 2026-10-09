@@ -1,6 +1,7 @@
 ---
 sidebar_position: 5
 title: vJSONCreateAttractorPoints
+description: "Generate a point path from a strange attractor."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,7 +26,7 @@ Generate a point path from a strange attractor.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| System | Integer | `Lorenz` | — |
+| System | Dropdown | `Lorenz` | — |
 | Point Count | Integer | `2000` | — |
 | Warmup Steps | Integer | `100` | — |
 | Step Size | Float | `0.01` | — |
@@ -48,8 +49,8 @@ Generate a point path from a strange attractor.
 <div className="node-chip-row">
   <a className="node-chip" href="./vJSONBuffer">vJSONBuffer</a>
   <a className="node-chip" href="./vJSONCircularPoints">vJSONCircularPoints</a>
-  <a className="node-chip" href="./vJSONCreate">vJSONCreate</a>
   <a className="node-chip" href="./vJSONCreateAsset">vJSONCreateAsset</a>
+  <a className="node-chip" href="./vJSONCreateCubicBezier">vJSONCreateCubicBezier</a>
 </div>
 
 {/*

@@ -1,6 +1,7 @@
 ---
-sidebar_position: 5
+sidebar_position: 6
 title: vArrayLogicClamp
+description: "Clamp array values to [min, max] range."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -33,10 +34,10 @@ Clamp array values to [min, max] range.
 ## Related Nodes
 
 <div className="node-chip-row">
+  <a className="node-chip" href="./vArrayCountMask">vArrayCountMask</a>
   <a className="node-chip" href="./vArrayLogicAND">vArrayLogicAND</a>
   <a className="node-chip" href="./vArrayLogicAll">vArrayLogicAll</a>
   <a className="node-chip" href="./vArrayLogicAny">vArrayLogicAny</a>
-  <a className="node-chip" href="./vArrayLogicBetween">vArrayLogicBetween</a>
 </div>
 
 {/*

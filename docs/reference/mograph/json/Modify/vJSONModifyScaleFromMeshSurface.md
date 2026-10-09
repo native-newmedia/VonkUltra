@@ -1,6 +1,7 @@
 ---
-sidebar_position: 42
+sidebar_position: 44
 title: vJSONModifyScaleFromMeshSurface
+description: "Scale each point distance from nearest OBJ mesh surface point by multiplier."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -37,7 +38,7 @@ Scale each point distance from nearest OBJ mesh surface point by multiplier.
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | Affect Z | Float | `1` | — |
-| Mesh Source | Integer | `File` | — |
+| Mesh Source | Dropdown | `File` | — |
 | Filename | Text | `—` | — |
 | URL | Text | `—` | — |
 | OBJ Text | Text | `—` | — |

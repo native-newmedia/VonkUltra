@@ -1,6 +1,7 @@
 ---
-sidebar_position: 11
+sidebar_position: 12
 title: vJSONLogicNOT
+description: "Invert a 0/1 mask array — non-zero becomes 0, zero becomes 1."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -31,10 +32,10 @@ Invert a 0/1 mask array — non-zero becomes 0, zero becomes 1.
 ## Related Nodes
 
 <div className="node-chip-row">
+  <a className="node-chip" href="./vJSONCountMask">vJSONCountMask</a>
   <a className="node-chip" href="./vJSONLogicAND">vJSONLogicAND</a>
   <a className="node-chip" href="./vJSONLogicAll">vJSONLogicAll</a>
   <a className="node-chip" href="./vJSONLogicAny">vJSONLogicAny</a>
-  <a className="node-chip" href="./vJSONLogicBetween">vJSONLogicBetween</a>
 </div>
 
 {/*

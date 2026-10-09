@@ -1,6 +1,7 @@
 ---
 sidebar_position: 5
 title: vArrayTemporalSolverStep
+description: "Temporal feedback solver step for Array text payloads."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,7 +26,7 @@ Temporal feedback solver step for Array text payloads.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Operation | Integer | `0` | — |
+| Operation | Dropdown | `Add` | — |
 | Feedback Blend | Float | `0.5` | — |
 | Lerp Amount | Float | `0.5` | — |
 | Clamp Displacement | Integer | `0` | — |

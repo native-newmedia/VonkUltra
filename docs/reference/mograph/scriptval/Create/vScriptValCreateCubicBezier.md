@@ -1,6 +1,7 @@
 ---
 sidebar_position: 6
 title: vScriptValCreateCubicBezier
+description: "Create an array by entering each value manually"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -26,7 +27,7 @@ Create an array by entering each value manually
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | Array Length | Integer | `2` | — |
-| Pack To: | Integer | ` X Y Z` | — |
+| Pack To: | Dropdown | ` X Y Z` | — |
 | line1Separator | Float | `—` | — |
 | Path Tension | Float | `0` | — |
 | Path Subdivisions | Float | `20` | — |
@@ -36,7 +37,7 @@ Create an array by entering each value manually
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Curve Mode: | Integer | `Bezier` | — |
+| Curve Mode: | Dropdown | `Bezier` | — |
 | line1Separator | Float | `—` | — |
 |  [ " .. j .. " ]  | Float | `0` | — |
 | Reverse Array | Integer | `0.0` | — |
@@ -51,8 +52,8 @@ Create an array by entering each value manually
 <div className="node-chip-row">
   <a className="node-chip" href="./vScriptValBuffer">vScriptValBuffer</a>
   <a className="node-chip" href="./vScriptValCircularPoints">vScriptValCircularPoints</a>
-  <a className="node-chip" href="./vScriptValCreate">vScriptValCreate</a>
   <a className="node-chip" href="./vScriptValCreateAsset">vScriptValCreateAsset</a>
+  <a className="node-chip" href="./vScriptValCreateAttractorPoints">vScriptValCreateAttractorPoints</a>
 </div>
 
 {/*

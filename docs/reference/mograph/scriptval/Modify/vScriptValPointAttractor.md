@@ -1,6 +1,7 @@
 ---
-sidebar_position: 54
+sidebar_position: 56
 title: vScriptValPointAttractor
+description: "2D/3D point attractor/repulsor with spring dynamics"
 ---
 
 import Tabs from '@theme/Tabs';

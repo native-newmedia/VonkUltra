@@ -1,6 +1,7 @@
 ---
-sidebar_position: 9
+sidebar_position: 10
 title: vArrayLogicFallback
+description: "Pass Primary array through, or use Fallback if Primary is empty."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -32,10 +33,10 @@ Pass Primary array through, or use Fallback if Primary is empty.
 ## Related Nodes
 
 <div className="node-chip-row">
+  <a className="node-chip" href="./vArrayCountMask">vArrayCountMask</a>
   <a className="node-chip" href="./vArrayLogicAND">vArrayLogicAND</a>
   <a className="node-chip" href="./vArrayLogicAll">vArrayLogicAll</a>
   <a className="node-chip" href="./vArrayLogicAny">vArrayLogicAny</a>
-  <a className="node-chip" href="./vArrayLogicBetween">vArrayLogicBetween</a>
 </div>
 
 {/*

@@ -1,6 +1,7 @@
 ---
-sidebar_position: 56
+sidebar_position: 59
 title: vScriptValPointsOnArc
+description: "Generate points on an arc"
 ---
 
 import Tabs from '@theme/Tabs';

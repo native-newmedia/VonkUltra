@@ -1,6 +1,7 @@
 ---
 sidebar_position: 13
 title: vScriptValShapeRenderPathSweep
+description: "Preview swept path/profile geometry as a 2D image while also outputting mesh data."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,7 +26,7 @@ Preview swept path/profile geometry as a 2D image while also outputting mesh dat
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Preview Mode | Integer | `0` | — |
+| Preview Mode | Dropdown | `Adaptive` | — |
 | X Offset | Float | `0` | — |
 | Y Offset | Float | `0` | — |
 | Z Offset | Float | `1.0` | — |
@@ -44,7 +45,7 @@ Preview swept path/profile geometry as a 2D image while also outputting mesh dat
 | Y Scale | Float | `1.0` | — |
 | Field of View | Float | `90.0` | — |
 | Aspect Ratio | Float | `16 / 9` | — |
-| Profile Preset | Integer | `0` | — |
+| Profile Preset | Dropdown | `Auto / External` | — |
 | Preset Sides | Integer | `8` | — |
 | Close Profile | Integer | `1` | — |
 | Closed Path | Integer | `0` | — |

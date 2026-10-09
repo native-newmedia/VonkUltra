@@ -1,6 +1,7 @@
 ---
-sidebar_position: 16
+sidebar_position: 17
 title: vJSONLogicXOR
+description: "Element-wise logical XOR of two 0/1 mask arrays."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -32,10 +33,10 @@ Element-wise logical XOR of two 0/1 mask arrays.
 ## Related Nodes
 
 <div className="node-chip-row">
+  <a className="node-chip" href="./vJSONCountMask">vJSONCountMask</a>
   <a className="node-chip" href="./vJSONLogicAND">vJSONLogicAND</a>
   <a className="node-chip" href="./vJSONLogicAll">vJSONLogicAll</a>
   <a className="node-chip" href="./vJSONLogicAny">vJSONLogicAny</a>
-  <a className="node-chip" href="./vJSONLogicBetween">vJSONLogicBetween</a>
 </div>
 
 {/*

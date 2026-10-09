@@ -1,6 +1,7 @@
 ---
-sidebar_position: 58
+sidebar_position: 61
 title: vScriptValRippleDisplacer
+description: "Creates animated displacement with time-offset arrays"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -29,7 +30,7 @@ Creates animated displacement with time-offset arrays
 | Time | Float | `0.0` | — |
 | Animation Speed | Float | `1.0` | — |
 | Auto Animate | Integer | `1.0` | — |
-| Displacement Mode | Integer | `0.0` | — |
+| Displacement Mode | Dropdown | `Radial (from center)` | — |
 
 <details>
 <summary>+9 more parameters</summary>
@@ -38,7 +39,7 @@ Creates animated displacement with time-offset arrays
 |---|---|---|---|
 | Amplitude | Float | `2.0` | — |
 | Frequency | Float | `1.0` | — |
-| Wave Type | Integer | `0.0` | — |
+| Wave Type | Dropdown | `Sine` | — |
 | Offset Multiplier | Float | `0.3` | — |
 | "Enable Array " .. i | Integer | `1.0` | — |
 | "Amplitude " .. i | Float | `1.0` | — |

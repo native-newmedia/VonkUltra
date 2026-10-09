@@ -1,6 +1,7 @@
 ---
 sidebar_position: 5
 title: vScriptValInfo
+description: "Returns info of an array"
 ---
 
 import Tabs from '@theme/Tabs';

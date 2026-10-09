@@ -1,6 +1,7 @@
 ---
-sidebar_position: 55
+sidebar_position: 57
 title: vArrayToUSD
+description: "Convert a Fusion Array object into OpenUSD ASCII Text."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -27,17 +28,15 @@ Convert a Fusion Array object into OpenUSD ASCII Text.
 |---|---|---|---|
 | Array Edges | Text | `—` | — |
 | Array Points | Text | `—` | — |
-| UISeparator1 | Float | `—` | — |
 | Array UVs | Text | `—` | — |
 | Array UV Edges | Text | `—` | — |
+| Matrix | Text | `—` | — |
 
 <details>
-<summary>+5 more parameters</summary>
+<summary>+3 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| UISeparator2 | Float | `—` | — |
-| Matrix | Text | `—` | — |
 | Object Sort | Text | `—` | — |
 | Object Path | Text | `—` | — |
 | Show Input | Integer | `1.0` | — |
@@ -50,8 +49,8 @@ Convert a Fusion Array object into OpenUSD ASCII Text.
 <div className="node-chip-row">
   <a className="node-chip" href="./vArrayBuffer">vArrayBuffer</a>
   <a className="node-chip" href="./vArrayCircularPoints">vArrayCircularPoints</a>
-  <a className="node-chip" href="./vArrayCreate">vArrayCreate</a>
   <a className="node-chip" href="./vArrayCreateAsset">vArrayCreateAsset</a>
+  <a className="node-chip" href="./vArrayCreateAttractorPoints">vArrayCreateAttractorPoints</a>
 </div>
 
 {/*

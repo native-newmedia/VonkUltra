@@ -1,6 +1,7 @@
 ---
-sidebar_position: 59
+sidebar_position: 62
 title: vScriptValRotateValues
+description: "Rotate ScriptVals Between Operations on a ScriptVal Object"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 12
 title: vScriptValShapeRenderMesh
+description: "Render a sweep mesh packet (vertices + faces) from vScriptValShapeRenderSweepProfile as a shaded 2D image."
 ---
 
 import Tabs from '@theme/Tabs';

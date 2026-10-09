@@ -1,6 +1,7 @@
 ---
 sidebar_position: 5
 title: vJSONTemporalSolverStep
+description: "Temporal feedback solver step for JSON arrays."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,7 +26,7 @@ Temporal feedback solver step for JSON arrays.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Operation | Integer | `0` | — |
+| Operation | Dropdown | `Add` | — |
 | Feedback Blend | Float | `0.5` | — |
 | Lerp Amount | Float | `0.5` | — |
 | Clamp Displacement | Integer | `0` | — |

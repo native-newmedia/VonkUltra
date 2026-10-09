@@ -1,6 +1,7 @@
 ---
 sidebar_position: 6
 title: vArrayTemporalTimeShiftArray
+description: "Time-shift Array text payloads by frame offset."
 ---
 
 import Tabs from '@theme/Tabs';

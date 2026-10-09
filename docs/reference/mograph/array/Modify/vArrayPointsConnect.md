@@ -1,6 +1,7 @@
 ---
-sidebar_position: 55
+sidebar_position: 58
 title: vArrayPointsConnect
+description: "Connect points in an array"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,7 +26,7 @@ Connect points in an array
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Mode | Integer | `Alternate` | — |
+| Mode | Dropdown | `Alternate` | — |
 | Reverse B | Integer | `0` | — |
 | Connection | Float | `1` | — |
 | Hide Unconnected | Integer | `0` | — |

@@ -1,6 +1,7 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 title: vJSONLogicAll
+description: "Reduce array to 1 if all elements are non-zero, else 0."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -31,10 +32,10 @@ Reduce array to 1 if all elements are non-zero, else 0.
 ## Related Nodes
 
 <div className="node-chip-row">
+  <a className="node-chip" href="./vJSONCountMask">vJSONCountMask</a>
   <a className="node-chip" href="./vJSONLogicAND">vJSONLogicAND</a>
   <a className="node-chip" href="./vJSONLogicAny">vJSONLogicAny</a>
   <a className="node-chip" href="./vJSONLogicBetween">vJSONLogicBetween</a>
-  <a className="node-chip" href="./vJSONLogicClamp">vJSONLogicClamp</a>
 </div>
 
 {/*

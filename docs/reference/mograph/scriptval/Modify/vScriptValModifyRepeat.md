@@ -1,6 +1,7 @@
 ---
-sidebar_position: 39
+sidebar_position: 41
 title: vScriptValModifyRepeat
+description: "Repeat point arrays with per-copy transform offsets."
 ---
 
 import Tabs from '@theme/Tabs';

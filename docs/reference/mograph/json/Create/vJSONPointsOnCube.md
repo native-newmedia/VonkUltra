@@ -1,6 +1,7 @@
 ---
-sidebar_position: 47
+sidebar_position: 52
 title: vJSONPointsOnCube
+description: "Generate points on cube"
 ---
 
 import Tabs from '@theme/Tabs';

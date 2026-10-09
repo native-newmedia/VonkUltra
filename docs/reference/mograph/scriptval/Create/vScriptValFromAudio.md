@@ -1,6 +1,7 @@
 ---
-sidebar_position: 33
+sidebar_position: 37
 title: vScriptValFromAudio
+description: "Convert .wav audio data into a ScriptVal"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,7 +26,7 @@ Convert .wav audio data into a ScriptVal
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input Source | Integer | `File` | — |
+| Input Source | Dropdown | `File` | — |
 | Wave File | Text | `—` | — |
 | Wave URL | Text | `—` | — |
 | Base64 Wave Text Input | Text | `—` | — |
@@ -62,8 +63,8 @@ vTextCreateBrowse.Output -> vScriptValFromAudio.WaveFile
 <div className="node-chip-row">
   <a className="node-chip" href="./vScriptValBuffer">vScriptValBuffer</a>
   <a className="node-chip" href="./vScriptValCircularPoints">vScriptValCircularPoints</a>
-  <a className="node-chip" href="./vScriptValCreate">vScriptValCreate</a>
   <a className="node-chip" href="./vScriptValCreateAsset">vScriptValCreateAsset</a>
+  <a className="node-chip" href="./vScriptValCreateAttractorPoints">vScriptValCreateAttractorPoints</a>
 </div>
 
 {/*

@@ -1,6 +1,7 @@
 ---
-sidebar_position: 36
+sidebar_position: 38
 title: vArrayModifyRampMap
+description: "Map scalar sources to per-point RGBA colors using a 4-stop ramp."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,11 +26,11 @@ Map scalar sources to per-point RGBA colors using a 4-stop ramp.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Source | Integer | `0` | — |
+| Source | Dropdown | `Index` | — |
 | Auto Range | Integer | `1.0` | — |
 | RangeMin | Float | `0` | — |
 | RangeMax | Float | `1` | — |
-| Curve | Integer | `Linear` | — |
+| Curve | Dropdown | `Linear` | — |
 
 <details>
 <summary>+30 more parameters</summary>

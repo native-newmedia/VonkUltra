@@ -1,6 +1,7 @@
 ---
 sidebar_position: 4
 title: vNumberWave
+description: "Creates a Delay while passing a Fusion Number object"
 ---
 
 import Tabs from '@theme/Tabs';

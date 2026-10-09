@@ -1,6 +1,7 @@
 ---
 sidebar_position: 10
 title: vArrayShapeRenderHistogram
+description: "Render a bar chart from an array of scalar values."
 ---
 
 import Tabs from '@theme/Tabs';

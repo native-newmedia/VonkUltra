@@ -1,6 +1,7 @@
 ---
-sidebar_position: 64
+sidebar_position: 67
 title: vJSONTranslate
+description: "Transforms array positions"
 ---
 
 import Tabs from '@theme/Tabs';

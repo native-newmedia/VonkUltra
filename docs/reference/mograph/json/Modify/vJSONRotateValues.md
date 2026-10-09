@@ -1,6 +1,7 @@
 ---
-sidebar_position: 59
+sidebar_position: 62
 title: vJSONRotateValues
+description: "Rotate an array indexes and values"
 ---
 
 import Tabs from '@theme/Tabs';

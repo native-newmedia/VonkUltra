@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vScriptValAppend
+description: "Append Array to an array"
 ---
 
 import Tabs from '@theme/Tabs';

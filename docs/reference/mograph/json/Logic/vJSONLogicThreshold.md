@@ -1,6 +1,7 @@
 ---
-sidebar_position: 15
+sidebar_position: 16
 title: vJSONLogicThreshold
+description: "Threshold array values and return 0/1 mask."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -32,10 +33,10 @@ Threshold array values and return 0/1 mask.
 ## Related Nodes
 
 <div className="node-chip-row">
+  <a className="node-chip" href="./vJSONCountMask">vJSONCountMask</a>
   <a className="node-chip" href="./vJSONLogicAND">vJSONLogicAND</a>
   <a className="node-chip" href="./vJSONLogicAll">vJSONLogicAll</a>
   <a className="node-chip" href="./vJSONLogicAny">vJSONLogicAny</a>
-  <a className="node-chip" href="./vJSONLogicBetween">vJSONLogicBetween</a>
 </div>
 
 {/*

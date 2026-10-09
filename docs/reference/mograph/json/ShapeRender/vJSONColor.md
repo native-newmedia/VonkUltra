@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 title: vJSONColor
+description: "Dynamically color 2D Shape elements"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,14 +26,14 @@ Dynamically color 2D Shape elements
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Color | Float | `Default` | — |
-| Color By: | Float | `Index` | — |
+| Color | Dropdown | `Default` | — |
+| Color By: | Dropdown | `Index` | — |
 | ReferenceCenter | Point | `—` | — |
 | Max Color Distance | Float | `0.0` | — |
 | Offset | Float | `0.0` | — |
 
 <details>
-<summary>+17 more parameters</summary>
+<summary>+16 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
@@ -46,7 +47,6 @@ Dynamically color 2D Shape elements
 | High | Integer | `50` | — |
 | Subdiv Color Range | Integer | `0` | — |
 | Update UI Range | Float | `—` | — |
-| UISeparator1 | Float | `—` | — |
 | Red | Float | `1.0` | — |
 | Green | Float | `0.9` | — |
 | Blue | Float | `0.6` | — |

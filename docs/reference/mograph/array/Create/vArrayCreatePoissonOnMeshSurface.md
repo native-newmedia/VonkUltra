@@ -1,6 +1,7 @@
 ---
 sidebar_position: 26
 title: vArrayCreatePoissonOnMeshSurface
+description: "Generate Poisson-like points across OBJ mesh surface area."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,7 +26,7 @@ Generate Poisson-like points across OBJ mesh surface area.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input Source | Integer | `File` | — |
+| Input Source | Dropdown | `File` | — |
 | Filename | Text | `—` | — |
 | URL | Text | `—` | — |
 | Input | Text | `—` | — |
@@ -50,8 +51,8 @@ Generate Poisson-like points across OBJ mesh surface area.
 <div className="node-chip-row">
   <a className="node-chip" href="./vArrayBuffer">vArrayBuffer</a>
   <a className="node-chip" href="./vArrayCircularPoints">vArrayCircularPoints</a>
-  <a className="node-chip" href="./vArrayCreate">vArrayCreate</a>
   <a className="node-chip" href="./vArrayCreateAsset">vArrayCreateAsset</a>
+  <a className="node-chip" href="./vArrayCreateAttractorPoints">vArrayCreateAttractorPoints</a>
 </div>
 
 {/*

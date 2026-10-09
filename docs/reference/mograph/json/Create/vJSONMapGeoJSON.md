@@ -1,6 +1,7 @@
 ---
-sidebar_position: 42
+sidebar_position: 47
 title: vJSONMapGeoJSON
+description: "Map from geographic coordinates"
 ---
 
 import Tabs from '@theme/Tabs';

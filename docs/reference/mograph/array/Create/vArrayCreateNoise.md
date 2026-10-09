@@ -1,6 +1,7 @@
 ---
 sidebar_position: 24
 title: vArrayCreateNoise
+description: "Creates a Noise Array."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -51,8 +52,8 @@ Creates a Noise Array.
 <div className="node-chip-row">
   <a className="node-chip" href="./vArrayBuffer">vArrayBuffer</a>
   <a className="node-chip" href="./vArrayCircularPoints">vArrayCircularPoints</a>
-  <a className="node-chip" href="./vArrayCreate">vArrayCreate</a>
   <a className="node-chip" href="./vArrayCreateAsset">vArrayCreateAsset</a>
+  <a className="node-chip" href="./vArrayCreateAttractorPoints">vArrayCreateAttractorPoints</a>
 </div>
 
 {/*

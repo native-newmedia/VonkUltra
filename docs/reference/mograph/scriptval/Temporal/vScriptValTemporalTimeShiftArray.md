@@ -1,6 +1,7 @@
 ---
-sidebar_position: 4
+sidebar_position: 6
 title: vScriptValTemporalTimeShiftArray
+description: "Time-shift ScriptVal arrays by frame offset."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -33,10 +34,10 @@ Time-shift ScriptVal arrays by frame offset.
 ## Related Nodes
 
 <div className="node-chip-row">
+  <a className="node-chip" href="./vScriptValAccumulatorOBJ">vScriptValAccumulatorOBJ</a>
+  <a className="node-chip" href="./vScriptValAccumulatorXform">vScriptValAccumulatorXform</a>
   <a className="node-chip" href="./vScriptValTemporalDelta">vScriptValTemporalDelta</a>
   <a className="node-chip" href="./vScriptValTemporalSmooth">vScriptValTemporalSmooth</a>
-  <a className="node-chip" href="./vScriptValTemporalSolverStep">vScriptValTemporalSolverStep</a>
-  <a className="node-chip" href="./vScriptValTemporalTrailFromPoints">vScriptValTemporalTrailFromPoints</a>
 </div>
 
 {/*

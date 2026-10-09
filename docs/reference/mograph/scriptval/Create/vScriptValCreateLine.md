@@ -1,6 +1,7 @@
 ---
-sidebar_position: 17
+sidebar_position: 20
 title: vScriptValCreateLine
+description: "Generate points on a line."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -50,8 +51,8 @@ Generate points on a line.
 <div className="node-chip-row">
   <a className="node-chip" href="./vScriptValBuffer">vScriptValBuffer</a>
   <a className="node-chip" href="./vScriptValCircularPoints">vScriptValCircularPoints</a>
-  <a className="node-chip" href="./vScriptValCreate">vScriptValCreate</a>
   <a className="node-chip" href="./vScriptValCreateAsset">vScriptValCreateAsset</a>
+  <a className="node-chip" href="./vScriptValCreateAttractorPoints">vScriptValCreateAttractorPoints</a>
 </div>
 
 {/*

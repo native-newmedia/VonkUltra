@@ -1,6 +1,7 @@
 ---
 sidebar_position: 18
 title: vArrayTaperedShape
+description: "Draws a tapered 2D path from point list with optional smoothing"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -27,7 +28,7 @@ Draws a tapered 2D path from point list with optional smoothing
 |---|---|---|---|
 | Taper Start | Float | `0.0` | — |
 | Taper End | Float | `1.0` | — |
-| Caps | Integer | `2` | — |
+| Caps | Dropdown | `All Points` | — |
 | Start Width | Float | `0.05` | — |
 | End Width | Float | `0.01` | — |
 
@@ -37,7 +38,7 @@ Draws a tapered 2D path from point list with optional smoothing
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | Circle Segments | Integer | `16` | — |
-| Color Select | Integer | `Use Solid` | — |
+| Color Select | Dropdown | `Use Solid` | — |
 | Gradient | Gradient | `—` | — |
 | Low | Integer | `1` | — |
 | High | Integer | `5` | — |

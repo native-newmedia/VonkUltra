@@ -1,6 +1,7 @@
 ---
-sidebar_position: 1
+sidebar_position: 3
 title: vScriptValTemporalDelta
+description: "Per-element temporal delta between current and previous frame."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -26,7 +27,7 @@ Per-element temporal delta between current and previous frame.
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | Frame Step | Integer | `1` | — |
-| Output Mode | Integer | `OUTPUT_MODE_DELTA` | — |
+| Output Mode | Dropdown | `OUTPUT_MODE_DELTA` | — |
 | Fallback To Current | Integer | `1` | — |
 | Offset X | Float | `0` | — |
 | Offset Y | Float | `0` | — |
@@ -45,10 +46,10 @@ Per-element temporal delta between current and previous frame.
 ## Related Nodes
 
 <div className="node-chip-row">
+  <a className="node-chip" href="./vScriptValAccumulatorOBJ">vScriptValAccumulatorOBJ</a>
+  <a className="node-chip" href="./vScriptValAccumulatorXform">vScriptValAccumulatorXform</a>
   <a className="node-chip" href="./vScriptValTemporalSmooth">vScriptValTemporalSmooth</a>
   <a className="node-chip" href="./vScriptValTemporalSolverStep">vScriptValTemporalSolverStep</a>
-  <a className="node-chip" href="./vScriptValTemporalTimeShiftArray">vScriptValTemporalTimeShiftArray</a>
-  <a className="node-chip" href="./vScriptValTemporalTrailFromPoints">vScriptValTemporalTrailFromPoints</a>
 </div>
 
 {/*

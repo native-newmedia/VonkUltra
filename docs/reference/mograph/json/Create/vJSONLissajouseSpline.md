@@ -1,6 +1,7 @@
 ---
-sidebar_position: 39
+sidebar_position: 44
 title: vJSONLissajouseSpline
+description: "Generate a Lissajouse spline"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,7 +26,7 @@ Generate a Lissajouse spline
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Formula | Integer | `Formula A` | — |
+| Formula | Dropdown | `Formula A` | — |
 | Number A | Integer | `5` | — |
 | Number B | Integer | `4` | — |
 | Number C | Integer | `1` | — |

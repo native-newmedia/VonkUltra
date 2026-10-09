@@ -1,6 +1,7 @@
 ---
-sidebar_position: 11
+sidebar_position: 13
 title: vJSONModifyAttractToMeshSurface
+description: "Lerp input points toward the nearest OBJ mesh surface point."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -37,7 +38,7 @@ Lerp input points toward the nearest OBJ mesh surface point.
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | Affect Z | Float | `1` | — |
-| Mesh Source | Integer | `File` | — |
+| Mesh Source | Dropdown | `File` | — |
 | Filename | Text | `—` | — |
 | URL | Text | `—` | — |
 | OBJ Text | Text | `—` | — |

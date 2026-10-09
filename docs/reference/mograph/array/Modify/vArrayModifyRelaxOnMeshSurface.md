@@ -1,6 +1,7 @@
 ---
-sidebar_position: 38
+sidebar_position: 40
 title: vArrayModifyRelaxOnMeshSurface
+description: "Iteratively relax scattered points toward even distribution on OBJ mesh surface."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -39,7 +40,7 @@ Iteratively relax scattered points toward even distribution on OBJ mesh surface.
 | Affect X | Float | `1` | — |
 | Affect Y | Float | `1` | — |
 | Affect Z | Float | `1` | — |
-| Mesh Source | Integer | `File` | — |
+| Mesh Source | Dropdown | `File` | — |
 | Filename | Text | `—` | — |
 | URL | Text | `—` | — |
 | OBJ Text | Text | `—` | — |

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vNumberDegreeToVector
+description: "Calculates a vector (x and y) based on an angle in degrees"
 ---
 
 import Tabs from '@theme/Tabs';

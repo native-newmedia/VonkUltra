@@ -1,6 +1,7 @@
 ---
-sidebar_position: 46
+sidebar_position: 51
 title: vScriptValPointsOnCircle
+description: "Generate points on a circle"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,7 @@
 ---
-sidebar_position: 40
+sidebar_position: 45
 title: vJSONLocatorAsset
+description: "Create a JSON based 3D locator cursor asset"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -27,7 +28,7 @@ Create a JSON based 3D locator cursor asset
 |---|---|---|---|
 | Asset Name | Text | `—` | — |
 | Asset Version | Integer | `1` | — |
-| Locator | Float | `0` | — |
+| Locator | Dropdown | `Gnomon Locator` | — |
 | Matrix | Text | `—` | — |
 | Red | Float | `0.0` | — |
 
@@ -50,8 +51,8 @@ Create a JSON based 3D locator cursor asset
 <div className="node-chip-row">
   <a className="node-chip" href="./vJSONBuffer">vJSONBuffer</a>
   <a className="node-chip" href="./vJSONCircularPoints">vJSONCircularPoints</a>
-  <a className="node-chip" href="./vJSONCreate">vJSONCreate</a>
   <a className="node-chip" href="./vJSONCreateAsset">vJSONCreateAsset</a>
+  <a className="node-chip" href="./vJSONCreateAttractorPoints">vJSONCreateAttractorPoints</a>
 </div>
 
 {/*

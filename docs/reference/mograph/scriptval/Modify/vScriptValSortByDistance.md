@@ -1,6 +1,7 @@
 ---
-sidebar_position: 61
+sidebar_position: 64
 title: vScriptValSortByDistance
+description: "Sort array by point distance"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -26,7 +27,7 @@ Sort array by point distance
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | Smallest Distance | Float | `1.0` | — |
-| Distance Mode | Float | `Preferred` | — |
+| Distance Mode | Dropdown | `Preferred` | — |
 | Show Input | Integer | `0.0` | — |
 | ScriptVal | DATATYPE | `—` | — |
 

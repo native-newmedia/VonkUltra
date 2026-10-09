@@ -1,6 +1,7 @@
 ---
-sidebar_position: 16
+sidebar_position: 19
 title: vJSONCreateLemniscate
+description: "Generate points on a lemniscate."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -46,8 +47,8 @@ Generate points on a lemniscate.
 <div className="node-chip-row">
   <a className="node-chip" href="./vJSONBuffer">vJSONBuffer</a>
   <a className="node-chip" href="./vJSONCircularPoints">vJSONCircularPoints</a>
-  <a className="node-chip" href="./vJSONCreate">vJSONCreate</a>
   <a className="node-chip" href="./vJSONCreateAsset">vJSONCreateAsset</a>
+  <a className="node-chip" href="./vJSONCreateAttractorPoints">vJSONCreateAttractorPoints</a>
 </div>
 
 {/*

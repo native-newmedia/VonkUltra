@@ -1,6 +1,7 @@
 ---
-sidebar_position: 48
+sidebar_position: 50
 title: vJSONModifyTrimByMeshBounds
+description: "Trim or clamp input points using the axis-aligned bounding box of an OBJ mesh or a second point array."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -26,9 +27,9 @@ Trim or clamp input points using the axis-aligned bounding box of an OBJ mesh or
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | Points | DATATYPE | `—` | — |
-| Bounds Source | Integer | `OBJ Mesh` | — |
+| Bounds Source | Dropdown | `OBJ Mesh` | — |
 | Bounds Array | DATATYPE | `—` | — |
-| Mesh Source | Integer | `File` | — |
+| Mesh Source | Dropdown | `File` | — |
 | Filename | Text | `—` | — |
 
 <details>
@@ -40,7 +41,7 @@ Trim or clamp input points using the axis-aligned bounding box of an OBJ mesh or
 | OBJ Text | Text | `—` | — |
 | Scale File Units By | Float | `1` | — |
 | AABB Padding | Float | `0` | — |
-| Mode | Integer | `Drop` | — |
+| Mode | Dropdown | `Drop` | — |
 | Test X | Integer | `1` | — |
 | Test Y | Integer | `1` | — |
 | Test Z | Integer | `1` | — |

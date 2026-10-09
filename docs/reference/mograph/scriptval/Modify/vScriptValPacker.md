@@ -1,6 +1,7 @@
 ---
-sidebar_position: 51
+sidebar_position: 53
 title: vScriptValPacker
+description: "Pack Operations on a ScriptVal"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,7 +26,7 @@ Pack Operations on a ScriptVal
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Pack To: | Integer | `X` | — |
+| Pack To: | Dropdown | `X` | — |
 | Custom Group Size | Integer | `0` | — |
 | Show Input | Integer | `0.0` | — |
 | ScriptVal | DATATYPE | `—` | — |

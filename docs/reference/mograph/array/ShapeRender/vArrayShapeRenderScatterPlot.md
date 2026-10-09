@@ -1,6 +1,7 @@
 ---
 sidebar_position: 15
 title: vArrayShapeRenderScatterPlot
+description: "Render scatter plot points from an array of [x,y] or [x,y,r] pairs."
 ---
 
 import Tabs from '@theme/Tabs';

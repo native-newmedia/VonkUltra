@@ -1,6 +1,7 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 title: vArrayLogicAND
+description: "Element-wise logical AND of two 0/1 mask arrays."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -32,10 +33,10 @@ Element-wise logical AND of two 0/1 mask arrays.
 ## Related Nodes
 
 <div className="node-chip-row">
+  <a className="node-chip" href="./vArrayCountMask">vArrayCountMask</a>
   <a className="node-chip" href="./vArrayLogicAll">vArrayLogicAll</a>
   <a className="node-chip" href="./vArrayLogicAny">vArrayLogicAny</a>
   <a className="node-chip" href="./vArrayLogicBetween">vArrayLogicBetween</a>
-  <a className="node-chip" href="./vArrayLogicClamp">vArrayLogicClamp</a>
 </div>
 
 {/*

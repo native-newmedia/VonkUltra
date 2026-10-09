@@ -1,6 +1,7 @@
 ---
-sidebar_position: 46
+sidebar_position: 48
 title: vArrayModifySnapToMeshVertex
+description: "Snap each input point to the nearest OBJ mesh vertex."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -36,9 +37,9 @@ Snap each input point to the nearest OBJ mesh vertex.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Snap Mode | Integer | `Vertex` | — |
+| Snap Mode | Dropdown | `Vertex` | — |
 | Blend | Float | `1` | — |
-| Mesh Source | Integer | `File` | — |
+| Mesh Source | Dropdown | `File` | — |
 | Filename | Text | `—` | — |
 | URL | Text | `—` | — |
 | OBJ Text | Text | `—` | — |

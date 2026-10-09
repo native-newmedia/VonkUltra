@@ -1,12 +1,13 @@
 ---
-sidebar_position: 1
-title: vScriptValAccumulator
+sidebar_position: 2
+title: vScriptValAccumulatorXform
+description: "Temporally concatenate array elements"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# vScriptValAccumulator
+# vScriptValAccumulatorXform
 
 Temporally concatenate array elements
 
@@ -17,9 +18,7 @@ Temporally concatenate array elements
   <span className="node-badge">JSON</span>
 </div>
 
-<div className="node-screenshot">
-  <img src="/VonkUltra/img/reference/mograph/scriptval/vScriptValAccumulator.png" alt="vScriptValAccumulator node" />
-</div>
+{/* No screenshot available for vScriptValAccumulatorXform yet. */}
 
 ## Parameters
 
@@ -50,9 +49,12 @@ Temporally concatenate array elements
 
 <div className="node-chip-row">
   <a className="node-chip" href="./vScriptValAccumulatorOBJ">vScriptValAccumulatorOBJ</a>
+  <a className="node-chip" href="./vScriptValTemporalDelta">vScriptValTemporalDelta</a>
+  <a className="node-chip" href="./vScriptValTemporalSmooth">vScriptValTemporalSmooth</a>
+  <a className="node-chip" href="./vScriptValTemporalSolverStep">vScriptValTemporalSolverStep</a>
 </div>
 
 {/*
-Generated page — node: vScriptValAccumulator (ScriptVal/Accumulate).
-Source: fuse vScriptValAccumulator.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Generated page — node: vScriptValAccumulatorXform (ScriptVal/Temporal).
+Source: fuse vScriptValAccumulatorXform.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
 */}

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 4
 title: vScriptValDisplaceValues
+description: "Displace XYZ positions using noise with spherical falloff."
 ---
 
 import Tabs from '@theme/Tabs';

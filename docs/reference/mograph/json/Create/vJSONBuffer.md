@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vJSONBuffer
+description: "FIFO (first in first out) in an array"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -49,9 +50,9 @@ vJSONBuffer.Low = 1
 
 <div className="node-chip-row">
   <a className="node-chip" href="./vJSONCircularPoints">vJSONCircularPoints</a>
-  <a className="node-chip" href="./vJSONCreate">vJSONCreate</a>
   <a className="node-chip" href="./vJSONCreateAsset">vJSONCreateAsset</a>
   <a className="node-chip" href="./vJSONCreateAttractorPoints">vJSONCreateAttractorPoints</a>
+  <a className="node-chip" href="./vJSONCreateCubicBezier">vJSONCreateCubicBezier</a>
 </div>
 
 {/*

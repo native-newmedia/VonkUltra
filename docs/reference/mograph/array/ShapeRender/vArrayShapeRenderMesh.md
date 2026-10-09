@@ -1,6 +1,7 @@
 ---
 sidebar_position: 12
 title: vArrayShapeRenderMesh
+description: "Render a sweep mesh packet (vertices + faces) from vArrayShapeRenderSweepProfile as a shaded 2D image."
 ---
 
 import Tabs from '@theme/Tabs';

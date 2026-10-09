@@ -1,6 +1,7 @@
 ---
-sidebar_position: 51
+sidebar_position: 57
 title: vJSONToUSD
+description: "Convert a Fusion JSON object into OpenUSD ASCII Text."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -27,17 +28,15 @@ Convert a Fusion JSON object into OpenUSD ASCII Text.
 |---|---|---|---|
 | JSON Edges | Text | `—` | — |
 | JSON Points | Text | `—` | — |
-| UISeparator1 | Float | `—` | — |
 | JSON UVs | Text | `—` | — |
 | JSON UV Edges | Text | `—` | — |
+| Matrix | Text | `—` | — |
 
 <details>
-<summary>+5 more parameters</summary>
+<summary>+3 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| UISeparator2 | Float | `—` | — |
-| Matrix | Text | `—` | — |
 | Object Sort | Text | `—` | — |
 | Object Path | Text | `—` | — |
 | Show Input | Integer | `1.0` | — |
@@ -50,8 +49,8 @@ Convert a Fusion JSON object into OpenUSD ASCII Text.
 <div className="node-chip-row">
   <a className="node-chip" href="./vJSONBuffer">vJSONBuffer</a>
   <a className="node-chip" href="./vJSONCircularPoints">vJSONCircularPoints</a>
-  <a className="node-chip" href="./vJSONCreate">vJSONCreate</a>
   <a className="node-chip" href="./vJSONCreateAsset">vJSONCreateAsset</a>
+  <a className="node-chip" href="./vJSONCreateAttractorPoints">vJSONCreateAttractorPoints</a>
 </div>
 
 {/*

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 title: vArrayCustomTimeline
+description: "Stylized timeline with major and minor tick marks"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -56,7 +57,7 @@ Stylized timeline with major and minor tick marks
 | Green | Float | `0.9` | — |
 | Blue | Float | `0.6` | — |
 | Thickness | Float | `0.001` | — |
-| Type | Float | `Solid` | — |
+| Type | Dropdown | `Solid` | — |
 | Red | Float | `1.0` | — |
 | Green | Float | `0.9` | — |
 | Blue | Float | `0.6` | — |
@@ -66,11 +67,11 @@ Stylized timeline with major and minor tick marks
 | Red | Float | `1.0` | — |
 | Green | Float | `0.9` | — |
 | Blue | Float | `0.6` | — |
-| Animation | Float | `None` | — |
+| Animation | Dropdown | `None` | — |
 | Animation Speed | Float | `0.5` | — |
 | Animation Offset | Integer | `0` | — |
 | Loop Animation | Integer | `1.0` | — |
-| Pointer Shape | Float | `None` | — |
+| Pointer Shape | Dropdown | `None` | — |
 | Arrow Y Pos | Float | `0.0` | — |
 | Arrow Rotation | Float | `0.0` | — |
 | Arrow Scale | Float | `1.0` | — |

@@ -1,6 +1,7 @@
 ---
-sidebar_position: 11
+sidebar_position: 12
 title: vArraySubDividePath
+description: "2D path smoothing"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -26,7 +27,7 @@ import TabItem from '@theme/TabItem';
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | Subdivisions | Integer | `1` | — |
-| Interpolation | Integer | `1` | — |
+| Interpolation | Dropdown | `Catmull-Rom` | — |
 | Tension | Float | `0.0` | — |
 | Array A | DATATYPE | `—` | — |
 

@@ -1,6 +1,7 @@
 ---
-sidebar_position: 8
+sidebar_position: 9
 title: vJSONMapRange
+description: "Apply range mapping operations to an array"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -28,7 +29,7 @@ Apply range mapping operations to an array
 | OldMin | Float | `-10` | — |
 | OldMax | Float | `10` | — |
 | line2Separator | Float | `—` | — |
-| Mode Select  | Integer | `-1 - 1` | — |
+| Mode Select  | Dropdown | `-1 - 1` | — |
 | NewMin | Float | `-10` | — |
 
 <details>

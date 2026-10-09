@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 title: vNumberTween
+description: "Tween numbers"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -24,7 +25,7 @@ Tween numbers
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | START AT FRAME | Integer | `0` | — |
-| Ease Function | Integer | `15` | — |
+| Ease Function | Dropdown | `ExpoInOut` | — |
 | Custom BackOut Strength | Float | `1` | — |
 | DURATION | Integer | `50` | — |
 | SPEED | Float | `1` | — |

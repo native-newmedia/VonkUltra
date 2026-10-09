@@ -1,6 +1,7 @@
 ---
-sidebar_position: 15
+sidebar_position: 16
 title: vArrayLogicThreshold
+description: "Return 0/1 mask where values are greater than threshold."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -32,10 +33,10 @@ Return 0/1 mask where values are greater than threshold.
 ## Related Nodes
 
 <div className="node-chip-row">
+  <a className="node-chip" href="./vArrayCountMask">vArrayCountMask</a>
   <a className="node-chip" href="./vArrayLogicAND">vArrayLogicAND</a>
   <a className="node-chip" href="./vArrayLogicAll">vArrayLogicAll</a>
   <a className="node-chip" href="./vArrayLogicAny">vArrayLogicAny</a>
-  <a className="node-chip" href="./vArrayLogicBetween">vArrayLogicBetween</a>
 </div>
 
 {/*

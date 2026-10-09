@@ -1,6 +1,7 @@
 ---
-sidebar_position: 52
+sidebar_position: 58
 title: vJSONToXYZ
+description: "Convert a JSON Array into XYZ ASCII Text"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,7 @@
 ---
-sidebar_position: 44
+sidebar_position: 49
 title: vScriptValPointParticles
+description: "Simple particle generator"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -38,7 +39,7 @@ Simple particle generator
 |---|---|---|---|
 | Global Scale | Float | `1` | — |
 | --- Emission_1 --- | Float | `—` | — |
-| Emission Type | Integer | `2` | — |
+| Emission Type | Dropdown | `Fibonacci Sphere` | — |
 | Size X | Float | `1` | — |
 | Size Y | Float | `1` | — |
 | Size Z | Float | `1` | — |

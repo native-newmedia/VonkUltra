@@ -1,6 +1,7 @@
 ---
 sidebar_position: 8
 title: vScriptValCreateFromImage
+description: "Creates a ScriptVal array from Image."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -46,8 +47,8 @@ Creates a ScriptVal array from Image.
 <div className="node-chip-row">
   <a className="node-chip" href="./vScriptValBuffer">vScriptValBuffer</a>
   <a className="node-chip" href="./vScriptValCircularPoints">vScriptValCircularPoints</a>
-  <a className="node-chip" href="./vScriptValCreate">vScriptValCreate</a>
   <a className="node-chip" href="./vScriptValCreateAsset">vScriptValCreateAsset</a>
+  <a className="node-chip" href="./vScriptValCreateAttractorPoints">vScriptValCreateAttractorPoints</a>
 </div>
 
 {/*

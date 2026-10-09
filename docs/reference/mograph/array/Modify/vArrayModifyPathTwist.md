@@ -1,6 +1,7 @@
 ---
-sidebar_position: 31
+sidebar_position: 33
 title: vArrayModifyPathTwist
+description: "Apply roll/twist along path frames."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,7 +26,7 @@ Apply roll/twist along path frames.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Twist Mode | Integer | `0` | — |
+| Twist Mode | Dropdown | `Linear Start-End` | — |
 | Start Twist (deg) | Float | `0` | — |
 | End Twist (deg) | Float | `180` | — |
 | Closed Path | Integer | `0` | — |

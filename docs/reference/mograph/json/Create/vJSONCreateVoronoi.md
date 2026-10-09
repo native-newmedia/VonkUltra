@@ -1,6 +1,7 @@
 ---
-sidebar_position: 32
+sidebar_position: 36
 title: vJSONCreateVoronoi
+description: "Creates a Voronoi Array."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -49,8 +50,8 @@ Creates a Voronoi Array.
 <div className="node-chip-row">
   <a className="node-chip" href="./vJSONBuffer">vJSONBuffer</a>
   <a className="node-chip" href="./vJSONCircularPoints">vJSONCircularPoints</a>
-  <a className="node-chip" href="./vJSONCreate">vJSONCreate</a>
   <a className="node-chip" href="./vJSONCreateAsset">vJSONCreateAsset</a>
+  <a className="node-chip" href="./vJSONCreateAttractorPoints">vJSONCreateAttractorPoints</a>
 </div>
 
 {/*

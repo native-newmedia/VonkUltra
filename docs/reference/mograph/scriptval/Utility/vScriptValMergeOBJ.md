@@ -1,6 +1,7 @@
 ---
 sidebar_position: 8
 title: vScriptValMergeOBJ
+description: "Merge Wavefront OBJ geometry with edge and point ScriptVal Arrays"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -27,23 +28,19 @@ Merge Wavefront OBJ geometry with edge and point ScriptVal Arrays
 |---|---|---|---|
 | ScriptVal Points 1 | DATATYPE | `—` | — |
 | ScriptVal Edges 1 | DATATYPE | `—` | — |
-| UISeparator1 | Float | `—` | — |
 | ScriptVal UVs 1 | ScriptVal | `—` | — |
 | ScriptVal UV Edges 1 | ScriptVal | `—` | — |
+| Matrix 1 | Text | `—` | — |
 
 <details>
-<summary>+9 more parameters</summary>
+<summary>+5 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| UISeparator2 | Float | `—` | — |
-| Matrix 1 | Text | `—` | — |
 | ScriptVal Points 2 | DATATYPE | `—` | — |
 | ScriptVal Edges 2 | DATATYPE | `—` | — |
-| UISeparator3 | Float | `—` | — |
 | ScriptVal UVs 2 | ScriptVal | `—` | — |
 | ScriptVal UV Edges 2 | ScriptVal | `—` | — |
-| UISeparator4 | Float | `—` | — |
 | Matrix 2 | Text | `—` | — |
 
 </details>

@@ -1,6 +1,7 @@
 ---
-sidebar_position: 17
+sidebar_position: 20
 title: vJSONCreateLine
+description: "Generate points on a line."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -50,8 +51,8 @@ Generate points on a line.
 <div className="node-chip-row">
   <a className="node-chip" href="./vJSONBuffer">vJSONBuffer</a>
   <a className="node-chip" href="./vJSONCircularPoints">vJSONCircularPoints</a>
-  <a className="node-chip" href="./vJSONCreate">vJSONCreate</a>
   <a className="node-chip" href="./vJSONCreateAsset">vJSONCreateAsset</a>
+  <a className="node-chip" href="./vJSONCreateAttractorPoints">vJSONCreateAttractorPoints</a>
 </div>
 
 {/*

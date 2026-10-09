@@ -1,6 +1,7 @@
 ---
-sidebar_position: 53
+sidebar_position: 55
 title: vJSONPerlin3Noise
+description: "Perlin Noise function on array values"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -26,7 +27,7 @@ Perlin Noise function on array values
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | Input | Text | `—` | — |
-| Noise Type | Integer | `Perlin` | — |
+| Noise Type | Dropdown | `Perlin` | — |
 | Time | Float | `1` | — |
 | Frequency | Float | `1` | — |
 | Scale | Float | `1` | — |

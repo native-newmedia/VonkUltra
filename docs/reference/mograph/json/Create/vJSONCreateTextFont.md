@@ -1,6 +1,7 @@
 ---
-sidebar_position: 30
+sidebar_position: 34
 title: vJSONCreateTextFont
+description: "Creates Text Font"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -29,20 +30,20 @@ Creates Text Font
 | Size | Float | `1.0` | — |
 | Character Spacing | Float | `0.05` | — |
 | line Spacing | Float | `—` | — |
-| Letter Case | Integer | `ORIGINAL` | — |
+| Letter Case | Dropdown | `ORIGINAL` | — |
 
 <details>
 <summary>+16 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Justification | Integer | `Left` | — |
+| Justification | Dropdown | `Left` | — |
 | Horizontal Adjustment | Float | `0.0` | — |
 | Vertical Adjustment | Float | `0.0` | — |
 | X Offset | Float | `—` | — |
 | Y Offset | Float | `—` | — |
 | Z Offset | Float | `0.0` | — |
-| Rotation Order | Float | ` XYZ ` | — |
+| Rotation Order | Dropdown | ` XYZ ` | — |
 | X Rotation | Float | `—` | — |
 | Y Rotation | Float | `—` | — |
 | Z Rotation | Float | `—` | — |

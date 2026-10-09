@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vNumberSchlickBias
+description: "Custom easing curve via schlick bias and gain"
 ---
 
 import Tabs from '@theme/Tabs';

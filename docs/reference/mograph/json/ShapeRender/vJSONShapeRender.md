@@ -1,6 +1,7 @@
 ---
 sidebar_position: 7
 title: vJSONShapeRender
+description: "Create a polygon dot shapes from a JSON based Lua table of XY point pairs"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -54,13 +55,13 @@ Create a polygon dot shapes from a JSON based Lua table of XY point pairs
 | Dot Radius | Float | `0.01` | — |
 | Dots Scale | Float | `1.0` | — |
 | Separator_3 | Float | `—` | — |
-| Color | Float | `Default` | — |
+| Color | Dropdown | `Default` | — |
 | Red | Float | `1.0` | — |
 | Green | Float | `0.0` | — |
 | Blue | Float | `0.5` | — |
 | Alpha | Float | `1.0` | — |
 | Separator_Line | Float | `—` | — |
-| Color | Float | `Default` | — |
+| Color | Dropdown | `Default` | — |
 | Red | Float | `0` | — |
 | Green | Float | `1` | — |
 | Blue | Float | `1` | — |
@@ -73,7 +74,7 @@ Create a polygon dot shapes from a JSON based Lua table of XY point pairs
 | line2Separator | Float | `—` | — |
 | Shape Scale | Float | `1.0` | — |
 | line3Separator | Float | `—` | — |
-| Color | Float | `Default` | — |
+| Color | Dropdown | `Default` | — |
 | Red | Float | `1.0` | — |
 | Green | Float | `0.9` | — |
 | Blue | Float | `0.6` | — |
@@ -84,16 +85,16 @@ Create a polygon dot shapes from a JSON based Lua table of XY point pairs
 | Blue | Float | `0.079` | — |
 | Alpha | Float | `1.0` | — |
 | Text Size | Float | `0.025` | — |
-| Text Style | Float | `Bold` | — |
+| Text Style | Dropdown | `Bold` | — |
 | Separator_4 | Float | `—` | — |
 | Red | Float | `1.0` | — |
 | Green | Float | `1` | — |
 | Blue | Float | `1` | — |
 | Alpha | Float | `1.0` | — |
-| Filter | Float | `Gaussian` | — |
+| Filter | Dropdown | `Gaussian` | — |
 | Soft Edge | Float | `0` | — |
-| Line Type | Float | `Solid` | — |
-| Join Type | Float | `2.0` | — |
+| Line Type | Dropdown | `Solid` | — |
+| Join Type | Dropdown | `2.0` | — |
 | Input | Image | `—` | — |
 | JSON Point | Text | `—` | — |
 | JSON Edge | Text | `—` | — |

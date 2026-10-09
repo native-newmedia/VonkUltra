@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vJSONCameraProjection
+description: "Transforms arrays using a perspective projection matrix"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -28,7 +29,7 @@ Transforms arrays using a perspective projection matrix
 | X Offset | Float | `—` | — |
 | Y Offset | Float | `—` | — |
 | Z Offset | Float | `1.0` | — |
-| Rotation Order | Float | ` XYZ ` | — |
+| Rotation Order | Dropdown | ` XYZ ` | — |
 | X Rotation | Float | `—` | — |
 
 <details>

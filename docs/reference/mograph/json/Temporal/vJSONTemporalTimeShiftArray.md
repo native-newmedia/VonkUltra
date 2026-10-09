@@ -1,6 +1,7 @@
 ---
 sidebar_position: 6
 title: vJSONTemporalTimeShiftArray
+description: "Time-shift JSON arrays by frame offset."
 ---
 
 import Tabs from '@theme/Tabs';

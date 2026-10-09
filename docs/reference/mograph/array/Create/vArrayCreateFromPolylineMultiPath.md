@@ -1,6 +1,7 @@
 ---
 sidebar_position: 11
 title: vArrayCreateFromPolylineMultiPath
+description: "Sample up to 8 drawn Polylines into a single vArray point list with per-path groups."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -55,8 +56,8 @@ Sample up to 8 drawn Polylines into a single vArray point list with per-path gro
 <div className="node-chip-row">
   <a className="node-chip" href="./vArrayBuffer">vArrayBuffer</a>
   <a className="node-chip" href="./vArrayCircularPoints">vArrayCircularPoints</a>
-  <a className="node-chip" href="./vArrayCreate">vArrayCreate</a>
   <a className="node-chip" href="./vArrayCreateAsset">vArrayCreateAsset</a>
+  <a className="node-chip" href="./vArrayCreateAttractorPoints">vArrayCreateAttractorPoints</a>
 </div>
 
 {/*

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 21
 title: vArrayCreateList
+description: "Creates an Array"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -26,7 +27,7 @@ Creates an Array
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | Array Length | Integer | `1` | — |
-| Pack To: | Integer | `X` | — |
+| Pack To: | Dropdown | `X` | — |
 | line1Separator | Float | `—` | — |
 |  [ " .. j .. " ]  | Float | `0` | — |
 | Reverse Array | Integer | `0.0` | — |

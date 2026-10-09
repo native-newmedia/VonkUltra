@@ -1,6 +1,7 @@
 ---
-sidebar_position: 27
+sidebar_position: 31
 title: vJSONCreateRoseCurve
+description: "Generate points on a rose curve."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -47,8 +48,8 @@ Generate points on a rose curve.
 <div className="node-chip-row">
   <a className="node-chip" href="./vJSONBuffer">vJSONBuffer</a>
   <a className="node-chip" href="./vJSONCircularPoints">vJSONCircularPoints</a>
-  <a className="node-chip" href="./vJSONCreate">vJSONCreate</a>
   <a className="node-chip" href="./vJSONCreateAsset">vJSONCreateAsset</a>
+  <a className="node-chip" href="./vJSONCreateAttractorPoints">vJSONCreateAttractorPoints</a>
 </div>
 
 {/*

@@ -1,6 +1,7 @@
 ---
-sidebar_position: 52
+sidebar_position: 54
 title: vArrayParallelPointsOffSet
+description: "Offset the parallel points in an array"
 ---
 
 import Tabs from '@theme/Tabs';

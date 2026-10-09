@@ -1,6 +1,7 @@
 ---
-sidebar_position: 22
+sidebar_position: 24
 title: vScriptValModifyFuseClosePoints
+description: "Welds points that are within a distance threshold."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -26,8 +27,8 @@ Welds points that are within a distance threshold.
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | Distance Threshold | Float | `0.02` | — |
-| Fuse Mode | Integer | `1` | — |
-| Axis Mode | Integer | `0` | — |
+| Fuse Mode | Dropdown | `Average` | — |
+| Axis Mode | Dropdown | `XYZ` | — |
 | Minimum Cluster Size | Integer | `1` | — |
 | Delete Singles | Integer | `0` | — |
 

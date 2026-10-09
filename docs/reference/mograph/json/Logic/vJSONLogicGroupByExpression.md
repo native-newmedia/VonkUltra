@@ -1,6 +1,7 @@
 ---
-sidebar_position: 10
+sidebar_position: 11
 title: vJSONLogicGroupByExpression
+description: "Build a 0/1 mask from an expression using index/value/xyz."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,7 +26,7 @@ Build a 0/1 mask from an expression using index/value/xyz.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Preset | Integer | `0` | — |
+| Preset | Dropdown | `Custom` | — |
 | Distance Threshold | Float | `0.5` | — |
 | Expression | Text | `—` | — |
 | Input | DATATYPE | `—` | — |
@@ -34,10 +35,10 @@ Build a 0/1 mask from an expression using index/value/xyz.
 ## Related Nodes
 
 <div className="node-chip-row">
+  <a className="node-chip" href="./vJSONCountMask">vJSONCountMask</a>
   <a className="node-chip" href="./vJSONLogicAND">vJSONLogicAND</a>
   <a className="node-chip" href="./vJSONLogicAll">vJSONLogicAll</a>
   <a className="node-chip" href="./vJSONLogicAny">vJSONLogicAny</a>
-  <a className="node-chip" href="./vJSONLogicBetween">vJSONLogicBetween</a>
 </div>
 
 {/*

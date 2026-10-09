@@ -1,6 +1,7 @@
 ---
-sidebar_position: 47
+sidebar_position: 49
 title: vArrayModifySortByMeshProximity
+description: "Sort points by ascending distance to nearest OBJ mesh surface point."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -27,8 +28,8 @@ Sort points by ascending distance to nearest OBJ mesh surface point.
 |---|---|---|---|
 | Points | DATATYPE | `—` | — |
 | Scale File Units By | Float | `1` | — |
-| Proximity To | Integer | `Surface` | — |
-| Sort Order | Integer | `Ascending` | — |
+| Proximity To | Dropdown | `Surface` | — |
+| Sort Order | Dropdown | `Ascending` | — |
 | Blend To Target | Float | `0` | — |
 
 <details>
@@ -37,7 +38,7 @@ Sort points by ascending distance to nearest OBJ mesh surface point.
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | Target Offset | Float | `0` | — |
-| Mesh Source | Integer | `File` | — |
+| Mesh Source | Dropdown | `File` | — |
 | Filename | Text | `—` | — |
 | URL | Text | `—` | — |
 | OBJ Text | Text | `—` | — |

@@ -1,6 +1,7 @@
 ---
-sidebar_position: 54
+sidebar_position: 56
 title: vArrayToOBJ
+description: "Convert an Array into Wavefront OBJ ASCII Text"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,7 @@
 ---
-sidebar_position: 9
+sidebar_position: 12
 title: vScriptValCreateFromSpline
+description: "Creates a ScriptVal array from Spline."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -56,8 +57,8 @@ Creates a ScriptVal array from Spline.
 <div className="node-chip-row">
   <a className="node-chip" href="./vScriptValBuffer">vScriptValBuffer</a>
   <a className="node-chip" href="./vScriptValCircularPoints">vScriptValCircularPoints</a>
-  <a className="node-chip" href="./vScriptValCreate">vScriptValCreate</a>
   <a className="node-chip" href="./vScriptValCreateAsset">vScriptValCreateAsset</a>
+  <a className="node-chip" href="./vScriptValCreateAttractorPoints">vScriptValCreateAttractorPoints</a>
 </div>
 
 {/*

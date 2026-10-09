@@ -1,6 +1,7 @@
 ---
-sidebar_position: 52
+sidebar_position: 54
 title: vArrayPointsOnRectangle
+description: "Generate points on Rectangle"
 ---
 
 import Tabs from '@theme/Tabs';

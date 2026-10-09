@@ -1,19 +1,21 @@
 /**
- * PROTOTYPE ONLY — shared node counts for the landing-page prototypes.
+ * Live source for the shipped homepage's node counts (imported by src/pages/index.js) —
+ * despite the name, this is not just a prototype leftover; update it whenever nodes are
+ * added or removed under docs/reference/**, or the homepage totals go stale.
  *
  * Measured from docs/reference/** (see 01-content-inventory/README.md).
- * If a landing page is adopted for real, these should be generated at build
- * time rather than hardcoded — the global CategoryCards derives its counts
- * from the sidebar, which isn't available outside a docs category page.
+ * Still hardcoded rather than generated at build time — the global CategoryCards derives
+ * its counts from the sidebar, which isn't available outside a docs category page. See
+ * remaining-work.md §B for the open TODO to make this build-time instead.
  */
 
 export const MOG_COUNTS = {
-  Array: 185,
-  JSON: 182,
-  ScriptVal: 182,
+  Array: 192,
+  JSON: 192,
+  ScriptVal: 192,
   Number: 7,
   Matrix: 3,
-  HTML: 2,
+  HTML: 3,
 };
 
 export const CORE_COUNTS = {
@@ -37,6 +39,7 @@ export const CORE_COUNTS = {
   MTLX: 3,
   Shape: 2,
   USD: 2,
+  XML: 3,
   YAML: 1,
 };
 

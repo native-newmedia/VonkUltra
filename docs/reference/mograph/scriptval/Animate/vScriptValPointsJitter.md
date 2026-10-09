@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vScriptValPointsJitter
+description: "Add jitter to ScriptVal array points."
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,7 @@
 ---
-sidebar_position: 23
+sidebar_position: 25
 title: vJSONModifyJitterOnMeshSurface
+description: "Jitter input points randomly in the mesh surface tangent plane then reproject onto OBJ mesh surface."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -39,7 +40,7 @@ Jitter input points randomly in the mesh surface tangent plane then reproject on
 | Affect X | Float | `1` | — |
 | Affect Y | Float | `1` | — |
 | Affect Z | Float | `1` | — |
-| Mesh Source | Integer | `File` | — |
+| Mesh Source | Dropdown | `File` | — |
 | Filename | Text | `—` | — |
 | URL | Text | `—` | — |
 | OBJ Text | Text | `—` | — |

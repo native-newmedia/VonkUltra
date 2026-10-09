@@ -1,6 +1,7 @@
 ---
 sidebar_position: 27
 title: vArrayCreateRadialSymmetry
+description: "Create radial symmetry from source points."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -48,8 +49,8 @@ Create radial symmetry from source points.
 <div className="node-chip-row">
   <a className="node-chip" href="./vArrayBuffer">vArrayBuffer</a>
   <a className="node-chip" href="./vArrayCircularPoints">vArrayCircularPoints</a>
-  <a className="node-chip" href="./vArrayCreate">vArrayCreate</a>
   <a className="node-chip" href="./vArrayCreateAsset">vArrayCreateAsset</a>
+  <a className="node-chip" href="./vArrayCreateAttractorPoints">vArrayCreateAttractorPoints</a>
 </div>
 
 {/*

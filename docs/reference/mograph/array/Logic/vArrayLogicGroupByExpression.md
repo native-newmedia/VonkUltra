@@ -1,6 +1,7 @@
 ---
-sidebar_position: 10
+sidebar_position: 11
 title: vArrayLogicGroupByExpression
+description: "Build a 0/1 mask from an expression using index/value/xyz."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,7 +26,7 @@ Build a 0/1 mask from an expression using index/value/xyz.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Preset | Integer | `0` | — |
+| Preset | Dropdown | `Custom` | — |
 | Distance Threshold | Float | `0.5` | — |
 | Expression | Text | `—` | — |
 | Input | DATATYPE | `—` | — |
@@ -34,10 +35,10 @@ Build a 0/1 mask from an expression using index/value/xyz.
 ## Related Nodes
 
 <div className="node-chip-row">
+  <a className="node-chip" href="./vArrayCountMask">vArrayCountMask</a>
   <a className="node-chip" href="./vArrayLogicAND">vArrayLogicAND</a>
   <a className="node-chip" href="./vArrayLogicAll">vArrayLogicAll</a>
   <a className="node-chip" href="./vArrayLogicAny">vArrayLogicAny</a>
-  <a className="node-chip" href="./vArrayLogicBetween">vArrayLogicBetween</a>
 </div>
 
 {/*

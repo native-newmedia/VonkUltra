@@ -1,6 +1,7 @@
 ---
-sidebar_position: 21
+sidebar_position: 23
 title: vJSONModifyForEachIndexed
+description: "Apply indexed/grouped transforms per point in a single pass."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,23 +26,27 @@ Apply indexed/grouped transforms per point in a single pass.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Mode | Integer | `0` | — |
+| Mode | Dropdown | `Offset X by Index` | — |
 | Group Size | Integer | `8` | — |
 | Index Amount | Float | `0.01` | — |
 | Group Amount | Float | `0.1` | — |
-| animSeparator | Float | `—` | — |
+| Random Min | Float | `-0.1` | — |
 
 <details>
-<summary>+6 more parameters</summary>
+<summary>+10 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
+| Random Max | Float | `0.1` | — |
+| animSeparator | Float | `—` | — |
 | Auto Animate | Integer | `0` | — |
 | Speed | Float | `1.0` | — |
 | Duration (frames) | Integer | `30` | — |
-| Easing | Integer | `0` | — |
-| Loop Mode | Integer | `0` | — |
+| Easing | Dropdown | `Linear` | — |
+| Loop Mode | Dropdown | `Off` | — |
 | Input | DATATYPE | `—` | — |
+| Mask | DATATYPE | `—` | — |
+| Invert Mask | Integer | `0` | — |
 
 </details>
 

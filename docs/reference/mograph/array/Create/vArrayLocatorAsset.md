@@ -1,6 +1,7 @@
 ---
-sidebar_position: 43
+sidebar_position: 45
 title: vArrayLocatorAsset
+description: "Create an Array-based 3D locator cursor asset from JSON text payload"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -27,7 +28,7 @@ Create an Array-based 3D locator cursor asset from JSON text payload
 |---|---|---|---|
 | Asset Name | Text | `—` | — |
 | Asset Version | Integer | `1` | — |
-| Locator | Float | `0` | — |
+| Locator | Dropdown | `Gnomon Locator` | — |
 | Matrix | Text | `—` | — |
 | Red | Float | `0.0` | — |
 
@@ -50,8 +51,8 @@ Create an Array-based 3D locator cursor asset from JSON text payload
 <div className="node-chip-row">
   <a className="node-chip" href="./vArrayBuffer">vArrayBuffer</a>
   <a className="node-chip" href="./vArrayCircularPoints">vArrayCircularPoints</a>
-  <a className="node-chip" href="./vArrayCreate">vArrayCreate</a>
   <a className="node-chip" href="./vArrayCreateAsset">vArrayCreateAsset</a>
+  <a className="node-chip" href="./vArrayCreateAttractorPoints">vArrayCreateAttractorPoints</a>
 </div>
 
 {/*

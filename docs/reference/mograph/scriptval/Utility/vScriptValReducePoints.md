@@ -1,6 +1,7 @@
 ---
-sidebar_position: 9
+sidebar_position: 10
 title: vScriptValReducePoints
+description: "Reduce points Operations on a ScriptVal Decimation Method options include: - Grid-Based - Random Sampling - Curvature-Based (SLOW)"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,7 +26,7 @@ Reduce points Operations on a ScriptVal Decimation Method options include: - Gri
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Decimation Method | Integer | `Grid-Based` | — |
+| Decimation Method | Dropdown | `Grid-Based` | — |
 | Grid Size | Float | `0.01` | — |
 | Target Count | Float | `3.0` | — |
 | Neighborhood Size | Float | `0.2` | — |

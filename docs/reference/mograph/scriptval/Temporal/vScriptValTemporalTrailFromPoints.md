@@ -1,6 +1,7 @@
 ---
-sidebar_position: 5
+sidebar_position: 7
 title: vScriptValTemporalTrailFromPoints
+description: "Build temporal trails by concatenating point arrays across frames."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -34,10 +35,10 @@ Build temporal trails by concatenating point arrays across frames.
 ## Related Nodes
 
 <div className="node-chip-row">
+  <a className="node-chip" href="./vScriptValAccumulatorOBJ">vScriptValAccumulatorOBJ</a>
+  <a className="node-chip" href="./vScriptValAccumulatorXform">vScriptValAccumulatorXform</a>
   <a className="node-chip" href="./vScriptValTemporalDelta">vScriptValTemporalDelta</a>
   <a className="node-chip" href="./vScriptValTemporalSmooth">vScriptValTemporalSmooth</a>
-  <a className="node-chip" href="./vScriptValTemporalSolverStep">vScriptValTemporalSolverStep</a>
-  <a className="node-chip" href="./vScriptValTemporalTimeShiftArray">vScriptValTemporalTimeShiftArray</a>
 </div>
 
 {/*

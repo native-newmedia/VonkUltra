@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vJSONMaterialEasing
+description: "Animate points using Material Design 3 easing with staggered offsets"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -28,7 +29,7 @@ Animate points using Material Design 3 easing with staggered offsets
 | Time | Float | `0.0` | — |
 | Start Offset | Float | `0.0` | — |
 | Duration | Float | `1.0` | — |
-| Easing Type | Integer | `0` | — |
+| Easing Type | Dropdown | `Emphasized Accelerate` | — |
 | line1Separator | Float | `—` | — |
 
 <details>
@@ -41,7 +42,7 @@ Animate points using Material Design 3 easing with staggered offsets
 | Offset Z | Float | `0.0` | — |
 | line2Separator | Float | `—` | — |
 | Stagger Delay | Float | `0.1` | — |
-| Stagger Mode | Integer | `0` | — |
+| Stagger Mode | Dropdown | `Index Order` | — |
 | Falloff X | Float | `0.0` | — |
 | Falloff Y | Float | `0.0` | — |
 | Falloff Z | Float | `0.0` | — |

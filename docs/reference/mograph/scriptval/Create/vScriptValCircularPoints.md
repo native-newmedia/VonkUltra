@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vScriptValCircularPoints
+description: "Distributes points in circular form"
 ---
 
 import Tabs from '@theme/Tabs';

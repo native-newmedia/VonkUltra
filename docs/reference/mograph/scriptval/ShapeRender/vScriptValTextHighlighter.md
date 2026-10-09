@@ -1,6 +1,7 @@
 ---
 sidebar_position: 19
 title: vScriptValTextHighlighter
+description: "Highlights text elements dynamically"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,7 +26,7 @@ Highlights text elements dynamically
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Font Select | Integer | `Use Font` | — |
+| Font Select | Dropdown | `Use Font` | — |
 | Font | Text | `—` | — |
 | Style | Text | `—` | — |
 | Styled Text | Text | `—` | — |
@@ -40,16 +41,16 @@ Highlights text elements dynamically
 | Start | Integer | `1` | — |
 | Stop | Integer | `1` | — |
 | Offset Range | Integer | `0` | — |
-| Letter Case | Integer | `NONE` | — |
+| Letter Case | Dropdown | `NONE` | — |
 | Size | Float | `0.03` | — |
 | Character Spacing | Float | `0.0` | — |
 | Line Spacing | Float | `0.0` | — |
 | Width | Float | `0` | — |
 | Height | Float | `0` | — |
-| Horizontal Justification | Integer | `LEFT` | — |
+| Horizontal Justification | Dropdown | `LEFT` | — |
 | Horizontal Adjustment | Float | `0.0` | — |
 | Horizontal Adjustment offset | Float | `0.0` | — |
-| Vertical Justification | Integer | `TOP` | — |
+| Vertical Justification | Dropdown | `TOP` | — |
 | Vertical Adjustment | Float | `0.0` | — |
 | Padding | Float | `0.15` | — |
 | Round Corners | Float | `0.0` | — |

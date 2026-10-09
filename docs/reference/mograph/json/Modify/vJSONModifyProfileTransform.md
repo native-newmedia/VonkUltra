@@ -1,6 +1,7 @@
 ---
-sidebar_position: 33
+sidebar_position: 35
 title: vJSONModifyProfileTransform
+description: "Transform 2D sweep profiles (translate/rotate/scale/mirror)."
 ---
 
 import Tabs from '@theme/Tabs';

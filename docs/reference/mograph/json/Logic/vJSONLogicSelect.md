@@ -1,6 +1,7 @@
 ---
-sidebar_position: 14
+sidebar_position: 15
 title: vJSONLogicSelect
+description: "Select XYZ points from A/B using mask array."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -33,10 +34,10 @@ Select XYZ points from A/B using mask array.
 ## Related Nodes
 
 <div className="node-chip-row">
+  <a className="node-chip" href="./vJSONCountMask">vJSONCountMask</a>
   <a className="node-chip" href="./vJSONLogicAND">vJSONLogicAND</a>
   <a className="node-chip" href="./vJSONLogicAll">vJSONLogicAll</a>
   <a className="node-chip" href="./vJSONLogicAny">vJSONLogicAny</a>
-  <a className="node-chip" href="./vJSONLogicBetween">vJSONLogicBetween</a>
 </div>
 
 {/*

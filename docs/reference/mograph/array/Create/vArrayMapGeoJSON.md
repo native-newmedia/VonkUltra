@@ -1,6 +1,7 @@
 ---
-sidebar_position: 45
+sidebar_position: 47
 title: vArrayMapGeoJSON
+description: "Map from geographic coordinates"
 ---
 
 import Tabs from '@theme/Tabs';

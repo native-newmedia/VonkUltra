@@ -1,6 +1,7 @@
 ---
-sidebar_position: 25
+sidebar_position: 27
 title: vJSONModifyMaskByMeshSurface
+description: "Keep only input points within a distance threshold of the OBJ mesh surface."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -36,15 +37,15 @@ Keep only input points within a distance threshold of the OBJ mesh surface.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Mask Mode | Integer | `Hard` | — |
+| Mask Mode | Dropdown | `Hard` | — |
 | Falloff Distance | Float | `0.0` | — |
 | Weight Power | Float | `1.0` | — |
 | Min Output Weight | Float | `0.01` | — |
 | Append Weight As 4th Value | Integer | `0` | — |
 | Keep Input If Mesh Missing | Integer | `1` | — |
-| Output Position | Integer | `Original` | — |
+| Output Position | Dropdown | `Original` | — |
 | Surface Offset | Float | `0.0` | — |
-| Mesh Source | Integer | `File` | — |
+| Mesh Source | Dropdown | `File` | — |
 | Filename | Text | `—` | — |
 | URL | Text | `—` | — |
 | OBJ Text | Text | `—` | — |

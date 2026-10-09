@@ -1,6 +1,7 @@
 ---
-sidebar_position: 57
+sidebar_position: 60
 title: vJSONRepeatTransform
+description: "Repeat a JSON array by transforming it x times (v8: Instance IDs)"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,7 +26,7 @@ Repeat a JSON array by transforming it x times (v8: Instance IDs)
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Array Mode | Float | `0` | — |
+| Array Mode | Dropdown | `Linear` | — |
 | Number of Times | Integer | `1` | — |
 | Radius | Float | `0.1` | — |
 | Spiral Height | Float | `0.1` | — |
@@ -50,7 +51,7 @@ Repeat a JSON array by transforming it x times (v8: Instance IDs)
 | Rotation X | Float | `0` | — |
 | Rotation Y | Float | `0` | — |
 | Rotation Z | Float | `0` | — |
-| Rotation Order | Float | `0` | — |
+| Rotation Order | Dropdown | `XYZ` | — |
 | Pivot X | Float | `0` | — |
 | Pivot Y | Float | `0` | — |
 | Pivot Z | Float | `0` | — |

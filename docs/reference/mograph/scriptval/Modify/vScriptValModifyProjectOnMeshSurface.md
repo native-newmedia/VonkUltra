@@ -1,6 +1,7 @@
 ---
-sidebar_position: 35
+sidebar_position: 37
 title: vScriptValModifyProjectOnMeshSurface
+description: "Project input points onto the nearest OBJ mesh surface."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -28,8 +29,8 @@ Project input points onto the nearest OBJ mesh surface.
 | Points | DATATYPE | `—` | — |
 | Scale File Units By | Float | `1` | — |
 | Surface Offset | Float | `0` | — |
-| Projection Mode | Integer | `Closest Surface` | — |
-| Offset Direction | Integer | `Surface Normal` | — |
+| Projection Mode | Dropdown | `Closest Surface` | — |
+| Offset Direction | Dropdown | `Surface Normal` | — |
 
 <details>
 <summary>+10 more parameters</summary>
@@ -37,12 +38,12 @@ Project input points onto the nearest OBJ mesh surface.
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | Projection Blend | Float | `1` | — |
-| Distance Mode | Integer | `No Limit` | — |
+| Distance Mode | Dropdown | `No Limit` | — |
 | Max Distance | Float | `0` | — |
 | Affect X | Float | `1` | — |
 | Affect Y | Float | `1` | — |
 | Affect Z | Float | `1` | — |
-| Mesh Source | Integer | `File` | — |
+| Mesh Source | Dropdown | `File` | — |
 | Filename | Text | `—` | — |
 | URL | Text | `—` | — |
 | OBJ Text | Text | `—` | — |

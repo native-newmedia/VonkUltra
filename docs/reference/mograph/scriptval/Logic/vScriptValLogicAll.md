@@ -1,6 +1,7 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 title: vScriptValLogicAll
+description: "Reduce array to 1 if all elements are non-zero, else 0."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -31,10 +32,10 @@ Reduce array to 1 if all elements are non-zero, else 0.
 ## Related Nodes
 
 <div className="node-chip-row">
+  <a className="node-chip" href="./vScriptValCountMask">vScriptValCountMask</a>
   <a className="node-chip" href="./vScriptValLogicAND">vScriptValLogicAND</a>
   <a className="node-chip" href="./vScriptValLogicAny">vScriptValLogicAny</a>
   <a className="node-chip" href="./vScriptValLogicBetween">vScriptValLogicBetween</a>
-  <a className="node-chip" href="./vScriptValLogicClamp">vScriptValLogicClamp</a>
 </div>
 
 {/*

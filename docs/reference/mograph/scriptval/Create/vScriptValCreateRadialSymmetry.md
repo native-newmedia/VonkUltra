@@ -1,6 +1,7 @@
 ---
-sidebar_position: 24
+sidebar_position: 27
 title: vScriptValCreateRadialSymmetry
+description: "Create radial symmetry from source points."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -48,8 +49,8 @@ Create radial symmetry from source points.
 <div className="node-chip-row">
   <a className="node-chip" href="./vScriptValBuffer">vScriptValBuffer</a>
   <a className="node-chip" href="./vScriptValCircularPoints">vScriptValCircularPoints</a>
-  <a className="node-chip" href="./vScriptValCreate">vScriptValCreate</a>
   <a className="node-chip" href="./vScriptValCreateAsset">vScriptValCreateAsset</a>
+  <a className="node-chip" href="./vScriptValCreateAttractorPoints">vScriptValCreateAttractorPoints</a>
 </div>
 
 {/*

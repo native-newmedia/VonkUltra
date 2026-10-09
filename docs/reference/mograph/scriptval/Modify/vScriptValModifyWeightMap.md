@@ -1,6 +1,7 @@
 ---
-sidebar_position: 50
+sidebar_position: 52
 title: vScriptValModifyWeightMap
+description: "Generate normalized per-point weight arrays."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,7 +26,7 @@ Generate normalized per-point weight arrays.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Source | Integer | `0` | — |
+| Source | Dropdown | `Index` | — |
 | Auto Range | Integer | `1.0` | — |
 | RangeMin | Float | `0` | — |
 | RangeMax | Float | `1` | — |
@@ -37,7 +38,7 @@ Generate normalized per-point weight arrays.
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | OutMax | Float | `1` | — |
-| Curve | Integer | `Linear` | — |
+| Curve | Dropdown | `Linear` | — |
 | Power | Float | `1` | — |
 | Clamp 0-1 | Integer | `1.0` | — |
 | Invert | Integer | `0.0` | — |
@@ -45,7 +46,7 @@ Generate normalized per-point weight arrays.
 | Center X | Float | `0` | — |
 | Center Y | Float | `0` | — |
 | Center Z | Float | `0` | — |
-| Output Mode | Integer | `0` | — |
+| Output Mode | Dropdown | `Weights Only` | — |
 | Apply Amount | Float | `1` | — |
 | Show Input | Integer | `0.0` | — |
 | Points | DATATYPE | `—` | — |

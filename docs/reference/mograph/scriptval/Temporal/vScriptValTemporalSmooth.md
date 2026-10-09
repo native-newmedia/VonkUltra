@@ -1,6 +1,7 @@
 ---
-sidebar_position: 2
+sidebar_position: 4
 title: vScriptValTemporalSmooth
+description: "Temporal low-pass smoothing using previous frame data."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -34,10 +35,10 @@ Temporal low-pass smoothing using previous frame data.
 ## Related Nodes
 
 <div className="node-chip-row">
+  <a className="node-chip" href="./vScriptValAccumulatorOBJ">vScriptValAccumulatorOBJ</a>
+  <a className="node-chip" href="./vScriptValAccumulatorXform">vScriptValAccumulatorXform</a>
   <a className="node-chip" href="./vScriptValTemporalDelta">vScriptValTemporalDelta</a>
   <a className="node-chip" href="./vScriptValTemporalSolverStep">vScriptValTemporalSolverStep</a>
-  <a className="node-chip" href="./vScriptValTemporalTimeShiftArray">vScriptValTemporalTimeShiftArray</a>
-  <a className="node-chip" href="./vScriptValTemporalTrailFromPoints">vScriptValTemporalTrailFromPoints</a>
 </div>
 
 {/*

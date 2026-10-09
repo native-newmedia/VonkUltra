@@ -1,6 +1,7 @@
 ---
-sidebar_position: 20
+sidebar_position: 22
 title: vArrayModifyCopyToPoints
+description: "Copies a template point set onto each target point with scale and seeded rotation variation."
 ---
 
 import Tabs from '@theme/Tabs';
