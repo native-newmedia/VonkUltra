@@ -133,8 +133,8 @@ For text that follows a path rather than sitting on a baseline, there's a dedica
 
 Everything in the pipeline up to the projection is world-space geometry, so this is where you disturb it:
 
-- **`vArrayDisplaceValues`** — noise-driven displacement with a spherical falloff. **Noise Scale** and **Noise Rate** set the shape and speed of the noise, **Amplitude** how far points travel, and **FallOff Sphere X/Y/Z**, **FallOff Radius** and **FallOff Tightness** localise the effect — a bulge, a ripple, a shockwave. **Invert Falloff** flips it from pushing out to pulling in.
-- **`vArrayPointsJitter`** — the simpler tool: **Jitter X/Y/Z** offsets, a **Seed**, and **Uniform Jitter** to keep the direction consistent. This is the fastest way to stop a perfect grid or ring from looking machine-made.
+- `vArrayDisplaceValues` — noise-driven displacement with a spherical falloff. **Noise Scale** and **Noise Rate** set the shape and speed of the noise, **Amplitude** how far points travel, and **FallOff Sphere X/Y/Z**, **FallOff Radius** and **FallOff Tightness** localise the effect — a bulge, a ripple, a shockwave. **Invert Falloff** flips it from pushing out to pulling in.
+- `vArrayPointsJitter` — the simpler tool: **Jitter X/Y/Z** offsets, a **Seed**, and **Uniform Jitter** to keep the direction consistent. This is the fastest way to stop a perfect grid or ring from looking machine-made.
 
 Order matters: displace *before* the projection, because the projection is what collapses your 3D geometry into 2D. Push displacement downstream of it and you're animating screen-space coordinates instead of world-space ones, which is a different (and usually less useful) effect.
 

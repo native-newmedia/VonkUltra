@@ -58,38 +58,38 @@ There are two versions, and the difference matters: `vArrayPointAttractorSpring`
 
 ## 3. Select, mask, decimate
 
-- **`vArrayModifyApplyMask`** — blends a **Base** array with a **Modified** one per point using a `0`–`1` **Mask**. **Amount**, **Blend Tightness**, **Invert Mask** and **Trim Zeros** finish the job. This is how you get "scattered here, ordered there" without splitting the comp.
-- **`vArrayCountMask`** — counts the non-zero elements of a mask, for sanity-checking what survived.
-- **`vArrayLogicDeleteByMask`** — keeps or removes masked elements (**Mode**, **Invert Mask**) when you want them gone rather than blended.
-- **`vArraySlicer`** — trims the start and end of an array (**Start**, **Stop**, **Offset Range**, **Continuous**). Useful for taking a long generated curve and using a moving window of it.
-- **`vArrayReducePoints`** — decimation, with three methods: **Grid-Based**, **Random Sampling** and **Curvature-Based (SLOW)**. **Grid Size**, **Target Count** and **Neighborhood Size** configure them. Render cost scales with point count, so this and `vArraySlicer` are your two levers when a pipeline gets heavy.
-- **`vArrayModifyFuseClosePoints`** — welds points closer than a distance threshold. Worth running after scatter operations, which happily pile points on top of each other.
+- `vArrayModifyApplyMask` — blends a **Base** array with a **Modified** one per point using a `0`–`1` **Mask**. **Amount**, **Blend Tightness**, **Invert Mask** and **Trim Zeros** finish the job. This is how you get "scattered here, ordered there" without splitting the comp.
+- `vArrayCountMask` — counts the non-zero elements of a mask, for sanity-checking what survived.
+- `vArrayLogicDeleteByMask` — keeps or removes masked elements (**Mode**, **Invert Mask**) when you want them gone rather than blended.
+- `vArraySlicer` — trims the start and end of an array (**Start**, **Stop**, **Offset Range**, **Continuous**). Useful for taking a long generated curve and using a moving window of it.
+- `vArrayReducePoints` — decimation, with three methods: **Grid-Based**, **Random Sampling** and **Curvature-Based (SLOW)**. **Grid Size**, **Target Count** and **Neighborhood Size** configure them. Render cost scales with point count, so this and `vArraySlicer` are your two levers when a pipeline gets heavy.
+- `vArrayModifyFuseClosePoints` — welds points closer than a distance threshold. Worth running after scatter operations, which happily pile points on top of each other.
 
 ## 4. Order and connect
 
 Order decides what the line layer draws, because lines join points *in sequence*. Three nodes own that:
 
-- **`vArraySortByDistance`** — re-orders elements by spatial proximity (**Smallest Distance**). This is what turns a scatter into a nearest-neighbour network, a travelling path, or a proximity-driven effect.
-- **`vArrayPointsConnect`** — connects points in an array, defining connectivity explicitly.
-- **`vArrayGridConnect`** — builds edges for a *grid*: row, column, diagonal, zigzag and border patterns. Its **Number X** and **Number Y** need to match the grid you generated, **Direction** picks the axis, **Stride** skips lines, and **Zigzag: Reverse Start** alternates direction. The output is meant for the render node's **Edge Data** input.
+- `vArraySortByDistance` — re-orders elements by spatial proximity (**Smallest Distance**). This is what turns a scatter into a nearest-neighbour network, a travelling path, or a proximity-driven effect.
+- `vArrayPointsConnect` — connects points in an array, defining connectivity explicitly.
+- `vArrayGridConnect` — builds edges for a *grid*: row, column, diagonal, zigzag and border patterns. Its **Number X** and **Number Y** need to match the grid you generated, **Direction** picks the axis, **Stride** skips lines, and **Zigzag: Reverse Start** alternates direction. The output is meant for the render node's **Edge Data** input.
 
 That last pairing is the one to remember if you want grids rather than point clouds: `vArrayGridConnect` into **Array Edge** with **Use Edge Data** enabled gives you a proper lattice instead of a scribble (see the render hub in [Camera Projection Pipelines](./camera-projection-pipelines)).
 
 ## 5. Combining arrays
 
-- **`vArrayAppend`** — appends one array onto another. **Number** grows the input list as you wire it up, the same pattern the switch nodes use.
-- **`vArrayAppendGroup`** — the same, for group data (the membership arrays that text and font generators produce).
-- **`vArrayMergeTrim`** — joins several arrays into a single table (**Array1** … *i*) while trimming as it goes: **Trim Start**, **Trim End**, **Every Nth**, **Reverse**.
-- **`vArrayModifyRepeat`** — repeats an array with per-copy transform offsets (**Copies**, **Offset X/Y/Z**, **Rotate Step Z**, **Scale Step**). The cheapest way to build a stack, a fan or a ring of copies.
+- `vArrayAppend` — appends one array onto another. **Number** grows the input list as you wire it up, the same pattern the switch nodes use.
+- `vArrayAppendGroup` — the same, for group data (the membership arrays that text and font generators produce).
+- `vArrayMergeTrim` — joins several arrays into a single table (**Array1** … *i*) while trimming as it goes: **Trim Start**, **Trim End**, **Every Nth**, **Reverse**.
+- `vArrayModifyRepeat` — repeats an array with per-copy transform offsets (**Copies**, **Offset X/Y/Z**, **Rotate Step Z**, **Scale Step**). The cheapest way to build a stack, a fan or a ring of copies.
 
 ## 6. Time: particles, trails, accumulation
 
 The **Temporal** group is small — seven nodes — and it's what makes a point set behave like a system over time:
 
-- **`vArrayPointParticles`** — a full particle generator rather than a layout: 54 controls, headed by **Particles Count** (`24`), **Emission Type** (defaulting to Fibonacci Sphere), **Size X/Y/Z**, **Center X/Y/Z**, **Global Scale**, and **Time** / **Start Time** / **Restart System** for controlling the simulation.
-- **`vArrayTemporalTrailFromPoints`** — concatenates point arrays across frames, turning one moving point set into a trail. **History Length** (`12`), **Frame Step** and **Oldest First** shape it.
-- **`vArrayAccumulator`** — temporally concatenates array elements across **Start Frame** to **End Frame** with a **Step**, offsetting and rotating each copy (**Offset X/Y/Z**, **Rotate X/Y/Z**). This is the node behind repeating-geometry looks — rings of rings, spirals of grids.
-- **`vArrayTemporalSmooth`**, **`vArrayTemporalDelta`**, **`vArrayTemporalTimeShiftArray`**, **`vArrayTemporalSolverStep`** — smoothing, per-frame change, time-shifted copies, and a solver step for iterated simulation.
+- `vArrayPointParticles` — a full particle generator rather than a layout: 54 controls, headed by **Particles Count** (`24`), **Emission Type** (defaulting to Fibonacci Sphere), **Size X/Y/Z**, **Center X/Y/Z**, **Global Scale**, and **Time** / **Start Time** / **Restart System** for controlling the simulation.
+- `vArrayTemporalTrailFromPoints` — concatenates point arrays across frames, turning one moving point set into a trail. **History Length** (`12`), **Frame Step** and **Oldest First** shape it.
+- `vArrayAccumulator` — temporally concatenates array elements across **Start Frame** to **End Frame** with a **Step**, offsetting and rotating each copy (**Offset X/Y/Z**, **Rotate X/Y/Z**). This is the node behind repeating-geometry looks — rings of rings, spirals of grids.
+- `vArrayTemporalSmooth`, `vArrayTemporalDelta`, `vArrayTemporalTimeShiftArray`, `vArrayTemporalSolverStep` — smoothing, per-frame change, time-shifted copies, and a solver step for iterated simulation.
 
 Trails only *read* as trails if something draws them: leave **Show Lines** on at the render node, which is where a trail becomes a streak rather than a cloud of dots.
 

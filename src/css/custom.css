@@ -946,13 +946,19 @@ article a:not(.node-chip):not(.menu__link):not(.toc__link):hover {
 }
 
 /* ...and display:flex on the cells, along with the by-position alignment
-   that only makes sense for Type/Default columns. */
+   that only makes sense for Type/Default columns.
+
+   overflow-wrap is break-word, NOT anywhere: `anywhere` also collapses the
+   cell's min-content width, which lets the table squeeze the first column
+   until long node names break mid-word ("vArrayModifyA / ttributeRando /
+   mize"). break-word only kicks in when a word genuinely cannot fit its
+   line, so the column is sized for the name and the name stays intact. */
 .markdown table:not(:has(thead th:nth-child(4))) :is(th, td) {
   display: table-cell;
   text-align: left;
   vertical-align: top;
   white-space: normal;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 
 .markdown table:not(:has(thead th:nth-child(4))) :is(td:first-child, td:nth-child(2), th:nth-child(2), td:nth-child(3), th:nth-child(3)) {
@@ -973,8 +979,16 @@ article a:not(.node-chip):not(.menu__link):not(.toc__link):hover {
 
 .markdown table:not(:has(thead th:nth-child(4))) td code {
   white-space: normal;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
   max-width: 100%;
+}
+
+/* The parameter tables bold their first column because it holds parameter
+   names; node names are the equivalent here, but a node name is already
+   identified by its chip treatment, so bolding it too reads as shouting.
+   Plain-text first-column labels keep the 600 weight from the rule above. */
+.markdown table:not(:has(thead th:nth-child(4))) td:first-child code {
+  font-weight: 400;
 }
 
 /* Mobile: the media query below re-lays every table out as a stacked card
