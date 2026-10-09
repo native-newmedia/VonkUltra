@@ -9,4 +9,4 @@ import CategoryCards from '@site/src/components/CategoryCards';
 
 Core node reference, grouped by data type.
 
-<CategoryCards variant="types" />
+<CategoryCards variant="types" family="Core" />

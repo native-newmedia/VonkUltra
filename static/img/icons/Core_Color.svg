@@ -1,3 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
-  <circle cx="32" cy="32" r="14" stroke="#ffffff" stroke-width="2" fill="none"/><circle cx="26" cy="26" r="4" fill="#ffffff"/><path d="M40 40 L48 48" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+<svg width="158" height="158" viewBox="0 0 158 158" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M88.5999 66.2C88.5999 80.3385 77.1384 91.8 62.9999 91.8C48.8614 91.8 37.3999 80.3385 37.3999 66.2C37.3999 52.0615 48.8614 40.6 62.9999 40.6C77.1384 40.6 88.5999 52.0615 88.5999 66.2Z" stroke-width="5.12" stroke-linecap="round" stroke-linejoin="round" stroke="white"/>
+<path d="M120.6 66.2C120.6 80.3385 109.138 91.8 94.9999 91.8C80.8614 91.8 69.3999 80.3385 69.3999 66.2C69.3999 52.0615 80.8614 40.6 94.9999 40.6C109.138 40.6 120.6 52.0615 120.6 66.2Z" stroke-width="5.12" stroke-linecap="round" stroke-linejoin="round" stroke="white"/>
+<path d="M104.6 95C104.6 109.139 93.1384 120.6 78.9999 120.6C64.8614 120.6 53.3999 109.139 53.3999 95C53.3999 80.8615 64.8614 69.4 78.9999 69.4C93.1384 69.4 104.6 80.8615 104.6 95Z" stroke-width="5.12" stroke-linecap="round" stroke-linejoin="round" stroke="white"/>
 </svg>

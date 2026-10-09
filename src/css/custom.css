@@ -547,6 +547,7 @@ article a:not(.node-chip):not(.menu__link):not(.toc__link):hover {
 .cat-card-icon--type-text { background: #dc2626; }
 .cat-card-icon--type-usd { background: #0ea5e9; }
 .cat-card-icon--type-vector { background: #16a34a; }
+.cat-card-icon--type-xml { background: #be123c; }
 .cat-card-icon--type-yaml { background: #b45309; }
 
 /* Core function-group icon colors (Level 2) */

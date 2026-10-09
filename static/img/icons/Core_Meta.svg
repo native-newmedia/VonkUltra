@@ -1,3 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
-  <circle cx="32" cy="32" r="14" stroke="#ffffff" stroke-width="2" fill="none"/><text x="32" y="36" fill="#ffffff" font-family="serif" font-size="16" font-weight="bold" text-anchor="middle" dominant-baseline="middle">i</text>
+<svg width="158" height="158" viewBox="0 0 158 158" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M122.2 79C122.2 102.859 102.859 122.2 79 122.2C55.1413 122.2 35.8 102.859 35.8 79C35.8 55.1413 55.1413 35.8 79 35.8C102.859 35.8 122.2 55.1413 122.2 79Z" stroke-width="5.12" stroke-linecap="round" stroke-linejoin="round" stroke="white"/>
+<path d="M79 72.6001V101.4" stroke-width="5.12" stroke-linecap="round" stroke-linejoin="round" stroke="white"/>
+<path d="M79 60.44C81.1208 60.44 82.84 58.7208 82.84 56.6C82.84 54.4792 81.1208 52.76 79 52.76C76.8793 52.76 75.16 54.4792 75.16 56.6C75.16 58.7208 76.8793 60.44 79 60.44Z" fill="white" stroke-width="5.12" stroke-linecap="round" stroke-linejoin="round" stroke="white"/>
 </svg>

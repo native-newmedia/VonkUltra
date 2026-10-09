@@ -36,7 +36,7 @@ import CategoryCards from '@site/src/components/CategoryCards';
 
 ${intro}
 
-<CategoryCards ${label === 'Core' ? 'variant="types" ' : ''}/>
+<CategoryCards ${label === 'Core' ? 'variant="types" family="Core" ' : ''}/>
 `;
 }
 

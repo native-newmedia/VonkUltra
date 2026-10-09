@@ -36,6 +36,7 @@ export const CORE_TYPES = {
   Text: { icon: 'T', color: 'type-text', desc: 'String manipulation and text processing.' },
   USD: { icon: '◧', color: 'type-usd', desc: 'Universal Scene Description data.' },
   Vector: { icon: '↗', color: 'type-vector', desc: 'Vectors and directional math.' },
+  XML: { icon: '<?>', color: 'type-xml', desc: 'Parse and serialize XML data.' },
   YAML: { icon: 'Y', color: 'type-yaml', desc: 'Serialize and parse YAML data.' },
 };
 
