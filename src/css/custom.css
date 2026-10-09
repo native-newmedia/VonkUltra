@@ -908,6 +908,121 @@ article a:not(.node-chip):not(.menu__link):not(.toc__link):hover {
 }
 
 /**
+ * ── Non-parameter tables (guides, walkthroughs, any 2–3 column table) ──
+ *
+ * The block above is written for the four-column parameter tables that every
+ * page under docs/reference/** uses: it forces the table into a fixed
+ * 4-column CSS grid, makes each row's wrappers display:contents, turns cells
+ * into flex items, and then styles columns 1–3 by position (nowrap on the
+ * parameter name, centered monospace Type, nowrap Default pill).
+ *
+ * That contract only holds at four columns. With two or three, the grid
+ * auto-places cells into the wrong columns and each row's cells land offset
+ * from their headers — and because the by-position rules then apply to prose
+ * (a 2-column table's second cell is prose, not a Type value) the text is
+ * forced to nowrap and overflows its grid track, overlapping the neighbouring
+ * cell. This is what broke the guide tables.
+ *
+ * There is no per-page class to hook, so the split is made on the header
+ * count instead: a fourth <th> means "parameter table, use the grid above",
+ * everything else gets native table layout back. Browsers without :has()
+ * (~2023+) simply keep Infima's default table for the parameter pages too —
+ * plainer, but never mis-laid-out.
+ */
+.markdown table:not(:has(thead th:nth-child(4))) {
+  display: table;
+  table-layout: auto;
+  width: 100%;
+  border-collapse: collapse;
+  grid-template-columns: none;
+  grid-template-rows: none;
+  grid-auto-rows: auto;
+}
+
+/* Undo display:contents on the row wrappers — they need their real boxes
+   back for native table layout. */
+.markdown table:not(:has(thead th:nth-child(4))) :is(thead, tbody, tr) {
+  display: revert;
+}
+
+/* ...and display:flex on the cells, along with the by-position alignment
+   that only makes sense for Type/Default columns. */
+.markdown table:not(:has(thead th:nth-child(4))) :is(th, td) {
+  display: table-cell;
+  text-align: left;
+  vertical-align: top;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.markdown table:not(:has(thead th:nth-child(4))) :is(td:first-child, td:nth-child(2), th:nth-child(2), td:nth-child(3), th:nth-child(3)) {
+  justify-content: initial;
+  text-align: left;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  white-space: normal;
+}
+
+/* Long node names in the first column are the whole point of these tables —
+   let them wrap and break rather than push the table off the page. */
+.markdown table:not(:has(thead th:nth-child(4))) td:first-child {
+  font-weight: 600;
+  white-space: normal;
+}
+
+.markdown table:not(:has(thead th:nth-child(4))) td code {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  max-width: 100%;
+}
+
+/* Mobile: the media query below re-lays every table out as a stacked card
+   with captions hardcoded for the parameter order (content: 'Type' on cell
+   2, and so on). That's right for parameter tables and nonsense for
+   anything else, so non-parameter tables keep their header row and scroll
+   sideways instead. */
+@media (max-width: 768px) {
+  .markdown table:not(:has(thead th:nth-child(4))) {
+    display: block;
+    overflow-x: auto;
+  }
+
+  .markdown table:not(:has(thead th:nth-child(4))) :is(thead, tbody, tr) {
+    display: revert;
+  }
+
+  .markdown table:not(:has(thead th:nth-child(4))) :is(th, td) {
+    display: table-cell;
+    border: none;
+    border-bottom: 1px solid var(--ifm-color-emphasis-200);
+    padding: 0.5rem 0.75rem;
+    width: auto;
+    margin: 0;
+  }
+
+  .markdown table:not(:has(thead th:nth-child(4))) tr {
+    border: none;
+    border-radius: 0;
+    padding: 0;
+  }
+
+  .markdown table:not(:has(thead th:nth-child(4))) td:nth-child(2)::before {
+    content: none;
+  }
+
+  .markdown table:not(:has(thead th:nth-child(4))) td:last-child {
+    border-top: none;
+    margin-top: 0;
+    padding-top: 0.5rem;
+  }
+
+  .markdown table:not(:has(thead th:nth-child(4))) td:first-child {
+    padding-top: 0.5rem;
+  }
+}
+
+/**
  * Connection chips (Example Connections sections).
  * Replaces the plain `NodeName.Port -> NodeName.Port` code-fence lines with
  * a chip pair + arrow, styled after cavalry.studio's connection docs
