@@ -26,7 +26,9 @@ These are the other things that guide covers:
 
 ### Particle and point generation
 
-Layout generators, and the modifiers that disturb the layouts they produce:
+**Published:** [Particle and Point Generation](./particle-and-point-generation) covers the generation half of the pipeline — choosing a layout family, breaking up its regularity with seeds and noise, masking and decimating, ordering points for the line layer, combining arrays, and using the Temporal group for particle systems, trails and accumulation.
+
+The guide is built around these three layers:
 
 - **Generators** — `vArrayPointsOnCircle`, `vArrayPointsOnArc`, `vArrayPointsOnGrid`, `vArrayPointsOnSphere`, `vArrayPhyllotaxis`, `vArrayFromOBJ`.
 - **Displacement** — `vArrayPointsJitter` adds noise to points; `vArrayDisplaceValues` applies noise-driven displacement with spherical falloff for organic scatter and turbulence.
@@ -47,4 +49,4 @@ Text is the largest Core type — 88 `vText*` nodes — and the Mograph family a
 
 ## Status
 
-One guide is published — [Camera Projection Pipelines](./camera-projection-pipelines). The particle/point-generation and text/font guides are next. In the meantime the [Reference](/docs/reference) is complete on its own: every node page carries its parameters, connection examples and related nodes.
+Two guides are published — [Camera Projection Pipelines](./camera-projection-pipelines) and [Particle and Point Generation](./particle-and-point-generation). Text and font workflows is next. In the meantime the [Reference](/docs/reference) is complete on its own: every node page carries its parameters, connection examples and related nodes.
