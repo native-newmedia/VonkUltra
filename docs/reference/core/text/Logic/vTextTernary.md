@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 title: vTextTernary
+description: "Compare a value and return one of two possible strings as the result"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,19 +24,19 @@ Compare a value and return one of two possible strings as the result
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Term 1 | Float | `0` | — |
-| Term1Separator | Float | `—` | — |
-| True | Text | `—` | — |
-| False | Text | `—` | — |
-| Display Lines | Integer | `5` | — |
+| Term 1 | Float | `0` | Condition — treated as false when 0, true otherwise. |
+| Term1Separator | Float | `—` | A UI separator, not a real setting. |
+| True | Text | `—` | String output when Term 1 is true. |
+| False | Text | `—` | String output when Term 1 is false. |
+| Display Lines | Integer | `5` | Number of lines shown in the True/False text boxes in the Inspector. |
 
 <details>
 <summary>+2 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Wrap Lines | Integer | `1.0` | — |
-| Show Input | Integer | `0.0` | — |
+| Wrap Lines | Integer | `1.0` | Wraps long lines in the True/False text boxes instead of scrolling horizontally. |
+| Show Input | Integer | `0.0` | Reveals the wire for the Term 1 connection in the Flow view. |
 
 </details>
 
@@ -49,5 +50,5 @@ Compare a value and return one of two possible strings as the result
 
 {/*
 Generated page — node: vTextTernary (Core/Text/Logic).
-Source: fuse vTextTernary.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextTernary.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

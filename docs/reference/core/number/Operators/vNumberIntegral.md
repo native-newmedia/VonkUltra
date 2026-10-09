@@ -1,6 +1,7 @@
 ---
 sidebar_position: 10
 title: vNumberIntegral
+description: "Returns the integral part of a number"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Returns the integral part of a number
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Number | Float | `0` | — |
-| Show Input | Integer | `0.0` | — |
+| Number | Float | `0` | Value to extract the integer part from — Output discards the fractional (decimal) portion. |
+| Show Input | Integer | `0.0` | Reveals the wire for the Number connection in the Flow view. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Returns the integral part of a number
 
 {/*
 Generated page — node: vNumberIntegral (Core/Number/Operators).
-Source: fuse vNumberIntegral.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberIntegral.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

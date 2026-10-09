@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vImageCreateTiles
+description: "Creates an image grid layout from an image sequence This node makes it easy to create tiled \"texture atlas\" like grid layouts."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,15 +24,15 @@ Creates an image grid layout from an image sequence This node makes it easy to c
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Image | `—` | — |
-| Tiles X | Integer | `10` | — |
-| Tiles Y | Integer | `10` | — |
-| Reverse X Order | Integer | `0.0` | — |
-| Reverse Y Order | Integer | `1.0` | — |
+| Input | Image | `—` | Image sequence to lay out as a grid — connect a Loader or other sequence-driving node upstream. Resize/scale it first if you need the tiles smaller than source resolution. |
+| Tiles X | Integer | `10` | Number of images stacked horizontally. |
+| Tiles Y | Integer | `10` | Number of images stacked vertically. |
+| Reverse X Order | Integer | `0.0` | Places frame 1 on the right instead of the left. |
+| Reverse Y Order | Integer | `1.0` | Places frame 1 at the bottom instead of the top. Combine with Reverse X Order to start from any of the 4 corners. |
 
 
 
 {/*
 Generated page — node: vImageCreateTiles (Core/Image/Create).
-Source: fuse vImageCreateTiles.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vImageCreateTiles.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

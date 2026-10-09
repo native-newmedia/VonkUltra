@@ -1,6 +1,7 @@
 ---
 sidebar_position: 7
 title: vMatrixToTranslation
+description: "Decomposes translation from a matrix."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,10 +24,10 @@ Decomposes translation from a matrix. This returns XYZ rotation values from a 4x
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Text | `—` | — |
-| X Offset | Float | `—` | — |
-| Y Offset | Float | `—` | — |
-| Z Offset | Float | `—` | — |
+| Input | Text | `—` | 4×4 matrix to decompose. |
+| X Offset | Float | `—` | Read-only output of the matrix's X translation component. |
+| Y Offset | Float | `—` | Read-only output of the matrix's Y translation component. |
+| Z Offset | Float | `—` | Read-only output of the matrix's Z translation component. |
 
 
 ## Related Nodes
@@ -40,5 +41,5 @@ Decomposes translation from a matrix. This returns XYZ rotation values from a 4x
 
 {/*
 Generated page — node: vMatrixToTranslation (Core/Matrix/Transform).
-Source: fuse vMatrixToTranslation.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vMatrixToTranslation.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

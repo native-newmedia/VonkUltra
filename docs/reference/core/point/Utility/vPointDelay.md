@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vPointDelay
+description: "Creates a Delay while passing a Fusion Point object"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Creates a Delay while passing a Fusion Point object
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Point | Point | `—` | — |
-| Delay | Float | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| Point | Point | `—` | Point passed through unchanged after the delay. |
+| Delay | Float | `—` | Pause duration in seconds, implemented via `bmd.wait()`. Useful for throttling command-line tasks that need a moment to complete, or for simulating a slow render step. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Point connection in the Flow view. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Creates a Delay while passing a Fusion Point object
 
 {/*
 Generated page — node: vPointDelay (Core/Point/Utility).
-Source: fuse vPointDelay.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vPointDelay.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

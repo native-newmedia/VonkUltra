@@ -1,6 +1,7 @@
 ---
 sidebar_position: 5
 title: vNumberDivide
+description: "Returns the quotient of two numbers"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,10 +24,10 @@ Returns the quotient of two numbers
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Numerator | Float | `0` | — |
-| NumeratorSeparator | Float | `—` | — |
-| Denominator | Float | `0` | — |
-| Show Input | Integer | `0.0` | — |
+| Numerator | Float | `0` | Value to be divided. |
+| NumeratorSeparator | Float | `—` | A UI separator, not a real setting. |
+| Denominator | Float | `0` | Value to divide by. |
+| Show Input | Integer | `0.0` | Reveals the wires for the Numerator/Denominator connections in the Flow view. |
 
 
 ## Related Nodes
@@ -40,5 +41,5 @@ Returns the quotient of two numbers
 
 {/*
 Generated page — node: vNumberDivide (Core/Number/Operators).
-Source: fuse vNumberDivide.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberDivide.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

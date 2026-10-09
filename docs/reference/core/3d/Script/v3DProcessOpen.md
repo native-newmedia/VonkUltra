@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: v3DProcessOpen
+description: "Launch a command-line process via popen."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Launch a command-line process via popen. The "Input 3D" field is used to connect
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input 3D | DataType3D | `—` | — |
-| Text | Text | `—` | — |
-| Show Text Input | Integer | `1.0` | — |
+| Input 3D | DataType3D | `—` | 3D data passed through unchanged — connect any node interacting with Fusion's 3D workspace to chain this process launch into a 3D pipeline. |
+| Text | Text | `—` | The executable name and command-line arguments to run, typically built with vTextSubFormat. Use vTextCreatePlatform/vTextCreatePlatformBrowse for cross-platform executable naming. |
+| Show Text Input | Integer | `1.0` | Reveals the wire for the Text connection in the Flow view. |
 
 
 ## Related Nodes
@@ -36,5 +37,5 @@ Launch a command-line process via popen. The "Input 3D" field is used to connect
 
 {/*
 Generated page — node: v3DProcessOpen (Core/3D/Script).
-Source: fuse v3DProcessOpen.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse v3DProcessOpen.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

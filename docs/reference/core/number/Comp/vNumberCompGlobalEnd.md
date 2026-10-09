@@ -1,6 +1,7 @@
 ---
 sidebar_position: 4
 title: vNumberCompGlobalEnd
+description: "Returns the comp's Global End This is the last frame of the full Fusion timeline range."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -32,5 +33,5 @@ Returns the comp's Global End This is the last frame of the full Fusion timeline
 
 {/*
 Generated page — node: vNumberCompGlobalEnd (Core/Number/Comp).
-Source: fuse vNumberCompGlobalEnd.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberCompGlobalEnd.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

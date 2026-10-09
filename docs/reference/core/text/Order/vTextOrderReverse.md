@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vTextOrderReverse
+description: "Reverses the order of a Fusion Text object The \"Text\" field contents will be output letter-by-letter in a right-to-left mirrored fashion that reverses the text's placement."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Reverses the order of a Fusion Text object The "Text" field contents will be out
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Text | Text | `—` | — |
-| Show Input | Integer | `0.0` | — |
+| Text | Text | `—` | The text to reverse letter-by-letter. |
+| Show Input | Integer | `0.0` | Reveals the wire for the Text connection in the Flow view. |
 
 
 ## Related Nodes
@@ -35,5 +36,5 @@ Reverses the order of a Fusion Text object The "Text" field contents will be out
 
 {/*
 Generated page — node: vTextOrderReverse (Core/Text/Order).
-Source: fuse vTextOrderReverse.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextOrderReverse.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

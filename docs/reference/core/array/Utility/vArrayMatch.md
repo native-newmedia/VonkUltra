@@ -1,6 +1,7 @@
 ---
 sidebar_position: 5
 title: vArrayMatch
+description: "Gets the value of a key in an array The \"Pattern\" text field uses [Lua Patterns](http://lua-users.org/wiki/PatternsTutorial) to isolate values from a JSON based Array object."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Gets the value of a key in an array The "Pattern" text field uses [Lua Patterns]
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Text | `—` | — |
-| Pattern | Text | `—` | — |
-| Show Input | Integer | `0.0` | — |
+| Input | Text | `—` | JSON array text to search. |
+| Pattern | Text | `—` | A Lua pattern used to isolate matching values, e.g. `cryptomatte/[a-z0-9]+/manifest` to pull Cryptomatte manifest entries out of image metadata parsed via vArrayFromMetadata. |
+| Show Input | Integer | `0.0` | Reveals the wire for the Input connection in the Flow view. |
 
 
 ## Related Nodes
@@ -39,5 +40,5 @@ Gets the value of a key in an array The "Pattern" text field uses [Lua Patterns]
 
 {/*
 Generated page — node: vArrayMatch (Core/Array/Utility).
-Source: fuse vArrayMatch.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vArrayMatch.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

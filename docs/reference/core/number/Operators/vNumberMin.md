@@ -1,6 +1,7 @@
 ---
 sidebar_position: 12
 title: vNumberMin
+description: "Returns the minimum of two numbers"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Returns the minimum of two numbers
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Number1 | Float | `0` | — |
-| Number2 | Float | `0` | — |
-| Show Input | Integer | `0.0` | — |
+| Number1 | Float | `0` | First value to compare. |
+| Number2 | Float | `0` | Second value to compare — Output is whichever of Number1/Number2 is smaller. |
+| Show Input | Integer | `0.0` | Reveals the wires for the Number1/Number2 connections in the Flow view. |
 
 
 ## Related Nodes
@@ -39,5 +40,5 @@ Returns the minimum of two numbers
 
 {/*
 Generated page — node: vNumberMin (Core/Number/Operators).
-Source: fuse vNumberMin.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberMin.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

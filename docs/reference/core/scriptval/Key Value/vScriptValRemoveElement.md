@@ -1,6 +1,7 @@
 ---
 sidebar_position: 10
 title: vScriptValRemoveElement
+description: "Removes an element from a ScriptVal array using its index position"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Removes an element from a ScriptVal array using its index position
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| ScriptVal | DATATYPE | `—` | — |
-| Index | Integer | `1` | — |
-| Show Input | Integer | `0.0` | — |
+| ScriptVal | DATATYPE | `—` | ScriptVal array to remove an element from. |
+| Index | Integer | `1` | 1-based position of the element to remove. |
+| Show Input | Integer | `0.0` | Reveals the wire for the ScriptVal connection in the Flow view. |
 
 
 ## Related Nodes
@@ -39,5 +40,5 @@ Removes an element from a ScriptVal array using its index position
 
 {/*
 Generated page — node: vScriptValRemoveElement (Core/ScriptVal/Key Value).
-Source: fuse vScriptValRemoveElement.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vScriptValRemoveElement.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

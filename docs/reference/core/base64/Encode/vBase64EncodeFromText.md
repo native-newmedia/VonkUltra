@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vBase64EncodeFromText
+description: "Base64 encodes text into a Fusion Text object."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Base64 encodes text into a Fusion Text object. This node converts a block of ASC
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Text | Text | `—` | — |
-| Show Input | Integer | `0.0` | — |
+| Text | Text | `—` | ASCII text to Base64-encode. |
+| Show Input | Integer | `0.0` | Reveals the Text control for editing or wiring. |
 
 
 ## Related Nodes
@@ -35,5 +36,5 @@ Base64 encodes text into a Fusion Text object. This node converts a block of ASC
 
 {/*
 Generated page — node: vBase64EncodeFromText (Core/Base64/Encode).
-Source: fuse vBase64EncodeFromText.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vBase64EncodeFromText.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

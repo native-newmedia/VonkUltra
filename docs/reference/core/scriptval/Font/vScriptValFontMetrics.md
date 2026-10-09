@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vScriptValFontMetrics
+description: "Return font measurements as a Fusion ScriptVal object Sample output from the \"vScriptValFontMetrics\" node when formatted as text based Lua table output looks…"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,10 +24,10 @@ Return font measurements as a Fusion ScriptVal object Sample output from the "vS
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Font | Text | `—` | — |
-| Style | Text | `—` | — |
-| Styled Text | Text | `—` | — |
-| Size | Float | `0.1` | — |
+| Font | Text | `—` | Font family name to measure, e.g. `Arial Black`. |
+| Style | Text | `—` | Font style/weight, e.g. `Regular` or `Bold`. |
+| Styled Text | Text | `—` | Sample text the metrics are measured against. |
+| Size | Float | `0.1` | Font size used for the measurement. |
 
 
 ## Related Nodes
@@ -37,5 +38,5 @@ Return font measurements as a Fusion ScriptVal object Sample output from the "vS
 
 {/*
 Generated page — node: vScriptValFontMetrics (Core/ScriptVal/Font).
-Source: fuse vScriptValFontMetrics.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vScriptValFontMetrics.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

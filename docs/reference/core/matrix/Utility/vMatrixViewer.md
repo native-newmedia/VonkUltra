@@ -1,6 +1,7 @@
 ---
 sidebar_position: 4
 title: vMatrixViewer
+description: "View vMatrix content in the Inspector This allows you to see the XYZ translation, rotation, and scale values for a vMatrix."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ View vMatrix content in the Inspector This allows you to see the XYZ translation
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Transpose Matrix | Integer | `0.0` | — |
-| Show Dump | Integer | `0.0` | — |
+| Transpose Matrix | Integer | `0.0` | Swaps rows and columns before displaying the decomposed translation/rotation/scale values. |
+| Show Dump | Integer | `0.0` | Prints the matrix and its decomposed values to the console each frame. |
 
 
 ## Related Nodes
@@ -37,5 +38,5 @@ View vMatrix content in the Inspector This allows you to see the XYZ translation
 
 {/*
 Generated page — node: vMatrixViewer (Core/Matrix/Utility).
-Source: fuse vMatrixViewer.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vMatrixViewer.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

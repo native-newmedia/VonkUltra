@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vArrayCountElement
+description: "Counts the elements in an Array"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,7 +24,7 @@ Counts the elements in an Array
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Text | DATATYPE | `—` | — |
+| Text | DATATYPE | `—` | JSON array text to count. Output is the number of top-level elements it contains. |
 
 
 ## Related Nodes
@@ -37,5 +38,5 @@ Counts the elements in an Array
 
 {/*
 Generated page — node: vArrayCountElement (Core/Array/Utility).
-Source: fuse vArrayCountElement.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vArrayCountElement.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

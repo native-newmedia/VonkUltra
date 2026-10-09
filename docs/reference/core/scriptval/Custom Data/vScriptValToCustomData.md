@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vScriptValToCustomData
+description: "Save a Fusion ScriptVal object to Custom Data The \"Text\" control is used to specify the key used for the CustomData record."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,10 +24,10 @@ Save a Fusion ScriptVal object to Custom Data The "Text" control is used to spec
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | ScriptVal | `—` | — |
-| Text | Text | `—` | — |
-| Context | Float | `Fusion` | — |
-| Show Input | Integer | `0.0` | — |
+| Input | ScriptVal | `—` | ScriptVal value to save. |
+| Text | Text | `—` | CustomData key to write to, using dot syntax for nested levels. |
+| Context | Dropdown | `Fusion` | Scope to write the CustomData to: Fusion (application-wide) or Comp (this composition only). |
+| Show Input | Integer | `0.0` | Reveals the wire for the Input connection in the Flow view. |
 
 
 ## Related Nodes
@@ -37,5 +38,5 @@ Save a Fusion ScriptVal object to Custom Data The "Text" control is used to spec
 
 {/*
 Generated page — node: vScriptValToCustomData (Core/ScriptVal/Custom Data).
-Source: fuse vScriptValToCustomData.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vScriptValToCustomData.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

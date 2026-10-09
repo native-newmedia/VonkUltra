@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vScriptValCreate
+description: "Create a Fusion ScriptVal object The ScriptVal datatype in Fusion is used to pass Lua tables that hold arbitrary data between nodes."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Create a Fusion ScriptVal object The ScriptVal datatype in Fusion is used to pas
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Lua Table Text | Text | `—` | — |
-| Display Lines | Integer | `25` | — |
-| Wrap Lines | Integer | `1.0` | — |
+| Lua Table Text | Text | `—` | Lua table literal defining the ScriptVal's contents, e.g. `{ num = 3.14, foo = "Hello", bar = { tarfu = "Fuse" } }`. |
+| Display Lines | Integer | `25` | Number of visible lines in the text editor before scrolling. |
+| Wrap Lines | Integer | `1.0` | Wraps long lines in the text editor instead of scrolling horizontally. |
 
 
 ## Related Nodes
@@ -39,5 +40,5 @@ Create a Fusion ScriptVal object The ScriptVal datatype in Fusion is used to pas
 
 {/*
 Generated page — node: vScriptValCreate (Core/ScriptVal/Create).
-Source: fuse vScriptValCreate.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vScriptValCreate.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

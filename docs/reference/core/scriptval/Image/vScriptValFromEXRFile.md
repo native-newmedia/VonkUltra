@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vScriptValFromEXRFile
+description: "Convert OpenEXR header, part, and channel data into a ScriptVal This node is useful for generating a listing of the channel and part data from an EXR image…"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,12 +24,12 @@ Convert OpenEXR header, part, and channel data into a ScriptVal This node is use
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| EXR File | Text | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| EXR File | Text | `—` | Path to the EXR file to inspect. Only the header/part/channel structure is read — pixel data is never loaded. |
+| Show Input | Integer | `1.0` | Reveals the wire for the EXR File connection in the Flow view. |
 
 
 
 {/*
 Generated page — node: vScriptValFromEXRFile (Core/ScriptVal/Image).
-Source: fuse vScriptValFromEXRFile.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vScriptValFromEXRFile.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vMetadataFromMediaIn
+description: "Creates a Fusion image with MediaIn MediaProps metadata This node is connected directly to a MediaIn node."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,12 +24,12 @@ Creates a Fusion image with MediaIn MediaProps metadata This node is connected d
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| MediaIn Input | Image | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| MediaIn Input | Image | `—` | The image connected directly from a MediaIn node — its MediaProps record is extracted and written into this node's output metadata. |
+| Show Input | Integer | `1.0` | Reveals the wire for the MediaIn Input connection in the Flow view. |
 
 
 
 {/*
 Generated page — node: vMetadataFromMediaIn (Core/Meta/Resolve).
-Source: fuse vMetadataFromMediaIn.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vMetadataFromMediaIn.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

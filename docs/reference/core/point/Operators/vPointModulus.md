@@ -1,6 +1,7 @@
 ---
 sidebar_position: 6
 title: vPointModulus
+description: "Returns the remainder of the division of a Fusion Point object that rounds the quotient towards zero The \"Divisor X\" and \"Divisor Y\" controls make it possible…"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,10 +24,10 @@ Returns the remainder of the division of a Fusion Point object that rounds the q
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Point | Point | `—` | — |
-| Divisor X | Float | `1.0` | — |
-| Divisor Y | Float | `1.0` | — |
-| Show Input | Integer | `1.0` | — |
+| Point | Point | `—` | Point to wrap. |
+| Divisor X | Float | `1.0` | Wrap range for the X axis — X output loops within 0 to (Divisor X − 1). |
+| Divisor Y | Float | `1.0` | Wrap range for the Y axis — Y output loops within 0 to (Divisor Y − 1). |
+| Show Input | Integer | `1.0` | Reveals the wire for the Point connection in the Flow view. |
 
 
 ## Related Nodes
@@ -40,5 +41,5 @@ Returns the remainder of the division of a Fusion Point object that rounds the q
 
 {/*
 Generated page — node: vPointModulus (Core/Point/Operators).
-Source: fuse vPointModulus.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vPointModulus.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

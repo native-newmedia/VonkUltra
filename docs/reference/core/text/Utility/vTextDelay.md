@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vTextDelay
+description: "Creates a Delay while passing a Fusion Text object The delay effect is measured in seconds."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Creates a Delay while passing a Fusion Text object The delay effect is measured 
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Text | Text | `—` | — |
-| Delay | Float | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| Text | Text | `—` | The text value passed through unchanged, after the delay. |
+| Delay | Float | `—` | Pause duration, in seconds, before Text is passed through. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Text connection in the Flow view. |
 
 
 ## Related Nodes
@@ -39,5 +40,5 @@ Creates a Delay while passing a Fusion Text object The delay effect is measured 
 
 {/*
 Generated page — node: vTextDelay (Core/Text/Utility).
-Source: fuse vTextDelay.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextDelay.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

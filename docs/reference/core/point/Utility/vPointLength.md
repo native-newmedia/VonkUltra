@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 title: vPointLength
+description: "Measure the distance between two Fusion Point objects The output from this node is a Number datatype that reports the distance between Point1 and Point2."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Measure the distance between two Fusion Point objects The output from this node 
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Point1 | Point | `—` | — |
-| Point2 | Point | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| Point1 | Point | `—` | First point. |
+| Point2 | Point | `—` | Second point — Output is the distance between Point1 and Point2. Selecting this node shows both locator handles overlaid in the viewer. |
+| Show Input | Integer | `1.0` | Reveals the wires for the Point1/Point2 connections in the Flow view. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Measure the distance between two Fusion Point objects The output from this node 
 
 {/*
 Generated page — node: vPointLength (Core/Point/Utility).
-Source: fuse vPointLength.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vPointLength.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

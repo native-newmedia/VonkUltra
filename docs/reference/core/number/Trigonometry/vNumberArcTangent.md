@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 title: vNumberArcTangent
+description: "Returns the inverse tangent for a number in radians"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Returns the inverse tangent for a number in radians
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Radians | Float | `0` | — |
-| Show Input | Integer | `0.0` | — |
+| Radians | Float | `0` | Tangent ratio to compute the arc tangent of. Output is in radians. (The field is labeled "Radians" in the source fuse, which is inaccurate — the input here is a ratio, not an angle.) |
+| Show Input | Integer | `0.0` | Reveals the wire for the Radians connection in the Flow view. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Returns the inverse tangent for a number in radians
 
 {/*
 Generated page — node: vNumberArcTangent (Core/Number/Trigonometry).
-Source: fuse vNumberArcTangent.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberArcTangent.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

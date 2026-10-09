@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vNumberArcSine
+description: "Returns the inverse sine for a number in radians"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Returns the inverse sine for a number in radians
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Radians | Float | `0` | — |
-| Show Input | Integer | `0.0` | — |
+| Radians | Float | `0` | Sine ratio (-1 to 1) to compute the arc sine of. Output is in radians. (The field is labeled "Radians" in the source fuse, which is inaccurate — the input here is a ratio, not an angle.) |
+| Show Input | Integer | `0.0` | Reveals the wire for the Radians connection in the Flow view. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Returns the inverse sine for a number in radians
 
 {/*
 Generated page — node: vNumberArcSine (Core/Number/Trigonometry).
-Source: fuse vNumberArcSine.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberArcSine.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

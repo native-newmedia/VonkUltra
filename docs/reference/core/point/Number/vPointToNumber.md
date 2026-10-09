@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vPointToNumber
+description: "Return a pair of numbers from a Fusion Point object"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Return a pair of numbers from a Fusion Point object
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Point | Point | `—` | — |
-| Show Input | Integer | `0.0` | — |
+| Point | Point | `—` | Point to split — outputs its X and Y values as separate Number connections. |
+| Show Input | Integer | `0.0` | Reveals the wire for the Point connection in the Flow view. |
 
 
 ## Related Nodes
@@ -35,5 +36,5 @@ Return a pair of numbers from a Fusion Point object
 
 {/*
 Generated page — node: vPointToNumber (Core/Point/Number).
-Source: fuse vPointToNumber.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vPointToNumber.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

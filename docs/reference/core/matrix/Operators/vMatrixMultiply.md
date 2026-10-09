@@ -1,6 +1,7 @@
 ---
 sidebar_position: 5
 title: vMatrixMultiply
+description: "Multiplies two matrices It is possible combine separate rotation, translation, and scale matrices using a series of connected vMatrixMultiply nodes."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Multiplies two matrices It is possible combine separate rotation, translation, a
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Matrix1 | Text | `—` | — |
-| Matrix2 | Text | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| Matrix1 | Text | `—` | First matrix operand. |
+| Matrix2 | Text | `—` | Second matrix operand — Output is Matrix1 × Matrix2. Chain several vMatrixMultiply nodes to combine separate rotation, translation, and scale matrices. |
+| Show Input | Integer | `1.0` | Reveals the wires for the Matrix1/Matrix2 connections in the Flow view. |
 
 
 ## Related Nodes
@@ -39,5 +40,5 @@ Multiplies two matrices It is possible combine separate rotation, translation, a
 
 {/*
 Generated page — node: vMatrixMultiply (Core/Matrix/Operators).
-Source: fuse vMatrixMultiply.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vMatrixMultiply.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

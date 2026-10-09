@@ -1,6 +1,7 @@
 ---
 sidebar_position: 4
 title: vArrayJoin
+description: "Gets the value of a key in an array"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Gets the value of a key in an array
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Text | `—` | — |
-| Separator | Text | `—` | — |
-| Show Input | Integer | `0.0` | — |
+| Input | Text | `—` | JSON array text whose elements are joined into a single string. |
+| Separator | Text | `—` | Text inserted between each joined element. |
+| Show Input | Integer | `0.0` | Reveals the wire for the Input connection in the Flow view. |
 
 
 ## Related Nodes
@@ -39,5 +40,5 @@ Gets the value of a key in an array
 
 {/*
 Generated page — node: vArrayJoin (Core/Array/Utility).
-Source: fuse vArrayJoin.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vArrayJoin.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

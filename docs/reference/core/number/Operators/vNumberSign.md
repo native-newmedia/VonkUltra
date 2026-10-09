@@ -1,6 +1,7 @@
 ---
 sidebar_position: 19
 title: vNumberSign
+description: "Returns the sign of a number The output from the node will be either \"-1\", \"0\", or \"1\"."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Returns the sign of a number The output from the node will be either "-1", "0", 
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Number | Float | `0` | — |
-| Show Input | Integer | `1.0` | — |
+| Number | Float | `0` | Value to check — Output is -1, 0, or 1 depending on Number's sign. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Number connection in the Flow view. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Returns the sign of a number The output from the node will be either "-1", "0", 
 
 {/*
 Generated page — node: vNumberSign (Core/Number/Operators).
-Source: fuse vNumberSign.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberSign.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

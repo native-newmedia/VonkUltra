@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 title: vTextFromFile
+description: "Reads a Text string from a file This node is used to access a block of text from a plain-text format style of document stored on disk."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,7 +24,7 @@ Reads a Text string from a file This node is used to access a block of text from
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Text | `—` | — |
+| Input | Text | `—` | Path to the plain-text file to read (e.g. CSV, TSV, IFL). |
 
 
 ## Related Nodes
@@ -37,5 +38,5 @@ Reads a Text string from a file This node is used to access a block of text from
 
 {/*
 Generated page — node: vTextFromFile (Core/Text/IO).
-Source: fuse vTextFromFile.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextFromFile.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

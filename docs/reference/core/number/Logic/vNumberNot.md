@@ -1,6 +1,7 @@
 ---
 sidebar_position: 7
 title: vNumberNot
+description: "Performs a logical NOT operation on a number"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Performs a logical NOT operation on a number
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Term 1 | Float | `0` | — |
-| Term1Separator | Float | `—` | — |
-| Show Input | Integer | `0.0` | — |
+| Term 1 | Float | `0` | Value to invert — Output is 1 if Term 1 is 0 (false), otherwise 0. |
+| Term1Separator | Float | `—` | A UI separator, not a real setting. |
+| Show Input | Integer | `0.0` | Reveals the wire for the Term 1 connection in the Flow view. |
 
 
 ## Related Nodes
@@ -39,5 +40,5 @@ Performs a logical NOT operation on a number
 
 {/*
 Generated page — node: vNumberNot (Core/Number/Logic).
-Source: fuse vNumberNot.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberNot.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

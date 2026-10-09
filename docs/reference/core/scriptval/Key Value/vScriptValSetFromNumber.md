@@ -1,6 +1,7 @@
 ---
 sidebar_position: 11
 title: vScriptValSetFromNumber
+description: "Sets the value of a ScriptVal key from a Number object"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,10 +24,10 @@ Sets the value of a ScriptVal key from a Number object
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| ScriptVal | DATATYPE | `—` | — |
-| Key | Text | `—` | — |
-| Value | Float | `0` | — |
-| Show Input | Integer | `0.0` | — |
+| ScriptVal | DATATYPE | `—` | ScriptVal object to modify. |
+| Key | Text | `—` | Name of the key to insert or update. |
+| Value | Float | `0` | Numeric value to store under Key. |
+| Show Input | Integer | `0.0` | Reveals the wire for the ScriptVal connection in the Flow view. |
 
 
 ## Related Nodes
@@ -40,5 +41,5 @@ Sets the value of a ScriptVal key from a Number object
 
 {/*
 Generated page — node: vScriptValSetFromNumber (Core/ScriptVal/Key Value).
-Source: fuse vScriptValSetFromNumber.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vScriptValSetFromNumber.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vTextCreateArch
+description: "Creates a unique Fusion Text object per CPU architecture This node provides a series of text fields that allow you to enter three different string values."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Creates a unique Fusion Text object per CPU architecture This node provides a se
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| x86 | Text | `—` | — |
-| x64 | Text | `—` | — |
-| ARM64 | Text | `—` | — |
+| x86 | Text | `—` | String returned when rendering on a 32-bit Intel/AMD CPU. |
+| x64 | Text | `—` | String returned when rendering on a 64-bit Intel/AMD CPU. |
+| ARM64 | Text | `—` | String returned when rendering on an ARM 64-bit CPU (e.g. Apple Silicon). |
 
 
 ## Related Nodes
@@ -39,5 +40,5 @@ Creates a unique Fusion Text object per CPU architecture This node provides a se
 
 {/*
 Generated page — node: vTextCreateArch (Core/Text/Create).
-Source: fuse vTextCreateArch.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextCreateArch.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

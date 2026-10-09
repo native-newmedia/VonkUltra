@@ -1,6 +1,7 @@
 ---
 sidebar_position: 6
 title: vFileSystemFileCopy
+description: "Copies a file This node allows you to define a \"Source File\" that will be copied to the disk-based filepath defined in the \"Destination File\" field."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,10 +24,10 @@ Copies a file This node allows you to define a "Source File" that will be copied
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Source File | Text | `—` | — |
-| Destination File | Text | `—` | — |
-| Create Destination Directory | Integer | `1.0` | — |
-| Show Input | Integer | `0.0` | — |
+| Source File | Text | `—` | Path to the file to copy. |
+| Destination File | Text | `—` | Path to copy the file to. |
+| Create Destination Directory | Integer | `1.0` | Creates the destination folder automatically if it doesn't already exist. |
+| Show Input | Integer | `0.0` | Reveals the wire for the Source File connection in the Flow view. |
 
 
 ## Related Nodes
@@ -40,5 +41,5 @@ Copies a file This node allows you to define a "Source File" that will be copied
 
 {/*
 Generated page — node: vFileSystemFileCopy (Core/FileSystem/Utility).
-Source: fuse vFileSystemFileCopy.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vFileSystemFileCopy.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

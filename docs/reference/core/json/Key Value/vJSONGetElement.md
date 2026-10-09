@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vJSONGetElement
+description: "Gets the element of a JSON array The \"Index\" control is used to access individual entries from a JSON array type of object."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Gets the element of a JSON array The "Index" control is used to access individua
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Text | `—` | — |
-| Index | Integer | `1` | — |
-| Show Input | Integer | `0.0` | — |
+| Input | Text | `—` | JSON array text to query. |
+| Index | Integer | `1` | 1-based position of the element to retrieve. |
+| Show Input | Integer | `0.0` | Reveals the wire for the Input connection in the Flow view. |
 
 
 ## Related Nodes
@@ -37,5 +38,5 @@ Gets the element of a JSON array The "Index" control is used to access individua
 
 {/*
 Generated page — node: vJSONGetElement (Core/JSON/Key Value).
-Source: fuse vJSONGetElement.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vJSONGetElement.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

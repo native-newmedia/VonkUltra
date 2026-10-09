@@ -1,6 +1,7 @@
 ---
 sidebar_position: 4
 title: vNumberCosine
+description: "Returns the cosine for a number in radians"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Returns the cosine for a number in radians
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Radians | Float | `0` | — |
-| Show Input | Integer | `0.0` | — |
+| Radians | Float | `0` | Angle in radians to compute the cosine of. |
+| Show Input | Integer | `0.0` | Reveals the wire for the Radians connection in the Flow view. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Returns the cosine for a number in radians
 
 {/*
 Generated page — node: vNumberCosine (Core/Number/Trigonometry).
-Source: fuse vNumberCosine.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberCosine.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

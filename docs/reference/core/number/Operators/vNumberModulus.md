@@ -1,6 +1,7 @@
 ---
 sidebar_position: 14
 title: vNumberModulus
+description: "Returns the remainder of the division of x by y that rounds the quotient towards zero If a vNumberCompReqTime or vNumberCompCurrentTime node is piped into the…"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Returns the remainder of the division of x by y that rounds the quotient towards
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Dividend | Float | `0` | — |
-| Divisor | Float | `0` | — |
-| Show Input | Integer | `0.0` | — |
+| Dividend | Float | `0` | Value to divide. |
+| Divisor | Float | `0` | Value to divide by — Output is the remainder of Dividend ÷ Divisor. |
+| Show Input | Integer | `0.0` | Reveals the wires for the Dividend/Divisor connections in the Flow view. |
 
 
 ## Related Nodes
@@ -39,5 +40,5 @@ Returns the remainder of the division of x by y that rounds the quotient towards
 
 {/*
 Generated page — node: vNumberModulus (Core/Number/Operators).
-Source: fuse vNumberModulus.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberModulus.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

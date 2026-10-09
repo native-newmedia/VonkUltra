@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vGuideCreate
+description: "Create a vGuide object"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Create a vGuide object
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Guide Name | Text | `—` | — |
-| Which | Integer | `—` | — |
-| Show Dump | Integer | `0.0` | — |
+| Guide Name | Text | `—` | Name assigned to the combined guide, stored in the output ScriptVal's `Name` field. |
+| Which | Integer | `—` | Internal control tracking how many ScriptVal inputs are currently connected. Not meant to be set manually. |
+| Show Dump | Integer | `0.0` | Prints the assembled guide table to the console each frame — useful for checking the merged output while building a guide chain. |
 
 
 ## Related Nodes
@@ -37,5 +38,5 @@ Create a vGuide object
 
 {/*
 Generated page — node: vGuideCreate (Core/Guide/Create).
-Source: fuse vGuideCreate.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vGuideCreate.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vPointToText
+description: "Return a pair of Text objects from a Fusion Point object"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Return a pair of Text objects from a Fusion Point object
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Point | Point | `—` | — |
-| Show Input | Integer | `0.0` | — |
+| Point | Point | `—` | Point to split — outputs its X and Y values as separate Text connections. |
+| Show Input | Integer | `0.0` | Reveals the wire for the Point connection in the Flow view. |
 
 
 ## Related Nodes
@@ -35,5 +36,5 @@ Return a pair of Text objects from a Fusion Point object
 
 {/*
 Generated page — node: vPointToText (Core/Point/Text).
-Source: fuse vPointToText.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vPointToText.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

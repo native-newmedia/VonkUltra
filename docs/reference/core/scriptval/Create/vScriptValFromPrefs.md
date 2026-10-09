@@ -1,6 +1,7 @@
 ---
 sidebar_position: 7
 title: vScriptValFromPrefs
+description: "Create a Fusion ScriptVal object from the Fusion preferences"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -32,5 +33,5 @@ Create a Fusion ScriptVal object from the Fusion preferences
 
 {/*
 Generated page — node: vScriptValFromPrefs (Core/ScriptVal/Create).
-Source: fuse vScriptValFromPrefs.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vScriptValFromPrefs.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

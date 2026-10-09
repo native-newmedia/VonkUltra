@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vGradientToImage
+description: "Create an image from a Fusion Gradient object"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,13 +24,13 @@ Create an image from a Fusion Gradient object
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Gradient | Gradient | `—` | — |
-| Width | Integer | `1920` | — |
-| Height | Integer | `1080` | — |
+| Gradient | Gradient | `—` | Gradient to render, stretched horizontally across the output image. |
+| Width | Integer | `1920` | Width of the generated image, in pixels. |
+| Height | Integer | `1080` | Height of the generated image, in pixels. |
 
 
 
 {/*
 Generated page — node: vGradientToImage (Core/Gradient/Image).
-Source: fuse vGradientToImage.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vGradientToImage.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

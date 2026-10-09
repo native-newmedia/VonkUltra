@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vTextCompCurrentTime
+description: "Returns the comp's current time value The current time represents the point where the timeline playhead is positioned regardless of any temporal effects that might be happening."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Returns the comp's current time value The current time represents the point wher
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Sequence Offset | Integer | `0` | — |
-| Padding | Integer | `1` | — |
-| Show Input | Integer | `1.0` | — |
+| Sequence Offset | Integer | `0` | Shifts the returned current-time frame number forwards or backwards. |
+| Padding | Integer | `1` | Minimum digit count — zero-pads the frame number string (e.g. 3 → "007"). |
+| Show Input | Integer | `1.0` | Reveals the wire for the Sequence Offset connection in the Flow view. |
 
 
 ## Related Nodes
@@ -39,5 +40,5 @@ Returns the comp's current time value The current time represents the point wher
 
 {/*
 Generated page — node: vTextCompCurrentTime (Core/Text/Comp).
-Source: fuse vTextCompCurrentTime.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextCompCurrentTime.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vGradientToNumber
+description: "Return the Gradient color as Numbers"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,13 +24,13 @@ Return the Gradient color as Numbers
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Gradient | Gradient | `—` | — |
-| Index | Integer | `1` | — |
-| Show Input | Integer | `0.0` | — |
+| Gradient | Gradient | `—` | Gradient to sample. |
+| Index | Integer | `1` | 1-based position of the colour stop to read. |
+| Show Input | Integer | `0.0` | Reveals the wire for the Gradient connection in the Flow view. |
 
 
 
 {/*
 Generated page — node: vGradientToNumber (Core/Gradient/Number).
-Source: fuse vGradientToNumber.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vGradientToNumber.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

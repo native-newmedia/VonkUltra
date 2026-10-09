@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vMetadataToComp
+description: "Creates a Fusion comp from image metadata"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,10 +24,10 @@ Creates a Fusion comp from image metadata
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Image | `—` | — |
-| File | Text | `—` | — |
-| Show Input | Integer | `1.0` | — |
-| Show Dump | Integer | `0.0` | — |
+| Input | Image | `—` | Image whose metadata is written out as a comp file. |
+| File | Text | `—` | Destination path for the generated `.comp` file. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Input connection in the Flow view. |
+| Show Dump | Integer | `0.0` | Prints the generated comp content to the console. |
 
 
 ## Related Nodes
@@ -37,5 +38,5 @@ Creates a Fusion comp from image metadata
 
 {/*
 Generated page — node: vMetadataToComp (Core/Meta/Comp).
-Source: fuse vMetadataToComp.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vMetadataToComp.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

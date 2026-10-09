@@ -1,6 +1,7 @@
 ---
 sidebar_position: 12
 title: vTextFromCSV
+description: "Creates a Fusion Text object by extracting a single cell from a CSV formatted block of text The \"Row\" control is used to define the CSV line number to read."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,21 +24,21 @@ Creates a Fusion Text object by extracting a single cell from a CSV formatted bl
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Row | Integer | `1` | — |
-| Column | Integer | `1` | — |
-| Ignore Header Row | Integer | `0.0` | — |
-| Input | Text | `—` | — |
-| Display Lines | Integer | `10` | — |
+| Row | Integer | `1` | CSV line number to read. |
+| Column | Integer | `1` | Comma-separated field on that line to return. |
+| Ignore Header Row | Integer | `0.0` | Offsets Row by 1 so a labelled header line is skipped. |
+| Input | Text | `—` | The CSV-formatted block of text to read from. |
+| Display Lines | Integer | `10` | Number of lines shown in the Input text box in the Inspector. |
 
 <details>
 <summary>+4 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Wrap Lines | Integer | `0.0` | — |
-| Expand Escaped Characters | Integer | `0.0` | — |
-| Show Input | Integer | `1.0` | — |
-| Get Heading | Float | `—` | — |
+| Wrap Lines | Integer | `0.0` | Wraps long lines in the Input text box instead of scrolling horizontally. |
+| Expand Escaped Characters | Integer | `0.0` | Converts literal `\n`/`\r`/`\t` sequences in the result into real newline/return/tab characters. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Input connection in the Flow view. |
+| Get Heading | Float | `—` | Renames this node to `csv_<value>`, using the Row/Column cell as the new name. |
 
 </details>
 
@@ -53,5 +54,5 @@ Creates a Fusion Text object by extracting a single cell from a CSV formatted bl
 
 {/*
 Generated page — node: vTextFromCSV (Core/Text/Create).
-Source: fuse vTextFromCSV.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextFromCSV.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

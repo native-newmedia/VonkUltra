@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vMetadataViewer
+description: "View the image metadata in the Inspector"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,14 +24,14 @@ View the image metadata in the Inspector
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Image | `—` | — |
-| Show Dump | Integer | `0.0` | — |
-| Display Lines | Integer | `25` | — |
-| ScriptVal | ScriptVal | `—` | — |
+| Input | Image | `—` | Image whose metadata is displayed. |
+| Show Dump | Integer | `0.0` | Prints the metadata to the console each frame, in addition to the tree view below. |
+| Display Lines | Integer | `25` | Number of visible lines in the tree view before scrolling. |
+| ScriptVal | ScriptVal | `—` | Read-only tree view of the image's metadata. |
 
 
 
 {/*
 Generated page — node: vMetadataViewer (Core/Meta/Utility).
-Source: fuse vMetadataViewer.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vMetadataViewer.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

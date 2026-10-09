@@ -1,6 +1,7 @@
 ---
 sidebar_position: 8
 title: vImageToFile
+description: "Saves a jpg/exr/png/bmp/raw/fusepic image sequence to disk The \"File\" control can be driven externally by a Text data type connection to the node."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,7 +24,7 @@ Saves a jpg/exr/png/bmp/raw/fusepic image sequence to disk The "File" control ca
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| File | Text | `—` | — |
+| File | Text | `—` | Destination path for the saved image sequence (jpg/exr/png/bmp/raw/fusepic). Can be driven externally by a Text data type connection. |
 
 
 ## Related Nodes
@@ -37,5 +38,5 @@ Saves a jpg/exr/png/bmp/raw/fusepic image sequence to disk The "File" control ca
 
 {/*
 Generated page — node: vImageToFile (Core/Image/IO).
-Source: fuse vImageToFile.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vImageToFile.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

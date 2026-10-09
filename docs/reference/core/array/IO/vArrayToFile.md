@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vArrayToFile
+description: "Writes a JSON array object into a file."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -15,15 +16,17 @@ Writes a JSON array object into a file.
   <span className="node-badge">Array</span>
 </div>
 
-{/* No screenshot available for vArrayToFile yet. */}
+<div className="node-screenshot">
+  <img src="/VonkUltra/img/reference/core/array/vArrayToFile.png" alt="vArrayToFile node" />
+</div>
 
 ## Parameters
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Text | `—` | — |
-| File | Text | `—` | — |
-| Show Input | Integer | `0.0` | — |
+| Input | Text | `—` | JSON array text to write out. |
+| File | Text | `—` | Destination path for the saved JSON file. |
+| Show Input | Integer | `0.0` | Reveals the wire for the Input connection in the Flow view. |
 
 
 ## Related Nodes
@@ -34,5 +37,5 @@ Writes a JSON array object into a file.
 
 {/*
 Generated page — node: vArrayToFile (Core/Array/IO).
-Source: fuse vArrayToFile.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vArrayToFile.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

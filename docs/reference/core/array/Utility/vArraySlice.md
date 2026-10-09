@@ -1,6 +1,7 @@
 ---
 sidebar_position: 7
 title: vArraySlice
+description: "Creates Text from an array"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,7 +24,7 @@ Creates Text from an array
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Text | `—` | — |
+| Input | Text | `—` | JSON array text to slice. |
 
 
 ## Related Nodes
@@ -37,5 +38,5 @@ Creates Text from an array
 
 {/*
 Generated page — node: vArraySlice (Core/Array/Utility).
-Source: fuse vArraySlice.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vArraySlice.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

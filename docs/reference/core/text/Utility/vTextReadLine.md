@@ -1,6 +1,7 @@
 ---
 sidebar_position: 10
 title: vTextReadLine
+description: "Creates a Fusion Text object by extracting a single line of text from a multi-line text block The \"Index\" control accepts integer based number input connections."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,11 +24,11 @@ Creates a Fusion Text object by extracting a single line of text from a multi-li
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Index | Integer | `1` | — |
-| Input | Text | `—` | — |
-| Display Lines | Integer | `10` | — |
-| Wrap Lines | Integer | `0.0` | — |
-| Show Input | Integer | `1.0` | — |
+| Index | Integer | `1` | Line number to extract — typically driven by vNumberCompReqTime or vNumberCompCurrentTime to scan through Input one frame at a time. |
+| Input | Text | `—` | The multi-line text block to read a line from. |
+| Display Lines | Integer | `10` | Number of lines shown in the Input text box in the Inspector. |
+| Wrap Lines | Integer | `0.0` | Wraps long lines in the Input text box instead of scrolling horizontally. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Input connection in the Flow view. |
 
 
 ## Related Nodes
@@ -41,5 +42,5 @@ Creates a Fusion Text object by extracting a single line of text from a multi-li
 
 {/*
 Generated page — node: vTextReadLine (Core/Text/Utility).
-Source: fuse vTextReadLine.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextReadLine.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

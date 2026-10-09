@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vBase64DecodeImageFromFile
+description: "Base64 decodes an image into a file."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,7 +24,7 @@ Base64 decodes an image into a file. A Base64 encoded image is extracted from an
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Text | `—` | — |
+| Input | Text | `—` | Path to a file containing Base64-encoded image data to decode. |
 
 
 ## Related Nodes
@@ -35,5 +36,5 @@ Base64 decodes an image into a file. A Base64 encoded image is extracted from an
 
 {/*
 Generated page — node: vBase64DecodeImageFromFile (Core/Base64/Decode).
-Source: fuse vBase64DecodeImageFromFile.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vBase64DecodeImageFromFile.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

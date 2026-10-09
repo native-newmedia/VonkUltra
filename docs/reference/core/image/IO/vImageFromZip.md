@@ -1,6 +1,7 @@
 ---
 sidebar_position: 7
 title: vImageFromZip
+description: "Reads an Image object from a zip archive This node accesses an image resource that is stored inside a Zip archive using the Fusion v16+/Resolve v15+ based ZipIO library."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Reads an Image object from a zip archive This node accesses an image resource th
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Zip File | Text | `—` | — |
-| Extract Image | Text | `—` | — |
-| Show Input | Integer | `0.0` | — |
+| Zip File | Text | `—` | Path to the zip archive to read from. Can be driven externally by a Text data type connection. |
+| Extract Image | Text | `—` | Filename of the image resource inside the archive to extract. Can be driven externally by a Text data type connection. |
+| Show Input | Integer | `0.0` | Reveals the wires for the Zip File/Extract Image connections in the Flow view. |
 
 
 ## Related Nodes
@@ -39,5 +40,5 @@ Reads an Image object from a zip archive This node accesses an image resource th
 
 {/*
 Generated page — node: vImageFromZip (Core/Image/IO).
-Source: fuse vImageFromZip.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vImageFromZip.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

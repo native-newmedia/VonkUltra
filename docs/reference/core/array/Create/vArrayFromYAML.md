@@ -1,6 +1,7 @@
 ---
 sidebar_position: 8
 title: vArrayFromYAML
+description: "Creates a JSON array from YAML Technology Note: [YAML](https://yaml.org/) is used as part of Film & TV production lens metadata workflows by Cine lenses with…"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,7 +24,7 @@ Creates a JSON array from YAML Technology Note: [YAML](https://yaml.org/) is use
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Text | `—` | — |
+| Input | Text | `—` | YAML text to convert into a JSON array, e.g. Cooke /i Technology lens metadata. |
 
 
 ## Related Nodes
@@ -37,5 +38,5 @@ Creates a JSON array from YAML Technology Note: [YAML](https://yaml.org/) is use
 
 {/*
 Generated page — node: vArrayFromYAML (Core/Array/Create).
-Source: fuse vArrayFromYAML.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vArrayFromYAML.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

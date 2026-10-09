@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 title: vScriptValGetElementToText
+description: "Gets an element from a ScriptVal array An example of array like elements in a Lua table would look like this: { \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\",…"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Gets an element from a ScriptVal array An example of array like elements in a Lu
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| ScriptVal | ScriptVal | `—` | — |
-| Index | Integer | `1` | — |
-| Show Input | Integer | `0.0` | — |
+| ScriptVal | ScriptVal | `—` | ScriptVal array to query. |
+| Index | Integer | `1` | 1-based position of the element to retrieve, converted to Text. |
+| Show Input | Integer | `0.0` | Reveals the wire for the ScriptVal connection in the Flow view. |
 
 
 ## Related Nodes
@@ -39,5 +40,5 @@ Gets an element from a ScriptVal array An example of array like elements in a Lu
 
 {/*
 Generated page — node: vScriptValGetElementToText (Core/ScriptVal/Key Value).
-Source: fuse vScriptValGetElementToText.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vScriptValGetElementToText.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

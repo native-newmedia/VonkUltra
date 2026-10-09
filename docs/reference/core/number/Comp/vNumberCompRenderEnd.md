@@ -1,6 +1,7 @@
 ---
 sidebar_position: 8
 title: vNumberCompRenderEnd
+description: "Returns the comp's Render End This is the last renderable frame when a batch render is carried out."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -32,5 +33,5 @@ Returns the comp's Render End This is the last renderable frame when a batch ren
 
 {/*
 Generated page — node: vNumberCompRenderEnd (Core/Number/Comp).
-Source: fuse vNumberCompRenderEnd.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberCompRenderEnd.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

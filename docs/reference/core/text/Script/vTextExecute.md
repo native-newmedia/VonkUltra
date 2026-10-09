@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 title: vTextExecute
+description: "Executes code sourced from a Fusion Text object The \"Script Language\" control is used to define if you want to use Lua or Python code in the text input field."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,10 +24,10 @@ Executes code sourced from a Fusion Text object The "Script Language" control is
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Script Language | Integer | `0` | — |
-| Input | Text | `—` | — |
-| Display Lines | Integer | `25` | — |
-| Wrap Lines | Integer | `0.0` | — |
+| Script Language | Dropdown | `Lua` | Language the Input code is written in — Lua, Python, Python 2, or Python 3. |
+| Input | Text | `—` | The script code to run — call `OutText("...")` to return a value to the node graph. |
+| Display Lines | Integer | `25` | Number of lines shown in the Input text box in the Inspector. |
+| Wrap Lines | Integer | `0.0` | Wraps long lines in the Input text box instead of scrolling horizontally. |
 
 
 ## Related Nodes
@@ -40,5 +41,5 @@ Executes code sourced from a Fusion Text object The "Script Language" control is
 
 {/*
 Generated page — node: vTextExecute (Core/Text/Script).
-Source: fuse vTextExecute.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextExecute.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

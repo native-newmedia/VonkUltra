@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vJSONFromNet
+description: "Reads a JSON string from a network URL The network-based JSON resource downloading functionality provided by this node makes it possible to drive a composite from an external cloud based datasource."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Reads a JSON string from a network URL The network-based JSON resource downloadi
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Text | `—` | — |
-| View URL | Float | `—` | — |
-| Show Input | Integer | `0.0` | — |
+| Input | Text | `—` | URL of the network JSON resource to fetch. |
+| View URL | Float | `—` | Opens Input's URL in the system's default web browser, for a quick sanity check of the source. |
+| Show Input | Integer | `0.0` | Reveals the wire for the Input connection in the Flow view. |
 
 
 ## Related Nodes
@@ -37,5 +38,5 @@ Reads a JSON string from a network URL The network-based JSON resource downloadi
 
 {/*
 Generated page — node: vJSONFromNet (Core/JSON/IO).
-Source: fuse vJSONFromNet.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vJSONFromNet.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

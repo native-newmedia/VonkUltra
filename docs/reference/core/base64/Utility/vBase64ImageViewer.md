@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vBase64ImageViewer
+description: "Displays Bas64 encoded image content in the Inspector window."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,7 +24,7 @@ Displays Bas64 encoded image content in the Inspector window.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Text | `—` | — |
+| Input | Text | `—` | Base64-encoded image data to preview in the Inspector. |
 
 
 ## Related Nodes
@@ -34,5 +35,5 @@ Displays Bas64 encoded image content in the Inspector window.
 
 {/*
 Generated page — node: vBase64ImageViewer (Core/Base64/Utility).
-Source: fuse vBase64ImageViewer.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vBase64ImageViewer.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

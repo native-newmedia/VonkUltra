@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vMatrixFromArray
+description: "Creates a matrix from an array"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,14 +24,14 @@ Creates a matrix from an array
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Array | Text | `—` | — |
-| Rows | Integer | `4` | — |
-| Columns | Integer | `4` | — |
-| Show Input | Integer | `1.0` | — |
+| Array | Text | `—` | JSON-encoded flat array of numbers to reshape into a matrix. |
+| Rows | Integer | `4` | Number of rows in the resulting matrix. Default 4 matches a 4×4 transform matrix. |
+| Columns | Integer | `4` | Number of columns in the resulting matrix. Default 4 matches a 4×4 transform matrix. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Array connection in the Flow view. |
 
 
 
 {/*
 Generated page — node: vMatrixFromArray (Core/Matrix/Array).
-Source: fuse vMatrixFromArray.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vMatrixFromArray.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

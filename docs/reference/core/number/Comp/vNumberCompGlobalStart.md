@@ -1,6 +1,7 @@
 ---
 sidebar_position: 5
 title: vNumberCompGlobalStart
+description: "Returns the comp's Global Start This is the first frame of the full Fusion timeline range."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,7 +24,7 @@ Returns the comp's Global Start This is the first frame of the full Fusion timel
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Global Start Time | Float | `—` | — |
+| Global Start Time | Float | `—` | Read-only — the first frame of the full Fusion timeline range. |
 
 
 ## Related Nodes
@@ -37,5 +38,5 @@ Returns the comp's Global Start This is the first frame of the full Fusion timel
 
 {/*
 Generated page — node: vNumberCompGlobalStart (Core/Number/Comp).
-Source: fuse vNumberCompGlobalStart.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberCompGlobalStart.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

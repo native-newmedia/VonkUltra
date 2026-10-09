@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vNumberCreateArch
+description: "Creates a unique Fusion Number object per CPU architecture If the fuse is rendered on a 32-bit Intel/AMD CPU based system a value of 1 is returned."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -32,5 +33,5 @@ Creates a unique Fusion Number object per CPU architecture If the fuse is render
 
 {/*
 Generated page — node: vNumberCreateArch (Core/Number/Create).
-Source: fuse vNumberCreateArch.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberCreateArch.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

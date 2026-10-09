@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 title: vMatrixFromTranslation
+description: "Creates a translation matrix"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,10 +24,10 @@ Creates a translation matrix
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| X Offset | Float | `—` | — |
-| Y Offset | Float | `—` | — |
-| Z Offset | Float | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| X Offset | Float | `—` | Translation along X in the resulting matrix. |
+| Y Offset | Float | `—` | Translation along Y in the resulting matrix. |
+| Z Offset | Float | `—` | Translation along Z in the resulting matrix. |
+| Show Input | Integer | `1.0` | Reveals the wires for the X/Y/Z Offset connections in the Flow view. |
 
 
 ## Related Nodes
@@ -40,5 +41,5 @@ Creates a translation matrix
 
 {/*
 Generated page — node: vMatrixFromTranslation (Core/Matrix/Transform).
-Source: fuse vMatrixFromTranslation.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vMatrixFromTranslation.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vNumberAdd
+description: "Returns the sum of two numbers"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,10 +24,10 @@ Returns the sum of two numbers
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Term 1 | Float | `0` | — |
-| Term1Separator | Float | `—` | — |
-| Term 2 | Float | `0` | — |
-| Show Input | Integer | `0.0` | — |
+| Term 1 | Float | `0` | First addend. |
+| Term1Separator | Float | `—` | A UI separator, not a real setting. |
+| Term 2 | Float | `0` | Second addend — added to Term 1. |
+| Show Input | Integer | `0.0` | Reveals the wires for the Term 1/Term 2 connections in the Flow view. |
 
 
 ## Related Nodes
@@ -40,5 +41,5 @@ Returns the sum of two numbers
 
 {/*
 Generated page — node: vNumberAdd (Core/Number/Operators).
-Source: fuse vNumberAdd.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberAdd.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

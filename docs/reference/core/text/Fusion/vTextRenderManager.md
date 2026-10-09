@@ -1,6 +1,7 @@
 ---
 sidebar_position: 6
 title: vTextRenderManager
+description: "Submit a .comp or .dfq file to the Fusion Studio Render Manager."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,20 +24,20 @@ Submit a .comp or .dfq file to the Fusion Studio Render Manager. The vTextRender
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Refresh Render | Float | `—` | — |
-| Comp File | Text | `—` | — |
-| Render Mode | Integer | `0` | — |
-| Start Frame | Integer | `0` | — |
-| End Frame | Integer | `0` | — |
+| Refresh Render | Float | `—` | Button — re-checks/refreshes the submitted render job's status. |
+| Comp File | Text | `—` | Path to the .comp or .dfq file to submit to the Render Manager. |
+| Render Mode | Dropdown | `Current Frame` | Which frame range gets rendered — the current frame, the comp's Render Start/End range, a manual Custom Frame Range, or the range stored in the comp file itself (Predefined Frame Range). |
+| Start Frame | Integer | `0` | First frame to render, used when Render Mode is Custom Frame Range. |
+| End Frame | Integer | `0` | Last frame to render, used when Render Mode is Custom Frame Range. |
 
 <details>
 <summary>+3 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Show Dump | Integer | `0.0` | — |
-| Show Input | Integer | `1.0` | — |
-| Show Render Manager | Float | `0.0` | — |
+| Show Dump | Integer | `0.0` | Shows raw submission/debug output from the Render Manager. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Comp File connection in the Flow view. |
+| Show Render Manager | Float | `0.0` | Button — opens the Fusion Render Manager window. |
 
 </details>
 
@@ -52,5 +53,5 @@ Submit a .comp or .dfq file to the Fusion Studio Render Manager. The vTextRender
 
 {/*
 Generated page — node: vTextRenderManager (Core/Text/Fusion).
-Source: fuse vTextRenderManager.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextRenderManager.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

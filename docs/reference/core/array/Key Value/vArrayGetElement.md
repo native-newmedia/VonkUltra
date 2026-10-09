@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vArrayGetElement
+description: "Creates Text from an array element"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,7 +24,7 @@ Creates Text from an array element
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Text | `—` | — |
+| Input | Text | `—` | JSON array text to query. |
 
 
 ## Related Nodes
@@ -37,5 +38,5 @@ Creates Text from an array element
 
 {/*
 Generated page — node: vArrayGetElement (Core/Array/Key Value).
-Source: fuse vArrayGetElement.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vArrayGetElement.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

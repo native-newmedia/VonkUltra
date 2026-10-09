@@ -1,6 +1,7 @@
 ---
 sidebar_position: 7
 title: vTextCaseUpper
+description: "Converts the case of a Fusion Text object to upper A Text based input of \"hello world!\" would be converted to \"HELLO WORLD!\"."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Converts the case of a Fusion Text object to upper A Text based input of "hello 
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Text | Text | `—` | — |
-| Show Input | Integer | `0.0` | — |
+| Text | Text | `—` | Text to convert to all uppercase. |
+| Show Input | Integer | `0.0` | Reveals the wire for the Text connection in the Flow view. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Converts the case of a Fusion Text object to upper A Text based input of "hello 
 
 {/*
 Generated page — node: vTextCaseUpper (Core/Text/Case).
-Source: fuse vTextCaseUpper.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextCaseUpper.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

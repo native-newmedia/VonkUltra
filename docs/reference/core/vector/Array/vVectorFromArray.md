@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vVectorFromArray
+description: "Creates a vector from an array"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,13 +24,13 @@ Creates a vector from an array
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Array | Text | `—` | — |
-| Columns | Integer | `3` | — |
-| Show Input | Integer | `1.0` | — |
+| Array | Text | `—` | JSON-encoded flat array of numbers to reshape into a vector. |
+| Columns | Integer | `3` | Number of elements in the resulting vector — the flat array is packed into a single row of this many columns. Default 3 matches an XYZ vector. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Array connection in the Flow view. |
 
 
 
 {/*
 Generated page — node: vVectorFromArray (Core/Vector/Array).
-Source: fuse vVectorFromArray.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vVectorFromArray.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

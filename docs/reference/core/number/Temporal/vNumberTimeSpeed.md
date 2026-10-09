@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vNumberTimeSpeed
+description: "Time based operation on numbers"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,10 +24,10 @@ Time based operation on numbers
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Float | `—` | — |
-| Speed | Float | `0.0` | — |
-| Delay | Float | `0.0` | — |
-| Show Input | Integer | `1.0` | — |
+| Input | Float | `—` | The number value to resample against the adjusted time. |
+| Speed | Float | `0.0` | Time-remapping speed multiplier applied when reading Input. |
+| Delay | Float | `0.0` | Frame offset applied before the Speed multiplier. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Input connection in the Flow view. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Time based operation on numbers
 
 {/*
 Generated page — node: vNumberTimeSpeed (Core/Number/Temporal).
-Source: fuse vNumberTimeSpeed.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberTimeSpeed.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

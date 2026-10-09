@@ -1,6 +1,7 @@
 ---
 sidebar_position: 6
 title: vArrayFromMetadata
+description: "Casts metadata to an array This node translates metadata records into a JSON based array structure."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,7 +24,7 @@ Casts metadata to an array This node translates metadata records into a JSON bas
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Image | `—` | — |
+| Input | Image | `—` | Image whose metadata is converted into a JSON array — useful for parsing things like an EXR's Cryptomatte matte manifest. |
 
 
 ## Related Nodes
@@ -37,5 +38,5 @@ Casts metadata to an array This node translates metadata records into a JSON bas
 
 {/*
 Generated page — node: vArrayFromMetadata (Core/Array/Create).
-Source: fuse vArrayFromMetadata.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vArrayFromMetadata.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

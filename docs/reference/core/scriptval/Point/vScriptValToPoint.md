@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vScriptValToPoint
+description: "Return a Fusion Point object from a ScriptVal"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,7 +24,7 @@ Return a Fusion Point object from a ScriptVal
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| ScriptVal | ScriptVal | `—` | — |
+| ScriptVal | ScriptVal | `—` | ScriptVal array holding X/Y coordinates, e.g. `{ 0.5, 0.5 }`, to convert into a Point. |
 
 
 ## Related Nodes
@@ -34,5 +35,5 @@ Return a Fusion Point object from a ScriptVal
 
 {/*
 Generated page — node: vScriptValToPoint (Core/ScriptVal/Point).
-Source: fuse vScriptValToPoint.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vScriptValToPoint.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

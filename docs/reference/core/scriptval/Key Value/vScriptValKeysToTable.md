@@ -1,6 +1,7 @@
 ---
 sidebar_position: 8
 title: vScriptValKeysToTable
+description: "Returns the keys present in a ScriptVal object as a table"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,7 +24,7 @@ Returns the keys present in a ScriptVal object as a table
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| ScriptVal | ScriptVal | `—` | — |
+| ScriptVal | ScriptVal | `—` | ScriptVal object to inspect — Output lists its key names as a ScriptVal (table). |
 
 
 ## Related Nodes
@@ -37,5 +38,5 @@ Returns the keys present in a ScriptVal object as a table
 
 {/*
 Generated page — node: vScriptValKeysToTable (Core/ScriptVal/Key Value).
-Source: fuse vScriptValKeysToTable.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vScriptValKeysToTable.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vNumberCompFPS
+description: "Returns the comp's frame rate"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -32,5 +33,5 @@ Returns the comp's frame rate
 
 {/*
 Generated page — node: vNumberCompFPS (Core/Number/Comp).
-Source: fuse vNumberCompFPS.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberCompFPS.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

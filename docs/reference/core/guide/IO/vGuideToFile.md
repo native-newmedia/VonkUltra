@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vGuideToFile
+description: "Writes a vGuide object to a file"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Writes a vGuide object to a file
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| ScriptVal | ScriptVal | `—` | — |
-| File | Text | `—` | — |
-| Show Input | Integer | `0.0` | — |
+| ScriptVal | ScriptVal | `—` | The vGuide object to write out — typically fed from vGuideCreate, vGuideShape, or vGuideText. |
+| File | Text | `—` | Destination path for the saved `.guide` file. Hidden until Show Input is enabled. |
+| Show Input | Integer | `0.0` | Reveals the File path control so a destination can be chosen or typed. |
 
 
 ## Related Nodes
@@ -36,5 +37,5 @@ Writes a vGuide object to a file
 
 {/*
 Generated page — node: vGuideToFile (Core/Guide/IO).
-Source: fuse vGuideToFile.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vGuideToFile.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

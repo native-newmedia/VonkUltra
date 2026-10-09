@@ -1,6 +1,7 @@
 ---
 sidebar_position: 5
 title: vVectorMultiplyNumber
+description: "Multiplies a vector by a number"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Multiplies a vector by a number
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Vector | Text | `—` | — |
-| Number | Float | `1` | — |
-| Show Input | Integer | `1.0` | — |
+| Vector | Text | `—` | Vector operand (encoded as text). |
+| Number | Float | `1` | Scalar multiplier — each element of Vector is multiplied by this value. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Vector connection in the Flow view. |
 
 
 ## Related Nodes
@@ -39,5 +40,5 @@ Multiplies a vector by a number
 
 {/*
 Generated page — node: vVectorMultiplyNumber (Core/Vector/Operators).
-Source: fuse vVectorMultiplyNumber.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vVectorMultiplyNumber.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

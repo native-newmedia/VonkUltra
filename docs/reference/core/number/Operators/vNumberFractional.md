@@ -1,6 +1,7 @@
 ---
 sidebar_position: 9
 title: vNumberFractional
+description: "Returns the fractional part of a number"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Returns the fractional part of a number
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Number | Float | `0` | — |
-| Show Input | Integer | `0.0` | — |
+| Number | Float | `0` | Value to extract the fractional (decimal) part from — Output discards the integer portion. |
+| Show Input | Integer | `0.0` | Reveals the wire for the Number connection in the Flow view. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Returns the fractional part of a number
 
 {/*
 Generated page — node: vNumberFractional (Core/Number/Operators).
-Source: fuse vNumberFractional.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberFractional.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

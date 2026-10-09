@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vScriptValCreatePolyline
+description: "Create a polygon line shape from a ScriptVal based Lua table of XY point pairs An example of 2D point like elements in a Lua table would look like this: { {…"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,23 +24,23 @@ Create a polygon line shape from a ScriptVal based Lua table of XY point pairs A
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Level | Float | `1` | — |
-| Filter | Float | `Gaussian` | — |
-| Soft Edge | Float | `0` | — |
-| Width | Float | `0.01` | — |
-| Border Width | Float | `0.0` | — |
+| Level | Float | `1` | Overall brightness/opacity multiplier for the line. |
+| Filter | Dropdown | `Gaussian` | Anti-aliasing filter used to soften the line's edges: Box, Bartlett, Multi-box, or Gaussian. |
+| Soft Edge | Float | `0` | Additional edge softness, blended on top of the Filter setting. |
+| Width | Float | `0.01` | Line thickness, as a fraction of frame size. |
+| Border Width | Float | `0.0` | Width of an additional outline drawn around the line. |
 
 <details>
 <summary>+6 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Line Type | Float | `Solid` | — |
-| Join Type | Float | `Round` | — |
-| Close Shape | Integer | `0` | — |
-| Show Dump | Integer | `0.0` | — |
-| Input | Image | `—` | — |
-| ScriptVal | ScriptVal | `—` | — |
+| Line Type | Dropdown | `Solid` | Dash pattern for the line: Solid, Dash, Dot, Dash Dot, or Dash Dot Dot. |
+| Join Type | Dropdown | `Round` | Corner style where line segments meet: Bevel, Miter, or Round. |
+| Close Shape | Integer | `0` | Connects the last point back to the first, closing the polyline into a loop. |
+| Show Dump | Integer | `0.0` | Prints the ScriptVal point table to the console each frame. |
+| Input | Image | `—` | Background image the line is drawn onto. |
+| ScriptVal | ScriptVal | `—` | Lua table of XY point pairs defining the polyline, e.g. `{ {0.38, 0.53}, {0.44, 0.49}, ... }`. |
 
 </details>
 
@@ -47,5 +48,5 @@ Create a polygon line shape from a ScriptVal based Lua table of XY point pairs A
 
 {/*
 Generated page — node: vScriptValCreatePolyline (Core/ScriptVal/Shape).
-Source: fuse vScriptValCreatePolyline.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vScriptValCreatePolyline.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 title: vArrayFromJSON
+description: "Casts JSON text into a JSON array"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Casts JSON text into a JSON array
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Text | DATATYPE | `—` | — |
-| Sort List | Integer | `0.0` | — |
+| Text | DATATYPE | `—` | JSON text to cast into a JSON array. |
+| Sort List | Integer | `0.0` | Sorts keys alphabetically, instead of preserving source order. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Casts JSON text into a JSON array
 
 {/*
 Generated page — node: vArrayFromJSON (Core/Array/Create).
-Source: fuse vArrayFromJSON.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vArrayFromJSON.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

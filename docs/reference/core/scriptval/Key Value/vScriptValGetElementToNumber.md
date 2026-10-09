@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vScriptValGetElementToNumber
+description: "Gets an element from a ScriptVal array"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Gets an element from a ScriptVal array
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| ScriptVal | ScriptVal | `—` | — |
-| Index | Integer | `1` | — |
-| Show Input | Integer | `0.0` | — |
+| ScriptVal | ScriptVal | `—` | ScriptVal array to query. |
+| Index | Integer | `1` | 1-based position of the element to retrieve, converted to a Number. |
+| Show Input | Integer | `0.0` | Reveals the wire for the ScriptVal connection in the Flow view. |
 
 
 ## Related Nodes
@@ -39,5 +40,5 @@ Gets an element from a ScriptVal array
 
 {/*
 Generated page — node: vScriptValGetElementToNumber (Core/ScriptVal/Key Value).
-Source: fuse vScriptValGetElementToNumber.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vScriptValGetElementToNumber.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

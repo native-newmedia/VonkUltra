@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vTextResolveProjectName
+description: "Returns the current Resolve project name This node outputs a Text based string that holds the name of the current Resolve editing project as listed in the Resolve \"Project Manager\" window."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -29,5 +30,5 @@ Returns the current Resolve project name This node outputs a Text based string t
 
 {/*
 Generated page — node: vTextResolveProjectName (Core/Text/Resolve).
-Source: fuse vTextResolveProjectName.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextResolveProjectName.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

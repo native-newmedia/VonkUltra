@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vVectorAdd
+description: "Adds two vectors"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Adds two vectors
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Vector1 | Text | `—` | — |
-| Vector2 | Text | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| Vector1 | Text | `—` | First vector operand (encoded as text). |
+| Vector2 | Text | `—` | Second vector operand — added element-wise to Vector1. |
+| Show Input | Integer | `1.0` | Reveals the wires for the Vector1/Vector2 connections in the Flow view. |
 
 
 ## Related Nodes
@@ -39,5 +40,5 @@ Adds two vectors
 
 {/*
 Generated page — node: vVectorAdd (Core/Vector/Operators).
-Source: fuse vVectorAdd.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vVectorAdd.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

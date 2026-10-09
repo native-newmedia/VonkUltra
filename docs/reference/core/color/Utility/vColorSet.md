@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 title: vColorSet
+description: "This node was created by Chad Capeland."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,18 +24,18 @@ This node was created by Chad Capeland. The "Palette Array" field allows you to 
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Palette Array | Text | `—` | — |
-| Show Input | Integer | `1.0` | — |
-| Preserve Alpha | Integer | `0.0` | — |
-| Multiply by Alpha | Integer | `0.0` | — |
-| Affect Canvas | Integer | `1.0` | — |
+| Palette Array | Text | `—` | A single RRGGBB hex colour used to fill the background, e.g. `FF0000` for red — see the sample values above. Hidden by default; enable Show Input to edit. |
+| Show Input | Integer | `1.0` | Reveals the Palette Array field for editing or wiring. |
+| Preserve Alpha | Integer | `0.0` | Copies the source Input image's alpha channel onto the output, instead of using a solid alpha of 1. |
+| Multiply by Alpha | Integer | `0.0` | Pre-multiplies the output by alpha, turning transparent areas black in the RGB channels. |
+| Affect Canvas | Integer | `1.0` | Extends the fill beyond the current DoD by also setting the background canvas colour — useful when a later Crop node expands the image beyond its original size. |
 
 <details>
 <summary>+1 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Image | `—` | — |
+| Input | Image | `—` | Source image. Its alpha channel is preserved when Preserve Alpha is on; otherwise only its dimensions/canvas are used. |
 
 </details>
 
@@ -48,5 +49,5 @@ This node was created by Chad Capeland. The "Palette Array" field allows you to 
 
 {/*
 Generated page — node: vColorSet (Core/Color/Utility).
-Source: fuse vColorSet.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vColorSet.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

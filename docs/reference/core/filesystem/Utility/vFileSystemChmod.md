@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vFileSystemChmod
+description: "Change a file/folder's access permissions The \"File\" textfield is used to specify a file or folder path."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,10 +24,10 @@ Change a file/folder's access permissions The "File" textfield is used to specif
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| File | Text | `—` | — |
-| Mode | Integer | `755` | — |
-| Recursive | Integer | `0` | — |
-| Show Input | Integer | `0.0` | — |
+| File | Text | `—` | Path to the file or folder to change permissions on. |
+| Mode | Integer | `755` | Access permission as an octal-style number, e.g. `755` or `777`. |
+| Recursive | Integer | `0` | Applies the permission change to everything inside the folder, not just the folder itself. |
+| Show Input | Integer | `0.0` | Reveals the wire for the File connection in the Flow view. |
 
 
 ## Related Nodes
@@ -40,5 +41,5 @@ Change a file/folder's access permissions The "File" textfield is used to specif
 
 {/*
 Generated page — node: vFileSystemChmod (Core/FileSystem/Utility).
-Source: fuse vFileSystemChmod.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vFileSystemChmod.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

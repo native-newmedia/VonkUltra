@@ -1,6 +1,7 @@
 ---
 sidebar_position: 13
 title: vNumberMix
+description: "Performs a linear interpolation between two numbers"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,10 +24,10 @@ Performs a linear interpolation between two numbers
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Number1 | Float | `0` | — |
-| Number2 | Float | `0` | — |
-| Weight | Float | `0` | — |
-| Show Input | Integer | `0.0` | — |
+| Number1 | Float | `0` | Value at Weight = 0. |
+| Number2 | Float | `0` | Value at Weight = 1. |
+| Weight | Float | `0` | Interpolation factor between Number1 (0) and Number2 (1). Values outside 0–1 extrapolate beyond either number. |
+| Show Input | Integer | `0.0` | Reveals the wires for the Number1/Number2 connections in the Flow view. |
 
 
 ## Related Nodes
@@ -40,5 +41,5 @@ Performs a linear interpolation between two numbers
 
 {/*
 Generated page — node: vNumberMix (Core/Number/Operators).
-Source: fuse vNumberMix.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberMix.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

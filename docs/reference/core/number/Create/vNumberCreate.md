@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vNumberCreate
+description: "Creates a Fusion Number object This node is the starting point for most number data type based node graphs."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,7 +24,7 @@ Creates a Fusion Number object This node is the starting point for most number d
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Number | Float | `0` | — |
+| Number | Float | `0` | The number value to output. |
 
 
 ## Related Nodes
@@ -37,5 +38,5 @@ Creates a Fusion Number object This node is the starting point for most number d
 
 {/*
 Generated page — node: vNumberCreate (Core/Number/Create).
-Source: fuse vNumberCreate.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberCreate.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

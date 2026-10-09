@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vNumberAbsolute
+description: "Returns the absolute value of a number This node is handy if you need to remove the negative sign (-) element from a value so you only have the positive component of the number remaining."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Returns the absolute value of a number This node is handy if you need to remove 
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Number | Float | `0` | — |
-| Show Input | Integer | `1.0` | — |
+| Number | Float | `0` | Value to remove the sign from — Output is always ≥ 0. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Number connection in the Flow view. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Returns the absolute value of a number This node is handy if you need to remove 
 
 {/*
 Generated page — node: vNumberAbsolute (Core/Number/Operators).
-Source: fuse vNumberAbsolute.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberAbsolute.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

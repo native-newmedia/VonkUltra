@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vScriptValDoFile
+description: "Return a ScriptVal object from running an external Lua script"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Return a ScriptVal object from running an external Lua script
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| File | Text | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| File | Text | `—` | Path to the Lua script file to run. Its return value becomes the node's ScriptVal output. |
+| Show Input | Integer | `1.0` | Reveals the wire for the File connection in the Flow view. |
 
 
 ## Related Nodes
@@ -36,5 +37,5 @@ Return a ScriptVal object from running an external Lua script
 
 {/*
 Generated page — node: vScriptValDoFile (Core/ScriptVal/Script).
-Source: fuse vScriptValDoFile.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vScriptValDoFile.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

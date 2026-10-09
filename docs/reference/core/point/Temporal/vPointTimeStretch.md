@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vPointTimeStretch
+description: "Time based operations on a Fusion Point object"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,10 +24,10 @@ Time based operations on a Fusion Point object
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Point | Point | `—` | — |
-| Time | Float | `0.0` | — |
-| Set To Current Time | Float | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| Point | Point | `—` | Point to sample at a specific time. |
+| Time | Float | `0.0` | The frame number to read Point's value at, regardless of the comp's current playhead position. |
+| Set To Current Time | Float | `—` | Sets Time to the comp's current playhead position — a quick way to snapshot "now". |
+| Show Input | Integer | `1.0` | Reveals the wire for the Point connection in the Flow view. |
 
 
 ## Related Nodes
@@ -37,5 +38,5 @@ Time based operations on a Fusion Point object
 
 {/*
 Generated page — node: vPointTimeStretch (Core/Point/Temporal).
-Source: fuse vPointTimeStretch.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vPointTimeStretch.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

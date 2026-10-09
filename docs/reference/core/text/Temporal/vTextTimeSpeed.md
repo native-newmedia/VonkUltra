@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vTextTimeSpeed
+description: "Time based operation on text"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,10 +24,10 @@ Time based operation on text
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Text | `—` | — |
-| Speed | Float | `0.0` | — |
-| Delay | Float | `0.0` | — |
-| Show Input | Integer | `0.0` | — |
+| Input | Text | `—` | The text value to resample against the adjusted time. |
+| Speed | Float | `0.0` | Time-remapping speed multiplier applied when reading Input. |
+| Delay | Float | `0.0` | Frame offset applied before the Speed multiplier. |
+| Show Input | Integer | `0.0` | Reveals the wire for the Input connection in the Flow view. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Time based operation on text
 
 {/*
 Generated page — node: vTextTimeSpeed (Core/Text/Temporal).
-Source: fuse vTextTimeSpeed.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextTimeSpeed.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

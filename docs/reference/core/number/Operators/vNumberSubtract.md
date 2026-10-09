@@ -1,6 +1,7 @@
 ---
 sidebar_position: 23
 title: vNumberSubtract
+description: "Returns the difference of two numbers"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,10 +24,10 @@ Returns the difference of two numbers
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Term1 | Float | `0` | — |
-| InTerm1Separator | Float | `—` | — |
-| Term2 | Float | `0` | — |
-| Show Input | Integer | `0.0` | — |
+| Term1 | Float | `0` | Value to subtract from (minuend). |
+| InTerm1Separator | Float | `—` | A UI separator, not a real setting. |
+| Term2 | Float | `0` | Value subtracted from Term1 (subtrahend). |
+| Show Input | Integer | `0.0` | Reveals the wires for the Term1/Term2 connections in the Flow view. |
 
 
 ## Related Nodes
@@ -40,5 +41,5 @@ Returns the difference of two numbers
 
 {/*
 Generated page — node: vNumberSubtract (Core/Number/Operators).
-Source: fuse vNumberSubtract.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberSubtract.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

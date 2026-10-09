@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vTextAccumulator
+description: "Temporally concatenates a text string over a frame range This node can be thought of as a text based merge node that works across a time range."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,20 +24,20 @@ Temporally concatenates a text string over a frame range This node can be though
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Text | Text | `—` | — |
-| Start Frame | Integer | `0` | — |
-| End Frame | Integer | `0` | — |
-| Step | Float | `1` | — |
-| Separator | Text | `—` | — |
+| Text | Text | `—` | The text string to append on each frame in the range. |
+| Start Frame | Integer | `0` | First frame of the accumulation range — often driven by vNumberCompRenderStart or vNumberCompGlobalStart. |
+| End Frame | Integer | `0` | Last frame of the accumulation range — often driven by vNumberCompRenderEnd or vNumberCompGlobalEnd. |
+| Step | Float | `1` | Frame increment — raise it to skip frames within the range. |
+| Separator | Text | `\n` | Character(s) placed between each accumulated line, e.g. a newline, comma, or tab. |
 
 <details>
 <summary>+3 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Sort List | Integer | `0.0` | — |
-| Remove Duplicates | Integer | `0.0` | — |
-| Show Input | Integer | `0.0` | — |
+| Sort List | Integer | `0.0` | Alphabetically sorts the accumulated lines. |
+| Remove Duplicates | Integer | `0.0` | Drops any accumulated line that duplicates one already in the results. |
+| Show Input | Integer | `0.0` | Reveals the wire for the Text connection in the Flow view. |
 
 </details>
 
@@ -50,5 +51,5 @@ Temporally concatenates a text string over a frame range This node can be though
 
 {/*
 Generated page — node: vTextAccumulator (Core/Text/Temporal).
-Source: fuse vTextAccumulator.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextAccumulator.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vNumberToMatrix
+description: "Returns a matrix from a number"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,11 +24,11 @@ Returns a matrix from a number
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Matrix | Text | `—` | — |
-| Row | Integer | `1` | — |
-| Column | Integer | `1` | — |
-| Number | Float | `0` | — |
-| Show Input | Integer | `0.0` | — |
+| Matrix | Text | `—` | The Matrix to write a value into, as JSON text. |
+| Row | Integer | `1` | Matrix row of the cell to set. |
+| Column | Integer | `1` | Matrix column of the cell to set. |
+| Number | Float | `0` | Value to write into the specified Row/Column cell. |
+| Show Input | Integer | `0.0` | Reveals the wire for the Matrix connection in the Flow view. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Returns a matrix from a number
 
 {/*
 Generated page — node: vNumberToMatrix (Core/Number/Matrix).
-Source: fuse vNumberToMatrix.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberToMatrix.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 13
 title: vScriptValSetFromText
+description: "Sets the value of a ScriptVal key from a Text object."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,10 +24,10 @@ Sets the value of a ScriptVal key from a Text object.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| ScriptVal | DATATYPE | `—` | — |
-| Key | Text | `—` | — |
-| Value | Text | `—` | — |
-| Show Input | Integer | `0.0` | — |
+| ScriptVal | DATATYPE | `—` | ScriptVal object to modify. |
+| Key | Text | `—` | Name of the key to insert or update. |
+| Value | Text | `—` | Text value to store under Key. |
+| Show Input | Integer | `0.0` | Reveals the wire for the ScriptVal connection in the Flow view. |
 
 
 ## Related Nodes
@@ -40,5 +41,5 @@ Sets the value of a ScriptVal key from a Text object.
 
 {/*
 Generated page — node: vScriptValSetFromText (Core/ScriptVal/Key Value).
-Source: fuse vScriptValSetFromText.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vScriptValSetFromText.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 11
 title: vTextSortLines
+description: "Sorts a multi-line block of text The \"Sort List\" checkbox will break apart a multi-line block of text and alphabetically sort the content on a line-by-line basis."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,10 +24,10 @@ Sorts a multi-line block of text The "Sort List" checkbox will break apart a mul
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Text | Text | `—` | — |
-| Sort List | Integer | `1.0` | — |
-| Remove Duplicates | Integer | `0.0` | — |
-| Show Input | Integer | `1.0` | — |
+| Text | Text | `—` | The multi-line block of text to sort. |
+| Sort List | Integer | `1.0` | Alphabetically sorts the text on a line-by-line basis. |
+| Remove Duplicates | Integer | `0.0` | Drops any line that duplicates one already in the results. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Text connection in the Flow view. |
 
 
 ## Related Nodes
@@ -40,5 +41,5 @@ Sorts a multi-line block of text The "Sort List" checkbox will break apart a mul
 
 {/*
 Generated page — node: vTextSortLines (Core/Text/Utility).
-Source: fuse vTextSortLines.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextSortLines.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

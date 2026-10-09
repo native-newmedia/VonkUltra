@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vScriptValTimeSpeed
+description: "Time based operation on ScriptVal objects"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,10 +24,10 @@ Time based operation on ScriptVal objects
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| ScriptVal | ScriptVal | `—` | — |
-| Speed | Float | `0.0` | — |
-| Delay | Float | `0.0` | — |
-| Show Input | Integer | `0.0` | — |
+| ScriptVal | ScriptVal | `—` | ScriptVal to re-time. |
+| Speed | Float | `0.0` | Playback rate multiplier applied when reading the value across frames — 1.0 is normal speed, 0 with Delay 0 freezes it (useful to stop a vScriptValAccumulator from re-rendering every frame). |
+| Delay | Float | `0.0` | Time offset in frames applied before the speed change. |
+| Show Input | Integer | `0.0` | Reveals the wire for the ScriptVal connection in the Flow view. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Time based operation on ScriptVal objects
 
 {/*
 Generated page — node: vScriptValTimeSpeed (Core/ScriptVal/Temporal).
-Source: fuse vScriptValTimeSpeed.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vScriptValTimeSpeed.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

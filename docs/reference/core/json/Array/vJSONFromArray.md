@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vJSONFromArray
+description: "Casts a JSON Array to JSON Text"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,12 +24,12 @@ Casts a JSON Array to JSON Text
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Text | `—` | — |
-| Show Input | Integer | `0.0` | — |
+| Input | Text | `—` | JSON array text to cast — typically fed from a vArray node's text-encoded output. |
+| Show Input | Integer | `0.0` | Reveals the wire for the Input connection in the Flow view. |
 
 
 
 {/*
 Generated page — node: vJSONFromArray (Core/JSON/Array).
-Source: fuse vJSONFromArray.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vJSONFromArray.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

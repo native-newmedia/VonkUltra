@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vImageProcessOpen
+description: "Launch a command-line process via popen."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Launch a command-line process via popen. The "Input 3D" field is used to connect
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Image | `—` | — |
-| Text | Text | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| Input | Image | `—` | Image passed through unchanged — connect any node interacting with the image pipeline to chain this process launch into it. |
+| Text | Text | `—` | The executable name and command-line arguments to run, typically built with vTextSubFormat. Use vTextCreatePlatform/vTextCreatePlatformBrowse for cross-platform executable naming. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Text connection in the Flow view. |
 
 
 ## Related Nodes
@@ -36,5 +37,5 @@ Launch a command-line process via popen. The "Input 3D" field is used to connect
 
 {/*
 Generated page — node: vImageProcessOpen (Core/Image/Script).
-Source: fuse vImageProcessOpen.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vImageProcessOpen.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

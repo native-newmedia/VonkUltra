@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vTextCaseAlternate
+description: "Alternates the case of a Fusion Text object A Text based input of \"hello world!\" would be converted to \"hElLo wOrLd!\" where every 2nd letter is formatted as a capital letter."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Alternates the case of a Fusion Text object A Text based input of "hello world!"
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Text | Text | `—` | — |
-| Show Input | Integer | `0.0` | — |
+| Text | Text | `—` | Text to convert — every 2nd letter becomes uppercase. |
+| Show Input | Integer | `0.0` | Reveals the wire for the Text connection in the Flow view. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Alternates the case of a Fusion Text object A Text based input of "hello world!"
 
 {/*
 Generated page — node: vTextCaseAlternate (Core/Text/Case).
-Source: fuse vTextCaseAlternate.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextCaseAlternate.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

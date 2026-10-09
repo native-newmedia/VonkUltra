@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vScriptValFromXML
+description: "Creates a ScriptVal object from XML This node accepts a text based input in an XML format."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,7 +24,7 @@ Creates a ScriptVal object from XML This node accepts a text based input in an X
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Text | `—` | — |
+| Input | Text | `—` | XML text to convert into a ScriptVal Lua table. |
 
 
 ## Related Nodes
@@ -34,5 +35,5 @@ Creates a ScriptVal object from XML This node accepts a text based input in an X
 
 {/*
 Generated page — node: vScriptValFromXML (Core/ScriptVal/XML).
-Source: fuse vScriptValFromXML.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vScriptValFromXML.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

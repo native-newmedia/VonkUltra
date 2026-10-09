@@ -1,6 +1,7 @@
 ---
 sidebar_position: 7
 title: vTextSubSplit
+description: "Returns a substring of a string The \"Pattern\" text field uses [Lua Patterns](http://lua-users.org/wiki/PatternsTutorial) to parse the string into a JSON like Array object."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Returns a substring of a string The "Pattern" text field uses [Lua Patterns](htt
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Text | Text | `—` | — |
-| Pattern | Text | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| Text | Text | `—` | The source string to split into an Array. |
+| Pattern | Text | `—` | Lua pattern with the capture group `(...)` defining what each split item returns. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Text connection in the Flow view. |
 
 
 ## Related Nodes
@@ -39,5 +40,5 @@ Returns a substring of a string The "Pattern" text field uses [Lua Patterns](htt
 
 {/*
 Generated page — node: vTextSubSplit (Core/Text/Substring).
-Source: fuse vTextSubSplit.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextSubSplit.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

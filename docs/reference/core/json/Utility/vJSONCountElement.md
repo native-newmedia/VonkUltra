@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vJSONCountElement
+description: "Counts the elements in a JSON array The node expects a text based JSON array object as the input."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,7 +24,7 @@ Counts the elements in a JSON array The node expects a text based JSON array obj
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Text | `—` | — |
+| Input | Text | `—` | JSON array text to count. Output is the number of elements at this level of the hierarchy — useful for driving a vTextAccumulator's EndFrame to step through each element. |
 
 
 ## Related Nodes
@@ -34,5 +35,5 @@ Counts the elements in a JSON array The node expects a text based JSON array obj
 
 {/*
 Generated page — node: vJSONCountElement (Core/JSON/Utility).
-Source: fuse vJSONCountElement.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vJSONCountElement.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

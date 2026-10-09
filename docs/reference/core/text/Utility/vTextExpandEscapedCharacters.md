@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 title: vTextExpandEscapedCharacters
+description: "Process escaped newline, return and tab characters in a Fusion Text object"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Process escaped newline, return and tab characters in a Fusion Text object
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Text | Text | `—` | — |
-| Expand Escaped Characters | Float | `Expand` | — |
-| Show Input | Integer | `1.0` | — |
+| Text | Text | `—` | The text to process for escaped `\n`, `\r`, and `\t` sequences. |
+| Expand Escaped Characters | Dropdown | `Expand` | Expand converts literal `\n`/`\r`/`\t` sequences into real newline/return/tab characters; Collapse does the reverse. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Text connection in the Flow view. |
 
 
 ## Related Nodes
@@ -39,5 +40,5 @@ Process escaped newline, return and tab characters in a Fusion Text object
 
 {/*
 Generated page — node: vTextExpandEscapedCharacters (Core/Text/Utility).
-Source: fuse vTextExpandEscapedCharacters.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextExpandEscapedCharacters.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

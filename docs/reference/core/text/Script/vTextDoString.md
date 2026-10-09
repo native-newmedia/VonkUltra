@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vTextDoString
+description: "Return a Text object from running a string of Lua code The node automatically creates new text input connections as needed."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,11 +24,11 @@ Return a Text object from running a string of Lua code The node automatically cr
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Which | Integer | `—` | — |
-| Text1 | Text | `—` | — |
-| Script Header Wire | Text | `—` | — |
-| > | Float | `—` | — |
-| Script | Text | `—` | — |
+| Which | Integer | `—` | Reserved input, referenced by name from inside the Lua Script. |
+| Text1 | Text | `—` | Auto-created text input, referenced from the script as part of the `tbl` table — more are added automatically as each prior one gets wired. |
+| Script Header Wire | Text | `—` | Optional Text input wired in as a header/preamble script, prepended to the Script field's code when run — typically sourced from a vTextCreateMultiline or vTextFromFile node. |
+| > | Float | `—` | Run button — executes the Lua Script and returns its result as this node's output. |
+| Script | Text | `—` | The Lua code to execute — its `return` value becomes the node's Text output. |
 
 
 ## Related Nodes
@@ -41,5 +42,5 @@ Return a Text object from running a string of Lua code The node automatically cr
 
 {/*
 Generated page — node: vTextDoString (Core/Text/Script).
-Source: fuse vTextDoString.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextDoString.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

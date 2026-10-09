@@ -1,6 +1,7 @@
 ---
 sidebar_position: 7
 title: vTextToFile
+description: "Writes a Text string to a file The \"Input\" text-field holds the textual content that is saved to disk."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Writes a Text string to a file The "Input" text-field holds the textual content 
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Text | `—` | — |
-| File | Text | `—` | — |
+| Input | Text | `—` | The text content to save to disk. |
+| File | Text | `—` | Destination filename for the saved text file. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Writes a Text string to a file The "Input" text-field holds the textual content 
 
 {/*
 Generated page — node: vTextToFile (Core/Text/IO).
-Source: fuse vTextToFile.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextToFile.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

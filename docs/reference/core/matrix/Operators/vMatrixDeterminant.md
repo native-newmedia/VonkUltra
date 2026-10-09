@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vMatrixDeterminant
+description: "Calculates the determinant of a matrix"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Calculates the determinant of a matrix
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Matrix | Text | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| Matrix | Text | `—` | Matrix to compute — Output is its scalar determinant. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Matrix connection in the Flow view. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Calculates the determinant of a matrix
 
 {/*
 Generated page — node: vMatrixDeterminant (Core/Matrix/Operators).
-Source: fuse vMatrixDeterminant.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vMatrixDeterminant.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

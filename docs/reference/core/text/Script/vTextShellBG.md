@@ -1,6 +1,7 @@
 ---
 sidebar_position: 6
 title: vTextShellBG
+description: "Launch a command-line shell task in the background via `bmd.executebg()` The \"Wait\" checkbox can be used to make the node act in a blocking fashion that will…"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Launch a command-line shell task in the background via `bmd.executebg()` The "Wa
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| File | Text | `—` | — |
-| Wait | Integer | `1.0` | — |
+| File | Text | `—` | Absolute path to the executable to launch, plus any command-line arguments. |
+| Wait | Integer | `1.0` | Blocks rendering of this branch until the launched process exits. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Launch a command-line shell task in the background via `bmd.executebg()` The "Wa
 
 {/*
 Generated page — node: vTextShellBG (Core/Text/Script).
-Source: fuse vTextShellBG.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextShellBG.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

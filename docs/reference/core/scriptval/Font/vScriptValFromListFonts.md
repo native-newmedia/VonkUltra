@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vScriptValFromListFonts
+description: "Create a Fusion ScriptVal object from a listing of fonts Sample output from the \"vScriptValFromListFonts\" node when formatted as text based Lua table output…"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -29,5 +30,5 @@ Create a Fusion ScriptVal object from a listing of fonts Sample output from the 
 
 {/*
 Generated page — node: vScriptValFromListFonts (Core/ScriptVal/Font).
-Source: fuse vScriptValFromListFonts.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vScriptValFromListFonts.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

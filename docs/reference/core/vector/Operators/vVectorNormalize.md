@@ -1,6 +1,7 @@
 ---
 sidebar_position: 6
 title: vVectorNormalize
+description: "Normalizes a vector"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Normalizes a vector
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Vector | Text | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| Vector | Text | `—` | Vector to normalize — Output is the same direction scaled to unit length (magnitude 1). |
+| Show Input | Integer | `1.0` | Reveals the wire for the Vector connection in the Flow view. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Normalizes a vector
 
 {/*
 Generated page — node: vVectorNormalize (Core/Vector/Operators).
-Source: fuse vVectorNormalize.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vVectorNormalize.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

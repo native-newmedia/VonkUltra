@@ -1,6 +1,7 @@
 ---
 sidebar_position: 11
 title: vFileSystemMapPath
+description: "Expands a PathMap This node automatically converts a relative filepath into an absolute filepath on the output."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Expands a PathMap This node automatically converts a relative filepath into an a
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Text | Text | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| Text | Text | `—` | Relative path (e.g. using a `Comp:/` PathMap) to expand into an absolute filepath. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Text connection in the Flow view. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Expands a PathMap This node automatically converts a relative filepath into an a
 
 {/*
 Generated page — node: vFileSystemMapPath (Core/FileSystem/Utility).
-Source: fuse vFileSystemMapPath.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vFileSystemMapPath.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

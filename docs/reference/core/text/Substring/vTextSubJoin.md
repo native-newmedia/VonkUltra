@@ -1,6 +1,7 @@
 ---
 sidebar_position: 4
 title: vTextSubJoin
+description: "Dynamically joins strings into one"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,11 +24,11 @@ Dynamically joins strings into one
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Which | Integer | `—` | — |
-| Text1 | Text | `—` | — |
-| Separator | Text | `—` | — |
-| "Text" .. i | Text | `—` | — |
-| "Text" .. (inp_nr + 1) | Text | `—` | — |
+| Which | Integer | `—` | Reserved input, referenced by name from inside the node's internal script. |
+| Text1 | Text | `—` | First string to join — more Text inputs (Text2, Text3…) are added automatically as each prior one gets wired. |
+| Separator | Text | `—` | Character(s) placed between each joined string. |
+| "Text" .. i | Text | `—` | Additional string to join, added automatically as each prior input gets wired — appears in the UI as Text2, Text3, and so on. (The literal `"Text" .. i` label is a known display quirk in how this dynamically-generated input's name is parsed for these docs, not something visible in Fusion itself.) |
+| "Text" .. (inp_nr + 1) | Text | `—` | The next available join slot, added automatically once the one before it is connected. Same display quirk as above — shows in Fusion as Text3, Text4, etc. |
 
 
 ## Related Nodes
@@ -41,5 +42,5 @@ Dynamically joins strings into one
 
 {/*
 Generated page — node: vTextSubJoin (Core/Text/Substring).
-Source: fuse vTextSubJoin.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextSubJoin.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

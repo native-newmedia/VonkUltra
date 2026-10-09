@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 title: vNumberCreateBool
+description: "Returns a 0-1 range integer Fusion Number object This node uses a checkbox control to output a true (1) or false (0) logic state."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,7 +24,7 @@ Returns a 0-1 range integer Fusion Number object This node uses a checkbox contr
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Number | Integer | `0` | — |
+| Number | Integer | `0` | Checkbox — outputs 1 when checked, 0 when unchecked. |
 
 
 ## Related Nodes
@@ -37,5 +38,5 @@ Returns a 0-1 range integer Fusion Number object This node uses a checkbox contr
 
 {/*
 Generated page — node: vNumberCreateBool (Core/Number/Create).
-Source: fuse vNumberCreateBool.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberCreateBool.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

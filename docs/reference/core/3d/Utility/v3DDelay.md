@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: v3DDelay
+description: "Creates a delay while passing a Fusion 3D object."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,13 +24,13 @@ Creates a delay while passing a Fusion 3D object. The "Input 3D" field is used t
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input 3D | DataType3D | `—` | — |
-| Delay | Float | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| Input 3D | DataType3D | `—` | 3D data passed through unchanged after the delay. |
+| Delay | Float | `—` | Pause duration in seconds, implemented via `bmd.wait()`. Useful for throttling command-line tasks (e.g. v3DProcessOpen) that need a moment to complete, or for simulating a slow render step. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Input 3D connection in the Flow view. |
 
 
 
 {/*
 Generated page — node: v3DDelay (Core/3D/Utility).
-Source: fuse v3DDelay.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse v3DDelay.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

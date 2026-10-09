@@ -1,6 +1,7 @@
 ---
 sidebar_position: 5
 title: vFileSystemExtendedAttributes
+description: "Edit macOS xattr flags on files"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,7 +24,7 @@ Edit macOS xattr flags on files
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| File | Text | `—` | — |
+| File | Text | `—` | Path to the file whose extended attributes (macOS `xattr` flags, e.g. the quarantine flag on downloaded files) are edited. |
 
 
 ## Related Nodes
@@ -37,5 +38,5 @@ Edit macOS xattr flags on files
 
 {/*
 Generated page — node: vFileSystemExtendedAttributes (Core/FileSystem/Utility).
-Source: fuse vFileSystemExtendedAttributes.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vFileSystemExtendedAttributes.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

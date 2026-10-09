@@ -1,6 +1,7 @@
 ---
 sidebar_position: 7
 title: vNumberHyperbolicSine
+description: "Returns the hyperbolic sine of a number in radians"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Returns the hyperbolic sine of a number in radians
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Radians | Float | `0` | — |
-| Show Input | Integer | `0.0` | — |
+| Radians | Float | `0` | Value to compute the hyperbolic sine of. |
+| Show Input | Integer | `0.0` | Reveals the wire for the Radians connection in the Flow view. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Returns the hyperbolic sine of a number in radians
 
 {/*
 Generated page — node: vNumberHyperbolicSine (Core/Number/Trigonometry).
-Source: fuse vNumberHyperbolicSine.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberHyperbolicSine.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

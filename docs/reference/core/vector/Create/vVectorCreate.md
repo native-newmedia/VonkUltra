@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vVectorCreate
+description: "Creates a vector from an array"
 ---
 
 import Tabs from '@theme/Tabs';

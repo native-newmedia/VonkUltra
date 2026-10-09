@@ -1,6 +1,7 @@
 ---
 sidebar_position: 14
 title: vFileSystemRename
+description: "Rename a file or folder."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,10 +24,10 @@ Rename a file or folder. This node can also be used to move files on disk.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Source | Text | `—` | — |
-| Destination | Text | `—` | — |
-| Create Destination Directory | Integer | `1.0` | — |
-| Show Input | Integer | `0.0` | — |
+| Source | Text | `—` | Path to the file or folder to rename or move. |
+| Destination | Text | `—` | New path — a different filename renames in place; a different folder moves it. |
+| Create Destination Directory | Integer | `1.0` | Creates the destination folder automatically if it doesn't already exist. |
+| Show Input | Integer | `0.0` | Reveals the wire for the Source connection in the Flow view. |
 
 
 ## Related Nodes
@@ -40,5 +41,5 @@ Rename a file or folder. This node can also be used to move files on disk.
 
 {/*
 Generated page — node: vFileSystemRename (Core/FileSystem/Utility).
-Source: fuse vFileSystemRename.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vFileSystemRename.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

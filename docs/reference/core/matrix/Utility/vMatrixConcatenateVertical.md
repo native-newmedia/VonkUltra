@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vMatrixConcatenateVertical
+description: "Concatenates two matrices vertically"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Concatenates two matrices vertically
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Matrix1 | Text | `—` | — |
-| Matrix2 | Text | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| Matrix1 | Text | `—` | Top matrix. |
+| Matrix2 | Text | `—` | Bottom matrix — its rows are appended after Matrix1's, both matrices must have the same column count. |
+| Show Input | Integer | `1.0` | Reveals the wires for the Matrix1/Matrix2 connections in the Flow view. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Concatenates two matrices vertically
 
 {/*
 Generated page — node: vMatrixConcatenateVertical (Core/Matrix/Utility).
-Source: fuse vMatrixConcatenateVertical.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vMatrixConcatenateVertical.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

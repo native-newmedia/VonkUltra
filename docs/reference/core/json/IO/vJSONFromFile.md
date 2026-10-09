@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vJSONFromFile
+description: "Reads a JSON string from a file The \"Input\" text field is used to specify the disk-based filename of the JSON document to be read."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,7 +24,7 @@ Reads a JSON string from a file The "Input" text field is used to specify the di
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Text | `—` | — |
+| Input | Text | `—` | Path to the JSON file to read. Loaded when the node is viewed or rendered. |
 
 
 ## Related Nodes
@@ -35,5 +36,5 @@ Reads a JSON string from a file The "Input" text field is used to specify the di
 
 {/*
 Generated page — node: vJSONFromFile (Core/JSON/IO).
-Source: fuse vJSONFromFile.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vJSONFromFile.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

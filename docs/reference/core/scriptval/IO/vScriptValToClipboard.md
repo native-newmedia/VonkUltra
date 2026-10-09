@@ -1,6 +1,7 @@
 ---
 sidebar_position: 5
 title: vScriptValToClipboard
+description: "Send a ScriptVal Lua table to the clipboard"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Send a ScriptVal Lua table to the clipboard
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| ScriptVal | ScriptVal | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| ScriptVal | ScriptVal | `—` | ScriptVal Lua table to copy to the system clipboard as text. |
+| Show Input | Integer | `1.0` | Reveals the wire for the ScriptVal connection in the Flow view. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Send a ScriptVal Lua table to the clipboard
 
 {/*
 Generated page — node: vScriptValToClipboard (Core/ScriptVal/IO).
-Source: fuse vScriptValToClipboard.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vScriptValToClipboard.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

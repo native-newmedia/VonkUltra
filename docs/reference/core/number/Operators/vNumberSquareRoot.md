@@ -1,6 +1,7 @@
 ---
 sidebar_position: 21
 title: vNumberSquareRoot
+description: "Returns the square root of a number"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Returns the square root of a number
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Radicand | Float | `0` | — |
-| Show Input | Integer | `0.0` | — |
+| Radicand | Float | `0` | Value to compute the square root of. |
+| Show Input | Integer | `0.0` | Reveals the wire for the Radicand connection in the Flow view. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Returns the square root of a number
 
 {/*
 Generated page — node: vNumberSquareRoot (Core/Number/Operators).
-Source: fuse vNumberSquareRoot.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberSquareRoot.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vScriptValFromMetadata
+description: "Casts image metadata to a Fusion ScriptVal object This node takes an image as the input."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Casts image metadata to a Fusion ScriptVal object This node takes an image as th
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Image | `—` | — |
-| Key | Text | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| Input | Image | `—` | Image whose metadata is converted to a ScriptVal object. |
+| Key | Text | `—` | Optional metadata field name to isolate — leave empty to return the full metadata record. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Input connection in the Flow view. |
 
 
 ## Related Nodes
@@ -36,5 +37,5 @@ Casts image metadata to a Fusion ScriptVal object This node takes an image as th
 
 {/*
 Generated page — node: vScriptValFromMetadata (Core/ScriptVal/Meta).
-Source: fuse vScriptValFromMetadata.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vScriptValFromMetadata.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

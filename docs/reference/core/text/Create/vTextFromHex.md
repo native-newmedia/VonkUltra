@@ -1,6 +1,7 @@
 ---
 sidebar_position: 13
 title: vTextFromHex
+description: "Converts a Base16 Hex encoded string to ASCII text The \"Input\" field is used to supply the block of HEX encoded content."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,10 +24,10 @@ Converts a Base16 Hex encoded string to ASCII text The "Input" field is used to 
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Text | `—` | — |
-| Separator | Text | `—` | — |
-| Remove Non-Printable Characters | Integer | `1.0` | — |
-| Show Input | Integer | `1.0` | — |
+| Input | Text | `—` | The Base16 (hex) encoded text to decode. |
+| Separator | Text | `—` | Character(s) between each hex byte group in Input (e.g. a space or dash). |
+| Remove Non-Printable Characters | Integer | `1.0` | Strips ASCII control characters from the decoded output. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Input connection in the Flow view. |
 
 
 ## Related Nodes
@@ -40,5 +41,5 @@ Converts a Base16 Hex encoded string to ASCII text The "Input" field is used to 
 
 {/*
 Generated page — node: vTextFromHex (Core/Text/Create).
-Source: fuse vTextFromHex.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextFromHex.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

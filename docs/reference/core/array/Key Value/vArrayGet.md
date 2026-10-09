@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vArrayGet
+description: "Gets the value of a key in an array"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,10 +24,10 @@ Gets the value of a key in an array
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Text | `—` | — |
-| Key | Text | `—` | — |
-| Show Input | Integer | `0.0` | — |
-| Get Key | Float | `—` | — |
+| Input | Text | `—` | JSON array/object text to query. |
+| Key | Text | `—` | The key to look up. |
+| Show Input | Integer | `0.0` | Reveals the wire for the Input connection in the Flow view. |
+| Get Key | Float | `—` | Renames this node to `array_<Key>`, making it easy to identify which key it reads at a glance. |
 
 
 ## Related Nodes
@@ -40,5 +41,5 @@ Gets the value of a key in an array
 
 {/*
 Generated page — node: vArrayGet (Core/Array/Key Value).
-Source: fuse vArrayGet.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vArrayGet.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 5
 title: vTextRenderComp
+description: "Launches a command-line Fusion Render Node based .comp or .dfq process via popen This node currently works on macOS and Linux."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,19 +24,19 @@ Launches a command-line Fusion Render Node based .comp or .dfq process via popen
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Comp File | Text | `—` | — |
-| Render Mode | Integer | `0` | — |
-| Start Frame | Integer | `0` | — |
-| End Frame | Integer | `0` | — |
-| Step | Integer | `1` | — |
+| Comp File | Text | `—` | Path to the .comp or .dfq file to batch render via popen. |
+| Render Mode | Dropdown | `Current Frame` | Which frame range gets rendered — the parent comp's current frame, its full Render Start/End range, or a manually entered Custom Frame Range. |
+| Start Frame | Integer | `0` | First frame to render, used when Render Mode is Custom Frame Range. |
+| End Frame | Integer | `0` | Last frame to render, used when Render Mode is Custom Frame Range. |
+| Step | Integer | `1` | Frame increment applied when rendering the range. |
 
 <details>
 <summary>+2 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Render Node Version | Integer | `5` | — |
-| Show Input | Integer | `1.0` | — |
+| Render Node Version | Dropdown | `20` | Which installed Fusion Render Node executable version to launch. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Comp File connection in the Flow view. |
 
 </details>
 
@@ -51,5 +52,5 @@ Launches a command-line Fusion Render Node based .comp or .dfq process via popen
 
 {/*
 Generated page — node: vTextRenderComp (Core/Text/Fusion).
-Source: fuse vTextRenderComp.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextRenderComp.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

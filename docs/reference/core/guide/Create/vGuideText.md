@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 title: vGuideText
+description: "Create a vGuide object from Lua table formatted text"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Create a vGuide object from Lua table formatted text
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Text | Text | `—` | — |
-| Display Lines | Integer | `15` | — |
-| Wrap Lines | Integer | `1.0` | — |
+| Text | Text | `—` | Lua table source defining the guide's elements, using the same `Rectangle`/`VLine`/`HLine`/`Grid` syntax vGuideShape generates. Write or paste guide definitions directly. |
+| Display Lines | Integer | `15` | Number of visible lines in the text editor. A UI sizing control only — has no effect on the guide data itself. |
+| Wrap Lines | Integer | `1.0` | Wraps long lines in the text editor instead of scrolling horizontally. |
 
 
 ## Related Nodes
@@ -37,5 +38,5 @@ Create a vGuide object from Lua table formatted text
 
 {/*
 Generated page — node: vGuideText (Core/Guide/Create).
-Source: fuse vGuideText.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vGuideText.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

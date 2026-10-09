@@ -1,6 +1,7 @@
 ---
 sidebar_position: 4
 title: vScriptValViewer
+description: "View the Fusion ScriptVal object contents in the Inspector"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ View the Fusion ScriptVal object contents in the Inspector
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Show Dump | Integer | `0.0` | — |
-| Display Lines | Integer | `25` | — |
-| ScriptVal | ScriptVal | `—` | — |
+| Show Dump | Integer | `0.0` | Prints the ScriptVal contents to the console each frame, in addition to the tree view below. |
+| Display Lines | Integer | `25` | Number of visible lines in the tree view before scrolling. |
+| ScriptVal | ScriptVal | `—` | ScriptVal value to inspect. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ View the Fusion ScriptVal object contents in the Inspector
 
 {/*
 Generated page — node: vScriptValViewer (Core/ScriptVal/Utility).
-Source: fuse vScriptValViewer.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vScriptValViewer.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

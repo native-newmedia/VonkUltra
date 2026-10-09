@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vNumberDoString
+description: "Return a Number object from running a string of Lua code"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,11 +24,11 @@ Return a Number object from running a string of Lua code
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Which | Integer | `—` | — |
-| Number1 | Float | `—` | — |
-| Script Header Wire | Text | `—` | — |
-| > | Float | `—` | — |
-| Script | Text | `—` | — |
+| Which | Integer | `—` | Reserved input, referenced by name from inside the Lua Script. |
+| Number1 | Float | `—` | Reserved input, referenced by name from inside the Lua Script. |
+| Script Header Wire | Text | `—` | Optional Text input wired in as a header/preamble string, available to the script. |
+| > | Float | `—` | Run button — executes the Lua Script and returns its result as this node's output. |
+| Script | Text | `—` | The Lua code to execute — its return value becomes the node's Number output. |
 
 
 ## Related Nodes
@@ -39,5 +40,5 @@ Return a Number object from running a string of Lua code
 
 {/*
 Generated page — node: vNumberDoString (Core/Number/Script).
-Source: fuse vNumberDoString.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberDoString.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

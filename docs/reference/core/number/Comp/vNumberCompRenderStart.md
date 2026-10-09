@@ -1,6 +1,7 @@
 ---
 sidebar_position: 9
 title: vNumberCompRenderStart
+description: "Returns the comp's Render Start This is the first renderable frame when a batch render is carried out."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -32,5 +33,5 @@ Returns the comp's Render Start This is the first renderable frame when a batch 
 
 {/*
 Generated page — node: vNumberCompRenderStart (Core/Number/Comp).
-Source: fuse vNumberCompRenderStart.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberCompRenderStart.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

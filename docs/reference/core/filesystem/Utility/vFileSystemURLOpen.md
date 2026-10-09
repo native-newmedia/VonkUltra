@@ -1,6 +1,7 @@
 ---
 sidebar_position: 17
 title: vFileSystemURLOpen
+description: "Opens a file This node opens a URL in an external web-browser."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Opens a file This node opens a URL in an external web-browser. This is useful if
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Source URL | Text | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| Source URL | Text | `—` | URL to open in the system's default web browser. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Source URL connection in the Flow view. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Opens a file This node opens a URL in an external web-browser. This is useful if
 
 {/*
 Generated page — node: vFileSystemURLOpen (Core/FileSystem/Utility).
-Source: fuse vFileSystemURLOpen.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vFileSystemURLOpen.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

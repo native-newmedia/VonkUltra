@@ -1,6 +1,7 @@
 ---
 sidebar_position: 4
 title: vScriptValToBinaryFile
+description: "Writes a Fusion ScriptVal blob encoded object to a binary file The binary file data is Base64 encoded and placed in a Lua table structure."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Writes a Fusion ScriptVal blob encoded object to a binary file The binary file d
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| ScriptVal | DATATYPE | `—` | — |
-| File | Text | `—` | — |
+| ScriptVal | DATATYPE | `—` | Base64-encoded ScriptVal blob to decode and write out as a binary file. |
+| File | Text | `—` | Destination path for the saved file. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Writes a Fusion ScriptVal blob encoded object to a binary file The binary file d
 
 {/*
 Generated page — node: vScriptValToBinaryFile (Core/ScriptVal/IO).
-Source: fuse vScriptValToBinaryFile.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vScriptValToBinaryFile.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

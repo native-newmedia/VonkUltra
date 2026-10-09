@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vBase64EncodeFromFile
+description: "Base64 encodes a file into a Fusion Text object."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,7 +24,7 @@ Base64 encodes a file into a Fusion Text object. This node converts the contents
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| File | Text | `—` | — |
+| File | Text | `—` | Path to the file to Base64-encode. |
 
 
 ## Related Nodes
@@ -34,5 +35,5 @@ Base64 encodes a file into a Fusion Text object. This node converts the contents
 
 {/*
 Generated page — node: vBase64EncodeFromFile (Core/Base64/Encode).
-Source: fuse vBase64EncodeFromFile.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vBase64EncodeFromFile.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

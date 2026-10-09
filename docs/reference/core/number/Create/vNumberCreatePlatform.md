@@ -1,6 +1,7 @@
 ---
 sidebar_position: 5
 title: vNumberCreatePlatform
+description: "Creates a unique Fusion Number object per OS platform If the fuse is rendered on a macOS system a value of 1 is returned."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -32,5 +33,5 @@ Creates a unique Fusion Number object per OS platform If the fuse is rendered on
 
 {/*
 Generated page — node: vNumberCreatePlatform (Core/Number/Create).
-Source: fuse vNumberCreatePlatform.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberCreatePlatform.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

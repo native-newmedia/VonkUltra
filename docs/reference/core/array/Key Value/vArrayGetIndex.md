@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 title: vArrayGetIndex
+description: "Creates Text from an array"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,7 +24,7 @@ Creates Text from an array
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Text | `—` | — |
+| Input | Text | `—` | JSON array text to query. |
 
 
 ## Related Nodes
@@ -37,5 +38,5 @@ Creates Text from an array
 
 {/*
 Generated page — node: vArrayGetIndex (Core/Array/Key Value).
-Source: fuse vArrayGetIndex.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vArrayGetIndex.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 4
 title: vPointDivide
+description: "Returns the quotient of two Fusion Point objects This node can be used to apply a scale reducing effect to the origin of the 1st point by the 2nd point's displacement distance."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Returns the quotient of two Fusion Point objects This node can be used to apply 
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Point1 | Point | `—` | — |
-| Point2 | Point | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| Point1 | Point | `—` | First point operand (dividend). |
+| Point2 | Point | `—` | Second point operand (divisor) — Point1 is divided by it component-wise. |
+| Show Input | Integer | `1.0` | Reveals the wires for the Point1/Point2 connections in the Flow view. |
 
 
 ## Related Nodes
@@ -39,5 +40,5 @@ Returns the quotient of two Fusion Point objects This node can be used to apply 
 
 {/*
 Generated page — node: vPointDivide (Core/Point/Operators).
-Source: fuse vPointDivide.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vPointDivide.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

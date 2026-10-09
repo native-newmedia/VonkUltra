@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vBase64DecodeFromText
+description: "Base64 decodes text from a Fusion Text object."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Base64 decodes text from a Fusion Text object. A Base64 formatted block of text 
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Text | Text | `—` | — |
-| Show Input | Integer | `0.0` | — |
+| Text | Text | `—` | Base64-encoded text block to decode back to plain ASCII. |
+| Show Input | Integer | `0.0` | Reveals the Text control so it can be sourced from an external Text node connection. |
 
 
 ## Related Nodes
@@ -36,5 +37,5 @@ Base64 decodes text from a Fusion Text object. A Base64 formatted block of text 
 
 {/*
 Generated page — node: vBase64DecodeFromText (Core/Base64/Decode).
-Source: fuse vBase64DecodeFromText.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vBase64DecodeFromText.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

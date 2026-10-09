@@ -1,6 +1,7 @@
 ---
 sidebar_position: 13
 title: vFileSystemRemoveFile
+description: "Remove a file"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Remove a file
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Text | Text | `—` | — |
-| Show Input | Integer | `0.0` | — |
+| Text | Text | `—` | File path to delete. |
+| Show Input | Integer | `0.0` | Reveals the wire for the Text connection in the Flow view. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Remove a file
 
 {/*
 Generated page — node: vFileSystemRemoveFile (Core/FileSystem/Utility).
-Source: fuse vFileSystemRemoveFile.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vFileSystemRemoveFile.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

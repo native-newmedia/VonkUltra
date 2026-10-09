@@ -1,6 +1,7 @@
 ---
 sidebar_position: 17
 title: vNumberPower
+description: "Returns the power of a number"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Returns the power of a number
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Base | Float | `0` | — |
-| Exponent | Float | `0` | — |
-| Show Input | Integer | `0.0` | — |
+| Base | Float | `0` | Base value. |
+| Exponent | Float | `0` | Power Base is raised to — Output is `Base ^ Exponent`. |
+| Show Input | Integer | `0.0` | Reveals the wires for the Base/Exponent connections in the Flow view. |
 
 
 ## Related Nodes
@@ -39,5 +40,5 @@ Returns the power of a number
 
 {/*
 Generated page — node: vNumberPower (Core/Number/Operators).
-Source: fuse vNumberPower.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberPower.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

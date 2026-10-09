@@ -1,6 +1,7 @@
 ---
 sidebar_position: 4
 title: vNumberCreateMultiButton
+description: "Creates a Fusion Number object using a MultiButton control for the input"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,7 +24,7 @@ Creates a Fusion Number object using a MultiButton control for the input
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Number | Float | `1` | — |
+| Number | Dropdown | `1` | Button grid (1–64) — outputs the selected button's number. |
 
 
 ## Related Nodes
@@ -37,5 +38,5 @@ Creates a Fusion Number object using a MultiButton control for the input
 
 {/*
 Generated page — node: vNumberCreateMultiButton (Core/Number/Create).
-Source: fuse vNumberCreateMultiButton.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberCreateMultiButton.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

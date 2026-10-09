@@ -1,6 +1,7 @@
 ---
 sidebar_position: 6
 title: vTextSubReturn
+description: "Returns a substring of a string This node is used to shorten a string by using the Start and End numeric fields to define the number of characters to remove."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,10 +24,10 @@ Returns a substring of a string This node is used to shorten a string by using t
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Text | Text | `—` | — |
-| Start | Integer | `1` | — |
-| End | Integer | `-1` | — |
-| Show Input | Integer | `1.0` | — |
+| Text | Text | `—` | The source string to extract a substring from. |
+| Start | Integer | `1` | First character to keep — positive counts from the left, negative from the right. |
+| End | Integer | `-1` | Last character to keep — positive counts from the left, negative from the right. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Text connection in the Flow view. |
 
 
 ## Related Nodes
@@ -40,5 +41,5 @@ Returns a substring of a string This node is used to shorten a string by using t
 
 {/*
 Generated page — node: vTextSubReturn (Core/Text/Substring).
-Source: fuse vTextSubReturn.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextSubReturn.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

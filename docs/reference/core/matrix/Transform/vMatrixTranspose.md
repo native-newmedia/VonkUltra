@@ -1,6 +1,7 @@
 ---
 sidebar_position: 8
 title: vMatrixTranspose
+description: "Transposes a matrix"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Transposes a matrix
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Matrix | Text | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| Matrix | Text | `—` | Matrix to transpose — Output has its rows and columns swapped. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Matrix connection in the Flow view. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Transposes a matrix
 
 {/*
 Generated page — node: vMatrixTranspose (Core/Matrix/Transform).
-Source: fuse vMatrixTranspose.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vMatrixTranspose.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

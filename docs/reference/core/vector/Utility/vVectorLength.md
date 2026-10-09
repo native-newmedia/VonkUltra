@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vVectorLength
+description: "Calculates the length of a vector"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,12 +24,12 @@ Calculates the length of a vector
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Vector | Text | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| Vector | Text | `—` | Vector to measure — Output is its magnitude (Euclidean length) as a Number. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Vector connection in the Flow view. |
 
 
 
 {/*
 Generated page — node: vVectorLength (Core/Vector/Utility).
-Source: fuse vVectorLength.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vVectorLength.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

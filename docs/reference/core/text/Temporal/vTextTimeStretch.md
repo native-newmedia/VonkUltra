@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 title: vTextTimeStretch
+description: "Time based operation on text"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,10 +24,10 @@ Time based operation on text
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Text | `—` | — |
-| Time | Float | `0.0` | — |
-| Set To Current Time | Float | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| Input | Text | `—` | The text value to resample at the stretched time. |
+| Time | Float | `0.0` | The frame Input is read at, regardless of the comp's actual current time. |
+| Set To Current Time | Float | `—` | Button — copies the comp's current time into the Time control. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Input connection in the Flow view. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Time based operation on text
 
 {/*
 Generated page — node: vTextTimeStretch (Core/Text/Temporal).
-Source: fuse vTextTimeStretch.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextTimeStretch.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

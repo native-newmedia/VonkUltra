@@ -1,6 +1,7 @@
 ---
 sidebar_position: 5
 title: vScriptValFromListFiles
+description: "Create a Fusion ScriptVal object from a bmd.readdir() listing of files"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,11 +24,11 @@ Create a Fusion ScriptVal object from a bmd.readdir() listing of files
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Text | Text | `—` | — |
-| Pattern | Text | `—` | — |
-| Mode | Float | `List Files` | — |
-| Skip Hidden Files | Integer | `1.0` | — |
-| Show Input | Integer | `0.0` | — |
+| Text | Text | `—` | Folder path to scan. |
+| Pattern | Text | `—` | Wildcard filter for filenames, e.g. `*.exr` or `*.png`. Leave empty to match everything. |
+| Mode | Dropdown | `List Files` | Whether to list files or subdirectories: List Files or List Directories. |
+| Skip Hidden Files | Integer | `1.0` | Excludes hidden files (`.DS_Store`, `Thumbs.db`, and UNIX dotfiles) from the output. |
+| Show Input | Integer | `0.0` | Reveals the wire for the Text connection in the Flow view. |
 
 
 ## Related Nodes
@@ -41,5 +42,5 @@ Create a Fusion ScriptVal object from a bmd.readdir() listing of files
 
 {/*
 Generated page — node: vScriptValFromListFiles (Core/ScriptVal/Create).
-Source: fuse vScriptValFromListFiles.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vScriptValFromListFiles.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

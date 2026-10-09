@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vFileSystemColorTags
+description: "Apply macOS Finder Color tags to a file or folder"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Apply macOS Finder Color tags to a file or folder
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| File | Text | `—` | — |
-| Color | Dropdown | `0` | — |
+| File | Text | `—` | Path to the file or folder to tag. |
+| Color | Dropdown | `No Color` | Finder colour tag to apply: No Color, Orange, Red, Yellow, Blue, Purple, Green, or Gray. macOS only. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Apply macOS Finder Color tags to a file or folder
 
 {/*
 Generated page — node: vFileSystemColorTags (Core/FileSystem/Utility).
-Source: fuse vFileSystemColorTags.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vFileSystemColorTags.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

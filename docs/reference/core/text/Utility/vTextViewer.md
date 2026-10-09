@@ -1,6 +1,7 @@
 ---
 sidebar_position: 13
 title: vTextViewer
+description: "Displays the Fusion Text object contents in the Inspector The vTextViewer node is a handy way to view multi-line text based data type content using the Inspector."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,11 +24,11 @@ Displays the Fusion Text object contents in the Inspector The vTextViewer node i
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Text | `—` | — |
-| Show Dump | Integer | `0.0` | — |
-| Font Size | Integer | `18` | — |
-| Display Lines | Integer | `25` | — |
-| Wrap Lines | Integer | `1.0` | — |
+| Input | Text | `—` | The text value to display, read-only, in the Inspector. |
+| Show Dump | Integer | `0.0` | Prints diagnostic output to the Console window. |
+| Font Size | Dropdown | `18` | Text size used in the preview area. |
+| Display Lines | Integer | `25` | Number of lines shown in the preview area at once. |
+| Wrap Lines | Integer | `1.0` | Wraps long lines in the preview area instead of scrolling horizontally. |
 
 
 ## Related Nodes
@@ -41,5 +42,5 @@ Displays the Fusion Text object contents in the Inspector The vTextViewer node i
 
 {/*
 Generated page — node: vTextViewer (Core/Text/Utility).
-Source: fuse vTextViewer.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextViewer.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

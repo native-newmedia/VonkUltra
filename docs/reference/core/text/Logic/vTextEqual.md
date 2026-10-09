@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vTextEqual
+description: "Compares two strings to see if they are equal The result is a false/true based number result of 0-1."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,10 +24,10 @@ Compares two strings to see if they are equal The result is a false/true based n
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Term 1 | Text | `—` | — |
-| Term1Separator | Float | `—` | — |
-| Term 2 | Text | `—` | — |
-| Show Input | Integer | `0.0` | — |
+| Term 1 | Text | `—` | First string to compare. |
+| Term1Separator | Float | `—` | A UI separator, not a real setting. |
+| Term 2 | Text | `—` | Second string to compare — Output is 1 if Term 1 equals Term 2, otherwise 0. |
+| Show Input | Integer | `0.0` | Reveals the wires for the Term 1/Term 2 connections in the Flow view. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Compares two strings to see if they are equal The result is a false/true based n
 
 {/*
 Generated page — node: vTextEqual (Core/Text/Logic).
-Source: fuse vTextEqual.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextEqual.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

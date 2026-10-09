@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 title: vVectorToPoint
+description: "Creates a point from a vector"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Creates a point from a vector
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Vector | Text | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| Vector | Text | `—` | Vector to convert — its first three elements become the output Point's X/Y/Z. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Vector connection in the Flow view. |
 
 
 ## Related Nodes
@@ -36,5 +37,5 @@ Creates a point from a vector
 
 {/*
 Generated page — node: vVectorToPoint (Core/Vector/Point).
-Source: fuse vVectorToPoint.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vVectorToPoint.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

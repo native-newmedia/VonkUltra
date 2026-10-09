@@ -1,6 +1,7 @@
 ---
 sidebar_position: 14
 title: vScriptValTrimElement
+description: "Extract a range of elements from a ScriptVal array as a table This node is useful for creating animated vector graphics that are revealed over time when your…"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,11 +24,11 @@ Extract a range of elements from a ScriptVal array as a table This node is usefu
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| ScriptVal | DATATYPE | `—` | — |
-| From | Integer | `1` | — |
-| To | Integer | `1` | — |
-| Step | Integer | `1` | — |
-| Show Input | Integer | `1.0` | — |
+| ScriptVal | DATATYPE | `—` | ScriptVal array to trim, e.g. a polyline's point list. |
+| From | Integer | `1` | 1-based index of the first element to keep. Animate together with To to reveal a shape over time. |
+| To | Integer | `1` | 1-based index of the last element to keep. |
+| Step | Integer | `1` | Interval between kept elements — 1 keeps every element, 2 keeps every other, and so on. |
+| Show Input | Integer | `1.0` | Reveals the wire for the ScriptVal connection in the Flow view. |
 
 
 ## Related Nodes
@@ -41,5 +42,5 @@ Extract a range of elements from a ScriptVal array as a table This node is usefu
 
 {/*
 Generated page — node: vScriptValTrimElement (Core/ScriptVal/Key Value).
-Source: fuse vScriptValTrimElement.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vScriptValTrimElement.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

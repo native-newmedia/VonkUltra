@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: v3DToFile
+description: "Writes PointCloud3D data from the Fusion 3D node-graph to a file."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,18 +24,18 @@ Writes PointCloud3D data from the Fusion 3D node-graph to a file. Connect a Poin
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input 3D | DataType3D | `—` | — |
-| Show 3D Source | Float | `—` | — |
-| Point Cloud Format | Dropdown | `0` | — |
-| Filename | Text | `—` | — |
-| Show 3D Input | Integer | `1.0` | — |
+| Input 3D | DataType3D | `—` | PointCloud3D data to export — connect a PointCloud3D node's output directly, or use a wireless link. Hidden until Show 3D Input is enabled. |
+| Show 3D Source | Float | `—` | Selects the connected upstream 3D node in the Nodes view, so it opens in the Inspector. |
+| Point Cloud Format | Dropdown | `XYZ ASCII (.xyz)` | Export file format: XYZ ASCII (.xyz), PLY ASCII (.ply), PIXAR USDA ASCII (.usda), or JSON Array (.json). |
+| Filename | Text | `—` | Destination path for the exported file. Supports Text/vText connections for dynamically generated filenames, and PathMap values like `Comp:/`. Missing sub-folders are created automatically at render time. |
+| Show 3D Input | Integer | `1.0` | Reveals the wire for the Input 3D connection in the Flow view. |
 
 <details>
 <summary>+1 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Show File Input | Integer | `0.0` | — |
+| Show File Input | Integer | `0.0` | Reveals the wire for the Filename connection in the Flow view, for driving it from a Text node. |
 
 </details>
 
@@ -42,5 +43,5 @@ Writes PointCloud3D data from the Fusion 3D node-graph to a file. Connect a Poin
 
 {/*
 Generated page — node: v3DToFile (Core/3D/IO).
-Source: fuse v3DToFile.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse v3DToFile.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

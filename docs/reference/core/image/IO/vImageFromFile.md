@@ -1,6 +1,7 @@
 ---
 sidebar_position: 5
 title: vImageFromFile
+description: "Reads an Image object from a file The \"Input\" control is used to define the image filename to load."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Reads an Image object from a file The "Input" control is used to define the imag
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Text | `—` | — |
-| Time Mode | Integer | `0` | — |
-| Time | Integer | `0.0` | — |
+| Input | Text | `—` | Path to the image (or image sequence) to load. Can be driven externally by a Text data type connection. |
+| Time Mode | Dropdown | `Static Frame` | How the sequence frame number is resolved: Static Frame (always use Time below), Current Frame (follow the comp's playhead), Request Time (follow the incoming render request), or Time (an explicit, wireable frame number). |
+| Time | Integer | `0.0` | Frame number to load, used when Time Mode is Static Frame or Time. |
 
 
 ## Related Nodes
@@ -39,5 +40,5 @@ Reads an Image object from a file The "Input" control is used to define the imag
 
 {/*
 Generated page — node: vImageFromFile (Core/Image/IO).
-Source: fuse vImageFromFile.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vImageFromFile.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 title: vNumberSlashCommand
+description: "Run a Console Fuse SlashCommand as a node"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,18 +24,18 @@ Run a Console Fuse SlashCommand as a node
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Number | Float | `—` | — |
-| Text | Text | `—` | — |
-| Display Lines | Integer | `25` | — |
-| Wrap Lines | Integer | `0.0` | — |
-| Show Input | Integer | `0.0` | — |
+| Number | Float | `—` | Numeric result returned by the SlashCommand. |
+| Text | Text | `—` | The SlashCommand to run, e.g. `/footage list`. |
+| Display Lines | Integer | `25` | Number of lines shown in the Text box in the Inspector. |
+| Wrap Lines | Integer | `0.0` | Wraps long lines in the Text box instead of scrolling horizontally. |
+| Show Input | Integer | `0.0` | Reveals the wire for the Text connection in the Flow view. |
 
 <details>
 <summary>+1 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| [=[SlashCommand Examples: /footage list  /for (selected\|visible\|all) [tooltype[ | Float | `—` | — |
+| [=[SlashCommand Examples: /footage list  /for (selected\|visible\|all) [tooltype[ | Float | `—` | A read-only label listing example SlashCommand syntax — not a real setting. |
 
 </details>
 
@@ -48,5 +49,5 @@ Run a Console Fuse SlashCommand as a node
 
 {/*
 Generated page — node: vNumberSlashCommand (Core/Number/Script).
-Source: fuse vNumberSlashCommand.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberSlashCommand.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

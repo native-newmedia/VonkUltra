@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vScriptValFromText
+description: "Convert a Fusion Text object into a ScriptVal This node expects a text formatted version of a Lua table structure as the input."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Convert a Fusion Text object into a ScriptVal This node expects a text formatted
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Text | DATATYPE | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| Text | DATATYPE | `—` | Lua table-formatted text to convert into a ScriptVal. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Text connection in the Flow view. |
 
 
 ## Related Nodes
@@ -35,5 +36,5 @@ Convert a Fusion Text object into a ScriptVal This node expects a text formatted
 
 {/*
 Generated page — node: vScriptValFromText (Core/ScriptVal/Text).
-Source: fuse vScriptValFromText.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vScriptValFromText.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

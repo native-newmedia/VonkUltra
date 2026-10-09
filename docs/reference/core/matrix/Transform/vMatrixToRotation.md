@@ -1,6 +1,7 @@
 ---
 sidebar_position: 5
 title: vMatrixToRotation
+description: "Decomposes a rotation from a matrix in [Euler angles](https://en.wikipedia.org/wiki/Euler_angles)."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,7 +24,7 @@ Decomposes a rotation from a matrix in [Euler angles](https://en.wikipedia.org/w
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Text | `—` | — |
+| Input | Text | `—` | 4×4 matrix to decompose — Output is its rotation as X/Y/Z Euler angle values. |
 
 
 ## Related Nodes
@@ -37,5 +38,5 @@ Decomposes a rotation from a matrix in [Euler angles](https://en.wikipedia.org/w
 
 {/*
 Generated page — node: vMatrixToRotation (Core/Matrix/Transform).
-Source: fuse vMatrixToRotation.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vMatrixToRotation.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

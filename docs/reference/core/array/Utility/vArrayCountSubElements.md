@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 title: vArrayCountSubElements
+description: "Counts the sub-elements in an Array"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,7 +24,7 @@ Counts the sub-elements in an Array
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Text | DATATYPE | `—` | — |
+| Text | DATATYPE | `—` | JSON array text to count. Output is the number of elements inside each of its sub-arrays. |
 
 
 ## Related Nodes
@@ -37,5 +38,5 @@ Counts the sub-elements in an Array
 
 {/*
 Generated page — node: vArrayCountSubElements (Core/Array/Utility).
-Source: fuse vArrayCountSubElements.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vArrayCountSubElements.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

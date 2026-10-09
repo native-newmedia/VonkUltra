@@ -1,6 +1,7 @@
 ---
 sidebar_position: 4
 title: vMatrixInvert
+description: "Inverts a matrix"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Inverts a matrix
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Matrix | Text | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| Matrix | Text | `—` | Matrix to invert. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Matrix connection in the Flow view. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Inverts a matrix
 
 {/*
 Generated page — node: vMatrixInvert (Core/Matrix/Operators).
-Source: fuse vMatrixInvert.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vMatrixInvert.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 title: vMatrixDivideNumber
+description: "Divides a matrix by a number"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Divides a matrix by a number
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Matrix | Text | `—` | — |
-| Number | Float | `1` | — |
-| Show Input | Integer | `1.0` | — |
+| Matrix | Text | `—` | Matrix operand. |
+| Number | Float | `1` | Scalar divisor — every element of Matrix is divided by this value. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Matrix connection in the Flow view. |
 
 
 ## Related Nodes
@@ -39,5 +40,5 @@ Divides a matrix by a number
 
 {/*
 Generated page — node: vMatrixDivideNumber (Core/Matrix/Operators).
-Source: fuse vMatrixDivideNumber.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vMatrixDivideNumber.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

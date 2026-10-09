@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: v3DSlashCommand
+description: "Run a Console Fuse SlashCommand as a node"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,18 +24,18 @@ Run a Console Fuse SlashCommand as a node
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input 3D | DataType3D | `—` | — |
-| Text | Text | `—` | — |
-| Display Lines | Integer | `25` | — |
-| Wrap Lines | Integer | `0.0` | — |
-| Show Input | Integer | `0.0` | — |
+| Input 3D | DataType3D | `—` | 3D data passed through unchanged. |
+| Text | Text | `—` | The Console Fuse SlashCommand to run, e.g. `/footage list`. See the examples row below. |
+| Display Lines | Integer | `25` | Number of visible lines in the Text editor before scrolling. |
+| Wrap Lines | Integer | `0.0` | Wraps long lines in the Text editor instead of scrolling horizontally. |
+| Show Input | Integer | `0.0` | Reveals the wire for the Text connection in the Flow view. |
 
 <details>
 <summary>+1 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| [=[SlashCommand Examples: /footage list  /for (selected\|visible\|all) [tooltype[ | Float | `—` | — |
+| [=[SlashCommand Examples: /footage list  /for (selected\|visible\|all) [tooltype[ | Float | `—` | Example SlashCommand syntax shown for reference — not an editable control. (This row's label is a source-fuse quirk: the example text itself was passed as the parameter's display name, not a separate real parameter.) |
 
 </details>
 
@@ -47,5 +48,5 @@ Run a Console Fuse SlashCommand as a node
 
 {/*
 Generated page — node: v3DSlashCommand (Core/3D/Script).
-Source: fuse v3DSlashCommand.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse v3DSlashCommand.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

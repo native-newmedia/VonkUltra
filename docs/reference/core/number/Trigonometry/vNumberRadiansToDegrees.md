@@ -1,6 +1,7 @@
 ---
 sidebar_position: 9
 title: vNumberRadiansToDegrees
+description: "Returns the degree value as a number in radians"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Returns the degree value as a number in radians
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Radians | Float | `0` | — |
-| Show Input | Integer | `0.0` | — |
+| Radians | Float | `0` | Angle in radians to convert to degrees. |
+| Show Input | Integer | `0.0` | Reveals the wire for the Radians connection in the Flow view. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Returns the degree value as a number in radians
 
 {/*
 Generated page — node: vNumberRadiansToDegrees (Core/Number/Trigonometry).
-Source: fuse vNumberRadiansToDegrees.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberRadiansToDegrees.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

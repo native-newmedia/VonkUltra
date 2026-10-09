@@ -1,6 +1,7 @@
 ---
 sidebar_position: 15
 title: vTextFromNumberPadded
+description: "Converts a number to a leading zero padded text This node is excellent for creating fixed length numbers thanks to the built-in \"Padding\" control."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Converts a number to a leading zero padded text This node is excellent for creat
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Number | Float | `0` | — |
-| Padding | Integer | `1` | — |
-| Show Input | Integer | `1.0` | — |
+| Number | Float | `0` | The numeric value to convert to text. |
+| Padding | Integer | `1` | Minimum digit count — zero-pads the output string (e.g. 3 → "007"). |
+| Show Input | Integer | `1.0` | Reveals the wire for the Number connection in the Flow view. |
 
 
 ## Related Nodes
@@ -39,5 +40,5 @@ Converts a number to a leading zero padded text This node is excellent for creat
 
 {/*
 Generated page — node: vTextFromNumberPadded (Core/Text/Create).
-Source: fuse vTextFromNumberPadded.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextFromNumberPadded.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

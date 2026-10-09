@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 title: vNumberXSheet
+description: "Time based operation on numbers"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,11 +24,11 @@ Time based operation on numbers
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Target Start Time | Integer | `0` | — |
-| Xsheet Size | Integer | `30` | — |
-| Show Input | Integer | `1.0` | — |
-| XSheet | Text | `—` | — |
-| XFrameNumbers | Text | `—` | — |
+| Target Start Time | Integer | `0` | First frame the XSheet range should align to — normally set to the comp's Global Start Time. |
+| Xsheet Size | Integer | `30` | Number of frames the XSheet covers. |
+| Show Input | Integer | `1.0` | Reveals the wires for the XSheet/XFrameNumbers connections in the Flow view. |
+| XSheet | Text | `—` | The exposure-sheet text data to read frame values from. |
+| XFrameNumbers | Text | `—` | Output — the frame numbers derived from the XSheet data. |
 
 
 ## Related Nodes
@@ -39,5 +40,5 @@ Time based operation on numbers
 
 {/*
 Generated page — node: vNumberXSheet (Core/Number/Temporal).
-Source: fuse vNumberXSheet.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberXSheet.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

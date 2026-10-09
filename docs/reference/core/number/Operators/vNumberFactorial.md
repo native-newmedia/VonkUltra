@@ -1,6 +1,7 @@
 ---
 sidebar_position: 7
 title: vNumberFactorial
+description: "Returns the product of all positive integers less than or equal to InNumber"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Returns the product of all positive integers less than or equal to InNumber
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Number | Float | `0` | — |
-| Show Input | Integer | `1.0` | — |
+| Number | Float | `0` | Non-negative integer to compute the factorial (`n!`) of. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Number connection in the Flow view. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Returns the product of all positive integers less than or equal to InNumber
 
 {/*
 Generated page — node: vNumberFactorial (Core/Number/Operators).
-Source: fuse vNumberFactorial.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberFactorial.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

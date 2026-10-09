@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vScriptValDoString
+description: "Return a ScriptVal object from running a string of Lua code The ScriptVal based input connection on the node can be accessed in the script using a Lua table variable named \"tbl\"."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,10 +24,10 @@ Return a ScriptVal object from running a string of Lua code The ScriptVal based 
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| ScriptVal | DATATYPE | `—` | — |
-| Script Header Wire | Text | `—` | — |
-| > | Float | `—` | — |
-| Input | Text | `—` | — |
+| ScriptVal | DATATYPE | `—` | Optional ScriptVal input, accessible in the script as the Lua table variable `tbl`. Use vScriptValMerge first to combine several ScriptVal objects into one before wiring it here. |
+| Script Header Wire | Text | `—` | Optional wired-in Lua source prepended to the script before it runs — typically sourced from a vTextCreateMultiline or vTextFromFile node, for shared helper functions. |
+| > | Float | `—` | Selects and activates the node connected to Script Header Wire — a quick way to jump to it. |
+| Input | Text | `—` | Lua code to execute, e.g. `for i, v in ipairs(tbl) do end`. Its `return` value becomes the node's ScriptVal output. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Return a ScriptVal object from running a string of Lua code The ScriptVal based 
 
 {/*
 Generated page — node: vScriptValDoString (Core/ScriptVal/Script).
-Source: fuse vScriptValDoString.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vScriptValDoString.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

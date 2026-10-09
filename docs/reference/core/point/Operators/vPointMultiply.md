@@ -1,6 +1,7 @@
 ---
 sidebar_position: 7
 title: vPointMultiply
+description: "Returns the product of two Fusion Point objects This node can be used to apply a scale enlargement effect to the origin of the 1st point by the 2nd point's displacement distance."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Returns the product of two Fusion Point objects This node can be used to apply a
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Point1 | Point | `—` | — |
-| Point2 | Point | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| Point1 | Point | `—` | First point operand. |
+| Point2 | Point | `—` | Second point operand — multiplied against Point1 component-wise. |
+| Show Input | Integer | `1.0` | Reveals the wires for the Point1/Point2 connections in the Flow view. |
 
 
 ## Related Nodes
@@ -39,5 +40,5 @@ Returns the product of two Fusion Point objects This node can be used to apply a
 
 {/*
 Generated page — node: vPointMultiply (Core/Point/Operators).
-Source: fuse vPointMultiply.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vPointMultiply.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

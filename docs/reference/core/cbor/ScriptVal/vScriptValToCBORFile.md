@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vScriptValToCBORFile
+description: "Writes a Fusion ScriptVal object to a CBOR binary file"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Writes a Fusion ScriptVal object to a CBOR binary file
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| ScriptVal | ScriptVal | `—` | — |
-| File | Text | `—` | — |
-| Show Input | Integer | `0.0` | — |
+| ScriptVal | ScriptVal | `—` | The ScriptVal object to write out as CBOR. |
+| File | Text | `—` | Destination path for the saved `.cbor` file. Hidden until Show Input is enabled. |
+| Show Input | Integer | `0.0` | Reveals the File path control so a destination can be chosen or typed. |
 
 
 ## Related Nodes
@@ -36,5 +37,5 @@ Writes a Fusion ScriptVal object to a CBOR binary file
 
 {/*
 Generated page — node: vScriptValToCBORFile (Core/CBOR/ScriptVal).
-Source: fuse vScriptValToCBORFile.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vScriptValToCBORFile.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

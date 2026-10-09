@@ -1,6 +1,7 @@
 ---
 sidebar_position: 4
 title: vMatrixToEuler
+description: "Converts a matrix to [Euler angles](https://en.wikipedia.org/wiki/Euler_angles)"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,7 +24,7 @@ Converts a matrix to [Euler angles](https://en.wikipedia.org/wiki/Euler_angles)
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Text | `—` | — |
+| Input | Text | `—` | Matrix to decompose — Output is its rotation as X/Y/Z Euler angles. |
 
 
 ## Related Nodes
@@ -37,5 +38,5 @@ Converts a matrix to [Euler angles](https://en.wikipedia.org/wiki/Euler_angles)
 
 {/*
 Generated page — node: vMatrixToEuler (Core/Matrix/Transform).
-Source: fuse vMatrixToEuler.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vMatrixToEuler.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vScriptValFromApp
+description: "Create a Fusion ScriptVal object from the Resolve/Fusion application and comp UserData This node explores the output from Resolve() and Fusion(), along with…"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -32,5 +33,5 @@ Create a Fusion ScriptVal object from the Resolve/Fusion application and comp Us
 
 {/*
 Generated page — node: vScriptValFromApp (Core/ScriptVal/Create).
-Source: fuse vScriptValFromApp.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vScriptValFromApp.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

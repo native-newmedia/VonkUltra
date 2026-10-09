@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vNumberFromArray
+description: "Creates a Number from an array The \"Index\" control allows you to select the array item (cell) to return as a number based value."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,12 +24,12 @@ Creates a Number from an array The "Index" control allows you to select the arra
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Text | `—` | — |
-| Index | Integer | `1` | — |
+| Input | Text | `—` | The Array to read a cell from, as JSON text. |
+| Index | Integer | `1` | Array item (cell) to return as a number. |
 
 
 
 {/*
 Generated page — node: vNumberFromArray (Core/Number/Array).
-Source: fuse vNumberFromArray.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberFromArray.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

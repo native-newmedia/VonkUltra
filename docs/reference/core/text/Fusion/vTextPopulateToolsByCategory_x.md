@@ -1,6 +1,7 @@
 ---
 sidebar_position: 4
 title: vTextPopulateToolsByCategory_x
+description: "Populate the flow with every tool in a selected category."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -15,13 +16,15 @@ Populate the flow with every tool in a selected category.
   <span className="node-badge">Text</span>
 </div>
 
-{/* No screenshot available for vTextPopulateToolsByCategory_x yet. */}
+<div className="node-screenshot">
+  <img src="/VonkUltra/img/reference/core/text/vTextPopulateToolsByCategory_x.png" alt="vTextPopulateToolsByCategory_x node" />
+</div>
 
 ## Parameters
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Status | Text | `—` | — |
+| Status | Text | `—` | Read-only — status/log text shown after clicking a category link. |
 
 
 ## Related Nodes
@@ -35,5 +38,5 @@ Populate the flow with every tool in a selected category.
 
 {/*
 Generated page — node: vTextPopulateToolsByCategory_x (Core/Text/Fusion).
-Source: fuse vTextPopulateToolsByCategory_x.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextPopulateToolsByCategory_x.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

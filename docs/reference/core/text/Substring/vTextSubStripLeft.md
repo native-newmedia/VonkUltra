@@ -1,6 +1,7 @@
 ---
 sidebar_position: 8
 title: vTextSubStripLeft
+description: "Strips a leading substring of a string The \"Strip\" text field is used to define the text you would like to remove from the (left side) of the input text data that is connected to the node."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Strips a leading substring of a string The "Strip" text field is used to define 
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Text | Text | `—` | — |
-| Strip | Text | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| Text | Text | `—` | The source text to strip a leading substring from. |
+| Strip | Text | `—` | The prefix text to remove from the left side of Text. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Text connection in the Flow view. |
 
 
 ## Related Nodes
@@ -39,5 +40,5 @@ Strips a leading substring of a string The "Strip" text field is used to define 
 
 {/*
 Generated page — node: vTextSubStripLeft (Core/Text/Substring).
-Source: fuse vTextSubStripLeft.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextSubStripLeft.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

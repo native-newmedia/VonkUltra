@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vMatrixFromScale
+description: "Creates a scale matrix"
 ---
 
 import Tabs from '@theme/Tabs';

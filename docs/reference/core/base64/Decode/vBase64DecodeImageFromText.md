@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 title: vBase64DecodeImageFromText
+description: "Base64 decodes an image from a Fusion Text object."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Base64 decodes an image from a Fusion Text object. This node extracts a Base64 e
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Text | Text | `—` | — |
-| Show Input | Integer | `0.0` | — |
+| Text | Text | `—` | Base64-encoded image data to decode into a displayable Image. |
+| Show Input | Integer | `0.0` | Reveals the Text control so it can be sourced from an external Text node connection. |
 
 
 ## Related Nodes
@@ -36,5 +37,5 @@ Base64 decodes an image from a Fusion Text object. This node extracts a Base64 e
 
 {/*
 Generated page — node: vBase64DecodeImageFromText (Core/Base64/Decode).
-Source: fuse vBase64DecodeImageFromText.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vBase64DecodeImageFromText.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

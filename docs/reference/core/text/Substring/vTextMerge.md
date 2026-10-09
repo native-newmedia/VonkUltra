@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vTextMerge
+description: "Dynamically joins strings into one Merge together several strings that are connected to the node's text based input connections."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Dynamically joins strings into one Merge together several strings that are conne
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Which | Integer | `—` | — |
-| Text1 | Text | `—` | — |
-| Separator | Text | `—` | — |
+| Which | Integer | `—` | Reserved input, referenced by name from inside the node's internal script. |
+| Text1 | Text | `—` | First string to merge — more Text inputs (Text2, Text3…) are added automatically as each prior one gets wired. |
+| Separator | Text | `—` | Character(s) placed between each merged string. |
 
 
 ## Related Nodes
@@ -39,5 +40,5 @@ Dynamically joins strings into one Merge together several strings that are conne
 
 {/*
 Generated page — node: vTextMerge (Core/Text/Substring).
-Source: fuse vTextMerge.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextMerge.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

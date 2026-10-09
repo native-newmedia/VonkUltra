@@ -1,6 +1,7 @@
 ---
 sidebar_position: 22
 title: vNumberStep
+description: "Generates a step function by comparing two values"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Generates a step function by comparing two values
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Edge | Float | `0` | — |
-| Number | Float | `0` | — |
-| Show Input | Integer | `1.0` | — |
+| Edge | Float | `0` | Threshold value. |
+| Number | Float | `0` | Value to compare against Edge — Output is 0 if Number is below Edge, 1 otherwise. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Number connection in the Flow view. |
 
 
 ## Related Nodes
@@ -39,5 +40,5 @@ Generates a step function by comparing two values
 
 {/*
 Generated page — node: vNumberStep (Core/Number/Operators).
-Source: fuse vNumberStep.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberStep.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

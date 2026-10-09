@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 title: vFileSystemCreateDir
+description: "Creates a new directory This node will create a new directory."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Creates a new directory This node will create a new directory. The "Text" field 
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Text | Text | `—` | — |
-| Use Parent Directory | Integer | `0.0` | — |
-| Show Input | Integer | `0.0` | — |
+| Text | Text | `—` | Folder path to create. Required intermediate subfolders are created automatically. |
+| Use Parent Directory | Integer | `0.0` | Treats Text as a file path instead, and creates that file's containing folder rather than the path itself. |
+| Show Input | Integer | `0.0` | Reveals the wire for the Text connection in the Flow view. |
 
 
 ## Related Nodes
@@ -39,5 +40,5 @@ Creates a new directory This node will create a new directory. The "Text" field 
 
 {/*
 Generated page — node: vFileSystemCreateDir (Core/FileSystem/Utility).
-Source: fuse vFileSystemCreateDir.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vFileSystemCreateDir.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

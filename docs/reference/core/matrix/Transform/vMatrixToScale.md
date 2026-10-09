@@ -1,6 +1,7 @@
 ---
 sidebar_position: 6
 title: vMatrixToScale
+description: "Decomposes scale from a matrix."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,10 +24,10 @@ Decomposes scale from a matrix. This returns XYZ scale values from a 4x4 vMatrix
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Text | `—` | — |
-| X Scale | Float | `—` | — |
-| Y Scale | Float | `—` | — |
-| Z Scale | Float | `—` | — |
+| Input | Text | `—` | 4×4 matrix to decompose. |
+| X Scale | Float | `—` | Read-only output of the matrix's X scale component. |
+| Y Scale | Float | `—` | Read-only output of the matrix's Y scale component. |
+| Z Scale | Float | `—` | Read-only output of the matrix's Z scale component. |
 
 
 ## Related Nodes
@@ -40,5 +41,5 @@ Decomposes scale from a matrix. This returns XYZ scale values from a 4x4 vMatrix
 
 {/*
 Generated page — node: vMatrixToScale (Core/Matrix/Transform).
-Source: fuse vMatrixToScale.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vMatrixToScale.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vMetadataFromText
+description: "Creates a Fusion image with metadata added from text This node is similar to the SetMetadata.fuse with the addition of input connections on the node that…"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,10 +24,10 @@ Creates a Fusion image with metadata added from text This node is similar to the
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Image | `—` | — |
-| Field Name | Text | `—` | — |
-| Field Value | Text | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| Input | Image | `—` | Image the new metadata field is attached to. |
+| Field Name | Text | `—` | Metadata key to set, e.g. `Stereo` or `Pano`. |
+| Field Value | Text | `—` | Value to store under Field Name, as a Lua table literal for structured metadata — e.g. `{Method = "vstack"}` for over/under stereo, `{Method = "hstack"}` for side-by-side stereo, or `{Format = "LatLong"}` for 360VR latitude/longitude. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Input connection in the Flow view. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Creates a Fusion image with metadata added from text This node is similar to the
 
 {/*
 Generated page — node: vMetadataFromText (Core/Meta/Text).
-Source: fuse vMetadataFromText.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vMetadataFromText.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

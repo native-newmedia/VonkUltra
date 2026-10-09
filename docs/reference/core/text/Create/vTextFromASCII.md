@@ -1,6 +1,7 @@
 ---
 sidebar_position: 10
 title: vTextFromASCII
+description: "Converts an ASCII code number to text The \"Number\" control is used to enter an ASCII code value."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Converts an ASCII code number to text The "Number" control is used to enter an A
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Number | Integer | `0` | — |
-| Show Input | Integer | `1.0` | — |
+| Number | Integer | `0` | ASCII code value to convert into its corresponding character. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Number connection in the Flow view. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Converts an ASCII code number to text The "Number" control is used to enter an A
 
 {/*
 Generated page — node: vTextFromASCII (Core/Text/Create).
-Source: fuse vTextFromASCII.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextFromASCII.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

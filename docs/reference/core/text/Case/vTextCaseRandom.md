@@ -1,6 +1,7 @@
 ---
 sidebar_position: 4
 title: vTextCaseRandom
+description: "Changes the case of a Fusion Text object in a random fashion A Text based input of \"hello world!\" would be converted to an output like \"hellO WoRlD!\"."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Changes the case of a Fusion Text object in a random fashion A Text based input 
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Text | Text | `—` | — |
-| Show Input | Integer | `0.0` | — |
+| Text | Text | `—` | Text to convert — each letter's case is randomized. |
+| Show Input | Integer | `0.0` | Reveals the wire for the Text connection in the Flow view. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Changes the case of a Fusion Text object in a random fashion A Text based input 
 
 {/*
 Generated page — node: vTextCaseRandom (Core/Text/Case).
-Source: fuse vTextCaseRandom.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextCaseRandom.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

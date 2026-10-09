@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vPointTimeSpeed
+description: "Time based operations on a Fusion Point object"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,10 +24,10 @@ Time based operations on a Fusion Point object
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Point | Point | `—` | — |
-| Speed | Float | `0.0` | — |
-| Delay | Float | `0.0` | — |
-| Show Input | Integer | `1.0` | — |
+| Point | Point | `—` | Point to re-time. |
+| Speed | Float | `0.0` | Playback rate multiplier applied when reading the value across frames — 1.0 is normal speed. |
+| Delay | Float | `0.0` | Time offset in frames applied before the speed change. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Point connection in the Flow view. |
 
 
 ## Related Nodes
@@ -37,5 +38,5 @@ Time based operations on a Fusion Point object
 
 {/*
 Generated page — node: vPointTimeSpeed (Core/Point/Temporal).
-Source: fuse vPointTimeSpeed.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vPointTimeSpeed.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

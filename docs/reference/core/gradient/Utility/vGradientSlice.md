@@ -1,6 +1,7 @@
 ---
 sidebar_position: 4
 title: vGradientSlice
+description: "Extracts a range of color indexes from a Gradient"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,11 +24,11 @@ Extracts a range of color indexes from a Gradient
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Gradient | Gradient | `—` | — |
-| Start | Integer | `1` | — |
-| Stop | Integer | `1` | — |
-| Show Dump | Integer | `0.0` | — |
-| Show Input | Integer | `1.0` | — |
+| Gradient | Gradient | `—` | Gradient to slice. |
+| Start | Integer | `1` | 1-based index of the first colour stop to keep. |
+| Stop | Integer | `1` | 1-based index of the last colour stop to keep. |
+| Show Dump | Integer | `0.0` | Prints the sliced gradient to the console each frame. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Gradient connection in the Flow view. |
 
 
 ## Related Nodes
@@ -41,5 +42,5 @@ Extracts a range of color indexes from a Gradient
 
 {/*
 Generated page — node: vGradientSlice (Core/Gradient/Utility).
-Source: fuse vGradientSlice.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vGradientSlice.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

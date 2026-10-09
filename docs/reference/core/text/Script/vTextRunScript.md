@@ -1,6 +1,7 @@
 ---
 sidebar_position: 5
 title: vTextRunScript
+description: "Runs an external Lua script The \"File\" text-field is used to specify an external .lua script file."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Runs an external Lua script The "File" text-field is used to specify an external
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| File | Text | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| File | Text | `—` | Path to the external .lua script file to run via `dofile()`. |
+| Show Input | Integer | `1.0` | Reveals the wire for the File connection in the Flow view. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Runs an external Lua script The "File" text-field is used to specify an external
 
 {/*
 Generated page — node: vTextRunScript (Core/Text/Script).
-Source: fuse vTextRunScript.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextRunScript.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

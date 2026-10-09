@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 title: vMetadataToText
+description: "Creates a Fusion Text object from metadata This node is similar to the GetMetadata.fuse with the addition of a \"Key\" input connection on the node that accepts a Text data type."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Creates a Fusion Text object from metadata This node is similar to the GetMetada
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Image | `—` | — |
-| Key | Text | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| Input | Image | `—` | Image to read the metadata record from. |
+| Key | Text | `—` | Metadata field name to look up, e.g. the Loader node's `Filename` attribute. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Input connection in the Flow view. |
 
 
 ## Related Nodes
@@ -37,5 +38,5 @@ Creates a Fusion Text object from metadata This node is similar to the GetMetada
 
 {/*
 Generated page — node: vMetadataToText (Core/Meta/Text).
-Source: fuse vMetadataToText.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vMetadataToText.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

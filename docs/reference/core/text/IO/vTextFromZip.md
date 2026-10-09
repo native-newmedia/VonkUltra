@@ -1,6 +1,7 @@
 ---
 sidebar_position: 5
 title: vTextFromZip
+description: "Reads a Text string from a zip archive This node accesses a plain-text formatted resource that is stored inside a Zip archive using the Fusion v16+/Resolve v15+ based ZipIO library."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Reads a Text string from a zip archive This node accesses a plain-text formatted
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Zip File | Text | `—` | — |
-| Extract File | Text | `—` | — |
-| Show Input | Integer | `0.0` | — |
+| Zip File | Text | `—` | Path to the zip archive to read from. |
+| Extract File | Text | `—` | Path, inside the zip archive, of the text resource to extract. |
+| Show Input | Integer | `0.0` | Reveals the wires for the Zip File/Extract File connections in the Flow view. |
 
 
 ## Related Nodes
@@ -39,5 +40,5 @@ Reads a Text string from a zip archive This node accesses a plain-text formatted
 
 {/*
 Generated page — node: vTextFromZip (Core/Text/IO).
-Source: fuse vTextFromZip.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextFromZip.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

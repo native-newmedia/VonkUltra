@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vTextFromComp
+description: "Reads text strings from a Fusion .comp file This node tunnels inside of an external Fusion .comp file on disk and extracts string elements."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,19 +24,19 @@ Reads text strings from a Fusion .comp file This node tunnels inside of an exter
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| File | Text | `—` | — |
-| Match | Text | `—` | — |
-| File Exists | Integer | `1.0` | — |
-| Expand PathMaps | Integer | `1.0` | — |
-| Sort List | Integer | `1.0` | — |
+| File | Text | `—` | Path to the .comp file to extract text strings from. |
+| Match | Text | `—` | Filters the extracted strings to those matching this pattern. |
+| File Exists | Integer | `1.0` | Only returns strings that resolve to a file that actually exists on disk. |
+| Expand PathMaps | Integer | `1.0` | Converts relative PathMap-based filepaths into absolute paths in the output. |
+| Sort List | Integer | `1.0` | Alphabetically sorts the returned strings on a line-by-line basis. |
 
 <details>
 <summary>+2 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Remove Duplicates | Integer | `0.0` | — |
-| Show Input | Integer | `1.0` | — |
+| Remove Duplicates | Integer | `0.0` | Drops any returned line that duplicates one already in the results. |
+| Show Input | Integer | `1.0` | Reveals the wire for the File connection in the Flow view. |
 
 </details>
 
@@ -51,5 +52,5 @@ Reads text strings from a Fusion .comp file This node tunnels inside of an exter
 
 {/*
 Generated page — node: vTextFromComp (Core/Text/IO).
-Source: fuse vTextFromComp.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextFromComp.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vScriptValToNumber
+description: "Convert a Fusion ScriptVal object into a Number"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Convert a Fusion ScriptVal object into a Number
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| ScriptVal | ScriptVal | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| ScriptVal | ScriptVal | `—` | ScriptVal value to convert to a Number. |
+| Show Input | Integer | `1.0` | Reveals the wire for the ScriptVal connection in the Flow view. |
 
 
 ## Related Nodes
@@ -35,5 +36,5 @@ Convert a Fusion ScriptVal object into a Number
 
 {/*
 Generated page — node: vScriptValToNumber (Core/ScriptVal/Number).
-Source: fuse vScriptValToNumber.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vScriptValToNumber.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

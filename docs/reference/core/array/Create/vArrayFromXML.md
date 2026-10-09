@@ -1,6 +1,7 @@
 ---
 sidebar_position: 7
 title: vArrayFromXML
+description: "Creates a JSON array from XML The vArrayFromXML node works with XML formatted plain-text data."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,7 +24,7 @@ Creates a JSON array from XML The vArrayFromXML node works with XML formatted pl
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Text | `—` | — |
+| Input | Text | `—` | XML text to convert into a JSON array — typically fed from a vTextFromFile, vTextFromNet, or vTextFromZip node. |
 
 
 ## Related Nodes
@@ -37,5 +38,5 @@ Creates a JSON array from XML The vArrayFromXML node works with XML formatted pl
 
 {/*
 Generated page — node: vArrayFromXML (Core/Array/Create).
-Source: fuse vArrayFromXML.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vArrayFromXML.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

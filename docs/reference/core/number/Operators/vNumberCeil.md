@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 title: vNumberCeil
+description: "Returns the integer no greater than a number This provides a way to round a floating point number to a whole number (an integer value) by rounding upwards to…"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Returns the integer no greater than a number This provides a way to round a floa
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Number | Float | `0` | — |
-| Show Input | Integer | `0.0` | — |
+| Number | Float | `0` | Value to round up to the nearest integer. |
+| Show Input | Integer | `0.0` | Reveals the wire for the Number connection in the Flow view. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Returns the integer no greater than a number This provides a way to round a floa
 
 {/*
 Generated page — node: vNumberCeil (Core/Number/Operators).
-Source: fuse vNumberCeil.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberCeil.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

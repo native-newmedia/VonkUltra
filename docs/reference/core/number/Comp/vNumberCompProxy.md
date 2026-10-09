@@ -1,6 +1,7 @@
 ---
 sidebar_position: 6
 title: vNumberCompProxy
+description: "Returns the comp's Proxy state The True and False inputs on the node let you define a custom value that is returned for the Proxy logic state."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Returns the comp's Proxy state The True and False inputs on the node let you def
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| True | Float | `1` | — |
-| False | Float | `0` | — |
-| Show Input | Integer | `0.0` | — |
+| True | Float | `1` | Custom value returned when the comp's Proxy state is on. |
+| False | Float | `0` | Custom value returned when the comp's Proxy state is off. |
+| Show Input | Integer | `0.0` | Reveals the wires for the True/False connections in the Flow view. |
 
 
 ## Related Nodes
@@ -39,5 +40,5 @@ Returns the comp's Proxy state The True and False inputs on the node let you def
 
 {/*
 Generated page — node: vNumberCompProxy (Core/Number/Comp).
-Source: fuse vNumberCompProxy.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberCompProxy.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

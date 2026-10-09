@@ -1,6 +1,7 @@
 ---
 sidebar_position: 8
 title: vTextDate
+description: "Creates a date and time based Fusion Text object The \"Text\" field is used to enter the string formatting pattern used to generate a date based output."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,7 +24,7 @@ Creates a date and time based Fusion Text object The "Text" field is used to ent
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Text | Text | `—` | — |
+| Text | Text | `—` | Date/time format pattern (Lua `os.date` syntax), e.g. `%Y-%m-%d` → "2022-05-24". |
 
 
 ## Related Nodes
@@ -37,5 +38,5 @@ Creates a date and time based Fusion Text object The "Text" field is used to ent
 
 {/*
 Generated page — node: vTextDate (Core/Text/Create).
-Source: fuse vTextDate.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextDate.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

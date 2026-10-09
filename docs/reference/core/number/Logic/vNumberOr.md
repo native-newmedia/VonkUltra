@@ -1,6 +1,7 @@
 ---
 sidebar_position: 9
 title: vNumberOr
+description: "Performs a logical OR operation on two numbers"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,10 +24,10 @@ Performs a logical OR operation on two numbers
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Term 1 | Float | `0` | — |
-| Term1Separator | Float | `—` | — |
-| Term 2 | Float | `0` | — |
-| Show Input | Integer | `0.0` | — |
+| Term 1 | Float | `0` | First value (treated as false when 0, true otherwise). |
+| Term1Separator | Float | `—` | A UI separator, not a real setting. |
+| Term 2 | Float | `0` | Second value — Output is 1 if either Term 1 or Term 2 is true (non-zero), otherwise 0. |
+| Show Input | Integer | `0.0` | Reveals the wires for the Term 1/Term 2 connections in the Flow view. |
 
 
 ## Related Nodes
@@ -40,5 +41,5 @@ Performs a logical OR operation on two numbers
 
 {/*
 Generated page — node: vNumberOr (Core/Number/Logic).
-Source: fuse vNumberOr.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberOr.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

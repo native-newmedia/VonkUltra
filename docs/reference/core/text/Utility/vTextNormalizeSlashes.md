@@ -1,6 +1,7 @@
 ---
 sidebar_position: 8
 title: vTextNormalizeSlashes
+description: "Unifies the slash direction on filepaths The \"Slash Direction\" multi-button control allows you to choose if you want Windows (\\\\) or Linux (/) style slashes for your output text."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Unifies the slash direction on filepaths The "Slash Direction" multi-button cont
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Text | Text | `—` | — |
-| Slash Direction | Float | `Windows` | — |
-| Remove Duplicate Slashes | Integer | `0.0` | — |
+| Text | Text | `—` | The filepath text to normalize. |
+| Slash Direction | Dropdown | `Windows` | Output slash style — Windows (`\\`) or Linux (`/`). |
+| Remove Duplicate Slashes | Integer | `0.0` | Collapses adjacent double slashes into one — avoid this if UNC paths are in use. |
 
 
 ## Related Nodes
@@ -39,5 +40,5 @@ Unifies the slash direction on filepaths The "Slash Direction" multi-button cont
 
 {/*
 Generated page — node: vTextNormalizeSlashes (Core/Text/Utility).
-Source: fuse vTextNormalizeSlashes.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextNormalizeSlashes.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vMetadataFromComp
+description: "Creates a Fusion image with metadata added from a Fusion Studio comp"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Creates a Fusion image with metadata added from a Fusion Studio comp
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Image | `—` | — |
-| Base64 Encode | Integer | `0` | — |
+| Input | Image | `—` | Image to attach the current Fusion Studio comp's metadata to. |
+| Base64 Encode | Integer | `0` | Base64-encodes the comp data before storing it in the metadata, instead of storing it as plain text. |
 
 
 ## Related Nodes
@@ -35,5 +36,5 @@ Creates a Fusion image with metadata added from a Fusion Studio comp
 
 {/*
 Generated page — node: vMetadataFromComp (Core/Meta/Comp).
-Source: fuse vMetadataFromComp.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vMetadataFromComp.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 title: vPointCreateRandom
+description: "Create a Fusion Point object with a random position."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,10 +24,10 @@ Create a Fusion Point object with a random position.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| SeedX | Integer | `0` | — |
-| SeedY | Integer | `0` | — |
-| Upper | Integer | `1` | — |
-| Lower | Integer | `0` | — |
+| SeedX | Integer | `0` | Seed for the X value's random generator. Different seeds produce different values; animate it for evolving randomness. |
+| SeedY | Integer | `0` | Seed for the Y value's random generator, independent of SeedX. |
+| Upper | Integer | `1` | Upper bound of the random range, shared by both X and Y. |
+| Lower | Integer | `0` | Lower bound of the random range, shared by both X and Y. |
 
 
 ## Related Nodes
@@ -39,5 +40,5 @@ Create a Fusion Point object with a random position.
 
 {/*
 Generated page — node: vPointCreateRandom (Core/Point/Create).
-Source: fuse vPointCreateRandom.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vPointCreateRandom.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

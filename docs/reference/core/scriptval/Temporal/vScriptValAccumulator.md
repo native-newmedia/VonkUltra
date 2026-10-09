@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vScriptValAccumulator
+description: "Temporally concatenateScriptVal elements into one table This node can be thought of as a ScriptVal based merge node that works across a time range."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,18 +24,18 @@ Temporally concatenateScriptVal elements into one table This node can be thought
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| ScriptVal | DATATYPE | `—` | — |
-| Start Frame | Integer | `0` | — |
-| End Frame | Integer | `0` | — |
-| Step | Float | `1` | — |
-| Sort List | Integer | `0.0` | — |
+| ScriptVal | DATATYPE | `—` | ScriptVal sampled once per frame across the Start/End range and concatenated into a single table. |
+| Start Frame | Integer | `0` | First frame to sample — often driven by vNumberCompRenderStart or vNumberCompGlobalStart. |
+| End Frame | Integer | `0` | Last frame to sample — often driven by vNumberCompRenderEnd or vNumberCompGlobalEnd. |
+| Step | Float | `1` | Frame increment between samples — use a value above 1 to sample more sparsely. |
+| Sort List | Integer | `0.0` | Sorts each line of the result alphabetically. |
 
 <details>
 <summary>+1 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Show Input | Integer | `0.0` | — |
+| Show Input | Integer | `0.0` | Reveals the wire for the ScriptVal connection in the Flow view. |
 
 </details>
 
@@ -48,5 +49,5 @@ Temporally concatenateScriptVal elements into one table This node can be thought
 
 {/*
 Generated page — node: vScriptValAccumulator (Core/ScriptVal/Temporal).
-Source: fuse vScriptValAccumulator.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vScriptValAccumulator.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

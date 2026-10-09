@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vGradientFromArray
+description: "Create a Gradient from an array"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,12 +24,12 @@ Create a Gradient from an array
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Text | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| Input | Text | `—` | JSON-encoded array text to convert into a Gradient. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Input connection in the Flow view. |
 
 
 
 {/*
 Generated page — node: vGradientFromArray (Core/Gradient/Array).
-Source: fuse vGradientFromArray.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vGradientFromArray.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vTextCreate
+description: "Creates a Fusion Text object This is the standard starting point for generating new Text data type based content."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,7 +24,7 @@ Creates a Fusion Text object This is the standard starting point for generating 
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Text | Text | `—` | — |
+| Text | Text | `—` | The text string to output. |
 
 
 ## Related Nodes
@@ -37,5 +38,5 @@ Creates a Fusion Text object This is the standard starting point for generating 
 
 {/*
 Generated page — node: vTextCreate (Core/Text/Create).
-Source: fuse vTextCreate.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextCreate.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

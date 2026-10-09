@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vJSONFromCBORFile
+description: "Casts a CBOR binary file into JSON text"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Casts a CBOR binary file into JSON text
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Text | `—` | — |
-| Show Input | Integer | `0.0` | — |
-| Sort List | Integer | `0.0` | — |
+| Input | Text | `—` | Path to the `.cbor` file to read and convert to JSON text. |
+| Show Input | Integer | `0.0` | Reveals the Input file-path control so a source can be chosen or typed. |
+| Sort List | Integer | `0.0` | Sorts keys alphabetically in the resulting JSON, instead of preserving source order. |
 
 
 ## Related Nodes
@@ -36,5 +37,5 @@ Casts a CBOR binary file into JSON text
 
 {/*
 Generated page — node: vJSONFromCBORFile (Core/CBOR/JSON).
-Source: fuse vJSONFromCBORFile.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vJSONFromCBORFile.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

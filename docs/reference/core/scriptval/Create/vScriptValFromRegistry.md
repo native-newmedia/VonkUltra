@@ -1,6 +1,7 @@
 ---
 sidebar_position: 8
 title: vScriptValFromRegistry
+description: "Create a Fusion ScriptVal object from the Fusion registry"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -32,5 +33,5 @@ Create a Fusion ScriptVal object from the Fusion registry
 
 {/*
 Generated page — node: vScriptValFromRegistry (Core/ScriptVal/Create).
-Source: fuse vScriptValFromRegistry.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vScriptValFromRegistry.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

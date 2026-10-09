@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vScriptValDump
+description: "Dump the contents of a Fusion ScriptVal object to the Console"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,7 +24,7 @@ Dump the contents of a Fusion ScriptVal object to the Console
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| ScriptVal | DATATYPE | `—` | — |
+| ScriptVal | DATATYPE | `—` | ScriptVal value passed through unchanged, printed to the Console each frame. |
 
 
 ## Related Nodes
@@ -36,5 +37,5 @@ Dump the contents of a Fusion ScriptVal object to the Console
 
 {/*
 Generated page — node: vScriptValDump (Core/ScriptVal/Utility).
-Source: fuse vScriptValDump.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vScriptValDump.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

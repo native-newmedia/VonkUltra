@@ -1,6 +1,7 @@
 ---
 sidebar_position: 5
 title: vPointMix
+description: "Performs linear interpolation between two Fusion Point objects"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,10 +24,10 @@ Performs linear interpolation between two Fusion Point objects
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Point1 | Point | `—` | — |
-| Point2 | Point | `—` | — |
-| Weight | Float | `0` | — |
-| Show Input | Integer | `1.0` | — |
+| Point1 | Point | `—` | Point at Weight = 0. |
+| Point2 | Point | `—` | Point at Weight = 1. |
+| Weight | Float | `0` | Interpolation factor between Point1 (0) and Point2 (1). Values outside 0–1 extrapolate beyond either point. |
+| Show Input | Integer | `1.0` | Reveals the wires for the Point1/Point2 connections in the Flow view. |
 
 
 ## Related Nodes
@@ -40,5 +41,5 @@ Performs linear interpolation between two Fusion Point objects
 
 {/*
 Generated page — node: vPointMix (Core/Point/Operators).
-Source: fuse vPointMix.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vPointMix.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

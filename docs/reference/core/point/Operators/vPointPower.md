@@ -1,6 +1,7 @@
 ---
 sidebar_position: 8
 title: vPointPower
+description: "Returns the power of a Fusion Point object"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Returns the power of a Fusion Point object
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Point | Point | `—` | — |
-| Exponent | Float | `0` | — |
-| Show Input | Integer | `1.0` | — |
+| Point | Point | `—` | Point operand (base). |
+| Exponent | Float | `0` | Power each of Point's X/Y values is raised to. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Point connection in the Flow view. |
 
 
 ## Related Nodes
@@ -39,5 +40,5 @@ Returns the power of a Fusion Point object
 
 {/*
 Generated page — node: vPointPower (Core/Point/Operators).
-Source: fuse vPointPower.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vPointPower.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 title: vImageFromClipboard
+description: "Grabs, saves, then loads the current clipboard image The \"Grab\" button is used to capture the clipboard contents."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,7 +24,7 @@ Grabs, saves, then loads the current clipboard image The "Grab" button is used t
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Grab | Float | `—` | — |
+| Grab | Float | `—` | Captures the current system clipboard image and loads it as this node's output. Fusion Standalone v9 on Windows only. |
 
 
 ## Related Nodes
@@ -37,5 +38,5 @@ Grabs, saves, then loads the current clipboard image The "Grab" button is used t
 
 {/*
 Generated page — node: vImageFromClipboard (Core/Image/IO).
-Source: fuse vImageFromClipboard.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vImageFromClipboard.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

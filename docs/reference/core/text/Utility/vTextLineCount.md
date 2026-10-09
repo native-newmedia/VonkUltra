@@ -1,6 +1,7 @@
 ---
 sidebar_position: 7
 title: vTextLineCount
+description: "Returns the line count of a multi-line string This node is especially useful if you are working with IFL (Image File Lists), or CSV (Comma Separated Value) / TSV (Tab Separated Value) text files."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,7 +24,7 @@ Returns the line count of a multi-line string This node is especially useful if 
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Text | Text | `—` | — |
+| Text | Text | `—` | The multi-line text block to count lines in. |
 
 
 ## Related Nodes
@@ -37,5 +38,5 @@ Returns the line count of a multi-line string This node is especially useful if 
 
 {/*
 Generated page — node: vTextLineCount (Core/Text/Utility).
-Source: fuse vTextLineCount.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextLineCount.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

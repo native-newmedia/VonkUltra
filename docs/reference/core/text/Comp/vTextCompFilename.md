@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 title: vTextCompFilename
+description: "Returns the full path of a comp An example output from this node would be an absolute filepath based string like: \"C:/ProgramData/Blackmagic…"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -32,5 +33,5 @@ Returns the full path of a comp An example output from this node would be an abs
 
 {/*
 Generated page — node: vTextCompFilename (Core/Text/Comp).
-Source: fuse vTextCompFilename.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextCompFilename.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 9
 title: vTextEnv
+description: "Creates an environment variable based Fusion Text object This node will read an environment variable and return the result as a string."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Creates an environment variable based Fusion Text object This node will read an 
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Text | Text | `—` | — |
-| Show Input | Integer | `0.0` | — |
+| Text | Text | `—` | Name of the environment variable to read (e.g. `PATH`, `HOME`, `USER`). |
+| Show Input | Integer | `0.0` | Reveals the wire for the Text connection in the Flow view. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Creates an environment variable based Fusion Text object This node will read an 
 
 {/*
 Generated page — node: vTextEnv (Core/Text/Create).
-Source: fuse vTextEnv.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextEnv.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

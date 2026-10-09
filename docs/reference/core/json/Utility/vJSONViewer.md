@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vJSONViewer
+description: "View JSON text in the Inspector"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,11 +24,11 @@ View JSON text in the Inspector
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Text | DATATYPE | `—` | — |
-| Show Dump | Integer | `0.0` | — |
-| Sort List | Integer | `0.0` | — |
-| Display Lines | Integer | `25` | — |
-| JSON | ScriptVal | `—` | — |
+| Text | DATATYPE | `—` | JSON text to inspect. |
+| Show Dump | Integer | `0.0` | Prints the parsed JSON structure to the console each frame, in addition to the tree view below. |
+| Sort List | Integer | `0.0` | Sorts keys alphabetically in the tree view below, instead of showing them in source order. |
+| Display Lines | Integer | `25` | Number of visible lines in the tree view before scrolling. |
+| JSON | ScriptVal | `—` | Read-only tree view of the parsed JSON structure. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ View JSON text in the Inspector
 
 {/*
 Generated page — node: vJSONViewer (Core/JSON/Utility).
-Source: fuse vJSONViewer.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vJSONViewer.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

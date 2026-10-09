@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vGradientColorCount
+description: "Return the Gradient color count as a number"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,7 +24,7 @@ Return the Gradient color count as a number
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Gradient | Gradient | `—` | — |
+| Gradient | Gradient | `—` | Gradient to count. Output is the number of colour stops it contains. |
 
 
 ## Related Nodes
@@ -37,5 +38,5 @@ Return the Gradient color count as a number
 
 {/*
 Generated page — node: vGradientColorCount (Core/Gradient/Utility).
-Source: fuse vGradientColorCount.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vGradientColorCount.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

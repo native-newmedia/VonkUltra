@@ -1,6 +1,7 @@
 ---
 sidebar_position: 16
 title: vTextToHex
+description: "Converts a string into Base16 Hex encoded text The \"Separator\" text field allows you to enter a value like a space, a tab, a dash, a semicolon, or other…"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,10 +24,10 @@ Converts a string into Base16 Hex encoded text The "Separator" text field allows
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Text | `—` | — |
-| Separator | Text | `—` | — |
-| Remove Non-Printable Characters | Integer | `1.0` | — |
-| Show Input | Integer | `1.0` | — |
+| Input | Text | `—` | The text to encode as Base16 (hex). |
+| Separator | Text | `—` | Character(s) placed between each hex byte group in the output (e.g. a space or dash). |
+| Remove Non-Printable Characters | Integer | `1.0` | Strips ASCII control characters from Input before encoding. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Input connection in the Flow view. |
 
 
 ## Related Nodes
@@ -40,5 +41,5 @@ Converts a string into Base16 Hex encoded text The "Separator" text field allows
 
 {/*
 Generated page — node: vTextToHex (Core/Text/Create).
-Source: fuse vTextToHex.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextToHex.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

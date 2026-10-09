@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vImageCreateLine
+description: "Creates a Line Shape object"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,22 +24,22 @@ Creates a Line Shape object
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Level | Float | `1` | — |
-| Filter | Float | `Gaussian` | — |
-| Soft Edge | Float | `0` | — |
-| Width | Float | `0.01` | — |
-| Border Width | Float | `0.0` | — |
+| Level | Float | `1` | Overall brightness/opacity multiplier for the line. |
+| Filter | Dropdown | `Gaussian` | Anti-aliasing filter used to soften the line's edges: Box, Bartlett, Multi-box, or Gaussian. |
+| Soft Edge | Float | `0` | Additional edge softness, blended on top of the Filter setting. |
+| Width | Float | `0.01` | Line thickness, as a fraction of frame size. |
+| Border Width | Float | `0.0` | Width of an additional outline drawn around the line. |
 
 <details>
 <summary>+5 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Line Type | Float | `Solid` | — |
-| Join Type | Float | `Round` | — |
-| Start | Point | `—` | — |
-| End | Point | `—` | — |
-| Input | Image | `—` | — |
+| Line Type | Dropdown | `Solid` | Dash pattern for the line: Solid, Dash, Dot, Dash Dot, or Dash Dot Dot. |
+| Join Type | Dropdown | `Round` | Corner style where line segments meet: Bevel, Miter, or Round. |
+| Start | Point | `—` | Start position of the line, in screen coordinates. |
+| End | Point | `—` | End position of the line, in screen coordinates. |
+| Input | Image | `—` | Background image the line is drawn onto. |
 
 </details>
 
@@ -46,5 +47,5 @@ Creates a Line Shape object
 
 {/*
 Generated page — node: vImageCreateLine (Core/Image/Shape).
-Source: fuse vImageCreateLine.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vImageCreateLine.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

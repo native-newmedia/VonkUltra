@@ -1,6 +1,7 @@
 ---
 sidebar_position: 7
 title: vNumberCompProxyScale
+description: "Returns the comp's Proxy Scale"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -32,5 +33,5 @@ Returns the comp's Proxy Scale
 
 {/*
 Generated page — node: vNumberCompProxyScale (Core/Number/Comp).
-Source: fuse vNumberCompProxyScale.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberCompProxyScale.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

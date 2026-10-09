@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vImageRouter
+description: "Control the output routing of a Fusion Image object"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Control the output routing of a Fusion Image object
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Which | Integer | `—` | — |
-| Input | Image | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| Which | Integer | `—` | Selects which output receives Input: 1 sends it to Output1 (Output2 gets an empty image), any other value sends it to Output2 instead. |
+| Input | Image | `—` | The image to route to one of the two outputs. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Which control in the Flow view (despite the name, this toggles Which's visibility, not Input's). |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Control the output routing of a Fusion Image object
 
 {/*
 Generated page — node: vImageRouter (Core/Image/Flow).
-Source: fuse vImageRouter.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vImageRouter.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

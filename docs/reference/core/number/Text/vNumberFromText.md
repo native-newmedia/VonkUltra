@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vNumberFromText
+description: "Returns a number from a Fusion Text object This node converts an ASCII text based string that holds numerical content like \"5\" into an actual number data type…"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Returns a number from a Fusion Text object This node converts an ASCII text base
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Text | Text | `—` | — |
-| Show Input | Integer | `0.0` | — |
+| Text | Text | `—` | The text string to convert — its content must be numeric (e.g. "5"). |
+| Show Input | Integer | `0.0` | Reveals the wire for the Text connection in the Flow view. |
 
 
 ## Related Nodes
@@ -36,5 +37,5 @@ Returns a number from a Fusion Text object This node converts an ASCII text base
 
 {/*
 Generated page — node: vNumberFromText (Core/Number/Text).
-Source: fuse vNumberFromText.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberFromText.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

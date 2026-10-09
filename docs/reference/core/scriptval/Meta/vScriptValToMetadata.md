@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vScriptValToMetadata
+description: "Creates a Fusion image with metadata added from a ScriptVal object This node has two input connections which are used for connecting an image and a ScriptVal data type."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Creates a Fusion image with metadata added from a ScriptVal object This node has
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Image | `—` | — |
-| ScriptVal | ScriptVal | `—` | — |
-| Key | Text | `—` | — |
+| Input | Image | `—` | Image the new metadata is attached to. |
+| ScriptVal | ScriptVal | `—` | ScriptVal value to write into the image's metadata. |
+| Key | Text | `—` | Metadata field name to store ScriptVal under. |
 
 
 ## Related Nodes
@@ -36,5 +37,5 @@ Creates a Fusion image with metadata added from a ScriptVal object This node has
 
 {/*
 Generated page — node: vScriptValToMetadata (Core/ScriptVal/Meta).
-Source: fuse vScriptValToMetadata.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vScriptValToMetadata.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 6
 title: vGradientSwatchViewer
+description: "View a Gradient object in the Inspector"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,10 +24,10 @@ View a Gradient object in the Inspector
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Low | Integer | `1` | — |
-| High | Integer | `50` | — |
-| Gradient | Gradient | `—` | — |
-| Show Dump | Integer | `0.0` | — |
+| Low | Integer | `1` | Index of the first swatch shown. |
+| High | Integer | `50` | Index of the last swatch shown. |
+| Gradient | Gradient | `—` | Gradient to preview as a strip of colour swatches. |
+| Show Dump | Integer | `0.0` | Prints the gradient's colour stops to the console each frame. |
 
 
 ## Related Nodes
@@ -40,5 +41,5 @@ View a Gradient object in the Inspector
 
 {/*
 Generated page — node: vGradientSwatchViewer (Core/Gradient/Utility).
-Source: fuse vGradientSwatchViewer.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vGradientSwatchViewer.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

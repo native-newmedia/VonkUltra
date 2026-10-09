@@ -1,6 +1,7 @@
 ---
 sidebar_position: 8
 title: vNumberFloor
+description: "Returns the integer no less than a number This provides a way to round a floating point number to a whole number (an integer value) by rounding downwards to…"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Returns the integer no less than a number This provides a way to round a floatin
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Number | Float | `0` | — |
-| Show Input | Integer | `0.0` | — |
+| Number | Float | `0` | Value to round down to the nearest integer. |
+| Show Input | Integer | `0.0` | Reveals the wire for the Number connection in the Flow view. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Returns the integer no less than a number This provides a way to round a floatin
 
 {/*
 Generated page — node: vNumberFloor (Core/Number/Operators).
-Source: fuse vNumberFloor.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberFloor.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

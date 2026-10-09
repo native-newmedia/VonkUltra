@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vNumberSwitch
+description: "Switches between Fusion Number objects The \"Which\" control uses an integer number that starts at 1 and counts upwards to define the input connection port that…"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,18 +24,18 @@ Switches between Fusion Number objects The "Which" control uses an integer numbe
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Which | Integer | `—` | — |
-| Input1 | DATATYPE | `—` | — |
-| Show Which Input | Integer | `1.0` | — |
-| Show Active Input | Integer | `0.0` | — |
-| "Input" .. i | DATATYPE | `—` | — |
+| Which | Integer | `—` | Selects which input (1-based) is passed through to Output. Insert a vNumberAdd (or similar) to shift a 0/1 logic value into this 1+ range if driving it from a comparator. |
+| Input1 | DATATYPE | `—` | The first of the switchable inputs — connect the option that should be output when Which = 1. |
+| Show Which Input | Integer | `1.0` | Shows or hides the wire for the Which control in the Flow view. |
+| Show Active Input | Integer | `0.0` | When enabled, hides every input wire except the one currently selected by Which — a quick visual way to see which branch is live. |
+| "Input" .. i | DATATYPE | `—` | Additional switchable input, added automatically as each prior input gets wired — appears in the UI as Input2, Input3, and so on. (The literal `"Input" .. i` label is a known display quirk in how this dynamically-generated input's name is parsed for these docs, not something visible in Fusion itself.) |
 
 <details>
 <summary>+1 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| "Input" .. (inpNr + 1) | DATATYPE | `—` | — |
+| "Input" .. (inpNr + 1) | DATATYPE | `—` | The next available switchable input slot, added automatically once the one before it is connected. Same display quirk as above — shows in Fusion as Input3, Input4, etc. |
 
 </details>
 
@@ -47,5 +48,5 @@ Switches between Fusion Number objects The "Which" control uses an integer numbe
 
 {/*
 Generated page — node: vNumberSwitch (Core/Number/Flow).
-Source: fuse vNumberSwitch.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberSwitch.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vBase64ToHTML
+description: "Converts a Base64 encoded PNG image into an inline HTML `<IMG>` embed."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,7 +24,7 @@ Converts a Base64 encoded PNG image into an inline HTML `&lt;IMG>` embed. This n
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Text | `—` | — |
+| Input | Text | `—` | Base64-encoded PNG data to wrap in an inline HTML `<img>` tag, ready to paste into a LabelControl's icon field. |
 
 
 ## Related Nodes
@@ -34,5 +35,5 @@ Converts a Base64 encoded PNG image into an inline HTML `&lt;IMG>` embed. This n
 
 {/*
 Generated page — node: vBase64ToHTML (Core/Base64/Utility).
-Source: fuse vBase64ToHTML.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vBase64ToHTML.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

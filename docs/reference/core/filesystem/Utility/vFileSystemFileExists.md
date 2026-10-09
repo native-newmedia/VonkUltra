@@ -1,6 +1,7 @@
 ---
 sidebar_position: 7
 title: vFileSystemFileExists
+description: "Checks if a file exists This node reads a filepath defined in the \"Text\" field and checks if the document exists on disk."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,7 +24,7 @@ Checks if a file exists This node reads a filepath defined in the "Text" field a
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Text | Text | `—` | — |
+| Text | Text | `—` | File path to check. Output is 0 if it doesn't exist, 1 if it does — insert a vNumberAdd to shift this into a vSwitch node's 1+ Which range. |
 
 
 ## Related Nodes
@@ -37,5 +38,5 @@ Checks if a file exists This node reads a filepath defined in the "Text" field a
 
 {/*
 Generated page — node: vFileSystemFileExists (Core/FileSystem/Utility).
-Source: fuse vFileSystemFileExists.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vFileSystemFileExists.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

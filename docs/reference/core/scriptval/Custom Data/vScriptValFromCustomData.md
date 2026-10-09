@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vScriptValFromCustomData
+description: "Create a Fusion ScriptVal object from Custom Data The \"Text\" control is used to specify the key used for the CustomData record."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Create a Fusion ScriptVal object from Custom Data The "Text" control is used to 
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Text | Text | `—` | — |
-| Context | Float | `Fusion` | — |
-| Show Input | Integer | `0.0` | — |
+| Text | Text | `—` | CustomData key to read, using dot syntax for nested levels — a higher-level key returns the full sub-table at that level. |
+| Context | Dropdown | `Fusion` | Scope to read the CustomData from: Fusion (application-wide) or Comp (this composition only). |
+| Show Input | Integer | `0.0` | Reveals the wire for the Text connection in the Flow view. |
 
 
 ## Related Nodes
@@ -36,5 +37,5 @@ Create a Fusion ScriptVal object from Custom Data The "Text" control is used to 
 
 {/*
 Generated page — node: vScriptValFromCustomData (Core/ScriptVal/Custom Data).
-Source: fuse vScriptValFromCustomData.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vScriptValFromCustomData.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

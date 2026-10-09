@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vScriptValFromYAML
+description: "Casts YAML text into a ScriptVal object Technology Note: [YAML](https://yaml.org/) is used as part of Film & TV production lens metadata workflows by Cine…"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,12 +24,12 @@ Casts YAML text into a ScriptVal object Technology Note: [YAML](https://yaml.org
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Text | DATATYPE | `—` | — |
-| Sort List | Integer | `0.0` | — |
+| Text | DATATYPE | `—` | YAML text to convert into a ScriptVal Lua table, e.g. Cooke /i Technology lens metadata. |
+| Sort List | Integer | `0.0` | Sorts keys alphabetically in the resulting table, instead of preserving source order. |
 
 
 
 {/*
 Generated page — node: vScriptValFromYAML (Core/ScriptVal/YAML).
-Source: fuse vScriptValFromYAML.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vScriptValFromYAML.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

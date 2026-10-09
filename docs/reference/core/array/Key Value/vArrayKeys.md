@@ -1,6 +1,7 @@
 ---
 sidebar_position: 5
 title: vArrayKeys
+description: "Returns the keys present in an array"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,7 +24,7 @@ Returns the keys present in an array
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Text | `—` | — |
+| Input | Text | `—` | JSON object text to inspect — Output lists its key names. |
 
 
 ## Related Nodes
@@ -37,5 +38,5 @@ Returns the keys present in an array
 
 {/*
 Generated page — node: vArrayKeys (Core/Array/Key Value).
-Source: fuse vArrayKeys.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vArrayKeys.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 4
 title: vNumberClamp
+description: "Clamps a number to specific boundaries"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,10 +24,10 @@ Clamps a number to specific boundaries
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Number | Float | `0` | — |
-| Minimum | Float | `0` | — |
-| Maximum | Float | `0` | — |
-| Show Input | Integer | `1.0` | — |
+| Number | Float | `0` | Value to clamp. |
+| Minimum | Float | `0` | Lower bound — values below this are clipped up to it. |
+| Maximum | Float | `0` | Upper bound — values above this are clipped down to it. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Number connection in the Flow view. |
 
 
 ## Related Nodes
@@ -40,5 +41,5 @@ Clamps a number to specific boundaries
 
 {/*
 Generated page — node: vNumberClamp (Core/Number/Operators).
-Source: fuse vNumberClamp.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberClamp.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

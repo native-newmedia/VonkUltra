@@ -1,6 +1,7 @@
 ---
 sidebar_position: 18
 title: vNumberReciprocal
+description: "Returns the reciprocal of a number"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Returns the reciprocal of a number
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Number | Float | `1` | — |
-| Show Input | Integer | `0.0` | — |
+| Number | Float | `1` | Value to compute the reciprocal of — Output is `1 / Number`. |
+| Show Input | Integer | `0.0` | Reveals the wire for the Number connection in the Flow view. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Returns the reciprocal of a number
 
 {/*
 Generated page — node: vNumberReciprocal (Core/Number/Operators).
-Source: fuse vNumberReciprocal.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberReciprocal.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

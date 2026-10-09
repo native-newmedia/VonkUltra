@@ -1,6 +1,7 @@
 ---
 sidebar_position: 4
 title: vVectorDotProduct
+description: "Computes the dot product of two vectors"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -8,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 # vVectorDotProduct
 
-Adds two vectors
+Computes the dot product of two vectors. (The source fuse's own description string says "Adds two vectors" — a copy-paste leftover from vVectorAdd; the node's actual output, confirmed from its `Process` function, is the dot product.)
 
 <div className="node-badge-row">
   <span className="node-badge">Core / Vector</span>
@@ -23,9 +24,9 @@ Adds two vectors
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Vector1 | Text | `—` | — |
-| Vector2 | Text | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| Vector1 | Text | `—` | First vector operand (encoded as text). |
+| Vector2 | Text | `—` | Second vector operand — Output is the scalar dot product Vector1 · Vector2. |
+| Show Input | Integer | `1.0` | Reveals the wires for the Vector1/Vector2 connections in the Flow view. |
 
 
 ## Related Nodes
@@ -39,5 +40,5 @@ Adds two vectors
 
 {/*
 Generated page — node: vVectorDotProduct (Core/Vector/Operators).
-Source: fuse vVectorDotProduct.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vVectorDotProduct.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vScriptValCount
+description: "Count the number of items in a Fusion ScriptVal object This node returns a number data type that indicates how many array elements exist at this level in a ScriptVal hierarchy."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,7 +24,7 @@ Count the number of items in a Fusion ScriptVal object This node returns a numbe
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| ScriptVal | ScriptVal | `—` | — |
+| ScriptVal | ScriptVal | `—` | ScriptVal array to count. Output is the number of elements at this level of the hierarchy — useful for driving a vTextAccumulator's EndFrame to step through each element. |
 
 
 ## Related Nodes
@@ -36,5 +37,5 @@ Count the number of items in a Fusion ScriptVal object This node returns a numbe
 
 {/*
 Generated page — node: vScriptValCount (Core/ScriptVal/Utility).
-Source: fuse vScriptValCount.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vScriptValCount.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

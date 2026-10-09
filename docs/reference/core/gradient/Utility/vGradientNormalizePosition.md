@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 title: vGradientNormalizePosition
+description: "Normalizes the position of colors in a Gradient to a uniform spacing from 0-1"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Normalizes the position of colors in a Gradient to a uniform spacing from 0-1
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Gradient | Gradient | `—` | — |
-| Show Dump | Integer | `0.0` | — |
+| Gradient | Gradient | `—` | Gradient whose colour stops are redistributed to even 0–1 spacing, preserving their order but discarding their original positions. |
+| Show Dump | Integer | `0.0` | Prints the normalized gradient to the console each frame. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Normalizes the position of colors in a Gradient to a uniform spacing from 0-1
 
 {/*
 Generated page — node: vGradientNormalizePosition (Core/Gradient/Utility).
-Source: fuse vGradientNormalizePosition.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vGradientNormalizePosition.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

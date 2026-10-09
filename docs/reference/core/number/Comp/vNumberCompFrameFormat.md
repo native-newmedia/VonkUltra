@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 title: vNumberCompFrameFormat
+description: "Returns the comp's frame format This node outputs a Width and Height parameter derived from the current comp's FrameFormat settings."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Returns the comp's frame format This node outputs a Width and Height parameter d
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Width | Float | `—` | — |
-| Height | Float | `—` | — |
+| Width | Float | `—` | Read-only — the comp's current Frame Format width, in pixels. |
+| Height | Float | `—` | Read-only — the comp's current Frame Format height, in pixels. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Returns the comp's frame format This node outputs a Width and Height parameter d
 
 {/*
 Generated page — node: vNumberCompFrameFormat (Core/Number/Comp).
-Source: fuse vNumberCompFrameFormat.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberCompFrameFormat.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

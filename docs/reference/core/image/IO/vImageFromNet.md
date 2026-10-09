@@ -1,6 +1,7 @@
 ---
 sidebar_position: 6
 title: vImageFromNet
+description: "Reads an Image object from a network URL The \"Input\" control is used to define the image URL such as an http://, https://, or file:/// based resource."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,10 +24,10 @@ Reads an Image object from a network URL The "Input" control is used to define t
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Text | `—` | — |
-| File Type | Integer | `0` | — |
-| View URL | Float | `—` | — |
-| Show Input | Integer | `0.0` | — |
+| Input | Text | `—` | Image URL to download (http://, https://, or file:///). Can be driven externally by a Text data type connection. |
+| File Type | Dropdown | `JPEG` | Format of the downloaded content, so Fusion decodes it correctly: JPEG, PNG, BMP, EXR, FUSEPIC, RAW, TGA, TIFF, PSD, MP4, or MOV. |
+| View URL | Float | `—` | Opens Input's URL in the system's default web browser, for a quick sanity check of the source. |
+| Show Input | Integer | `0.0` | Reveals the wire for the Input connection in the Flow view. |
 
 
 ## Related Nodes
@@ -40,5 +41,5 @@ Reads an Image object from a network URL The "Input" control is used to define t
 
 {/*
 Generated page — node: vImageFromNet (Core/Image/IO).
-Source: fuse vImageFromNet.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vImageFromNet.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

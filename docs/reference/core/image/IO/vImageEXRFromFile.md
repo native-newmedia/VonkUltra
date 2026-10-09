@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vImageEXRFromFile
+description: "Reads an EXR image from a file The \"Filename\" control is used to define the image filename to load."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,7 +24,7 @@ Reads an EXR image from a file The "Filename" control is used to define the imag
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Filename | Text | `—` | — |
+| Filename | Text | `—` | Path to the EXR file to load. Can be driven externally by a Text data type connection. |
 
 
 ## Related Nodes
@@ -37,5 +38,5 @@ Reads an EXR image from a file The "Filename" control is used to define the imag
 
 {/*
 Generated page — node: vImageEXRFromFile (Core/Image/IO).
-Source: fuse vImageEXRFromFile.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vImageEXRFromFile.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vNumberProcessOpen
+description: "Launch a command-line process via popen"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Launch a command-line process via popen
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Number | Float | `—` | — |
-| Text | Text | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| Number | Float | `—` | Command exit/return code from the launched process. |
+| Text | Text | `—` | The command-line command to run via popen. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Text connection in the Flow view. |
 
 
 ## Related Nodes
@@ -37,5 +38,5 @@ Launch a command-line process via popen
 
 {/*
 Generated page — node: vNumberProcessOpen (Core/Number/Script).
-Source: fuse vNumberProcessOpen.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberProcessOpen.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 6
 title: vScriptValToFile
+description: "Writes a Fusion ScriptVal object to a file This node writes a text formatted version of a Lua table structure to disk."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Writes a Fusion ScriptVal object to a file This node writes a text formatted ver
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| ScriptVal | ScriptVal | `—` | — |
-| File | Text | `—` | — |
+| ScriptVal | ScriptVal | `—` | ScriptVal Lua table to write out. |
+| File | Text | `—` | Destination path for the saved text file. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Writes a Fusion ScriptVal object to a file This node writes a text formatted ver
 
 {/*
 Generated page — node: vScriptValToFile (Core/ScriptVal/IO).
-Source: fuse vScriptValToFile.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vScriptValToFile.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

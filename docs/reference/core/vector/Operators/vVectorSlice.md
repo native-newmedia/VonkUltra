@@ -1,6 +1,7 @@
 ---
 sidebar_position: 7
 title: vVectorSlice
+description: "Slices a vector"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Slices a vector
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Vector | Text | `—` | — |
-| Left/Right | Point | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| Vector | Text | `—` | Vector to slice (encoded as text). |
+| Left/Right | Point | `—` | 1-based start (X) and end (Y) column range of the elements to extract. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Vector connection in the Flow view. |
 
 
 ## Related Nodes
@@ -39,5 +40,5 @@ Slices a vector
 
 {/*
 Generated page — node: vVectorSlice (Core/Vector/Operators).
-Source: fuse vVectorSlice.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vVectorSlice.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

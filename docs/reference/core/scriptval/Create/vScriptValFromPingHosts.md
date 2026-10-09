@@ -1,6 +1,7 @@
 ---
 sidebar_position: 6
 title: vScriptValFromPingHosts
+description: "Create a Fusion ScriptVal object from a Fusion ping hosts subnet scan The ScriptVal formatted Lua table output looks like this: { { Platform = \"Windows\",…"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -32,5 +33,5 @@ Create a Fusion ScriptVal object from a Fusion ping hosts subnet scan The Script
 
 {/*
 Generated page — node: vScriptValFromPingHosts (Core/ScriptVal/Create).
-Source: fuse vScriptValFromPingHosts.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vScriptValFromPingHosts.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

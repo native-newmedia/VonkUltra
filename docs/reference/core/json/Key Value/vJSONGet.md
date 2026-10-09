@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vJSONGet
+description: "Gets the value of a JSON key The \"Key\" text-field is used to select and isolate a specific entry from a JSON file."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,10 +24,10 @@ Gets the value of a JSON key The "Key" text-field is used to select and isolate 
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Text | `—` | — |
-| Key | Text | `—` | — |
-| Show Input | Integer | `0.0` | — |
-| Get Key | Float | `—` | — |
+| Input | Text | `—` | JSON text to query. |
+| Key | Text | `—` | The JSON key to look up. Stack several vJSONGet nodes to browse deeper into a nested structure. |
+| Show Input | Integer | `0.0` | Reveals the wire for the Input connection in the Flow view. |
+| Get Key | Float | `—` | Renames this node to `json_<Key>`, making it easy to identify which key it reads at a glance. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Gets the value of a JSON key The "Key" text-field is used to select and isolate 
 
 {/*
 Generated page — node: vJSONGet (Core/JSON/Key Value).
-Source: fuse vJSONGet.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vJSONGet.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

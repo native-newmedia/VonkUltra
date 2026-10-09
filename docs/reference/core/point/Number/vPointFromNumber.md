@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vPointFromNumber
+description: "Return a Fusion Point object from two numbers"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Return a Fusion Point object from two numbers
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Number X | Float | `0` | — |
-| Number Y | Float | `0` | — |
-| Show Input | Integer | `0.0` | — |
+| Number X | Float | `0` | X value of the resulting Point. |
+| Number Y | Float | `0` | Y value of the resulting Point. |
+| Show Input | Integer | `0.0` | Reveals the wires for the Number X/Number Y connections in the Flow view. |
 
 
 ## Related Nodes
@@ -36,5 +37,5 @@ Return a Fusion Point object from two numbers
 
 {/*
 Generated page — node: vPointFromNumber (Core/Point/Number).
-Source: fuse vPointFromNumber.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vPointFromNumber.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

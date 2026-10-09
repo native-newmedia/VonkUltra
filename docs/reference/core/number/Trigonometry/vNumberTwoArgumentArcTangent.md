@@ -1,6 +1,7 @@
 ---
 sidebar_position: 12
 title: vNumberTwoArgumentArcTangent
+description: "Returns the arc tangent of y/x (in radians) but uses the signs of both parameters to find the quadrant of the result"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Returns the arc tangent of y/x (in radians) but uses the signs of both parameter
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| X | Float | `0` | — |
-| Y | Float | `0` | — |
-| Show Input | Integer | `0.0` | — |
+| X | Float | `0` | Horizontal component. |
+| Y | Float | `0` | Vertical component — Output is `atan2(Y, X)` in radians, the two-argument arc tangent that correctly resolves the angle across all four quadrants using the sign of both X and Y. |
+| Show Input | Integer | `0.0` | Reveals the wires for the X/Y connections in the Flow view. |
 
 
 ## Related Nodes
@@ -39,5 +40,5 @@ Returns the arc tangent of y/x (in radians) but uses the signs of both parameter
 
 {/*
 Generated page — node: vNumberTwoArgumentArcTangent (Core/Number/Trigonometry).
-Source: fuse vNumberTwoArgumentArcTangent.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberTwoArgumentArcTangent.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

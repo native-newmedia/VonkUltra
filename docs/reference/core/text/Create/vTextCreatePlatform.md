@@ -1,6 +1,7 @@
 ---
 sidebar_position: 6
 title: vTextCreatePlatform
+description: "Creates a unique Fusion Text object per OS platform This node provides a series of text fields that allow you to enter three different string values."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,10 +24,10 @@ Creates a unique Fusion Text object per OS platform This node provides a series 
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| macOS | Text | `—` | — |
-| Windows | Text | `—` | — |
-| Linux | Text | `—` | — |
-| Expand PathMaps | Integer | `0.0` | — |
+| macOS | Text | `—` | String returned when rendering on macOS. |
+| Windows | Text | `—` | String returned when rendering on Windows. |
+| Linux | Text | `—` | String returned when rendering on Linux. |
+| Expand PathMaps | Integer | `0.0` | Converts a relative PathMap-based filepath into an absolute path on the output. |
 
 
 ## Related Nodes
@@ -40,5 +41,5 @@ Creates a unique Fusion Text object per OS platform This node provides a series 
 
 {/*
 Generated page — node: vTextCreatePlatform (Core/Text/Create).
-Source: fuse vTextCreatePlatform.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextCreatePlatform.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

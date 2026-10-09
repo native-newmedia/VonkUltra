@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vImageDelay
+description: "Creates a Delay while passing a Fusion Image object The delay effect is measured in seconds."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,13 +24,13 @@ Creates a Delay while passing a Fusion Image object The delay effect is measured
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Image | `—` | — |
-| Delay | Float | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| Input | Image | `—` | Image passed through unchanged after the delay. |
+| Delay | Float | `—` | Pause duration in seconds, implemented via `bmd.wait()`. Useful for throttling command-line tasks (e.g. vImageProcessOpen) that need a moment to complete, or for simulating a slow render step. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Input connection in the Flow view. |
 
 
 
 {/*
 Generated page — node: vImageDelay (Core/Image/Utility).
-Source: fuse vImageDelay.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vImageDelay.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

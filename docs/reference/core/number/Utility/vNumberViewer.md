@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 title: vNumberViewer
+description: "View the Fusion number object in the Inspector"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,7 +24,7 @@ View the Fusion number object in the Inspector
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Number | Float | `0` | — |
+| Number | Float | `0` | The connected number value, shown read-only in the Inspector. |
 
 
 ## Related Nodes
@@ -35,5 +36,5 @@ View the Fusion number object in the Inspector
 
 {/*
 Generated page — node: vNumberViewer (Core/Number/Utility).
-Source: fuse vNumberViewer.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberViewer.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

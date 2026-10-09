@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vNumberResolveTimelineFPS
+description: "Returns the Resolve Timeline frame rate This node is useful if you need to perform math operations that need to be informed of the Resolve project's current frame rate value."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -29,5 +30,5 @@ Returns the Resolve Timeline frame rate This node is useful if you need to perfo
 
 {/*
 Generated page — node: vNumberResolveTimelineFPS (Core/Number/Resolve).
-Source: fuse vNumberResolveTimelineFPS.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberResolveTimelineFPS.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

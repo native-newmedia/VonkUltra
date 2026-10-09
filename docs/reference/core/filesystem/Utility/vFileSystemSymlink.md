@@ -1,6 +1,7 @@
 ---
 sidebar_position: 15
 title: vFileSystemSymlink
+description: "Creates a Symbolic Link to a file or folder on macOS, Linux, and Windows A Symlink (also known as a Symbolic link) can be thought of as a fancier (and far more…"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,10 +24,10 @@ Creates a Symbolic Link to a file or folder on macOS, Linux, and Windows A Symli
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Source File | Text | `—` | — |
-| Destination Link | Text | `—` | — |
-| Create Destination Directory | Integer | `1.0` | — |
-| Show Input | Integer | `0.0` | — |
+| Source File | Text | `—` | Path to the original file or folder the symlink will point to. |
+| Destination Link | Text | `—` | Path where the new symbolic link (soft-link) is created. |
+| Create Destination Directory | Integer | `1.0` | Creates the destination folder automatically if it doesn't already exist. |
+| Show Input | Integer | `0.0` | Reveals the wire for the Source File connection in the Flow view. |
 
 
 ## Related Nodes
@@ -40,5 +41,5 @@ Creates a Symbolic Link to a file or folder on macOS, Linux, and Windows A Symli
 
 {/*
 Generated page — node: vFileSystemSymlink (Core/FileSystem/Utility).
-Source: fuse vFileSystemSymlink.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vFileSystemSymlink.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

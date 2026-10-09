@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vGuideFromFile
+description: "Reads a vGuide object from a file"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Reads a vGuide object from a file
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Text | `—` | — |
-| Show Input | Integer | `0.0` | — |
+| Input | Text | `—` | Path to the `.guide` file to read, browsed via the file picker (filtered to `*.guide`). |
+| Show Input | Integer | `0.0` | Shows or hides the Input file-path control in the Inspector. |
 
 
 ## Related Nodes
@@ -35,5 +36,5 @@ Reads a vGuide object from a file
 
 {/*
 Generated page — node: vGuideFromFile (Core/Guide/IO).
-Source: fuse vGuideFromFile.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vGuideFromFile.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

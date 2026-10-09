@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vMatrixFromRotation
+description: "Creates a rotation matrix"
 ---
 
 import Tabs from '@theme/Tabs';

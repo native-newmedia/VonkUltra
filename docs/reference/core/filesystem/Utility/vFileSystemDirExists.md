@@ -1,6 +1,7 @@
 ---
 sidebar_position: 4
 title: vFileSystemDirExists
+description: "Check if a directory exists"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,7 +24,7 @@ Check if a directory exists
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Text | Text | `—` | — |
+| Text | Text | `—` | Directory path to check. Output is 0 if it doesn't exist, 1 if it does. |
 
 
 ## Related Nodes
@@ -37,5 +38,5 @@ Check if a directory exists
 
 {/*
 Generated page — node: vFileSystemDirExists (Core/FileSystem/Utility).
-Source: fuse vFileSystemDirExists.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vFileSystemDirExists.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

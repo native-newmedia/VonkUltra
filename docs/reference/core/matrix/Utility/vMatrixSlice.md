@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 title: vMatrixSlice
+description: "Slices a matrix"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,10 +24,10 @@ Slices a matrix
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input1 | Text | `—` | — |
-| Top/Left | Point | `—` | — |
-| Bottom/Right | Point | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| Input1 | Text | `—` | Matrix to slice. |
+| Top/Left | Point | `—` | 1-based row (X) and column (Y) of the top-left cell of the extracted range. |
+| Bottom/Right | Point | `—` | 1-based row (X) and column (Y) of the bottom-right cell of the extracted range. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Input1 connection in the Flow view. |
 
 
 ## Related Nodes
@@ -39,5 +40,5 @@ Slices a matrix
 
 {/*
 Generated page — node: vMatrixSlice (Core/Matrix/Utility).
-Source: fuse vMatrixSlice.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vMatrixSlice.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

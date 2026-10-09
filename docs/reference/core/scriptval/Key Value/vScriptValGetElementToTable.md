@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vScriptValGetElementToTable
+description: "Gets an element from a ScriptVal array as a table The \"Index\" control is used to access individual entries from a ScriptVal array like object."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Gets an element from a ScriptVal array as a table The "Index" control is used to
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| ScriptVal | DATATYPE | `—` | — |
-| Index | Integer | `1` | — |
-| Show Input | Integer | `0.0` | — |
+| ScriptVal | DATATYPE | `—` | ScriptVal array to query. |
+| Index | Integer | `1` | 1-based position of the element to retrieve, returned as a ScriptVal (table). |
+| Show Input | Integer | `0.0` | Reveals the wire for the ScriptVal connection in the Flow view. |
 
 
 ## Related Nodes
@@ -39,5 +40,5 @@ Gets an element from a ScriptVal array as a table The "Index" control is used to
 
 {/*
 Generated page — node: vScriptValGetElementToTable (Core/ScriptVal/Key Value).
-Source: fuse vScriptValGetElementToTable.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vScriptValGetElementToTable.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

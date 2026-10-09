@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vArrayFromDataWindow
+description: "Casts DataWindow to an array"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Casts DataWindow to an array
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Image | `—` | — |
-| Show Input | Integer | `0.0` | — |
+| Input | Image | `—` | Image whose DataWindow (the image's active pixel bounding box) is converted to an array. |
+| Show Input | Integer | `0.0` | Reveals the wire for the Input connection in the Flow view. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Casts DataWindow to an array
 
 {/*
 Generated page — node: vArrayFromDataWindow (Core/Array/Create).
-Source: fuse vArrayFromDataWindow.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vArrayFromDataWindow.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

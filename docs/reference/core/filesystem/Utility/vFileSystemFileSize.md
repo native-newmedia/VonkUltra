@@ -1,6 +1,7 @@
 ---
 sidebar_position: 9
 title: vFileSystemFileSize
+description: "Returns the file size This node takes a single filename as a text based input."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Returns the file size This node takes a single filename as a text based input. I
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Text | Text | `—` | — |
-| Unit | Integer | `0` | — |
+| Text | Text | `—` | Path to the file to measure. |
+| Unit | Dropdown | `Byte (B)` | Unit for the Output value: Byte, Kilobyte/Kibibyte, Megabyte/Mebibyte, Gigabyte/Gibibyte, or Terabyte/Tebibyte. The node also has an OutputUnit connection carrying the unit's label text, handy for a Text+ overlay. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Returns the file size This node takes a single filename as a text based input. I
 
 {/*
 Generated page — node: vFileSystemFileSize (Core/FileSystem/Utility).
-Source: fuse vFileSystemFileSize.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vFileSystemFileSize.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

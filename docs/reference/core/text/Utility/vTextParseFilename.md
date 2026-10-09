@@ -1,6 +1,7 @@
 ---
 sidebar_position: 9
 title: vTextParseFilename
+description: "Creates a Fusion Text object by parsing a filepath The \"Text\" input field supports a filepath style of string that contains absolute or relative filepaths (including the use of Fusion PathMaps)."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Creates a Fusion Text object by parsing a filepath The "Text" input field suppor
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Text | Text | `—` | — |
-| Parse | Integer | `0` | — |
+| Text | Text | `—` | The filepath (absolute, relative, or PathMap-based) to parse. |
+| Parse | Dropdown | `FullPath` | Which part of the filepath to return — FullPath, FullPathMap, Path, PathMap, FullName, Name, CleanName, SNum, Number, Extension, Padding, UNC, or Path + Name. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Creates a Fusion Text object by parsing a filepath The "Text" input field suppor
 
 {/*
 Generated page — node: vTextParseFilename (Core/Text/Utility).
-Source: fuse vTextParseFilename.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextParseFilename.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

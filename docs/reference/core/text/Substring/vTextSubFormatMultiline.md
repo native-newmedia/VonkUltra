@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 title: vTextSubFormatMultiline
+description: "Formats a multi-line template string with input values Each input connection on the vTextSubFormat node can be placed exactly where it is needed using a token approach."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,19 +24,19 @@ Formats a multi-line template string with input values Each input connection on 
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Which | Integer | `—` | — |
-| Text1 | Text | `—` | — |
-| Format | Text | `—` | — |
-| Display Lines | Integer | `25` | — |
-| Wrap Lines | Integer | `1.0` | — |
+| Which | Integer | `—` | Reserved input, referenced by name from inside the node's internal script. |
+| Text1 | Text | `—` | The first token value, inserted wherever `{1}` appears in Format. |
+| Format | Text | `—` | Multi-line template string containing `{1}`, `{2}`, etc. tokens for each connected input. |
+| Display Lines | Integer | `25` | Number of lines shown in the Format text box in the Inspector. |
+| Wrap Lines | Integer | `1.0` | Wraps long lines in the Format text box instead of scrolling horizontally. |
 
 <details>
 <summary>+2 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| "Text" .. i | Text | `—` | — |
-| "Text" .. (inp_nr + 1) | Text | `—` | — |
+| "Text" .. i | Text | `—` | Additional token value, added automatically as each prior input gets wired — appears in the UI as Text2, Text3, and so on. (The literal `"Text" .. i` label is a known display quirk in how this dynamically-generated input's name is parsed for these docs, not something visible in Fusion itself.) |
+| "Text" .. (inp_nr + 1) | Text | `—` | The next available token slot, added automatically once the one before it is connected. Same display quirk as above — shows in Fusion as Text3, Text4, etc. |
 
 </details>
 
@@ -51,5 +52,5 @@ Formats a multi-line template string with input values Each input connection on 
 
 {/*
 Generated page — node: vTextSubFormatMultiline (Core/Text/Substring).
-Source: fuse vTextSubFormatMultiline.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextSubFormatMultiline.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

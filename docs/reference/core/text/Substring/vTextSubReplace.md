@@ -1,6 +1,7 @@
 ---
 sidebar_position: 5
 title: vTextSubReplace
+description: "Replaces substrings of a string The \"Pattern\" text field uses [Lua Patterns](http://lua-users.org/wiki/PatternsTutorial) to parse the string."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,10 +24,10 @@ Replaces substrings of a string The "Pattern" text field uses [Lua Patterns](htt
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Text | Text | `—` | — |
-| Pattern | Text | `—` | — |
-| Replace | Text | `—` | — |
-| Show Input | Integer | `0.0` | — |
+| Text | Text | `—` | The source text to search and replace within. |
+| Pattern | Text | `—` | Lua pattern describing the substring(s) to find. |
+| Replace | Text | `—` | Text that replaces each match of Pattern. |
+| Show Input | Integer | `0.0` | Reveals the wire for the Text connection in the Flow view. |
 
 
 ## Related Nodes
@@ -40,5 +41,5 @@ Replaces substrings of a string The "Pattern" text field uses [Lua Patterns](htt
 
 {/*
 Generated page — node: vTextSubReplace (Core/Text/Substring).
-Source: fuse vTextSubReplace.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextSubReplace.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

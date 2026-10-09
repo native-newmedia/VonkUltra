@@ -1,6 +1,7 @@
 ---
 sidebar_position: 6
 title: vArraySize
+description: "Gets the size of an array"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Gets the size of an array
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Text | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| Input | Text | `—` | JSON array text to measure. Output is its element count. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Input connection in the Flow view. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Gets the size of an array
 
 {/*
 Generated page — node: vArraySize (Core/Array/Utility).
-Source: fuse vArraySize.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vArraySize.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

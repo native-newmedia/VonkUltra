@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vScriptValFromClipboard
+description: "Grabs the current clipboard as a Fusion ScriptVal object"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,7 +24,7 @@ Grabs the current clipboard as a Fusion ScriptVal object
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Show Dump | Integer | `0.0` | — |
+| Show Dump | Integer | `0.0` | Prints the clipboard's ScriptVal content to the console each frame. |
 
 
 ## Related Nodes
@@ -37,5 +38,5 @@ Grabs the current clipboard as a Fusion ScriptVal object
 
 {/*
 Generated page — node: vScriptValFromClipboard (Core/ScriptVal/IO).
-Source: fuse vScriptValFromClipboard.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vScriptValFromClipboard.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

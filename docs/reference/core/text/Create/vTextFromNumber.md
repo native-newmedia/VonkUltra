@@ -1,6 +1,7 @@
 ---
 sidebar_position: 14
 title: vTextFromNumber
+description: "Converts a number to text This node takes a number based input value that is converted automatically into a Text data type on the output."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Converts a number to text This node takes a number based input value that is con
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Number | Float | `0` | — |
-| Show Input | Integer | `1.0` | — |
+| Number | Float | `0` | The numeric value to convert to text. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Number connection in the Flow view. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Converts a number to text This node takes a number based input value that is con
 
 {/*
 Generated page — node: vTextFromNumber (Core/Text/Create).
-Source: fuse vTextFromNumber.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextFromNumber.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

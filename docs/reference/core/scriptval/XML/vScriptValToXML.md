@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vScriptValToXML
+description: "Casts a ScriptVal object into XML text"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Casts a ScriptVal object into XML text
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| ScriptVal | ScriptVal | `—` | — |
-| Sort List | Integer | `0.0` | — |
+| ScriptVal | ScriptVal | `—` | ScriptVal Lua table to cast into XML text. |
+| Sort List | Integer | `0.0` | Sorts keys alphabetically in the resulting XML, instead of preserving source order. |
 
 
 ## Related Nodes
@@ -35,5 +36,5 @@ Casts a ScriptVal object into XML text
 
 {/*
 Generated page — node: vScriptValToXML (Core/ScriptVal/XML).
-Source: fuse vScriptValToXML.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vScriptValToXML.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 6
 title: vTextToClipboard
+description: "Send text to the clipboard"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,7 +24,7 @@ Send text to the clipboard
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Text | Text | `—` | — |
+| Text | Text | `—` | The text to copy to the system clipboard. |
 
 
 ## Related Nodes
@@ -37,5 +38,5 @@ Send text to the clipboard
 
 {/*
 Generated page — node: vTextToClipboard (Core/Text/IO).
-Source: fuse vTextToClipboard.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextToClipboard.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

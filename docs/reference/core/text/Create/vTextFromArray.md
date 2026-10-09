@@ -1,6 +1,7 @@
 ---
 sidebar_position: 11
 title: vTextFromArray
+description: "Creates Text from an array The \"Index\" control is used to extract an individual element from a JSON based array."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Creates Text from an array The "Index" control is used to extract an individual 
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Text | `—` | — |
-| Index | Integer | `1` | — |
-| Show Input | Integer | `1.0` | — |
+| Input | Text | `—` | The Array to read an element from, as JSON text. |
+| Index | Integer | `1` | Array element to extract as text. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Input connection in the Flow view. |
 
 
 ## Related Nodes
@@ -39,5 +40,5 @@ Creates Text from an array The "Index" control is used to extract an individual 
 
 {/*
 Generated page — node: vTextFromArray (Core/Text/Create).
-Source: fuse vTextFromArray.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextFromArray.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

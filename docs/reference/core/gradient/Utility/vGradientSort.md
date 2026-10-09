@@ -1,6 +1,7 @@
 ---
 sidebar_position: 5
 title: vGradientSort
+description: "Sort the gradient by color"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,10 +24,10 @@ Sort the gradient by color
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Gradient | Gradient | `—` | — |
-| Sort Mode | Integer | `0.0` | — |
-| Threshold | Float | `0.1` | — |
-| Show Dump | Integer | `0.0` | — |
+| Gradient | Gradient | `—` | Gradient whose colour stops are reordered by Sort Mode, keeping their original positions/values. |
+| Sort Mode | Dropdown | `0.0` | Colour property to sort by: Hue & Saturation, Hue, Saturation, Value, or Brightness. |
+| Threshold | Float | `0.1` | Minimum hue difference before two stops are treated as distinct when Sort Mode is Hue & Saturation — stops closer than this are compared by saturation instead. Hue & Saturation mode only. |
+| Show Dump | Integer | `0.0` | Prints the sorted gradient to the console each frame. |
 
 
 ## Related Nodes
@@ -40,5 +41,5 @@ Sort the gradient by color
 
 {/*
 Generated page — node: vGradientSort (Core/Gradient/Utility).
-Source: fuse vGradientSort.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vGradientSort.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

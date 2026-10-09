@@ -1,6 +1,7 @@
 ---
 sidebar_position: 4
 title: vPointFromMousePos
+description: "Return a Fusion Point object that holds the current mouse X & Y cursor position **Coord Mode** The \"Coord Mode\" multi-button control allows you to define the…"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,11 +24,11 @@ Return a Fusion Point object that holds the current mouse X & Y cursor position 
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Coord Mode | Float | `Native` | — |
-| Screen Dimensions | Float | `Manual Entry` | — |
-| Screen Width | Float | `1920` | — |
-| Screen Height | Float | `1080` | — |
-| Screen UI Scale | Integer | `100` | — |
+| Coord Mode | Dropdown | `Native` | Units for the reported mouse position: Native (raw, unmodified cursor coordinates) or Normalized (0–1 range). |
+| Screen Dimensions | Dropdown | `Manual Entry` | Source for the screen size used to normalize the position: Manual Entry (use the fields below) or Fu Prefs (read Fusion's saved Layout window-size preference — errors in the Console if no size has ever been saved). Normalized mode only. |
+| Screen Width | Float | `1920` | Screen width used for normalization. Manual Entry mode only. |
+| Screen Height | Float | `1080` | Screen height used for normalization. Manual Entry mode only. |
+| Screen UI Scale | Integer | `100` | UI scaling percentage applied when normalizing, to match the OS display scale setting. Manual Entry mode only. |
 
 
 ## Related Nodes
@@ -40,5 +41,5 @@ Return a Fusion Point object that holds the current mouse X & Y cursor position 
 
 {/*
 Generated page — node: vPointFromMousePos (Core/Point/Create).
-Source: fuse vPointFromMousePos.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vPointFromMousePos.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

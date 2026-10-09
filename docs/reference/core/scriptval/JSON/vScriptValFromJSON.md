@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vScriptValFromJSON
+description: "Casts JSON text into a ScriptVal object This node takes a Text datatype based JSON as the input which is translated into a ScriptVal datatype based output."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Casts JSON text into a ScriptVal object This node takes a Text datatype based JS
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Text | DATATYPE | `—` | — |
-| Sort List | Integer | `0.0` | — |
+| Text | DATATYPE | `—` | JSON text to cast into a ScriptVal Lua table. |
+| Sort List | Integer | `0.0` | Sorts keys alphabetically in the resulting table, instead of preserving source order. |
 
 
 ## Related Nodes
@@ -35,5 +36,5 @@ Casts JSON text into a ScriptVal object This node takes a Text datatype based JS
 
 {/*
 Generated page — node: vScriptValFromJSON (Core/ScriptVal/JSON).
-Source: fuse vScriptValFromJSON.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vScriptValFromJSON.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

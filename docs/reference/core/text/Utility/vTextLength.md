@@ -1,6 +1,7 @@
 ---
 sidebar_position: 6
 title: vTextLength
+description: "Returns the length of a string The vTextLength node counts the number of characters present in a string."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,7 +24,7 @@ Returns the length of a string The vTextLength node counts the number of charact
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Text | Text | `—` | — |
+| Text | Text | `—` | The string to measure. |
 
 
 ## Related Nodes
@@ -37,5 +38,5 @@ Returns the length of a string The vTextLength node counts the number of charact
 
 {/*
 Generated page — node: vTextLength (Core/Text/Utility).
-Source: fuse vTextLength.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextLength.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 title: vJSONSet
+description: "Sets a new key value pair in a JSON table The \"Key\" text-field lets you enter the name of the JSON element to be modified/inserted."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,11 +24,11 @@ Sets a new key value pair in a JSON table The "Key" text-field lets you enter th
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Text | `—` | — |
-| Key | Text | `—` | — |
-| Value | Text | `—` | — |
-| Show Input | Integer | `0.0` | — |
-| Get Key | Float | `—` | — |
+| Input | Text | `—` | JSON text to modify. |
+| Key | Text | `—` | Name of the key to insert or update. |
+| Value | Text | `—` | Value to store under Key. |
+| Show Input | Integer | `0.0` | Reveals the wire for the Input connection in the Flow view. |
+| Get Key | Float | `—` | Renames this node to `json_<Key>`, making it easy to identify which key it sets at a glance. |
 
 
 ## Related Nodes
@@ -39,5 +40,5 @@ Sets a new key value pair in a JSON table The "Key" text-field lets you enter th
 
 {/*
 Generated page — node: vJSONSet (Core/JSON/Key Value).
-Source: fuse vJSONSet.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vJSONSet.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vGradientToScriptVal
+description: "Create a ScriptVal object from a Gradient"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Create a ScriptVal object from a Gradient
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Gradient | Gradient | `—` | — |
-| Show Dump | Integer | `0.0` | — |
+| Gradient | Gradient | `—` | Gradient to convert — Output is a ScriptVal list of `{P, R, G, B, A}` colour-stop entries. |
+| Show Dump | Integer | `0.0` | Prints the converted ScriptVal table to the console each frame. |
 
 
 ## Related Nodes
@@ -35,5 +36,5 @@ Create a ScriptVal object from a Gradient
 
 {/*
 Generated page — node: vGradientToScriptVal (Core/Gradient/ScriptVal).
-Source: fuse vGradientToScriptVal.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vGradientToScriptVal.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

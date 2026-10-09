@@ -1,6 +1,7 @@
 ---
 sidebar_position: 4
 title: vTextCreateMultiline
+description: "Creates a multi-line Fusion Text object The \"Text\" field supports entering multi-line text blocks that can include indentation, tabs, newlines, returns and other plain-text formatting variations."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Creates a multi-line Fusion Text object The "Text" field supports entering multi
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Text | Text | `—` | — |
-| Display Lines | Integer | `25` | — |
-| Wrap Lines | Integer | `1.0` | — |
+| Text | Text | `—` | The multi-line text block to output. |
+| Display Lines | Integer | `25` | Number of lines shown in the Text box in the Inspector. |
+| Wrap Lines | Integer | `1.0` | Wraps long lines in the Text box instead of scrolling horizontally. |
 
 
 ## Related Nodes
@@ -39,5 +40,5 @@ Creates a multi-line Fusion Text object The "Text" field supports entering multi
 
 {/*
 Generated page — node: vTextCreateMultiline (Core/Text/Create).
-Source: fuse vTextCreateMultiline.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextCreateMultiline.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

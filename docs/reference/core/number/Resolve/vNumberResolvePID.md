@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vNumberResolvePID
+description: "Returns the Resolve/Fusion PID (Process ID) A PID value is an integer style number that is used by the operating system to track a running executable."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -29,5 +30,5 @@ Returns the Resolve/Fusion PID (Process ID) A PID value is an integer style numb
 
 {/*
 Generated page — node: vNumberResolvePID (Core/Number/Resolve).
-Source: fuse vNumberResolvePID.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberResolvePID.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

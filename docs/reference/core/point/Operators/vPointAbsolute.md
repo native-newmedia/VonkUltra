@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vPointAbsolute
+description: "Returns a Fusion Point object with an absolute value This will remove a negative sign from any point value that is below 0."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Returns a Fusion Point object with an absolute value This will remove a negative
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Point | Point | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| Point | Point | `—` | Point operand — Output has the sign removed from any negative X/Y value. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Point connection in the Flow view. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Returns a Fusion Point object with an absolute value This will remove a negative
 
 {/*
 Generated page — node: vPointAbsolute (Core/Point/Operators).
-Source: fuse vPointAbsolute.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vPointAbsolute.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

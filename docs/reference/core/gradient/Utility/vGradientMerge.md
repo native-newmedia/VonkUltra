@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vGradientMerge
+description: "Merge several Gradients into a single output"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,11 +24,11 @@ Merge several Gradients into a single output
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Which | Integer | `—` | — |
-| Gradient1 | Gradient | `—` | — |
-| Show Dump | Integer | `0.0` | — |
-| "Gradient" .. i | Gradient | `—` | — |
-| "Gradient" .. (inp_nr + 1) | Gradient | `—` | — |
+| Which | Integer | `—` | Internal control tracking how many Gradient inputs are currently connected. Not meant to be set manually — every connected input is merged, regardless of this value. |
+| Gradient1 | Gradient | `—` | The first gradient to merge. Connecting it reveals Gradient2 for the next one, and so on. |
+| Show Dump | Integer | `0.0` | Prints the merged gradient to the console each frame. |
+| "Gradient" .. i | Gradient | `—` | Additional gradient to merge, added automatically as each prior input gets wired — appears in the UI as Gradient2, Gradient3, and so on. (The literal `"Gradient" .. i` label is a known display quirk in how this dynamically-generated input's name is parsed for these docs, not something visible in Fusion itself.) |
+| "Gradient" .. (inp_nr + 1) | Gradient | `—` | The next available gradient slot, added automatically once the one before it is connected. Same display quirk as above. |
 
 
 ## Related Nodes
@@ -41,5 +42,5 @@ Merge several Gradients into a single output
 
 {/*
 Generated page — node: vGradientMerge (Core/Gradient/Utility).
-Source: fuse vGradientMerge.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vGradientMerge.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

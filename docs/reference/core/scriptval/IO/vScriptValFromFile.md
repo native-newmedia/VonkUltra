@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 title: vScriptValFromFile
+description: "Reads a Fusion ScriptVal object from a file This node reads a text formatted version of a Lua table structure from disk."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,7 +24,7 @@ Reads a Fusion ScriptVal object from a file This node reads a text formatted ver
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Text | `—` | — |
+| Input | Text | `—` | Path to a Lua table-formatted text file to read. |
 
 
 ## Related Nodes
@@ -37,5 +38,5 @@ Reads a Fusion ScriptVal object from a file This node reads a text formatted ver
 
 {/*
 Generated page — node: vScriptValFromFile (Core/ScriptVal/IO).
-Source: fuse vScriptValFromFile.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vScriptValFromFile.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

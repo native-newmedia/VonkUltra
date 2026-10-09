@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 title: vPointClamp
+description: "Clamp a Fusion Point object to specific boundaries This acts as a hard limiter on the range of numbers that can pass through the Point control."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,10 +24,10 @@ Clamp a Fusion Point object to specific boundaries This acts as a hard limiter o
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Point | Point | `—` | — |
-| Minimum | Float | `0` | — |
-| Maximum | Float | `1.0` | — |
-| Show Input | Integer | `1.0` | — |
+| Point | Point | `—` | Point to clamp. |
+| Minimum | Float | `0` | Lower bound — X/Y values below this are clipped up to it. |
+| Maximum | Float | `1.0` | Upper bound — X/Y values above this are clipped down to it. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Point connection in the Flow view. |
 
 
 ## Related Nodes
@@ -40,5 +41,5 @@ Clamp a Fusion Point object to specific boundaries This acts as a hard limiter o
 
 {/*
 Generated page — node: vPointClamp (Core/Point/Operators).
-Source: fuse vPointClamp.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vPointClamp.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 6
 title: vNumberEase
+description: "Performs a specific interpolation between two numbers during a defined time duration"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,11 +24,11 @@ Performs a specific interpolation between two numbers during a defined time dura
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Target Start Time | Float | `1` | — |
-| Duration | Float | `24` | — |
-| Function | FuID | `—` | — |
-| Affect | FuID | `—` | — |
-| Show Input | Integer | `0.0` | — |
+| Target Start Time | Float | `1` | Frame the eased interpolation begins on. |
+| Duration | Float | `24` | Length of the eased interpolation, in frames. |
+| Function | FuID | `—` | Easing curve applied over the interpolation, set via Fusion's native ease-curve picker. |
+| Affect | FuID | `—` | Which portion of the interpolation the ease curve is applied to, set via Fusion's native picker. |
+| Show Input | Integer | `0.0` | Reveals the wire for the Target Start Time connection in the Flow view. |
 
 
 ## Related Nodes
@@ -41,5 +42,5 @@ Performs a specific interpolation between two numbers during a defined time dura
 
 {/*
 Generated page — node: vNumberEase (Core/Number/Operators).
-Source: fuse vNumberEase.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberEase.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 8
 title: vFileSystemFileOpen
+description: "Opens a file This node will open the \"Source File\" using the operating system's default file handler."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Opens a file This node will open the "Source File" using the operating system's 
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Source File | Text | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| Source File | Text | `—` | Path to the file to open with the OS's default handler for its file extension. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Source File connection in the Flow view. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Opens a file This node will open the "Source File" using the operating system's 
 
 {/*
 Generated page — node: vFileSystemFileOpen (Core/FileSystem/Utility).
-Source: fuse vFileSystemFileOpen.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vFileSystemFileOpen.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

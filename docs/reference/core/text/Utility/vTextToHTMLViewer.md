@@ -1,6 +1,7 @@
 ---
 sidebar_position: 12
 title: vTextToHTMLViewer
+description: "View HTML code in the Inspector"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,18 +24,18 @@ View HTML code in the Inspector
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Separator | Float | `—` | — |
-| Input | Text | `—` | — |
-| Display Lines | Integer | `9` | — |
-| Wrap Lines | Integer | `1.0` | — |
-| Show Edit Field | Integer | `1.0` | — |
+| Separator | Float | `—` | A UI separator, not a real setting. |
+| Input | Text | `—` | The HTML code to render in the Inspector viewer. |
+| Display Lines | Integer | `9` | Number of lines shown in the Input text box in the Inspector. |
+| Wrap Lines | Integer | `1.0` | Wraps long lines in the Input text box instead of scrolling horizontally. |
+| Show Edit Field | Integer | `1.0` | Shows the editable Input text box alongside the rendered HTML preview. |
 
 <details>
 <summary>+1 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Show Input | Integer | `1.0` | — |
+| Show Input | Integer | `1.0` | Reveals the wire for the Input connection in the Flow view. |
 
 </details>
 
@@ -50,5 +51,5 @@ View HTML code in the Inspector
 
 {/*
 Generated page — node: vTextToHTMLViewer (Core/Text/Utility).
-Source: fuse vTextToHTMLViewer.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextToHTMLViewer.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

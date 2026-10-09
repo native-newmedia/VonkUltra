@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vImageEXRToFile
+description: "Saves an EXR image to disk The \"Filename\" control can be driven externally by a Text data type connection to the node."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Saves an EXR image to disk The "Filename" control can be driven externally by a 
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Image | `—` | — |
-| Filename | Text | `—` | — |
+| Input | Image | `—` | Image to save as EXR. |
+| Filename | Text | `—` | Destination path for the saved file. Can be driven externally by a Text data type connection. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Saves an EXR image to disk The "Filename" control can be driven externally by a 
 
 {/*
 Generated page — node: vImageEXRToFile (Core/Image/IO).
-Source: fuse vImageEXRToFile.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vImageEXRToFile.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

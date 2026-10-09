@@ -1,6 +1,7 @@
 ---
 sidebar_position: 10
 title: vFileSystemListFiles
+description: "Creates a Fusion Text object with a list of the folder contents This node scans the contents of a folder path defined in the \"Text\" field."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,19 +24,19 @@ Creates a Fusion Text object with a list of the folder contents This node scans 
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Text | Text | `—` | — |
-| Pattern | Text | `—` | — |
-| Mode | Float | `List Files` | — |
-| Export Fullpath | Integer | `0.0` | — |
-| Expand PathMaps | Integer | `1.0` | — |
+| Text | Text | `—` | Folder path to scan. |
+| Pattern | Text | `—` | Wildcard filter for filenames, e.g. `*.exr` or `*.png`. Leave empty to match everything. |
+| Mode | Dropdown | `List Files` | Whether to list files or subdirectories: List Files or List Directories. |
+| Export Fullpath | Integer | `0.0` | Returns each item's full absolute path, instead of just its filename. |
+| Expand PathMaps | Integer | `1.0` | Converts relative paths (like `Comp:/`) into absolute paths in the output. |
 
 <details>
 <summary>+2 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Skip Hidden Files | Integer | `1.0` | — |
-| Show Input | Integer | `0.0` | — |
+| Skip Hidden Files | Integer | `1.0` | Excludes hidden files (`.DS_Store`, `Thumbs.db`, and UNIX dotfiles) from the output. |
+| Show Input | Integer | `0.0` | Reveals the wire for the Text connection in the Flow view. |
 
 </details>
 
@@ -51,5 +52,5 @@ Creates a Fusion Text object with a list of the folder contents This node scans 
 
 {/*
 Generated page — node: vFileSystemListFiles (Core/FileSystem/Utility).
-Source: fuse vFileSystemListFiles.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vFileSystemListFiles.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

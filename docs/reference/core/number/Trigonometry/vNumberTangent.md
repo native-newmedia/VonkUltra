@@ -1,6 +1,7 @@
 ---
 sidebar_position: 11
 title: vNumberTangent
+description: "Returns the tangent for a number in radians"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Returns the tangent for a number in radians
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Radians | Float | `0` | — |
-| Show Input | Integer | `0.0` | — |
+| Radians | Float | `0` | Angle in radians to compute the tangent of. |
+| Show Input | Integer | `0.0` | Reveals the wire for the Radians connection in the Flow view. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Returns the tangent for a number in radians
 
 {/*
 Generated page — node: vNumberTangent (Core/Number/Trigonometry).
-Source: fuse vNumberTangent.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberTangent.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

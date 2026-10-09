@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vMTLXToFile
+description: "Writes an XML string to a MaterialX file"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,18 +24,18 @@ Writes an XML string to a MaterialX file
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| MTLX File | Text | `—` | — |
-| Font Size | Integer | `14` | — |
-| Display Lines | Integer | `25` | — |
-| Wrap Lines | Integer | `1.0` | — |
-| XML | Text | `—` | — |
+| MTLX File | Text | `—` | Destination path for the saved MaterialX (`.mtlx`) file. Hidden until Show Input is enabled. |
+| Font Size | Dropdown | `14` | Font size used in the XML text preview below. |
+| Display Lines | Integer | `25` | Number of visible lines in the XML preview before scrolling. |
+| Wrap Lines | Integer | `1.0` | Wraps long lines in the XML preview instead of scrolling horizontally. |
+| XML | Text | `—` | The MaterialX XML content to write, typically fed from vMTLXUsdPreviewSurface or vMTLXMerge. |
 
 <details>
 <summary>+1 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Show Input | Integer | `0.0` | — |
+| Show Input | Integer | `0.0` | Reveals the MTLX File path control so a destination can be chosen or typed. |
 
 </details>
 
@@ -42,5 +43,5 @@ Writes an XML string to a MaterialX file
 
 {/*
 Generated page — node: vMTLXToFile (Core/MTLX/IO).
-Source: fuse vMTLXToFile.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vMTLXToFile.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

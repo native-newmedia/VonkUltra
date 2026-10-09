@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vArrayConcatenate
+description: "Concatenates an array"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Concatenates an array
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Text | `—` | — |
-| Show Input | Integer | `0.0` | — |
+| Input | Text | `—` | A JSON array-of-arrays — Output flattens its sub-arrays into a single top-level array. |
+| Show Input | Integer | `0.0` | Reveals the wire for the Input connection in the Flow view. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Concatenates an array
 
 {/*
 Generated page — node: vArrayConcatenate (Core/Array/Utility).
-Source: fuse vArrayConcatenate.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vArrayConcatenate.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

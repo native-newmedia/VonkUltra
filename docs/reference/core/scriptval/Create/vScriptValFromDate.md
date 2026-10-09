@@ -1,6 +1,7 @@
 ---
 sidebar_position: 4
 title: vScriptValFromDate
+description: "Create a Fusion ScriptVal object from the Lua os.date() table output"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,7 +24,7 @@ Create a Fusion ScriptVal object from the Lua os.date() table output
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| UTC Time | Integer | `0` | — |
+| UTC Time | Integer | `0` | When on, returns the date/time table in UTC instead of local time. |
 
 
 ## Related Nodes
@@ -37,5 +38,5 @@ Create a Fusion ScriptVal object from the Lua os.date() table output
 
 {/*
 Generated page — node: vScriptValFromDate (Core/ScriptVal/Create).
-Source: fuse vScriptValFromDate.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vScriptValFromDate.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

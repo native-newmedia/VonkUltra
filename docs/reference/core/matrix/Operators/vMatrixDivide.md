@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vMatrixDivide
+description: "Divides two matrices"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -8,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 # vMatrixDivide
 
-Divides a matrix by a number
+Divides two matrices, element-wise. (The old Docsify source text said "Divides a matrix by a number" — a copy-paste leftover from vMatrixDivideNumber; the fuse's own `REGS_OpDescription` and its two-matrix `Matrix1`/`Matrix2` inputs confirm it actually operates on two matrices.)
 
 <div className="node-badge-row">
   <span className="node-badge">Core / Matrix</span>
@@ -23,9 +24,9 @@ Divides a matrix by a number
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Matrix1 | Text | `—` | — |
-| Matrix2 | Text | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| Matrix1 | Text | `—` | First matrix operand. |
+| Matrix2 | Text | `—` | Second matrix operand — Matrix1 is divided by it, element-wise. |
+| Show Input | Integer | `1.0` | Reveals the wires for the Matrix1/Matrix2 connections in the Flow view. |
 
 
 ## Related Nodes
@@ -39,5 +40,5 @@ Divides a matrix by a number
 
 {/*
 Generated page — node: vMatrixDivide (Core/Matrix/Operators).
-Source: fuse vMatrixDivide.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vMatrixDivide.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

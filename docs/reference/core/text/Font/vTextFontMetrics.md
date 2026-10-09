@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vTextFontMetrics
+description: "Return font measurements as Fusion Number objects"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,14 +24,14 @@ Return font measurements as Fusion Number objects
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Font | Text | `—` | — |
-| Style | Text | `—` | — |
-| Styled Text | Text | `—` | — |
-| Size | Float | `0.1` | — |
+| Font | Text | `—` | The font family to measure. |
+| Style | Text | `—` | The font style/weight to measure (e.g. Regular, Bold). |
+| Styled Text | Text | `—` | The sample text to measure with the given Font/Style/Size. |
+| Size | Float | `0.1` | Font size used for the measurement. |
 
 
 
 {/*
 Generated page — node: vTextFontMetrics (Core/Text/Font).
-Source: fuse vTextFontMetrics.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextFontMetrics.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

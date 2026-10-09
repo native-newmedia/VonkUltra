@@ -1,6 +1,7 @@
 ---
 sidebar_position: 5
 title: vArrayFromMediaIn
+description: "Casts a Resolve MediaIn MediaProps to an array This makes it possible to read MediaPool/Edit page timeline information provided by a MediaIn node."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Casts a Resolve MediaIn MediaProps to an array This makes it possible to read Me
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| MediaIn Input | Image | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| MediaIn Input | Image | `—` | The image connected directly from a MediaIn node — its MediaProps record is converted into this node's output array. |
+| Show Input | Integer | `1.0` | Reveals the wire for the MediaIn Input connection in the Flow view. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Casts a Resolve MediaIn MediaProps to an array This makes it possible to read Me
 
 {/*
 Generated page — node: vArrayFromMediaIn (Core/Array/Create).
-Source: fuse vArrayFromMediaIn.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vArrayFromMediaIn.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

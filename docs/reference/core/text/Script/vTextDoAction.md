@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vTextDoAction
+description: "Executes Fusion actions The \"Action Name\" text field is where the action you want to run is entered."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,10 +24,10 @@ Executes Fusion actions The "Action Name" text field is where the action you wan
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Text | Text | `—` | — |
-| Action Name | Text | `—` | — |
-| Action Params | Text | `—` | — |
-| Wrap Lines | Integer | `0.0` | — |
+| Text | Text | `—` | Output preview — shows the text result once the action runs. |
+| Action Name | Text | `—` | Name of the Fusion action to run. |
+| Action Params | Text | `—` | Extra attributes to pass to the action, written as the contents of a Lua table `{}`. |
+| Wrap Lines | Integer | `0.0` | Wraps long lines in the text preview instead of scrolling horizontally. |
 
 
 ## Related Nodes
@@ -40,5 +41,5 @@ Executes Fusion actions The "Action Name" text field is where the action you wan
 
 {/*
 Generated page — node: vTextDoAction (Core/Text/Script).
-Source: fuse vTextDoAction.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextDoAction.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

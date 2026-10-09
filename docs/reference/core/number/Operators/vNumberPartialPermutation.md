@@ -1,6 +1,7 @@
 ---
 sidebar_position: 16
 title: vNumberPartialPermutation
+description: "Returns the sum of two numbers"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Returns the sum of two numbers
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Possibilities | Float | `0` | — |
-| Selection | Float | `0` | — |
-| Show Input | Integer | `0.0` | — |
+| Possibilities | Float | `0` | Total number of items to choose from (n). |
+| Selection | Float | `0` | Number of items chosen, order mattering (k) — Output is the partial permutation `n! / (n − k)!`. |
+| Show Input | Integer | `0.0` | Reveals the wires for the Possibilities/Selection connections in the Flow view. |
 
 
 ## Related Nodes
@@ -39,5 +40,5 @@ Returns the sum of two numbers
 
 {/*
 Generated page — node: vNumberPartialPermutation (Core/Number/Operators).
-Source: fuse vNumberPartialPermutation.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberPartialPermutation.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

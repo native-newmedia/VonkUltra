@@ -1,6 +1,7 @@
 ---
 sidebar_position: 4
 title: vTextFromNet
+description: "Reads a Text string from a network URL The \"Input\" text-field is used to supply the http://, https://, or file:// based URL."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Reads a Text string from a network URL The "Input" text-field is used to supply 
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Text | `—` | — |
-| View URL | Float | `—` | — |
-| Show Input | Integer | `0.0` | — |
+| Input | Text | `—` | The http://, https://, or file:// URL to download text from. |
+| View URL | Float | `—` | Button — opens the Input URL in your default browser. |
+| Show Input | Integer | `0.0` | Reveals the wire for the Input connection in the Flow view. |
 
 
 ## Related Nodes
@@ -39,5 +40,5 @@ Reads a Text string from a network URL The "Input" text-field is used to supply 
 
 {/*
 Generated page — node: vTextFromNet (Core/Text/IO).
-Source: fuse vTextFromNet.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextFromNet.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

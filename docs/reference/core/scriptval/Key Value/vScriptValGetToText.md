@@ -1,6 +1,7 @@
 ---
 sidebar_position: 7
 title: vScriptValGetToText
+description: "Gets the value of a ScriptVal key"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,10 +24,10 @@ Gets the value of a ScriptVal key
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| ScriptVal | ScriptVal | `—` | — |
-| Key | Text | `—` | — |
-| Show Input | Integer | `0.0` | — |
-| Get Key | Float | `—` | — |
+| ScriptVal | ScriptVal | `—` | ScriptVal object to query. |
+| Key | Text | `—` | The key to look up, returned as Text. |
+| Show Input | Integer | `0.0` | Reveals the wire for the ScriptVal connection in the Flow view. |
+| Get Key | Float | `—` | Renames this node to `scriptval_<Key>`, making it easy to identify which key it reads at a glance. |
 
 
 ## Related Nodes
@@ -40,5 +41,5 @@ Gets the value of a ScriptVal key
 
 {/*
 Generated page — node: vScriptValGetToText (Core/ScriptVal/Key Value).
-Source: fuse vScriptValGetToText.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vScriptValGetToText.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

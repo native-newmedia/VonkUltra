@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 title: vJSONToFile
+description: "Writes a JSON string into a file The \"File\" text field is used to specify the filename of the JSON document to be written to disk."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Writes a JSON string into a file The "File" text field is used to specify the fi
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Text | `—` | — |
-| File | Text | `—` | — |
+| Input | Text | `—` | JSON text to write out. |
+| File | Text | `—` | Destination path for the saved JSON file. Written when the node is viewed or rendered. |
 
 
 ## Related Nodes
@@ -36,5 +37,5 @@ Writes a JSON string into a file The "File" text field is used to specify the fi
 
 {/*
 Generated page — node: vJSONToFile (Core/JSON/IO).
-Source: fuse vJSONToFile.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vJSONToFile.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

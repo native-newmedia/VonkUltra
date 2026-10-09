@@ -1,6 +1,7 @@
 ---
 sidebar_position: 16
 title: vFileSystemTouch
+description: "Touch a file/folder's creation and modification dates on macOS and Linux"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,7 +24,7 @@ Touch a file/folder's creation and modification dates on macOS and Linux
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Text | Text | `—` | — |
+| Text | Text | `—` | Path to the file or folder whose creation/modification timestamps are updated to now, creating it first if it doesn't exist. |
 
 
 ## Related Nodes
@@ -37,5 +38,5 @@ Touch a file/folder's creation and modification dates on macOS and Linux
 
 {/*
 Generated page — node: vFileSystemTouch (Core/FileSystem/Utility).
-Source: fuse vFileSystemTouch.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vFileSystemTouch.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

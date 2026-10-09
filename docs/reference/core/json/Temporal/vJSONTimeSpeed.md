@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vJSONTimeSpeed
+description: "Time based operation on JSON"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,10 +24,10 @@ Time based operation on JSON
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Text | `—` | — |
-| Speed | Float | `0.0` | — |
-| Delay | Float | `0.0` | — |
-| Show Input | Integer | `0.0` | — |
+| Input | Text | `—` | JSON text to re-time. |
+| Speed | Float | `0.0` | Playback rate multiplier applied when reading the value across frames — 1.0 is normal speed. |
+| Delay | Float | `0.0` | Time offset in frames applied before the speed change. |
+| Show Input | Integer | `0.0` | Reveals the wire for the Input connection in the Flow view. |
 
 
 ## Related Nodes
@@ -37,5 +38,5 @@ Time based operation on JSON
 
 {/*
 Generated page — node: vJSONTimeSpeed (Core/JSON/Temporal).
-Source: fuse vJSONTimeSpeed.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vJSONTimeSpeed.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vTextSubFormat
+description: "Formats a template string with input values Each input connection on the vTextSubFormat node can be placed exactly where it is needed using a token approach."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,11 +24,11 @@ Formats a template string with input values Each input connection on the vTextSu
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Which | Integer | `—` | — |
-| Text1 | Text | `—` | — |
-| Format | Text | `—` | — |
-| "Text" .. i | Text | `—` | — |
-| "Text" .. (inp_nr + 1) | Text | `—` | — |
+| Which | Integer | `—` | Reserved input, referenced by name from inside the node's internal script. |
+| Text1 | Text | `—` | The first token value, inserted wherever `{1}` appears in Format. |
+| Format | Text | `—` | Template string containing `{1}`, `{2}`, etc. tokens for each connected input. |
+| "Text" .. i | Text | `—` | Additional token value, added automatically as each prior input gets wired — appears in the UI as Text2, Text3, and so on. (The literal `"Text" .. i` label is a known display quirk in how this dynamically-generated input's name is parsed for these docs, not something visible in Fusion itself.) |
+| "Text" .. (inp_nr + 1) | Text | `—` | The next available token slot, added automatically once the one before it is connected. Same display quirk as above — shows in Fusion as Text3, Text4, etc. |
 
 
 ## Related Nodes
@@ -41,5 +42,5 @@ Formats a template string with input values Each input connection on the vTextSu
 
 {/*
 Generated page — node: vTextSubFormat (Core/Text/Substring).
-Source: fuse vTextSubFormat.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextSubFormat.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

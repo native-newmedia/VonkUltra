@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vTextOrderShuffle
+description: "Shuffles the order of a Fusion Text object The \"Text\" field contents will be output with a randomized order."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Shuffles the order of a Fusion Text object The "Text" field contents will be out
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Text | Text | `—` | — |
-| Show Input | Integer | `0.0` | — |
+| Text | Text | `—` | The text whose characters get randomly shuffled (Fisher–Yates). |
+| Show Input | Integer | `0.0` | Reveals the wire for the Text connection in the Flow view. |
 
 
 ## Related Nodes
@@ -35,5 +36,5 @@ Shuffles the order of a Fusion Text object The "Text" field contents will be out
 
 {/*
 Generated page — node: vTextOrderShuffle (Core/Text/Order).
-Source: fuse vTextOrderShuffle.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextOrderShuffle.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

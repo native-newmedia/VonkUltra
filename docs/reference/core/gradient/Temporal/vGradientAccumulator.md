@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vGradientAccumulator
+description: "Temporally concatenate Gradients"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,18 +24,18 @@ Temporally concatenate Gradients
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Gradient | Gradient | `—` | — |
-| Start Frame | Integer | `0` | — |
-| End Frame | Integer | `0` | — |
-| Step | Float | `1` | — |
-| Show Dump | Integer | `0.0` | — |
+| Gradient | Gradient | `—` | Gradient sampled once per frame across the Start/End range and concatenated into a single output. |
+| Start Frame | Integer | `0` | First frame to sample. |
+| End Frame | Integer | `0` | Last frame to sample. |
+| Step | Float | `1` | Frame increment between samples — use a value above 1 to sample more sparsely. |
+| Show Dump | Integer | `0.0` | Prints the accumulated gradient to the console each frame. |
 
 <details>
 <summary>+1 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Show Input | Integer | `0.0` | — |
+| Show Input | Integer | `0.0` | Reveals the wire for the Gradient connection in the Flow view. |
 
 </details>
 
@@ -48,5 +49,5 @@ Temporally concatenate Gradients
 
 {/*
 Generated page — node: vGradientAccumulator (Core/Gradient/Temporal).
-Source: fuse vGradientAccumulator.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vGradientAccumulator.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

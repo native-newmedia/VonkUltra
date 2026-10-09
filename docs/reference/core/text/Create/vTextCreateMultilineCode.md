@@ -1,6 +1,7 @@
 ---
 sidebar_position: 5
 title: vTextCreateMultilineCode
+description: "Create a multi-line Fusion Text object with syntax highlighting"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,10 +24,10 @@ Create a multi-line Fusion Text object with syntax highlighting
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Text | Text | `—` | — |
-| Syntax | Integer | `Lua` | — |
-| Display Lines | Integer | `25` | — |
-| Wrap Lines | Integer | `1.0` | — |
+| Text | Text | `—` | The multi-line code to output, shown with syntax highlighting. |
+| Syntax | Dropdown | `Lua` | Language used for syntax highlighting — Lua or Python. |
+| Display Lines | Integer | `25` | Number of lines shown in the Text box in the Inspector. |
+| Wrap Lines | Integer | `1.0` | Wraps long lines in the Text box instead of scrolling horizontally. |
 
 
 ## Related Nodes
@@ -40,5 +41,5 @@ Create a multi-line Fusion Text object with syntax highlighting
 
 {/*
 Generated page — node: vTextCreateMultilineCode (Core/Text/Create).
-Source: fuse vTextCreateMultilineCode.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextCreateMultilineCode.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

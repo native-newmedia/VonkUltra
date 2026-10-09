@@ -1,6 +1,7 @@
 ---
 sidebar_position: 8
 title: vVectorSubtract
+description: "Subtracts two vectors"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Subtracts two vectors
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Vector1 | Text | `—` | — |
-| Vector2 | Text | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| Vector1 | Text | `—` | First vector operand (encoded as text). |
+| Vector2 | Text | `—` | Second vector operand — subtracted element-wise from Vector1. |
+| Show Input | Integer | `1.0` | Reveals the wires for the Vector1/Vector2 connections in the Flow view. |
 
 
 ## Related Nodes
@@ -39,5 +40,5 @@ Subtracts two vectors
 
 {/*
 Generated page — node: vVectorSubtract (Core/Vector/Operators).
-Source: fuse vVectorSubtract.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vVectorSubtract.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

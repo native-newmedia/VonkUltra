@@ -1,6 +1,7 @@
 ---
 sidebar_position: 8
 title: vNumberRange
+description: "Creates a Fusion Number object The range node creates a list of numbers that vary between the \"From\" and \"To\" values."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,10 +24,10 @@ Creates a Fusion Number object The range node creates a list of numbers that var
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| From | Float | `0` | — |
-| To | Float | `0` | — |
-| Step | Float | `1` | — |
-| Show Input | Integer | `0.0` | — |
+| From | Float | `0` | Start of the number sequence. |
+| To | Float | `0` | End of the number sequence. |
+| Step | Float | `1` | Increment between each value in the sequence. |
+| Show Input | Integer | `0.0` | Reveals the wires for the From/To/Step connections in the Flow view. |
 
 
 ## Related Nodes
@@ -40,5 +41,5 @@ Creates a Fusion Number object The range node creates a list of numbers that var
 
 {/*
 Generated page — node: vNumberRange (Core/Number/Create).
-Source: fuse vNumberRange.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberRange.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

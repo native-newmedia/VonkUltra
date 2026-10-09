@@ -1,6 +1,7 @@
 ---
 sidebar_position: 4
 title: vTextProcessOpen
+description: "Launches a command-line process via popen The \"Text\" field is used to define the executable program name and the command-line arguments you want to run from a shell session."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Launches a command-line process via popen The "Text" field is used to define the
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Text | Text | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| Text | Text | `—` | The executable program name and command-line arguments to run via popen. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Text connection in the Flow view. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Launches a command-line process via popen The "Text" field is used to define the
 
 {/*
 Generated page — node: vTextProcessOpen (Core/Text/Script).
-Source: fuse vTextProcessOpen.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextProcessOpen.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

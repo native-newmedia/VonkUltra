@@ -1,6 +1,7 @@
 ---
 sidebar_position: 4
 title: vTextCompName
+description: "Returns the name of the comp An example output from this node would be the base filename for the currently open .comp file like: \"Demo Text.comp\" If the…"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -32,5 +33,5 @@ Returns the name of the comp An example output from this node would be the base 
 
 {/*
 Generated page — node: vTextCompName (Core/Text/Comp).
-Source: fuse vTextCompName.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextCompName.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

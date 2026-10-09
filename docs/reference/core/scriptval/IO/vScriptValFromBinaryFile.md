@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vScriptValFromBinaryFile
+description: "Reads a Fusion ScriptVal blob encoded object from a binary file The binary file data is Base64 encoded and placed in a Lua table structure."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,7 +24,7 @@ Reads a Fusion ScriptVal blob encoded object from a binary file The binary file 
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Text | `—` | — |
+| Input | Text | `—` | Path to the binary file to read and Base64-encode into the ScriptVal output. |
 
 
 ## Related Nodes
@@ -37,5 +38,5 @@ Reads a Fusion ScriptVal blob encoded object from a binary file The binary file 
 
 {/*
 Generated page — node: vScriptValFromBinaryFile (Core/ScriptVal/IO).
-Source: fuse vScriptValFromBinaryFile.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vScriptValFromBinaryFile.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

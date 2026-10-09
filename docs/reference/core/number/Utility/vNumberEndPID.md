@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vNumberEndPID
+description: "Quit a program using its PID (Process ID) on macOS and Linux It is possible to use the following terminal command to list a specific program's PID value: ps…"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Quit a program using its PID (Process ID) on macOS and Linux It is possible to u
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| PID | Integer | `0` | — |
-| Mode | Integer | `0` | — |
+| PID | Integer | `0` | Process ID of the program to quit. |
+| Mode | Dropdown | `SIGTERM` | Signal sent to the process — SIGTERM (graceful quit), SIGHUP (hangup) or SIGKILL (force quit). |
 
 
 ## Related Nodes
@@ -36,5 +37,5 @@ Quit a program using its PID (Process ID) on macOS and Linux It is possible to u
 
 {/*
 Generated page — node: vNumberEndPID (Core/Number/Utility).
-Source: fuse vNumberEndPID.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberEndPID.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 title: vTextCreateBrowse
+description: "Creates a Fusion Text object with a file browser dialog This node is used to create filepath based Text data type content."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Creates a Fusion Text object with a file browser dialog This node is used to cre
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Text | Text | `—` | — |
-| Expand PathMaps | Integer | `0.0` | — |
+| Text | Text | `—` | The filepath text — click Browse to fill it in via a file picker dialog. |
+| Expand PathMaps | Integer | `0.0` | Converts a relative PathMap-based filepath into an absolute path on the output. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Creates a Fusion Text object with a file browser dialog This node is used to cre
 
 {/*
 Generated page — node: vTextCreateBrowse (Core/Text/Create).
-Source: fuse vTextCreateBrowse.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextCreateBrowse.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

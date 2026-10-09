@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vPointFromText
+description: "Returns a Fusion Point object from two Text inputs"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Returns a Fusion Point object from two Text inputs
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| InputX | Text | `—` | — |
-| InputY | Text | `—` | — |
-| Show Input | Integer | `0.0` | — |
+| InputX | Text | `—` | Text containing the X value of the resulting Point — parsed as a number. |
+| InputY | Text | `—` | Text containing the Y value of the resulting Point — parsed as a number. |
+| Show Input | Integer | `0.0` | Reveals the wires for the InputX/InputY connections in the Flow view. |
 
 
 ## Related Nodes
@@ -36,5 +37,5 @@ Returns a Fusion Point object from two Text inputs
 
 {/*
 Generated page — node: vPointFromText (Core/Point/Text).
-Source: fuse vPointFromText.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vPointFromText.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

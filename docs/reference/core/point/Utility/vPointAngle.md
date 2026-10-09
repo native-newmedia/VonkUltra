@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vPointAngle
+description: "Measure the angle in degrees between two Fusion Point objects The output from this node is a Number datatype that reports the angle between Point1 and Point2."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,9 +24,9 @@ Measure the angle in degrees between two Fusion Point objects The output from th
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Point1 | Point | `—` | — |
-| Point2 | Point | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| Point1 | Point | `—` | First point. |
+| Point2 | Point | `—` | Second point — Output is the angle in degrees between Point1 and Point2. |
+| Show Input | Integer | `1.0` | Reveals the wires for the Point1/Point2 connections in the Flow view. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Measure the angle in degrees between two Fusion Point objects The output from th
 
 {/*
 Generated page — node: vPointAngle (Core/Point/Utility).
-Source: fuse vPointAngle.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vPointAngle.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

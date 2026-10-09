@@ -1,6 +1,7 @@
 ---
 sidebar_position: 5
 title: vTextFromFilename
+description: "Creates a Fusion Text object by parsing a filepath."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -15,13 +16,15 @@ Creates a Fusion Text object by parsing a filepath.
   <span className="node-badge">Text</span>
 </div>
 
-{/* No screenshot available for vTextFromFilename yet. */}
+<div className="node-screenshot">
+  <img src="/VonkUltra/img/reference/core/text/vTextFromFilename.png" alt="vTextFromFilename node" />
+</div>
 
 ## Parameters
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Text | Text | `—` | — |
+| Text | Text | `—` | The filepath to parse. |
 
 
 ## Related Nodes
@@ -35,5 +38,5 @@ Creates a Fusion Text object by parsing a filepath.
 
 {/*
 Generated page — node: vTextFromFilename (Core/Text/Utility).
-Source: fuse vTextFromFilename.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextFromFilename.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

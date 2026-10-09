@@ -1,6 +1,7 @@
 ---
 sidebar_position: 7
 title: vGradientViewer
+description: "View a Gradient object in the Inspector"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,10 +24,10 @@ View a Gradient object in the Inspector
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Gradient | Gradient | `—` | — |
-| Show Dump | Integer | `0.0` | — |
-| Display Lines | Integer | `25` | — |
-| ScriptVal | ScriptVal | `—` | — |
+| Gradient | Gradient | `—` | Gradient to inspect. |
+| Show Dump | Integer | `0.0` | Prints the gradient's colour stops to the console each frame, in addition to the tree view below. |
+| Display Lines | Integer | `25` | Number of visible lines in the tree view before scrolling. |
+| ScriptVal | ScriptVal | `—` | Read-only tree view of the gradient's colour stops. |
 
 
 ## Related Nodes
@@ -40,5 +41,5 @@ View a Gradient object in the Inspector
 
 {/*
 Generated page — node: vGradientViewer (Core/Gradient/Utility).
-Source: fuse vGradientViewer.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vGradientViewer.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

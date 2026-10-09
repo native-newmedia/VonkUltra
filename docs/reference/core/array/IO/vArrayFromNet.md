@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vArrayFromNet
+description: "Reads JSON from a network URL and outputs a JSON array object."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -15,15 +16,17 @@ Reads JSON from a network URL and outputs a JSON array object.
   <span className="node-badge">Array</span>
 </div>
 
-{/* No screenshot available for vArrayFromNet yet. */}
+<div className="node-screenshot">
+  <img src="/VonkUltra/img/reference/core/array/vArrayFromNet.png" alt="vArrayFromNet node" />
+</div>
 
 ## Parameters
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Text | `—` | — |
-| View URL | Float | `—` | — |
-| Show Input | Integer | `0.0` | — |
+| Input | Text | `—` | URL of the network JSON resource to fetch. |
+| View URL | Float | `—` | Opens Input's URL in the system's default web browser, for a quick sanity check of the source. |
+| Show Input | Integer | `0.0` | Reveals the wire for the Input connection in the Flow view. |
 
 
 ## Related Nodes
@@ -34,5 +37,5 @@ Reads JSON from a network URL and outputs a JSON array object.
 
 {/*
 Generated page — node: vArrayFromNet (Core/Array/IO).
-Source: fuse vArrayFromNet.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vArrayFromNet.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

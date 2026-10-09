@@ -1,6 +1,7 @@
 ---
 sidebar_position: 20
 title: vNumberSmoothstep
+description: "Generates a smoothstep function"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,10 +24,10 @@ Generates a smoothstep function
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Threshold1 | Float | `0` | — |
-| Threshold2 | Float | `0` | — |
-| Number | Float | `0` | — |
-| Show Input | Integer | `1.0` | — |
+| Threshold1 | Float | `0` | Lower edge — Number at or below this returns 0. |
+| Threshold2 | Float | `0` | Upper edge — Number at or above this returns 1. |
+| Number | Float | `0` | Value to smoothly interpolate between Threshold1 and Threshold2, using an S-curve rather than a linear ramp. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Number connection in the Flow view. |
 
 
 ## Related Nodes
@@ -40,5 +41,5 @@ Generates a smoothstep function
 
 {/*
 Generated page — node: vNumberSmoothstep (Core/Number/Operators).
-Source: fuse vNumberSmoothstep.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vNumberSmoothstep.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

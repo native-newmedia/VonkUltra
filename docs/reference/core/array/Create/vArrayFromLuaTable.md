@@ -1,6 +1,7 @@
 ---
 sidebar_position: 4
 title: vArrayFromLuaTable
+description: "Casts a Lua Table to an array A Lua table structure is used as the underlying format for Fusion .comp files, Fusion macro/effects template .setting files,…"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Casts a Lua Table to an array A Lua table structure is used as the underlying fo
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Text | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| Input | Text | `—` | Lua table-formatted text to cast into an array — the same format used by Fusion `.comp`/`.setting` files, Reactor `.atom` packages, `.prefs` files, and Lua metadata tables. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Input connection in the Flow view. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Casts a Lua Table to an array A Lua table structure is used as the underlying fo
 
 {/*
 Generated page — node: vArrayFromLuaTable (Core/Array/Create).
-Source: fuse vArrayFromLuaTable.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vArrayFromLuaTable.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

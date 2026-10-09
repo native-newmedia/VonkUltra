@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vTextDump
+description: "Dump the contents of a Fusion Text object to the Console window The vTextDump node is handy for printing diagnostic logging information to the Console during a complex workflow."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,8 +24,8 @@ Dump the contents of a Fusion Text object to the Console window The vTextDump no
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Text | Text | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| Text | Text | `—` | The text to print to the Console window. |
+| Show Input | Integer | `1.0` | Reveals the wire for the Text connection in the Flow view. |
 
 
 ## Related Nodes
@@ -38,5 +39,5 @@ Dump the contents of a Fusion Text object to the Console window The vTextDump no
 
 {/*
 Generated page — node: vTextDump (Core/Text/Utility).
-Source: fuse vTextDump.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextDump.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: vTextCompAppUUID
+description: "Returns the Fusion application process UUID A UUID value is formatted like: 11625315-7785-4eb4-8b2f-d6dca235c42 This node is powered by the Lua function \"bmd.getappuuid()\"."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -32,5 +33,5 @@ Returns the Fusion application process UUID A UUID value is formatted like: 1162
 
 {/*
 Generated page — node: vTextCompAppUUID (Core/Text/Comp).
-Source: fuse vTextCompAppUUID.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vTextCompAppUUID.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}

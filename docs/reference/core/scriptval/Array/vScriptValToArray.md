@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 title: vScriptValToArray
+description: "Casts a ScriptVal object into a JSON array This node takes a ScriptVal datatype as the input which is translated into a Text based JSON array output."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,7 +24,7 @@ Casts a ScriptVal object into a JSON array This node takes a ScriptVal datatype 
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| ScriptVal | ScriptVal | `—` | — |
+| ScriptVal | ScriptVal | `—` | ScriptVal Lua table to cast into JSON array text. |
 
 
 ## Related Nodes
@@ -34,5 +35,5 @@ Casts a ScriptVal object into a JSON array This node takes a ScriptVal datatype 
 
 {/*
 Generated page — node: vScriptValToArray (Core/ScriptVal/Array).
-Source: fuse vScriptValToArray.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vScriptValToArray.fuse + Docsify mega-page. Param descriptions written 18 Sep 2026 (manual content pass).
 */}
