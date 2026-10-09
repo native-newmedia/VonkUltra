@@ -14,7 +14,11 @@ They are written from the connection patterns that recur across the node referen
 
 ### Camera projection pipelines
 
-The base of this pattern is the chain [Your First Comp](../getting-started/your-first-comp) builds: generator → `vArrayCameraProjection` → `vArrayShapeRender`, over a `Background`. The guide version covers what changes as you push it further:
+The base of this pattern is the chain [Your First Comp](../getting-started/your-first-comp) builds: generator → `vArrayCameraProjection` → `vArrayShapeRender`, over a `Background`.
+
+**Published:** [Camera Projection Pipelines](./camera-projection-pipelines) covers the whole thing — animating the virtual camera, 3D point clouds, OBJ meshes and their edge data, text through the pipeline, optional displacement, and all four render inputs.
+
+These are the other things that guide covers:
 
 - **Animating the camera instead of the geometry.** `Y Rotation` orbits a 3D point cloud, `Z Offset` pushes in, and `Field of view` flattens the perspective towards orthographic or exaggerates the foreshortening.
 - **Feeding it from a mesh.** `vArrayFromOBJ` outputs both **Points** and **Edges**, so one node can drive the dot layer *and* the line layer — connect the edges to `Array Edge` and enable **Use Edge Data** to draw the mesh's real topology rather than joining sequential points.
@@ -43,4 +47,4 @@ Text is the largest Core type — 88 `vText*` nodes — and the Mograph family a
 
 ## Status
 
-No guide is published yet — the three above are being written, in that order, starting with camera projection pipelines. Until then, the [Reference](/docs/reference) is complete: every node page carries its parameters, connection examples and related nodes.
+One guide is published — [Camera Projection Pipelines](./camera-projection-pipelines). The particle/point-generation and text/font guides are next. In the meantime the [Reference](/docs/reference) is complete on its own: every node page carries its parameters, connection examples and related nodes.

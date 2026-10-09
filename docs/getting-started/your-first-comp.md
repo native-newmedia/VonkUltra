@@ -142,5 +142,6 @@ The generator is the only part of this pipeline that's specific to the example. 
 ## Where to go next
 
 - [Core Concepts](./core-concepts) — why typing `vArray` in the picker lists what it does, and how the Mograph families relate.
+- [Camera Projection Pipelines](../guides/camera-projection-pipelines) — the guide that takes this chain further: orbiting the camera, OBJ meshes, text, and all four render inputs.
 - [Reference: Mograph / Array](/docs/reference/mograph/array) — all 192 array nodes, grouped by function.
 - [Video Tutorials](../tutorials/video-tutorials) — worked examples, including the vJSON family in motion.
