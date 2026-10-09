@@ -176,9 +176,9 @@ const config = {
       ...(preview
         ? {
             announcementBar: {
-              id: 'preview-2026-09-17',
+              id: 'preview-2026-10-09',
               content:
-                'Preview build · 17 Sep 2026 — the structure is complete; parameter descriptions and Related Nodes are still being written.',
+                'Preview build · 9 Oct 2026 — the structure is complete; Core parameter descriptions are written, Mograph descriptions and Related Nodes are still being written.',
               backgroundColor: '#ffcb6b',
               textColor: '#131820',
               isCloseable: true,
