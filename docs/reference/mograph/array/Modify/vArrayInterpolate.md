@@ -1,6 +1,7 @@
 ---
-sidebar_position: 6
+sidebar_position: 20
 title: vArrayInterpolate
+description: "Blend two arrays"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -62,7 +63,7 @@ vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
 
 ```
 vArrayPointsOnCircle.Output -> vArrayInterpolate.ArrayA
-vArrayCreateRandom.Output -> vArrayInterpolate.ArrayB
+vArrayRandom.Output -> vArrayInterpolate.ArrayB
 vArrayInterpolate.Output -> vArrayCameraProjection.ArrayA
 ```
 

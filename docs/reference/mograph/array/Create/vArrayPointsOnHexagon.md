@@ -1,0 +1,68 @@
+---
+sidebar_position: 42
+title: vArrayPointsOnHexagon
+description: "Generate points on Hexagon Grid"
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# vArrayPointsOnHexagon
+
+Generate points on Hexagon Grid
+
+<div className="node-badge-row">
+  <span className="node-badge">Mograph / Array</span>
+  <span className="node-badge">Array</span>
+  <span className="node-badge">ScriptVal</span>
+  <span className="node-badge">JSON</span>
+</div>
+
+<div className="node-screenshot">
+  <img src="/VonkUltra/img/reference/mograph/array/vArrayPointsOnHexagon.png" alt="vArrayPointsOnHexagon node" />
+</div>
+
+## Parameters
+
+| Parameter | Type | Default | Description |
+|---|---|---|---|
+| Rows | Integer | `10` | Number of rows. |
+| Columns | Integer | `10` | — |
+| Tile X Offset | Float | `0.1` | Offset between tiles along X. |
+| Tile Y Offset | Float | `0.1` | Offset between tiles along Y. |
+| Multiplier | Float | `0.5` | — |
+
+<details>
+<summary>+1 more parameters</summary>
+
+| Parameter | Type | Default | Description |
+|---|---|---|---|
+| Direction | Dropdown | `Vertical` | Vertical or Horizontal layout. |
+
+</details>
+
+## Example Connections
+
+<Tabs>
+<TabItem value="example-1" label="Example 1" default>
+
+```
+vArrayPointsOnHexagon.Output -> vArrayCameraProjection.ArrayA
+    vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+    Background.Output -> vArrayShapeRender.Input
+```
+
+</TabItem>
+</Tabs>
+
+## Related Nodes
+
+<div className="node-chip-row">
+  <a className="node-chip" href="../Modify/vArrayCameraProjection">vArrayCameraProjection</a>
+  <a className="node-chip" href="../ShapeRender/vArrayShapeRender">vArrayShapeRender</a>
+</div>
+
+{/*
+Generated page — node: vArrayPointsOnHexagon (Array/Create).
+Source: fuse vArrayPointsOnHexagon.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+*/}

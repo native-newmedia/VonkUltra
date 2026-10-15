@@ -26,22 +26,11 @@ Return multiple font measurements as a Fusion ScriptVal object
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Random Font | Integer | `1` | — |
 | Font Size | Float | `0.1` | — |
-| "separator " .. i | Float | `—` | — |
 | "Enable Font " .. i | Float | `(i == 1) and 1 or 0` | — |
 | "Font " .. i | Text | `—` | — |
-
-<details>
-<summary>+2 more parameters</summary>
-
-| Parameter | Type | Default | Description |
-|---|---|---|---|
 | "Style " .. i | Text | `—` | — |
 | "Probability " .. i | Float | `0.0` | — |
-
-</details>
-
 
 ## Related Nodes
 

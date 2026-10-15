@@ -1,5 +1,5 @@
 ---
-sidebar_position: 54
+sidebar_position: 43
 title: vScriptValPointsOnRectangle
 description: "Generate points on Rectangle"
 ---
@@ -26,24 +26,22 @@ Generate points on Rectangle
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Segments | Integer | `24` | — |
-| Width | Float | `0.5` | — |
-| Height | Float | `0.5` | — |
-| Border Radius | Float | `0.5` | — |
+| Segments | Integer | `24` | Number of segments. |
+| Width | Float | `0.5` | Width. |
+| Height | Float | `0.5` | Height. |
+| Border Radius | Float | `0.5` | Radius of the corners. |
 | Line Strip | Integer | `0.0` | — |
 
 <details>
-<summary>+7 more parameters</summary>
+<summary>+5 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | Loop | Integer | `0.0` | — |
-| line6Separator | Float | `—` | — |
 | TopLeft Corner  | Integer | `1.0` | — |
 | TopRight Corner  | Integer | `1.0` | — |
 | BottomLeft Corner  | Integer | `1.0` | — |
 | BottomRight Corner  | Integer | `1.0` | — |
-| Show Input | Integer | `0.0` | — |
 
 </details>
 

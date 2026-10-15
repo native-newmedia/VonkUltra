@@ -1,5 +1,5 @@
 ---
-sidebar_position: 8
+sidebar_position: 7
 title: vArrayMergeOBJ
 description: "Merge Wavefront OBJ geometry with edge and point Arrays"
 ---
@@ -28,8 +28,22 @@ Merge Wavefront OBJ geometry with edge and point Arrays
 |---|---|---|---|
 | Points 1 | DATATYPE | `—` | — |
 | Edges 1 | DATATYPE | `—` | — |
+| UVs 1 | DATATYPE | `—` | — |
+| UV Edges 1 | DATATYPE | `—` | — |
+| Matrix 1 | Text | `—` | — |
+
+<details>
+<summary>+5 more parameters</summary>
+
+| Parameter | Type | Default | Description |
+|---|---|---|---|
 | Points 2 | DATATYPE | `—` | — |
 | Edges 2 | DATATYPE | `—` | — |
+| UVs 2 | DATATYPE | `—` | — |
+| UV Edges 2 | DATATYPE | `—` | — |
+| Matrix 2 | Text | `—` | — |
+
+</details>
 
 ## Example Connections
 

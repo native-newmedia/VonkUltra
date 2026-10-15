@@ -1,5 +1,5 @@
 ---
-sidebar_position: 8
+sidebar_position: 24
 title: vScriptValMap
 description: "Normalize Array Values using various methods."
 ---
@@ -26,23 +26,11 @@ Normalize Array Values using various methods.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Normalization Method | Dropdown | `Min-Max (0 to 1)` | — |
-| line1Separator | Float | `—` | — |
+| Normalization Method | Dropdown | `Min-Max (0 to 1)` | Method used to normalize the values. Options: Min-Max (0 to 1), Min-Max (Custom Range), Z-Score (Standardize), Unit Vector (L2 Norm), L1 Norm (Sum to 1), Max Abs (Scale by Max). |
 | CustomMin | Float | `0` | — |
 | CustomMax | Float | `1` | — |
-| Normalize Per Axis | Integer | `1.0` | — |
-
-<details>
-<summary>+3 more parameters</summary>
-
-| Parameter | Type | Default | Description |
-|---|---|---|---|
-| line2Separator | Float | `—` | — |
-| Show Input | Integer | `0.0` | — |
-| Array | ScriptVal | `—` | — |
-
-</details>
-
+| Normalize Per Axis | Integer | `1.0` | Normalizes X, Y and Z separately. |
+| Input | ScriptVal | `—` | Data to process. |
 
 ## Related Nodes
 

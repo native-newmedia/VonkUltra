@@ -1,5 +1,5 @@
 ---
-sidebar_position: 9
+sidebar_position: 8
 title: vJSONLogicDeleteByMask
 description: "Filter input by 0/1 mask (keep or delete masked elements)."
 ---
@@ -26,16 +26,15 @@ Filter input by 0/1 mask (keep or delete masked elements).
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Mode | Dropdown | `Keep Masked` | — |
-| Invert Mask | Integer | `0` | — |
-| Input | DATATYPE | `—` | — |
-| Mask | DATATYPE | `—` | — |
-
+| Mode | Dropdown | `Keep Masked` | Keep Masked or Delete Masked. |
+| Invert Mask | Integer | `0` | Flips the mask before it is applied. |
+| Input | DATATYPE | `—` | Data to process. |
+| Mask | DATATYPE | `—` | Mask with one 0 or 1 value per element. |
 
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="./vJSONCountMask">vJSONCountMask</a>
+  <a className="node-chip" href="./vJSONLogicCount">vJSONLogicCount</a>
   <a className="node-chip" href="./vJSONLogicAND">vJSONLogicAND</a>
   <a className="node-chip" href="./vJSONLogicAll">vJSONLogicAll</a>
   <a className="node-chip" href="./vJSONLogicAny">vJSONLogicAny</a>

@@ -31,16 +31,14 @@ Material Design 3 Easing Curve Tool
 | End Value | Float | `1.0` | — |
 
 <details>
-<summary>+3 more parameters</summary>
+<summary>+2 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | Easing Type | Dropdown | `Emphasized Accelerate` | — |
-| line1Separator | Float | `—` | — |
 | Preview Spline | LookUpTable | `—` | — |
 
 </details>
-
 
 ## Related Nodes
 

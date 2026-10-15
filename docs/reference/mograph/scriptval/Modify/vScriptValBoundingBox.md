@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 7
 title: vScriptValBoundingBox
 description: "Calculate a 3D, 2D, or 1D bounding box volume from a ScriptVal object of XYZ/XY/X points"
 ---
@@ -26,7 +26,7 @@ Calculate a 3D, 2D, or 1D bounding box volume from a ScriptVal object of XYZ/XY/
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| ScriptVal | ScriptVal | `—` | — |
+| Input | ScriptVal | `—` | Data to process. |
 
 ## Example Connections
 

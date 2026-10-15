@@ -26,21 +26,20 @@ Temporally concatenate Wavefront OBJ geometry with edge and point ScriptVal arra
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| ScriptVal Points 1 | ScriptVal | `—` | — |
-| ScriptVal Edges 1 | ScriptVal | `—` | — |
-| Start Frame | Integer | `0` | — |
-| End Frame | Integer | `0` | — |
-| Step | Float | `1` | — |
+| Points 1 | ScriptVal | `—` | — |
+| Edges 1 | ScriptVal | `—` | — |
+| Start Frame | Integer | `0` | First frame to read. |
+| End Frame | Integer | `0` | Last frame to read. |
+| Step | Float | `1` | Frame increment between samples. |
 
 <details>
 <summary>+1 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Show Input | Integer | `0.0` | — |
+| Show Input | Integer | `0.0` | Shows the frame range controls. |
 
 </details>
-
 
 ## Related Nodes
 

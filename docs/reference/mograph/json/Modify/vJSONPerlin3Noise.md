@@ -1,5 +1,5 @@
 ---
-sidebar_position: 55
+sidebar_position: 37
 title: vJSONPerlin3Noise
 description: "Perlin Noise function on array values"
 ---
@@ -26,19 +26,19 @@ Perlin Noise function on array values
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | Text | `—` | — |
-| Noise Type | Dropdown | `Perlin` | — |
-| Time | Float | `1` | — |
-| Frequency | Float | `1` | — |
-| Scale | Float | `1` | — |
+| Input | Text | `—` | Data to process. |
+| Noise Type | Dropdown | `Perlin` | Perlin or Fractal noise. |
+| Time | Float | `1` | Offsets the noise or wave in time. |
+| Frequency | Float | `1` | Frequency of the noise or wave. |
+| Scale | Float | `1` | Scale of the effect. |
 
 <details>
 <summary>+3 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Octaves | Float | `1` | — |
-| Persistence | Float | `0.5` | — |
+| Octaves | Float | `1` | Number of noise layers added together. Shown when the related option is enabled. |
+| Persistence | Float | `0.5` | Amplitude multiplier per octave. Shown when the related option is enabled. |
 | Show Input | Integer | `1.0` | — |
 
 </details>

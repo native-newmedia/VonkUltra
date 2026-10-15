@@ -26,27 +26,26 @@ Per-element temporal delta for Array text payloads.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Frame Step | Integer | `1` | — |
-| Output Mode | Dropdown | `OUTPUT_MODE_DELTA` | — |
-| Fallback To Current | Integer | `1` | — |
-| Offset X | Float | `0` | — |
-| Offset Y | Float | `0` | — |
+| Frame Step | Integer | `1` | Frames back to compare with. |
+| Output Mode | Dropdown | `OUTPUT_MODE_DELTA` | Delta, or Position + Delta. |
+| Fallback To Current | Integer | `1` | Uses the current frame when no earlier frame exists, so the first change is zero. |
+| Offset X | Float | `0` | Added to every output point. |
+| Offset Y | Float | `0` | Added to every output point. |
 
 <details>
 <summary>+2 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Offset Z | Float | `0` | — |
-| Input | DATATYPE | `—` | — |
+| Offset Z | Float | `0` | Added to every output point. |
+| Input | DATATYPE | `—` | Data to process. |
 
 </details>
-
 
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="./vArrayAccumulator">vArrayAccumulator</a>
+  <a className="node-chip" href="./vArrayAccumulatorXform">vArrayAccumulatorXform</a>
   <a className="node-chip" href="./vArrayAccumulatorOBJ">vArrayAccumulatorOBJ</a>
   <a className="node-chip" href="./vArrayTemporalSmooth">vArrayTemporalSmooth</a>
   <a className="node-chip" href="./vArrayTemporalSolverStep">vArrayTemporalSolverStep</a>

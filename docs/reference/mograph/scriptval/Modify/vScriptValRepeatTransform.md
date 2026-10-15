@@ -1,5 +1,5 @@
 ---
-sidebar_position: 60
+sidebar_position: 49
 title: vScriptValRepeatTransform
 description: "Repeat a ScriptVal array by transforming it x times (v8: Instance IDs)"
 ---
@@ -26,60 +26,58 @@ Repeat a ScriptVal array by transforming it x times (v8: Instance IDs)
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Array Mode | Dropdown | `Linear` | — |
-| Number of Times | Integer | `1` | — |
-| Radius | Float | `0.1` | — |
-| Spiral Height | Float | `0.1` | — |
-| Grid Columns (X) | Integer | `2` | — |
+| Array Mode | Dropdown | `Linear` | Arrangement of the copies. Options: Linear, Circular, Spiral, Grid 2D, Grid 3D. |
+| Number of Times | Integer | `1` | Number of copies. |
+| Radius | Float | `0.1` | Radius of the effect. Shown when the related option is enabled. |
+| Spiral Height | Float | `0.1` | Height of the spiral. Shown when the related option is enabled. |
+| Grid Columns (X) | Integer | `2` | Columns of the grid. Shown when the related option is enabled. |
 
 <details>
-<summary>+40 more parameters</summary>
+<summary>+39 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Grid Rows (Y) | Integer | `2` | — |
-| Grid Depth (Z) | Integer | `3` | — |
-| Grid Spacing X | Float | `0.1` | — |
-| Grid Spacing Y | Float | `0.1` | — |
-| Grid Spacing Z | Float | `0.1` | — |
-| Translate X | Float | `0` | — |
-| Translate Y | Float | `0` | — |
-| Translate Z | Float | `0` | — |
-| Scale X | Float | `0` | — |
-| Scale Y | Float | `0` | — |
-| Scale Z | Float | `0` | — |
-| Rotation X | Float | `0` | — |
-| Rotation Y | Float | `0` | — |
-| Rotation Z | Float | `0` | — |
-| Rotation Order | Dropdown | `XYZ` | — |
-| Pivot X | Float | `0` | — |
-| Pivot Y | Float | `0` | — |
-| Pivot Z | Float | `0` | — |
-| Enable Random | Float | `0` | — |
-| Random Seed | Integer | `0` | — |
-| Random Translate | Float | `0` | — |
-| Random Rotate | Float | `0` | — |
-| Random Scale | Float | `0` | — |
-| Enable Shake | Float | `0` | — |
-| Position Amplitude | Float | `0.0` | — |
-| Rotation Amplitude | Float | `0.0` | — |
-| Scale Amplitude | Float | `0.0` | — |
-| Frequency | Float | `1.0` | — |
-| Speed | Float | `0.0` | — |
-| Phase | Float | `0.0` | — |
-| Seed | Integer | `0.0` | — |
-| Lag | Float | `0.0` | — |
-| Cumulative Lag | Float | `0.0` | — |
-| Reverse | Float | `0.0` | — |
-| Separator_1 | Float | `—` | — |
-| Mirror X Every Other | Float | `0` | — |
-| Mirror Y Every Other | Float | `0` | — |
-| Mirror Z Every Other | Float | `0` | — |
+| Grid Rows (Y) | Integer | `2` | Rows of the grid. Shown when the related option is enabled. |
+| Grid Depth (Z) | Integer | `3` | Layers of the grid. Shown when the related option is enabled. |
+| Grid Spacing X | Float | `0.1` | Spacing along X. Shown when the related option is enabled. |
+| Grid Spacing Y | Float | `0.1` | Spacing along Y. Shown when the related option is enabled. |
+| Grid Spacing Z | Float | `0.1` | Spacing along Z. Shown when the related option is enabled. |
+| Translate X | Float | `0` | Translation along X. |
+| Translate Y | Float | `0` | Translation along Y. |
+| Translate Z | Float | `0` | Translation along Z. |
+| Scale X | Float | `0` | Scale along X. |
+| Scale Y | Float | `0` | Scale along Y. |
+| Scale Z | Float | `0` | Scale along Z. |
+| Rotation X | Float | `0` | Rotation per copy around X. |
+| Rotation Y | Float | `0` | Rotation per copy around Y. |
+| Rotation Z | Float | `0` | Rotation per copy around Z. |
+| Rotation Order | Dropdown | `XYZ` | Order in which the rotations are applied. Options: XYZ, YXZ, ZYX, XZY, YZX, ZXY. |
+| Pivot X | Float | `0` | Pivot X. |
+| Pivot Y | Float | `0` | Pivot Y. |
+| Pivot Z | Float | `0` | Pivot Z. |
+| Enable Random | Float | `0` | Adds random variation to each copy. |
+| Random Seed | Integer | `0` | Seed of the random generator. |
+| Random Translate | Float | `0` | Random translation range. |
+| Random Rotate | Float | `0` | Random rotation range. |
+| Random Scale | Float | `0` | Random scale range. |
+| Enable Shake | Float | `0` | Animates a shake on each copy. |
+| Position Amplitude | Float | `0.0` | Shake amplitude for position. |
+| Rotation Amplitude | Float | `0.0` | Shake amplitude for rotation. |
+| Scale Amplitude | Float | `0.0` | Shake amplitude for scale. |
+| Frequency | Float | `1.0` | Frequency of the noise or wave. |
+| Speed | Float | `0.0` | Speed of the animation. |
+| Phase | Float | `0.0` | Shifts the wave in phase. |
+| Seed | Integer | `0.0` | Seed of the random generator. |
+| Lag | Float | `0.0` | Delay between copies in the animation. |
+| Cumulative Lag | Float | `0.0` | Adds the lag of every previous copy. |
+| Reverse | Float | `0.0` | Reverses the direction. |
+| Mirror X Every Other | Float | `0` | Mirrors every second copy along X. |
+| Mirror Y Every Other | Float | `0` | Mirrors every second copy along Y. |
+| Mirror Z Every Other | Float | `0` | Mirrors every second copy along Z. |
 | Input Array | ScriptVal | `—` | — |
 | Position Array | ScriptVal | `—` | — |
 
 </details>
-
 
 ## Related Nodes
 

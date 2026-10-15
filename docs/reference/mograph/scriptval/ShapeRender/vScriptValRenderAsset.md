@@ -26,70 +26,62 @@ Render 3D wireframe from a ScriptVal Lua table of vGeometry mesh data Example No
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| View Mode | Dropdown | `Geometry` | — |
-| Show Bounding Box | Integer | `0` | — |
-| Field of View | Float | `90.0` | — |
+| View Mode | Dropdown | `Geometry` | Geometry or UV Snapshot. |
+| Show Bounding Box | Integer | `0` | Draws the bounding box of the model. |
+| Field of View | Float | `90.0` | Perspective field of view in degrees. |
 | Screen aspect ratio | Float | `16 / 9` | — |
 | Near clipping plane | Float | `0.1` | — |
 
 <details>
-<summary>+53 more parameters</summary>
+<summary>+45 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | Far clipping plane | Float | `1000` | — |
-| X Shear | Float | `0.0` | — |
-| Y Shear | Float | `0.0` | — |
-| Use Edge Data | Integer | `1` | — |
-| Show Lines | Integer | `1` | — |
-| Show Per-Object Color | Integer | `0.0` | — |
-| Show Dots | Integer | `1` | — |
-| Show Index | Integer | `0` | — |
-| Line Width | Float | `0.005` | — |
-| Dot Radius | Float | `0.0025` | — |
-| Separator_2 | Float | `—` | — |
-| Red | Float | `0.466` | — |
-| Green | Float | `0.847` | — |
-| Blue | Float | `0.588` | — |
-| Alpha | Float | `1.0` | — |
-| Dot Sides | Integer | `4` | — |
-| Dot Width | Float | `0.0` | — |
-| Hide Default Dots | Integer | `0` | — |
-| Hide Custom Dots | Integer | `0` | — |
-| Render Outline Dots | Integer | `0` | — |
-| Scale Dots | Float | `1` | — |
-| Separator_3 | Float | `—` | — |
-| Red | Float | `1.0` | — |
-| Green | Float | `1.0` | — |
-| Blue | Float | `0.56` | — |
-| Alpha | Float | `1.0` | — |
-| Text Size | Float | `0.02` | — |
-| Text Style | Dropdown | `Bold` | — |
-| Separator_4 | Float | `—` | — |
-| Red | Float | `1.0` | — |
-| Green | Float | `1` | — |
-| Blue | Float | `1` | — |
-| Alpha | Float | `1.0` | — |
-| Separator_5 | Float | `—` | — |
-| Fade Color | Float | `0.1` | — |
-| Separator_6 | Float | `—` | — |
+| Use Edge Data | Integer | `1` | Draws the edge list instead of connecting points in order. |
+| Show Lines | Integer | `1` | Draws the lines. |
+| Show Per-Object Color | Integer | `0.0` | Uses the color stored with each object. |
+| Show Dots | Integer | `1` | Draws a dot at each point. |
+| Show Index | Integer | `0` | Draws the index number at each point. |
+| Line Width | Float | `0.005` | Width of the lines. |
+| Dot Radius | Float | `0.0025` | Radius of the dots. |
+| Red | Float | `0.466` | Color for the line. |
+| Green | Float | `0.847` | Color for the line. |
+| Blue | Float | `0.588` | Color for the line. |
+| Alpha | Float | `1.0` | Color for the line. |
+| Dot Sides | Integer | `4` | Number of sides of each dot. |
+| Dot Width | Float | `0.0` | Outline width of the dots. |
+| Hide Default Dots | Integer | `0` | Hides the built-in dots. |
+| Hide Custom Dots | Integer | `0` | Hides the custom dot shapes. |
+| Render Outline Dots | Integer | `0` | Draws the dots as outlines. |
+| Scale Dots | Float | `1` | Scales the dots. |
+| Red | Float | `1.0` | Color for the line. |
+| Green | Float | `1.0` | Color for the line. |
+| Blue | Float | `0.56` | Color for the line. |
+| Alpha | Float | `1.0` | Color for the line. |
+| Text Size | Float | `0.02` | Size of the index text. |
+| Text Style | Dropdown | `Bold` | Regular or Bold. |
+| Red | Float | `1.0` | Color for the line. |
+| Green | Float | `1` | Color for the line. |
+| Blue | Float | `1` | Color for the line. |
+| Alpha | Float | `1.0` | Color for the line. |
+| Fade Color | Float | `0.1` | Fades the color with distance. |
 | Filter | Dropdown | `Gaussian` | — |
 | Soft Edge | Float | `0` | — |
-| Line Type | Dropdown | `Solid` | — |
-| Join Type | Dropdown | `2.0` | — |
-| X Offset | Float | `—` | — |
-| Y Offset | Float | `—` | — |
-| Z Offset | Float | `1.0` | — |
-| Rotation Order | Dropdown | ` XYZ ` | — |
-| X Rotation | Float | `—` | — |
-| Y Rotation | Float | `—` | — |
-| Z Rotation | Float | `—` | — |
-| Lock X/Y | Integer | `1` | — |
-| X Scale | Float | `1.0` | — |
-| Y Scale | Float | `1.0` | — |
-| Input | Image | `—` | — |
+| Line Type | Dropdown | `Solid` | Solid, Dash, Dot, Dash Dot, or Dash Dot Dot. |
+| Join Type | Dropdown | `2.0` | Bevel or Round corners. |
+| X Offset | Float | `—` | Moves the model along X. |
+| Y Offset | Float | `—` | Moves the model along Y. |
+| Z Offset | Float | `1.0` | Moves the model along Z, away from the camera. |
+| X Rotation | Float | `—` | Rotation around X in degrees. |
+| Y Rotation | Float | `—` | Rotation around Y in degrees. |
+| Z Rotation | Float | `—` | Rotation around Z in degrees. |
+| Lock X/Y | Integer | `1` | Uses one scale value for X and Y. |
+| X Scale | Float | `1.0` | Scale of the model. |
+| Y Scale | Float | `1.0` | Scale along Y. Shown when Lock X/Y is off. |
+| Input | Image | `—` | Image that the result is drawn onto. |
 | vGeometry | ScriptVal | `—` | — |
-| ScriptVal Shape | ScriptVal | `—` | — |
+| Shape | ScriptVal | `—` | — |
 
 </details>
 

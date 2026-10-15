@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 title: vArrayCircularPoints
 description: "Distributes points in circular form"
 ---
@@ -26,22 +26,20 @@ Distributes points in circular form
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Radius | Float | `0.1` | — |
-| Round Segments | Float | `40` | — |
-| Rounds | Float | `0.1` | — |
+| Radius | Float | `0.1` | Radius. |
+| Round Segments | Float | `40` | Number of segments. |
+| Rounds | Float | `0.1` | Number of rounds. |
 | Radius Add Round | Float | `0.1` | — |
-| Radius Add Point | Float | `0.0` | — |
+| Radius Add Point | Float | `0.0` | Radius added per point. |
 
 <details>
-<summary>+5 more parameters</summary>
+<summary>+3 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Offset | Float | `0.0` | — |
-| Point Offset XY | Float | `0.1` | — |
+| Offset | Float | `0.0` | Angular offset. |
+| Point Offset XY | Float | `0.1` | Offset applied to each point in X and Y. |
 | Point Offset Z | Float | `0.1` | — |
-| line6Separator | Float | `—` | — |
-| Show Input | Integer | `0.0` | — |
 
 </details>
 

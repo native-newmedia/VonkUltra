@@ -34,7 +34,7 @@ Learn that core once and the rest of the family is just swapping the ends:
     <g fill="currentColor" fontSize="10" style={{fontFamily: 'var(--ifm-font-family-monospace)'}}>
       <text x="24" y="94">vArrayPointsOnCircle</text>
       <text x="24" y="112">vArrayPointsOnSphere</text>
-      <text x="24" y="130">vArrayCreateTextFont</text>
+      <text x="24" y="130">vArrayTextFont</text>
       <text x="24" y="148">vArrayFromOBJ</text>
     </g>
     <text x="405" y="100" fill="currentColor" fontSize="11" textAnchor="middle">modifiers (optional)</text>
@@ -111,7 +111,7 @@ Note that this gives you the mesh's *vertices*, not its surface — a coarse mes
 
 ## 4. Text through the same pipeline
 
-`vArrayCreateTextFont` turns styled text into a point array, which means text renders through exactly the same camera-projection chain as everything else:
+`vArrayTextFont` turns styled text into a point array, which means text renders through exactly the same camera-projection chain as everything else:
 
 - **Styled Text** is the string; **Size**, **Character Spacing** and **Justification** lay it out; **Letter Case** and the offset/rotation/scale controls position it in 3D.
 - It also outputs **ScriptVal_Groups** — the group membership that says which points belong to which character.
@@ -119,15 +119,15 @@ Note that this gives you the mesh's *vertices*, not its surface — a coarse mes
 That second output is what makes text behave:
 
 ```
-vArrayCreateTextFont.Output -> vArrayCameraProjection.ArrayA
-vArrayCreateTextFont.ScriptVal_Groups -> vArrayShapeRender.ArrayGroups
+vArrayTextFont.Output -> vArrayCameraProjection.ArrayA
+vArrayTextFont.ScriptVal_Groups -> vArrayShapeRender.ArrayGroups
 vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
 Background.Output -> vArrayShapeRender.Input
 ```
 
 With **ArrayGroups** connected, enabling **Connect Text Groups** on the render node draws lines *within* each group rather than between consecutive points across the whole array — so letters don't get joined to each other by a stray line.
 
-For text that follows a path rather than sitting on a baseline, there's a dedicated terminal node, `vArrayShapeRenderTextPath` — it renders text onto an array of XY points, with **Path Width** and **Show Path** controlling the guide the characters sit on.
+For text that follows a path rather than sitting on a baseline, there's a dedicated terminal node, `vArrayRenderTextPath` — it renders text onto an array of XY points, with **Path Width** and **Show Path** controlling the guide the characters sit on.
 
 ## 5. Modifiers go between the generator and the camera
 
@@ -147,7 +147,7 @@ Order matters: displace *before* the projection, because the projection is what 
 | **Array Point** | `vArrayCameraProjection` | The positions. Always required. |
 | **Array Edge** | `vArrayFromOBJ`, `vArrayPointsConnect` | Explicit point-to-point connections, used when **Use Edge Data** is on |
 | **Array Shape** | `vArrayCustom2DShapes`, `vArrayCustom3DShapes` | A polygon to draw at each point instead of a dot |
-| **Array Groups** | `vArrayCreateTextFont` and other font/path generators | Group membership, so lines connect within groups |
+| **Array Groups** | `vArrayTextFont` and other font/path generators | Group membership, so lines connect within groups |
 | **JSON Custom Color** | `vArrayColor` | Per-point colour, overriding the layer colour |
 
 The five layers — **Show Dots**, **Show Lines**, **Show Custom**, **Show Index** and the outline toggles — are independent and can all be on at once. A few things that aren't obvious from the parameter names:
@@ -176,7 +176,7 @@ And when points are landing in an order you didn't expect: turn on **Show Index*
 
 - [vArrayCameraProjection](../reference/mograph/array/Modify/vArrayCameraProjection)
 - [vArrayShapeRender](../reference/mograph/array/ShapeRender/vArrayShapeRender)
-- [vArrayFromOBJ](../reference/mograph/array/Create/vArrayFromOBJ) · [vArrayPointsOnSphere](../reference/mograph/array/Create/vArrayPointsOnSphere) · [vArrayCreateTextFont](../reference/mograph/array/Create/vArrayCreateTextFont)
+- [vArrayFromOBJ](../reference/mograph/array/Create/vArrayFromOBJ) · [vArrayPointsOnSphere](../reference/mograph/array/Create/vArrayPointsOnSphere) · [vArrayTextFont](../reference/mograph/array/Create/vArrayTextFont)
 - [vArrayDisplaceValues](../reference/mograph/array/Modify/vArrayDisplaceValues) · [vArrayPointsJitter](../reference/mograph/array/Animate/vArrayPointsJitter)
 - [vArrayCustom2DShapes](../reference/mograph/array/Shapes/vArrayCustom2DShapes) · [vArrayColor](../reference/mograph/array/ShapeRender/vArrayColor)
 - [Guides overview](./overview) — what else is coming in this section

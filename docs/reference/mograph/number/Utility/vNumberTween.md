@@ -31,14 +31,12 @@ Tween numbers
 | SPEED | Float | `1` | — |
 
 <details>
-<summary>+10 more parameters</summary>
+<summary>+8 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| line1Separator | Float | `—` | — |
 | Activate BACK TO | Integer | `0.0` | — |
 | BACK TO DELAY TIME | Integer | `20` | — |
-| line2Separator | Float | `—` | — |
 | NumberStart | Float | `0` | — |
 | NumberEnd | Float | `0` | — |
 | NumberAfter | Float | `0` | — |

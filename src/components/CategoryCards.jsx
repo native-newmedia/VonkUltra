@@ -1,7 +1,12 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
 import { useCurrentSidebarCategory } from '@docusaurus/plugin-content-docs/client';
-import { TYPE_CONFIG, FUNCTION_CONFIG } from '@site/src/data/categoryConfig';
+import {
+  TYPE_CONFIG,
+  FUNCTION_CONFIG,
+  familyFromHref,
+  functionGroupArtwork,
+} from '@site/src/data/categoryConfig';
 
 /**
  * Card grid for a category's overview page. Reads the current sidebar category
@@ -13,27 +18,33 @@ import { TYPE_CONFIG, FUNCTION_CONFIG } from '@site/src/data/categoryConfig';
  *   <CategoryCards variant="types" family="Core" />  // Level 1 (family -> data types)
  *   <CategoryCards />                                 // Level 2 (data type -> function groups)
  *
- * On Level 1 the icons are real SVG files at static/img/icons/<Family>_<Label>.svg
- * — the naming matches every data-type card in both families. Those files have
- * their baked-in tile background stripped out, so the colour comes from the CSS
- * tile (.cat-card-icon--<color>) and only the line art is masked in, painted in
- * currentColor. Pass `family` so the right artwork set is resolved.
+ * Every card now shows real SVG artwork, resolved by functionGroupArtwork in
+ * src/data/categoryConfig.js — which substitutes Core's file for the Mograph groups
+ * that have no file of their own. The artwork has its baked-in tile background
+ * stripped out, so the colour comes from the CSS tile (.cat-card-icon--<color>) and
+ * only the line art is masked in, painted in currentColor. A card falls back to its
+ * text glyph only when the family can't be determined. `family` is only needed for
+ * Level 1; otherwise it is inferred from the current sidebar category's href
+ * (…/reference/<family>/<data type>/).
  */
 export default function CategoryCards({ variant = 'functions', family }) {
   const category = useCurrentSidebarCategory();
   const items = (category && category.items) || [];
   const config = variant === 'types' ? TYPE_CONFIG : FUNCTION_CONFIG;
+  const resolvedFamily = family || familyFromHref(category?.href);
+  // Level-1 data types all have artwork named by convention, so the URL is built
+  // directly; Level-2 groups go through functionGroupArtwork, which stands in Core's
+  // file for the Mograph groups that have no file of their own.
+  const svgFor =
+    variant === 'types'
+      ? (label) => `/VonkUltra/img/icons/${resolvedFamily}_${label.replace(/\s+/g, '')}.svg`
+      : (label) => functionGroupArtwork(resolvedFamily, label);
 
   const cards = items
     .map((item) => {
       const cfg = config[item.label] || {};
       const count = item.items?.length ?? 1;
-      // Level 1 data types have SVG artwork named <Family>_<Label>.svg. Levels 2
-      // and 3 are function groups, which have no artwork, so they keep the glyph.
-      const svg =
-        variant === 'types' && family
-          ? `/VonkUltra/img/icons/${family}_${item.label}.svg`
-          : null;
+      const svg = resolvedFamily ? svgFor(item.label) : null;
       return { label: item.label, href: item.href, count, icon: cfg.icon || item.label, color: cfg.color || 'default', desc: cfg.desc || '', svg };
     })
     .filter((c) => c.href);

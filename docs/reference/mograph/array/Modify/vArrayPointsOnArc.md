@@ -1,6 +1,7 @@
 ---
-sidebar_position: 59
+sidebar_position: 41
 title: vArrayPointsOnArc
+description: "Generate points on an arc"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -29,7 +30,7 @@ vArrayPointsOnArc generates a structured array of 2D or 3D points distributed al
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | Smoothness | Integer | `20` | Number of interpolated segments used to compute the arc curve. Higher values produce smoother arcs; lower values produce faster, more angular results. Values above 50 are rarely needed unless rendering at very large scale. |
-| Array A | Array | `—` | Required. The input array that defines the arc's angular span and point count. Connect vArrayCreateMinMax here — its X Min/Max define the start and end angles, and its Array Length defines how many points are distributed along the arc. |
+| Array A | Array | `—` | Required. The input array that defines the arc's angular span and point count. Connect vArrayMinMax here — its X Min/Max define the start and end angles, and its Array Length defines how many points are distributed along the arc. |
 | Show Input | Checkbox | `Off` | Reveals the ArrayA input port on the node in the Fusion flow. Enable this if the input connection is not visible. Normally not needed — the input is connected regardless of whether the port is shown. |
 
 <details>
@@ -37,9 +38,9 @@ vArrayPointsOnArc generates a structured array of 2D or 3D points distributed al
 
 vArrayPointsOnArc generates a structured array of 2D or 3D points distributed along a defined arc. Where vArrayPointsOnCircle gives you a full 360° ring, PointsOnArc gives you surgical control — define the exact start and end angle, the radius, and the center point independently. This makes it the right choice for fan-shaped data visualisations, clock-style progress indicators, radial label placement, and any layout where the arc needs to occupy a specific angular range rather than a full revolution.
 
-The node is driven by its ArrayA input, which defines the angular span as a vArray range. In practice this is almost always the output of vArrayCreateMinMax — set Min to your start angle and Max to your end angle, and PointsOnArc distributes the requested number of points evenly across that range. Because the span comes from an upstream node rather than being hardcoded, it stays live: animate or keyframe the Min/Max values and the arc responds every frame without breaking the rest of the pipeline.
+The node is driven by its ArrayA input, which defines the angular span as a vArray range. In practice this is almost always the output of vArrayMinMax — set Min to your start angle and Max to your end angle, and PointsOnArc distributes the requested number of points evenly across that range. Because the span comes from an upstream node rather than being hardcoded, it stays live: animate or keyframe the Min/Max values and the arc responds every frame without breaking the rest of the pipeline.
 
-The Smoothness control sets how many intermediate segments are used to compute the arc geometry — higher values produce a rounder, more precise curve, lower values produce a faster, more angular approximation. The output is a standard vArray XYZ point table, meaning it slots directly into vArrayCameraProjection, vArrayDisplaceValues, vArrayStagger, or any other modifier without conversion. A minimal pipeline is three nodes: vArrayCreateMinMax → vArrayPointsOnArc → vArrayCameraProjection → vArrayShapeRender with a Background input.
+The Smoothness control sets how many intermediate segments are used to compute the arc geometry — higher values produce a rounder, more precise curve, lower values produce a faster, more angular approximation. The output is a standard vArray XYZ point table, meaning it slots directly into vArrayCameraProjection, vArrayDisplaceValues, vArrayStagger, or any other modifier without conversion. A minimal pipeline is three nodes: vArrayMinMax → vArrayPointsOnArc → vArrayCameraProjection → vArrayShapeRender with a Background input.
 
 </details>
 
@@ -49,7 +50,7 @@ The Smoothness control sets how many intermediate segments are used to compute t
 <TabItem value="standard-arc-pipeline" label="Standard arc pipeline" default>
 
 ```
-vArrayCreateMinMax.Output -> vArrayPointsOnArc.ArrayA
+vArrayMinMax.Output -> vArrayPointsOnArc.ArrayA
 vArrayPointsOnArc.Output -> vArrayCameraProjection.ArrayA
 vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
 Background.Output -> vArrayShapeRender.Input
@@ -59,7 +60,7 @@ Background.Output -> vArrayShapeRender.Input
 <TabItem value="with-displacement-before-projection" label="With displacement before projection">
 
 ```
-vArrayCreateMinMax.Output -> vArrayPointsOnArc.ArrayA
+vArrayMinMax.Output -> vArrayPointsOnArc.ArrayA
 vArrayPointsOnArc.Output -> vArrayDisplaceValues.ArrayA
 vArrayDisplaceValues.Output -> vArrayCameraProjection.ArrayA
 vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
@@ -70,7 +71,7 @@ Background.Output -> vArrayShapeRender.Input
 <TabItem value="with-staggered-animation" label="With staggered animation">
 
 ```
-vArrayCreateMinMax.Output -> vArrayPointsOnArc.ArrayA
+vArrayMinMax.Output -> vArrayPointsOnArc.ArrayA
 vArrayPointsOnArc.Output -> vArrayStagger.ArrayA
 vArrayStagger.Output -> vArrayCameraProjection.ArrayA
 vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
@@ -85,7 +86,7 @@ Background.Output -> vArrayShapeRender.Input
 <div className="node-chip-row">
   <a className="node-chip" href="../../array/Create/vArrayPointsOnCircle">vArrayPointsOnCircle</a>
   <a className="node-chip" href="../../array/Create/vArrayPointsOnGrid">vArrayPointsOnGrid</a>
-  <a className="node-chip" href="../../array/Create/vArrayPointsHexagonGrid">vArrayPointsHexagonGrid</a>
+  <a className="node-chip" href="../../array/Create/vArrayPointsOnHexagon">vArrayPointsOnHexagon</a>
 </div>
 
 {/*

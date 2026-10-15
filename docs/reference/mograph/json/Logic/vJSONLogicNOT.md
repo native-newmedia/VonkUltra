@@ -1,5 +1,5 @@
 ---
-sidebar_position: 12
+sidebar_position: 11
 title: vJSONLogicNOT
 description: "Invert a 0/1 mask array — non-zero becomes 0, zero becomes 1."
 ---
@@ -26,13 +26,12 @@ Invert a 0/1 mask array — non-zero becomes 0, zero becomes 1.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | DATATYPE | `—` | — |
-
+| Input | DATATYPE | `—` | Data to process. |
 
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="./vJSONCountMask">vJSONCountMask</a>
+  <a className="node-chip" href="./vJSONLogicCount">vJSONLogicCount</a>
   <a className="node-chip" href="./vJSONLogicAND">vJSONLogicAND</a>
   <a className="node-chip" href="./vJSONLogicAll">vJSONLogicAll</a>
   <a className="node-chip" href="./vJSONLogicAny">vJSONLogicAny</a>

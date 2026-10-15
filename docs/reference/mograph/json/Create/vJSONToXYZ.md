@@ -1,5 +1,5 @@
 ---
-sidebar_position: 58
+sidebar_position: 55
 title: vJSONToXYZ
 description: "Convert a JSON Array into XYZ ASCII Text"
 ---
@@ -26,8 +26,8 @@ Convert a JSON Array into XYZ ASCII Text
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Array A | DATATYPE | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| Input | DATATYPE | `—` | Data to process. |
+| Show Input | Integer | `1.0` | Shows the input sockets of the controls. |
 
 ## Example Connections
 

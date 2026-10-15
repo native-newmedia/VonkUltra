@@ -1,5 +1,5 @@
 ---
-sidebar_position: 7
+sidebar_position: 6
 title: vScriptValMergeAsset
 description: "Dynamically join ScriptVal Asset elements into one table"
 ---
@@ -27,9 +27,9 @@ Dynamically join ScriptVal Asset elements into one table
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | Which | Integer | `—` | — |
-| ScriptVal1 | DATATYPE | `—` | — |
-| Display Lines | Integer | `20` | — |
-| Info | ScriptVal | `—` | — |
+| Input 1 | DATATYPE | `—` | — |
+| Display Lines | Integer | `20` | Number of rows shown in the Info list. |
+| Info | ScriptVal | `—` | Read-only geometry statistics of the connected assets. |
 | "ScriptVal" .. i | ScriptVal | `—` | — |
 
 <details>
@@ -40,7 +40,6 @@ Dynamically join ScriptVal Asset elements into one table
 | "ScriptVal" .. (inp_nr + 1) | ScriptVal | `—` | — |
 
 </details>
-
 
 ## Related Nodes
 

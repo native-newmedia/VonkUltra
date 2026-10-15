@@ -1,5 +1,5 @@
 ---
-sidebar_position: 15
+sidebar_position: 14
 title: vJSONLogicSelect
 description: "Select XYZ points from A/B using mask array."
 ---
@@ -26,15 +26,14 @@ Select XYZ points from A/B using mask array.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Mask | DATATYPE | `—` | — |
-| Array A | DATATYPE | `—` | — |
-| Array B | DATATYPE | `—` | — |
-
+| Mask | DATATYPE | `—` | Mask with one 0 or 1 value per element. |
+| Input A | DATATYPE | `—` | First input. |
+| Input B | DATATYPE | `—` | Second input. |
 
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="./vJSONCountMask">vJSONCountMask</a>
+  <a className="node-chip" href="./vJSONLogicCount">vJSONLogicCount</a>
   <a className="node-chip" href="./vJSONLogicAND">vJSONLogicAND</a>
   <a className="node-chip" href="./vJSONLogicAll">vJSONLogicAll</a>
   <a className="node-chip" href="./vJSONLogicAny">vJSONLogicAny</a>

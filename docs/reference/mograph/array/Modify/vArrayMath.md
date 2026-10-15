@@ -1,6 +1,7 @@
 ---
-sidebar_position: 10
+sidebar_position: 27
 title: vArrayMath
+description: "Apply a math operation to an array"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -62,7 +63,7 @@ Use vArrayMath to normalise ranges after vArrayMapRange, to scale displacement m
 <TabItem value="scale-displacement-magnitude" label="Scale displacement magnitude" default>
 
 ```
-vArrayCreateMinMax.Output -> vArrayMath.ArrayA
+vArrayMinMax.Output -> vArrayMath.ArrayA
 vArrayMath.Output -> vArrayDisplaceValues.ArrayA
 vArrayDisplaceValues.Output -> vArrayCameraProjection.ArrayA
 ```
@@ -72,7 +73,7 @@ vArrayDisplaceValues.Output -> vArrayCameraProjection.ArrayA
 
 ```
 vArrayCreate.Output -> vArrayMath.ArrayA
-vArrayCreateRandom.Output -> vArrayMath.ArrayB
+vArrayRandom.Output -> vArrayMath.ArrayB
 vArrayMath.Output -> vArrayShapeRender.ArrayPoint
 ```
 

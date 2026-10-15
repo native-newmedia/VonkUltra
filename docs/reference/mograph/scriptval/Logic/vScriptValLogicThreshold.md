@@ -1,5 +1,5 @@
 ---
-sidebar_position: 16
+sidebar_position: 15
 title: vScriptValLogicThreshold
 description: "Return 0/1 mask where values are greater than threshold."
 ---
@@ -26,14 +26,13 @@ Return 0/1 mask where values are greater than threshold.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Threshold | Float | `0` | — |
-| Input | DATATYPE | `—` | — |
-
+| Threshold | Float | `0` | Values above this become 1. |
+| Input | DATATYPE | `—` | Data to process. |
 
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="./vScriptValCountMask">vScriptValCountMask</a>
+  <a className="node-chip" href="./vScriptValLogicCount">vScriptValLogicCount</a>
   <a className="node-chip" href="./vScriptValLogicAND">vScriptValLogicAND</a>
   <a className="node-chip" href="./vScriptValLogicAll">vScriptValLogicAll</a>
   <a className="node-chip" href="./vScriptValLogicAny">vScriptValLogicAny</a>

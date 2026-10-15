@@ -1,6 +1,7 @@
 ---
-sidebar_position: 67
+sidebar_position: 64
 title: vArrayTranslate
+description: "Move, rotate and scale point positions"
 ---
 
 import Tabs from '@theme/Tabs';

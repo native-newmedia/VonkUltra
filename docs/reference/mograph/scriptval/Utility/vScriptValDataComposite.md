@@ -26,11 +26,10 @@ Passes an image through unchanged while forcing one or two connected ScriptVal d
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Force Data Cook | Integer | `1` | — |
+| Force Data Cook | Integer | `1` | Reads Data A and Data B on every frame and forwards them. |
 | Image | Image | `—` | — |
 | Data A | ScriptVal | `—` | — |
 | Data B | ScriptVal | `—` | — |
-
 
 ## Related Nodes
 

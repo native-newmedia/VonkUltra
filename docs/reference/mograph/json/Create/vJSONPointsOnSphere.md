@@ -1,5 +1,5 @@
 ---
-sidebar_position: 55
+sidebar_position: 44
 title: vJSONPointsOnSphere
 description: "Generate points on Sphere"
 ---
@@ -26,25 +26,23 @@ Generate points on Sphere
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Create | Dropdown | `Fibonacci Sphere` | — |
-| Amount of points | Integer | `100` | — |
-| Sphere size | Float | `0.4` | — |
-| Random distance | Float | `0` | — |
-| Random seed | Float | `0` | — |
+| Create | Dropdown | `Fibonacci Sphere` | Fibonacci Sphere or Custom Sphere. |
+| Amount of points | Integer | `100` | Number of points. |
+| Sphere size | Float | `0.3` | Radius of the sphere. |
+| Random distance | Float | `0` | Amount of random displacement. |
+| Random seed | Float | `0` | Seed of the random generator. |
 
 <details>
-<summary>+8 more parameters</summary>
+<summary>+6 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Distribution | Dropdown | `Uniform` | — |
-| Trim Top | Float | `-1` | — |
-| Trim Bottom | Float | `1` | — |
-| Random Distance | Dropdown | `False` | — |
-| line6Separator | Float | `—` | — |
+| Distribution | Dropdown | `Uniform` | Uniform, Poles or Half. |
+| Trim Top | Float | `-1` | Removes the top part of the sphere. |
+| Trim Bottom | Float | `1` | Removes the bottom part of the sphere. |
+| Random Distance | Dropdown | `False` | Amount of random displacement. |
 | Scale Factor | Float | `1` | — |
 | Rotate Factor | Float | `0` | — |
-| Show Input | Integer | `0.0` | — |
 
 </details>
 

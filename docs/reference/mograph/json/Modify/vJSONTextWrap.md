@@ -1,5 +1,5 @@
 ---
-sidebar_position: 66
+sidebar_position: 63
 title: vJSONTextWrap
 description: "Text wrap Operations on a JSON"
 ---
@@ -26,11 +26,10 @@ Text wrap Operations on a JSON
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Output As: | Dropdown | `String` | — |
-| Line length | Integer | `25` | — |
-| Number of Paragraphs | Integer | `1` | — |
-| Show Input | Integer | `0.0` | — |
-| Array | DATATYPE | `—` | — |
+| Output As: | Dropdown | `String` | String or Table. |
+| Line length | Integer | `25` | Maximum characters per line. |
+| Number of Paragraphs | Integer | `1` | Number of paragraphs. |
+| Input | DATATYPE | `—` | Data to process. |
 
 ## Example Connections
 

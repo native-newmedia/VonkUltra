@@ -1,5 +1,5 @@
 ---
-sidebar_position: 5
+sidebar_position: 19
 title: vScriptValGridConnect
 description: "Builds row/column/diagonal/zigzag/border edge connectivity for a grid point array, for use with vScriptValShapeRender's Edge Data input."
 ---
@@ -24,12 +24,11 @@ Builds row/column/diagonal/zigzag/border edge connectivity for a grid point arra
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Number X | Integer | `1` | — |
-| Number Y | Integer | `1` | — |
-| Direction | Dropdown | `Horizontal` | — |
-| Stride (skip N lines) | Integer | `1` | — |
-| Zigzag: Reverse Start | Integer | `0` | — |
-
+| Number X | Integer | `1` | Points per row. |
+| Number Y | Integer | `1` | Number of rows. |
+| Direction | Dropdown | `Horizontal` | Direction of the operation. Options: Horizontal, Vertical, Both, Zigzag (Horizontal), Zigzag (Vertical), Diagonal (Both Directions), Border Only. |
+| Stride (skip N lines) | Integer | `1` | Skips lines between the connected ones. |
+| Zigzag: Reverse Start | Integer | `0` | Reverses the start direction of the zigzag. |
 
 ## Related Nodes
 

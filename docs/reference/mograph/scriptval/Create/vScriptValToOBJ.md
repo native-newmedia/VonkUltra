@@ -1,5 +1,5 @@
 ---
-sidebar_position: 56
+sidebar_position: 53
 title: vScriptValToOBJ
 description: "Convert a Fusion ScriptVal object into Wavefront OBJ ASCII Text"
 ---
@@ -26,10 +26,10 @@ Convert a Fusion ScriptVal object into Wavefront OBJ ASCII Text
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| ScriptVal Edges | ScriptVal | `—` | — |
-| ScriptVal Points | ScriptVal | `—` | — |
-| ScriptVal UVs | ScriptVal | `—` | — |
-| ScriptVal UV Edges | ScriptVal | `—` | — |
+| Edges | ScriptVal | `—` | Edges that connect the points. |
+| Points | ScriptVal | `—` | Point positions. |
+| UVs | ScriptVal | `—` | — |
+| UV Edges | ScriptVal | `—` | — |
 | Matrix | Text | `—` | — |
 
 <details>
@@ -37,10 +37,9 @@ Convert a Fusion ScriptVal object into Wavefront OBJ ASCII Text
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Show Input | Integer | `1.0` | — |
+| Show Input | Integer | `1.0` | Shows the input sockets of the controls. |
 
 </details>
-
 
 ## Related Nodes
 
@@ -48,7 +47,7 @@ Convert a Fusion ScriptVal object into Wavefront OBJ ASCII Text
   <a className="node-chip" href="./vScriptValBuffer">vScriptValBuffer</a>
   <a className="node-chip" href="./vScriptValCircularPoints">vScriptValCircularPoints</a>
   <a className="node-chip" href="./vScriptValCreateAsset">vScriptValCreateAsset</a>
-  <a className="node-chip" href="./vScriptValCreateAttractorPoints">vScriptValCreateAttractorPoints</a>
+  <a className="node-chip" href="./vScriptValAttractorPoints">vScriptValAttractorPoints</a>
 </div>
 
 {/*

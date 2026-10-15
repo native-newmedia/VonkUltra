@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 2
 title: vJSONLogicAll
 description: "Reduce array to 1 if all elements are non-zero, else 0."
 ---
@@ -26,13 +26,12 @@ Reduce array to 1 if all elements are non-zero, else 0.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | DATATYPE | `—` | — |
-
+| Input | DATATYPE | `—` | Data to process. |
 
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="./vJSONCountMask">vJSONCountMask</a>
+  <a className="node-chip" href="./vJSONLogicCount">vJSONLogicCount</a>
   <a className="node-chip" href="./vJSONLogicAND">vJSONLogicAND</a>
   <a className="node-chip" href="./vJSONLogicAny">vJSONLogicAny</a>
   <a className="node-chip" href="./vJSONLogicBetween">vJSONLogicBetween</a>

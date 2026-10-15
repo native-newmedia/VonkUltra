@@ -1,5 +1,5 @@
 ---
-sidebar_position: 44
+sidebar_position: 28
 title: vJSONLissajouseSpline
 description: "Generate a Lissajouse spline"
 ---

@@ -1,5 +1,5 @@
 ---
-sidebar_position: 7
+sidebar_position: 6
 title: vArrayMergeAsset
 description: "Dynamically join Array Asset elements from JSON text payload into one table."
 ---
@@ -27,20 +27,19 @@ Dynamically join Array Asset elements from JSON text payload into one table.
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | Which | Integer | `—` | — |
-| Array1 | DATATYPE | `—` | — |
-| Display Lines | Integer | `20` | — |
-| Info | ScriptVal | `—` | — |
-| "Array" .. i | Text | `—` | — |
+| Input 1 | DATATYPE | `—` | — |
+| Display Lines | Integer | `20` | Number of rows shown in the Info list. |
+| Info | ScriptVal | `—` | Read-only geometry statistics of the connected assets. |
+| "Input " .. i | Text | `—` | — |
 
 <details>
 <summary>+1 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| "Array" .. (inp_nr + 1) | Text | `—` | — |
+| "Input " .. (inp_nr + 1) | Text | `—` | — |
 
 </details>
-
 
 ## Related Nodes
 

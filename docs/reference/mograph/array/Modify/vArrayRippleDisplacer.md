@@ -1,5 +1,5 @@
 ---
-sidebar_position: 61
+sidebar_position: 52
 title: vArrayRippleDisplacer
 description: "Creates animated displacement with time-offset arrays"
 ---
@@ -26,29 +26,28 @@ Creates animated displacement with time-offset arrays
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Array A | Text | `—` | — |
-| Time | Float | `0.0` | — |
-| Animation Speed | Float | `1.0` | — |
-| Auto Animate | Integer | `1.0` | — |
-| Displacement Mode | Dropdown | `Radial (from center)` | — |
+| Input | Text | `—` | Data to process. |
+| Time | Float | `0.0` | Offsets the noise or wave in time. |
+| Animation Speed | Float | `1.0` | Speed of the animation over time. 0 is static. |
+| Auto Animate | Integer | `1.0` | Animates the effect over time. |
+| Displacement Mode | Dropdown | `Radial (from center)` | Direction of the displacement. Options: Radial (from center), Z-Axis Only, XYZ Uniform. |
 
 <details>
 <summary>+9 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Amplitude | Float | `2.0` | — |
-| Frequency | Float | `1.0` | — |
-| Wave Type | Dropdown | `Sine` | — |
-| Offset Multiplier | Float | `0.3` | — |
+| Amplitude | Float | `2.0` | Strength of the displacement. |
+| Frequency | Float | `1.0` | Frequency of the noise or wave. |
+| Wave Type | Dropdown | `Sine` | Shape of the wave. Options: Sine, Cosine, Triangle, Square. |
+| Offset Multiplier | Float | `0.3` | Multiplies the displacement. |
 | "Enable Array " .. i | Integer | `1.0` | — |
 | "Amplitude " .. i | Float | `1.0` | — |
 | "Frequency " .. i | Float | `1.0` | — |
 | "Time Offset " .. i | Float | `0.0` | — |
-| Debug Mode | Integer | `0.0` | — |
+| Debug Mode | Integer | `0.0` | Prints debug information to the console. |
 
 </details>
-
 
 ## Related Nodes
 

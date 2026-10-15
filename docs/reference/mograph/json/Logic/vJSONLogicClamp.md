@@ -1,5 +1,5 @@
 ---
-sidebar_position: 6
+sidebar_position: 5
 title: vJSONLogicClamp
 description: "Clamp array values to [min, max] range."
 ---
@@ -26,15 +26,14 @@ Clamp array values to [min, max] range.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Min | Float | `0.0` | — |
-| Max | Float | `1.0` | — |
-| Input | DATATYPE | `—` | — |
-
+| Min | Float | `0.0` | Lower limit. |
+| Max | Float | `1.0` | Upper limit. |
+| Input | DATATYPE | `—` | Data to process. |
 
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="./vJSONCountMask">vJSONCountMask</a>
+  <a className="node-chip" href="./vJSONLogicCount">vJSONLogicCount</a>
   <a className="node-chip" href="./vJSONLogicAND">vJSONLogicAND</a>
   <a className="node-chip" href="./vJSONLogicAll">vJSONLogicAll</a>
   <a className="node-chip" href="./vJSONLogicAny">vJSONLogicAny</a>

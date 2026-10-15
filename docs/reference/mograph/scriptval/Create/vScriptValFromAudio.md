@@ -1,5 +1,5 @@
 ---
-sidebar_position: 37
+sidebar_position: 9
 title: vScriptValFromAudio
 description: "Convert .wav audio data into a ScriptVal"
 ---
@@ -26,21 +26,23 @@ Convert .wav audio data into a ScriptVal
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input Source | Dropdown | `File` | — |
-| Wave File | Text | `—` | — |
-| Wave URL | Text | `—` | — |
+| Input Source | Dropdown | `File` | Where the data comes from. Options: File, URL, Base64. |
+| Wave File | Text | `—` | Wave file to read. |
+| Wave URL | Text | `—` | Address of the wave file. |
 | Base64 Wave Text Input | Text | `—` | — |
 | Reload Sample | Float | `—` | — |
 
 <details>
-<summary>+4 more parameters</summary>
+<summary>+6 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Select Channel(s) | FuID | `—` | — |
-| Start Frame (Time Offset) | Integer | `0` | — |
-| Stretch (Time Scale) | Float | `1` | — |
-| Proxy (sampling) | Integer | `25` | — |
+| Select Channel(s) | FuID | `—` | Left, Right or Both. Shown for stereo files. |
+| Start Frame (Time Offset) | Integer | `0` | Frame at which reading starts. |
+| Stretch (Time Scale) | Float | `1` | Stretches the audio in time. |
+| Proxy (sampling) | Integer | `25` | Number of samples skipped. |
+| FiltersOFF | FuID | `—` | — |
+| Filters | FuID | `—` | — |
 
 </details>
 
@@ -64,7 +66,7 @@ vTextCreateBrowse.Output -> vScriptValFromAudio.WaveFile
   <a className="node-chip" href="./vScriptValBuffer">vScriptValBuffer</a>
   <a className="node-chip" href="./vScriptValCircularPoints">vScriptValCircularPoints</a>
   <a className="node-chip" href="./vScriptValCreateAsset">vScriptValCreateAsset</a>
-  <a className="node-chip" href="./vScriptValCreateAttractorPoints">vScriptValCreateAttractorPoints</a>
+  <a className="node-chip" href="./vScriptValAttractorPoints">vScriptValAttractorPoints</a>
 </div>
 
 {/*

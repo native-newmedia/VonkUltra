@@ -1,5 +1,5 @@
 ---
-sidebar_position: 13
+sidebar_position: 12
 title: vScriptValLogicOR
 description: "Element-wise logical OR of two 0/1 mask arrays."
 ---
@@ -26,14 +26,13 @@ Element-wise logical OR of two 0/1 mask arrays.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Mask A | DATATYPE | `—` | — |
-| Mask B | DATATYPE | `—` | — |
-
+| Mask A | DATATYPE | `—` | First mask, one 0 or 1 value per element. |
+| Mask B | DATATYPE | `—` | Second mask, one 0 or 1 value per element. |
 
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="./vScriptValCountMask">vScriptValCountMask</a>
+  <a className="node-chip" href="./vScriptValLogicCount">vScriptValLogicCount</a>
   <a className="node-chip" href="./vScriptValLogicAND">vScriptValLogicAND</a>
   <a className="node-chip" href="./vScriptValLogicAll">vScriptValLogicAll</a>
   <a className="node-chip" href="./vScriptValLogicAny">vScriptValLogicAny</a>

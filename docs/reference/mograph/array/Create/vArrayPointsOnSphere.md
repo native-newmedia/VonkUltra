@@ -1,6 +1,7 @@
 ---
-sidebar_position: 55
+sidebar_position: 44
 title: vArrayPointsOnSphere
+description: "Generate points on a sphere"
 ---
 
 import Tabs from '@theme/Tabs';

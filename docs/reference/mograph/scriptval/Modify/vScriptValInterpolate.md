@@ -1,5 +1,5 @@
 ---
-sidebar_position: 6
+sidebar_position: 20
 title: vScriptValInterpolate
 description: "Interpolate between corresponding values in two arrays Select Easing options include: - linear - easeInQuad - easeOutQuad - easeInOutQuad - easeInExpo -…"
 ---
@@ -26,11 +26,11 @@ Interpolate between corresponding values in two arrays Select Easing options inc
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Progress | Float | `0` | — |
-| Select Easing | Dropdown | `linear` | — |
+| Progress | Float | `0` | Blend between Array 1 (0) and Array 2 (1). |
+| Select Easing | Dropdown | `linear` | Easing of the blend. Options: linear, easeInQuad, easeOutQuad, easeInOutQuad, easeInExpo, easeOutExpo, easeInOutExpo. |
 | Show Input | Integer | `0.0` | — |
-| ScriptVal1 | DATATYPE | `—` | — |
-| ScriptVal2 | DATATYPE | `—` | — |
+| Input A | DATATYPE | `—` | First input. |
+| Input B | DATATYPE | `—` | Second input. |
 
 ## Example Connections
 

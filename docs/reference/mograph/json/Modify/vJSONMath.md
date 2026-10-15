@@ -1,5 +1,5 @@
 ---
-sidebar_position: 10
+sidebar_position: 27
 title: vJSONMath
 description: "Apply mathematical operations to an array Tip: If you want to apply math operations to arrays of XY or XYZ value pairs, the vJSONUnPacker node will extract all…"
 ---
@@ -27,20 +27,18 @@ Apply mathematical operations to an array Tip: If you want to apply math operati
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | Which | Integer | `—` | — |
-| Operation  | Dropdown | `Add` | — |
-| Input Number | Dropdown | `Use Number` | — |
-| Number | Float | `1` | — |
-| line4Separator | Float | `—` | — |
+| Operation  | Dropdown | `Add` | Math operation. Options: Add, Subtract A-B, Multiply, Divide A/B, Min, Max, Average, Difference, Modulo A/B, Power A^B, Arc Tangent A/B, Sine, Cosine, Tangent, Arc Sine, Arc Cosine, Arc Tangent, Log, Log 10, Exponential, Degrees to Radians, Radians to Degrees, Absolute Value, Ceiling, Floor, Square Root, Reciprocal, Negate, Random, Randomseed. |
+| Input Number | Dropdown | `Use Number` | Use Number or Use Array as the second operand. |
+| Number | Float | `1` | Second operand when Use Number is selected. |
+| Connected | Integer | `0.0` | Reports whether the second input is connected. |
 
 <details>
-<summary>+4 more parameters</summary>
+<summary>+2 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Show Input | Integer | `0.0` | — |
-| Connected | Integer | `0.0` | — |
-| Array A | DATATYPE | `—` | — |
-| Array B | DATATYPE | `—` | — |
+| Input A | DATATYPE | `—` | First input. |
+| Input B | DATATYPE | `—` | Second input. |
 
 </details>
 

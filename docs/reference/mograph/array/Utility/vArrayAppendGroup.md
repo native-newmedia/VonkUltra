@@ -27,11 +27,10 @@ Append Array Groups to an array
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | Which | Integer | `—` | — |
-| Array1 | DATATYPE | `—` | — |
-| Show Input | Integer | `1` | — |
-| "Array" .. i | DATATYPE | `—` | — |
-| "Array" .. (inp_nr + 1) | DATATYPE | `—` | — |
-
+| Input 1 | DATATYPE | `—` | — |
+| Show Input | Integer | `1` | Shows the array input socket on the node. |
+| "Input " .. i | DATATYPE | `—` | — |
+| "Input " .. (inp_nr + 1) | DATATYPE | `—` | — |
 
 ## Related Nodes
 

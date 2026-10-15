@@ -1,5 +1,5 @@
 ---
-sidebar_position: 46
+sidebar_position: 31
 title: vArrayLogarithmicSpiral
 description: "Generate a logarithmic Spiral spline"
 ---
@@ -26,21 +26,19 @@ Generate a logarithmic Spiral spline
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Mode | Dropdown | `Spiral` | — |
-| Growth coefficient | Float | `0.04` | — |
-| Expansion factor | Float | `0.22` | — |
-| Max angle | Integer | `6` | — |
-| Step size | Float | `1.23` | — |
+| Mode | Dropdown | `Spiral` | Spiral or Polygon. |
+| Growth coefficient | Float | `0.04` | Growth rate of the spiral. |
+| Expansion factor | Float | `0.22` | Expansion rate of the spiral. |
+| Max angle | Integer | `6` | Last angle of the spiral. |
+| Step size | Float | `1.23` | Angle step between points. |
 
 <details>
-<summary>+4 more parameters</summary>
+<summary>+2 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Rotation | Float | `0` | — |
+| Rotation | Float | `0` | Rotation in degrees. |
 | Scale Factor | Float | `1` | — |
-| line6Separator | Float | `—` | — |
-| Show Input | Integer | `0.0` | — |
 
 </details>
 

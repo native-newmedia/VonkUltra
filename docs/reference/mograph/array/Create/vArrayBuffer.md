@@ -1,6 +1,7 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 title: vArrayBuffer
+description: "FIFO (first in first out) array buffer"
 ---
 
 import Tabs from '@theme/Tabs';

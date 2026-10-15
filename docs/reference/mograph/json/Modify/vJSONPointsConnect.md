@@ -1,5 +1,5 @@
 ---
-sidebar_position: 58
+sidebar_position: 40
 title: vJSONPointsConnect
 description: "Connect points in an array"
 ---
@@ -26,21 +26,20 @@ Connect points in an array
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Mode | Dropdown | `Alternate` | — |
-| Reverse B | Integer | `0` | — |
-| Connection | Float | `1` | — |
-| Hide Unconnected | Integer | `0` | — |
-| Close Loop | Integer | `0` | — |
+| Mode | Dropdown | `Alternate` | How the two arrays are combined. Options: Alternate, Append. |
+| Reverse B | Integer | `0` | Reverses the order of the second array. |
+| Connection | Float | `1` | Connection style. |
+| Hide Unconnected | Integer | `0` | Removes points that have no connection. |
+| Close Loop | Integer | `0` | Connects the last point to the first. |
 
 <details>
-<summary>+4 more parameters</summary>
+<summary>+3 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Drop Duplicate Seam | Integer | `1` | — |
-| line4Separator | Float | `—` | — |
-| Array A | DATATYPE | `—` | — |
-| Array B | DATATYPE | `—` | — |
+| Drop Duplicate Seam | Integer | `1` | Removes the repeated point at the seam. Shown when the related option is enabled. |
+| Input A | DATATYPE | `—` | First input. |
+| Input B | DATATYPE | `—` | Second input. |
 
 </details>
 

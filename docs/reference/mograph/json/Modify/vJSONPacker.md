@@ -1,5 +1,5 @@
 ---
-sidebar_position: 53
+sidebar_position: 32
 title: vJSONPacker
 description: "Pack an array into a new array"
 ---
@@ -26,10 +26,9 @@ Pack an array into a new array
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Pack To: | Dropdown | `——` | — |
-| Custom Group Size | Integer | `0` | — |
-| Show Input | Integer | `0.0` | — |
-| Array A | DATATYPE | `—` | — |
+| Pack To: | Dropdown | `X` | Group size: X, X Y or X Y Z. |
+| Custom Group Size | Integer | `0` | Group size used instead of the Pack To value. |
+| Input | DATATYPE | `—` | Data to process. |
 
 ## Example Connections
 

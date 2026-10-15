@@ -1,6 +1,7 @@
 ---
-sidebar_position: 51
+sidebar_position: 39
 title: vArrayPointsOnCircle
+description: "Generate points on a circle"
 ---
 
 import Tabs from '@theme/Tabs';

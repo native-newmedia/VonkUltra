@@ -26,31 +26,28 @@ Animate points using Material Design 3 easing with staggered offsets
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Animation Speed | Float | `1.0` | — |
-| Start Frame | Integer | `0.0` | — |
-| Duration (frames) | Float | `30.0` | — |
-| Easing Type | Dropdown | `Emphasized Accelerate` | — |
-| line1Separator | Float | `—` | — |
+| Time | Float | `0.0` | — |
+| Start Offset | Float | `0.0` | — |
+| Duration | Float | `1.0` | — |
+| Easing Type | Dropdown | `Emphasized Accelerate` | One of 20 Material Design 3 easing curves. A preview is drawn in the Preview Curve section. |
+| Offset X | Float | `0.0` | Distance each point moves along the axis by the end of the animation. |
 
 <details>
-<summary>+11 more parameters</summary>
+<summary>+9 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Offset X | Float | `0.0` | — |
-| Offset Y | Float | `0.0` | — |
-| Offset Z | Float | `0.0` | — |
-| line2Separator | Float | `—` | — |
-| Stagger Delay | Float | `0.1` | — |
-| Stagger Mode | Dropdown | `Index Order` | — |
-| Falloff X | Float | `0.0` | — |
-| Falloff Y | Float | `0.0` | — |
-| Falloff Z | Float | `0.0` | — |
-| Scale factor | Float | `0.0` | — |
-| Array A | Text | `—` | — |
+| Offset Y | Float | `0.0` | Distance each point moves along the axis by the end of the animation. |
+| Offset Z | Float | `0.0` | Distance each point moves along the axis by the end of the animation. |
+| Stagger Delay | Float | `0.1` | Start delay per point, multiplied by the delay from Stagger Mode. |
+| Stagger Mode | Dropdown | `Index Order` | Index Order, Distance from Center, or Random. |
+| Falloff X | Float | `0.0` | Shifts the center used by Distance from Center. |
+| Falloff Y | Float | `0.0` | Shifts the center used by Distance from Center. |
+| Falloff Z | Float | `0.0` | Shifts the center used by Distance from Center. |
+| Scale factor | Float | `0.0` | Converts distance into delay for Distance from Center. |
+| Input | Text | `—` | Data to process. |
 
 </details>
-
 
 ## Related Nodes
 

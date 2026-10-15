@@ -1,6 +1,7 @@
 ---
-sidebar_position: 9
+sidebar_position: 25
 title: vArrayMapRange
+description: "Remap array values to a new range"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -60,7 +61,7 @@ Background.Output -> vArrayShapeRender.Input
 <TabItem value="normalise-generator-output" label="Normalise generator output">
 
 ```
-vArrayCreateMinMax.Output -> vArrayMapRange.ArrayA
+vArrayMinMax.Output -> vArrayMapRange.ArrayA
 vArrayMapRange.Output -> vArrayCameraProjection.ArrayA
 vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
 Background.Output -> vArrayShapeRender.Input

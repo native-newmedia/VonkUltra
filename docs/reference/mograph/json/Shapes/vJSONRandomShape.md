@@ -26,39 +26,37 @@ Random shape and text generator with font support
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Generate Random →  | Dropdown | `Character` | — |
-| Shape Type | Dropdown | `Ticks` | — |
-| Array length | Integer | `2` | — |
-| Seed | Float | `0` | — |
-| Shape Scale | Float | `0.05` | — |
+| Generate Random →  | Dropdown | `Character` | None, Shapes, Character, Letter, or Integer. |
+| Shape Type | Dropdown | `Ticks` | None, Ticks, Lines, Frames, Symbols, or Others. |
+| Array length | Integer | `2` | Number of generated items. |
+| Seed | Float | `0` | Random seed. |
+| Shape Scale | Float | `0.05` | Scale of generated shapes. |
 
 <details>
-<summary>+19 more parameters</summary>
+<summary>+18 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Shape Rotation | Float | `0.0` | — |
-| Font Select | Dropdown | `Use Font` | — |
-| Font | Text | `—` | — |
-| Style | Text | `—` | — |
-| Size | Float | `0.08` | — |
-| Character Spacing | Float | `0.0` | — |
-| Letter Case | Dropdown | `NONE` | — |
-| Justification | Dropdown | `Center` | — |
-| Horizontal Adjustment | Float | `0.0` | — |
-| Vertical Adjustment | Float | `0.0` | — |
-| Show Box Background | Integer | `0.0` | — |
-| Box Padding | Float | `0.5` | — |
-| Box Vertical Adjustment | Float | `0.0` | — |
-| Box Round Corners | Float | `0.01` | — |
-| Pos Adjustment | Float | `0.0` | — |
-| Show Input | Integer | `1.0` | — |
+| Shape Rotation | Float | `0.0` | Rotation of generated shapes in degrees. |
+| Font Select | Dropdown | `Use Font` | Use Font. |
+| Font | Text | `—` | Font family. |
+| Style | Text | `—` | Font style. |
+| Size | Float | `0.08` | Text size. |
+| Character Spacing | Float | `0.0` | Extra spacing between characters. |
+| Letter Case | Dropdown | `NONE` | NONE, UPPER, or LOWER. |
+| Justification | Dropdown | `Center` | Left, Center, or Right. |
+| Horizontal Adjustment | Float | `0.0` | Horizontal text offset. |
+| Vertical Adjustment | Float | `0.0` | Vertical text offset. |
+| Show Box Background | Integer | `0.0` | Draws a box behind each text item. |
+| Box Padding | Float | `0.5` | Space between text and box. |
+| Box Vertical Adjustment | Float | `0.0` | Vertical box offset. |
+| Box Round Corners | Float | `0.01` | Corner radius of the box. |
+| Pos Adjustment | Float | `0.0` | Position offset of the items. |
 | ScriptVal Font | ScriptVal | `—` | — |
 | ScriptVal Text | ScriptVal | `—` | — |
 | Text | Text | `—` | — |
 
 </details>
-
 
 ## Related Nodes
 

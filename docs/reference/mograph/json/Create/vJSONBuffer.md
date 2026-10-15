@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 title: vJSONBuffer
 description: "FIFO (first in first out) in an array"
 ---
@@ -26,11 +26,11 @@ FIFO (first in first out) in an array
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Array Length (min 2) | Integer | `2` | — |
+| Array Length (min 2) | Integer | `2` | Number of values kept in the buffer. Shown when Show Input is on. |
 | Low | Float | `-1` | — |
 | High | Float | `1` | — |
-| Offset Range | Float | `0.0` | — |
-| Show Input | Integer | `0.0` | — |
+| Offset Range | Float | `0.0` | Offset range of the buffer. Shown when Show Input is on. |
+| Show Input | Integer | `0.0` | Shows the input sockets of the controls. |
 
 ## Example Connections
 
@@ -51,8 +51,8 @@ vJSONBuffer.Low = 1
 <div className="node-chip-row">
   <a className="node-chip" href="./vJSONCircularPoints">vJSONCircularPoints</a>
   <a className="node-chip" href="./vJSONCreateAsset">vJSONCreateAsset</a>
-  <a className="node-chip" href="./vJSONCreateAttractorPoints">vJSONCreateAttractorPoints</a>
-  <a className="node-chip" href="./vJSONCreateCubicBezier">vJSONCreateCubicBezier</a>
+  <a className="node-chip" href="./vJSONAttractorPoints">vJSONAttractorPoints</a>
+  <a className="node-chip" href="./vJSONCubicBezier">vJSONCubicBezier</a>
 </div>
 
 {/*

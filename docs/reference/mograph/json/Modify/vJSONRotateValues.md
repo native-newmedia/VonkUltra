@@ -1,5 +1,5 @@
 ---
-sidebar_position: 62
+sidebar_position: 53
 title: vJSONRotateValues
 description: "Rotate an array indexes and values"
 ---
@@ -26,11 +26,10 @@ Rotate an array indexes and values
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Rotate Amount | Integer | `1` | — |
+| Rotate Amount | Integer | `1` | Number of positions the values are shifted. |
 | Pass Thru: 0 or 1 | Integer | `0.0` | — |
-| line6Separator | Float | `—` | — |
 | Show Input | Integer | `0.0` | — |
-| Array A | DATATYPE | `—` | — |
+| Input | DATATYPE | `—` | Data to process. |
 
 ## Example Connections
 
@@ -38,7 +37,7 @@ Rotate an array indexes and values
 <TabItem value="example-1" label="Example 1" default>
 
 ```
-vJSONPointsHexagonGrid.Output -> vJSONRotateValues.ArrayA
+vJSONPointsOnHexagon.Output -> vJSONRotateValues.ArrayA
     vJSONRotateValues.Output -> vJSONCameraProjection.ArrayA
     vJSONCameraProjection.Output -> vJSONShapeRender.JSONPoint
     Background.Output -> vJSONShapeRender.Input
@@ -50,7 +49,7 @@ vJSONPointsHexagonGrid.Output -> vJSONRotateValues.ArrayA
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="../Create/vJSONPointsHexagonGrid">vJSONPointsHexagonGrid</a>
+  <a className="node-chip" href="../Create/vJSONPointsOnHexagon">vJSONPointsOnHexagon</a>
   <a className="node-chip" href="./vJSONCameraProjection">vJSONCameraProjection</a>
   <a className="node-chip" href="../ShapeRender/vJSONShapeRender">vJSONShapeRender</a>
 </div>

@@ -1,5 +1,5 @@
 ---
-sidebar_position: 58
+sidebar_position: 55
 title: vScriptValToXYZ
 description: "Convert a Fusion ScriptVal object into XYZ ASCII Text"
 ---
@@ -26,8 +26,8 @@ Convert a Fusion ScriptVal object into XYZ ASCII Text
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| ScriptVal | ScriptVal | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| Input | ScriptVal | `—` | Data to process. |
+| Show Input | Integer | `1.0` | Shows the input sockets of the controls. |
 
 ## Example Connections
 

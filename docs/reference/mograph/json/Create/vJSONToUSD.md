@@ -1,5 +1,5 @@
 ---
-sidebar_position: 57
+sidebar_position: 54
 title: vJSONToUSD
 description: "Convert a Fusion JSON object into OpenUSD ASCII Text."
 ---
@@ -26,10 +26,10 @@ Convert a Fusion JSON object into OpenUSD ASCII Text.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| JSON Edges | Text | `—` | — |
-| JSON Points | Text | `—` | — |
-| JSON UVs | Text | `—` | — |
-| JSON UV Edges | Text | `—` | — |
+| Edges | Text | `—` | Edges that connect the points. |
+| Points | Text | `—` | Point positions. |
+| UVs | Text | `—` | — |
+| UV Edges | Text | `—` | — |
 | Matrix | Text | `—` | — |
 
 <details>
@@ -37,12 +37,11 @@ Convert a Fusion JSON object into OpenUSD ASCII Text.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Object Sort | Text | `—` | — |
-| Object Path | Text | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| Object Sort | Text | `—` | Sort order of the object. |
+| Object Path | Text | `—` | USD path of the object. |
+| Show Input | Integer | `1.0` | Shows the input sockets of the controls. |
 
 </details>
-
 
 ## Related Nodes
 
@@ -50,7 +49,7 @@ Convert a Fusion JSON object into OpenUSD ASCII Text.
   <a className="node-chip" href="./vJSONBuffer">vJSONBuffer</a>
   <a className="node-chip" href="./vJSONCircularPoints">vJSONCircularPoints</a>
   <a className="node-chip" href="./vJSONCreateAsset">vJSONCreateAsset</a>
-  <a className="node-chip" href="./vJSONCreateAttractorPoints">vJSONCreateAttractorPoints</a>
+  <a className="node-chip" href="./vJSONAttractorPoints">vJSONAttractorPoints</a>
 </div>
 
 {/*

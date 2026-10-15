@@ -1,5 +1,5 @@
 ---
-sidebar_position: 57
+sidebar_position: 54
 title: vArrayToUSD
 description: "Convert a Fusion Array object into OpenUSD ASCII Text."
 ---
@@ -26,10 +26,10 @@ Convert a Fusion Array object into OpenUSD ASCII Text.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Array Edges | Text | `—` | — |
-| Array Points | Text | `—` | — |
-| Array UVs | Text | `—` | — |
-| Array UV Edges | Text | `—` | — |
+| Edges | Text | `—` | Edges that connect the points. |
+| Points | Text | `—` | Point positions. |
+| UVs | Text | `—` | — |
+| UV Edges | Text | `—` | — |
 | Matrix | Text | `—` | — |
 
 <details>
@@ -37,12 +37,11 @@ Convert a Fusion Array object into OpenUSD ASCII Text.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Object Sort | Text | `—` | — |
-| Object Path | Text | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| Object Sort | Text | `—` | Sort order of the object. |
+| Object Path | Text | `—` | USD path of the object. |
+| Show Input | Integer | `1.0` | Shows the input sockets of the controls. |
 
 </details>
-
 
 ## Related Nodes
 
@@ -50,7 +49,7 @@ Convert a Fusion Array object into OpenUSD ASCII Text.
   <a className="node-chip" href="./vArrayBuffer">vArrayBuffer</a>
   <a className="node-chip" href="./vArrayCircularPoints">vArrayCircularPoints</a>
   <a className="node-chip" href="./vArrayCreateAsset">vArrayCreateAsset</a>
-  <a className="node-chip" href="./vArrayCreateAttractorPoints">vArrayCreateAttractorPoints</a>
+  <a className="node-chip" href="./vArrayAttractorPoints">vArrayAttractorPoints</a>
 </div>
 
 {/*

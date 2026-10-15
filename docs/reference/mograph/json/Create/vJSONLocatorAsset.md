@@ -1,5 +1,5 @@
 ---
-sidebar_position: 45
+sidebar_position: 30
 title: vJSONLocatorAsset
 description: "Create a JSON based 3D locator cursor asset"
 ---
@@ -26,25 +26,24 @@ Create a JSON based 3D locator cursor asset
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Asset Name | Text | `—` | — |
-| Asset Version | Integer | `1` | — |
-| Locator | Dropdown | `Gnomon Locator` | — |
+| Asset Name | Text | `—` | Name of the asset. |
+| Asset Version | Integer | `1` | Version of the asset. |
+| Locator | Dropdown | `Gnomon Locator` | Locator, camera or light symbol. Options: Gnomon Locator, Plus Locator, Camera Locator, Ambient Light, Area Light, Directional Light, Dome Light, Point Light, Spot Light, Sphere Light, Tube Light. |
 | Matrix | Text | `—` | — |
-| Red | Float | `0.0` | — |
+| Red | Float | `0.0` | Color of the asset. |
 
 <details>
 <summary>+5 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Green | Float | `1.0` | — |
-| Blue | Float | `1.0` | — |
-| Alpha | Float | `1.0` | — |
-| Soft Edge | Float | `0` | — |
-| Show Input | Integer | `1.0` | — |
+| Green | Float | `1.0` | Color of the asset. |
+| Blue | Float | `1.0` | Color of the asset. |
+| Alpha | Float | `1.0` | Color of the asset. |
+| Soft Edge | Float | `0` | Softness of the asset edges. |
+| Show Input | Integer | `1.0` | Shows the input sockets of the controls. |
 
 </details>
-
 
 ## Related Nodes
 
@@ -52,7 +51,7 @@ Create a JSON based 3D locator cursor asset
   <a className="node-chip" href="./vJSONBuffer">vJSONBuffer</a>
   <a className="node-chip" href="./vJSONCircularPoints">vJSONCircularPoints</a>
   <a className="node-chip" href="./vJSONCreateAsset">vJSONCreateAsset</a>
-  <a className="node-chip" href="./vJSONCreateAttractorPoints">vJSONCreateAttractorPoints</a>
+  <a className="node-chip" href="./vJSONAttractorPoints">vJSONAttractorPoints</a>
 </div>
 
 {/*

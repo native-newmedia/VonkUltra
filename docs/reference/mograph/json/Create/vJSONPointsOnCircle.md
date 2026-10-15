@@ -1,5 +1,5 @@
 ---
-sidebar_position: 51
+sidebar_position: 39
 title: vJSONPointsOnCircle
 description: "Generate points on a cricle"
 ---
@@ -26,19 +26,18 @@ Generate points on a cricle
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Radius | Float | `0.1` | — |
-| Round Segments | Integer | `3` | — |
+| Radius | Float | `0.1` | Radius. |
+| Round Segments | Integer | `3` | Number of segments. |
 | Rounds | Float | `0` | — |
 | Point Offset | Float | `0` | — |
-| Rotate Amount | Float | `0` | — |
+| Rotate Amount | Float | `0` | Rotation of the circle. |
 
 <details>
-<summary>+2 more parameters</summary>
+<summary>+1 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| line6Separator | Float | `—` | — |
-| Show Input | Integer | `0.0` | — |
+| Close Path | Integer | `1.0` | — |
 
 </details>
 

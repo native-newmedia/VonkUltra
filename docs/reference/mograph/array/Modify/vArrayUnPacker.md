@@ -1,5 +1,5 @@
 ---
-sidebar_position: 68
+sidebar_position: 66
 title: vArrayUnPacker
 description: "Unpack Operations on an Array"
 ---
@@ -33,12 +33,11 @@ Unpack Operations on an Array
 | 4 Arrays | Float | `—` | — |
 
 <details>
-<summary>+2 more parameters</summary>
+<summary>+1 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Show Input | Integer | `0.0` | — |
-| Array A | DATATYPE | `—` | — |
+| Input | DATATYPE | `—` | Data to process. |
 
 </details>
 

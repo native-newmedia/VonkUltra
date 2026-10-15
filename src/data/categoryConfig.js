@@ -100,3 +100,37 @@ export const FUNCTION_CONFIG = { ...FUNCTION_GROUPS, ...CORE_FUNCTION_GROUPS };
 export const FUNCTION_ICONS = Object.fromEntries(
   Object.entries(FUNCTION_CONFIG).map(([label, cfg]) => [label, cfg.icon]),
 );
+
+// ---- Function-group artwork ----------------------------------------------
+// Level-2 cards (CategoryCards) and the Level-3 node cards (the DocCard swizzle)
+// both render a group's icon as static/img/icons/<Family>_<Label>.svg, with the
+// label's spaces removed — "Key Value" resolves to Core_KeyValue.svg. Mograph
+// duplicates Core's artwork for the labels both families share, so the groups below
+// have no file of their own yet and the Core file stands in. Keys are
+// `<Family>:<Label>`; add one whenever a family-specific file is missing but a Core
+// equivalent exists. A group whose resolved file doesn't exist renders a blank tile.
+
+const CORE_ARTWORK = new Map([
+  ['Mograph:IO', 'Core_IO.svg'],
+  ['Mograph:Logic', 'Core_Logic.svg'],
+  ['Mograph:Trigonometry', 'Core_Trigonometry.svg'],
+  // Core has no "Shapes" group; the Shape data-type artwork stands in.
+  ['Mograph:Shapes', 'Core_Shape.svg'],
+]);
+
+/**
+ * Family a docs category belongs to, read from its href — every category from a
+ * family's index down carries …/reference/<family>/… in it.
+ */
+export function familyFromHref(href) {
+  const match = /\/reference\/([^/]+)(?:\/|$)/.exec(href || '');
+  return match ? match[1].charAt(0).toUpperCase() + match[1].slice(1) : null;
+}
+
+/** Icon URL for a function group, or null when the family isn't known yet. */
+export function functionGroupArtwork(family, label) {
+  if (!family) return null;
+  const key = `${family}:${label}`;
+  const name = CORE_ARTWORK.get(key) ?? `${family}_${label.replace(/\s+/g, '')}.svg`;
+  return `/VonkUltra/img/icons/${name}`;
+}

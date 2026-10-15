@@ -1,5 +1,5 @@
 ---
-sidebar_position: 7
+sidebar_position: 21
 title: vScriptValIterator
 description: "Loop an array"
 ---
@@ -26,11 +26,8 @@ Loop an array
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Step - (skip x triplets) | Integer | `1` | — |
-| line6Separator | Float | `—` | — |
-| Show Input | Integer | `0.0` | — |
-| ScriptVal | DATATYPE | `—` | — |
-
+| Step - (skip x points) | Integer | `1` | — |
+| Input | DATATYPE | `—` | Data to process. |
 
 ## Related Nodes
 

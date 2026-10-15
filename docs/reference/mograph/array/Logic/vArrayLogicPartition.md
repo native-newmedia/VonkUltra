@@ -1,5 +1,5 @@
 ---
-sidebar_position: 14
+sidebar_position: 13
 title: vArrayLogicPartition
 description: "Split array into Pass (mask=1) and Fail (mask=0) outputs."
 ---
@@ -26,14 +26,13 @@ Split array into Pass (mask=1) and Fail (mask=0) outputs.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | DATATYPE | `—` | — |
-| Mask | DATATYPE | `—` | — |
-
+| Input | DATATYPE | `—` | Data to process. |
+| Mask | DATATYPE | `—` | Mask with one 0 or 1 value per element. |
 
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="./vArrayCountMask">vArrayCountMask</a>
+  <a className="node-chip" href="./vArrayLogicCount">vArrayLogicCount</a>
   <a className="node-chip" href="./vArrayLogicAND">vArrayLogicAND</a>
   <a className="node-chip" href="./vArrayLogicAll">vArrayLogicAll</a>
   <a className="node-chip" href="./vArrayLogicAny">vArrayLogicAny</a>

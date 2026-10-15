@@ -1,5 +1,5 @@
 ---
-sidebar_position: 29
+sidebar_position: 6
 title: vArrayCreateRange
 description: "Creates an Array."
 ---
@@ -24,24 +24,22 @@ Creates an Array.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Array length | Integer | `2` | — |
-| Mode Select  | Dropdown | `0-1` | — |
-| Number | Float | `0` | — |
+| Array length | Integer | `2` | Number of values. |
+| Mode Select  | Dropdown | `0-1` | Num, 0-1, 1,2,3 or Range. |
+| Number | Float | `0` | Value used by the mode. Shown for some modes. |
 | Low | Float | `-1` | — |
 | High | Float | `1` | — |
 
 <details>
-<summary>+4 more parameters</summary>
+<summary>+3 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Reverse Array | Integer | `0.0` | — |
-| line4Separator | Float | `—` | — |
-| Pack To: | Dropdown | `X` | — |
-| Show Input | Integer | `0.0` | — |
+| Reverse Array | Integer | `0.0` | Reverses the order of the values. |
+| Pack To: | Dropdown | `X` | Groups the values as X, X Y or X Y Z. |
+| Show Input | Integer | `0.0` | Shows the input sockets of the controls. |
 
 </details>
-
 
 ## Related Nodes
 
@@ -49,7 +47,7 @@ Creates an Array.
   <a className="node-chip" href="./vArrayBuffer">vArrayBuffer</a>
   <a className="node-chip" href="./vArrayCircularPoints">vArrayCircularPoints</a>
   <a className="node-chip" href="./vArrayCreateAsset">vArrayCreateAsset</a>
-  <a className="node-chip" href="./vArrayCreateAttractorPoints">vArrayCreateAttractorPoints</a>
+  <a className="node-chip" href="./vArrayAttractorPoints">vArrayAttractorPoints</a>
 </div>
 
 {/*

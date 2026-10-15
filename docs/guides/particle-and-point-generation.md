@@ -18,17 +18,17 @@ Inspector labels are quoted here exactly as the fuses spell them, so they match 
 
 | Family | Nodes | Reach for it when |
 |---|---|---|
-| **Rings, arcs, radials** | `vArrayPointsOnCircle`, `vArrayPointsOnArc`, `vArrayCreateRadialSymmetry`, `vArrayCreateGridPolar` | You want rotational order — mandalas, dials, radial data |
-| **Grids and lattices** | `vArrayPointsOnGrid`, `vArrayPointsHexagonGrid`, `vArrayPointsOnRectangle` | Even coverage, matrix layouts, dot patterns |
-| **3D shells and volumes** | `vArrayPointsOnSphere`, `vArrayPointsOnCube`, `vArrayCreateTorus`, `vArrayCreateGeodesicSphere` | Something for a moving camera to reveal |
-| **Curves, spirals, paths** | `vArrayCreateLine`, `vArrayCreateHelix`, `vArrayGenerateSpirals`, `vArrayLogarithmicSpiral`, `vArrayLissajouseSpline`, `vArrayCreateRoseCurve`, `vArrayCreateLemniscate`, `vArrayCreateHilbertCurve`, `vArrayCreateCubicBezier`, `vArrayCreateParametricCurve` | A shape that is really a line — sweeping, trailing, flowing |
-| **Distributions and scatter** | `vArrayPhyllotaxis`, `vArrayCreateVoronoi`, `vArrayCreateScatterOnMeshSurface`, `vArrayCreatePoissonOnMeshSurface`, `vArrayCreateRelaxedScatterOnMeshSurface`, `vArrayPointParticles` | Organic coverage without an obvious grid |
-| **Ranges, random, noise** | `vArrayCreateMinMax`, `vArrayCreateRandom`, `vArrayCreateNoise`, `vArrayFromAudio` | The values that drive *other* generators, or variation you control by seed |
-| **From existing things** | `vArrayFromOBJ`, `vArrayFromXYZ`, `vArrayCreateFromImage`, `vArrayCreateTextFont`, `vArrayCreateFromPolyline` | You already have geometry, a file, an image, or a string |
+| **Rings, arcs, radials** | `vArrayPointsOnCircle`, `vArrayPointsOnArc`, `vArrayRadialSymmetry`, `vArrayGridPolar` | You want rotational order — mandalas, dials, radial data |
+| **Grids and lattices** | `vArrayPointsOnGrid`, `vArrayPointsOnHexagon`, `vArrayPointsOnRectangle` | Even coverage, matrix layouts, dot patterns |
+| **3D shells and volumes** | `vArrayPointsOnSphere`, `vArrayPointsOnCube`, `vArrayTorus`, `vArrayGeodesicSphere` | Something for a moving camera to reveal |
+| **Curves, spirals, paths** | `vArrayLine`, `vArrayHelix`, `vArrayGenerateSpirals`, `vArrayLogarithmicSpiral`, `vArrayLissajouseSpline`, `vArrayRoseCurve`, `vArrayLemniscate`, `vArrayHilbertCurve`, `vArrayCubicBezier`, `vArrayParametricCurve` | A shape that is really a line — sweeping, trailing, flowing |
+| **Distributions and scatter** | `vArrayPhyllotaxis`, `vArrayVoronoi`, `vArrayScatterOnMesh`, `vArrayPoissonOnMesh`, `vArrayRelaxScatterOnMesh`, `vArrayPointParticles` | Organic coverage without an obvious grid |
+| **Ranges, random, noise** | `vArrayMinMax`, `vArrayRandom`, `vArrayNoise`, `vArrayFromAudio` | The values that drive *other* generators, or variation you control by seed |
+| **From existing things** | `vArrayFromOBJ`, `vArrayFromXYZ`, `vArrayFromImage`, `vArrayTextFont`, `vArrayFromPolyline` | You already have geometry, a file, an image, or a string |
 
 Two habits worth forming before you go further:
 
-- **Counts are usually on the generator.** `vArrayPointsOnGrid` has **Number X** and **Number Y** (both default `1`), `vArrayPhyllotaxis` has **Count**, the particle generator has **Particles Count**. But not all of them: `vArrayPointsOnArc` has only **Smoothness** and an array input, so you feed it a *range* instead. That's what `vArrayCreateMinMax` is for — **Range for X/Y/Z** (each defaulting to `-1 / 1`), an **Array length**, a **Seed**, and a **Pack To** control for XY or XYZ output. Its own reference calls it the essential seed node for arc, grid and scatter generators.
+- **Counts are usually on the generator.** `vArrayPointsOnGrid` has **Number X** and **Number Y** (both default `1`), `vArrayPhyllotaxis` has **Count**, the particle generator has **Particles Count**. But not all of them: `vArrayPointsOnArc` has only **Smoothness** and an array input, so you feed it a *range* instead. That's what `vArrayMinMax` is for — **Range for X/Y/Z** (each defaulting to `-1 / 1`), an **Array length**, a **Seed**, and a **Pack To** control for XY or XYZ output. Its own reference calls it the essential seed node for arc, grid and scatter generators.
 - **A `1` default is not a bug.** Most generators ship with a single point or a single row until you raise their count. If your comp renders one dot, check the generator's count control first.
 
 ## 2. Break the regularity
@@ -37,13 +37,13 @@ Perfect layouts look mechanical. Each of these disturbs points in a different wa
 
 | Node | What it does | Key controls |
 |---|---|---|
-| `vArrayModifyAttributeRandomize` | Deterministic per-point offsets, driven by a seed | **Distribution** (Uniform), **Apply To** (XYZ Coordinates), **Min Offset** / **Max Offset** (`-0.1` / `0.1`), **Seed**, **Randomize X/Y/Z** |
+| `vArrayAttrRandomize` | Deterministic per-point offsets, driven by a seed | **Distribution** (Uniform), **Apply To** (XYZ Coordinates), **Min Offset** / **Max Offset** (`-0.1` / `0.1`), **Seed**, **Randomize X/Y/Z** |
 | `vArrayPointsJitter` | The quick version: jitter each axis | **Jitter X/Y/Z**, **Seed**, **Uniform Jitter** |
 | `vArrayDisplaceValues` | Noise-driven displacement with a spherical falloff — bulges, ripples, shockwaves | **Noise Scale**, **Noise Rate**, **Amplitude**, **FallOff Sphere X/Y/Z**, **FallOff Radius**, **FallOff Tightness**, **Invert Falloff** |
 | `vArrayRippleDisplacer` | Animated wave displacement, with per-array time offsets so several arrays ripple out of phase | **Displacement Mode** (Radial from centre), **Amplitude**, **Frequency**, **Wave Type**, **Animation Speed**, **Auto Animate** |
-| `vArrayCreateNoise` / `vArrayPerlin3Noise` | Noise as a *value source* rather than a modifier | — |
+| `vArrayNoise` / `vArrayPerlin3Noise` | Noise as a *value source* rather than a modifier | — |
 
-Because they're seed-driven, `vArrayModifyAttributeRandomize` and `vArrayPointsJitter` are reproducible: same seed, same scatter, which is what you want when client notes arrive.
+Because they're seed-driven, `vArrayAttrRandomize` and `vArrayPointsJitter` are reproducible: same seed, same scatter, which is what you want when client notes arrive.
 
 ### Attractors
 
@@ -58,12 +58,12 @@ There are two versions, and the difference matters: `vArrayPointAttractorSpring`
 
 ## 3. Select, mask, decimate
 
-- `vArrayModifyApplyMask` — blends a **Base** array with a **Modified** one per point using a `0`–`1` **Mask**. **Amount**, **Blend Tightness**, **Invert Mask** and **Trim Zeros** finish the job. This is how you get "scattered here, ordered there" without splitting the comp.
-- `vArrayCountMask` — counts the non-zero elements of a mask, for sanity-checking what survived.
+- `vArrayApplyMask` — blends a **Base** array with a **Modified** one per point using a `0`–`1` **Mask**. **Amount**, **Blend Tightness**, **Invert Mask** and **Trim Zeros** finish the job. This is how you get "scattered here, ordered there" without splitting the comp.
+- `vArrayLogicCount` — counts the non-zero elements of a mask, for sanity-checking what survived.
 - `vArrayLogicDeleteByMask` — keeps or removes masked elements (**Mode**, **Invert Mask**) when you want them gone rather than blended.
 - `vArraySlicer` — trims the start and end of an array (**Start**, **Stop**, **Offset Range**, **Continuous**). Useful for taking a long generated curve and using a moving window of it.
 - `vArrayReducePoints` — decimation, with three methods: **Grid-Based**, **Random Sampling** and **Curvature-Based (SLOW)**. **Grid Size**, **Target Count** and **Neighborhood Size** configure them. Render cost scales with point count, so this and `vArraySlicer` are your two levers when a pipeline gets heavy.
-- `vArrayModifyFuseClosePoints` — welds points closer than a distance threshold. Worth running after scatter operations, which happily pile points on top of each other.
+- `vArrayFuseClosePoints` — welds points closer than a distance threshold. Worth running after scatter operations, which happily pile points on top of each other.
 
 ## 4. Order and connect
 
@@ -80,16 +80,16 @@ That last pairing is the one to remember if you want grids rather than point clo
 - `vArrayAppend` — appends one array onto another. **Number** grows the input list as you wire it up, the same pattern the switch nodes use.
 - `vArrayAppendGroup` — the same, for group data (the membership arrays that text and font generators produce).
 - `vArrayMergeTrim` — joins several arrays into a single table (**Array1** … *i*) while trimming as it goes: **Trim Start**, **Trim End**, **Every Nth**, **Reverse**.
-- `vArrayModifyRepeat` — repeats an array with per-copy transform offsets (**Copies**, **Offset X/Y/Z**, **Rotate Step Z**, **Scale Step**). The cheapest way to build a stack, a fan or a ring of copies.
+- `vArrayRepeat` — repeats an array with per-copy transform offsets (**Copies**, **Offset X/Y/Z**, **Rotate Step Z**, **Scale Step**). The cheapest way to build a stack, a fan or a ring of copies.
 
 ## 6. Time: particles, trails, accumulation
 
 The **Temporal** group is small — seven nodes — and it's what makes a point set behave like a system over time:
 
 - `vArrayPointParticles` — a full particle generator rather than a layout: 54 controls, headed by **Particles Count** (`24`), **Emission Type** (defaulting to Fibonacci Sphere), **Size X/Y/Z**, **Center X/Y/Z**, **Global Scale**, and **Time** / **Start Time** / **Restart System** for controlling the simulation.
-- `vArrayTemporalTrailFromPoints` — concatenates point arrays across frames, turning one moving point set into a trail. **History Length** (`12`), **Frame Step** and **Oldest First** shape it.
-- `vArrayAccumulator` — temporally concatenates array elements across **Start Frame** to **End Frame** with a **Step**, offsetting and rotating each copy (**Offset X/Y/Z**, **Rotate X/Y/Z**). This is the node behind repeating-geometry looks — rings of rings, spirals of grids.
-- `vArrayTemporalSmooth`, `vArrayTemporalDelta`, `vArrayTemporalTimeShiftArray`, `vArrayTemporalSolverStep` — smoothing, per-frame change, time-shifted copies, and a solver step for iterated simulation.
+- `vArrayTemporalTrails` — concatenates point arrays across frames, turning one moving point set into a trail. **History Length** (`12`), **Frame Step** and **Oldest First** shape it.
+- `vArrayAccumulatorXform` — temporally concatenates array elements across **Start Frame** to **End Frame** with a **Step**, offsetting and rotating each copy (**Offset X/Y/Z**, **Rotate X/Y/Z**). This is the node behind repeating-geometry looks — rings of rings, spirals of grids.
+- `vArrayTemporalSmooth`, `vArrayTemporalDelta`, `vArrayTemporalTimeShift`, `vArrayTemporalSolverStep` — smoothing, per-frame change, time-shifted copies, and a solver step for iterated simulation.
 
 Trails only *read* as trails if something draws them: leave **Show Lines** on at the render node, which is where a trail becomes a streak rather than a cloud of dots.
 
@@ -98,8 +98,8 @@ Trails only *read* as trails if something draws them: leave **Show Lines** on at
 A modest chain that uses most of the above, in the order they should run:
 
 ```
-vArrayPointsOnGrid.Output -> vArrayModifyAttributeRandomize.Input
-vArrayModifyAttributeRandomize.Output -> vArrayCameraProjection.ArrayA
+vArrayPointsOnGrid.Output -> vArrayAttrRandomize.Input
+vArrayAttrRandomize.Output -> vArrayCameraProjection.ArrayA
 vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
 Background.Output -> vArrayShapeRender.Input
 ```
@@ -110,12 +110,12 @@ From there, each section above adds a layer without changing the shape of the pi
 - **Lattice instead of dots?** Add `vArrayGridConnect` into **Array Edge** and enable **Use Edge Data**.
 - **Nearest-neighbour look?** Insert `vArraySortByDistance` before the projection and turn **Show Lines** on.
 - **Too heavy?** Insert `vArrayReducePoints` before the projection.
-- **Moving?** Swap the grid for `vArrayPointsOnSphere` (add a camera orbit) or `vArrayPointParticles`, then add `vArrayTemporalTrailFromPoints`.
+- **Moving?** Swap the grid for `vArrayPointsOnSphere` (add a camera orbit) or `vArrayPointParticles`, then add `vArrayTemporalTrails`.
 
 ## Reference
 
-- **Generators** — [vArrayPointsOnGrid](../reference/mograph/array/Create/vArrayPointsOnGrid) · [vArrayPhyllotaxis](../reference/mograph/array/Create/vArrayPhyllotaxis) · [vArrayPointsHexagonGrid](../reference/mograph/array/Create/vArrayPointsHexagonGrid) · [vArrayCreateMinMax](../reference/mograph/array/Create/vArrayCreateMinMax) · [vArrayPointParticles](../reference/mograph/array/Create/vArrayPointParticles) · [vArrayFromOBJ](../reference/mograph/array/Create/vArrayFromOBJ)
-- **Modifiers** — [vArrayModifyAttributeRandomize](../reference/mograph/array/Modify/vArrayModifyAttributeRandomize) · [vArrayPointsJitter](../reference/mograph/array/Animate/vArrayPointsJitter) · [vArrayDisplaceValues](../reference/mograph/array/Modify/vArrayDisplaceValues) · [vArrayRippleDisplacer](../reference/mograph/array/Modify/vArrayRippleDisplacer) · [vArrayPointAttractor](../reference/mograph/array/Modify/vArrayPointAttractor) · [vArrayPointAttractorSpring](../reference/mograph/array/Modify/vArrayPointAttractorSpring)
-- **Select and order** — [vArrayModifyApplyMask](../reference/mograph/array/Modify/vArrayModifyApplyMask) · [vArrayLogicDeleteByMask](../reference/mograph/array/Logic/vArrayLogicDeleteByMask) · [vArraySlicer](../reference/mograph/array/Utility/vArraySlicer) · [vArrayReducePoints](../reference/mograph/array/Utility/vArrayReducePoints) · [vArraySortByDistance](../reference/mograph/array/Modify/vArraySortByDistance) · [vArrayGridConnect](../reference/mograph/array/Modify/vArrayGridConnect)
-- **Combine and time** — [vArrayAppend](../reference/mograph/array/Utility/vArrayAppend) · [vArrayMergeTrim](../reference/mograph/array/Utility/vArrayMergeTrim) · [vArrayModifyRepeat](../reference/mograph/array/Modify/vArrayModifyRepeat) · [vArrayTemporalTrailFromPoints](../reference/mograph/array/Temporal/vArrayTemporalTrailFromPoints) · [vArrayAccumulator](../reference/mograph/array/Temporal/vArrayAccumulator)
+- **Generators** — [vArrayPointsOnGrid](../reference/mograph/array/Create/vArrayPointsOnGrid) · [vArrayPhyllotaxis](../reference/mograph/array/Create/vArrayPhyllotaxis) · [vArrayPointsOnHexagon](../reference/mograph/array/Create/vArrayPointsOnHexagon) · [vArrayMinMax](../reference/mograph/array/Create/vArrayMinMax) · [vArrayPointParticles](../reference/mograph/array/Create/vArrayPointParticles) · [vArrayFromOBJ](../reference/mograph/array/Create/vArrayFromOBJ)
+- **Modifiers** — [vArrayAttrRandomize](../reference/mograph/array/Modify/vArrayAttrRandomize) · [vArrayPointsJitter](../reference/mograph/array/Animate/vArrayPointsJitter) · [vArrayDisplaceValues](../reference/mograph/array/Modify/vArrayDisplaceValues) · [vArrayRippleDisplacer](../reference/mograph/array/Modify/vArrayRippleDisplacer) · [vArrayPointAttractor](../reference/mograph/array/Modify/vArrayPointAttractor) · [vArrayPointAttractorSpring](../reference/mograph/array/Modify/vArrayPointAttractorSpring)
+- **Select and order** — [vArrayApplyMask](../reference/mograph/array/Modify/vArrayApplyMask) · [vArrayLogicDeleteByMask](../reference/mograph/array/Logic/vArrayLogicDeleteByMask) · [vArraySlicer](../reference/mograph/array/Utility/vArraySlicer) · [vArrayReducePoints](../reference/mograph/array/Utility/vArrayReducePoints) · [vArraySortByDistance](../reference/mograph/array/Modify/vArraySortByDistance) · [vArrayGridConnect](../reference/mograph/array/Modify/vArrayGridConnect)
+- **Combine and time** — [vArrayAppend](../reference/mograph/array/Utility/vArrayAppend) · [vArrayMergeTrim](../reference/mograph/array/Utility/vArrayMergeTrim) · [vArrayRepeat](../reference/mograph/array/Modify/vArrayRepeat) · [vArrayTemporalTrails](../reference/mograph/array/Temporal/vArrayTemporalTrails) · [vArrayAccumulatorXform](../reference/mograph/array/Temporal/vArrayAccumulatorXform)
 - [Guides overview](./overview) — what else is in this section

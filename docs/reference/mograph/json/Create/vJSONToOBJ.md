@@ -1,5 +1,5 @@
 ---
-sidebar_position: 56
+sidebar_position: 53
 title: vJSONToOBJ
 description: "Convert an Array into Wavefront OBJ ASCII Text."
 ---
@@ -26,10 +26,20 @@ Convert an Array into Wavefront OBJ ASCII Text.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Array Edges | DATATYPE | `—` | — |
-| Array Points | DATATYPE | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| Edges | DATATYPE | `—` | Edges that connect the points. |
+| Points | DATATYPE | `—` | Point positions. |
+| UVs | DATATYPE | `—` | — |
+| UV Edges | DATATYPE | `—` | — |
+| Matrix | Text | `—` | — |
 
+<details>
+<summary>+1 more parameters</summary>
+
+| Parameter | Type | Default | Description |
+|---|---|---|---|
+| Show Input | Integer | `1.0` | Shows the input sockets of the controls. |
+
+</details>
 
 ## Related Nodes
 
@@ -37,7 +47,7 @@ Convert an Array into Wavefront OBJ ASCII Text.
   <a className="node-chip" href="./vJSONBuffer">vJSONBuffer</a>
   <a className="node-chip" href="./vJSONCircularPoints">vJSONCircularPoints</a>
   <a className="node-chip" href="./vJSONCreateAsset">vJSONCreateAsset</a>
-  <a className="node-chip" href="./vJSONCreateAttractorPoints">vJSONCreateAttractorPoints</a>
+  <a className="node-chip" href="./vJSONAttractorPoints">vJSONAttractorPoints</a>
 </div>
 
 {/*

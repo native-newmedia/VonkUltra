@@ -1,6 +1,7 @@
 ---
-sidebar_position: 4
+sidebar_position: 16
 title: vArrayDisplaceValues
+description: "Displace positions with noise"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -55,7 +56,7 @@ vArrayDisplaceValues adds procedural noise displacement to any upstream vArray p
 
 The spherical falloff system gives the node its Cinema 4D MoGraph effector character. A virtual sphere is positioned in 3D space using the FallOff Sphere X/Y/Z parameters, and FallOff Radius defines the sphere’s influence zone. Points inside the radius receive the full displacement; points outside are unaffected. FallOff Tightness controls the edge sharpness of the transition — low values produce a gradual fade, high values produce a near-hard cut. Invert Falloff flips the logic so displacement applies outside the sphere instead of inside, useful for protecting a central cluster of points while disturbing the surrounding field.
 
-In a typical pipeline, DisplaceValues sits between the generator (vArrayPointsOnCircle, vArrayPointsOnGrid, vArrayCreateMinMax) and vArrayCameraProjection. The displacement operates in 3D world space before projection, so the results respond correctly to camera angle changes. For animation, connecting Noise Rate to a Fusion expression that reads the current frame time gives a continuously evolving noise field without a single keyframe. Multiple DisplaceValues nodes can be chained to layer different noise frequencies for more complex organic motion.
+In a typical pipeline, DisplaceValues sits between the generator (vArrayPointsOnCircle, vArrayPointsOnGrid, vArrayMinMax) and vArrayCameraProjection. The displacement operates in 3D world space before projection, so the results respond correctly to camera angle changes. For animation, connecting Noise Rate to a Fusion expression that reads the current frame time gives a continuously evolving noise field without a single keyframe. Multiple DisplaceValues nodes can be chained to layer different noise frequencies for more complex organic motion.
 
 </details>
 

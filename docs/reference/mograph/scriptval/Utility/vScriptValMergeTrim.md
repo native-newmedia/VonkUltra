@@ -1,5 +1,5 @@
 ---
-sidebar_position: 9
+sidebar_position: 8
 title: vScriptValMergeTrim
 description: "Dynamically join ScriptVal elements into one table."
 ---
@@ -25,23 +25,21 @@ Dynamically join ScriptVal elements into one table.
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | Which | Integer | `—` | — |
-| Array1 | DATATYPE | `—` | — |
-| Trim Start | Integer | `0` | — |
-| Trim End | Integer | `0` | — |
-| Every Nth | Integer | `1` | — |
+| Input 1 | DATATYPE | `—` | — |
+| Trim Start | Integer | `0` | Entries removed from the start. |
+| Trim End | Integer | `0` | Entries removed from the end. |
+| Every Nth | Integer | `1` | Keeps one entry out of every N. |
 
 <details>
-<summary>+4 more parameters</summary>
+<summary>+3 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Reverse | Integer | `0.0` | — |
-| Show Input | Integer | `0.0` | — |
-| "Array" .. i | DATATYPE | `—` | — |
-| "Array" .. (inp_nr + 1) | DATATYPE | `—` | — |
+| Reverse | Integer | `0.0` | Reverses the order of the result. |
+| "Input " .. i | DATATYPE | `—` | — |
+| "Input " .. (inp_nr + 1) | DATATYPE | `—` | — |
 
 </details>
-
 
 ## Related Nodes
 

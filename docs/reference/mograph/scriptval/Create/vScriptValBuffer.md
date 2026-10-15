@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 title: vScriptValBuffer
 description: "FIFO (first in first out) in an array"
 ---
@@ -26,11 +26,11 @@ FIFO (first in first out) in an array
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Array Length (min 2) | Integer | `2` | — |
+| Array Length (min 2) | Integer | `2` | Number of values kept in the buffer. Shown when Show Input is on. |
 | Low | Float | `-1` | — |
 | High | Float | `1` | — |
-| Offset Range | Float | `0.0` | — |
-| Show Input | Integer | `0.0` | — |
+| Offset Range | Float | `0.0` | Offset range of the buffer. Shown when Show Input is on. |
+| Show Input | Integer | `0.0` | Shows the input sockets of the controls. |
 
 ## Example Connections
 
@@ -51,8 +51,8 @@ vScriptValBuffer.Low = 1
 <div className="node-chip-row">
   <a className="node-chip" href="./vScriptValCircularPoints">vScriptValCircularPoints</a>
   <a className="node-chip" href="./vScriptValCreateAsset">vScriptValCreateAsset</a>
-  <a className="node-chip" href="./vScriptValCreateAttractorPoints">vScriptValCreateAttractorPoints</a>
-  <a className="node-chip" href="./vScriptValCreateCubicBezier">vScriptValCreateCubicBezier</a>
+  <a className="node-chip" href="./vScriptValAttractorPoints">vScriptValAttractorPoints</a>
+  <a className="node-chip" href="./vScriptValCubicBezier">vScriptValCubicBezier</a>
 </div>
 
 {/*

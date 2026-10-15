@@ -26,27 +26,26 @@ Per-element temporal delta for JSON arrays.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Frame Step | Integer | `1` | — |
-| Output Mode | Dropdown | `OUTPUT_MODE_DELTA` | — |
-| Fallback To Current | Integer | `1` | — |
-| Offset X | Float | `0` | — |
-| Offset Y | Float | `0` | — |
+| Frame Step | Integer | `1` | Frames back to compare with. |
+| Output Mode | Dropdown | `OUTPUT_MODE_DELTA` | Delta, or Position + Delta. |
+| Fallback To Current | Integer | `1` | Uses the current frame when no earlier frame exists, so the first change is zero. |
+| Offset X | Float | `0` | Added to every output point. |
+| Offset Y | Float | `0` | Added to every output point. |
 
 <details>
 <summary>+2 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Offset Z | Float | `0` | — |
-| Input | DATATYPE | `—` | — |
+| Offset Z | Float | `0` | Added to every output point. |
+| Input | DATATYPE | `—` | Data to process. |
 
 </details>
-
 
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="./vJSONAccumulator">vJSONAccumulator</a>
+  <a className="node-chip" href="./vJSONAccumulatorXform">vJSONAccumulatorXform</a>
   <a className="node-chip" href="./vJSONAccumulatorOBJ">vJSONAccumulatorOBJ</a>
   <a className="node-chip" href="./vJSONTemporalSmooth">vJSONTemporalSmooth</a>
   <a className="node-chip" href="./vJSONTemporalSolverStep">vJSONTemporalSolverStep</a>

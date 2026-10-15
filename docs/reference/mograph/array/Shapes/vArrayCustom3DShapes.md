@@ -26,9 +26,9 @@ Dynamically create Shape elements
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Shape Selector | Dropdown | `Cube` | — |
+| Shape Selector | Dropdown | `Cube` | None, Cube, Tetrahedron, Octahedron, Dodecahedron, or Sphere. |
 | X Offset | Float | `—` | — |
-| Y Offset | Float | `—` | — |
+| Y Offset | Float | `—` | Moves the shape along X and Y. |
 | Z Offset | Float | `—` | — |
 | X Rotation | Float | `—` | — |
 
@@ -38,11 +38,11 @@ Dynamically create Shape elements
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | Y Rotation | Float | `—` | — |
-| Z Rotation | Float | `—` | — |
-| XY Scale | Float | `1.0` | — |
-| Sphere Detail Level | Integer | `1.0` | — |
-| ScriptVal1 | ScriptVal | `—` | — |
-| Show Input | Integer | `0.0` | — |
+| Z Rotation | Float | `—` | Rotates the shape. |
+| XY Scale | Float | `1.0` | Uniform scale. |
+| Sphere Detail Level | Integer | `1.0` | Number of subdivisions of the sphere. |
+| Input | ScriptVal | `—` | Data to process. |
+| Show Input | Integer | `0.0` | Shows the transform input sockets on the node. |
 
 </details>
 

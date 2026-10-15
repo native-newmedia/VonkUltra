@@ -1,5 +1,5 @@
 ---
-sidebar_position: 37
+sidebar_position: 9
 title: vArrayFromAudio
 description: "Convert .wav audio data into a vArray format"
 ---
@@ -26,18 +26,23 @@ Convert .wav audio data into a vArray format
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Wave File | Text | `—` | — |
+| Input Source | Dropdown | `File` | — |
+| Wave File | Text | `—` | Wave file to read. |
+| Wave URL | Text | `—` | — |
+| Base64 Wave Text Input | Text | `—` | — |
 | Reload Sample | Float | `—` | — |
-| Select Channel(s) | FuID | `—` | — |
-| Start Frame (Time Offset) | Integer | `0` | — |
-| Stretch (Time Scale) | Float | `1` | — |
 
 <details>
-<summary>+1 more parameters</summary>
+<summary>+6 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Proxy (sampling) | Integer | `25` | — |
+| Select Channel(s) | FuID | `—` | Left, Right or Both. Shown for stereo files. |
+| Start Frame (Time Offset) | Integer | `0` | Frame at which reading starts. |
+| Stretch (Time Scale) | Float | `1` | Stretches the audio in time. |
+| Proxy (sampling) | Integer | `25` | Number of samples skipped. |
+| FiltersOFF | FuID | `—` | — |
+| Filters | FuID | `—` | — |
 
 </details>
 
@@ -61,7 +66,7 @@ vTextCreateBrowse.Output -> vArrayFromAudio.WaveFile
   <a className="node-chip" href="./vArrayBuffer">vArrayBuffer</a>
   <a className="node-chip" href="./vArrayCircularPoints">vArrayCircularPoints</a>
   <a className="node-chip" href="./vArrayCreateAsset">vArrayCreateAsset</a>
-  <a className="node-chip" href="./vArrayCreateAttractorPoints">vArrayCreateAttractorPoints</a>
+  <a className="node-chip" href="./vArrayAttractorPoints">vArrayAttractorPoints</a>
 </div>
 
 {/*

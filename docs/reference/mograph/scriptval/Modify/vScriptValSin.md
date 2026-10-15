@@ -1,5 +1,5 @@
 ---
-sidebar_position: 63
+sidebar_position: 56
 title: vScriptValSin
 description: "Math Sin - Cos Operations on an Array"
 ---
@@ -26,20 +26,19 @@ Math Sin - Cos Operations on an Array
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Math Function | Dropdown | `Sin` | — |
-| Phase | Float | `0.0` | — |
-| Frequency | Float | `0.1` | — |
-| Amplitude | Float | `0.01` | — |
-| Offset | Float | `0.0` | — |
+| Math Function | Dropdown | `Sin` | Sin or Cos. |
+| Animation Speed | Float | `0` | — |
+| Frequency | Float | `0.1` | Frequency of the wave. |
+| Amplitude | Float | `0.01` | Amplitude of the wave. |
+| Offset | Float | `0.0` | Offset added per point index. |
 
 <details>
-<summary>+3 more parameters</summary>
+<summary>+2 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| line4Separator | Float | `—` | — |
 | Show Input | Integer | `0.0` | — |
-| ScriptVal | DATATYPE | `—` | — |
+| Input | DATATYPE | `—` | Data to process. |
 
 </details>
 

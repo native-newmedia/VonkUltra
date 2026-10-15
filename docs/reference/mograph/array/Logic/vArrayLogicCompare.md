@@ -1,5 +1,5 @@
 ---
-sidebar_position: 7
+sidebar_position: 6
 title: vArrayLogicCompare
 description: "Element-wise compare arrays and return 0/1 mask."
 ---
@@ -26,15 +26,14 @@ Element-wise compare arrays and return 0/1 mask.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Compare | Dropdown | `==` | — |
-| Array A | DATATYPE | `—` | — |
-| Array B | DATATYPE | `—` | — |
-
+| Compare | Dropdown | `==` | ==, !=, &lt;, >, &lt;=, or >=. |
+| Input A | DATATYPE | `—` | First input. |
+| Input B | DATATYPE | `—` | Second input. |
 
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="./vArrayCountMask">vArrayCountMask</a>
+  <a className="node-chip" href="./vArrayLogicCount">vArrayLogicCount</a>
   <a className="node-chip" href="./vArrayLogicAND">vArrayLogicAND</a>
   <a className="node-chip" href="./vArrayLogicAll">vArrayLogicAll</a>
   <a className="node-chip" href="./vArrayLogicAny">vArrayLogicAny</a>

@@ -1,5 +1,5 @@
 ---
-sidebar_position: 5
+sidebar_position: 4
 title: vArrayLogicBetween
 description: "Logic Between Operations on an Array."
 ---
@@ -26,20 +26,10 @@ Logic Between Operations on an Array. If value of array is between min and max t
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| line1Separator | Float | `—` | — |
-| Min | Float | `0` | — |
-| Max | Float | `0` | — |
-| line6Separator | Float | `—` | — |
-| Show Input | Integer | `0.0` | — |
-
-<details>
-<summary>+1 more parameters</summary>
-
-| Parameter | Type | Default | Description |
-|---|---|---|---|
-| Array A | DATATYPE | `—` | — |
-
-</details>
+| Min | Float | `0` | Lower limit, exclusive. |
+| Max | Float | `1` | Upper limit, exclusive. |
+| Show Input | Integer | `0.0` | Shows the Min and Max input sockets on the node. |
+| Input | DATATYPE | `—` | Data to process. |
 
 ## Example Connections
 

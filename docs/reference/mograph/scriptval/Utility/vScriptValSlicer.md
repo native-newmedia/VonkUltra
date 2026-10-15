@@ -1,5 +1,5 @@
 ---
-sidebar_position: 11
+sidebar_position: 10
 title: vScriptValSlicer
 description: "Trim the start and end of single or multi-dimensional arrays"
 ---
@@ -26,18 +26,18 @@ Trim the start and end of single or multi-dimensional arrays
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | DATATYPE | `—` | — |
-| Start | Integer | `1` | — |
-| Stop | Integer | `1` | — |
-| Offset Range | Integer | `0` | — |
-| Continuous | Integer | `1.0` | — |
+| Input | DATATYPE | `—` | Data to process. |
+| Start | Integer | `1` | First entry of the range. |
+| Stop | Integer | `1` | Last entry of the range. |
+| Offset Range | Integer | `0` | Added to Start and Stop. |
+| Continuous | Integer | `1.0` | Wraps the range around the end of the array. |
 
 <details>
 <summary>+1 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Show Input | Integer | `1.0` | — |
+| Show Input | Integer | `1.0` | Shows the Start, Stop and Offset Range input socket on the node. |
 
 </details>
 

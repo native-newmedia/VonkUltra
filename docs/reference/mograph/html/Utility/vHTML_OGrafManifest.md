@@ -26,8 +26,7 @@ OGraf v1 Action Bar manifest & compatibility reference panel
 | Final HOLD ends | Integer | `98` | — |
 | Data swaps | Integer | `123` | — |
 | UPDATE ends | Integer | `130` | — |
-| Input | Image | `—` | — |
-
+| Input | Image | `—` | Image that the result is drawn onto. |
 
 ## Related Nodes
 

@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 title: vJSONAccumulatorOBJ
 description: "Temporally concatenate Wavefront OBJ geometry with edge and point array elements"
 ---
@@ -28,24 +28,23 @@ Temporally concatenate Wavefront OBJ geometry with edge and point array elements
 |---|---|---|---|
 | Points 1 | DATATYPE | `—` | — |
 | Edges 1 | DATATYPE | `—` | — |
-| Start Frame | Integer | `0` | — |
-| End Frame | Integer | `0` | — |
-| Step | Float | `1` | — |
+| Start Frame | Integer | `0` | First frame to read. |
+| End Frame | Integer | `0` | Last frame to read. |
+| Step | Float | `1` | Frame increment between samples. |
 
 <details>
 <summary>+1 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Show Input | Integer | `0.0` | — |
+| Show Input | Integer | `0.0` | Shows the frame range controls. |
 
 </details>
-
 
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="./vJSONAccumulator">vJSONAccumulator</a>
+  <a className="node-chip" href="./vJSONAccumulatorXform">vJSONAccumulatorXform</a>
   <a className="node-chip" href="./vJSONTemporalDelta">vJSONTemporalDelta</a>
   <a className="node-chip" href="./vJSONTemporalSmooth">vJSONTemporalSmooth</a>
   <a className="node-chip" href="./vJSONTemporalSolverStep">vJSONTemporalSolverStep</a>

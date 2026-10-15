@@ -1,5 +1,5 @@
 ---
-sidebar_position: 42
+sidebar_position: 19
 title: vJSONGenerateSpirals
 description: "Generate Spiral splines"
 ---
@@ -26,22 +26,20 @@ Generate Spiral splines
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Spiral Type | Dropdown | `Logarithmic Spiral` | — |
+| Spiral Type | Dropdown | `Logarithmic Spiral` | Spiral type. Options: Archimedean Spiral, Atom Spiral, Cornu Spiral, Galilean Spiral, Hyperbolic Spiral, Logarithmic Spiral, Lituus Spiral. |
 | Shape Mode | Dropdown | `line` | — |
-| Growth coefficient | Float | `0.04` | — |
-| Expansion factor | Float | `0.22` | — |
-| Max angle | Integer | `6` | — |
+| Growth coefficient | Float | `0.04` | Growth rate of the spiral. |
+| Expansion factor | Float | `0.22` | Expansion rate of the spiral. |
+| Max angle | Integer | `6` | Last angle of the spiral. |
 
 <details>
-<summary>+5 more parameters</summary>
+<summary>+3 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Step size | Float | `1` | — |
-| Rotation | Float | `0` | — |
-| Scale Factor | Float | `0.1` | — |
-| line6Separator | Float | `—` | — |
-| Show Input | Integer | `0.0` | — |
+| Step size | Float | `1` | Angle step between points. |
+| Rotation | Float | `0` | Rotation in degrees. |
+| Scale Factor | Float | `0.1` | Scale of the result. |
 
 </details>
 

@@ -1,5 +1,5 @@
 ---
-sidebar_position: 16
+sidebar_position: 15
 title: vJSONLogicThreshold
 description: "Threshold array values and return 0/1 mask."
 ---
@@ -26,14 +26,13 @@ Threshold array values and return 0/1 mask.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Threshold | Float | `0.5` | — |
-| Array | DATATYPE | `—` | — |
-
+| Threshold | Float | `0` | Values above this become 1. |
+| Input | DATATYPE | `—` | Data to process. |
 
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="./vJSONCountMask">vJSONCountMask</a>
+  <a className="node-chip" href="./vJSONLogicCount">vJSONLogicCount</a>
   <a className="node-chip" href="./vJSONLogicAND">vJSONLogicAND</a>
   <a className="node-chip" href="./vJSONLogicAll">vJSONLogicAll</a>
   <a className="node-chip" href="./vJSONLogicAny">vJSONLogicAny</a>

@@ -1,5 +1,5 @@
 ---
-sidebar_position: 65
+sidebar_position: 62
 title: vJSONTangentVector
 description: "Create a vector that is tangent to a curve or surface at a given point"
 ---
@@ -26,11 +26,10 @@ Create a vector that is tangent to a curve or surface at a given point
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Mode | Dropdown | `Start` | — |
-| Max angle | Integer | `0` | — |
-| Scale Factor | Float | `0` | — |
-| Show Input | Integer | `0.0` | — |
-| JSON Path | DATATYPE | `—` | — |
+| Mode | Dropdown | `Start` | Tangent selection. Options: Start, End, flipped. |
+| Max angle | Integer | `0` | Largest angle between neighbouring segments in degrees. |
+| Scale Factor | Float | `0` | Scale of the tangent vectors. |
+| Path | DATATYPE | `—` | — |
 
 ## Example Connections
 

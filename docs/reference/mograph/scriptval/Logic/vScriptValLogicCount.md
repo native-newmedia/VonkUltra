@@ -1,6 +1,7 @@
 ---
-sidebar_position: 8
+sidebar_position: 7
 title: vScriptValLogicCount
+description: "Count the set elements of a mask"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -25,8 +26,7 @@ Count the number of non-zero elements in a mask array.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | DATATYPE | `—` | — |
-
+| Input | DATATYPE | `—` | Data to process. |
 
 ## Related Nodes
 

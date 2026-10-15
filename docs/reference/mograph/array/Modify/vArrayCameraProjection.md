@@ -1,6 +1,7 @@
 ---
-sidebar_position: 2
+sidebar_position: 8
 title: vArrayCameraProjection
+description: "Project points through a perspective camera"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -51,7 +52,7 @@ vArrayCameraProjection takes a 3D vArray point table and projects it to screen-s
 <details>
 <summary>Read the full description</summary>
 
-vArrayCameraProjection is the perspective engine of the vArray pipeline. Every point generator — vArrayPointsOnCircle, vArrayPointsOnArc, vArrayPointsOnGrid, vArrayCreateMinMax, vArrayFromOBJ — outputs a 3D coordinate table in world space. vArrayShapeRender needs 2D screen-space XY pairs. CameraProjection is the node that does the conversion, applying a full virtual camera transform between the two. Without it, nothing renders correctly.
+vArrayCameraProjection is the perspective engine of the vArray pipeline. Every point generator — vArrayPointsOnCircle, vArrayPointsOnArc, vArrayPointsOnGrid, vArrayMinMax, vArrayFromOBJ — outputs a 3D coordinate table in world space. vArrayShapeRender needs 2D screen-space XY pairs. CameraProjection is the node that does the conversion, applying a full virtual camera transform between the two. Without it, nothing renders correctly.
 
 The camera is defined by three transform groups: Translate (X/Y/Z position), Rotate (X/Y/Z rotation in degrees), and Scale (X, with Lock X/Y maintaining aspect ratio). The Z Translate value is the most critical — it controls camera distance from the point cloud and has the largest effect on the apparent size and spread of the projected output. The Field of View control (default 90°) adjusts perspective distortion: lower values produce a flatter, more orthographic look; higher values produce exaggerated foreshortening on 3D arrays.
 

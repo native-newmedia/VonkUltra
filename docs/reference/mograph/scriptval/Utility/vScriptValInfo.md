@@ -26,7 +26,7 @@ Returns info of an array
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| ScriptVal | DATATYPE | `—` | — |
+| Input | DATATYPE | `—` | Data to process. |
 
 ## Example Connections
 

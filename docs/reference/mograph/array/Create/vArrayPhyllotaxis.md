@@ -1,5 +1,5 @@
 ---
-sidebar_position: 48
+sidebar_position: 37
 title: vArrayPhyllotaxis
 description: "Generate points on Phyllotaxis"
 ---
@@ -26,11 +26,9 @@ Generate points on Phyllotaxis
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Count | Integer | `1` | — |
-| Scale | Float | `0.01` | — |
-| Rotation | Float | `0` | — |
-| line6Separator | Float | `—` | — |
-| Show Input | Integer | `0.0` | — |
+| Count | Integer | `1` | Number of points. |
+| Scale | Float | `0.01` | Scale of the result. |
+| Rotation | Float | `0` | Rotation in degrees. |
 
 ## Example Connections
 

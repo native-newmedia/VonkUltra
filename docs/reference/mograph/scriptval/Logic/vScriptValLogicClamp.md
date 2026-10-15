@@ -1,5 +1,5 @@
 ---
-sidebar_position: 6
+sidebar_position: 5
 title: vScriptValLogicClamp
 description: "Clamp array values to [min, max] range."
 ---
@@ -26,15 +26,14 @@ Clamp array values to [min, max] range.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Min | Float | `0.0` | — |
-| Max | Float | `1.0` | — |
-| Input | DATATYPE | `—` | — |
-
+| Min | Float | `0.0` | Lower limit. |
+| Max | Float | `1.0` | Upper limit. |
+| Input | DATATYPE | `—` | Data to process. |
 
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="./vScriptValCountMask">vScriptValCountMask</a>
+  <a className="node-chip" href="./vScriptValLogicCount">vScriptValLogicCount</a>
   <a className="node-chip" href="./vScriptValLogicAND">vScriptValLogicAND</a>
   <a className="node-chip" href="./vScriptValLogicAll">vScriptValLogicAll</a>
   <a className="node-chip" href="./vScriptValLogicAny">vScriptValLogicAny</a>

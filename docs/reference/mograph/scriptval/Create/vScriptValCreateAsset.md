@@ -26,25 +26,25 @@ Create a ScriptVal based 3D asset from Edge, Point, and vMatrix data
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Asset Name | Text | `—` | — |
-| Asset Version | Integer | `1` | — |
-| ScriptVal Points | ScriptVal | `—` | — |
-| ScriptVal Edges | ScriptVal | `—` | — |
-| ScriptVal UVs | ScriptVal | `—` | — |
+| Asset Name | Text | `—` | Name of the asset. |
+| Asset Version | Integer | `1` | Version of the asset. |
+| Points | ScriptVal | `—` | Point positions. |
+| Edges | ScriptVal | `—` | Edges that connect the points. |
+| UVs | ScriptVal | `—` | — |
 
 <details>
 <summary>+8 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| ScriptVal UV Edges | ScriptVal | `—` | — |
+| UV Edges | ScriptVal | `—` | — |
 | Matrix | Text | `—` | — |
-| Red | Float | `0.0` | — |
-| Green | Float | `1.0` | — |
-| Blue | Float | `1.0` | — |
-| Alpha | Float | `1.0` | — |
-| Soft Edge | Float | `0` | — |
-| Show Input | Integer | `1.0` | — |
+| Red | Float | `0.0` | Color of the asset. |
+| Green | Float | `1.0` | Color of the asset. |
+| Blue | Float | `1.0` | Color of the asset. |
+| Alpha | Float | `1.0` | Color of the asset. |
+| Soft Edge | Float | `0` | Softness of the asset edges. |
+| Show Input | Integer | `1.0` | Shows the input sockets of the controls. |
 
 </details>
 

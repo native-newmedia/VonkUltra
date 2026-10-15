@@ -497,11 +497,12 @@ article a:not(.node-chip):not(.menu__link):not(.toc__link):hover {
   color: #fff;
 }
 
-/* SVG data-type icon (Level 1). The artwork at static/img/icons/<Family>_<Label>.svg
- * has its baked-in rounded-rect background stripped out, so the tile colour above
- * shows through and the artwork is used as a MASK painted in currentColor — i.e. the
- * tile's own `color`. So: the tile's `background` colours the shape, and the tile's
- * `color` colours the icon. Both are retunable from CSS alone. */
+/* SVG card icon (all three levels: data types, function groups, node cards). The
+ * artwork at static/img/icons/<Family>_<Label>.svg has its baked-in rounded-rect
+ * background stripped out, so the tile colour above shows through and the artwork is
+ * used as a MASK painted in currentColor — i.e. the tile's own `color`. So: the
+ * tile's `background` colours the shape, and the tile's `color` colours the icon.
+ * Both are retunable from CSS alone. */
 .cat-card-icon-glyph {
   width: 100%;
   height: 100%;

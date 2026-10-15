@@ -26,11 +26,10 @@ Temporal low-pass smoothing using previous frame data.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Smooth Factor | Float | `0.2` | — |
-| Frame Step | Integer | `1` | — |
-| Fallback To Current | Integer | `1` | — |
-| Input | DATATYPE | `—` | — |
-
+| Smooth Factor | Float | `0.2` | Weight of the current frame. 1 passes it through, 0 repeats the earlier frame. |
+| Frame Step | Integer | `1` | Frames back to blend with. |
+| Fallback To Current | Integer | `1` | Uses the current frame when no earlier frame exists. |
+| Input | DATATYPE | `—` | Data to process. |
 
 ## Related Nodes
 

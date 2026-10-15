@@ -29,7 +29,6 @@ The vHTML_UIControl_Color node in the Vonk Ultra HTML toolkit.
 | Saturation | Float | `0.0` | — |
 | Brightness | Float | `0.0` | — |
 
-
 ## Related Nodes
 
 <div className="node-chip-row">

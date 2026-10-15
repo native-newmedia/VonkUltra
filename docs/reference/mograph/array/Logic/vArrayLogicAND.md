@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 title: vArrayLogicAND
 description: "Element-wise logical AND of two 0/1 mask arrays."
 ---
@@ -26,14 +26,13 @@ Element-wise logical AND of two 0/1 mask arrays.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Mask A | DATATYPE | `—` | — |
-| Mask B | DATATYPE | `—` | — |
-
+| Mask A | DATATYPE | `—` | First mask, one 0 or 1 value per element. |
+| Mask B | DATATYPE | `—` | Second mask, one 0 or 1 value per element. |
 
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="./vArrayCountMask">vArrayCountMask</a>
+  <a className="node-chip" href="./vArrayLogicCount">vArrayLogicCount</a>
   <a className="node-chip" href="./vArrayLogicAll">vArrayLogicAll</a>
   <a className="node-chip" href="./vArrayLogicAny">vArrayLogicAny</a>
   <a className="node-chip" href="./vArrayLogicBetween">vArrayLogicBetween</a>

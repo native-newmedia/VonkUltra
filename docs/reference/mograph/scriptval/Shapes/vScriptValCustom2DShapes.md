@@ -26,23 +26,22 @@ Dynamically create 2D Shape elements
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Shape Type | Dropdown | `Ticks` | — |
-| Shape Selector | Integer | `1` | — |
+| Shape Type | Dropdown | `Ticks` | None, Ticks, Lines, Frames, Symbols, or Others. |
+| Shape Selector | Integer | `1` | Which outline of the chosen set is used. |
 | X Offset | Float | `—` | — |
-| Y Offset | Float | `—` | — |
+| Y Offset | Float | `—` | Moves the shape along X and Y. |
 | Z Offset | Float | `—` | — |
 
 <details>
-<summary>+6 more parameters</summary>
+<summary>+5 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | X Rotation | Float | `—` | — |
 | Y Rotation | Float | `—` | — |
-| Z Rotation | Float | `—` | — |
-| XY Scale | Float | `0.05` | — |
-| Show Input | Integer | `0.0` | — |
-| ScriptVal1 | DATATYPE | `—` | — |
+| Z Rotation | Float | `—` | Rotates the shape. |
+| XY Scale | Float | `0.05` | Uniform scale. |
+| Input | DATATYPE | `—` | Data to process. |
 
 </details>
 

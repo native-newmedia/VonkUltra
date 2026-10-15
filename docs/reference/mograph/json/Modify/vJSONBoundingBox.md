@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 7
 title: vJSONBoundingBox
 description: "Calculate a 3D, 2D, or 1D bounding box volume from a JSON array of XYZ/XY/X points"
 ---
@@ -26,7 +26,7 @@ Calculate a 3D, 2D, or 1D bounding box volume from a JSON array of XYZ/XY/X poin
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Array A | DATATYPE | `—` | — |
+| Input | DATATYPE | `—` | Data to process. |
 
 ## Example Connections
 

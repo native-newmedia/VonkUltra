@@ -25,8 +25,7 @@ The vHTML_UIControl_Hero node in the Vonk Ultra HTML toolkit.
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | Scroll Images | Integer | `0.0` | — |
-| Input | Image | `—` | — |
-
+| Input | Image | `—` | Image that the result is drawn onto. |
 
 ## Related Nodes
 

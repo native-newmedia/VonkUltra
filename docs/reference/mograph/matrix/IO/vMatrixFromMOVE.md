@@ -27,11 +27,11 @@ Import translation matrix content from the Maya MOVE ASCII format
 | Input Source | Dropdown | `File` | — |
 | Filename | Text | `—` | — |
 | URL | Text | `—` | — |
-| Input | Text | `—` | — |
+| Input | Text | `—` | Data to process. |
 | Channel 1 | Dropdown | `Translate` | — |
 
 <details>
-<summary>+5 more parameters</summary>
+<summary>+8 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
@@ -40,6 +40,9 @@ Import translation matrix content from the Maya MOVE ASCII format
 | Rotation Order | Dropdown | ` XYZ ` | — |
 | Scale File Units By | Float | `1` | — |
 | Timing Mode | Dropdown | `Timecode` | — |
+| Sequence Offset | Integer | `0` | — |
+| Index | Integer | `1` | — |
+| Show Timing Inputs | Integer | `1.0` | — |
 
 </details>
 

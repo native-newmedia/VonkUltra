@@ -15,7 +15,7 @@ There are **1026 nodes** in this reference, but only **28 data types**. Every no
 | Data type | Nodes | What travels on the wire | A node that shows it |
 |---|---|---|---|
 | **Array** | 221 | Numeric tables — most often XYZ point clouds | `vArrayPointsOnCircle`, `vArrayFromOBJ` |
-| **JSON** | 206 | The same data, held as structured JSON | `vJSONFromArray`, `vJSONFont` |
+| **JSON** | 206 | The same data, held as structured JSON | `vJSONFromArray`, `vJSONCreateFont` |
 | **ScriptVal** | 253 | Fusion's opaque script-data type, passed between script-driven nodes | `vScriptValFromArray` |
 | **Number** | 90 | A single scalar value | `vNumberFromArray` |
 | **Text** | 88 | Strings | `vTextCaseAlternate` |

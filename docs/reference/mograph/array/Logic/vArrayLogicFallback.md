@@ -1,5 +1,5 @@
 ---
-sidebar_position: 10
+sidebar_position: 9
 title: vArrayLogicFallback
 description: "Pass Primary array through, or use Fallback if Primary is empty."
 ---
@@ -29,11 +29,10 @@ Pass Primary array through, or use Fallback if Primary is empty.
 | Primary | DATATYPE | `—` | — |
 | Fallback | DATATYPE | `—` | — |
 
-
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="./vArrayCountMask">vArrayCountMask</a>
+  <a className="node-chip" href="./vArrayLogicCount">vArrayLogicCount</a>
   <a className="node-chip" href="./vArrayLogicAND">vArrayLogicAND</a>
   <a className="node-chip" href="./vArrayLogicAll">vArrayLogicAll</a>
   <a className="node-chip" href="./vArrayLogicAny">vArrayLogicAny</a>

@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 2
 title: vScriptValLogicAll
 description: "Reduce array to 1 if all elements are non-zero, else 0."
 ---
@@ -26,13 +26,12 @@ Reduce array to 1 if all elements are non-zero, else 0.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | DATATYPE | `—` | — |
-
+| Input | DATATYPE | `—` | Data to process. |
 
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="./vScriptValCountMask">vScriptValCountMask</a>
+  <a className="node-chip" href="./vScriptValLogicCount">vScriptValLogicCount</a>
   <a className="node-chip" href="./vScriptValLogicAND">vScriptValLogicAND</a>
   <a className="node-chip" href="./vScriptValLogicAny">vScriptValLogicAny</a>
   <a className="node-chip" href="./vScriptValLogicBetween">vScriptValLogicBetween</a>

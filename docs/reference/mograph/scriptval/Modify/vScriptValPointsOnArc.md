@@ -1,5 +1,5 @@
 ---
-sidebar_position: 59
+sidebar_position: 41
 title: vScriptValPointsOnArc
 description: "Generate points on an arc"
 ---
@@ -26,20 +26,10 @@ Generate points on an arc
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Smoothness | Float | `20` | — |
+| Smoothness | Float | `20` | Number of points per arc. |
 | Height Factor | Float | `0.0` | — |
-| Multiplyer | Float | `0.0` | — |
-| line6Separator | Float | `—` | — |
-| Show Input | Integer | `0.0` | — |
-
-<details>
-<summary>+1 more parameters</summary>
-
-| Parameter | Type | Default | Description |
-|---|---|---|---|
-| ScriptVal | DATATYPE | `—` | — |
-
-</details>
+| Multiplier | Float | `0.0` | — |
+| Input | DATATYPE | `—` | Data to process. |
 
 ## Example Connections
 
@@ -47,7 +37,7 @@ Generate points on an arc
 <TabItem value="example-1" label="Example 1" default>
 
 ```
-vScriptValCreateMinMax.Output -> vScriptValPointsOnArc.ScriptVal
+vScriptValMinMax.Output -> vScriptValPointsOnArc.ScriptVal
     vScriptValPointsOnArc.Output -> vScriptValCameraProjection.ScriptVal
     vScriptValCameraProjection.Output -> vScriptValShapeRender.ScriptValPoint
     Background.Output -> vScriptValShapeRender.Input
@@ -59,7 +49,7 @@ vScriptValCreateMinMax.Output -> vScriptValPointsOnArc.ScriptVal
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="../Create/vScriptValCreateMinMax">vScriptValCreateMinMax</a>
+  <a className="node-chip" href="../Create/vScriptValMinMax">vScriptValMinMax</a>
   <a className="node-chip" href="./vScriptValCameraProjection">vScriptValCameraProjection</a>
   <a className="node-chip" href="../ShapeRender/vScriptValShapeRender">vScriptValShapeRender</a>
 </div>

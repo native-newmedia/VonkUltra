@@ -1,5 +1,5 @@
 ---
-sidebar_position: 69
+sidebar_position: 67
 title: vScriptValWave
 description: "Animates an Array Wave options include: - Line - Saw - Tri - Square - Sine - Noise"
 ---
@@ -26,31 +26,28 @@ Animates an Array Wave options include: - Line - Saw - Tri - Square - Sine - Noi
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Wave | FuID | `—` | — |
-| Start At Frame | Integer | `0` | — |
-| Period | Float | `5.0` | — |
-| Strength | Float | `1.0` | — |
-| line4Separator | Float | `—` | — |
+| Wave | FuID | `—` | Wave shape. |
+| Start At Frame | Integer | `0` | Frame at which the wave starts. |
+| Period | Float | `5.0` | Length of one cycle in frames. |
+| Strength | Float | `1.0` | Strength of the wave. |
+| Delay | Float | `0.0` | — |
 
 <details>
-<summary>+14 more parameters</summary>
+<summary>+11 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Delay | Float | `0.0` | — |
 | Offset | Float | `—` | — |
-| Repeat Limit | Integer | `1.0` | — |
-| Limit | Float | `0.0` | — |
-| Reverse | Float | `0.0` | — |
-| line1Separator | Float | `—` | — |
-| Falloff | Float | `0.0` | — |
-| Point Delay | Float | `0.0` | — |
-| X Position | Float | `0.0` | — |
-| Y Position | Float | `0.0` | — |
-| Z Position | Float | `0.0` | — |
-| Custom Value | Float | `0.0` | — |
+| Repeat Limit | Integer | `1.0` | Number of cycles when Limit is on. Shown when the related option is enabled. |
+| Limit | Float | `0.0` | Stops the wave after Repeat Limit cycles. |
+| Reverse | Float | `0.0` | Reverses the direction. |
+| Falloff | Float | `0.0` | Shape of the falloff. |
+| Point Delay | Float | `0.0` | Delay per point index. |
+| X Position | Float | `0.0` | Wave offset on X. |
+| Y Position | Float | `0.0` | Wave offset on Y. |
+| Z Position | Float | `0.0` | Wave offset on Z. |
 | Show Input | Integer | `1.0` | — |
-| ScriptVal | DATATYPE | `—` | — |
+| Input | DATATYPE | `—` | Data to process. |
 
 </details>
 

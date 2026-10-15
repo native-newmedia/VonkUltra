@@ -1,6 +1,7 @@
 ---
-sidebar_position: 69
+sidebar_position: 67
 title: vArrayWave
+description: "Animate an array with a wave"
 ---
 
 import Tabs from '@theme/Tabs';

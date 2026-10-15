@@ -1,5 +1,5 @@
 ---
-sidebar_position: 56
+sidebar_position: 38
 title: vScriptValPointAttractor
 description: "2D/3D point attractor/repulsor with spring dynamics"
 ---
@@ -26,9 +26,9 @@ import TabItem from '@theme/TabItem';
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Strength (+attract/-repel) | Float | `0.001` | — |
-| Radius | Float | `1.0` | — |
-| Falloff Power | Float | `1.0` | — |
+| Strength (+attract/-repel) | Float | `0.001` | Positive values pull points toward the attractor, negative values push them away. |
+| Radius | Float | `1.0` | Radius of the effect. |
+| Falloff Power | Float | `1.0` | Exponent of the falloff curve. |
 | Spring Return | Float | `0.1` | — |
 | Spring Bounce | Float | `0.01` | — |
 
@@ -37,20 +37,19 @@ import TabItem from '@theme/TabItem';
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Damping | Float | `0.98` | — |
-| Time Step | Float | `10.0` | — |
+| Damping | Float | `0.98` | Reduces the movement speed over time. |
+| Time Step | Float | `10.0` | Time step of the simulation. |
 | Center | Point | `—` | — |
 | Z Offset | Float | `0` | — |
-| Attractor Position | Point | `—` | — |
-| Attractor Z | Float | `0.5` | — |
+| Attractor Position | Point | `—` | Position of the attractor in X and Y. |
+| Attractor Z | Float | `0.5` | Position of the attractor along Z. |
 | Axis | Point | `—` | — |
 | Relative Flare Offset | Float | `1.5` | — |
-| Multiplier | Float | `1` | — |
-| Use 3D Points | Float | `1` | — |
-| ScriptVal | ScriptVal | `—` | — |
+| Multiplier | Float | `1` | Multiplies the strength. |
+| Use 3D Points | Float | `1` | Uses X, Y and Z of the points instead of X and Y. |
+| Input | ScriptVal | `—` | Data to process. |
 
 </details>
-
 
 ## Related Nodes
 

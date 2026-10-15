@@ -1,5 +1,5 @@
 ---
-sidebar_position: 8
+sidebar_position: 7
 title: vScriptValMergeOBJ
 description: "Merge Wavefront OBJ geometry with edge and point ScriptVal Arrays"
 ---
@@ -26,10 +26,10 @@ Merge Wavefront OBJ geometry with edge and point ScriptVal Arrays
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| ScriptVal Points 1 | DATATYPE | `—` | — |
-| ScriptVal Edges 1 | DATATYPE | `—` | — |
-| ScriptVal UVs 1 | ScriptVal | `—` | — |
-| ScriptVal UV Edges 1 | ScriptVal | `—` | — |
+| Points 1 | DATATYPE | `—` | — |
+| Edges 1 | DATATYPE | `—` | — |
+| UVs 1 | ScriptVal | `—` | — |
+| UV Edges 1 | ScriptVal | `—` | — |
 | Matrix 1 | Text | `—` | — |
 
 <details>
@@ -37,14 +37,13 @@ Merge Wavefront OBJ geometry with edge and point ScriptVal Arrays
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| ScriptVal Points 2 | DATATYPE | `—` | — |
-| ScriptVal Edges 2 | DATATYPE | `—` | — |
-| ScriptVal UVs 2 | ScriptVal | `—` | — |
-| ScriptVal UV Edges 2 | ScriptVal | `—` | — |
+| Points 2 | DATATYPE | `—` | — |
+| Edges 2 | DATATYPE | `—` | — |
+| UVs 2 | ScriptVal | `—` | — |
+| UV Edges 2 | ScriptVal | `—` | — |
 | Matrix 2 | Text | `—` | — |
 
 </details>
-
 
 ## Related Nodes
 

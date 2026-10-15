@@ -1,5 +1,5 @@
 ---
-sidebar_position: 18
+sidebar_position: 20
 title: vJSONTaperedShape
 description: "Draws a tapered 2D path from point list with optional smoothing"
 ---
@@ -26,42 +26,41 @@ Draws a tapered 2D path from point list with optional smoothing
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Taper Start | Float | `0.0` | — |
-| Taper End | Float | `1.0` | — |
+| Taper Start | Float | `0.0` | Path position where the taper starts. |
+| Taper End | Float | `1.0` | Path position where the taper ends. |
 | Caps | Dropdown | `All Points` | — |
-| Start Width | Float | `0.05` | — |
-| End Width | Float | `0.01` | — |
+| Start Width | Float | `0.05` | Width at the start. |
+| End Width | Float | `0.01` | Width at the end. |
 
 <details>
 <summary>+11 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Circle Segments | Integer | `16` | — |
-| Color Select | Dropdown | `Use Solid` | — |
-| Gradient | Gradient | `—` | — |
+| Circle Segments | Integer | `16` | Segments of the round joints. |
+| Color Select | Dropdown | `Use Solid` | Use Solid or Use Gradient. |
+| Gradient | Gradient | `—` | Color gradient. |
 | Low | Integer | `1` | — |
 | High | Integer | `5` | — |
-| Red | Float | `1.0` | — |
-| Green | Float | `1.0` | — |
-| Blue | Float | `1.0` | — |
-| Alpha | Float | `1.0` | — |
-| Input | Image | `—` | — |
-| Array A | Text | `—` | — |
+| Red | Float | `1.0` | Color for the solid. |
+| Green | Float | `1.0` | Color for the solid. |
+| Blue | Float | `1.0` | Color for the solid. |
+| Alpha | Float | `1.0` | Color for the solid. |
+| Input | Image | `—` | Image that the result is drawn onto. |
+| Data | Text | `—` | Data to process. |
 
 </details>
-
 
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="./vJSONCircuitBoardAbstract">vJSONCircuitBoardAbstract</a>
-  <a className="node-chip" href="./vJSONCircuitBoardPattern">vJSONCircuitBoardPattern</a>
+  <a className="node-chip" href="./vJSONCircuitAbstract">vJSONCircuitAbstract</a>
+  <a className="node-chip" href="./vJSONCircuitPattern">vJSONCircuitPattern</a>
   <a className="node-chip" href="./vJSONColor">vJSONColor</a>
   <a className="node-chip" href="./vJSONRenderAsset">vJSONRenderAsset</a>
 </div>
 
 {/*
 Generated page — node: vJSONTaperedShape (JSON/ShapeRender).
-Source: fuse vJSONTaperedPath.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vJSONRenderTaperedPath.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
 */}

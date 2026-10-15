@@ -1,5 +1,5 @@
 ---
-sidebar_position: 7
+sidebar_position: 19
 title: vJSONShapeRender
 description: "Create a polygon dot shapes from a JSON based Lua table of XY point pairs"
 ---
@@ -26,81 +26,73 @@ Create a polygon dot shapes from a JSON based Lua table of XY point pairs
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Separator_1 | Float | `—` | — |
-| Use Edge Data | Integer | `0` | — |
-| Show Lines | Integer | `0` | — |
-| Show Dots | Integer | `1` | — |
-| Show Custom | Integer | `0` | — |
+| Use Edge Data | Integer | `0` | Draws the edge list instead of connecting points in order. |
+| Show Lines | Integer | `0` | Draws the lines. |
+| Show Dots | Integer | `1` | Draws a dot at each point. |
+| Show Custom | Integer | `0` | Draws the custom shapes. |
+| Show Index | Integer | `0` | Draws the index number at each point. |
 
 <details>
-<summary>+64 more parameters</summary>
+<summary>+56 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Show Index | Integer | `0` | — |
-| Line Width | Float | `0.001` | — |
-| Dot Line Width | Float | `0.001` | — |
-| Connect Text Groups | Integer | `0` | — |
-| Render Outline Lines | Integer | `1` | — |
-| Close Edge Loops | Integer | `1` | — |
-| Max XY Line Distance | Float | `0.0` | — |
-| Separator_2 | Float | `—` | — |
-| Red | Float | `0` | — |
-| Green | Float | `1` | — |
-| Blue | Float | `1` | — |
-| Alpha | Float | `1.0` | — |
-| Hide Default Dots | Integer | `0` | — |
-| Render Outline Dots | Integer | `0` | — |
-| Dot Sides | Integer | `6` | — |
-| Dot Radius | Float | `0.01` | — |
-| Dots Scale | Float | `1.0` | — |
-| Separator_3 | Float | `—` | — |
-| Color | Dropdown | `Default` | — |
-| Red | Float | `1.0` | — |
-| Green | Float | `0.0` | — |
-| Blue | Float | `0.5` | — |
-| Alpha | Float | `1.0` | — |
-| Separator_Line | Float | `—` | — |
-| Color | Dropdown | `Default` | — |
-| Red | Float | `0` | — |
-| Green | Float | `1` | — |
-| Blue | Float | `1` | — |
-| Alpha | Float | `1.0` | — |
-| Render Outline Shape | Integer | `0` | — |
-| Render Outline Background | Integer | `1` | — |
+| Line Width | Float | `0.001` | Width of the lines. |
+| Dot Line Width | Float | `0.001` | Outline width of the dots. |
+| Connect Text Groups | Integer | `0` | Connects the points of each text group. |
+| Render Outline Lines | Integer | `1` | Draws the lines as outlines. |
+| Close Edge Loops | Integer | `1` | Connects the end of each edge loop to its start. |
+| Max XY Line Distance | Float | `0.0` | Longest line that is drawn. 0 means no limit. |
+| Red | Float | `0` | Color for the line. |
+| Green | Float | `1` | Color for the line. |
+| Blue | Float | `1` | Color for the line. |
+| Alpha | Float | `1.0` | Color for the line. |
+| Hide Default Dots | Integer | `0` | Hides the built-in dots. |
+| Render Outline Dots | Integer | `0` | Draws the dots as outlines. |
+| Dot Sides | Integer | `6` | Number of sides of each dot. |
+| Dot Radius | Float | `0.01` | Radius of the dots. |
+| Dots Scale | Float | `1.0` | Scales the dots. |
+| Color | Dropdown | `Default` | Default or Custom color. |
+| Red | Float | `1.0` | Color for the line. |
+| Green | Float | `0.0` | Color for the line. |
+| Blue | Float | `0.5` | Color for the line. |
+| Alpha | Float | `1.0` | Color for the line. |
+| Color | Dropdown | `Default` | Default or Custom color. |
+| Red | Float | `0` | Color for the line. |
+| Green | Float | `1` | Color for the line. |
+| Blue | Float | `1` | Color for the line. |
+| Alpha | Float | `1.0` | Color for the line. |
+| Render Outline Shape | Integer | `0` | Draws the custom shapes as outlines. |
+| Render Outline Background | Integer | `1` | Draws the outline of the shape background. |
 | Show / Hide Background | Integer | `0` | — |
-| Shape Outline | Float | `0.002` | — |
-| Background Outline | Float | `0.002` | — |
-| line2Separator | Float | `—` | — |
-| Shape Scale | Float | `1.0` | — |
-| line3Separator | Float | `—` | — |
-| Color | Dropdown | `Default` | — |
-| Red | Float | `1.0` | — |
-| Green | Float | `0.9` | — |
-| Blue | Float | `0.6` | — |
-| Alpha | Float | `1.0` | — |
-| Separator_8 | Float | `—` | — |
-| Red | Float | `0.079` | — |
-| Green | Float | `0.079` | — |
-| Blue | Float | `0.079` | — |
-| Alpha | Float | `1.0` | — |
-| Text Size | Float | `0.025` | — |
-| Text Style | Dropdown | `Bold` | — |
-| Separator_4 | Float | `—` | — |
-| Red | Float | `1.0` | — |
-| Green | Float | `1` | — |
-| Blue | Float | `1` | — |
-| Alpha | Float | `1.0` | — |
+| Shape Outline | Float | `0.002` | Outline width of the shapes. |
+| Background Outline | Float | `0.002` | Outline width of the background. |
+| Shape Scale | Float | `1.0` | Scale of the custom shapes. |
+| Color | Dropdown | `Default` | Default or Custom color. |
+| Red | Float | `1.0` | Color for the line. |
+| Green | Float | `0.9` | Color for the line. |
+| Blue | Float | `0.6` | Color for the line. |
+| Alpha | Float | `1.0` | Color for the line. |
+| Red | Float | `0.079` | Color for the line. |
+| Green | Float | `0.079` | Color for the line. |
+| Blue | Float | `0.079` | Color for the line. |
+| Alpha | Float | `1.0` | Color for the line. |
+| Text Size | Float | `0.025` | Size of the index text. |
+| Text Style | Dropdown | `Bold` | Regular or Bold. |
+| Red | Float | `1.0` | Color for the line. |
+| Green | Float | `1` | Color for the line. |
+| Blue | Float | `1` | Color for the line. |
+| Alpha | Float | `1.0` | Color for the line. |
 | Filter | Dropdown | `Gaussian` | — |
 | Soft Edge | Float | `0` | — |
-| Line Type | Dropdown | `Solid` | — |
-| Join Type | Dropdown | `2.0` | — |
-| Input | Image | `—` | — |
-| JSON Point | Text | `—` | — |
-| JSON Edge | Text | `—` | — |
-| JSON Custom Shape | ScriptVal | `—` | — |
-| JSON Text Groups | ScriptVal | `—` | — |
-| JSON Custom Color | ScriptVal | `—` | — |
+| Line Type | Dropdown | `Solid` | Solid, Dash, Dot, Dash Dot, or Dash Dot Dot. |
+| Join Type | Dropdown | `2.0` | Bevel or Round corners. |
+| Input | Image | `—` | Image that the result is drawn onto. |
+| Point | Text | `—` | — |
+| Edge | Text | `—` | — |
+| Custom Shape | ScriptVal | `—` | — |
+| Groups | ScriptVal | `—` | — |
+| Custom Color | ScriptVal | `—` | — |
 
 </details>
 

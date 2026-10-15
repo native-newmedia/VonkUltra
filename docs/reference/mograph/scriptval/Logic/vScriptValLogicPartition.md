@@ -1,5 +1,5 @@
 ---
-sidebar_position: 14
+sidebar_position: 13
 title: vScriptValLogicPartition
 description: "Split array into Pass (mask=1) and Fail (mask=0) outputs."
 ---
@@ -26,14 +26,13 @@ Split array into Pass (mask=1) and Fail (mask=0) outputs.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | DATATYPE | `—` | — |
-| Mask | DATATYPE | `—` | — |
-
+| Input | DATATYPE | `—` | Data to process. |
+| Mask | DATATYPE | `—` | Mask with one 0 or 1 value per element. |
 
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="./vScriptValCountMask">vScriptValCountMask</a>
+  <a className="node-chip" href="./vScriptValLogicCount">vScriptValLogicCount</a>
   <a className="node-chip" href="./vScriptValLogicAND">vScriptValLogicAND</a>
   <a className="node-chip" href="./vScriptValLogicAll">vScriptValLogicAll</a>
   <a className="node-chip" href="./vScriptValLogicAny">vScriptValLogicAny</a>

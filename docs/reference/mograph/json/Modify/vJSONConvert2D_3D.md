@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 14
 title: vJSONConvert2D_3D
 description: "Convert 2D array to 3D array"
 ---
@@ -19,17 +19,15 @@ Convert 2D array to 3D array
 </div>
 
 <div className="node-screenshot">
-  <img src="/VonkUltra/img/reference/mograph/json/vJSONConvert2D-3D.png" alt="vJSONConvert2D_3D node" />
+  <img src="/VonkUltra/img/reference/mograph/json/vJSONConvert2D_3D.png" alt="vJSONConvert2D_3D node" />
 </div>
 
 ## Parameters
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Convert To: | Dropdown | `X` | — |
-| Show Input | Integer | `0.0` | — |
-| Array A | DATATYPE | `—` | — |
-
+| Convert To: | Dropdown | `X` | Regroups the values as X, X Y or X Y Z. |
+| Input | DATATYPE | `—` | Data to process. |
 
 ## Related Nodes
 
@@ -42,5 +40,5 @@ Convert 2D array to 3D array
 
 {/*
 Generated page — node: vJSONConvert2D_3D (JSON/Modify).
-Source: fuse vJSONConvert2D-3D.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vJSONConvert2D_3D.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
 */}

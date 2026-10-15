@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 title: vJSONLogicAND
 description: "Element-wise logical AND of two 0/1 mask arrays."
 ---
@@ -26,14 +26,13 @@ Element-wise logical AND of two 0/1 mask arrays.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Mask A | DATATYPE | `—` | — |
-| Mask B | DATATYPE | `—` | — |
-
+| Mask A | DATATYPE | `—` | First mask, one 0 or 1 value per element. |
+| Mask B | DATATYPE | `—` | Second mask, one 0 or 1 value per element. |
 
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="./vJSONCountMask">vJSONCountMask</a>
+  <a className="node-chip" href="./vJSONLogicCount">vJSONLogicCount</a>
   <a className="node-chip" href="./vJSONLogicAll">vJSONLogicAll</a>
   <a className="node-chip" href="./vJSONLogicAny">vJSONLogicAny</a>
   <a className="node-chip" href="./vJSONLogicBetween">vJSONLogicBetween</a>

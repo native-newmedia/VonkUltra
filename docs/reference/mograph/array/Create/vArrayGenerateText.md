@@ -1,5 +1,5 @@
 ---
-sidebar_position: 42
+sidebar_position: 20
 title: vArrayGenerateText
 description: "Example, generating random Text and Strings The following Generate Random options are available: - Pick from → input Array - Lorem ipsum Basics: - Bool -…"
 ---
@@ -26,25 +26,22 @@ Example, generating random Text and Strings The following Generate Random option
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Generate Random →  | Dropdown | `Lorem ipsum` | — |
-| Array length | Integer | `1` | — |
-| Seed | Float | `0` | — |
-| line1Separator | Float | `—` | — |
-| Select Mode →  | Dropdown | `none` | — |
+| Generate Random →  | Dropdown | `Lorem ipsum` | Type of text generated. |
+| Array length | Integer | `1` | Number of values. |
+| Seed | Float | `0` | Seed of the random generator. |
+| Select Mode →  | Dropdown | `none` | Splits the generated text into characters, words, sentences or paragraphs. Options: none, Characters, Words, Sentences, Paragraphs. |
+| Character Count | Integer | `10` | Number of characters. |
 
 <details>
-<summary>+8 more parameters</summary>
+<summary>+5 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Character Count | Integer | `10` | — |
-| Word Count | Integer | `5` | — |
-| Sentence Count | Integer | `1` | — |
-| Paragraph Count | Integer | `1` | — |
-| line2Separator | Float | `—` | — |
-| Letter Case | Dropdown | `NONE` | — |
-| Show Input | Integer | `1.0` | — |
-| ScriptVal Text | ScriptVal | `—` | — |
+| Word Count | Integer | `5` | Number of words. |
+| Sentence Count | Integer | `1` | Number of sentences. |
+| Paragraph Count | Integer | `1` | Number of paragraphs. |
+| Letter Case | Dropdown | `NONE` | ORIGINAL, UPPER or LOWER. Options: NONE, UPPER, LOWER. |
+| Text | ScriptVal | `—` | — |
 
 </details>
 

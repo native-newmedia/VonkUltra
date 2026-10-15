@@ -1,5 +1,5 @@
 ---
-sidebar_position: 14
+sidebar_position: 13
 title: vJSONLogicPartition
 description: "Split array into Pass (mask=1) and Fail (mask=0) outputs."
 ---
@@ -26,14 +26,13 @@ Split array into Pass (mask=1) and Fail (mask=0) outputs.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | DATATYPE | `—` | — |
-| Mask | DATATYPE | `—` | — |
-
+| Input | DATATYPE | `—` | Data to process. |
+| Mask | DATATYPE | `—` | Mask with one 0 or 1 value per element. |
 
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="./vJSONCountMask">vJSONCountMask</a>
+  <a className="node-chip" href="./vJSONLogicCount">vJSONLogicCount</a>
   <a className="node-chip" href="./vJSONLogicAND">vJSONLogicAND</a>
   <a className="node-chip" href="./vJSONLogicAll">vJSONLogicAll</a>
   <a className="node-chip" href="./vJSONLogicAny">vJSONLogicAny</a>

@@ -1,5 +1,5 @@
 ---
-sidebar_position: 53
+sidebar_position: 41
 title: vJSONPointsOnGrid
 description: "Generate point on Array Grid"
 ---
@@ -26,20 +26,10 @@ Generate point on Array Grid
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Number X | Integer | `1` | — |
-| Number Y | Integer | `1` | — |
-| Number Z | Integer | `1` | — |
-| Multiplyer | Float | `0.05` | — |
-| line6Separator | Float | `—` | — |
-
-<details>
-<summary>+1 more parameters</summary>
-
-| Parameter | Type | Default | Description |
-|---|---|---|---|
-| Show Input | Integer | `0.0` | — |
-
-</details>
+| Number X | Integer | `1` | Points along X. |
+| Number Y | Integer | `1` | Points along Y. |
+| Number Z | Integer | `1` | Points along Z. |
+| Multiplier | Float | `0.05` | — |
 
 ## Example Connections
 

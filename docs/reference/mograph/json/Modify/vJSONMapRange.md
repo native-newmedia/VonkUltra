@@ -1,5 +1,5 @@
 ---
-sidebar_position: 9
+sidebar_position: 25
 title: vJSONMapRange
 description: "Apply range mapping operations to an array"
 ---
@@ -26,23 +26,10 @@ Apply range mapping operations to an array
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| OldMin | Float | `-10` | — |
-| OldMax | Float | `10` | — |
-| line2Separator | Float | `—` | — |
-| Mode Select  | Dropdown | `-1 - 1` | — |
+| Mode Select  | Dropdown | `-1 - 1` | Output range: -10 - 10, -1 - 1, 0 - 1 or 0 - 360. |
 | NewMin | Float | `-10` | — |
-
-<details>
-<summary>+4 more parameters</summary>
-
-| Parameter | Type | Default | Description |
-|---|---|---|---|
 | NewMax | Float | `10` | — |
-| line3Separator | Float | `—` | — |
-| Show Input | Integer | `0.0` | — |
-| Array A | DATATYPE | `—` | — |
-
-</details>
+| Input | DATATYPE | `—` | Data to process. |
 
 ## Example Connections
 

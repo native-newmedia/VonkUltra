@@ -1,6 +1,7 @@
 ---
-sidebar_position: 38
+sidebar_position: 11
 title: vArrayFromOBJ
+description: "Convert Wavefront OBJ mesh data into an array"
 ---
 
 import Tabs from '@theme/Tabs';

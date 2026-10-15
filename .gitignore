@@ -28,3 +28,4 @@ yarn-error.log*
 # vercel.json — that no build regenerates. Recreate them if the Vercel/Netlify route is
 # ever needed again; they are documented in 00-planning/remaining-work.md.
 /preview
+_mdxcheck.mjs

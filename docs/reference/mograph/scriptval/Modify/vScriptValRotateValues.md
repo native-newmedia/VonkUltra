@@ -1,5 +1,5 @@
 ---
-sidebar_position: 62
+sidebar_position: 53
 title: vScriptValRotateValues
 description: "Rotate ScriptVals Between Operations on a ScriptVal Object"
 ---
@@ -26,11 +26,10 @@ Rotate ScriptVals Between Operations on a ScriptVal Object
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Rotate Amount | Integer | `1` | — |
+| Rotate Amount | Integer | `1` | Number of positions the values are shifted. |
 | Pass Thru: 0 or 1 | Integer | `0.0` | — |
-| line6Separator | Float | `—` | — |
 | Show Input | Integer | `0.0` | — |
-| ScriptVal | DATATYPE | `—` | — |
+| Input | DATATYPE | `—` | Data to process. |
 
 ## Example Connections
 
@@ -38,7 +37,7 @@ Rotate ScriptVals Between Operations on a ScriptVal Object
 <TabItem value="example-1" label="Example 1" default>
 
 ```
-vScriptValPointsHexagonGrid.Output -> vScriptValRotateValues.ScriptVal
+vScriptValPointsOnHexagon.Output -> vScriptValRotateValues.ScriptVal
     vScriptValRotateValues.Output -> vScriptValCameraProjection.ScriptVal
     vScriptValCameraProjection.Output -> vScriptValShapeRender.ScriptValPoint
     Background.Output -> vScriptValShapeRender.Input
@@ -50,7 +49,7 @@ vScriptValPointsHexagonGrid.Output -> vScriptValRotateValues.ScriptVal
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="../Create/vScriptValPointsHexagonGrid">vScriptValPointsHexagonGrid</a>
+  <a className="node-chip" href="../Create/vScriptValPointsOnHexagon">vScriptValPointsOnHexagon</a>
   <a className="node-chip" href="./vScriptValCameraProjection">vScriptValCameraProjection</a>
   <a className="node-chip" href="../ShapeRender/vScriptValShapeRender">vScriptValShapeRender</a>
 </div>

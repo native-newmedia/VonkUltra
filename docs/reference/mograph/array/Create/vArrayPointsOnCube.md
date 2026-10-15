@@ -1,5 +1,5 @@
 ---
-sidebar_position: 52
+sidebar_position: 40
 title: vArrayPointsOnCube
 description: "Generate points on cube"
 ---
@@ -26,20 +26,10 @@ Generate points on cube
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Number X | Integer | `10` | — |
-| Number Y | Integer | `10` | — |
-| Number Z | Integer | `10` | — |
-| Multiplyer | Float | `0.05` | — |
-| line6Separator | Float | `—` | — |
-
-<details>
-<summary>+1 more parameters</summary>
-
-| Parameter | Type | Default | Description |
-|---|---|---|---|
-| Show Input | Integer | `0.0` | — |
-
-</details>
+| Number X | Integer | `10` | Points along X. |
+| Number Y | Integer | `10` | Points along Y. |
+| Number Z | Integer | `10` | Points along Z. |
+| Multiplier | Float | `0.05` | — |
 
 ## Example Connections
 

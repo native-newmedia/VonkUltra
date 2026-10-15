@@ -1,5 +1,5 @@
 ---
-sidebar_position: 57
+sidebar_position: 54
 title: vScriptValToUSD
 description: "Convert a Fusion ScriptVal object into OpenUSD ASCII Text"
 ---
@@ -26,10 +26,10 @@ Convert a Fusion ScriptVal object into OpenUSD ASCII Text
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| ScriptVal Edges | ScriptVal | `—` | — |
-| ScriptVal Points | ScriptVal | `—` | — |
-| ScriptVal UVs | ScriptVal | `—` | — |
-| ScriptVal UV Edges | ScriptVal | `—` | — |
+| Edges | ScriptVal | `—` | Edges that connect the points. |
+| Points | ScriptVal | `—` | Point positions. |
+| UVs | ScriptVal | `—` | — |
+| UV Edges | ScriptVal | `—` | — |
 | Matrix | Text | `—` | — |
 
 <details>
@@ -37,12 +37,11 @@ Convert a Fusion ScriptVal object into OpenUSD ASCII Text
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Object Sort | Text | `—` | — |
-| Object Path | Text | `—` | — |
-| Show Input | Integer | `1.0` | — |
+| Object Sort | Text | `—` | Sort order of the object. |
+| Object Path | Text | `—` | USD path of the object. |
+| Show Input | Integer | `1.0` | Shows the input sockets of the controls. |
 
 </details>
-
 
 ## Related Nodes
 
@@ -50,7 +49,7 @@ Convert a Fusion ScriptVal object into OpenUSD ASCII Text
   <a className="node-chip" href="./vScriptValBuffer">vScriptValBuffer</a>
   <a className="node-chip" href="./vScriptValCircularPoints">vScriptValCircularPoints</a>
   <a className="node-chip" href="./vScriptValCreateAsset">vScriptValCreateAsset</a>
-  <a className="node-chip" href="./vScriptValCreateAttractorPoints">vScriptValCreateAttractorPoints</a>
+  <a className="node-chip" href="./vScriptValAttractorPoints">vScriptValAttractorPoints</a>
 </div>
 
 {/*

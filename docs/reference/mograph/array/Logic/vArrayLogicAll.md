@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 2
 title: vArrayLogicAll
 description: "Reduce array to 1 if all elements are non-zero, else 0."
 ---
@@ -26,13 +26,12 @@ Reduce array to 1 if all elements are non-zero, else 0.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | DATATYPE | `—` | — |
-
+| Input | DATATYPE | `—` | Data to process. |
 
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="./vArrayCountMask">vArrayCountMask</a>
+  <a className="node-chip" href="./vArrayLogicCount">vArrayLogicCount</a>
   <a className="node-chip" href="./vArrayLogicAND">vArrayLogicAND</a>
   <a className="node-chip" href="./vArrayLogicAny">vArrayLogicAny</a>
   <a className="node-chip" href="./vArrayLogicBetween">vArrayLogicBetween</a>

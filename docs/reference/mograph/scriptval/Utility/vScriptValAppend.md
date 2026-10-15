@@ -26,9 +26,9 @@ Append Array to an array
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Number | Integer | `1` | — |
-| Show Input | Integer | `0.0` | — |
-| ScriptVal | DATATYPE | `—` | — |
+| Number | Integer | `1` | How many times the input array is repeated. |
+| Show Input | Integer | `0.0` | Shows the Number input socket on the node. |
+| Input | DATATYPE | `—` | Data to process. |
 
 ## Example Connections
 

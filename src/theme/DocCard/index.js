@@ -1,10 +1,12 @@
 /**
  * Customized DocCard (Level-3 generated-index pages).
  *
- * On function-group index pages (e.g. Array → Animate), each node card used to
- * show the default 📄️ emoji. Now, when the current sidebar category is a known
- * function group, doc cards show that group's icon from the Level-2 overview
- * (◐ Animate, + Create, …) rendered smaller and 50% faded via `.doc-group-icon`.
+ * On function-group index pages (e.g. 3D → Flow) each node card used to show the
+ * group's text glyph, faded via `.doc-group-icon`. They now show the same SVG
+ * artwork as that group's Level-2 card (Core_Flow.svg for Flow), so the group reads
+ * the same at both levels; the light tint of `.doc-group-icon` is kept so the node
+ * cards stay visually subordinate to the group cards above them. The glyph/emoji
+ * remain only as a fallback for non-group items or an undetermined family.
  *
  * Everything else is the stock Docusaurus behaviour.
  */
@@ -13,6 +15,7 @@ import {
   useDocById,
   findFirstSidebarItemLink,
   useCurrentSidebarCategory,
+  useSidebarBreadcrumbs,
 } from '@docusaurus/plugin-content-docs/client';
 import {
   extractLeadingEmoji,
@@ -21,7 +24,7 @@ import {
 import isInternalUrl from '@docusaurus/isInternalUrl';
 import Link from '@docusaurus/Link';
 import Layout from '@theme/DocCard/Layout';
-import { FUNCTION_CONFIG } from '@site/src/data/categoryConfig';
+import { FUNCTION_CONFIG, familyFromHref, functionGroupArtwork } from '@site/src/data/categoryConfig';
 
 // label -> config ({icon, color}) for every function group (Mograph + Core)
 const FUNCTION_GROUP_ICONS = Object.fromEntries(
@@ -64,7 +67,14 @@ function CardCategory({item}) {
 function CardLink({item}) {
   const doc = useDocById(item.docId ?? undefined);
   const currentCategory = useCurrentSidebarCategory();
+  const breadcrumbs = useSidebarBreadcrumbs() || [];
+  // The family is an ancestor of this group in the sidebar (Core → 3D → Flow),
+  // because a group's own href is /docs/category/<slug> and carries no family.
+  const family = breadcrumbs.map((crumb) => familyFromHref(crumb.href)).find(Boolean);
   const group = currentCategory ? FUNCTION_CONFIG[currentCategory.label] : null;
+  const artwork = currentCategory
+    ? functionGroupArtwork(family, currentCategory.label)
+    : null;
   const description = item.description ?? doc?.description ?? '';
   return (
     // Same card structure as the Level-2 category cards (.cat-card) so the
@@ -74,7 +84,14 @@ function CardLink({item}) {
         className={`doc-group-icon ${
           group ? `doc-group-icon--${group.color}` : 'doc-group-icon--default'
         }`}>
-        {group ? group.icon : getFallbackEmojiIcon(item)}
+        {artwork ? (
+          <span
+            className="cat-card-icon-glyph"
+            style={{'--cat-card-icon': `url("${artwork}")`}}
+          />
+        ) : (
+          group ? group.icon : getFallbackEmojiIcon(item)
+        )}
       </span>
       <span className="cat-card-body">
         <span className="cat-card-title">{item.label}</span>

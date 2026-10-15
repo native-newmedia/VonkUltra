@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 16
 title: vScriptValDisplaceValues
 description: "Displace XYZ positions using noise with spherical falloff."
 ---
@@ -26,25 +26,23 @@ Displace XYZ positions using noise with spherical falloff.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Nosie Scale | Float | `0` | — |
-| Nosie Rate | Float | `0.001` | — |
-| Amplitude | Float | `0` | — |
-| line1Separator | Float | `—` | — |
-| FallOff Sphere X | Float | `0` | — |
+| Noise Scale | Float | `0` | — |
+| Noise Rate | Float | `0.001` | — |
+| Animation Speed | Float | `0` | — |
+| Amplitude | Float | `0` | Strength of the displacement. |
+| FallOff Sphere X | Float | `0` | Falloff sphere center X. |
 
 <details>
-<summary>+8 more parameters</summary>
+<summary>+6 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| FallOff Sphere Y | Float | `0` | — |
-| FallOff Sphere Z | Float | `0` | — |
-| FallOff Radius | Float | `0` | — |
-| FallOff Tightness | Float | `0.1` | — |
-| Invert falloff | Integer | `0.0` | — |
-| line2Separator | Float | `—` | — |
-| Show Input | Integer | `0.0` | — |
-| ScriptVal | DATATYPE | `—` | — |
+| FallOff Sphere Y | Float | `0` | Falloff sphere center Y. |
+| FallOff Sphere Z | Float | `0` | Falloff sphere center Z. |
+| FallOff Radius | Float | `0` | Radius of the falloff sphere. |
+| FallOff Tightness | Float | `0.1` | Sharpness of the falloff edge. |
+| Invert falloff | Integer | `0.0` | Applies the noise outside the sphere instead of inside. |
+| Input | DATATYPE | `—` | Data to process. |
 
 </details>
 

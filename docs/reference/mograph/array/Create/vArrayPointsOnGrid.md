@@ -1,6 +1,7 @@
 ---
-sidebar_position: 53
+sidebar_position: 41
 title: vArrayPointsOnGrid
+description: "Generate points on a grid"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,5 +1,5 @@
 ---
-sidebar_position: 6
+sidebar_position: 7
 title: vJSONTangentVectorItem
 description: "Create a vector that is tangent to a curve or surface at a given point"
 ---
@@ -26,29 +26,25 @@ Create a vector that is tangent to a curve or surface at a given point
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Max angle | Integer | `0` | — |
-| Line length | Float | `0` | — |
-| Scale Factor | Float | `1` | — |
-| line1Separator | Float | `—` | — |
-| Amplitude | Float | `0` | — |
+| Max angle | Integer | `0` | Rotates each tangent by this angle. |
+| Line length | Float | `1` | Base length of each tangent. |
+| Scale Factor | Float | `1` | Multiplies the length. |
+| Amplitude | Float | `0` | Strength of the wave added to the length. |
+| Frequency | Float | `0` | Frequency of the wave. |
 
 <details>
-<summary>+12 more parameters</summary>
+<summary>+8 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Frequency | Float | `0` | — |
-| Phase | Float | `0` | — |
-| Damping Mode | Dropdown | `--` | — |
-| Damping | Float | `0` | — |
-| line2Separator | Float | `—` | — |
-| Node Sides | Float | `6` | — |
-| Node Size | Float | `0.01` | — |
-| Node Rotation | Float | `0` | — |
-| line3Separator | Float | `—` | — |
-| Time | Float | `0` | — |
-| Show Input | Integer | `0.0` | — |
-| JSON Path | DATATYPE | `—` | — |
+| Phase | Float | `0` | Phase of the wave. |
+| Damping Mode | Dropdown | `--` | --, DMP (damped sine), Sin, SQU (square), TRI (triangle), or SAW (sawtooth). |
+| Damping | Float | `0` | Decay rate for DMP. |
+| Node Sides | Float | `6` | Sides of the polygon at the tangent end. |
+| Node Size | Float | `0.01` | Size of the polygon. |
+| Node Rotation | Float | `0` | Rotation of the polygon. |
+| Time | Float | `0` | Time value that drives the wave. |
+| Path | DATATYPE | `—` | — |
 
 </details>
 

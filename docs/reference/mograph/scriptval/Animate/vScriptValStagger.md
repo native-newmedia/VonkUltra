@@ -26,24 +26,21 @@ Animate points using staggered offsets
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Mode | Dropdown | `Linear` | — |
-| Stagger X | Float | `0.0` | — |
-| Stagger Y | Float | `0.0` | — |
-| Stagger Z | Float | `0.0` | — |
-| line1Separator | Float | `—` | — |
+| Mode | Dropdown | `Linear` | Offset curve: Linear, Wave, Exponential, Pulse Wave, Triangle Wave, Sawtooth Wave. |
+| Stagger X | Float | `0.0` | Per-axis strength of the stagger. |
+| Stagger Y | Float | `0.0` | Per-axis strength of the stagger. |
+| Stagger Z | Float | `0.0` | Per-axis strength of the stagger. |
+| Stagger Amount X | Float | `0.0` | Per-axis offset size, multiplied by Stagger. |
 
 <details>
-<summary>+15 more parameters</summary>
+<summary>+12 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Stagger Amount X | Float | `0.0` | — |
-| Stagger Amount Y | Float | `0.0` | — |
-| Stagger Amount Z | Float | `0.0` | — |
-| line2Separator | Float | `—` | — |
-| Stagger Delay | Float | `0.0` | — |
-| Wave Frequency | Float | `0.01` | — |
-| line3Separator | Float | `—` | — |
+| Stagger Amount Y | Float | `0.0` | Per-axis offset size, multiplied by Stagger. |
+| Stagger Amount Z | Float | `0.0` | Per-axis offset size, multiplied by Stagger. |
+| Stagger Delay | Float | `0.0` | Delay between consecutive points. |
+| Wave Frequency | Float | `0.01` | Curve speed. Shown for Wave, Pulse Wave, Triangle Wave and Sawtooth Wave. |
 | Clamp Output | Float | `0.0` | — |
 | Min Value | Float | `0` | — |
 | Max Value | Float | `1` | — |
@@ -51,10 +48,9 @@ Animate points using staggered offsets
 | Yoyo | Float | `1.0` | — |
 | Steps (for Step/Staircase) | Float | `5` | — |
 | Pulse Width (for Pulse Wave) | Float | `0.5` | — |
-| ScriptValArray | ScriptVal | `—` | — |
+| Input | ScriptVal | `—` | Data to process. |
 
 </details>
-
 
 ## Related Nodes
 

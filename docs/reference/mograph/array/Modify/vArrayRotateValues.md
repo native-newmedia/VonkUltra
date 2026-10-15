@@ -1,6 +1,7 @@
 ---
-sidebar_position: 62
+sidebar_position: 53
 title: vArrayRotateValues
+description: "Rotate the order of an array"
 ---
 
 import Tabs from '@theme/Tabs';

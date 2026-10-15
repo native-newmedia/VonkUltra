@@ -1,6 +1,7 @@
 ---
-sidebar_position: 64
+sidebar_position: 60
 title: vArraySortByDistance
+description: "Sort points by distance"
 ---
 
 import Tabs from '@theme/Tabs';

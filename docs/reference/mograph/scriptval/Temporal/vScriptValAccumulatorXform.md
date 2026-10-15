@@ -24,26 +24,25 @@ Temporally concatenate array elements
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| ScriptVal | DATATYPE | `—` | — |
-| Start Frame | Integer | `0` | — |
-| End Frame | Integer | `0` | — |
-| Step | Float | `1` | — |
-| Offset X | Float | `0` | — |
+| Input | DATATYPE | `—` | Data to process. |
+| Start Frame | Integer | `0` | First frame to read. |
+| End Frame | Integer | `0` | Last frame to read. |
+| Step | Float | `1` | Frame increment between samples. |
+| Offset X | Float | `0` | Offset added per sample. |
 
 <details>
 <summary>+6 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Offset Y | Float | `0` | — |
-| Offset Z | Float | `0` | — |
-| Rotate X | Float | `0` | — |
-| Rotate Y | Float | `0` | — |
-| Rotate Z | Float | `0` | — |
-| Show Input | Integer | `0.0` | — |
+| Offset Y | Float | `0` | Offset added per sample. |
+| Offset Z | Float | `0` | Offset added per sample. |
+| Rotate X | Float | `0` | Rotation added per sample. |
+| Rotate Y | Float | `0` | Rotation added per sample. |
+| Rotate Z | Float | `0` | Rotation added per sample. |
+| Show Input | Integer | `0.0` | Shows the frame range and transform controls. |
 
 </details>
-
 
 ## Related Nodes
 

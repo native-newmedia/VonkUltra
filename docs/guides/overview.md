@@ -39,7 +39,7 @@ The guide is built around these three layers:
 Text is the largest Core type — 88 `vText*` nodes — and the Mograph family adds a font path that turns text into geometry:
 
 - **Text as a value** — `vTextCreate` is the standard starting point for new Text content, and from there the type prefixes take over: text in, text out, with `vJSON*` and `vArray*` nodes available when the data wants to become structured instead of flat.
-- **Text as geometry** — `vJSONFont` and `vArrayJSONFont` generate an array-based font, which means text can be rendered through the same camera-projection pipeline as any other point array.
+- **Text as geometry** — `vJSONCreateFont` and `vArrayCreateFont` generate an array-based font, which means text can be rendered through the same camera-projection pipeline as any other point array.
 
 ## Related sections
 

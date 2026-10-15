@@ -1,0 +1,1228 @@
+MOVES
+  docs/reference/mograph/array/Create/vArrayCreateAttractorPoints.md -> vArrayAttractorPoints.md
+  docs/reference/mograph/array/Create/vArrayCreateCubicBezier.md -> vArrayCubicBezier.md
+  docs/reference/mograph/array/Create/vArrayCreateCylinder.md -> vArrayCylinder.md
+  docs/reference/mograph/array/Create/vArrayCreateFromImage.md -> vArrayFromImage.md
+  docs/reference/mograph/array/Create/vArrayCreateFromPolyline.md -> vArrayFromPolyline.md
+  docs/reference/mograph/array/Create/vArrayCreateFromPolylineBG.md -> vArrayFromPolylineBG.md
+  docs/reference/mograph/array/Create/vArrayCreateFromPolylineMultiPath.md -> vArrayFromPolylineMulti.md
+  docs/reference/mograph/array/Create/vArrayCreateFromSpline.md -> vArrayFromSpline.md
+  docs/reference/mograph/array/Create/vArrayCreateFrustum.md -> vArrayFrustum.md
+  docs/reference/mograph/array/Create/vArrayCreateGeodesicSphere.md -> vArrayGeodesicSphere.md
+  docs/reference/mograph/array/Create/vArrayCreateGridPolar.md -> vArrayGridPolar.md
+  docs/reference/mograph/array/Create/vArrayCreateHelix.md -> vArrayHelix.md
+  docs/reference/mograph/array/Create/vArrayCreateHilbertCurve.md -> vArrayHilbertCurve.md
+  docs/reference/mograph/array/Create/vArrayCreateLemniscate.md -> vArrayLemniscate.md
+  docs/reference/mograph/array/Create/vArrayCreateLine.md -> vArrayLine.md
+  docs/reference/mograph/array/Create/vArrayCreateList.md -> vArrayList.md
+  docs/reference/mograph/array/Create/vArrayCreateMaskedScatterOnMeshSurface.md -> vArrayMaskScatterOnMesh.md
+  docs/reference/mograph/array/Create/vArrayCreateMinMax.md -> vArrayMinMax.md
+  docs/reference/mograph/array/Create/vArrayCreateNoise.md -> vArrayNoise.md
+  docs/reference/mograph/array/Create/vArrayCreateParametricCurve.md -> vArrayParametricCurve.md
+  docs/reference/mograph/array/Create/vArrayCreatePoissonOnMeshSurface.md -> vArrayPoissonOnMesh.md
+  docs/reference/mograph/array/Create/vArrayCreateRadialSymmetry.md -> vArrayRadialSymmetry.md
+  docs/reference/mograph/array/Create/vArrayCreateRandom.md -> vArrayRandom.md
+  docs/reference/mograph/array/Create/vArrayCreateRelaxedScatterOnMeshSurface.md -> vArrayRelaxScatterOnMesh.md
+  docs/reference/mograph/array/Create/vArrayCreateRoseCurve.md -> vArrayRoseCurve.md
+  docs/reference/mograph/array/Create/vArrayCreateScatterOnMeshSurface.md -> vArrayScatterOnMesh.md
+  docs/reference/mograph/array/Create/vArrayCreateSuperellipse.md -> vArraySuperellipse.md
+  docs/reference/mograph/array/Create/vArrayCreateTextFont.md -> vArrayTextFont.md
+  docs/reference/mograph/array/Create/vArrayCreateTorus.md -> vArrayTorus.md
+  docs/reference/mograph/array/Create/vArrayCreateVoronoi.md -> vArrayVoronoi.md
+  docs/reference/mograph/array/Create/vArrayJSONFont.md -> vArrayCreateFont.md
+  docs/reference/mograph/array/Create/vArrayPointsHexagonGrid.md -> vArrayPointsOnHexagon.md
+  docs/reference/mograph/array/Logic/vArrayLogicGroupByExpression.md -> vArrayLogicGroupByExpr.md
+  docs/reference/mograph/array/Modify/vArrayModifyAlignToMeshSurface.md -> vArrayAlignToMesh.md
+  docs/reference/mograph/array/Modify/vArrayModifyApplyMask.md -> vArrayApplyMask.md
+  docs/reference/mograph/array/Modify/vArrayModifyAttractToMeshSurface.md -> vArrayAttractToMesh.md
+  docs/reference/mograph/array/Modify/vArrayModifyAttributeRandomize.md -> vArrayAttrRandomize.md
+  docs/reference/mograph/array/Modify/vArrayModifyAttributeTransfer.md -> vArrayAttrTransfer.md
+  docs/reference/mograph/array/Modify/vArrayModifyBooleanMaskOps.md -> vArrayBooleanMaskOps.md
+  docs/reference/mograph/array/Modify/vArrayModifyClamp.md -> vArrayClamp.md
+  docs/reference/mograph/array/Modify/vArrayModifyClampToMeshProximity.md -> vArrayClampToMeshProx.md
+  docs/reference/mograph/array/Modify/vArrayModifyClassifyByMeshSurface.md -> vArrayClassifyByMesh.md
+  docs/reference/mograph/array/Modify/vArrayModifyClosePath.md -> vArrayClosePath.md
+  docs/reference/mograph/array/Modify/vArrayModifyColorMap.md -> vArrayColorMap.md
+  docs/reference/mograph/array/Modify/vArrayModifyCopyToPoints.md -> vArrayCopyToPoints.md
+  docs/reference/mograph/array/Modify/vArrayModifyForEachIndexed.md -> vArrayForEachIndexed.md
+  docs/reference/mograph/array/Modify/vArrayModifyFuseClosePoints.md -> vArrayFuseClosePoints.md
+  docs/reference/mograph/array/Modify/vArrayModifyJitterOnMeshSurface.md -> vArrayJitterOnMesh.md
+  docs/reference/mograph/array/Modify/vArrayModifyLookAt.md -> vArrayLookAt.md
+  docs/reference/mograph/array/Modify/vArrayModifyMaskByMeshSurface.md -> vArrayMaskByMesh.md
+  docs/reference/mograph/array/Modify/vArrayModifyMirror.md -> vArrayMirror.md
+  docs/reference/mograph/array/Modify/vArrayModifyMirrorThroughMeshSurface.md -> vArrayMirrorThruMesh.md
+  docs/reference/mograph/array/Modify/vArrayModifyNoiseOnMeshSurface.md -> vArrayNoiseOnMesh.md
+  docs/reference/mograph/array/Modify/vArrayModifyOffsetByMeshNormal.md -> vArrayOffsetByNormal.md
+  docs/reference/mograph/array/Modify/vArrayModifyPathFrame.md -> vArrayPathFrame.md
+  docs/reference/mograph/array/Modify/vArrayModifyPathTwist.md -> vArrayPathTwist.md
+  docs/reference/mograph/array/Modify/vArrayModifyPathWidthMap.md -> vArrayPathWidthMap.md
+  docs/reference/mograph/array/Modify/vArrayModifyProfileTransform.md -> vArrayProfileTransform.md
+  docs/reference/mograph/array/Modify/vArrayModifyProject.md -> vArrayProject.md
+  docs/reference/mograph/array/Modify/vArrayModifyProjectOnMeshSurface.md -> vArrayProjectOnMesh.md
+  docs/reference/mograph/array/Modify/vArrayModifyRampMap.md -> vArrayRampMap.md
+  docs/reference/mograph/array/Modify/vArrayModifyRaycastToMeshSurface.md -> vArrayRaycastToMesh.md
+  docs/reference/mograph/array/Modify/vArrayModifyRelaxOnMeshSurface.md -> vArrayRelaxOnMesh.md
+  docs/reference/mograph/array/Modify/vArrayModifyRepeat.md -> vArrayRepeat.md
+  docs/reference/mograph/array/Modify/vArrayModifyResamplePath.md -> vArrayResamplePath.md
+  docs/reference/mograph/array/Modify/vArrayModifyReverse.md -> vArrayReverse.md
+  docs/reference/mograph/array/Modify/vArrayModifyScaleFromMeshSurface.md -> vArrayScaleFromMesh.md
+  docs/reference/mograph/array/Modify/vArrayModifyScatterInstanceOnMeshSurface.md -> vArrayScatterInstOnMesh.md
+  docs/reference/mograph/array/Modify/vArrayModifySlideOnMeshSurface.md -> vArraySlideOnMesh.md
+  docs/reference/mograph/array/Modify/vArrayModifySnapToFaceCentroid.md -> vArraySnapFaceCentroid.md
+  docs/reference/mograph/array/Modify/vArrayModifySnapToMeshVertex.md -> vArraySnapMeshVertex.md
+  docs/reference/mograph/array/Modify/vArrayModifySortByMeshProximity.md -> vArraySortByMeshProx.md
+  docs/reference/mograph/array/Modify/vArrayModifyTrimByMeshBounds.md -> vArrayTrimByMeshBounds.md
+  docs/reference/mograph/array/Modify/vArrayModifyWeightByMeshProximity.md -> vArrayWeightByMeshProx.md
+  docs/reference/mograph/array/Modify/vArrayModifyWeightMap.md -> vArrayWeightMap.md
+  docs/reference/mograph/array/Modify/vArrayParallelPointsOffSet.md -> vArrayParallelOffset.md
+  docs/reference/mograph/array/ShapeRender/vArrayCircuitBoardAbstract.md -> vArrayCircuitAbstract.md
+  docs/reference/mograph/array/ShapeRender/vArrayCircuitBoardPattern.md -> vArrayCircuitPattern.md
+  docs/reference/mograph/array/ShapeRender/vArrayShapePacker.md -> vArrayRenderShapePacker.md
+  docs/reference/mograph/array/ShapeRender/vArrayShapeRenderFlowField.md -> vArrayRenderFlowField.md
+  docs/reference/mograph/array/ShapeRender/vArrayShapeRenderGrid.md -> vArrayRenderGrid.md
+  docs/reference/mograph/array/ShapeRender/vArrayShapeRenderHistogram.md -> vArrayRenderHistogram.md
+  docs/reference/mograph/array/ShapeRender/vArrayShapeRenderLineGraph.md -> vArrayRenderLineGraph.md
+  docs/reference/mograph/array/ShapeRender/vArrayShapeRenderMesh.md -> vArrayRenderMesh.md
+  docs/reference/mograph/array/ShapeRender/vArrayShapeRenderPathSweep.md -> vArrayRenderPathSweep.md
+  docs/reference/mograph/array/ShapeRender/vArrayShapeRenderRadialBurst.md -> vArrayRenderRadialBurst.md
+  docs/reference/mograph/array/ShapeRender/vArrayShapeRenderScatterPlot.md -> vArrayRenderScatterPlot.md
+  docs/reference/mograph/array/ShapeRender/vArrayShapeRenderSweepProfile.md -> vArrayRenderSweepProfile.md
+  docs/reference/mograph/array/ShapeRender/vArrayShapeRenderTextPath.md -> vArrayRenderTextPath.md
+  docs/reference/mograph/array/ShapeRender/vArrayTextHighlighter.md -> vArrayRenderTextHighlighter.md
+  docs/reference/mograph/array/ShapeRender/vArrayWordPacker.md -> vArrayRenderWordPacker.md
+  docs/reference/mograph/array/Temporal/vArrayAccumulator.md -> vArrayAccumulatorXform.md
+  docs/reference/mograph/array/Temporal/vArrayTemporalTimeShiftArray.md -> vArrayTemporalTimeShift.md
+  docs/reference/mograph/array/Temporal/vArrayTemporalTrailFromPoints.md -> vArrayTemporalTrails.md
+  docs/reference/mograph/json/Create/vJSONCreateAttractorPoints.md -> vJSONAttractorPoints.md
+  docs/reference/mograph/json/Create/vJSONCreateCubicBezier.md -> vJSONCubicBezier.md
+  docs/reference/mograph/json/Create/vJSONCreateCylinder.md -> vJSONCylinder.md
+  docs/reference/mograph/json/Create/vJSONCreateFromImage.md -> vJSONFromImage.md
+  docs/reference/mograph/json/Create/vJSONCreateFromPolyline.md -> vJSONFromPolyline.md
+  docs/reference/mograph/json/Create/vJSONCreateFromPolylineBG.md -> vJSONFromPolylineBG.md
+  docs/reference/mograph/json/Create/vJSONCreateFromPolylineMultiPath.md -> vJSONFromPolylineMulti.md
+  docs/reference/mograph/json/Create/vJSONCreateFromSpline.md -> vJSONFromSpline.md
+  docs/reference/mograph/json/Create/vJSONCreateFrustum.md -> vJSONFrustum.md
+  docs/reference/mograph/json/Create/vJSONCreateGeodesicSphere.md -> vJSONGeodesicSphere.md
+  docs/reference/mograph/json/Create/vJSONCreateGridPolar.md -> vJSONGridPolar.md
+  docs/reference/mograph/json/Create/vJSONCreateHelix.md -> vJSONHelix.md
+  docs/reference/mograph/json/Create/vJSONCreateHilbertCurve.md -> vJSONHilbertCurve.md
+  docs/reference/mograph/json/Create/vJSONCreateLemniscate.md -> vJSONLemniscate.md
+  docs/reference/mograph/json/Create/vJSONCreateLine.md -> vJSONLine.md
+  docs/reference/mograph/json/Create/vJSONCreateList.md -> vJSONList.md
+  docs/reference/mograph/json/Create/vJSONCreateMaskedScatterOnMeshSurface.md -> vJSONMaskScatterOnMesh.md
+  docs/reference/mograph/json/Create/vJSONCreateMinMax.md -> vJSONMinMax.md
+  docs/reference/mograph/json/Create/vJSONCreateNoise.md -> vJSONNoise.md
+  docs/reference/mograph/json/Create/vJSONCreateParametricCurve.md -> vJSONParametricCurve.md
+  docs/reference/mograph/json/Create/vJSONCreatePoissonOnMeshSurface.md -> vJSONPoissonOnMesh.md
+  docs/reference/mograph/json/Create/vJSONCreateRadialSymmetry.md -> vJSONRadialSymmetry.md
+  docs/reference/mograph/json/Create/vJSONCreateRandom.md -> vJSONRandom.md
+  docs/reference/mograph/json/Create/vJSONCreateRelaxedScatterOnMeshSurface.md -> vJSONRelaxScatterOnMesh.md
+  docs/reference/mograph/json/Create/vJSONCreateRoseCurve.md -> vJSONRoseCurve.md
+  docs/reference/mograph/json/Create/vJSONCreateScatterOnMeshSurface.md -> vJSONScatterOnMesh.md
+  docs/reference/mograph/json/Create/vJSONCreateSuperellipse.md -> vJSONSuperellipse.md
+  docs/reference/mograph/json/Create/vJSONCreateTextFont.md -> vJSONTextFont.md
+  docs/reference/mograph/json/Create/vJSONCreateTorus.md -> vJSONTorus.md
+  docs/reference/mograph/json/Create/vJSONCreateVoronoi.md -> vJSONVoronoi.md
+  docs/reference/mograph/json/Create/vJSONFont.md -> vJSONCreateFont.md
+  docs/reference/mograph/json/Create/vJSONPointsHexagonGrid.md -> vJSONPointsOnHexagon.md
+  docs/reference/mograph/json/Logic/vJSONLogicGroupByExpression.md -> vJSONLogicGroupByExpr.md
+  docs/reference/mograph/json/Modify/vJSONModifyAlignToMeshSurface.md -> vJSONAlignToMesh.md
+  docs/reference/mograph/json/Modify/vJSONModifyApplyMask.md -> vJSONApplyMask.md
+  docs/reference/mograph/json/Modify/vJSONModifyAttractToMeshSurface.md -> vJSONAttractToMesh.md
+  docs/reference/mograph/json/Modify/vJSONModifyAttributeRandomize.md -> vJSONAttrRandomize.md
+  docs/reference/mograph/json/Modify/vJSONModifyAttributeTransfer.md -> vJSONAttrTransfer.md
+  docs/reference/mograph/json/Modify/vJSONModifyBooleanMaskOps.md -> vJSONBooleanMaskOps.md
+  docs/reference/mograph/json/Modify/vJSONModifyClamp.md -> vJSONClamp.md
+  docs/reference/mograph/json/Modify/vJSONModifyClampToMeshProximity.md -> vJSONClampToMeshProx.md
+  docs/reference/mograph/json/Modify/vJSONModifyClassifyByMeshSurface.md -> vJSONClassifyByMesh.md
+  docs/reference/mograph/json/Modify/vJSONModifyClosePath.md -> vJSONClosePath.md
+  docs/reference/mograph/json/Modify/vJSONModifyColorMap.md -> vJSONColorMap.md
+  docs/reference/mograph/json/Modify/vJSONModifyCopyToPoints.md -> vJSONCopyToPoints.md
+  docs/reference/mograph/json/Modify/vJSONModifyForEachIndexed.md -> vJSONForEachIndexed.md
+  docs/reference/mograph/json/Modify/vJSONModifyFuseClosePoints.md -> vJSONFuseClosePoints.md
+  docs/reference/mograph/json/Modify/vJSONModifyJitterOnMeshSurface.md -> vJSONJitterOnMesh.md
+  docs/reference/mograph/json/Modify/vJSONModifyLookAt.md -> vJSONLookAt.md
+  docs/reference/mograph/json/Modify/vJSONModifyMaskByMeshSurface.md -> vJSONMaskByMesh.md
+  docs/reference/mograph/json/Modify/vJSONModifyMirror.md -> vJSONMirror.md
+  docs/reference/mograph/json/Modify/vJSONModifyMirrorThroughMeshSurface.md -> vJSONMirrorThruMesh.md
+  docs/reference/mograph/json/Modify/vJSONModifyNoiseOnMeshSurface.md -> vJSONNoiseOnMesh.md
+  docs/reference/mograph/json/Modify/vJSONModifyOffsetByMeshNormal.md -> vJSONOffsetByNormal.md
+  docs/reference/mograph/json/Modify/vJSONModifyPathFrame.md -> vJSONPathFrame.md
+  docs/reference/mograph/json/Modify/vJSONModifyPathTwist.md -> vJSONPathTwist.md
+  docs/reference/mograph/json/Modify/vJSONModifyPathWidthMap.md -> vJSONPathWidthMap.md
+  docs/reference/mograph/json/Modify/vJSONModifyProfileTransform.md -> vJSONProfileTransform.md
+  docs/reference/mograph/json/Modify/vJSONModifyProject.md -> vJSONProject.md
+  docs/reference/mograph/json/Modify/vJSONModifyProjectOnMeshSurface.md -> vJSONProjectOnMesh.md
+  docs/reference/mograph/json/Modify/vJSONModifyRampMap.md -> vJSONRampMap.md
+  docs/reference/mograph/json/Modify/vJSONModifyRaycastToMeshSurface.md -> vJSONRaycastToMesh.md
+  docs/reference/mograph/json/Modify/vJSONModifyRelaxOnMeshSurface.md -> vJSONRelaxOnMesh.md
+  docs/reference/mograph/json/Modify/vJSONModifyRepeat.md -> vJSONRepeat.md
+  docs/reference/mograph/json/Modify/vJSONModifyResamplePath.md -> vJSONResamplePath.md
+  docs/reference/mograph/json/Modify/vJSONModifyReverse.md -> vJSONReverse.md
+  docs/reference/mograph/json/Modify/vJSONModifyScaleFromMeshSurface.md -> vJSONScaleFromMesh.md
+  docs/reference/mograph/json/Modify/vJSONModifyScatterInstanceOnMeshSurface.md -> vJSONScatterInstOnMesh.md
+  docs/reference/mograph/json/Modify/vJSONModifySlideOnMeshSurface.md -> vJSONSlideOnMesh.md
+  docs/reference/mograph/json/Modify/vJSONModifySnapToFaceCentroid.md -> vJSONSnapFaceCentroid.md
+  docs/reference/mograph/json/Modify/vJSONModifySnapToMeshVertex.md -> vJSONSnapMeshVertex.md
+  docs/reference/mograph/json/Modify/vJSONModifySortByMeshProximity.md -> vJSONSortByMeshProx.md
+  docs/reference/mograph/json/Modify/vJSONModifyTrimByMeshBounds.md -> vJSONTrimByMeshBounds.md
+  docs/reference/mograph/json/Modify/vJSONModifyWeightByMeshProximity.md -> vJSONWeightByMeshProx.md
+  docs/reference/mograph/json/Modify/vJSONModifyWeightMap.md -> vJSONWeightMap.md
+  docs/reference/mograph/json/Modify/vJSONParallelPointsOffSet.md -> vJSONParallelOffset.md
+  docs/reference/mograph/json/ShapeRender/vJSONCircuitBoardAbstract.md -> vJSONCircuitAbstract.md
+  docs/reference/mograph/json/ShapeRender/vJSONCircuitBoardPattern.md -> vJSONCircuitPattern.md
+  docs/reference/mograph/json/ShapeRender/vJSONShapePacker.md -> vJSONRenderShapePacker.md
+  docs/reference/mograph/json/ShapeRender/vJSONShapeRenderFlowField.md -> vJSONRenderFlowField.md
+  docs/reference/mograph/json/ShapeRender/vJSONShapeRenderGrid.md -> vJSONRenderGrid.md
+  docs/reference/mograph/json/ShapeRender/vJSONShapeRenderHistogram.md -> vJSONRenderHistogram.md
+  docs/reference/mograph/json/ShapeRender/vJSONShapeRenderLineGraph.md -> vJSONRenderLineGraph.md
+  docs/reference/mograph/json/ShapeRender/vJSONShapeRenderMesh.md -> vJSONRenderMesh.md
+  docs/reference/mograph/json/ShapeRender/vJSONShapeRenderPathSweep.md -> vJSONRenderPathSweep.md
+  docs/reference/mograph/json/ShapeRender/vJSONShapeRenderRadialBurst.md -> vJSONRenderRadialBurst.md
+  docs/reference/mograph/json/ShapeRender/vJSONShapeRenderScatterPlot.md -> vJSONRenderScatterPlot.md
+  docs/reference/mograph/json/ShapeRender/vJSONShapeRenderSweepProfile.md -> vJSONRenderSweepProfile.md
+  docs/reference/mograph/json/ShapeRender/vJSONShapeRenderTextPath.md -> vJSONRenderTextPath.md
+  docs/reference/mograph/json/ShapeRender/vJSONTextHighlighter.md -> vJSONRenderTextHighlighter.md
+  docs/reference/mograph/json/ShapeRender/vJSONWordPacker.md -> vJSONRenderWordPacker.md
+  docs/reference/mograph/json/Temporal/vJSONAccumulator.md -> vJSONAccumulatorXform.md
+  docs/reference/mograph/json/Temporal/vJSONTemporalTimeShiftArray.md -> vJSONTemporalTimeShift.md
+  docs/reference/mograph/json/Temporal/vJSONTemporalTrailFromPoints.md -> vJSONTemporalTrails.md
+  docs/reference/mograph/scriptval/Create/vScriptValCreateAttractorPoints.md -> vScriptValAttractorPoints.md
+  docs/reference/mograph/scriptval/Create/vScriptValCreateCubicBezier.md -> vScriptValCubicBezier.md
+  docs/reference/mograph/scriptval/Create/vScriptValCreateCylinder.md -> vScriptValCylinder.md
+  docs/reference/mograph/scriptval/Create/vScriptValCreateFromImage.md -> vScriptValFromImage.md
+  docs/reference/mograph/scriptval/Create/vScriptValCreateFromPolyline.md -> vScriptValFromPolyline.md
+  docs/reference/mograph/scriptval/Create/vScriptValCreateFromPolylineBG.md -> vScriptValFromPolylineBG.md
+  docs/reference/mograph/scriptval/Create/vScriptValCreateFromPolylineMultiPath.md -> vScriptValFromPolylineMulti.md
+  docs/reference/mograph/scriptval/Create/vScriptValCreateFromSpline.md -> vScriptValFromSpline.md
+  docs/reference/mograph/scriptval/Create/vScriptValCreateFrustum.md -> vScriptValFrustum.md
+  docs/reference/mograph/scriptval/Create/vScriptValCreateGeodesicSphere.md -> vScriptValGeodesicSphere.md
+  docs/reference/mograph/scriptval/Create/vScriptValCreateGridPolar.md -> vScriptValGridPolar.md
+  docs/reference/mograph/scriptval/Create/vScriptValCreateHelix.md -> vScriptValHelix.md
+  docs/reference/mograph/scriptval/Create/vScriptValCreateHilbertCurve.md -> vScriptValHilbertCurve.md
+  docs/reference/mograph/scriptval/Create/vScriptValCreateLemniscate.md -> vScriptValLemniscate.md
+  docs/reference/mograph/scriptval/Create/vScriptValCreateLine.md -> vScriptValLine.md
+  docs/reference/mograph/scriptval/Create/vScriptValCreateList.md -> vScriptValList.md
+  docs/reference/mograph/scriptval/Create/vScriptValCreateMaskedScatterOnMeshSurface.md -> vScriptValMaskScatterOnMesh.md
+  docs/reference/mograph/scriptval/Create/vScriptValCreateMinMax.md -> vScriptValMinMax.md
+  docs/reference/mograph/scriptval/Create/vScriptValCreateNoise.md -> vScriptValNoise.md
+  docs/reference/mograph/scriptval/Create/vScriptValCreateParametricCurve.md -> vScriptValParametricCurve.md
+  docs/reference/mograph/scriptval/Create/vScriptValCreatePoissonOnMeshSurface.md -> vScriptValPoissonOnMesh.md
+  docs/reference/mograph/scriptval/Create/vScriptValCreateRadialSymmetry.md -> vScriptValRadialSymmetry.md
+  docs/reference/mograph/scriptval/Create/vScriptValCreateRandom.md -> vScriptValRandom.md
+  docs/reference/mograph/scriptval/Create/vScriptValCreateRelaxedScatterOnMeshSurface.md -> vScriptValRelaxScatterOnMesh.md
+  docs/reference/mograph/scriptval/Create/vScriptValCreateRoseCurve.md -> vScriptValRoseCurve.md
+  docs/reference/mograph/scriptval/Create/vScriptValCreateScatterOnMeshSurface.md -> vScriptValScatterOnMesh.md
+  docs/reference/mograph/scriptval/Create/vScriptValCreateSuperellipse.md -> vScriptValSuperellipse.md
+  docs/reference/mograph/scriptval/Create/vScriptValCreateTextFont.md -> vScriptValTextFont.md
+  docs/reference/mograph/scriptval/Create/vScriptValCreateTorus.md -> vScriptValTorus.md
+  docs/reference/mograph/scriptval/Create/vScriptValCreateVoronoi.md -> vScriptValVoronoi.md
+  docs/reference/mograph/scriptval/Create/vScriptValJSONFont.md -> vScriptValCreateFont.md
+  docs/reference/mograph/scriptval/Create/vScriptValPointsHexagonGrid.md -> vScriptValPointsOnHexagon.md
+  docs/reference/mograph/scriptval/Logic/vScriptValLogicGroupByExpression.md -> vScriptValLogicGroupByExpr.md
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyAlignToMeshSurface.md -> vScriptValAlignToMesh.md
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyApplyMask.md -> vScriptValApplyMask.md
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyAttractToMeshSurface.md -> vScriptValAttractToMesh.md
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyAttributeRandomize.md -> vScriptValAttrRandomize.md
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyAttributeTransfer.md -> vScriptValAttrTransfer.md
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyBooleanMaskOps.md -> vScriptValBooleanMaskOps.md
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyClamp.md -> vScriptValClamp.md
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyClampToMeshProximity.md -> vScriptValClampToMeshProx.md
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyClassifyByMeshSurface.md -> vScriptValClassifyByMesh.md
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyClosePath.md -> vScriptValClosePath.md
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyColorMap.md -> vScriptValColorMap.md
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyCopyToPoints.md -> vScriptValCopyToPoints.md
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyForEachIndexed.md -> vScriptValForEachIndexed.md
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyFuseClosePoints.md -> vScriptValFuseClosePoints.md
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyJitterOnMeshSurface.md -> vScriptValJitterOnMesh.md
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyLookAt.md -> vScriptValLookAt.md
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyMaskByMeshSurface.md -> vScriptValMaskByMesh.md
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyMirror.md -> vScriptValMirror.md
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyMirrorThroughMeshSurface.md -> vScriptValMirrorThruMesh.md
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyNoiseOnMeshSurface.md -> vScriptValNoiseOnMesh.md
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyOffsetByMeshNormal.md -> vScriptValOffsetByNormal.md
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyPathFrame.md -> vScriptValPathFrame.md
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyPathTwist.md -> vScriptValPathTwist.md
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyPathWidthMap.md -> vScriptValPathWidthMap.md
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyProfileTransform.md -> vScriptValProfileTransform.md
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyProject.md -> vScriptValProject.md
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyProjectOnMeshSurface.md -> vScriptValProjectOnMesh.md
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyRampMap.md -> vScriptValRampMap.md
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyRaycastToMeshSurface.md -> vScriptValRaycastToMesh.md
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyRelaxOnMeshSurface.md -> vScriptValRelaxOnMesh.md
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyRepeat.md -> vScriptValRepeat.md
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyResamplePath.md -> vScriptValResamplePath.md
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyReverse.md -> vScriptValReverse.md
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyScaleFromMeshSurface.md -> vScriptValScaleFromMesh.md
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyScatterInstanceOnMeshSurface.md -> vScriptValScatterInstOnMesh.md
+  docs/reference/mograph/scriptval/Modify/vScriptValModifySlideOnMeshSurface.md -> vScriptValSlideOnMesh.md
+  docs/reference/mograph/scriptval/Modify/vScriptValModifySnapToFaceCentroid.md -> vScriptValSnapFaceCentroid.md
+  docs/reference/mograph/scriptval/Modify/vScriptValModifySnapToMeshVertex.md -> vScriptValSnapMeshVertex.md
+  docs/reference/mograph/scriptval/Modify/vScriptValModifySortByMeshProximity.md -> vScriptValSortByMeshProx.md
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyTrimByMeshBounds.md -> vScriptValTrimByMeshBounds.md
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyWeightByMeshProximity.md -> vScriptValWeightByMeshProx.md
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyWeightMap.md -> vScriptValWeightMap.md
+  docs/reference/mograph/scriptval/Modify/vScriptValParallelPointsOffSet.md -> vScriptValParallelOffset.md
+  docs/reference/mograph/scriptval/ShapeRender/vScriptValCircuitBoardAbstract.md -> vScriptValCircuitAbstract.md
+  docs/reference/mograph/scriptval/ShapeRender/vScriptValCircuitBoardPattern.md -> vScriptValCircuitPattern.md
+  docs/reference/mograph/scriptval/ShapeRender/vScriptValShapePacker.md -> vScriptValRenderShapePacker.md
+  docs/reference/mograph/scriptval/ShapeRender/vScriptValShapeRenderFlowField.md -> vScriptValRenderFlowField.md
+  docs/reference/mograph/scriptval/ShapeRender/vScriptValShapeRenderGrid.md -> vScriptValRenderGrid.md
+  docs/reference/mograph/scriptval/ShapeRender/vScriptValShapeRenderHistogram.md -> vScriptValRenderHistogram.md
+  docs/reference/mograph/scriptval/ShapeRender/vScriptValShapeRenderLineGraph.md -> vScriptValRenderLineGraph.md
+  docs/reference/mograph/scriptval/ShapeRender/vScriptValShapeRenderMesh.md -> vScriptValRenderMesh.md
+  docs/reference/mograph/scriptval/ShapeRender/vScriptValShapeRenderPathSweep.md -> vScriptValRenderPathSweep.md
+  docs/reference/mograph/scriptval/ShapeRender/vScriptValShapeRenderRadialBurst.md -> vScriptValRenderRadialBurst.md
+  docs/reference/mograph/scriptval/ShapeRender/vScriptValShapeRenderScatterPlot.md -> vScriptValRenderScatterPlot.md
+  docs/reference/mograph/scriptval/ShapeRender/vScriptValShapeRenderSweepProfile.md -> vScriptValRenderSweepProfile.md
+  docs/reference/mograph/scriptval/ShapeRender/vScriptValShapeRenderTextPath.md -> vScriptValRenderTextPath.md
+  docs/reference/mograph/scriptval/ShapeRender/vScriptValTextHighlighter.md -> vScriptValRenderTextHighlighter.md
+  docs/reference/mograph/scriptval/ShapeRender/vScriptValWordPacker.md -> vScriptValRenderWordPacker.md
+  docs/reference/mograph/scriptval/Temporal/vScriptValTemporalTimeShiftArray.md -> vScriptValTemporalTimeShift.md
+  docs/reference/mograph/scriptval/Temporal/vScriptValTemporalTrailFromPoints.md -> vScriptValTemporalTrails.md
+  static/img/reference/mograph/array/vArrayAccumulator.png -> vArrayAccumulatorXform.png
+  static/img/reference/mograph/array/vArrayCircuitBoardAbstract.png -> vArrayCircuitAbstract.png
+  static/img/reference/mograph/array/vArrayCircuitBoardPattern.png -> vArrayCircuitPattern.png
+  static/img/reference/mograph/array/vArrayConvert2D-3D.png -> vArrayConvert2D_3D.png
+  static/img/reference/mograph/array/vArrayCreateFromPolylineMultiPath.png -> vArrayFromPolylineMulti.png
+  static/img/reference/mograph/array/vArrayCreateFromSpline.png -> vArrayFromSpline.png
+  static/img/reference/mograph/array/vArrayCreateFrustum.png -> vArrayFrustum.png
+  static/img/reference/mograph/array/vArrayCreateGeodesicSphere.png -> vArrayGeodesicSphere.png
+  static/img/reference/mograph/array/vArrayCreateGridPolar.png -> vArrayGridPolar.png
+  static/img/reference/mograph/array/vArrayCreateHelix.png -> vArrayHelix.png
+  static/img/reference/mograph/array/vArrayCreateHilbertCurve.png -> vArrayHilbertCurve.png
+  static/img/reference/mograph/array/vArrayCreateLemniscate.png -> vArrayLemniscate.png
+  static/img/reference/mograph/array/vArrayCreateLine.png -> vArrayLine.png
+  static/img/reference/mograph/array/vArrayCreateList.png -> vArrayList.png
+  static/img/reference/mograph/array/vArrayCreateMaskedScatterOnMeshSurface.png -> vArrayMaskScatterOnMesh.png
+  static/img/reference/mograph/array/vArrayCreateMinMax.png -> vArrayMinMax.png
+  static/img/reference/mograph/array/vArrayCreateNoise.png -> vArrayNoise.png
+  static/img/reference/mograph/array/vArrayCreateParametricCurve.png -> vArrayParametricCurve.png
+  static/img/reference/mograph/array/vArrayCreatePoissonOnMeshSurface.png -> vArrayPoissonOnMesh.png
+  static/img/reference/mograph/array/vArrayCreateRadialSymmetry.png -> vArrayRadialSymmetry.png
+  static/img/reference/mograph/array/vArrayCreateRandom.png -> vArrayRandom.png
+  static/img/reference/mograph/array/vArrayCreateRelaxedScatterOnMeshSurface.png -> vArrayRelaxScatterOnMesh.png
+  static/img/reference/mograph/array/vArrayCreateRoseCurve.png -> vArrayRoseCurve.png
+  static/img/reference/mograph/array/vArrayCreateScatterOnMeshSurface.png -> vArrayScatterOnMesh.png
+  static/img/reference/mograph/array/vArrayCreateSuperellipse.png -> vArraySuperellipse.png
+  static/img/reference/mograph/array/vArrayCreateTextFont.png -> vArrayTextFont.png
+  static/img/reference/mograph/array/vArrayCreateTorus.png -> vArrayTorus.png
+  static/img/reference/mograph/array/vArrayCreateVoronoi.png -> vArrayVoronoi.png
+  static/img/reference/mograph/array/vArrayLogicGroupByExpression.png -> vArrayLogicGroupByExpr.png
+  static/img/reference/mograph/array/vArrayModifyAlignToMeshSurface.png -> vArrayAlignToMesh.png
+  static/img/reference/mograph/array/vArrayModifyAttractToMeshSurface.png -> vArrayAttractToMesh.png
+  static/img/reference/mograph/array/vArrayModifyAttributeRandomize.png -> vArrayAttrRandomize.png
+  static/img/reference/mograph/array/vArrayModifyAttributeTransfer.png -> vArrayAttrTransfer.png
+  static/img/reference/mograph/array/vArrayModifyBooleanMaskOps.png -> vArrayBooleanMaskOps.png
+  static/img/reference/mograph/array/vArrayModifyClamp.png -> vArrayClamp.png
+  static/img/reference/mograph/array/vArrayModifyClampToMeshProximity.png -> vArrayClampToMeshProx.png
+  static/img/reference/mograph/array/vArrayModifyClassifyByMeshSurface.png -> vArrayClassifyByMesh.png
+  static/img/reference/mograph/array/vArrayModifyClosePath.png -> vArrayClosePath.png
+  static/img/reference/mograph/array/vArrayModifyColorMap.png -> vArrayColorMap.png
+  static/img/reference/mograph/array/vArrayModifyCopyToPoints.png -> vArrayCopyToPoints.png
+  static/img/reference/mograph/array/vArrayModifyForEachIndexed.png -> vArrayForEachIndexed.png
+  static/img/reference/mograph/array/vArrayModifyFuseClosePoints.png -> vArrayFuseClosePoints.png
+  static/img/reference/mograph/array/vArrayModifyJitterOnMeshSurface.png -> vArrayJitterOnMesh.png
+  static/img/reference/mograph/array/vArrayModifyLookAt.png -> vArrayLookAt.png
+  static/img/reference/mograph/array/vArrayModifyMaskByMeshSurface.png -> vArrayMaskByMesh.png
+  static/img/reference/mograph/array/vArrayModifyMirror.png -> vArrayMirror.png
+  static/img/reference/mograph/array/vArrayModifyMirrorThroughMeshSurface.png -> vArrayMirrorThruMesh.png
+  static/img/reference/mograph/array/vArrayModifyNoiseOnMeshSurface.png -> vArrayNoiseOnMesh.png
+  static/img/reference/mograph/array/vArrayModifyOffsetByMeshNormal.png -> vArrayOffsetByNormal.png
+  static/img/reference/mograph/array/vArrayModifyPathFrame.png -> vArrayPathFrame.png
+  static/img/reference/mograph/array/vArrayModifyPathTwist.png -> vArrayPathTwist.png
+  static/img/reference/mograph/array/vArrayModifyPathWidthMap.png -> vArrayPathWidthMap.png
+  static/img/reference/mograph/array/vArrayModifyProfileTransform.png -> vArrayProfileTransform.png
+  static/img/reference/mograph/array/vArrayModifyProject.png -> vArrayProject.png
+  static/img/reference/mograph/array/vArrayModifyProjectOnMeshSurface.png -> vArrayProjectOnMesh.png
+  static/img/reference/mograph/array/vArrayModifyRampMap.png -> vArrayRampMap.png
+  static/img/reference/mograph/array/vArrayModifyRaycastToMeshSurface.png -> vArrayRaycastToMesh.png
+  static/img/reference/mograph/array/vArrayModifyRelaxOnMeshSurface.png -> vArrayRelaxOnMesh.png
+  static/img/reference/mograph/array/vArrayModifyRepeat.png -> vArrayRepeat.png
+  static/img/reference/mograph/array/vArrayModifyResamplePath.png -> vArrayResamplePath.png
+  static/img/reference/mograph/array/vArrayModifyReverse.png -> vArrayReverse.png
+  static/img/reference/mograph/array/vArrayModifyScaleFromMeshSurface.png -> vArrayScaleFromMesh.png
+  static/img/reference/mograph/array/vArrayModifyScatterInstanceOnMeshSurface.png -> vArrayScatterInstOnMesh.png
+  static/img/reference/mograph/array/vArrayModifySlideOnMeshSurface.png -> vArraySlideOnMesh.png
+  static/img/reference/mograph/array/vArrayModifySnapToFaceCentroid.png -> vArraySnapFaceCentroid.png
+  static/img/reference/mograph/array/vArrayModifySnapToMeshVertex.png -> vArraySnapMeshVertex.png
+  static/img/reference/mograph/array/vArrayModifySortByMeshProximity.png -> vArraySortByMeshProx.png
+  static/img/reference/mograph/array/vArrayModifyTrimByMeshBounds.png -> vArrayTrimByMeshBounds.png
+  static/img/reference/mograph/array/vArrayModifyWeightByMeshProximity.png -> vArrayWeightByMeshProx.png
+  static/img/reference/mograph/array/vArrayModifyWeightMap.png -> vArrayWeightMap.png
+  static/img/reference/mograph/array/vArrayParallelPointsOffSet.png -> vArrayParallelOffset.png
+  static/img/reference/mograph/array/vArrayPointsHexagonGrid.png -> vArrayPointsOnHexagon.png
+  static/img/reference/mograph/array/vArrayShapePacker.png -> vArrayRenderShapePacker.png
+  static/img/reference/mograph/array/vArrayShapeRenderFlowField.png -> vArrayRenderFlowField.png
+  static/img/reference/mograph/array/vArrayShapeRenderGrid.png -> vArrayRenderGrid.png
+  static/img/reference/mograph/array/vArrayShapeRenderHistogram.png -> vArrayRenderHistogram.png
+  static/img/reference/mograph/array/vArrayShapeRenderLineGraph.png -> vArrayRenderLineGraph.png
+  static/img/reference/mograph/array/vArrayShapeRenderMesh.png -> vArrayRenderMesh.png
+  static/img/reference/mograph/array/vArrayShapeRenderPathSweep.png -> vArrayRenderPathSweep.png
+  static/img/reference/mograph/array/vArrayShapeRenderRadialBurst.png -> vArrayRenderRadialBurst.png
+  static/img/reference/mograph/array/vArrayShapeRenderScatterPlot.png -> vArrayRenderScatterPlot.png
+  static/img/reference/mograph/array/vArrayShapeRenderSweepProfile.png -> vArrayRenderSweepProfile.png
+  static/img/reference/mograph/array/vArrayShapeRenderTextPath.png -> vArrayRenderTextPath.png
+  static/img/reference/mograph/array/vArrayTaperedPath.png -> vArrayRenderTaperedPath.png
+  static/img/reference/mograph/array/vArrayTemporalTimeShiftArray.png -> vArrayTemporalTimeShift.png
+  static/img/reference/mograph/array/vArrayTemporalTrailFromPoints.png -> vArrayTemporalTrails.png
+  static/img/reference/mograph/array/vArrayTextHighlighter.png -> vArrayRenderTextHighlighter.png
+  static/img/reference/mograph/array/vArrayWordPacker.png -> vArrayRenderWordPacker.png
+  static/img/reference/mograph/json/vJSONAccumulator.png -> vJSONAccumulatorXform.png
+  static/img/reference/mograph/json/vJSONCircuitBoardAbstract.png -> vJSONCircuitAbstract.png
+  static/img/reference/mograph/json/vJSONCircuitBoardPattern.png -> vJSONCircuitPattern.png
+  static/img/reference/mograph/json/vJSONConvert2D-3D.png -> vJSONConvert2D_3D.png
+  static/img/reference/mograph/json/vJSONCreateAttractorPoints.png -> vJSONAttractorPoints.png
+  static/img/reference/mograph/json/vJSONCreateCubicBezier.png -> vJSONCubicBezier.png
+  static/img/reference/mograph/json/vJSONCreateCylinder.png -> vJSONCylinder.png
+  static/img/reference/mograph/json/vJSONCreateFromImage.png -> vJSONFromImage.png
+  static/img/reference/mograph/json/vJSONCreateFromSpline.png -> vJSONFromSpline.png
+  static/img/reference/mograph/json/vJSONCreateFrustum.png -> vJSONFrustum.png
+  static/img/reference/mograph/json/vJSONCreateGeodesicSphere.png -> vJSONGeodesicSphere.png
+  static/img/reference/mograph/json/vJSONCreateGridPolar.png -> vJSONGridPolar.png
+  static/img/reference/mograph/json/vJSONCreateHelix.png -> vJSONHelix.png
+  static/img/reference/mograph/json/vJSONCreateHilbertCurve.png -> vJSONHilbertCurve.png
+  static/img/reference/mograph/json/vJSONCreateLemniscate.png -> vJSONLemniscate.png
+  static/img/reference/mograph/json/vJSONCreateLine.png -> vJSONLine.png
+  static/img/reference/mograph/json/vJSONCreateList.png -> vJSONList.png
+  static/img/reference/mograph/json/vJSONCreateMaskedScatterOnMeshSurface.png -> vJSONMaskScatterOnMesh.png
+  static/img/reference/mograph/json/vJSONCreateMinMax.png -> vJSONMinMax.png
+  static/img/reference/mograph/json/vJSONCreateNoise.png -> vJSONNoise.png
+  static/img/reference/mograph/json/vJSONCreateParametricCurve.png -> vJSONParametricCurve.png
+  static/img/reference/mograph/json/vJSONCreatePoissonOnMeshSurface.png -> vJSONPoissonOnMesh.png
+  static/img/reference/mograph/json/vJSONCreateRadialSymmetry.png -> vJSONRadialSymmetry.png
+  static/img/reference/mograph/json/vJSONCreateRandom.png -> vJSONRandom.png
+  static/img/reference/mograph/json/vJSONCreateRelaxedScatterOnMeshSurface.png -> vJSONRelaxScatterOnMesh.png
+  static/img/reference/mograph/json/vJSONCreateRoseCurve.png -> vJSONRoseCurve.png
+  static/img/reference/mograph/json/vJSONCreateScatterOnMeshSurface.png -> vJSONScatterOnMesh.png
+  static/img/reference/mograph/json/vJSONCreateSuperellipse.png -> vJSONSuperellipse.png
+  static/img/reference/mograph/json/vJSONCreateTextFont.png -> vJSONTextFont.png
+  static/img/reference/mograph/json/vJSONCreateTorus.png -> vJSONTorus.png
+  static/img/reference/mograph/json/vJSONCreateVoronoi.png -> vJSONVoronoi.png
+  static/img/reference/mograph/json/vJSONLogicGroupByExpression.png -> vJSONLogicGroupByExpr.png
+  static/img/reference/mograph/json/vJSONModifyAlignToMeshSurface.png -> vJSONAlignToMesh.png
+  static/img/reference/mograph/json/vJSONModifyAttractToMeshSurface.png -> vJSONAttractToMesh.png
+  static/img/reference/mograph/json/vJSONModifyAttributeRandomize.png -> vJSONAttrRandomize.png
+  static/img/reference/mograph/json/vJSONModifyAttributeTransfer.png -> vJSONAttrTransfer.png
+  static/img/reference/mograph/json/vJSONModifyBooleanMaskOps.png -> vJSONBooleanMaskOps.png
+  static/img/reference/mograph/json/vJSONModifyClamp.png -> vJSONClamp.png
+  static/img/reference/mograph/json/vJSONModifyClampToMeshProximity.png -> vJSONClampToMeshProx.png
+  static/img/reference/mograph/json/vJSONModifyClassifyByMeshSurface.png -> vJSONClassifyByMesh.png
+  static/img/reference/mograph/json/vJSONModifyClosePath.png -> vJSONClosePath.png
+  static/img/reference/mograph/json/vJSONModifyColorMap.png -> vJSONColorMap.png
+  static/img/reference/mograph/json/vJSONModifyCopyToPoints.png -> vJSONCopyToPoints.png
+  static/img/reference/mograph/json/vJSONModifyForEachIndexed.png -> vJSONForEachIndexed.png
+  static/img/reference/mograph/json/vJSONModifyFuseClosePoints.png -> vJSONFuseClosePoints.png
+  static/img/reference/mograph/json/vJSONModifyJitterOnMeshSurface.png -> vJSONJitterOnMesh.png
+  static/img/reference/mograph/json/vJSONModifyLookAt.png -> vJSONLookAt.png
+  static/img/reference/mograph/json/vJSONModifyMaskByMeshSurface.png -> vJSONMaskByMesh.png
+  static/img/reference/mograph/json/vJSONModifyMirror.png -> vJSONMirror.png
+  static/img/reference/mograph/json/vJSONModifyMirrorThroughMeshSurface.png -> vJSONMirrorThruMesh.png
+  static/img/reference/mograph/json/vJSONModifyNoiseOnMeshSurface.png -> vJSONNoiseOnMesh.png
+  static/img/reference/mograph/json/vJSONModifyOffsetByMeshNormal.png -> vJSONOffsetByNormal.png
+  static/img/reference/mograph/json/vJSONModifyPathFrame.png -> vJSONPathFrame.png
+  static/img/reference/mograph/json/vJSONModifyPathTwist.png -> vJSONPathTwist.png
+  static/img/reference/mograph/json/vJSONModifyPathWidthMap.png -> vJSONPathWidthMap.png
+  static/img/reference/mograph/json/vJSONModifyProfileTransform.png -> vJSONProfileTransform.png
+  static/img/reference/mograph/json/vJSONModifyProject.png -> vJSONProject.png
+  static/img/reference/mograph/json/vJSONModifyProjectOnMeshSurface.png -> vJSONProjectOnMesh.png
+  static/img/reference/mograph/json/vJSONModifyRampMap.png -> vJSONRampMap.png
+  static/img/reference/mograph/json/vJSONModifyRaycastToMeshSurface.png -> vJSONRaycastToMesh.png
+  static/img/reference/mograph/json/vJSONModifyRelaxOnMeshSurface.png -> vJSONRelaxOnMesh.png
+  static/img/reference/mograph/json/vJSONModifyRepeat.png -> vJSONRepeat.png
+  static/img/reference/mograph/json/vJSONModifyResamplePath.png -> vJSONResamplePath.png
+  static/img/reference/mograph/json/vJSONModifyReverse.png -> vJSONReverse.png
+  static/img/reference/mograph/json/vJSONModifyScaleFromMeshSurface.png -> vJSONScaleFromMesh.png
+  static/img/reference/mograph/json/vJSONModifyScatterInstanceOnMeshSurface.png -> vJSONScatterInstOnMesh.png
+  static/img/reference/mograph/json/vJSONModifySlideOnMeshSurface.png -> vJSONSlideOnMesh.png
+  static/img/reference/mograph/json/vJSONModifySnapToFaceCentroid.png -> vJSONSnapFaceCentroid.png
+  static/img/reference/mograph/json/vJSONModifySnapToMeshVertex.png -> vJSONSnapMeshVertex.png
+  static/img/reference/mograph/json/vJSONModifySortByMeshProximity.png -> vJSONSortByMeshProx.png
+  static/img/reference/mograph/json/vJSONModifyTrimByMeshBounds.png -> vJSONTrimByMeshBounds.png
+  static/img/reference/mograph/json/vJSONModifyWeightByMeshProximity.png -> vJSONWeightByMeshProx.png
+  static/img/reference/mograph/json/vJSONModifyWeightMap.png -> vJSONWeightMap.png
+  static/img/reference/mograph/json/vJSONParallelPointsOffSet.png -> vJSONParallelOffset.png
+  static/img/reference/mograph/json/vJSONPointsHexagonGrid.png -> vJSONPointsOnHexagon.png
+  static/img/reference/mograph/json/vJSONShapePacker.png -> vJSONRenderShapePacker.png
+  static/img/reference/mograph/json/vJSONShapeRenderFlowField.png -> vJSONRenderFlowField.png
+  static/img/reference/mograph/json/vJSONShapeRenderGrid.png -> vJSONRenderGrid.png
+  static/img/reference/mograph/json/vJSONShapeRenderHistogram.png -> vJSONRenderHistogram.png
+  static/img/reference/mograph/json/vJSONShapeRenderLineGraph.png -> vJSONRenderLineGraph.png
+  static/img/reference/mograph/json/vJSONShapeRenderMesh.png -> vJSONRenderMesh.png
+  static/img/reference/mograph/json/vJSONShapeRenderPathSweep.png -> vJSONRenderPathSweep.png
+  static/img/reference/mograph/json/vJSONShapeRenderRadialBurst.png -> vJSONRenderRadialBurst.png
+  static/img/reference/mograph/json/vJSONShapeRenderScatterPlot.png -> vJSONRenderScatterPlot.png
+  static/img/reference/mograph/json/vJSONShapeRenderSweepProfile.png -> vJSONRenderSweepProfile.png
+  static/img/reference/mograph/json/vJSONShapeRenderTextPath.png -> vJSONRenderTextPath.png
+  static/img/reference/mograph/json/vJSONTaperedPath.png -> vJSONRenderTaperedPath.png
+  static/img/reference/mograph/json/vJSONTemporalTimeShiftArray.png -> vJSONTemporalTimeShift.png
+  static/img/reference/mograph/json/vJSONTemporalTrailFromPoints.png -> vJSONTemporalTrails.png
+  static/img/reference/mograph/json/vJSONTextHighlighter.png -> vJSONRenderTextHighlighter.png
+  static/img/reference/mograph/json/vJSONWordPacker.png -> vJSONRenderWordPacker.png
+  static/img/reference/mograph/scriptval/vScriptValCircuitBoardAbstract.png -> vScriptValCircuitAbstract.png
+  static/img/reference/mograph/scriptval/vScriptValCircuitBoardPattern.png -> vScriptValCircuitPattern.png
+  static/img/reference/mograph/scriptval/vScriptValConvert2D-3D.png -> vScriptValConvert2D_3D.png
+  static/img/reference/mograph/scriptval/vScriptValCreateAttractorPoints.png -> vScriptValAttractorPoints.png
+  static/img/reference/mograph/scriptval/vScriptValCreateCubicBezier.png -> vScriptValCubicBezier.png
+  static/img/reference/mograph/scriptval/vScriptValCreateCylinder.png -> vScriptValCylinder.png
+  static/img/reference/mograph/scriptval/vScriptValCreateFromImage.png -> vScriptValFromImage.png
+  static/img/reference/mograph/scriptval/vScriptValCreateFromSpline.png -> vScriptValFromSpline.png
+  static/img/reference/mograph/scriptval/vScriptValCreateFrustum.png -> vScriptValFrustum.png
+  static/img/reference/mograph/scriptval/vScriptValCreateGeodesicSphere.png -> vScriptValGeodesicSphere.png
+  static/img/reference/mograph/scriptval/vScriptValCreateGridPolar.png -> vScriptValGridPolar.png
+  static/img/reference/mograph/scriptval/vScriptValCreateHelix.png -> vScriptValHelix.png
+  static/img/reference/mograph/scriptval/vScriptValCreateHilbertCurve.png -> vScriptValHilbertCurve.png
+  static/img/reference/mograph/scriptval/vScriptValCreateLemniscate.png -> vScriptValLemniscate.png
+  static/img/reference/mograph/scriptval/vScriptValCreateLine.png -> vScriptValLine.png
+  static/img/reference/mograph/scriptval/vScriptValCreateList.png -> vScriptValList.png
+  static/img/reference/mograph/scriptval/vScriptValCreateMaskedScatterOnMeshSurface.png -> vScriptValMaskScatterOnMesh.png
+  static/img/reference/mograph/scriptval/vScriptValCreateMinMax.png -> vScriptValMinMax.png
+  static/img/reference/mograph/scriptval/vScriptValCreateNoise.png -> vScriptValNoise.png
+  static/img/reference/mograph/scriptval/vScriptValCreateParametricCurve.png -> vScriptValParametricCurve.png
+  static/img/reference/mograph/scriptval/vScriptValCreatePoissonOnMeshSurface.png -> vScriptValPoissonOnMesh.png
+  static/img/reference/mograph/scriptval/vScriptValCreateRadialSymmetry.png -> vScriptValRadialSymmetry.png
+  static/img/reference/mograph/scriptval/vScriptValCreateRandom.png -> vScriptValRandom.png
+  static/img/reference/mograph/scriptval/vScriptValCreateRelaxedScatterOnMeshSurface.png -> vScriptValRelaxScatterOnMesh.png
+  static/img/reference/mograph/scriptval/vScriptValCreateRoseCurve.png -> vScriptValRoseCurve.png
+  static/img/reference/mograph/scriptval/vScriptValCreateScatterOnMeshSurface.png -> vScriptValScatterOnMesh.png
+  static/img/reference/mograph/scriptval/vScriptValCreateSuperellipse.png -> vScriptValSuperellipse.png
+  static/img/reference/mograph/scriptval/vScriptValCreateTextFont.png -> vScriptValTextFont.png
+  static/img/reference/mograph/scriptval/vScriptValCreateTorus.png -> vScriptValTorus.png
+  static/img/reference/mograph/scriptval/vScriptValCreateVoronoi.png -> vScriptValVoronoi.png
+  static/img/reference/mograph/scriptval/vScriptValLogicGroupByExpression.png -> vScriptValLogicGroupByExpr.png
+  static/img/reference/mograph/scriptval/vScriptValModifyAlignToMeshSurface.png -> vScriptValAlignToMesh.png
+  static/img/reference/mograph/scriptval/vScriptValModifyAttractToMeshSurface.png -> vScriptValAttractToMesh.png
+  static/img/reference/mograph/scriptval/vScriptValModifyAttributeRandomize.png -> vScriptValAttrRandomize.png
+  static/img/reference/mograph/scriptval/vScriptValModifyAttributeTransfer.png -> vScriptValAttrTransfer.png
+  static/img/reference/mograph/scriptval/vScriptValModifyBooleanMaskOps.png -> vScriptValBooleanMaskOps.png
+  static/img/reference/mograph/scriptval/vScriptValModifyClamp.png -> vScriptValClamp.png
+  static/img/reference/mograph/scriptval/vScriptValModifyClampToMeshProximity.png -> vScriptValClampToMeshProx.png
+  static/img/reference/mograph/scriptval/vScriptValModifyClassifyByMeshSurface.png -> vScriptValClassifyByMesh.png
+  static/img/reference/mograph/scriptval/vScriptValModifyClosePath.png -> vScriptValClosePath.png
+  static/img/reference/mograph/scriptval/vScriptValModifyColorMap.png -> vScriptValColorMap.png
+  static/img/reference/mograph/scriptval/vScriptValModifyCopyToPoints.png -> vScriptValCopyToPoints.png
+  static/img/reference/mograph/scriptval/vScriptValModifyForEachIndexed.png -> vScriptValForEachIndexed.png
+  static/img/reference/mograph/scriptval/vScriptValModifyFuseClosePoints.png -> vScriptValFuseClosePoints.png
+  static/img/reference/mograph/scriptval/vScriptValModifyJitterOnMeshSurface.png -> vScriptValJitterOnMesh.png
+  static/img/reference/mograph/scriptval/vScriptValModifyLookAt.png -> vScriptValLookAt.png
+  static/img/reference/mograph/scriptval/vScriptValModifyMaskByMeshSurface.png -> vScriptValMaskByMesh.png
+  static/img/reference/mograph/scriptval/vScriptValModifyMirror.png -> vScriptValMirror.png
+  static/img/reference/mograph/scriptval/vScriptValModifyMirrorThroughMeshSurface.png -> vScriptValMirrorThruMesh.png
+  static/img/reference/mograph/scriptval/vScriptValModifyNoiseOnMeshSurface.png -> vScriptValNoiseOnMesh.png
+  static/img/reference/mograph/scriptval/vScriptValModifyOffsetByMeshNormal.png -> vScriptValOffsetByNormal.png
+  static/img/reference/mograph/scriptval/vScriptValModifyPathFrame.png -> vScriptValPathFrame.png
+  static/img/reference/mograph/scriptval/vScriptValModifyPathTwist.png -> vScriptValPathTwist.png
+  static/img/reference/mograph/scriptval/vScriptValModifyPathWidthMap.png -> vScriptValPathWidthMap.png
+  static/img/reference/mograph/scriptval/vScriptValModifyProfileTransform.png -> vScriptValProfileTransform.png
+  static/img/reference/mograph/scriptval/vScriptValModifyProject.png -> vScriptValProject.png
+  static/img/reference/mograph/scriptval/vScriptValModifyProjectOnMeshSurface.png -> vScriptValProjectOnMesh.png
+  static/img/reference/mograph/scriptval/vScriptValModifyRampMap.png -> vScriptValRampMap.png
+  static/img/reference/mograph/scriptval/vScriptValModifyRaycastToMeshSurface.png -> vScriptValRaycastToMesh.png
+  static/img/reference/mograph/scriptval/vScriptValModifyRelaxOnMeshSurface.png -> vScriptValRelaxOnMesh.png
+  static/img/reference/mograph/scriptval/vScriptValModifyRepeat.png -> vScriptValRepeat.png
+  static/img/reference/mograph/scriptval/vScriptValModifyResamplePath.png -> vScriptValResamplePath.png
+  static/img/reference/mograph/scriptval/vScriptValModifyReverse.png -> vScriptValReverse.png
+  static/img/reference/mograph/scriptval/vScriptValModifyScaleFromMeshSurface.png -> vScriptValScaleFromMesh.png
+  static/img/reference/mograph/scriptval/vScriptValModifyScatterInstanceOnMeshSurface.png -> vScriptValScatterInstOnMesh.png
+  static/img/reference/mograph/scriptval/vScriptValModifySlideOnMeshSurface.png -> vScriptValSlideOnMesh.png
+  static/img/reference/mograph/scriptval/vScriptValModifySnapToFaceCentroid.png -> vScriptValSnapFaceCentroid.png
+  static/img/reference/mograph/scriptval/vScriptValModifySnapToMeshVertex.png -> vScriptValSnapMeshVertex.png
+  static/img/reference/mograph/scriptval/vScriptValModifySortByMeshProximity.png -> vScriptValSortByMeshProx.png
+  static/img/reference/mograph/scriptval/vScriptValModifyTrimByMeshBounds.png -> vScriptValTrimByMeshBounds.png
+  static/img/reference/mograph/scriptval/vScriptValModifyWeightByMeshProximity.png -> vScriptValWeightByMeshProx.png
+  static/img/reference/mograph/scriptval/vScriptValModifyWeightMap.png -> vScriptValWeightMap.png
+  static/img/reference/mograph/scriptval/vScriptValParallelPointsOffSet.png -> vScriptValParallelOffset.png
+  static/img/reference/mograph/scriptval/vScriptValPointsHexagonGrid.png -> vScriptValPointsOnHexagon.png
+  static/img/reference/mograph/scriptval/vScriptValShapePacker.png -> vScriptValRenderShapePacker.png
+  static/img/reference/mograph/scriptval/vScriptValShapeRenderFlowField.png -> vScriptValRenderFlowField.png
+  static/img/reference/mograph/scriptval/vScriptValShapeRenderGrid.png -> vScriptValRenderGrid.png
+  static/img/reference/mograph/scriptval/vScriptValShapeRenderHistogram.png -> vScriptValRenderHistogram.png
+  static/img/reference/mograph/scriptval/vScriptValShapeRenderLineGraph.png -> vScriptValRenderLineGraph.png
+  static/img/reference/mograph/scriptval/vScriptValShapeRenderMesh.png -> vScriptValRenderMesh.png
+  static/img/reference/mograph/scriptval/vScriptValShapeRenderPathSweep.png -> vScriptValRenderPathSweep.png
+  static/img/reference/mograph/scriptval/vScriptValShapeRenderRadialBurst.png -> vScriptValRenderRadialBurst.png
+  static/img/reference/mograph/scriptval/vScriptValShapeRenderScatterPlot.png -> vScriptValRenderScatterPlot.png
+  static/img/reference/mograph/scriptval/vScriptValShapeRenderSweepProfile.png -> vScriptValRenderSweepProfile.png
+  static/img/reference/mograph/scriptval/vScriptValShapeRenderTextPath.png -> vScriptValRenderTextPath.png
+  static/img/reference/mograph/scriptval/vScriptValTaperedPath.png -> vScriptValRenderTaperedPath.png
+  static/img/reference/mograph/scriptval/vScriptValTemporalTimeShiftArray.png -> vScriptValTemporalTimeShift.png
+  static/img/reference/mograph/scriptval/vScriptValTemporalTrailFromPoints.png -> vScriptValTemporalTrails.png
+  static/img/reference/mograph/scriptval/vScriptValTextHighlighter.png -> vScriptValRenderTextHighlighter.png
+  static/img/reference/mograph/scriptval/vScriptValWordPacker.png -> vScriptValRenderWordPacker.png
+
+CLASHES (target already exists; old file moved to ../_rename_orphans on apply)
+  docs/reference/mograph/array/Logic/vArrayCountMask.md -> docs/reference/mograph/array/Logic/vArrayLogicCount.md
+  docs/reference/mograph/json/Logic/vJSONCountMask.md -> docs/reference/mograph/json/Logic/vJSONLogicCount.md
+  docs/reference/mograph/scriptval/Logic/vScriptValCountMask.md -> docs/reference/mograph/scriptval/Logic/vScriptValLogicCount.md
+  static/img/reference/mograph/array/vArrayCreateAttractorPoints.png -> static/img/reference/mograph/array/vArrayAttractorPoints.png
+  static/img/reference/mograph/array/vArrayCreateCubicBezier.png -> static/img/reference/mograph/array/vArrayCubicBezier.png
+  static/img/reference/mograph/array/vArrayCreateCylinder.png -> static/img/reference/mograph/array/vArrayCylinder.png
+  static/img/reference/mograph/array/vArrayCreateFromImage.png -> static/img/reference/mograph/array/vArrayFromImage.png
+  static/img/reference/mograph/array/vArrayCreateFromPolyline.png -> static/img/reference/mograph/array/vArrayFromPolyline.png
+  static/img/reference/mograph/array/vArrayCreateFromPolylineBG.png -> static/img/reference/mograph/array/vArrayFromPolylineBG.png
+  static/img/reference/mograph/array/vArrayPathSubDivide.png -> static/img/reference/mograph/array/vArraySubDividePath.png
+  static/img/reference/mograph/json/vJSONPathSubDivide.png -> static/img/reference/mograph/json/vJSONSubDividePath.png
+  static/img/reference/mograph/json/vJSONShapeText.png -> static/img/reference/mograph/json/vJSONShapeTextArray.png
+  static/img/reference/mograph/scriptval/vScriptValPathSubDivide.png -> static/img/reference/mograph/scriptval/vScriptValSubDividePath.png
+
+REWRITES
+  docs/getting-started/core-concepts.md: 1
+  docs/guides/camera-projection-pipelines.md: 8
+  docs/guides/overview.md: 2
+  docs/guides/particle-and-point-generation.md: 50
+  docs/reference/mograph/array/Create/vArrayCreate.md: 4
+  docs/reference/mograph/array/Create/vArrayCreateAsset.md: 4
+  docs/reference/mograph/array/Create/vArrayCreateAttractorPoints.md: 8
+  docs/reference/mograph/array/Create/vArrayCreateCubicBezier.md: 8
+  docs/reference/mograph/array/Create/vArrayCreateCylinder.md: 8
+  docs/reference/mograph/array/Create/vArrayCreateFromImage.md: 8
+  docs/reference/mograph/array/Create/vArrayCreateFromPolyline.md: 8
+  docs/reference/mograph/array/Create/vArrayCreateFromPolylineBG.md: 8
+  docs/reference/mograph/array/Create/vArrayCreateFromPolylineMultiPath.md: 8
+  docs/reference/mograph/array/Create/vArrayCreateFromSpline.md: 8
+  docs/reference/mograph/array/Create/vArrayCreateFrustum.md: 8
+  docs/reference/mograph/array/Create/vArrayCreateGeodesicSphere.md: 8
+  docs/reference/mograph/array/Create/vArrayCreateGridPolar.md: 8
+  docs/reference/mograph/array/Create/vArrayCreateHelix.md: 8
+  docs/reference/mograph/array/Create/vArrayCreateHilbertCurve.md: 8
+  docs/reference/mograph/array/Create/vArrayCreateLemniscate.md: 8
+  docs/reference/mograph/array/Create/vArrayCreateLine.md: 8
+  docs/reference/mograph/array/Create/vArrayCreateList.md: 7
+  docs/reference/mograph/array/Create/vArrayCreateMaskedScatterOnMeshSurface.md: 8
+  docs/reference/mograph/array/Create/vArrayCreateMinMax.md: 13
+  docs/reference/mograph/array/Create/vArrayCreateNoise.md: 8
+  docs/reference/mograph/array/Create/vArrayCreateParametricCurve.md: 8
+  docs/reference/mograph/array/Create/vArrayCreatePoissonOnMeshSurface.md: 8
+  docs/reference/mograph/array/Create/vArrayCreateRadialSymmetry.md: 8
+  docs/reference/mograph/array/Create/vArrayCreateRandom.md: 8
+  docs/reference/mograph/array/Create/vArrayCreateRange.md: 2
+  docs/reference/mograph/array/Create/vArrayCreateRelaxedScatterOnMeshSurface.md: 8
+  docs/reference/mograph/array/Create/vArrayCreateRoseCurve.md: 8
+  docs/reference/mograph/array/Create/vArrayCreateScatterOnMeshSurface.md: 8
+  docs/reference/mograph/array/Create/vArrayCreateSuperellipse.md: 8
+  docs/reference/mograph/array/Create/vArrayCreateTextFont.md: 7
+  docs/reference/mograph/array/Create/vArrayCreateTorus.md: 8
+  docs/reference/mograph/array/Create/vArrayCreateVoronoi.md: 8
+  docs/reference/mograph/array/Create/vArrayFromAudio.md: 2
+  docs/reference/mograph/array/Create/vArrayJSONFont.md: 7
+  docs/reference/mograph/array/Create/vArrayLocatorAsset.md: 2
+  docs/reference/mograph/array/Create/vArrayPointsHexagonGrid.md: 7
+  docs/reference/mograph/array/Create/vArrayToUSD.md: 2
+  docs/reference/mograph/array/Logic/vArrayLogicAND.md: 2
+  docs/reference/mograph/array/Logic/vArrayLogicAll.md: 2
+  docs/reference/mograph/array/Logic/vArrayLogicAny.md: 2
+  docs/reference/mograph/array/Logic/vArrayLogicClamp.md: 2
+  docs/reference/mograph/array/Logic/vArrayLogicCompare.md: 2
+  docs/reference/mograph/array/Logic/vArrayLogicDeleteByMask.md: 2
+  docs/reference/mograph/array/Logic/vArrayLogicFallback.md: 2
+  docs/reference/mograph/array/Logic/vArrayLogicGroupByExpression.md: 8
+  docs/reference/mograph/array/Logic/vArrayLogicNOT.md: 2
+  docs/reference/mograph/array/Logic/vArrayLogicOR.md: 2
+  docs/reference/mograph/array/Logic/vArrayLogicPartition.md: 2
+  docs/reference/mograph/array/Logic/vArrayLogicSelect.md: 2
+  docs/reference/mograph/array/Logic/vArrayLogicThreshold.md: 2
+  docs/reference/mograph/array/Logic/vArrayLogicXOR.md: 2
+  docs/reference/mograph/array/Modify/vArrayCameraProjection.md: 1
+  docs/reference/mograph/array/Modify/vArrayConvert2D_3D.md: 2
+  docs/reference/mograph/array/Modify/vArrayDisplaceValues.md: 1
+  docs/reference/mograph/array/Modify/vArrayInterpolate.md: 1
+  docs/reference/mograph/array/Modify/vArrayMapRange.md: 1
+  docs/reference/mograph/array/Modify/vArrayMath.md: 2
+  docs/reference/mograph/array/Modify/vArrayModifyAlignToMeshSurface.md: 6
+  docs/reference/mograph/array/Modify/vArrayModifyApplyMask.md: 5
+  docs/reference/mograph/array/Modify/vArrayModifyAttractToMeshSurface.md: 6
+  docs/reference/mograph/array/Modify/vArrayModifyAttributeRandomize.md: 6
+  docs/reference/mograph/array/Modify/vArrayModifyAttributeTransfer.md: 6
+  docs/reference/mograph/array/Modify/vArrayModifyBooleanMaskOps.md: 6
+  docs/reference/mograph/array/Modify/vArrayModifyClamp.md: 6
+  docs/reference/mograph/array/Modify/vArrayModifyClampToMeshProximity.md: 6
+  docs/reference/mograph/array/Modify/vArrayModifyClassifyByMeshSurface.md: 6
+  docs/reference/mograph/array/Modify/vArrayModifyClosePath.md: 6
+  docs/reference/mograph/array/Modify/vArrayModifyColorMap.md: 6
+  docs/reference/mograph/array/Modify/vArrayModifyCopyToPoints.md: 6
+  docs/reference/mograph/array/Modify/vArrayModifyForEachIndexed.md: 6
+  docs/reference/mograph/array/Modify/vArrayModifyFuseClosePoints.md: 6
+  docs/reference/mograph/array/Modify/vArrayModifyJitterOnMeshSurface.md: 6
+  docs/reference/mograph/array/Modify/vArrayModifyLookAt.md: 6
+  docs/reference/mograph/array/Modify/vArrayModifyMaskByMeshSurface.md: 6
+  docs/reference/mograph/array/Modify/vArrayModifyMirror.md: 6
+  docs/reference/mograph/array/Modify/vArrayModifyMirrorThroughMeshSurface.md: 6
+  docs/reference/mograph/array/Modify/vArrayModifyNoiseOnMeshSurface.md: 6
+  docs/reference/mograph/array/Modify/vArrayModifyOffsetByMeshNormal.md: 6
+  docs/reference/mograph/array/Modify/vArrayModifyPathFrame.md: 6
+  docs/reference/mograph/array/Modify/vArrayModifyPathTwist.md: 6
+  docs/reference/mograph/array/Modify/vArrayModifyPathWidthMap.md: 6
+  docs/reference/mograph/array/Modify/vArrayModifyProfileTransform.md: 6
+  docs/reference/mograph/array/Modify/vArrayModifyProject.md: 6
+  docs/reference/mograph/array/Modify/vArrayModifyProjectOnMeshSurface.md: 6
+  docs/reference/mograph/array/Modify/vArrayModifyRampMap.md: 6
+  docs/reference/mograph/array/Modify/vArrayModifyRaycastToMeshSurface.md: 6
+  docs/reference/mograph/array/Modify/vArrayModifyRelaxOnMeshSurface.md: 6
+  docs/reference/mograph/array/Modify/vArrayModifyRepeat.md: 6
+  docs/reference/mograph/array/Modify/vArrayModifyResamplePath.md: 6
+  docs/reference/mograph/array/Modify/vArrayModifyReverse.md: 6
+  docs/reference/mograph/array/Modify/vArrayModifyScaleFromMeshSurface.md: 6
+  docs/reference/mograph/array/Modify/vArrayModifyScatterInstanceOnMeshSurface.md: 6
+  docs/reference/mograph/array/Modify/vArrayModifySlideOnMeshSurface.md: 6
+  docs/reference/mograph/array/Modify/vArrayModifySnapToFaceCentroid.md: 6
+  docs/reference/mograph/array/Modify/vArrayModifySnapToMeshVertex.md: 6
+  docs/reference/mograph/array/Modify/vArrayModifySortByMeshProximity.md: 6
+  docs/reference/mograph/array/Modify/vArrayModifyTrimByMeshBounds.md: 6
+  docs/reference/mograph/array/Modify/vArrayModifyWeightByMeshProximity.md: 6
+  docs/reference/mograph/array/Modify/vArrayModifyWeightMap.md: 6
+  docs/reference/mograph/array/Modify/vArrayParallelPointsOffSet.md: 6
+  docs/reference/mograph/array/Modify/vArrayPointsOnArc.md: 8
+  docs/reference/mograph/array/ShapeRender/vArrayCircuitBoardAbstract.md: 8
+  docs/reference/mograph/array/ShapeRender/vArrayCircuitBoardPattern.md: 8
+  docs/reference/mograph/array/ShapeRender/vArrayColor.md: 4
+  docs/reference/mograph/array/ShapeRender/vArrayRenderAsset.md: 4
+  docs/reference/mograph/array/ShapeRender/vArrayRenderAssetSVG.md: 4
+  docs/reference/mograph/array/ShapeRender/vArrayShapePacker.md: 10
+  docs/reference/mograph/array/ShapeRender/vArrayShapeRender.md: 4
+  docs/reference/mograph/array/ShapeRender/vArrayShapeRenderFlowField.md: 10
+  docs/reference/mograph/array/ShapeRender/vArrayShapeRenderGrid.md: 10
+  docs/reference/mograph/array/ShapeRender/vArrayShapeRenderHistogram.md: 10
+  docs/reference/mograph/array/ShapeRender/vArrayShapeRenderLineGraph.md: 10
+  docs/reference/mograph/array/ShapeRender/vArrayShapeRenderMesh.md: 12
+  docs/reference/mograph/array/ShapeRender/vArrayShapeRenderPathSweep.md: 10
+  docs/reference/mograph/array/ShapeRender/vArrayShapeRenderRadialBurst.md: 10
+  docs/reference/mograph/array/ShapeRender/vArrayShapeRenderScatterPlot.md: 10
+  docs/reference/mograph/array/ShapeRender/vArrayShapeRenderSweepProfile.md: 10
+  docs/reference/mograph/array/ShapeRender/vArrayShapeRenderTextPath.md: 9
+  docs/reference/mograph/array/ShapeRender/vArrayTaperedShape.md: 5
+  docs/reference/mograph/array/ShapeRender/vArrayTextHighlighter.md: 10
+  docs/reference/mograph/array/ShapeRender/vArrayWordPacker.md: 10
+  docs/reference/mograph/array/Temporal/vArrayAccumulator.md: 13
+  docs/reference/mograph/array/Temporal/vArrayTemporalDelta.md: 2
+  docs/reference/mograph/array/Temporal/vArrayTemporalSmooth.md: 2
+  docs/reference/mograph/array/Temporal/vArrayTemporalSolverStep.md: 2
+  docs/reference/mograph/array/Temporal/vArrayTemporalTimeShiftArray.md: 8
+  docs/reference/mograph/array/Temporal/vArrayTemporalTrailFromPoints.md: 8
+  docs/reference/mograph/array/Utility/vArraySubDividePath.md: 1
+  docs/reference/mograph/json/Create/vJSONBuffer.md: 4
+  docs/reference/mograph/json/Create/vJSONCreateAsset.md: 4
+  docs/reference/mograph/json/Create/vJSONCreateAttractorPoints.md: 8
+  docs/reference/mograph/json/Create/vJSONCreateCubicBezier.md: 8
+  docs/reference/mograph/json/Create/vJSONCreateCylinder.md: 8
+  docs/reference/mograph/json/Create/vJSONCreateFromImage.md: 8
+  docs/reference/mograph/json/Create/vJSONCreateFromPolyline.md: 7
+  docs/reference/mograph/json/Create/vJSONCreateFromPolylineBG.md: 7
+  docs/reference/mograph/json/Create/vJSONCreateFromPolylineMultiPath.md: 7
+  docs/reference/mograph/json/Create/vJSONCreateFromSpline.md: 8
+  docs/reference/mograph/json/Create/vJSONCreateFrustum.md: 8
+  docs/reference/mograph/json/Create/vJSONCreateGeodesicSphere.md: 8
+  docs/reference/mograph/json/Create/vJSONCreateGridPolar.md: 8
+  docs/reference/mograph/json/Create/vJSONCreateHelix.md: 8
+  docs/reference/mograph/json/Create/vJSONCreateHilbertCurve.md: 8
+  docs/reference/mograph/json/Create/vJSONCreateLemniscate.md: 8
+  docs/reference/mograph/json/Create/vJSONCreateLine.md: 8
+  docs/reference/mograph/json/Create/vJSONCreateList.md: 7
+  docs/reference/mograph/json/Create/vJSONCreateMaskedScatterOnMeshSurface.md: 8
+  docs/reference/mograph/json/Create/vJSONCreateMinMax.md: 7
+  docs/reference/mograph/json/Create/vJSONCreateNoise.md: 8
+  docs/reference/mograph/json/Create/vJSONCreateParametricCurve.md: 8
+  docs/reference/mograph/json/Create/vJSONCreatePoissonOnMeshSurface.md: 8
+  docs/reference/mograph/json/Create/vJSONCreateRadialSymmetry.md: 8
+  docs/reference/mograph/json/Create/vJSONCreateRandom.md: 7
+  docs/reference/mograph/json/Create/vJSONCreateRange.md: 2
+  docs/reference/mograph/json/Create/vJSONCreateRelaxedScatterOnMeshSurface.md: 8
+  docs/reference/mograph/json/Create/vJSONCreateRoseCurve.md: 8
+  docs/reference/mograph/json/Create/vJSONCreateScatterOnMeshSurface.md: 8
+  docs/reference/mograph/json/Create/vJSONCreateSuperellipse.md: 8
+  docs/reference/mograph/json/Create/vJSONCreateTextFont.md: 7
+  docs/reference/mograph/json/Create/vJSONCreateTorus.md: 8
+  docs/reference/mograph/json/Create/vJSONCreateVoronoi.md: 8
+  docs/reference/mograph/json/Create/vJSONFont.md: 7
+  docs/reference/mograph/json/Create/vJSONFromAudio.md: 2
+  docs/reference/mograph/json/Create/vJSONLocatorAsset.md: 2
+  docs/reference/mograph/json/Create/vJSONPointsHexagonGrid.md: 7
+  docs/reference/mograph/json/Create/vJSONToOBJ.md: 2
+  docs/reference/mograph/json/Create/vJSONToUSD.md: 2
+  docs/reference/mograph/json/Logic/vJSONLogicAND.md: 2
+  docs/reference/mograph/json/Logic/vJSONLogicAll.md: 2
+  docs/reference/mograph/json/Logic/vJSONLogicAny.md: 2
+  docs/reference/mograph/json/Logic/vJSONLogicClamp.md: 2
+  docs/reference/mograph/json/Logic/vJSONLogicCompare.md: 2
+  docs/reference/mograph/json/Logic/vJSONLogicDeleteByMask.md: 2
+  docs/reference/mograph/json/Logic/vJSONLogicFallback.md: 2
+  docs/reference/mograph/json/Logic/vJSONLogicGroupByExpression.md: 8
+  docs/reference/mograph/json/Logic/vJSONLogicNOT.md: 2
+  docs/reference/mograph/json/Logic/vJSONLogicOR.md: 2
+  docs/reference/mograph/json/Logic/vJSONLogicPartition.md: 2
+  docs/reference/mograph/json/Logic/vJSONLogicSelect.md: 2
+  docs/reference/mograph/json/Logic/vJSONLogicThreshold.md: 2
+  docs/reference/mograph/json/Logic/vJSONLogicXOR.md: 2
+  docs/reference/mograph/json/Modify/vJSONConvert2D_3D.md: 2
+  docs/reference/mograph/json/Modify/vJSONModifyAlignToMeshSurface.md: 6
+  docs/reference/mograph/json/Modify/vJSONModifyApplyMask.md: 5
+  docs/reference/mograph/json/Modify/vJSONModifyAttractToMeshSurface.md: 6
+  docs/reference/mograph/json/Modify/vJSONModifyAttributeRandomize.md: 6
+  docs/reference/mograph/json/Modify/vJSONModifyAttributeTransfer.md: 6
+  docs/reference/mograph/json/Modify/vJSONModifyBooleanMaskOps.md: 6
+  docs/reference/mograph/json/Modify/vJSONModifyClamp.md: 6
+  docs/reference/mograph/json/Modify/vJSONModifyClampToMeshProximity.md: 6
+  docs/reference/mograph/json/Modify/vJSONModifyClassifyByMeshSurface.md: 6
+  docs/reference/mograph/json/Modify/vJSONModifyClosePath.md: 6
+  docs/reference/mograph/json/Modify/vJSONModifyColorMap.md: 6
+  docs/reference/mograph/json/Modify/vJSONModifyCopyToPoints.md: 6
+  docs/reference/mograph/json/Modify/vJSONModifyForEachIndexed.md: 6
+  docs/reference/mograph/json/Modify/vJSONModifyFuseClosePoints.md: 6
+  docs/reference/mograph/json/Modify/vJSONModifyJitterOnMeshSurface.md: 6
+  docs/reference/mograph/json/Modify/vJSONModifyLookAt.md: 6
+  docs/reference/mograph/json/Modify/vJSONModifyMaskByMeshSurface.md: 6
+  docs/reference/mograph/json/Modify/vJSONModifyMirror.md: 6
+  docs/reference/mograph/json/Modify/vJSONModifyMirrorThroughMeshSurface.md: 6
+  docs/reference/mograph/json/Modify/vJSONModifyNoiseOnMeshSurface.md: 6
+  docs/reference/mograph/json/Modify/vJSONModifyOffsetByMeshNormal.md: 6
+  docs/reference/mograph/json/Modify/vJSONModifyPathFrame.md: 6
+  docs/reference/mograph/json/Modify/vJSONModifyPathTwist.md: 6
+  docs/reference/mograph/json/Modify/vJSONModifyPathWidthMap.md: 6
+  docs/reference/mograph/json/Modify/vJSONModifyProfileTransform.md: 6
+  docs/reference/mograph/json/Modify/vJSONModifyProject.md: 6
+  docs/reference/mograph/json/Modify/vJSONModifyProjectOnMeshSurface.md: 6
+  docs/reference/mograph/json/Modify/vJSONModifyRampMap.md: 6
+  docs/reference/mograph/json/Modify/vJSONModifyRaycastToMeshSurface.md: 6
+  docs/reference/mograph/json/Modify/vJSONModifyRelaxOnMeshSurface.md: 6
+  docs/reference/mograph/json/Modify/vJSONModifyRepeat.md: 6
+  docs/reference/mograph/json/Modify/vJSONModifyResamplePath.md: 6
+  docs/reference/mograph/json/Modify/vJSONModifyReverse.md: 6
+  docs/reference/mograph/json/Modify/vJSONModifyScaleFromMeshSurface.md: 6
+  docs/reference/mograph/json/Modify/vJSONModifyScatterInstanceOnMeshSurface.md: 6
+  docs/reference/mograph/json/Modify/vJSONModifySlideOnMeshSurface.md: 6
+  docs/reference/mograph/json/Modify/vJSONModifySnapToFaceCentroid.md: 6
+  docs/reference/mograph/json/Modify/vJSONModifySnapToMeshVertex.md: 6
+  docs/reference/mograph/json/Modify/vJSONModifySortByMeshProximity.md: 6
+  docs/reference/mograph/json/Modify/vJSONModifyTrimByMeshBounds.md: 6
+  docs/reference/mograph/json/Modify/vJSONModifyWeightByMeshProximity.md: 6
+  docs/reference/mograph/json/Modify/vJSONModifyWeightMap.md: 6
+  docs/reference/mograph/json/Modify/vJSONParallelPointsOffSet.md: 6
+  docs/reference/mograph/json/Modify/vJSONPointsOnArc.md: 3
+  docs/reference/mograph/json/Modify/vJSONRotateValues.md: 3
+  docs/reference/mograph/json/ShapeRender/vJSONCircuitBoardAbstract.md: 8
+  docs/reference/mograph/json/ShapeRender/vJSONCircuitBoardPattern.md: 8
+  docs/reference/mograph/json/ShapeRender/vJSONColor.md: 4
+  docs/reference/mograph/json/ShapeRender/vJSONRenderAsset.md: 4
+  docs/reference/mograph/json/ShapeRender/vJSONRenderAssetSVG.md: 4
+  docs/reference/mograph/json/ShapeRender/vJSONShapePacker.md: 10
+  docs/reference/mograph/json/ShapeRender/vJSONShapeRenderFlowField.md: 10
+  docs/reference/mograph/json/ShapeRender/vJSONShapeRenderGrid.md: 10
+  docs/reference/mograph/json/ShapeRender/vJSONShapeRenderHistogram.md: 10
+  docs/reference/mograph/json/ShapeRender/vJSONShapeRenderLineGraph.md: 10
+  docs/reference/mograph/json/ShapeRender/vJSONShapeRenderMesh.md: 12
+  docs/reference/mograph/json/ShapeRender/vJSONShapeRenderPathSweep.md: 10
+  docs/reference/mograph/json/ShapeRender/vJSONShapeRenderRadialBurst.md: 10
+  docs/reference/mograph/json/ShapeRender/vJSONShapeRenderScatterPlot.md: 10
+  docs/reference/mograph/json/ShapeRender/vJSONShapeRenderSweepProfile.md: 10
+  docs/reference/mograph/json/ShapeRender/vJSONShapeRenderTextPath.md: 9
+  docs/reference/mograph/json/ShapeRender/vJSONTaperedShape.md: 5
+  docs/reference/mograph/json/ShapeRender/vJSONTextHighlighter.md: 10
+  docs/reference/mograph/json/ShapeRender/vJSONWordPacker.md: 10
+  docs/reference/mograph/json/Shapes/vJSONShapeTextArray.md: 1
+  docs/reference/mograph/json/Temporal/vJSONAccumulator.md: 6
+  docs/reference/mograph/json/Temporal/vJSONAccumulatorOBJ.md: 2
+  docs/reference/mograph/json/Temporal/vJSONTemporalDelta.md: 2
+  docs/reference/mograph/json/Temporal/vJSONTemporalSmooth.md: 2
+  docs/reference/mograph/json/Temporal/vJSONTemporalSolverStep.md: 2
+  docs/reference/mograph/json/Temporal/vJSONTemporalTimeShiftArray.md: 8
+  docs/reference/mograph/json/Temporal/vJSONTemporalTrailFromPoints.md: 8
+  docs/reference/mograph/json/Utility/vJSONSlicer.md: 1
+  docs/reference/mograph/json/Utility/vJSONSubDividePath.md: 1
+  docs/reference/mograph/scriptval/Create/vScriptValBuffer.md: 4
+  docs/reference/mograph/scriptval/Create/vScriptValCreate.md: 2
+  docs/reference/mograph/scriptval/Create/vScriptValCreateAttractorPoints.md: 8
+  docs/reference/mograph/scriptval/Create/vScriptValCreateCubicBezier.md: 8
+  docs/reference/mograph/scriptval/Create/vScriptValCreateCylinder.md: 8
+  docs/reference/mograph/scriptval/Create/vScriptValCreateFromImage.md: 8
+  docs/reference/mograph/scriptval/Create/vScriptValCreateFromPolyline.md: 7
+  docs/reference/mograph/scriptval/Create/vScriptValCreateFromPolylineBG.md: 7
+  docs/reference/mograph/scriptval/Create/vScriptValCreateFromPolylineMultiPath.md: 7
+  docs/reference/mograph/scriptval/Create/vScriptValCreateFromSpline.md: 8
+  docs/reference/mograph/scriptval/Create/vScriptValCreateFrustum.md: 8
+  docs/reference/mograph/scriptval/Create/vScriptValCreateGeodesicSphere.md: 8
+  docs/reference/mograph/scriptval/Create/vScriptValCreateGridPolar.md: 8
+  docs/reference/mograph/scriptval/Create/vScriptValCreateHelix.md: 8
+  docs/reference/mograph/scriptval/Create/vScriptValCreateHilbertCurve.md: 8
+  docs/reference/mograph/scriptval/Create/vScriptValCreateLemniscate.md: 8
+  docs/reference/mograph/scriptval/Create/vScriptValCreateLine.md: 8
+  docs/reference/mograph/scriptval/Create/vScriptValCreateList.md: 7
+  docs/reference/mograph/scriptval/Create/vScriptValCreateMaskedScatterOnMeshSurface.md: 8
+  docs/reference/mograph/scriptval/Create/vScriptValCreateMinMax.md: 7
+  docs/reference/mograph/scriptval/Create/vScriptValCreateNoise.md: 8
+  docs/reference/mograph/scriptval/Create/vScriptValCreateParametricCurve.md: 8
+  docs/reference/mograph/scriptval/Create/vScriptValCreatePoissonOnMeshSurface.md: 8
+  docs/reference/mograph/scriptval/Create/vScriptValCreateRadialSymmetry.md: 8
+  docs/reference/mograph/scriptval/Create/vScriptValCreateRandom.md: 7
+  docs/reference/mograph/scriptval/Create/vScriptValCreateRange.md: 2
+  docs/reference/mograph/scriptval/Create/vScriptValCreateRelaxedScatterOnMeshSurface.md: 8
+  docs/reference/mograph/scriptval/Create/vScriptValCreateRoseCurve.md: 8
+  docs/reference/mograph/scriptval/Create/vScriptValCreateScatterOnMeshSurface.md: 8
+  docs/reference/mograph/scriptval/Create/vScriptValCreateSuperellipse.md: 8
+  docs/reference/mograph/scriptval/Create/vScriptValCreateTextFont.md: 7
+  docs/reference/mograph/scriptval/Create/vScriptValCreateTorus.md: 8
+  docs/reference/mograph/scriptval/Create/vScriptValCreateVoronoi.md: 8
+  docs/reference/mograph/scriptval/Create/vScriptValFromAudio.md: 2
+  docs/reference/mograph/scriptval/Create/vScriptValJSONFont.md: 7
+  docs/reference/mograph/scriptval/Create/vScriptValPointsHexagonGrid.md: 7
+  docs/reference/mograph/scriptval/Create/vScriptValToOBJ.md: 2
+  docs/reference/mograph/scriptval/Create/vScriptValToUSD.md: 2
+  docs/reference/mograph/scriptval/Logic/vScriptValLogicAND.md: 2
+  docs/reference/mograph/scriptval/Logic/vScriptValLogicAll.md: 2
+  docs/reference/mograph/scriptval/Logic/vScriptValLogicAny.md: 2
+  docs/reference/mograph/scriptval/Logic/vScriptValLogicClamp.md: 2
+  docs/reference/mograph/scriptval/Logic/vScriptValLogicCompare.md: 2
+  docs/reference/mograph/scriptval/Logic/vScriptValLogicDeleteByMask.md: 2
+  docs/reference/mograph/scriptval/Logic/vScriptValLogicFallback.md: 2
+  docs/reference/mograph/scriptval/Logic/vScriptValLogicGroupByExpression.md: 8
+  docs/reference/mograph/scriptval/Logic/vScriptValLogicNOT.md: 2
+  docs/reference/mograph/scriptval/Logic/vScriptValLogicOR.md: 2
+  docs/reference/mograph/scriptval/Logic/vScriptValLogicPartition.md: 2
+  docs/reference/mograph/scriptval/Logic/vScriptValLogicSelect.md: 2
+  docs/reference/mograph/scriptval/Logic/vScriptValLogicThreshold.md: 2
+  docs/reference/mograph/scriptval/Logic/vScriptValLogicXOR.md: 2
+  docs/reference/mograph/scriptval/Modify/vScriptValConvert2D_3D.md: 2
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyAlignToMeshSurface.md: 6
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyApplyMask.md: 5
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyAttractToMeshSurface.md: 6
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyAttributeRandomize.md: 6
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyAttributeTransfer.md: 6
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyBooleanMaskOps.md: 6
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyClamp.md: 6
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyClampToMeshProximity.md: 6
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyClassifyByMeshSurface.md: 6
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyClosePath.md: 6
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyColorMap.md: 6
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyCopyToPoints.md: 6
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyForEachIndexed.md: 6
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyFuseClosePoints.md: 6
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyJitterOnMeshSurface.md: 6
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyLookAt.md: 6
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyMaskByMeshSurface.md: 6
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyMirror.md: 6
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyMirrorThroughMeshSurface.md: 6
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyNoiseOnMeshSurface.md: 6
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyOffsetByMeshNormal.md: 6
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyPathFrame.md: 6
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyPathTwist.md: 6
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyPathWidthMap.md: 6
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyProfileTransform.md: 6
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyProject.md: 6
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyProjectOnMeshSurface.md: 6
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyRampMap.md: 6
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyRaycastToMeshSurface.md: 6
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyRelaxOnMeshSurface.md: 6
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyRepeat.md: 6
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyResamplePath.md: 6
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyReverse.md: 6
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyScaleFromMeshSurface.md: 6
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyScatterInstanceOnMeshSurface.md: 6
+  docs/reference/mograph/scriptval/Modify/vScriptValModifySlideOnMeshSurface.md: 6
+  docs/reference/mograph/scriptval/Modify/vScriptValModifySnapToFaceCentroid.md: 6
+  docs/reference/mograph/scriptval/Modify/vScriptValModifySnapToMeshVertex.md: 6
+  docs/reference/mograph/scriptval/Modify/vScriptValModifySortByMeshProximity.md: 6
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyTrimByMeshBounds.md: 6
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyWeightByMeshProximity.md: 6
+  docs/reference/mograph/scriptval/Modify/vScriptValModifyWeightMap.md: 6
+  docs/reference/mograph/scriptval/Modify/vScriptValParallelPointsOffSet.md: 6
+  docs/reference/mograph/scriptval/Modify/vScriptValPointsOnArc.md: 3
+  docs/reference/mograph/scriptval/Modify/vScriptValRotateValues.md: 3
+  docs/reference/mograph/scriptval/ShapeRender/vScriptValCircuitBoardAbstract.md: 8
+  docs/reference/mograph/scriptval/ShapeRender/vScriptValCircuitBoardPattern.md: 8
+  docs/reference/mograph/scriptval/ShapeRender/vScriptValColor.md: 4
+  docs/reference/mograph/scriptval/ShapeRender/vScriptValShapePacker.md: 10
+  docs/reference/mograph/scriptval/ShapeRender/vScriptValShapeRenderFlowField.md: 10
+  docs/reference/mograph/scriptval/ShapeRender/vScriptValShapeRenderGrid.md: 10
+  docs/reference/mograph/scriptval/ShapeRender/vScriptValShapeRenderHistogram.md: 10
+  docs/reference/mograph/scriptval/ShapeRender/vScriptValShapeRenderLineGraph.md: 10
+  docs/reference/mograph/scriptval/ShapeRender/vScriptValShapeRenderMesh.md: 12
+  docs/reference/mograph/scriptval/ShapeRender/vScriptValShapeRenderPathSweep.md: 10
+  docs/reference/mograph/scriptval/ShapeRender/vScriptValShapeRenderRadialBurst.md: 10
+  docs/reference/mograph/scriptval/ShapeRender/vScriptValShapeRenderScatterPlot.md: 10
+  docs/reference/mograph/scriptval/ShapeRender/vScriptValShapeRenderSweepProfile.md: 10
+  docs/reference/mograph/scriptval/ShapeRender/vScriptValShapeRenderTextPath.md: 9
+  docs/reference/mograph/scriptval/ShapeRender/vScriptValTaperedShape.md: 5
+  docs/reference/mograph/scriptval/ShapeRender/vScriptValTextHighlighter.md: 10
+  docs/reference/mograph/scriptval/ShapeRender/vScriptValWordPacker.md: 10
+  docs/reference/mograph/scriptval/Temporal/vScriptValTemporalTimeShiftArray.md: 6
+  docs/reference/mograph/scriptval/Temporal/vScriptValTemporalTrailFromPoints.md: 6
+  docs/reference/mograph/scriptval/Utility/vScriptValSubDividePath.md: 1
+
+PAGES WITH NO MANIFEST ENTRY (unchanged names)
+  docs/reference/mograph/array/Animate/vArrayMaterialEasing.md
+  docs/reference/mograph/array/Animate/vArrayPointsJitter.md
+  docs/reference/mograph/array/Animate/vArrayStagger.md
+  docs/reference/mograph/array/Create/vArrayBuffer.md
+  docs/reference/mograph/array/Create/vArrayCircularPoints.md
+  docs/reference/mograph/array/Create/vArrayCreate.md
+  docs/reference/mograph/array/Create/vArrayCreateAsset.md
+  docs/reference/mograph/array/Create/vArrayCreateJSONFont.md
+  docs/reference/mograph/array/Create/vArrayCreateRange.md
+  docs/reference/mograph/array/Create/vArrayFromAudio.md
+  docs/reference/mograph/array/Create/vArrayFromOBJ.md
+  docs/reference/mograph/array/Create/vArrayFromXYZ.md
+  docs/reference/mograph/array/Create/vArrayGenerateSphere.md
+  docs/reference/mograph/array/Create/vArrayGenerateSpirals.md
+  docs/reference/mograph/array/Create/vArrayGenerateText.md
+  docs/reference/mograph/array/Create/vArrayLissajouseSpline.md
+  docs/reference/mograph/array/Create/vArrayLocatorAsset.md
+  docs/reference/mograph/array/Create/vArrayLogarithmicSpiral.md
+  docs/reference/mograph/array/Create/vArrayMapGeoJSON.md
+  docs/reference/mograph/array/Create/vArrayPhyllotaxis.md
+  docs/reference/mograph/array/Create/vArrayPointParticles.md
+  docs/reference/mograph/array/Create/vArrayPointsOnCircle.md
+  docs/reference/mograph/array/Create/vArrayPointsOnCube.md
+  docs/reference/mograph/array/Create/vArrayPointsOnGrid.md
+  docs/reference/mograph/array/Create/vArrayPointsOnRectangle.md
+  docs/reference/mograph/array/Create/vArrayPointsOnSphere.md
+  docs/reference/mograph/array/Create/vArrayToOBJ.md
+  docs/reference/mograph/array/Create/vArrayToUSD.md
+  docs/reference/mograph/array/Create/vArrayToXYZ.md
+  docs/reference/mograph/array/Logic/vArrayLogicAND.md
+  docs/reference/mograph/array/Logic/vArrayLogicAll.md
+  docs/reference/mograph/array/Logic/vArrayLogicAny.md
+  docs/reference/mograph/array/Logic/vArrayLogicBetween.md
+  docs/reference/mograph/array/Logic/vArrayLogicClamp.md
+  docs/reference/mograph/array/Logic/vArrayLogicCompare.md
+  docs/reference/mograph/array/Logic/vArrayLogicDeleteByMask.md
+  docs/reference/mograph/array/Logic/vArrayLogicFallback.md
+  docs/reference/mograph/array/Logic/vArrayLogicNOT.md
+  docs/reference/mograph/array/Logic/vArrayLogicOR.md
+  docs/reference/mograph/array/Logic/vArrayLogicPartition.md
+  docs/reference/mograph/array/Logic/vArrayLogicSelect.md
+  docs/reference/mograph/array/Logic/vArrayLogicThreshold.md
+  docs/reference/mograph/array/Logic/vArrayLogicXOR.md
+  docs/reference/mograph/array/Modify/vArrayBoundingBox.md
+  docs/reference/mograph/array/Modify/vArrayCameraProjection.md
+  docs/reference/mograph/array/Modify/vArrayDisplaceValues.md
+  docs/reference/mograph/array/Modify/vArrayGridConnect.md
+  docs/reference/mograph/array/Modify/vArrayInterpolate.md
+  docs/reference/mograph/array/Modify/vArrayIterator.md
+  docs/reference/mograph/array/Modify/vArrayMap.md
+  docs/reference/mograph/array/Modify/vArrayMapRange.md
+  docs/reference/mograph/array/Modify/vArrayMath.md
+  docs/reference/mograph/array/Modify/vArrayPacker.md
+  docs/reference/mograph/array/Modify/vArrayPerlin3Noise.md
+  docs/reference/mograph/array/Modify/vArrayPointAttractor.md
+  docs/reference/mograph/array/Modify/vArrayPointAttractorSpring.md
+  docs/reference/mograph/array/Modify/vArrayPointsConnect.md
+  docs/reference/mograph/array/Modify/vArrayPointsOnArc.md
+  docs/reference/mograph/array/Modify/vArrayRepeatTransform.md
+  docs/reference/mograph/array/Modify/vArrayRippleDisplacer.md
+  docs/reference/mograph/array/Modify/vArrayRotateValues.md
+  docs/reference/mograph/array/Modify/vArraySin.md
+  docs/reference/mograph/array/Modify/vArraySortByDistance.md
+  docs/reference/mograph/array/Modify/vArrayTangentVector.md
+  docs/reference/mograph/array/Modify/vArrayTextWrap.md
+  docs/reference/mograph/array/Modify/vArrayTranslate.md
+  docs/reference/mograph/array/Modify/vArrayUnPacker.md
+  docs/reference/mograph/array/Modify/vArrayWave.md
+  docs/reference/mograph/array/ShapeRender/vArrayColor.md
+  docs/reference/mograph/array/ShapeRender/vArrayRenderAsset.md
+  docs/reference/mograph/array/ShapeRender/vArrayRenderAssetSVG.md
+  docs/reference/mograph/array/ShapeRender/vArrayShapeRender.md
+  docs/reference/mograph/array/Shapes/vArrayCustom2DShapes.md
+  docs/reference/mograph/array/Shapes/vArrayCustom3DShapes.md
+  docs/reference/mograph/array/Shapes/vArrayCustomTimeline.md
+  docs/reference/mograph/array/Shapes/vArrayRandomShape.md
+  docs/reference/mograph/array/Shapes/vArrayShapeText.md
+  docs/reference/mograph/array/Shapes/vArrayTangentVectorItem.md
+  docs/reference/mograph/array/Temporal/vArrayAccumulatorOBJ.md
+  docs/reference/mograph/array/Temporal/vArrayTemporalDelta.md
+  docs/reference/mograph/array/Temporal/vArrayTemporalSmooth.md
+  docs/reference/mograph/array/Temporal/vArrayTemporalSolverStep.md
+  docs/reference/mograph/array/Utility/vArrayAppend.md
+  docs/reference/mograph/array/Utility/vArrayAppendGroup.md
+  docs/reference/mograph/array/Utility/vArrayDataComposite.md
+  docs/reference/mograph/array/Utility/vArrayFontArray.md
+  docs/reference/mograph/array/Utility/vArrayInfo.md
+  docs/reference/mograph/array/Utility/vArrayMerge.md
+  docs/reference/mograph/array/Utility/vArrayMergeAsset.md
+  docs/reference/mograph/array/Utility/vArrayMergeOBJ.md
+  docs/reference/mograph/array/Utility/vArrayMergeTrim.md
+  docs/reference/mograph/array/Utility/vArrayReducePoints.md
+  docs/reference/mograph/array/Utility/vArraySlicer.md
+  docs/reference/mograph/json/Animate/vJSONMaterialEasing.md
+  docs/reference/mograph/json/Animate/vJSONPointsJitter.md
+  docs/reference/mograph/json/Animate/vJSONStagger.md
+  docs/reference/mograph/json/Create/vJSONBuffer.md
+  docs/reference/mograph/json/Create/vJSONCircularPoints.md
+  docs/reference/mograph/json/Create/vJSONCreate.md
+  docs/reference/mograph/json/Create/vJSONCreateAsset.md
+  docs/reference/mograph/json/Create/vJSONCreateJSONFont.md
+  docs/reference/mograph/json/Create/vJSONCreateRange.md
+  docs/reference/mograph/json/Create/vJSONFromAudio.md
+  docs/reference/mograph/json/Create/vJSONFromOBJ.md
+  docs/reference/mograph/json/Create/vJSONFromXYZ.md
+  docs/reference/mograph/json/Create/vJSONGenerateSphere.md
+  docs/reference/mograph/json/Create/vJSONGenerateSpirals.md
+  docs/reference/mograph/json/Create/vJSONGenerateText.md
+  docs/reference/mograph/json/Create/vJSONLissajouseSpline.md
+  docs/reference/mograph/json/Create/vJSONLocatorAsset.md
+  docs/reference/mograph/json/Create/vJSONLogarithmicSpiral.md
+  docs/reference/mograph/json/Create/vJSONMapGeoJSON.md
+  docs/reference/mograph/json/Create/vJSONPhyllotaxis.md
+  docs/reference/mograph/json/Create/vJSONPointParticles.md
+  docs/reference/mograph/json/Create/vJSONPointsOnCircle.md
+  docs/reference/mograph/json/Create/vJSONPointsOnCube.md
+  docs/reference/mograph/json/Create/vJSONPointsOnGrid.md
+  docs/reference/mograph/json/Create/vJSONPointsOnRectangle.md
+  docs/reference/mograph/json/Create/vJSONPointsOnSphere.md
+  docs/reference/mograph/json/Create/vJSONToOBJ.md
+  docs/reference/mograph/json/Create/vJSONToUSD.md
+  docs/reference/mograph/json/Create/vJSONToXYZ.md
+  docs/reference/mograph/json/Logic/vJSONLogicAND.md
+  docs/reference/mograph/json/Logic/vJSONLogicAll.md
+  docs/reference/mograph/json/Logic/vJSONLogicAny.md
+  docs/reference/mograph/json/Logic/vJSONLogicBetween.md
+  docs/reference/mograph/json/Logic/vJSONLogicClamp.md
+  docs/reference/mograph/json/Logic/vJSONLogicCompare.md
+  docs/reference/mograph/json/Logic/vJSONLogicDeleteByMask.md
+  docs/reference/mograph/json/Logic/vJSONLogicFallback.md
+  docs/reference/mograph/json/Logic/vJSONLogicNOT.md
+  docs/reference/mograph/json/Logic/vJSONLogicOR.md
+  docs/reference/mograph/json/Logic/vJSONLogicPartition.md
+  docs/reference/mograph/json/Logic/vJSONLogicSelect.md
+  docs/reference/mograph/json/Logic/vJSONLogicThreshold.md
+  docs/reference/mograph/json/Logic/vJSONLogicXOR.md
+  docs/reference/mograph/json/Modify/vJSONBoundingBox.md
+  docs/reference/mograph/json/Modify/vJSONCameraProjection.md
+  docs/reference/mograph/json/Modify/vJSONDisplaceValues.md
+  docs/reference/mograph/json/Modify/vJSONGridConnect.md
+  docs/reference/mograph/json/Modify/vJSONInterpolate.md
+  docs/reference/mograph/json/Modify/vJSONIterator.md
+  docs/reference/mograph/json/Modify/vJSONMap.md
+  docs/reference/mograph/json/Modify/vJSONMapRange.md
+  docs/reference/mograph/json/Modify/vJSONMath.md
+  docs/reference/mograph/json/Modify/vJSONPacker.md
+  docs/reference/mograph/json/Modify/vJSONPerlin3Noise.md
+  docs/reference/mograph/json/Modify/vJSONPointAttractor.md
+  docs/reference/mograph/json/Modify/vJSONPointAttractorSpring.md
+  docs/reference/mograph/json/Modify/vJSONPointsConnect.md
+  docs/reference/mograph/json/Modify/vJSONPointsOnArc.md
+  docs/reference/mograph/json/Modify/vJSONRepeatTransform.md
+  docs/reference/mograph/json/Modify/vJSONRippleDisplacer.md
+  docs/reference/mograph/json/Modify/vJSONRotateValues.md
+  docs/reference/mograph/json/Modify/vJSONSin.md
+  docs/reference/mograph/json/Modify/vJSONSortByDistance.md
+  docs/reference/mograph/json/Modify/vJSONTangentVector.md
+  docs/reference/mograph/json/Modify/vJSONTextWrap.md
+  docs/reference/mograph/json/Modify/vJSONTranslate.md
+  docs/reference/mograph/json/Modify/vJSONUnPacker.md
+  docs/reference/mograph/json/Modify/vJSONWave.md
+  docs/reference/mograph/json/ShapeRender/vJSONColor.md
+  docs/reference/mograph/json/ShapeRender/vJSONRenderAsset.md
+  docs/reference/mograph/json/ShapeRender/vJSONRenderAssetSVG.md
+  docs/reference/mograph/json/ShapeRender/vJSONShapeRender.md
+  docs/reference/mograph/json/Shapes/vJSONCustom2DShapes.md
+  docs/reference/mograph/json/Shapes/vJSONCustom3DShapes.md
+  docs/reference/mograph/json/Shapes/vJSONCustomTimeline.md
+  docs/reference/mograph/json/Shapes/vJSONRandomShape.md
+  docs/reference/mograph/json/Shapes/vJSONTangentVectorItem.md
+  docs/reference/mograph/json/Temporal/vJSONAccumulatorOBJ.md
+  docs/reference/mograph/json/Temporal/vJSONTemporalDelta.md
+  docs/reference/mograph/json/Temporal/vJSONTemporalSmooth.md
+  docs/reference/mograph/json/Temporal/vJSONTemporalSolverStep.md
+  docs/reference/mograph/json/Utility/vJSONAppend.md
+  docs/reference/mograph/json/Utility/vJSONAppendGroup.md
+  docs/reference/mograph/json/Utility/vJSONDataComposite.md
+  docs/reference/mograph/json/Utility/vJSONFontArray.md
+  docs/reference/mograph/json/Utility/vJSONInfo.md
+  docs/reference/mograph/json/Utility/vJSONMerge.md
+  docs/reference/mograph/json/Utility/vJSONMergeAsset.md
+  docs/reference/mograph/json/Utility/vJSONMergeOBJ.md
+  docs/reference/mograph/json/Utility/vJSONMergeTrim.md
+  docs/reference/mograph/json/Utility/vJSONReducePoints.md
+  docs/reference/mograph/json/Utility/vJSONSlicer.md
+  docs/reference/mograph/scriptval/Animate/vScriptValMaterialEasing.md
+  docs/reference/mograph/scriptval/Animate/vScriptValPointsJitter.md
+  docs/reference/mograph/scriptval/Animate/vScriptValStagger.md
+  docs/reference/mograph/scriptval/Create/vScriptValBuffer.md
+  docs/reference/mograph/scriptval/Create/vScriptValCircularPoints.md
+  docs/reference/mograph/scriptval/Create/vScriptValCreate.md
+  docs/reference/mograph/scriptval/Create/vScriptValCreateAsset.md
+  docs/reference/mograph/scriptval/Create/vScriptValCreateJSONFont.md
+  docs/reference/mograph/scriptval/Create/vScriptValCreateRange.md
+  docs/reference/mograph/scriptval/Create/vScriptValFromAudio.md
+  docs/reference/mograph/scriptval/Create/vScriptValFromOBJ.md
+  docs/reference/mograph/scriptval/Create/vScriptValFromXYZ.md
+  docs/reference/mograph/scriptval/Create/vScriptValGenerateSphere.md
+  docs/reference/mograph/scriptval/Create/vScriptValGenerateSpirals.md
+  docs/reference/mograph/scriptval/Create/vScriptValGenerateText.md
+  docs/reference/mograph/scriptval/Create/vScriptValLissajouseSpline.md
+  docs/reference/mograph/scriptval/Create/vScriptValLocatorAsset.md
+  docs/reference/mograph/scriptval/Create/vScriptValLogarithmicSpiral.md
+  docs/reference/mograph/scriptval/Create/vScriptValMapGeoJSON.md
+  docs/reference/mograph/scriptval/Create/vScriptValPhyllotaxis.md
+  docs/reference/mograph/scriptval/Create/vScriptValPointParticles.md
+  docs/reference/mograph/scriptval/Create/vScriptValPointsOnCircle.md
+  docs/reference/mograph/scriptval/Create/vScriptValPointsOnCube.md
+  docs/reference/mograph/scriptval/Create/vScriptValPointsOnGrid.md
+  docs/reference/mograph/scriptval/Create/vScriptValPointsOnRectangle.md
+  docs/reference/mograph/scriptval/Create/vScriptValPointsOnSphere.md
+  docs/reference/mograph/scriptval/Create/vScriptValToOBJ.md
+  docs/reference/mograph/scriptval/Create/vScriptValToUSD.md
+  docs/reference/mograph/scriptval/Create/vScriptValToXYZ.md
+  docs/reference/mograph/scriptval/Logic/vScriptValLogicAND.md
+  docs/reference/mograph/scriptval/Logic/vScriptValLogicAll.md
+  docs/reference/mograph/scriptval/Logic/vScriptValLogicAny.md
+  docs/reference/mograph/scriptval/Logic/vScriptValLogicBetween.md
+  docs/reference/mograph/scriptval/Logic/vScriptValLogicClamp.md
+  docs/reference/mograph/scriptval/Logic/vScriptValLogicCompare.md
+  docs/reference/mograph/scriptval/Logic/vScriptValLogicDeleteByMask.md
+  docs/reference/mograph/scriptval/Logic/vScriptValLogicFallback.md
+  docs/reference/mograph/scriptval/Logic/vScriptValLogicNOT.md
+  docs/reference/mograph/scriptval/Logic/vScriptValLogicOR.md
+  docs/reference/mograph/scriptval/Logic/vScriptValLogicPartition.md
+  docs/reference/mograph/scriptval/Logic/vScriptValLogicSelect.md
+  docs/reference/mograph/scriptval/Logic/vScriptValLogicThreshold.md
+  docs/reference/mograph/scriptval/Logic/vScriptValLogicXOR.md
+  docs/reference/mograph/scriptval/Modify/vScriptValBoundingBox.md
+  docs/reference/mograph/scriptval/Modify/vScriptValCameraProjection.md
+  docs/reference/mograph/scriptval/Modify/vScriptValDisplaceValues.md
+  docs/reference/mograph/scriptval/Modify/vScriptValGridConnect.md
+  docs/reference/mograph/scriptval/Modify/vScriptValInterpolate.md
+  docs/reference/mograph/scriptval/Modify/vScriptValIterator.md
+  docs/reference/mograph/scriptval/Modify/vScriptValMap.md
+  docs/reference/mograph/scriptval/Modify/vScriptValMapRange.md
+  docs/reference/mograph/scriptval/Modify/vScriptValMath.md
+  docs/reference/mograph/scriptval/Modify/vScriptValPacker.md
+  docs/reference/mograph/scriptval/Modify/vScriptValPerlin3Noise.md
+  docs/reference/mograph/scriptval/Modify/vScriptValPointAttractor.md
+  docs/reference/mograph/scriptval/Modify/vScriptValPointAttractorSpring.md
+  docs/reference/mograph/scriptval/Modify/vScriptValPointsConnect.md
+  docs/reference/mograph/scriptval/Modify/vScriptValPointsOnArc.md
+  docs/reference/mograph/scriptval/Modify/vScriptValRepeatTransform.md
+  docs/reference/mograph/scriptval/Modify/vScriptValRippleDisplacer.md
+  docs/reference/mograph/scriptval/Modify/vScriptValRotateValues.md
+  docs/reference/mograph/scriptval/Modify/vScriptValSin.md
+  docs/reference/mograph/scriptval/Modify/vScriptValSortByDistance.md
+  docs/reference/mograph/scriptval/Modify/vScriptValTangentVector.md
+  docs/reference/mograph/scriptval/Modify/vScriptValTextWrap.md
+  docs/reference/mograph/scriptval/Modify/vScriptValTranslate.md
+  docs/reference/mograph/scriptval/Modify/vScriptValUnPacker.md
+  docs/reference/mograph/scriptval/Modify/vScriptValWave.md
+  docs/reference/mograph/scriptval/ShapeRender/vScriptValColor.md
+  docs/reference/mograph/scriptval/ShapeRender/vScriptValRenderAsset.md
+  docs/reference/mograph/scriptval/ShapeRender/vScriptValRenderAssetSVG.md
+  docs/reference/mograph/scriptval/ShapeRender/vScriptValShapeRender.md
+  docs/reference/mograph/scriptval/Shapes/vScriptValCustom2DShapes.md
+  docs/reference/mograph/scriptval/Shapes/vScriptValCustom3DShapes.md
+  docs/reference/mograph/scriptval/Shapes/vScriptValCustomTimeline.md
+  docs/reference/mograph/scriptval/Shapes/vScriptValRandomShape.md
+  docs/reference/mograph/scriptval/Shapes/vScriptValShapeText.md
+  docs/reference/mograph/scriptval/Shapes/vScriptValTangentVectorItem.md
+  docs/reference/mograph/scriptval/Temporal/vScriptValAccumulatorOBJ.md
+  docs/reference/mograph/scriptval/Temporal/vScriptValAccumulatorXform.md
+  docs/reference/mograph/scriptval/Temporal/vScriptValTemporalDelta.md
+  docs/reference/mograph/scriptval/Temporal/vScriptValTemporalSmooth.md
+  docs/reference/mograph/scriptval/Temporal/vScriptValTemporalSolverStep.md
+  docs/reference/mograph/scriptval/Utility/vScriptValAppend.md
+  docs/reference/mograph/scriptval/Utility/vScriptValAppendGroup.md
+  docs/reference/mograph/scriptval/Utility/vScriptValDataComposite.md
+  docs/reference/mograph/scriptval/Utility/vScriptValFontArray.md
+  docs/reference/mograph/scriptval/Utility/vScriptValInfo.md
+  docs/reference/mograph/scriptval/Utility/vScriptValMerge.md
+  docs/reference/mograph/scriptval/Utility/vScriptValMergeAsset.md
+  docs/reference/mograph/scriptval/Utility/vScriptValMergeOBJ.md
+  docs/reference/mograph/scriptval/Utility/vScriptValMergeTrim.md
+  docs/reference/mograph/scriptval/Utility/vScriptValReducePoints.md
+  docs/reference/mograph/scriptval/Utility/vScriptValSlicer.md

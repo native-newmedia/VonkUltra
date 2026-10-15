@@ -1,5 +1,5 @@
 ---
-sidebar_position: 40
+sidebar_position: 18
 title: vArrayGenerateSphere
 description: "Generates a Sphere with longitude/latitude lines"
 ---
@@ -26,20 +26,18 @@ Generates a Sphere with longitude/latitude lines
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Radius | Float | `0.3` | — |
-| Number Lat Lines | Integer | `1` | — |
-| Number Lon Lines | Integer | `1` | — |
-| Trim Top | Float | `0` | — |
-| Trim Bottom | Float | `0` | — |
+| Radius | Float | `0.3` | Radius. |
+| Number Lat Lines | Integer | `1` | Number of latitude lines. |
+| Number Lon Lines | Integer | `1` | Number of longitude lines. |
+| Trim Top | Float | `0` | Removes the top part of the sphere. |
+| Trim Bottom | Float | `0` | Removes the bottom part of the sphere. |
 
 <details>
-<summary>+3 more parameters</summary>
+<summary>+1 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Include Lon Lines | Integer | `0.0` | — |
-| line6Separator | Float | `—` | — |
-| Show Input | Integer | `0.0` | — |
+| Include Lon Lines | Integer | `0.0` | Adds the longitude lines. |
 
 </details>
 

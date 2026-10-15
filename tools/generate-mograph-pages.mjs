@@ -30,7 +30,7 @@ const SITE_ROOT = path.resolve(__dirname, '..');
 const DOCS_REF = path.join(SITE_ROOT, 'docs', 'reference', 'mograph');
 const STATIC_IMG = path.join(SITE_ROOT, 'static', 'img', 'reference', 'mograph');
 
-const FUSE_ROOT = '/Users/dunlewis/Reactor/Deploy/Fuses/Kartaverse/Vonk Ultra/Mograph';
+const FUSE_ROOT = process.env.FUSE_ROOT || '/Users/dunlewis/Reactor/Deploy/Fuses/Kartaverse/Vonk Ultra/Mograph';
 const DOCSIFY_DOCS = '/Users/dunlewis/Documents/Fusion/VonkUltra/VonkUltra/docs';
 const CLONE_IMG = path.join(DOCSIFY_DOCS, 'Images', 'Nodes');
 
@@ -289,7 +289,7 @@ function formatDefault(tbl, type) {
 
 function shouldSkipParam(p) {
   if (p.id === 'ConnectionLabel' || p.label === 'ConnectionLabel') return true;
-  if (p.INPID_InputControl === 'LabelControl') return true;
+  if (p.INPID_InputControl === 'LabelControl' || p.INPID_InputControl === 'SeparatorControl') return true;
   if (/^UISeparator/i.test(p.id) || /^UISeparator/i.test(p.label)) return true;
   if (p.INP_Passive === 'true' && p.IC_NoLabel === 'true' && p.label === '') return true;
   return false;
@@ -431,6 +431,78 @@ function relatedFor(node, megaRec, allNodes, knownNodes) {
   });
 }
 
+
+/** Parameters section (first 5 rows, rest in a <details>). descOf(p) may supply a description from the summaries. */
+function paramsSectionFor(node, descOf) {
+  const visibleParams = node.params.filter((p) => !shouldSkipParam(p));
+  const tableHead = `| Parameter | Type | Default | Description |\n|---|---|---|---|\n`;
+  const row = (p) => {
+    const type = paramType(p);
+    const desc = p.desc || (descOf && descOf(p)) || '—';
+    const mdx = desc.replace(/</g, '&lt;').replace(/\{/g, '&#123;').replace(/\}/g, '&#125;'); // keep MDX from reading <, { as JSX
+    return `| ${escPipe(p.label || p.id)} | ${type} | \`${formatDefault(p, type)}\` | ${escPipe(mdx)} |`;
+  };
+  let paramsSection = '';
+  if (visibleParams.length) {
+    const first = visibleParams.slice(0, 5);
+    const rest = visibleParams.slice(5);
+    paramsSection += `## Parameters\n\n${tableHead}${first.map(row).join('\n')}\n`;
+    if (rest.length) {
+      paramsSection += `\n<details>\n<summary>+${rest.length} more parameters</summary>\n\n${tableHead}${rest.map(row).join('\n')}\n\n</details>\n`;
+    }
+  }
+  return paramsSection;
+}
+
+/** Generic text for the common input sockets that the summaries do not list as rows. */
+const SOCKET_DESC = {
+  'Input': 'Data to process.',
+  'Data': 'Data to process.',
+  'Input A': 'First input.',
+  'Input B': 'Second input.',
+  'Mask': 'Mask with one 0 or 1 value per element.',
+  'Mask A': 'First mask, one 0 or 1 value per element.',
+  'Mask B': 'Second mask, one 0 or 1 value per element.',
+  'Points': 'Point positions.',
+  'Edges': 'Edges that connect the points.',
+  'Mesh Points': 'Points of the mesh that the input is compared with.',
+};
+function socketDesc(p) {
+  if (p.LINK_Main === undefined) return null;
+  if (p.label === 'Input' && p.LINKID_DataType === 'Image') return 'Image that the result is drawn onto.';
+  return SOCKET_DESC[p.label] || null;
+}
+
+/** Parameter descriptions from _fuse-clean-pilot/<fn>/<node>_summary.md, keyed by normalised name. Grouped rows
+ *  ("Offset X / Y / Z", "Shape Color (Red, Green, Blue)") are expanded to the single controls. */
+const SUMMARY_DIR = path.resolve(SITE_ROOT, '..', '_fuse-clean-pilot');
+const normName = (s) => String(s).toLowerCase().replace(/[^a-z0-9]/g, '');
+function loadSummary(nodeName) {
+  if (!fs.existsSync(SUMMARY_DIR)) return null;
+  for (const d of fs.readdirSync(SUMMARY_DIR)) {
+    const f = path.join(SUMMARY_DIR, d, `${nodeName}_summary.md`);
+    if (!fs.existsSync(f)) continue;
+    const map = new Map();
+    const put = (n, d2) => { if (!map.has(normName(n))) map.set(normName(n), d2); };
+    for (const line of fs.readFileSync(f, 'utf8').split('\n')) {
+      if (!line.startsWith('|') || line.startsWith('|---') || line.startsWith('| Parameter')) continue;
+      const c = line.replace(/^\||\|$/g, '').split('|').map((x) => x.trim());
+      if (c.length < 4 || !c[3] || c[3] === '—') continue;
+      const [name, , , desc] = c;
+      put(name, desc);
+      const grp = name.match(/^(.*?)\s*\((.*,.*)\)$/);
+      if (grp) for (const x of grp[2].split(',')) { put(x.trim(), desc); put(`${grp[1]} ${x.trim()}`, desc); }
+      if (name.includes(' / ')) {
+        const parts = name.split(' / ').map((x) => x.trim());
+        const stem = parts[0].includes(' ') ? parts[0].slice(0, parts[0].lastIndexOf(' ')) : '';
+        for (const x of parts) put(stem && !x.includes(' ') ? `${stem} ${x}` : x, desc);
+      }
+    }
+    return map;
+  }
+  return null;
+}
+
 function renderPage(node, mega, opts) {
   const { category, function: fn, name } = node;
   const megaRec = mega[name] || {};
@@ -448,21 +520,7 @@ function renderPage(node, mega, opts) {
     ? `<div className="node-screenshot">\n  <img src="${img.url}" alt="${name} node" />\n</div>\n`
     : `{/* No screenshot available for ${name} yet. */}\n`;
 
-  const visibleParams = node.params.filter((p) => !shouldSkipParam(p));
-  const tableHead = `| Parameter | Type | Default | Description |\n|---|---|---|---|\n`;
-  const row = (p) => {
-    const type = paramType(p);
-    return `| ${escPipe(p.label || p.id)} | ${type} | \`${formatDefault(p, type)}\` | ${escPipe(p.desc || '—')} |`;
-  };
-  let paramsSection = '';
-  if (visibleParams.length) {
-    const first = visibleParams.slice(0, 5);
-    const rest = visibleParams.slice(5);
-    paramsSection += `## Parameters\n\n${tableHead}${first.map(row).join('\n')}\n`;
-    if (rest.length) {
-      paramsSection += `\n<details>\n<summary>+${rest.length} more parameters</summary>\n\n${tableHead}${rest.map(row).join('\n')}\n\n</details>\n`;
-    }
-  }
+  const paramsSection = paramsSectionFor(node);
 
   let connectionsSection = '';
   if (megaRec.connections && megaRec.connections.length) {
@@ -527,6 +585,35 @@ for (const f of fuses) {
 const knownNodes = new Map();
 const knownNodePaths = new Map();
 for (const f of fuses) { knownNodes.set(f.name, f); knownNodePaths.set(f.name, path.join(f.category, f.function, f.name)); }
+
+
+// ---------------------------------------------------------------- --refresh-params
+// Rebuild only the Parameters section of existing generated pages (those still carrying the "pending" note)
+// from the current fuses, filling descriptions from the summaries. Lead, examples and related nodes are kept.
+if (args.includes('--refresh-params')) {
+  const st = { pages: 0, changed: 0, rich: 0, nopage: 0, filled: 0, empty: 0 };
+  for (const f of fuses) {
+    if (!CATS.includes(f.category)) continue;
+    const file = path.join(DOCS_REF, f.category, f.function, `${f.name}.md`);
+    if (!fs.existsSync(file)) { st.nopage++; continue; }
+    const text = fs.readFileSync(file, 'utf8');
+    if (!text.includes('Param descriptions pending the content pass')) { st.rich++; continue; }
+    st.pages++;
+    const sum = loadSummary(f.name);
+    const section = paramsSectionFor(f, (p) => (sum && sum.get(normName(p.label || p.id))) || socketDesc(p));
+    st.filled += (section.match(/\| (?!—)[^|\n]+ \|\n/g) || []).length;
+    st.empty += (section.match(/\| — \|\n/g) || []).length;
+    const m = text.match(/## Parameters\n[\s\S]*?(?=\n## |\n\{\/\*)/);
+    let out;
+    if (m) out = text.replace(m[0], section.replace(/\n+$/, '\n'));
+    else if (section) out = text.replace(/(\n## Example Connections|\n## Related Nodes|\n\{\/\*)/, `\n${section}$1`);
+    else out = text;
+    if (out !== text) { st.changed++; if (!DRY_RUN) fs.writeFileSync(file, out); }
+  }
+  console.log(`Refresh params: ${st.pages} pending pages, ${st.changed} changed, ${st.rich} curated pages left alone, ${st.nopage} nodes without a page`);
+  console.log(`Rows with a description: ${st.filled}, still "—": ${st.empty}`);
+  process.exit(0);
+}
 
 const megaCache = {};
 for (const cat of CATS) megaCache[cat] = parseMegaPage(cat);

@@ -1,5 +1,5 @@
 ---
-sidebar_position: 5
+sidebar_position: 6
 title: vJSONShapeTextArray
 description: "Example, using Text and Strings"
 ---
@@ -69,5 +69,5 @@ Example, using Text and Strings
 
 {/*
 Generated page — node: vJSONShapeTextArray (JSON/Shapes).
-Source: fuse vJSONShapeText.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vJSONShapeTextArray.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
 */}

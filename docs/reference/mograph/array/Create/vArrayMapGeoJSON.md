@@ -1,5 +1,5 @@
 ---
-sidebar_position: 47
+sidebar_position: 32
 title: vArrayMapGeoJSON
 description: "Map from geographic coordinates"
 ---
@@ -27,19 +27,19 @@ Map from geographic coordinates
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | Auto Fit | Float | `1` | — |
-| GeoJSON Array | Text | `—` | — |
-| Map Zoom Width | Float | `1.0` | — |
-| Center Latitude | Float | `0.0` | — |
-| Center Longitude | Float | `0.0` | — |
+| GeoJSON | Text | `—` | — |
+| Map Zoom Width | Float | `1.0` | Width of the mapped area. |
+| Center Latitude | Float | `0.0` | Latitude of the center. |
+| Center Longitude | Float | `0.0` | Longitude of the center. |
 
 <details>
 <summary>+3 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Scale | Float | `1.0` | — |
-| Offset X | Float | `0.0` | — |
-| Offset Y | Float | `0.0` | — |
+| Scale | Float | `1.0` | Scale of the result. |
+| Offset X | Float | `0.0` | Moves the result along X. |
+| Offset Y | Float | `0.0` | Moves the result along Y. |
 
 </details>
 

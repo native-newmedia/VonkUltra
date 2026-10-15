@@ -1,5 +1,5 @@
 ---
-sidebar_position: 15
+sidebar_position: 14
 title: vArrayLogicSelect
 description: "Select XYZ points from A/B using mask array."
 ---
@@ -26,15 +26,14 @@ Select XYZ points from A/B using mask array.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Mask | DATATYPE | `—` | — |
-| Array A | DATATYPE | `—` | — |
-| Array B | DATATYPE | `—` | — |
-
+| Mask | DATATYPE | `—` | Mask with one 0 or 1 value per element. |
+| Input A | DATATYPE | `—` | First input. |
+| Input B | DATATYPE | `—` | Second input. |
 
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="./vArrayCountMask">vArrayCountMask</a>
+  <a className="node-chip" href="./vArrayLogicCount">vArrayLogicCount</a>
   <a className="node-chip" href="./vArrayLogicAND">vArrayLogicAND</a>
   <a className="node-chip" href="./vArrayLogicAll">vArrayLogicAll</a>
   <a className="node-chip" href="./vArrayLogicAny">vArrayLogicAny</a>

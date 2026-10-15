@@ -1,5 +1,5 @@
 ---
-sidebar_position: 40
+sidebar_position: 16
 title: vJSONFromXYZ
 description: "Convert ASCII XYZ point cloud data into a JSON format"
 ---
@@ -26,18 +26,18 @@ Convert ASCII XYZ point cloud data into a JSON format
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input Source | Dropdown | `File` | — |
-| Filename | Text | `—` | — |
-| URL | Text | `—` | — |
-| Input | Text | `—` | — |
-| Point Cloud Density | Integer | `100` | — |
+| Input Source | Dropdown | `File` | Where the data comes from. Options: File, URL, Text. |
+| Filename | Text | `—` | File to read. Shown when Input Source is File. |
+| URL | Text | `—` | Address to read. Shown when Input Source is URL. |
+| Input | Text | `—` | Text to read. Shown when Input Source is Text. |
+| Point Cloud Density | Integer | `100` | Share of points kept. |
 
 <details>
 <summary>+1 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Scale File Units By | Float | `1` | — |
+| Scale File Units By | Float | `1` | Multiplies the coordinates of the file. |
 
 </details>
 

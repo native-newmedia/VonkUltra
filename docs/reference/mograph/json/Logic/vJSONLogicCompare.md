@@ -1,5 +1,5 @@
 ---
-sidebar_position: 7
+sidebar_position: 6
 title: vJSONLogicCompare
 description: "Element-wise compare arrays and return 0/1 mask."
 ---
@@ -26,15 +26,14 @@ Element-wise compare arrays and return 0/1 mask.
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Compare | Dropdown | `==` | — |
-| Array A | DATATYPE | `—` | — |
-| Array B | DATATYPE | `—` | — |
-
+| Compare | Dropdown | `==` | ==, !=, &lt;, >, &lt;=, or >=. |
+| Input A | DATATYPE | `—` | First input. |
+| Input B | DATATYPE | `—` | Second input. |
 
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="./vJSONCountMask">vJSONCountMask</a>
+  <a className="node-chip" href="./vJSONLogicCount">vJSONLogicCount</a>
   <a className="node-chip" href="./vJSONLogicAND">vJSONLogicAND</a>
   <a className="node-chip" href="./vJSONLogicAll">vJSONLogicAll</a>
   <a className="node-chip" href="./vJSONLogicAny">vJSONLogicAny</a>

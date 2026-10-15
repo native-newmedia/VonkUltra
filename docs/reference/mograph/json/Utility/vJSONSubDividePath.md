@@ -1,5 +1,5 @@
 ---
-sidebar_position: 12
+sidebar_position: 11
 title: vJSONSubDividePath
 description: "2D path smoothing"
 ---
@@ -26,11 +26,10 @@ import TabItem from '@theme/TabItem';
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Subdivisions | Integer | `1` | — |
-| Interpolation | Dropdown | `Catmull-Rom` | — |
-| Tension | Float | `0.0` | — |
-| Array A | DATATYPE | `—` | — |
-
+| Subdivisions | Integer | `1` | New points per segment. |
+| Interpolation | Dropdown | `Catmull-Rom` | None, Catmull-Rom, Step, B-Spline, or Cardinal. |
+| Tension | Float | `0.0` | Spline tension. Shown for B-Spline and Cardinal. |
+| Input | DATATYPE | `—` | Data to process. |
 
 ## Related Nodes
 
@@ -43,5 +42,5 @@ import TabItem from '@theme/TabItem';
 
 {/*
 Generated page — node: vJSONSubDividePath (JSON/Utility).
-Source: fuse vJSONPathSubDivide.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Source: fuse vJSONSubDividePath.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
 */}

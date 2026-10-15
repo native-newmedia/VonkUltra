@@ -1,6 +1,7 @@
 ---
-sidebar_position: 7
+sidebar_position: 19
 title: vArrayShapeRender
+description: "Draw points, lines and shapes from point data"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -112,8 +113,8 @@ Background.Output -> vArrayShapeRender.Input
 <TabItem value="full-pipeline-points-edges-shapes-groups" label="Full pipeline — points, edges, shapes, groups">
 
 ```
-vArrayCreateTextFont.Output -> vArrayCameraProjection.ArrayA
-vArrayCreateTextFont.ScriptVal_Groups -> vArrayShapeRender.ArrayGroups
+vArrayTextFont.Output -> vArrayCameraProjection.ArrayA
+vArrayTextFont.ScriptVal_Groups -> vArrayShapeRender.ArrayGroups
 vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
 vArrayCustom2DShapes.Output -> vArrayShapeRender.ArrayShape
 Background.Output -> vArrayShapeRender.Input
@@ -125,7 +126,7 @@ Background.Output -> vArrayShapeRender.Input
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="../../array/ShapeRender/vArrayShapeRenderTextPath">vArrayShapeRenderTextPath</a>
+  <a className="node-chip" href="../../array/ShapeRender/vArrayRenderTextPath">vArrayRenderTextPath</a>
   <a className="node-chip" href="../../array/Shapes/vArrayCustom2DShapes">vArrayCustom2DShapes</a>
   <a className="node-chip" href="../../array/ShapeRender/vArrayColor">vArrayColor</a>
 </div>

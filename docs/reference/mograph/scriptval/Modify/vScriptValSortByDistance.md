@@ -1,5 +1,5 @@
 ---
-sidebar_position: 64
+sidebar_position: 60
 title: vScriptValSortByDistance
 description: "Sort array by point distance"
 ---
@@ -26,10 +26,9 @@ Sort array by point distance
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Smallest Distance | Float | `1.0` | — |
-| Distance Mode | Dropdown | `Preferred` | — |
-| Show Input | Integer | `0.0` | — |
-| ScriptVal | DATATYPE | `—` | — |
+| Smallest Distance | Float | `1.0` | Sorts from the smallest distance. |
+| Distance Mode | Dropdown | `Preferred` | Distance sorting mode. Options: Preferred, Strict. |
+| Input | DATATYPE | `—` | Data to process. |
 
 ## Example Connections
 
