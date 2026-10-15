@@ -1,0 +1,22 @@
+tool: vTextDecodeUrl
+datatype: Text
+function: Decode
+legacy_names: []
+curated:
+  tagline: URL-decodes a Fusion Text object
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Text: The URL-encoded text to decode (e.g. `%20` back to a space).
+    ShowInput: Reveals the wire for the Text connection in the Flow view.
+legacy_text: URL-decodes a Fusion Text object
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 5
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

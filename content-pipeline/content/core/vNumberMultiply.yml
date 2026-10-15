@@ -1,0 +1,29 @@
+tool: vNumberMultiply
+datatype: Number
+function: Operators
+legacy_names: []
+curated:
+  tagline: Returns the product of two numbers
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vNumberAbsolute
+    - name: vNumberAdd
+    - name: vNumberCeil
+    - name: vNumberClamp
+  params:
+    Factor1: First factor.
+    Factor2: Second factor — multiplied against Factor 1.
+    ShowInput: Reveals the wires for the Factor 1/Factor 2 connections in the Flow view.
+legacy_text: Returns the product of two numbers
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 6
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null
+  page_only_params:
+    - Factor1Separator

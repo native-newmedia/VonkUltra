@@ -1,0 +1,26 @@
+tool: vPointCreate
+datatype: Point
+function: Create
+legacy_names: []
+curated:
+  tagline: Create a Fusion Point object
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vPointCreateImage
+    - name: vPointCreateRandom
+    - name: vPointFromMousePos
+  params:
+    Point: On-screen position picker — drag directly in the viewer or type X/Y values in the Inspector.
+    FlipHoriz: Mirrors the X value around the center of the frame (X → 1 − X).
+    FlipVert: Mirrors the Y value around the center of the frame (Y → 1 − Y).
+legacy_text: Create a Fusion Point object
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 5
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

@@ -1,0 +1,25 @@
+tool: vScriptValFromClipboard
+datatype: ScriptVal
+function: IO
+legacy_names: []
+curated:
+  tagline: Grabs the current clipboard as a Fusion ScriptVal object
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vScriptValFromBinaryFile
+    - name: vScriptValFromFile
+    - name: vScriptValToBinaryFile
+    - name: vScriptValToClipboard
+  params:
+    ShowDump: Prints the clipboard's ScriptVal content to the console each frame.
+legacy_text: Grabs the current clipboard as a Fusion ScriptVal object
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 9
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

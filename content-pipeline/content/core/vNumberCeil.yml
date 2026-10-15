@@ -1,0 +1,34 @@
+tool: vNumberCeil
+datatype: Number
+function: Operators
+legacy_names: []
+curated:
+  tagline: >-
+    Returns the integer no greater than a number This provides a way to round a floating point
+    number to a whole number (an integer value) by rounding upwards to
+  overview: null
+  description:
+    - >-
+      remove the digits to the right of the decimal place. Ceil (ceiling) is the counterpoint to the
+      floor rounding method.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vNumberAbsolute
+    - name: vNumberAdd
+    - name: vNumberClamp
+    - name: vNumberDivide
+  params:
+    Number: Value to round up to the nearest integer.
+    ShowInput: Reveals the wire for the Number connection in the Flow view.
+legacy_text: >-
+  Returns the integer no greater than a number This provides a way to round a floating point number
+  to a whole number (an integer value) by rounding upwards to remove the digits to the right of the
+  decimal place. Ceil (ceiling) is the counterpoint to the floor rounding method.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 49
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

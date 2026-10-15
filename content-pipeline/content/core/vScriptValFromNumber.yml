@@ -1,0 +1,23 @@
+tool: vScriptValFromNumber
+datatype: ScriptVal
+function: Number
+legacy_names: []
+curated:
+  tagline: Convert a Fusion Number object into a ScriptVal
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vScriptValToNumber
+  params:
+    Number: Numeric value to wrap in a ScriptVal.
+    ShowInput: Reveals the wire for the Number connection in the Flow view.
+legacy_text: Convert a Fusion Number object into a ScriptVal
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 8
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

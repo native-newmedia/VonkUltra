@@ -1,0 +1,78 @@
+operation: SortByDistance
+tools:
+  Array: vArraySortByDistance
+  ScriptVal: vScriptValSortByDistance
+  JSON: vJSONSortByDistance
+legacy_names: []
+curated:
+  tagline: >-
+    Re-order vArray elements by their spatial proximity — essential for nearest-neighbour
+    connections, path optimisation, and proximity-based effects.
+  overview: >-
+    vArraySortByDistance reorders the elements in a vArray from nearest to farthest based on
+    inter-point distances. Use it before vArrayShapeRender to draw connections in spatially
+    optimised order, or before vArrayBuffer to record proximity-sorted trails.
+  description:
+    - >-
+      vArraySortByDistance performs a spatial sort on a vArray, reordering elements so that each
+      consecutive point is the nearest unvisited neighbour of the previous one. This greedy
+      nearest-neighbour traversal produces a path through the point cloud that minimises jump
+      distances — useful for line-drawing effects where you want continuous connected strokes rather
+      than random teleports across the frame.
+    - >-
+      Smallest Distance sets a proximity threshold. Points closer together than this value are
+      treated as coincident and their relative order is left unchanged. Increasing this threshold
+      loosens the sort, allowing short-range clusters to remain in their original order while only
+      sorting at larger scales.
+    - >-
+      A common application is connecting scattered OBJ vertices with vArrayShapeRender's edge mode
+      after sorting — the result looks like a hand-drawn path tracing through a point cloud rather
+      than randomly ordered segments. Pair with vArrayBuffer to record the sorted path over time for
+      trail effects that trace the proximity order across frames.
+  features:
+    - title: Nearest-Neighbour Sort
+      desc: >-
+        Reorders points so each consecutive element is the spatially closest unvisited neighbour —
+        produces coherent traversal paths through point clouds.
+    - title: Distance Threshold
+      desc: >-
+        Smallest Distance threshold treats nearby points as coincident, preventing excessive
+        reordering within tight clusters.
+    - title: Edge Drawing Ready
+      desc: >-
+        Feed sorted output directly into vArrayShapeRender edge mode to draw clean connected-line
+        paths through scattered geometry.
+    - title: Trail Optimised
+      desc: >-
+        Combine with vArrayBuffer to record proximity-ordered paths over time for trail effects that
+        trace the spatial sort sequence.
+  connections:
+    - label: Proximity-sorted edge drawing
+      lines:
+        - vArrayFromOBJ.Points -> vArraySortByDistance.Array
+        - vArraySortByDistance.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+    - label: Sorted trail recording
+      lines:
+        - vArrayPointsOnGrid.Output -> vArraySortByDistance.Array
+        - vArraySortByDistance.Output -> vArrayBuffer.Input
+        - vArrayBuffer.Output -> vArrayShapeRender.ArrayPoint
+  difficulty: Intermediate
+  related:
+    - name: vArrayFromOBJ
+      desc: Import mesh vertices — then sort them by proximity for coherent edge drawing.
+    - name: vArrayBuffer
+      desc: Record sorted point sequences over time for proximity-ordered trail effects.
+    - name: vArrayShapeRender
+      desc: Draw edges between sorted points for clean connected-line path effects.
+  params:
+    smallDist: >-
+      Minimum distance threshold. Point pairs closer than this value are treated as coincident and
+      their relative order is preserved. Increase to loosen large-scale sorting.
+    Array: The vArray of XYZ point positions to sort by spatial proximity.
+    distanceMode: 'Distance sorting mode. Options: Preferred, Strict.'
+status:
+  source: rich-json
+  state: imported
+  reviewed_hash: null
+legacy_text: Sort array by point distance

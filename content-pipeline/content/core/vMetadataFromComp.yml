@@ -1,0 +1,25 @@
+tool: vMetadataFromComp
+datatype: Meta
+function: Comp
+legacy_names: []
+curated:
+  tagline: Creates a Fusion image with metadata added from a Fusion Studio comp
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vMetadataToComp
+  params:
+    Input: Image to attach the current Fusion Studio comp's metadata to.
+    Base64: >-
+      Base64-encodes the comp data before storing it in the metadata, instead of storing it as plain
+      text.
+legacy_text: Creates a Fusion image with metadata added from a Fusion Studio comp
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 12
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

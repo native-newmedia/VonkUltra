@@ -1,0 +1,36 @@
+tool: vNumberCreateArch
+datatype: Number
+function: Create
+legacy_names: []
+curated:
+  tagline: >-
+    Creates a unique Fusion Number object per CPU architecture If the fuse is rendered on a 32-bit
+    Intel/AMD CPU based system a value of 1 is returned.
+  overview: null
+  description:
+    - >-
+      (Note: Fusion Studio v8+ were only released as 64-bit builds so it is of low likelihood you
+      are going to see an x86 value returned from this node.) If the fuse is rendered on a 64-bit
+      Intel/AMD CPU based system a value of 2 is returned. If the fuse is rendered on an ARM 64-bit
+      system, like an Apple Silicon CPU, a value of 3 is returned.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vNumberCreate
+    - name: vNumberCreateBool
+    - name: vNumberCreateMultiButton
+    - name: vNumberCreatePlatform
+  params: {}
+legacy_text: >-
+  Creates a unique Fusion Number object per CPU architecture If the fuse is rendered on a 32-bit
+  Intel/AMD CPU based system a value of 1 is returned. (Note: Fusion Studio v8+ were only released
+  as 64-bit builds so it is of low likelihood you are going to see an x86 value returned from this
+  node.) If the fuse is rendered on a 64-bit Intel/AMD CPU based system a value of 2 is returned. If
+  the fuse is rendered on an ARM 64-bit system, like an Apple Silicon CPU, a value of 3 is returned.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 94
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

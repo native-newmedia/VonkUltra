@@ -1,0 +1,38 @@
+tool: vFileSystemCreateDir
+datatype: FileSystem
+function: General
+legacy_names: []
+curated:
+  tagline: Creates a new directory This node will create a new directory.
+  overview: null
+  description:
+    - >-
+      The "Text" field is used to define the desired folder path. Any required intermediate
+      subfolders are created at the same time. When enabled, the "\[x\] Use Parent Directory"
+      checkbox allows you to enter a filepath into the "Text" field. The base folder path for the
+      specified file will be used for the directory creation task.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vFileSystemChmod
+    - name: vFileSystemColorTags
+    - name: vFileSystemDirExists
+    - name: vFileSystemExtendedAttributes
+  params:
+    Text: Folder path to create. Required intermediate subfolders are created automatically.
+    UseParentDir: >-
+      Treats Text as a file path instead, and creates that file's containing folder rather than the
+      path itself.
+    ShowInput: Reveals the wire for the Text connection in the Flow view.
+legacy_text: >-
+  Creates a new directory This node will create a new directory. The "Text" field is used to define
+  the desired folder path. Any required intermediate subfolders are created at the same time. When
+  enabled, the "\[x\] Use Parent Directory" checkbox allows you to enter a filepath into the "Text"
+  field. The base folder path for the specified file will be used for the directory creation task.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 66
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

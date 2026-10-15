@@ -1,0 +1,27 @@
+tool: vVectorSlice
+datatype: Vector
+function: Operators
+legacy_names: []
+curated:
+  tagline: Slices a vector
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vVectorAdd
+    - name: vVectorCrossProduct
+    - name: vVectorDivideNumber
+    - name: vVectorDotProduct
+  params:
+    Vector: Vector to slice (encoded as text).
+    LeftRight: 1-based start (X) and end (Y) column range of the elements to extract.
+    ShowInput: Reveals the wire for the Vector connection in the Flow view.
+legacy_text: Slices a vector
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 3
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

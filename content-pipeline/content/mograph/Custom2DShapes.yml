@@ -1,0 +1,37 @@
+operation: Custom2DShapes
+tools:
+  Array: vArrayCustom2DShapes
+  ScriptVal: vScriptValCustom2DShapes
+  JSON: vJSONCustom2DShapes
+legacy_names: []
+curated:
+  tagline: Create a built-in 2D outline as a shape.
+  overview: >-
+    Picks an outline from the built-in sets (ticks, lines, frames, symbols, others) and outputs it
+    as a ScriptVal shape table with the offset, rotation and scale applied.
+  description: []
+  features: []
+  connections:
+    - label: Example 1
+      lines:
+        - vArrayPointsOnCircle1.Output -> vArrayUnPacker.ArrayB
+        - vArrayUnPacker.OutputArray -> vArraySin.ArrayA
+        - vArraySin.Output -> vArrayPacker.ArrayA
+        - vArrayPacker.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - vArrayCustom2DShapes.Output -> vArrayShapeRender.ArrayShape
+        - Background.Output -> vArrayShapeRender.Input
+  difficulty: null
+  related: []
+  params:
+    shapetype: None, Ticks, Lines, Frames, Symbols, or Others.
+    shapeselector: Which outline of the chosen set is used.
+    Translate.Y: Moves the shape along X and Y.
+    Rotate.Z: Rotates the shape.
+    Scale.XY: Uniform scale.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null
+  connections_source: docsify
+legacy_text: Dynamically create 2D Shape elements

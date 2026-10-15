@@ -1,0 +1,26 @@
+tool: vNumberSign
+datatype: Number
+function: Operators
+legacy_names: []
+curated:
+  tagline: Returns the sign of a number The output from the node will be either "-1", "0", or "1".
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vNumberAbsolute
+    - name: vNumberAdd
+    - name: vNumberCeil
+    - name: vNumberClamp
+  params:
+    Number: Value to check — Output is -1, 0, or 1 depending on Number's sign.
+    ShowInput: Reveals the wire for the Number connection in the Flow view.
+legacy_text: Returns the sign of a number The output from the node will be either "-1", "0", or "1".
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 18
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

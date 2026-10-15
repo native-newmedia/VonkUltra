@@ -1,0 +1,23 @@
+operation: LogicDeleteByMask
+tools:
+  Array: vArrayLogicDeleteByMask
+  ScriptVal: vScriptValLogicDeleteByMask
+  JSON: vJSONLogicDeleteByMask
+legacy_names: []
+curated:
+  tagline: Keep or remove elements with a mask.
+  overview: >-
+    Filters the input with a mask array. Mode decides whether the masked elements are kept or
+    removed, and Invert Mask flips the mask first.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Mode: Keep Masked or Delete Masked.
+    Invert: Flips the mask before it is applied.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

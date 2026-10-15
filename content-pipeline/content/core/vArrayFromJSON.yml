@@ -1,0 +1,26 @@
+tool: vArrayFromJSON
+datatype: Array
+function: Create
+legacy_names: []
+curated:
+  tagline: Casts JSON text into a JSON array
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vArrayFromCSV
+    - name: vArrayFromDataWindow
+    - name: vArrayFromLuaTable
+    - name: vArrayFromMediaIn
+  params:
+    Text: JSON text to cast into a JSON array.
+    Sort: Sorts keys alphabetically, instead of preserving source order.
+legacy_text: Casts JSON text into a JSON array
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 7
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

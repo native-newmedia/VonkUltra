@@ -1,0 +1,30 @@
+tool: vNumberTernary
+datatype: Number
+function: Logic
+legacy_names: []
+curated:
+  tagline: Compare a value and return one of two possible results
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vNumberAnd
+    - name: vNumberEqual
+    - name: vNumberGreater
+    - name: vNumberGreaterEqual
+  params:
+    Term1: Condition — treated as false when 0, true otherwise.
+    'True': Value output when Term 1 is true.
+    'False': Value output when Term 1 is false.
+    ShowInput: Reveals the wire for the Term 1 connection in the Flow view.
+legacy_text: Compare a value and return one of two possible results
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 10
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null
+  page_only_params:
+    - Term1Separator

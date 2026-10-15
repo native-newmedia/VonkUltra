@@ -1,0 +1,22 @@
+operation: ClosePath
+tools:
+  Array: vArrayClosePath
+  ScriptVal: vScriptValClosePath
+  JSON: vJSONClosePath
+legacy_names: []
+curated:
+  tagline: Open or close a path.
+  overview: Opens, closes or toggles the closure of a path, with options for the seam point.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Operation: 'Action applied to the path. Options: Close Path, Open Path, Toggle.'
+    Seam: Keep Start, Keep End or Average when closing.
+    DuplicateEndpoint: Adds the first point again at the end of a closed path.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

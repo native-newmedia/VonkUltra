@@ -1,0 +1,24 @@
+operation: RadialSymmetry
+tools:
+  Array: vArrayRadialSymmetry
+  ScriptVal: vScriptValRadialSymmetry
+  JSON: vJSONRadialSymmetry
+legacy_names: []
+curated:
+  tagline: Create radial symmetry from source points.
+  overview: Copies the input points around the center.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    copies: Number of copies.
+    angleoffset: Rotation of the first copy.
+    anglestep: Rotation between copies.
+    fallbackradius: Radius used when the points have none.
+    radiusstep: Radius change per copy.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

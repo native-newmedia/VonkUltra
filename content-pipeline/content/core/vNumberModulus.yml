@@ -1,0 +1,39 @@
+tool: vNumberModulus
+datatype: Number
+function: Operators
+legacy_names: []
+curated:
+  tagline: >-
+    Returns the remainder of the division of x by y that rounds the quotient towards zero If a
+    vNumberCompReqTime or vNumberCompCurrentTime node is piped into the
+  overview: null
+  description:
+    - >-
+      "Dividend" input connection, you can use the modulus operator to create a looping number range
+      with the Divisor control. For example, a Divisor value of 10 will cause the output from
+      modulus to cycle from 0-9 in loops 5 times as the playhead advances through a render start/end
+      frame range of 0 - 50.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vNumberAbsolute
+    - name: vNumberAdd
+    - name: vNumberCeil
+    - name: vNumberClamp
+  params:
+    Dividend: Value to divide.
+    Divisor: Value to divide by — Output is the remainder of Dividend ÷ Divisor.
+    ShowInput: Reveals the wires for the Dividend/Divisor connections in the Flow view.
+legacy_text: >-
+  Returns the remainder of the division of x by y that rounds the quotient towards zero If a
+  vNumberCompReqTime or vNumberCompCurrentTime node is piped into the "Dividend" input connection,
+  you can use the modulus operator to create a looping number range with the Divisor control. For
+  example, a Divisor value of 10 will cause the output from modulus to cycle from 0-9 in loops 5
+  times as the playhead advances through a render start/end frame range of 0 - 50.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 80
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

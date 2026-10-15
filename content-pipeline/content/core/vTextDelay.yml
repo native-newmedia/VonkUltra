@@ -1,0 +1,38 @@
+tool: vTextDelay
+datatype: Text
+function: Utility
+legacy_names: []
+curated:
+  tagline: Creates a Delay while passing a Fusion Text object The delay effect is measured in seconds.
+  overview: null
+  description:
+    - >-
+      This node is implemented internally using the "`bmd.wait()`" function. Among several use cases
+      one can find for a tool that can momentarily pause rendering; it can be used to simulate a
+      slow to render comp task when testing a render farm program. It also has applications when
+      running a command line task via the Vonk ProcessOpen node and the system requires a momentary
+      pause.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextDump
+    - name: vTextExpandEscapedCharacters
+    - name: vTextFromCSVViewer
+    - name: vTextFromFilename
+  params:
+    Text: The text value passed through unchanged, after the delay.
+    Delay: Pause duration, in seconds, before Text is passed through.
+    ShowInput: Reveals the wire for the Text connection in the Flow view.
+legacy_text: >-
+  Creates a Delay while passing a Fusion Text object The delay effect is measured in seconds. This
+  node is implemented internally using the "`bmd.wait()`" function. Among several use cases one can
+  find for a tool that can momentarily pause rendering; it can be used to simulate a slow to render
+  comp task when testing a render farm program. It also has applications when running a command line
+  task via the Vonk ProcessOpen node and the system requires a momentary pause.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 80
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

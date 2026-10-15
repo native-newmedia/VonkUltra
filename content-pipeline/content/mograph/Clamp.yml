@@ -1,0 +1,22 @@
+operation: Clamp
+tools:
+  Array: vArrayClamp
+  ScriptVal: vScriptValClamp
+  JSON: vJSONClamp
+legacy_names: []
+curated:
+  tagline: Clamp numbers to a range.
+  overview: Limits every number in a nested array to the range from Min to Max.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Min: Lower limit.
+    Max: Upper limit.
+    AutoSwap: Swaps Min and Max when Min is larger.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

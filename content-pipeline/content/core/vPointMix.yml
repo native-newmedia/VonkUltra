@@ -1,0 +1,30 @@
+tool: vPointMix
+datatype: Point
+function: Operators
+legacy_names: []
+curated:
+  tagline: Performs linear interpolation between two Fusion Point objects
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vPointAbsolute
+    - name: vPointAdd
+    - name: vPointClamp
+    - name: vPointDivide
+  params:
+    Point1: Point at Weight = 0.
+    Point2: Point at Weight = 1.
+    Weight: >-
+      Interpolation factor between Point1 (0) and Point2 (1). Values outside 0–1 extrapolate beyond
+      either point.
+    ShowInput: Reveals the wires for the Point1/Point2 connections in the Flow view.
+legacy_text: Performs linear interpolation between two Fusion Point objects
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 8
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

@@ -1,0 +1,25 @@
+operation: PathWidthMap
+tools:
+  Array: vArrayPathWidthMap
+  ScriptVal: vScriptValPathWidthMap
+  JSON: vJSONPathWidthMap
+legacy_names: []
+curated:
+  tagline: Build width maps for a path.
+  overview: Generates a width or radius value for every path point, for use in path sweeps.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Source: 'Value that drives the result. Options: Index, Distance, Scalar Input.'
+    WidthMin: Smallest width.
+    WidthMax: Largest width.
+    Power: Exponent of the curve.
+    Invert: Inverts the result.
+    Clamp: Limits the result to the range 0 to 1.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

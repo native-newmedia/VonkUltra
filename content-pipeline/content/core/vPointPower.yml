@@ -1,0 +1,27 @@
+tool: vPointPower
+datatype: Point
+function: Operators
+legacy_names: []
+curated:
+  tagline: Returns the power of a Fusion Point object
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vPointAbsolute
+    - name: vPointAdd
+    - name: vPointClamp
+    - name: vPointDivide
+  params:
+    Point: Point operand (base).
+    Exponent: Power each of Point's X/Y values is raised to.
+    ShowInput: Reveals the wire for the Point connection in the Flow view.
+legacy_text: Returns the power of a Fusion Point object
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 8
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

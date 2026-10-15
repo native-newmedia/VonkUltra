@@ -1,0 +1,32 @@
+tool: vGradientMerge
+datatype: Gradient
+function: Utility
+legacy_names: []
+curated:
+  tagline: Merge several Gradients into a single output
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vGradientColorCount
+    - name: vGradientNormalizePosition
+    - name: vGradientSlice
+    - name: vGradientSort
+  params:
+    Which: >-
+      Internal control tracking how many Gradient inputs are currently connected. Not meant to be
+      set manually — every connected input is merged, regardless of this value.
+    Gradient1: The first gradient to merge. Connecting it reveals Gradient2 for the next one, and so on.
+    ShowDump: Prints the merged gradient to the console each frame.
+legacy_text: Merge several Gradients into a single output
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 7
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null
+  page_only_params:
+    - '"Gradient" .. i'
+    - '"Gradient" .. (inp_nr + 1)'

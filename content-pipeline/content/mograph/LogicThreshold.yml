@@ -1,0 +1,20 @@
+operation: LogicThreshold
+tools:
+  Array: vArrayLogicThreshold
+  ScriptVal: vScriptValLogicThreshold
+  JSON: vJSONLogicThreshold
+legacy_names: []
+curated:
+  tagline: Turn values into a mask with a threshold.
+  overview: Outputs 1 where the value is above Threshold, else 0.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Threshold: Values above this become 1.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

@@ -1,0 +1,37 @@
+tool: vJSONSet
+datatype: JSON
+function: Key Value
+legacy_names: []
+curated:
+  tagline: >-
+    Sets a new key value pair in a JSON table The "Key" text-field lets you enter the name of the
+    JSON element to be modified/inserted.
+  overview: null
+  description:
+    - >-
+      The 2nd text field is used for the "Value" field which holds the actual data you want to
+      store. The vJSONSet node makes it possible to create new JSON data structures that can be
+      saved to disk using a vJSONToFile node.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vJSONGet
+    - name: vJSONGetElement
+  params:
+    Input: JSON text to modify.
+    Key: Name of the key to insert or update.
+    Value: Value to store under Key.
+    ShowInput: Reveals the wire for the Input connection in the Flow view.
+    GetKeyBtn: Renames this node to `json_<Key>`, making it easy to identify which key it sets at a glance.
+legacy_text: >-
+  Sets a new key value pair in a JSON table The "Key" text-field lets you enter the name of the JSON
+  element to be modified/inserted. The 2nd text field is used for the "Value" field which holds the
+  actual data you want to store. The vJSONSet node makes it possible to create new JSON data
+  structures that can be saved to disk using a vJSONToFile node.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 66
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

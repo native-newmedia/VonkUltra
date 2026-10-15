@@ -1,0 +1,38 @@
+operation: CircuitAbstract
+tools:
+  Array: vArrayCircuitAbstract
+  ScriptVal: vScriptValCircuitAbstract
+  JSON: vJSONCircuitAbstract
+legacy_names: []
+curated:
+  tagline: Draw abstract circuit-board lines and nodes.
+  overview: >-
+    Generates points with a radial, grid, organic or mixed layout, connects them with circuit-style
+    lines, and draws the lines and optional nodes onto the image.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    RandomSeed: Seed of the random generator.
+    PatternType: Radial, Grid, Organic, or Mixed point layout.
+    ConnectionStyle: Shape of the connecting lines (Manhattan, Curved, Circular Arc, and others).
+    NoDuplicateConnections: Skips connections that already exist.
+    Curvature: Amount of curve in curved connection styles.
+    Reachdistance: Maximum distance of a connection.
+    PointDensity: Number of points.
+    PointJitter: Random offset of the points.
+    GlobalScale: Overall size.
+    LineThickness: Thickness of the circuit lines.
+    GrowthIterations: Number of times extra connections are added.
+    TrimFactor: Share of connections removed.
+    showNodes: Draws a node at each point.
+    NodeShape: Circle, Square, Triangle, or Custom.
+    NodeSize: Size of the nodes.
+    LineType: Solid, Dash, Dot, Dash Dot, or Dash Dot Dot.
+    JoinType: Bevel or Round corners.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

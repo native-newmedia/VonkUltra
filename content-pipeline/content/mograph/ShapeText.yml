@@ -1,0 +1,50 @@
+operation: ShapeText
+tools:
+  Array: vArrayShapeText
+  ScriptVal: vScriptValShapeText
+  JSON: vJSONShapeText
+legacy_names: []
+curated:
+  tagline: Generate text values and build them as shapes.
+  overview: >-
+    Creates text items from a random generator, from the input array, or from the input text, and
+    outputs them as ScriptVal shapes. Fonts can be set directly or picked from a font array by
+    probability.
+  description: []
+  features: []
+  connections:
+    - label: Example 1
+      lines:
+        - vArrayPointsOnCircle.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+        - vArrayShapeText.OutputValShape -> vArrayShapeRender.ArrayShape
+  difficulty: null
+  related: []
+  params:
+    chanceOperation: >-
+      None, Pick from input Array, Pick from input Text, Bool, Character, Word, Letter, Vowel, Name,
+      Male name, Female name, Hash, Integer, rgb, rgba, hsl, hsla, ip, ipv4, ipv6, Phone, Address,
+      Street, String, Syllable, Shuffle, and the name variants.
+    arrayLength: Number of generated items.
+    seed: Random seed.
+    fontselect: Use Font or Use Front Array (font array from the ScriptVal Font input).
+    Font: Font family. Hidden when the font array is used.
+    Style: Font style. Hidden when the font array is used.
+    Size: Text size.
+    Characterspacing: Extra spacing between characters.
+    Case: NONE, UPPER, or LOWER.
+    Justification: Left, Center, or Right.
+    Hori_adjustment: Horizontal text offset.
+    Ver_adjustment: Vertical text offset.
+    ShowBackground: Draws a box behind each text item.
+    Box_padding: Space between text and box.
+    Box_Ver_adjustment: Vertical box offset.
+    Box_roundCorners: Corner radius of the box.
+    pos_adjustment: Position offset of the items.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null
+  connections_source: docsify
+legacy_text: Example, using Text and Strings

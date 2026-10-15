@@ -1,0 +1,38 @@
+operation: MaskScatterOnMesh
+tools:
+  Array: vArrayMaskScatterOnMesh
+  ScriptVal: vScriptValMaskScatterOnMesh
+  JSON: vJSONMaskScatterOnMesh
+legacy_names: []
+curated:
+  tagline: Scatter points on an OBJ mesh with a density mask.
+  overview: Scatters points over the surface of an OBJ mesh. A mask array or image sets the density.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    inputsource: 'Where the data comes from. Options: File, URL, Text.'
+    filename: File to read. Shown when Input Source is File.
+    url: Address to read. Shown when Input Source is URL.
+    input: Text to read. Shown when Input Source is Text.
+    masksource: None, Array or Image.
+    maskarrayinput: Mask values. Shown when Mask Source is Array.
+    maskmapscalex: Scale of the mask image along X. Shown when Mask Source is Image.
+    maskmapscaley: Scale of the mask image along Y. Shown when Mask Source is Image.
+    maskmapoffsetx: Offset of the mask image along X. Shown when Mask Source is Image.
+    maskmapoffsety: Offset of the mask image along Y. Shown when Mask Source is Image.
+    debugmode: Shows how the image maps to the mesh. Shown when Mask Source is Image.
+    debugz: Z position of the debug plane. Shown when debug is on.
+    debugstep: Sampling step of the debug display. Shown when debug is on.
+    scale: Multiplies the coordinates of the file.
+    pointcount: Number of points.
+    seed: Seed of the random generator.
+    invertmask: Swaps high and low mask values.
+    maskbias: Shifts the mask values.
+    surfaceoffset: Moves the points away from the surface along the normal.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

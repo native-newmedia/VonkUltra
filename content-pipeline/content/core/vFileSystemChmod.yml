@@ -1,0 +1,40 @@
+tool: vFileSystemChmod
+datatype: FileSystem
+function: General
+legacy_names: []
+curated:
+  tagline: >-
+    Change a file/folder's access permissions The "File" textfield is used to specify a file or
+    folder path.
+  overview: null
+  description:
+    - >-
+      The "Mode" control is used to specify the file mode (access permission) as an integer number.
+      This is typically an octal value like "777", "755", etc. The "Recursive" checkbox allows you
+      to apply the access permission changes to items inside a folder. Note: This node works on
+      macOS and Linux systems only due to the use of the UNIX "chmod" utility.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vFileSystemColorTags
+    - name: vFileSystemCreateDir
+    - name: vFileSystemDirExists
+    - name: vFileSystemExtendedAttributes
+  params:
+    File: Path to the file or folder to change permissions on.
+    Mode: Access permission as an octal-style number, e.g. `755` or `777`.
+    Recursive: Applies the permission change to everything inside the folder, not just the folder itself.
+    ShowInput: Reveals the wire for the File connection in the Flow view.
+legacy_text: >-
+  Change a file/folder's access permissions The "File" textfield is used to specify a file or folder
+  path. The "Mode" control is used to specify the file mode (access permission) as an integer
+  number. This is typically an octal value like "777", "755", etc. The "Recursive" checkbox allows
+  you to apply the access permission changes to items inside a folder. Note: This node works on
+  macOS and Linux systems only due to the use of the UNIX "chmod" utility.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 78
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

@@ -1,0 +1,26 @@
+operation: ToXYZ
+tools:
+  Array: vArrayToXYZ
+  ScriptVal: vScriptValToXYZ
+  JSON: vJSONToXYZ
+legacy_names: []
+curated:
+  tagline: Convert an array into XYZ text.
+  overview: Writes the points as XYZ text.
+  description: []
+  features: []
+  connections:
+    - label: Example 1
+      lines:
+        - vArrayFromXYZ.Points -> vArrayToXYZ.ArrayA
+        - vArrayToXYZ.Output -> vTextToFile.Input
+  difficulty: null
+  related: []
+  params:
+    ShowInput: Shows the input sockets of the controls.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null
+  connections_source: docsify
+legacy_text: Convert an Array into XYZ ASCII Text

@@ -1,0 +1,19 @@
+operation: LogicFallback
+tools:
+  Array: vArrayLogicFallback
+  ScriptVal: vScriptValLogicFallback
+  JSON: vJSONLogicFallback
+legacy_names: []
+curated:
+  tagline: Use a second array when the first is empty.
+  overview: Outputs Primary, or Fallback when Primary has no elements.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params: {}
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

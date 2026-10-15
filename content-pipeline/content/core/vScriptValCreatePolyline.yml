@@ -1,0 +1,44 @@
+tool: vScriptValCreatePolyline
+datatype: ScriptVal
+function: Shape
+legacy_names: []
+curated:
+  tagline: >-
+    Create a polygon line shape from a ScriptVal based Lua table of XY point pairs An example of 2D
+    point like elements in a Lua table would look like this: \{ \{
+  overview: null
+  description:
+    - >-
+      0.382075787528567, 0.534720150858805 \}, \{ 0.436349336750095, 0.490753326992875 \}, \{
+      0.486955559603984, 0.440547877640415 \}, \{ 0.531495059415565, 0.386469304121596 \}, \{
+      0.568050230127849, 0.331244047492371 \}, \{ 0.595285357663032, 0.277804252649087 \}, \{
+      0.612508622697929, 0.229116724236359 \}, \{ 0.619692622456641, 0.188006456120492 \} \}
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Level: Overall brightness/opacity multiplier for the line.
+    Filter: 'Anti-aliasing filter used to soften the line''s edges: Box, Bartlett, Multi-box, or Gaussian.'
+    SoftEdge: Additional edge softness, blended on top of the Filter setting.
+    Width: Line thickness, as a fraction of frame size.
+    BorderWidth: Width of an additional outline drawn around the line.
+    LineType: 'Dash pattern for the line: Solid, Dash, Dot, Dash Dot, or Dash Dot Dot.'
+    JoinType: 'Corner style where line segments meet: Bevel, Miter, or Round.'
+    CloseShape: Connects the last point back to the first, closing the polyline into a loop.
+    ShowDump: Prints the ScriptVal point table to the console each frame.
+    Input: Background image the line is drawn onto.
+    ScriptVal: Lua table of XY point pairs defining the polyline, e.g. `{ {0.38, 0.53}, {0.44, 0.49}, ... }`.
+legacy_text: >-
+  Create a polygon line shape from a ScriptVal based Lua table of XY point pairs An example of 2D
+  point like elements in a Lua table would look like this: \{ \{ 0.382075787528567,
+  0.534720150858805 \}, \{ 0.436349336750095, 0.490753326992875 \}, \{ 0.486955559603984,
+  0.440547877640415 \}, \{ 0.531495059415565, 0.386469304121596 \}, \{ 0.568050230127849,
+  0.331244047492371 \}, \{ 0.595285357663032, 0.277804252649087 \}, \{ 0.612508622697929,
+  0.229116724236359 \}, \{ 0.619692622456641, 0.188006456120492 \} \}
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 64
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

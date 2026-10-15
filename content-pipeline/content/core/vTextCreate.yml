@@ -1,0 +1,29 @@
+tool: vTextCreate
+datatype: Text
+function: Create
+legacy_names: []
+curated:
+  tagline: >-
+    Creates a Fusion Text object This is the standard starting point for generating new Text data
+    type based content.
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextCreateArch
+    - name: vTextCreateBrowse
+    - name: vTextCreateMultiline
+    - name: vTextCreateMultilineCode
+  params:
+    Text: The text string to output.
+legacy_text: >-
+  Creates a Fusion Text object This is the standard starting point for generating new Text data type
+  based content.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 19
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

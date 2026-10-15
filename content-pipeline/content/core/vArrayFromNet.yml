@@ -1,0 +1,24 @@
+tool: vArrayFromNet
+datatype: Array
+function: IO
+legacy_names: []
+curated:
+  tagline: Reads JSON from a network URL and outputs a JSON array object.
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vArrayToFile
+  params:
+    Input: URL of the network JSON resource to fetch.
+    View URL: Opens Input's URL in the system's default web browser, for a quick sanity check of the source.
+    ShowInput: Reveals the wire for the Input connection in the Flow view.
+legacy_text: Reads JSON from a network URL and outputs a JSON array object.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 12
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

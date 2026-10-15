@@ -1,0 +1,29 @@
+operation: ScatterInstOnMesh
+tools:
+  Array: vArrayScatterInstOnMesh
+  ScriptVal: vScriptValScatterInstOnMesh
+  JSON: vJSONScatterInstOnMesh
+legacy_names: []
+curated:
+  tagline: Stamp a template on the mesh.
+  overview: Places a template point cloud at each mesh vertex or surface point, oriented to the surface.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    instancescale: Scale of the effect.
+    alignToNormals: Rotates instances to the surface normal.
+    normalBlend: Mix between the world up axis and the normal.
+    yawOffset: Rotation around the normal.
+    yawRandom: Random extra rotation around the normal.
+    scaleRandom: Random variation of the scale.
+    seed: Seed of the random generator.
+    previewdecimate: Outputs fewer points for faster preview.
+    decimatestep: Keeps every Nth point when Preview Decimate is on.
+    maxoutputpoints: Upper limit of output points.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

@@ -1,0 +1,31 @@
+tool: vScriptValFromCSV
+datatype: ScriptVal
+function: Create
+legacy_names: []
+curated:
+  tagline: Creates a ScriptVal Lua table from a CSV row or column
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vScriptValCreate
+    - name: vScriptValFromApp
+    - name: vScriptValFromDate
+    - name: vScriptValFromListFiles
+  params:
+    Mode: 'Which axis of the CSV to extract: Extract Row or Extract Column.'
+    index: 1-based row or column number to extract, matching Array Mode.
+    IgnoreHeaderRow: Skips the first line, so Index 1 refers to the first line of actual data rather than a header.
+    Input: CSV text to parse.
+    DisplayLines: Number of visible lines in the Input text editor before scrolling.
+    WrapLines: Wraps long lines in the Input text editor instead of scrolling horizontally.
+    ShowInput: Reveals the wire for the Input connection in the Flow view.
+legacy_text: Creates a ScriptVal Lua table from a CSV row or column
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 11
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

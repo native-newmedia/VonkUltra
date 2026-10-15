@@ -1,0 +1,32 @@
+tool: vJSONToFile
+datatype: JSON
+function: IO
+legacy_names: []
+curated:
+  tagline: >-
+    Writes a JSON string into a file The "File" text field is used to specify the filename of the
+    JSON document to be written to disk.
+  overview: null
+  description:
+    - >-
+      The JSON file will be saved when the node is viewed/rendered. The contents of the JSON file is
+      sourced from the text based input connection on the node.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vJSONFromFile
+    - name: vJSONFromNet
+  params:
+    Input: JSON text to write out.
+    File: Destination path for the saved JSON file. Written when the node is viewed or rendered.
+legacy_text: >-
+  Writes a JSON string into a file The "File" text field is used to specify the filename of the JSON
+  document to be written to disk. The JSON file will be saved when the node is viewed/rendered. The
+  contents of the JSON file is sourced from the text based input connection on the node.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 54
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

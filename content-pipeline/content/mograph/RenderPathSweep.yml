@@ -1,0 +1,58 @@
+operation: RenderPathSweep
+tools:
+  Array: vArrayRenderPathSweep
+  ScriptVal: vScriptValRenderPathSweep
+  JSON: vJSONRenderPathSweep
+legacy_names: []
+curated:
+  tagline: Sweep a profile along a path and preview it.
+  overview: >-
+    Sweeps a profile along a path with an optional width input, draws a ribbon, tube or wireframe
+    preview onto the image, and outputs the mesh data.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    PreviewMode: Adaptive, Ribbon, Tube, or Wireframe Only.
+    Translate.X: Moves the model along X.
+    Translate.Y: Moves the model along Y.
+    Translate.Z: Moves the model along Z, away from the camera.
+    Rotate.X: Rotation around X in degrees.
+    Rotate.Y: Rotation around Y in degrees.
+    Rotate.Z: Rotation around Z in degrees.
+    RotateAroundCenter: Rotates around the model center.
+    LockXY: Uses one scale value for X and Y.
+    Scale.X: Scale of the model.
+    Scale.Y: Scale along Y. Shown when Lock X/Y is off.
+    Fov: Perspective field of view in degrees.
+    AspectRatio: Aspect ratio used by the projection.
+    ProfilePreset: Auto / External, Ribbon, Square, or Circle.
+    ProfileSides: Sides of the profile preset.
+    CloseProfile: Connects the last profile point to the first.
+    ClosedPath: Connects the last path point to the first.
+    DefaultWidth: Width used when no Width input is connected.
+    ShowFill: Draws the filled surface.
+    ShowWire: Draws the wireframe.
+    ShowPath: Draws the center path.
+    ShowPoints: Draws the path points.
+    WireWidth: Width of the wireframe lines.
+    PathWidth: Width of the center path line.
+    PointRadius: Radius of the path points.
+    FillRed: Color for the fill.
+    FillGreen: Color for the fill.
+    FillBlue: Color for the fill.
+    FillAlpha: Color for the fill.
+    WireRed: Color for the fill.
+    WireGreen: Color for the fill.
+    WireBlue: Color for the fill.
+    WireAlpha: Color for the fill.
+    PathRed: Color for the fill.
+    PathGreen: Color for the fill.
+    PathBlue: Color for the fill.
+    PathAlpha: Color for the fill.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

@@ -1,0 +1,34 @@
+operation: MapGeoJSON
+tools:
+  Array: vArrayMapGeoJSON
+  ScriptVal: vScriptValMapGeoJSON
+  JSON: vJSONMapGeoJSON
+legacy_names: []
+curated:
+  tagline: Map geographic coordinates.
+  overview: Maps GeoJSON coordinates to points with a map center and zoom.
+  description: []
+  features: []
+  connections:
+    - label: Example 1
+      lines:
+        - vJSONFromFile.Output -> vArrayMapGeoJSON.ArrayA
+        - vArrayMapGeoJSON.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - vArrayMapGeoJSON.ScriptVal_Groups -> vArrayShapeRender.ArrayGroups
+        - Background.Output -> vArrayShapeRender.Input
+  difficulty: null
+  related: []
+  params:
+    InMapZoomWidth: Width of the mapped area.
+    InCenterLat: Latitude of the center.
+    InCenterLon: Longitude of the center.
+    InScale: Scale of the result.
+    InOffsetX: Moves the result along X.
+    InOffsetY: Moves the result along Y.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null
+  connections_source: docsify
+legacy_text: Map from geographic coordinates

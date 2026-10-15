@@ -1,0 +1,30 @@
+tool: vNumberAbsolute
+datatype: Number
+function: Operators
+legacy_names: []
+curated:
+  tagline: >-
+    Returns the absolute value of a number This node is handy if you need to remove the negative
+    sign (-) element from a value so you only have the positive component of the number remaining.
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vNumberAdd
+    - name: vNumberCeil
+    - name: vNumberClamp
+    - name: vNumberDivide
+  params:
+    Number: Value to remove the sign from — Output is always ≥ 0.
+    ShowInput: Reveals the wire for the Number connection in the Flow view.
+legacy_text: >-
+  Returns the absolute value of a number This node is handy if you need to remove the negative sign
+  (-) element from a value so you only have the positive component of the number remaining.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 35
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

@@ -1,0 +1,42 @@
+operation: RandomShape
+tools:
+  Array: vArrayRandomShape
+  ScriptVal: vScriptValRandomShape
+  JSON: vJSONRandomShape
+legacy_names: []
+curated:
+  tagline: Generate random shapes or text.
+  overview: >-
+    Generates an array of random shapes, characters, letters or integers and outputs them as
+    ScriptVal shapes. Text items can be set with a font, size, case and justification, and can sit
+    on a rounded box.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    chanceOperation: None, Shapes, Character, Letter, or Integer.
+    shapetype: None, Ticks, Lines, Frames, Symbols, or Others.
+    arrayLength: Number of generated items.
+    seed: Random seed.
+    ShapeScale: Scale of generated shapes.
+    ShapeRotation: Rotation of generated shapes in degrees.
+    fontselect: Use Font.
+    Font: Font family.
+    Style: Font style.
+    Size: Text size.
+    Characterspacing: Extra spacing between characters.
+    Case: NONE, UPPER, or LOWER.
+    Justification: Left, Center, or Right.
+    Hori_adjustment: Horizontal text offset.
+    Ver_adjustment: Vertical text offset.
+    ShowBackground: Draws a box behind each text item.
+    Box_padding: Space between text and box.
+    Box_Ver_adjustment: Vertical box offset.
+    Box_roundCorners: Corner radius of the box.
+    pos_adjustment: Position offset of the items.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

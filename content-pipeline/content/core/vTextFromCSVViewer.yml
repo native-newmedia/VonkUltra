@@ -1,0 +1,34 @@
+tool: vTextFromCSVViewer
+datatype: Text
+function: Utility
+legacy_names: []
+curated:
+  tagline: View a CSV row or column in the Inspector
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextDelay
+    - name: vTextDump
+    - name: vTextExpandEscapedCharacters
+    - name: vTextFromFilename
+  params:
+    Mode: >-
+      How the CSV is read — a single Row or Column by Index, or the whole CSV rendered as a Grid by
+      row or column.
+    index: Row or Column number to extract, used in Extract Row/Extract Column mode.
+    IgnoreHeaderRow: Offsets the first index position to skip a labelled header line.
+    Input: The CSV-formatted block of text to view.
+    ShowDump: Prints diagnostic output to the Console window.
+    ShowInput: Reveals the wire for the Input connection in the Flow view.
+    DisplayLines: Number of lines shown in the Input text box in the Inspector.
+    ScriptVal: Read-only — the extracted row/column/grid data, shown in a ScriptVal viewer.
+legacy_text: View a CSV row or column in the Inspector
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 9
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

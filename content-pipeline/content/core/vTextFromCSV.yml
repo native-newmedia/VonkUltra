@@ -1,0 +1,48 @@
+tool: vTextFromCSV
+datatype: Text
+function: Create
+legacy_names: []
+curated:
+  tagline: >-
+    Creates a Fusion Text object by extracting a single cell from a CSV formatted block of text The
+    "Row" control is used to define the CSV line number to read.
+  overview: null
+  description:
+    - >-
+      The "Column" control is used to increment through each set of comma separated entries on a
+      single line of CSV input data. The "Ignore Header Row" checkbox will offset the first index
+      position to start at line 2 in the CSV file. This will skip over a labelled header row in the
+      source document to avoid that information being accessed as part of the ingested data.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextCreate
+    - name: vTextCreateArch
+    - name: vTextCreateBrowse
+    - name: vTextCreateMultiline
+  params:
+    Row: CSV line number to read.
+    Column: Comma-separated field on that line to return.
+    IgnoreHeaderRow: Offsets Row by 1 so a labelled header line is skipped.
+    Input: The CSV-formatted block of text to read from.
+    DisplayLines: Number of lines shown in the Input text box in the Inspector.
+    WrapLines: Wraps long lines in the Input text box instead of scrolling horizontally.
+    ExpandEscapedCharacters: >-
+      Converts literal `\n`/`\r`/`\t` sequences in the result into real newline/return/tab
+      characters.
+    ShowInput: Reveals the wire for the Input connection in the Flow view.
+    GetHeadingBtn: Renames this node to `csv_<value>`, using the Row/Column cell as the new name.
+legacy_text: >-
+  Creates a Fusion Text object by extracting a single cell from a CSV formatted block of text The
+  "Row" control is used to define the CSV line number to read. The "Column" control is used to
+  increment through each set of comma separated entries on a single line of CSV input data. The
+  "Ignore Header Row" checkbox will offset the first index position to start at line 2 in the CSV
+  file. This will skip over a labelled header row in the source document to avoid that information
+  being accessed as part of the ingested data.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 96
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

@@ -1,0 +1,38 @@
+tool: vTextNormalizeSlashes
+datatype: Text
+function: Utility
+legacy_names: []
+curated:
+  tagline: >-
+    Unifies the slash direction on filepaths The "Slash Direction" multi-button control allows you
+    to choose if you want Windows (\\) or Linux (/) style slashes for your output text.
+  overview: null
+  description:
+    - >-
+      The "Remove Duplicate Slashes" checkbox will replace any occurrence for two adjacent slashes
+      with a single slash. This option is something you might not want to use if UNC file paths are
+      common in filenames used in your pipeline.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextDelay
+    - name: vTextDump
+    - name: vTextExpandEscapedCharacters
+    - name: vTextFromCSVViewer
+  params:
+    Text: The filepath text to normalize.
+    SlashDirection: Output slash style — Windows (`\\`) or Linux (`/`).
+    RemoveDuplicates: Collapses adjacent double slashes into one — avoid this if UNC paths are in use.
+legacy_text: >-
+  Unifies the slash direction on filepaths The "Slash Direction" multi-button control allows you to
+  choose if you want Windows (\\) or Linux (/) style slashes for your output text. The "Remove
+  Duplicate Slashes" checkbox will replace any occurrence for two adjacent slashes with a single
+  slash. This option is something you might not want to use if UNC file paths are common in
+  filenames used in your pipeline.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 68
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

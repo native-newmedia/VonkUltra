@@ -1,0 +1,28 @@
+tool: vArrayDoString
+datatype: Array
+function: Script
+legacy_names: []
+curated:
+  tagline: Return Array text from running a string of Lua code
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Input: Optional JSON array text passed into the Lua script's environment.
+    Header: >-
+      Optional wired-in Lua source prepended to Script before it runs — useful for sharing common
+      helper functions across multiple vArrayDoString nodes.
+    InSource: >-
+      A run/source button — appears to be a non-functional placeholder in this fuse: its execute
+      script (`GetSource`) is referenced but never actually defined in the source.
+    Script: Lua code to execute. Its return value becomes the node's JSON array text output.
+legacy_text: Return Array text from running a string of Lua code
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 10
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

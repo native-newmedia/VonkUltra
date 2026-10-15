@@ -1,0 +1,109 @@
+operation: Wave
+tools:
+  Array: vArrayWave
+  ScriptVal: vScriptValWave
+  JSON: vJSONWave
+legacy_names: []
+curated:
+  tagline: >-
+    Apply a ripple wave to every point in a vArray over time — the animation engine for oscillating,
+    pulsing, and travelling wave effects.
+  overview: >-
+    vArrayWave applies a time-based sinusoidal oscillation to the XYZ positions of a vArray. Point
+    Delay staggers the wave across elements to produce ripple propagation, and Falloff controls how
+    the wave decays with distance from the wave origin.
+  description:
+    - >-
+      vArrayWave is the primary animation modifier in the vArray toolkit. It reads the current frame
+      number, calculates a sine wave at each point's position, and displaces the array values
+      accordingly. The result is a continuous, physically convincing oscillation that travels
+      through the point cloud over time without any keyframing.
+    - >-
+      Period controls the wavelength — higher values slow the wave frequency. Strength scales the
+      displacement amplitude. Point Delay staggers the phase of each element sequentially, which is
+      what creates the travelling ripple effect: without it, all points oscillate in sync. Falloff
+      shapes how the wave energy decays with distance from the X/Y/Z position parameters, enabling
+      ripples that emanate from a specific origin point.
+    - >-
+      START AT FRAME sets the frame number at which the wave begins animating, useful for
+      synchronising wave onset to a cut point or transition. Limit checkbox clamps the displacement
+      to prevent points from leaving a defined region. Reverse inverts the direction of wave
+      propagation. Connect vArrayWave between any generator and vArrayCameraProjection — it is a
+      pure modifier and works with any vArray regardless of how the points were created.
+    - >-
+      For maximum expressiveness, animate the X/Y/Z Position parameters to move the wave origin
+      through the point cloud over time, or combine multiple vArrayWave nodes in series for complex
+      interference patterns. Pair with vArrayBuffer to leave time-offset trails behind each
+      oscillating point.
+  features:
+    - title: Travelling Ripple Effect
+      desc: >-
+        Point Delay staggers the wave phase across elements to create a propagating ripple rather
+        than a synchronised pulse.
+    - title: Origin-Based Falloff
+      desc: >-
+        X/Y/Z Position sets the wave origin point; Falloff controls how energy decays with distance
+        from that origin.
+    - title: Fully Automatic Animation
+      desc: >-
+        Wave animates from the current frame number — no keyframes needed. START AT FRAME
+        synchronises onset to any cut point.
+    - title: Reverse and Limit
+      desc: >-
+        Reverse flips propagation direction; Limit clamps displacement to keep points within a
+        defined boundary.
+  connections:
+    - label: Ripple on a grid
+      lines:
+        - vArrayPointsOnGrid.Output -> vArrayWave.ArrayA
+        - vArrayWave.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Wave with trails
+      lines:
+        - vArrayPointsOnCircle.Output -> vArrayWave.ArrayA
+        - vArrayWave.Output -> vArrayBuffer.Input
+        - vArrayBuffer.Output -> vArrayShapeRender.ArrayPoint
+  difficulty: Intermediate
+  related:
+    - name: vArrayBuffer
+      desc: >-
+        Record wave-displaced positions over time to create motion trails behind each oscillating
+        point.
+    - name: vArrayDisplaceValues
+      desc: Add noise displacement on top of wave oscillation for more organic motion.
+    - name: vArrayRotateValues
+      desc: >-
+        Pair with vArrayWave to shift element phase before applying the wave for directional
+        effects.
+  params:
+    Wave: >-
+      Internal wave computation output — not directly user-editable. Driven by the current frame and
+      all other wave parameters.
+    DelayTime: >-
+      Frame number at which the wave animation begins. Set to a non-zero value to delay the wave
+      onset, useful for synchronising to cuts or transitions.
+    Period: 'Wave period — effectively the wavelength. Lower values = faster oscillation. Range: 0–50.'
+    Strength: 'Displacement amplitude. Higher values produce larger oscillations. Range: 0–10.'
+    Limit: >-
+      When enabled, clamps the wave displacement to prevent points from exceeding a defined boundary
+      region.
+    Reverse: Inverts the direction of wave propagation across the array.
+    Falloff: >-
+      Rate at which wave energy decays with distance from the origin point. Lower values produce a
+      tighter falloff zone. Range: 0.001–1.0.
+    PointDelay: >-
+      Phase offset applied sequentially to each element. Non-zero values create the travelling
+      ripple effect by staggering the wave phase per point.
+    XPosition: >-
+      X coordinate of the wave origin. Animate to move the wave source horizontally through the
+      point cloud.
+    YPosition: Y coordinate of the wave origin. Animate to move the wave source vertically.
+    ZPosition: Z coordinate of the wave origin. Move wave source in depth for 3D ripple effects.
+    ArrayA: The input vArray whose XYZ positions will be oscillated by the wave.
+    inRepeat: Number of cycles when Limit is on. Shown when the related option is enabled.
+status:
+  source: rich-json
+  state: imported
+  reviewed_hash: null
+legacy_text: 'Animates an array Wave options include: - Line - Saw - Tri - Square - Sine - Noise'

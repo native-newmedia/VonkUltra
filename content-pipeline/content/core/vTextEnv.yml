@@ -1,0 +1,42 @@
+tool: vTextEnv
+datatype: Text
+function: Create
+legacy_names: []
+curated:
+  tagline: >-
+    Creates an environment variable based Fusion Text object This node will read an environment
+    variable and return the result as a string.
+  overview: null
+  description:
+    - >-
+      This is useful if you need to access a value like a SITE, SHOW, or SHOT env variable inside
+      your composite. The "Text" field is used to enter the environment variable name like "PATH",
+      "HOME", "USER", etc... If you need to troubleshoot the active environment variables on your
+      Windows system using the Command Prompt you can type in "set". In the macOS/Linux terminal
+      program you can type in "env \| sort" to see an alphabetically sorted list of the active
+      environment variables.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextCreate
+    - name: vTextCreateArch
+    - name: vTextCreateBrowse
+    - name: vTextCreateMultiline
+  params:
+    Text: Name of the environment variable to read (e.g. `PATH`, `HOME`, `USER`).
+    ShowInput: Reveals the wire for the Text connection in the Flow view.
+legacy_text: >-
+  Creates an environment variable based Fusion Text object This node will read an environment
+  variable and return the result as a string. This is useful if you need to access a value like a
+  SITE, SHOW, or SHOT env variable inside your composite. The "Text" field is used to enter the
+  environment variable name like "PATH", "HOME", "USER", etc... If you need to troubleshoot the
+  active environment variables on your Windows system using the Command Prompt you can type in
+  "set". In the macOS/Linux terminal program you can type in "env \| sort" to see an alphabetically
+  sorted list of the active environment variables.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 104
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

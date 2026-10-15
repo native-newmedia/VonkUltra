@@ -1,0 +1,23 @@
+tool: vNumberFromVector
+datatype: Number
+function: Vector
+legacy_names: []
+curated:
+  tagline: Returns a number from a vector
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Vector: The Vector to read a component from, as JSON text.
+    Column: Vector component index to return (1 = X, 2 = Y, 3 = Z).
+    ShowInput: Reveals the wire for the Vector connection in the Flow view.
+legacy_text: Returns a number from a vector
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 6
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

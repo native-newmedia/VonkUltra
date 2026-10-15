@@ -1,0 +1,44 @@
+tool: vJSONGet
+datatype: JSON
+function: Key Value
+legacy_names: []
+curated:
+  tagline: >-
+    Gets the value of a JSON key The "Key" text-field is used to select and isolate a specific entry
+    from a JSON file.
+  overview: null
+  description:
+    - >-
+      The output from the vJSONGet node is a text based data type. You can stack several vJSONGet
+      nodes in a row to browse upwards in the hierarchy of a nested JSON structure. It is possible
+      to translate this text based output from this node into numerical values via the
+      vNumberFromText node. This is a useful step if you want to perform math operations downstream
+      of this node, or if you need to connect a numerical value to an Inspector based attribute on
+      another node.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vJSONGetElement
+    - name: vJSONSet
+  params:
+    Input: JSON text to query.
+    Key: >-
+      The JSON key to look up. Stack several vJSONGet nodes to browse deeper into a nested
+      structure.
+    ShowInput: Reveals the wire for the Input connection in the Flow view.
+    GetKeyBtn: Renames this node to `json_<Key>`, making it easy to identify which key it reads at a glance.
+legacy_text: >-
+  Gets the value of a JSON key The "Key" text-field is used to select and isolate a specific entry
+  from a JSON file. The output from the vJSONGet node is a text based data type. You can stack
+  several vJSONGet nodes in a row to browse upwards in the hierarchy of a nested JSON structure. It
+  is possible to translate this text based output from this node into numerical values via the
+  vNumberFromText node. This is a useful step if you want to perform math operations downstream of
+  this node, or if you need to connect a numerical value to an Inspector based attribute on another
+  node.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 107
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

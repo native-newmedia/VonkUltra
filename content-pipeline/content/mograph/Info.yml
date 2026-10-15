@@ -1,0 +1,27 @@
+operation: Info
+tools:
+  Array: vArrayInfo
+  ScriptVal: vScriptValInfo
+  JSON: vJSONInfo
+legacy_names: []
+curated:
+  tagline: Report length, minimum and maximum of an array.
+  overview: >-
+    Passes the array through and adds three number outputs: its length, and the minimum and maximum.
+    For arrays of points, minimum and maximum are taken from the X values.
+  description: []
+  features: []
+  connections:
+    - label: Example 1
+      lines:
+        - vArrayPointsOnCube.Output -> vArrayUnPacker.ArrayB
+        - vArrayUnPacker.OutputArray -> vArrayInfo.ArrayA
+  difficulty: null
+  related: []
+  params: {}
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null
+  connections_source: docsify
+legacy_text: Returns info of an array

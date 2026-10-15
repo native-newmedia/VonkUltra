@@ -1,0 +1,29 @@
+tool: vScriptValToText
+datatype: ScriptVal
+function: Text
+legacy_names: []
+curated:
+  tagline: >-
+    Convert a Fusion ScriptVal object into Text The Text based multi-line output from this node can
+    be displayed in the Inspector view with the vTextViewer node.
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vScriptValFromText
+  params:
+    ScriptVal: >-
+      ScriptVal value to convert to multi-line Text — pair with a vTextViewer downstream to inspect
+      it in the Inspector.
+    ShowInput: Reveals the wire for the ScriptVal connection in the Flow view.
+legacy_text: >-
+  Convert a Fusion ScriptVal object into Text The Text based multi-line output from this node can be
+  displayed in the Inspector view with the vTextViewer node.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 26
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

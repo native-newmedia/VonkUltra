@@ -1,0 +1,27 @@
+operation: TemporalDelta
+tools:
+  Array: vArrayTemporalDelta
+  ScriptVal: vScriptValTemporalDelta
+  JSON: vJSONTemporalDelta
+legacy_names: []
+curated:
+  tagline: Per-element change between the current and an earlier frame.
+  overview: >-
+    Compares each element with the same element from an earlier frame and outputs the difference as
+    XYZ points. Output Mode can return the change alone or the current position plus the change.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    FrameStep: Frames back to compare with.
+    OutputMode: Delta, or Position + Delta.
+    FallbackCurrent: Uses the current frame when no earlier frame exists, so the first change is zero.
+    OffsetX: Added to every output point.
+    OffsetY: Added to every output point.
+    OffsetZ: Added to every output point.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

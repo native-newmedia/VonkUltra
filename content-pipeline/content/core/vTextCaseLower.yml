@@ -1,0 +1,30 @@
+tool: vTextCaseLower
+datatype: Text
+function: Case
+legacy_names: []
+curated:
+  tagline: >-
+    Converts the case of a Fusion Text object to lower A Text based input of "Hello World!" would be
+    converted to "hello world!".
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextCaseAlternate
+    - name: vTextCaseInvert
+    - name: vTextCaseRandom
+    - name: vTextCaseSentence
+  params:
+    Text: Text to convert to all lowercase.
+    ShowInput: Reveals the wire for the Text connection in the Flow view.
+legacy_text: >-
+  Converts the case of a Fusion Text object to lower A Text based input of "Hello World!" would be
+  converted to "hello world!".
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 23
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

@@ -1,0 +1,25 @@
+tool: vMetadataToComp
+datatype: Meta
+function: Comp
+legacy_names: []
+curated:
+  tagline: Creates a Fusion comp from image metadata
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vMetadataFromComp
+  params:
+    Input: Image whose metadata is written out as a comp file.
+    File: Destination path for the generated `.comp` file.
+    ShowInput: Reveals the wire for the Input connection in the Flow view.
+    ShowDump: Prints the generated comp content to the console.
+legacy_text: Creates a Fusion comp from image metadata
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 7
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

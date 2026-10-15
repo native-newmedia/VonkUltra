@@ -1,0 +1,36 @@
+operation: ReducePoints
+tools:
+  Array: vArrayReducePoints
+  ScriptVal: vScriptValReducePoints
+  JSON: vJSONReducePoints
+legacy_names: []
+curated:
+  tagline: Reduce the number of points in an array.
+  overview: >-
+    Thins a point array with one of three methods: a grid, random sampling, or a grid followed by a
+    curvature pass. Controls that do not apply to the chosen method are hidden.
+  description: []
+  features: []
+  connections:
+    - label: Example 1
+      lines:
+        - vArrayPointsOnSphere.Output -> vArrayReducePoints.ArrayA
+        - vArrayReducePoints.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+  difficulty: null
+  related: []
+  params:
+    DecimationMethod: Grid-Based, Random Sampling, or Curvature-Based (slow).
+    GridSize: Cell size of the grid. Shown for Grid-Based and Curvature-Based.
+    targetCount: Number of points kept. Shown for Random Sampling and Curvature-Based.
+    neighborhoodSize: Search radius for the curvature pass. Shown for Curvature-Based.
+    ShowInput: Shows the three parameter input socket on the node.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null
+  connections_source: docsify
+legacy_text: >-
+  Reduce points Operations on an Array Decimation Method options include: - Grid-Based - Random
+  Sampling - Curvature-Based (SLOW)

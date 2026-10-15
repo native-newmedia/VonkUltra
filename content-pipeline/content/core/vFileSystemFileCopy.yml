@@ -1,0 +1,36 @@
+tool: vFileSystemFileCopy
+datatype: FileSystem
+function: General
+legacy_names: []
+curated:
+  tagline: >-
+    Copies a file This node allows you to define a "Source File" that will be copied to the
+    disk-based filepath defined in the "Destination File" field.
+  overview: null
+  description:
+    - >-
+      The "Create Destination Directory" checkbox is useful if you need to dynamically create the
+      output folder at the same time.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vFileSystemChmod
+    - name: vFileSystemColorTags
+    - name: vFileSystemCreateDir
+    - name: vFileSystemDirExists
+  params:
+    Source: Path to the file to copy.
+    Destination: Path to copy the file to.
+    CreateDirectory: Creates the destination folder automatically if it doesn't already exist.
+    ShowInput: Reveals the wire for the Source File connection in the Flow view.
+legacy_text: >-
+  Copies a file This node allows you to define a "Source File" that will be copied to the disk-based
+  filepath defined in the "Destination File" field. The "Create Destination Directory" checkbox is
+  useful if you need to dynamically create the output folder at the same time.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 46
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

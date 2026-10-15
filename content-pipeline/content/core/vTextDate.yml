@@ -1,0 +1,36 @@
+tool: vTextDate
+datatype: Text
+function: Create
+legacy_names: []
+curated:
+  tagline: >-
+    Creates a date and time based Fusion Text object The "Text" field is used to enter the string
+    formatting pattern used to generate a date based output.
+  overview: null
+  description:
+    - >-
+      The default value is "`%Y-%m-%d`" which creates a result like "2022-05-24". The Lua
+      documentation on the [Date function](https://www.lua.org/pil/22.1.html) provides more details
+      about the supported values you can enter into the Text field in this node.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextCreate
+    - name: vTextCreateArch
+    - name: vTextCreateBrowse
+    - name: vTextCreateMultiline
+  params:
+    Text: Date/time format pattern (Lua `os.date` syntax), e.g. `%Y-%m-%d` → "2022-05-24".
+legacy_text: >-
+  Creates a date and time based Fusion Text object The "Text" field is used to enter the string
+  formatting pattern used to generate a date based output. The default value is "`%Y-%m-%d`" which
+  creates a result like "2022-05-24". The Lua documentation on the [Date
+  function](https://www.lua.org/pil/22.1.html) provides more details about the supported values you
+  can enter into the Text field in this node.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 62
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

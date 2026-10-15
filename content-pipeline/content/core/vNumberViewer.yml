@@ -1,0 +1,23 @@
+tool: vNumberViewer
+datatype: Number
+function: Utility
+legacy_names: []
+curated:
+  tagline: View the Fusion number object in the Inspector
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vNumberDelay
+    - name: vNumberEndPID
+  params:
+    Number1: The connected number value, shown read-only in the Inspector.
+legacy_text: View the Fusion number object in the Inspector
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 8
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

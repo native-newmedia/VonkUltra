@@ -1,0 +1,27 @@
+operation: AttractorPoints
+tools:
+  Array: vArrayAttractorPoints
+  ScriptVal: vScriptValAttractorPoints
+  JSON: vJSONAttractorPoints
+legacy_names: []
+curated:
+  tagline: Generate a point path from a strange attractor.
+  overview: Integrates a Lorenz or Rossler system and outputs the path as points.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    system: Lorenz or Rossler attractor.
+    pointcount: Number of points.
+    warmup: Steps skipped before the points are recorded.
+    stepsize: Time step of the integration.
+    scale: Scale of the result.
+    parama: First attractor parameter.
+    paramb: Second attractor parameter.
+    paramc: Third attractor parameter.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

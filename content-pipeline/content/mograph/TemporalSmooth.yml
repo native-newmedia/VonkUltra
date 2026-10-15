@@ -1,0 +1,22 @@
+operation: TemporalSmooth
+tools:
+  Array: vArrayTemporalSmooth
+  ScriptVal: vScriptValTemporalSmooth
+  JSON: vJSONTemporalSmooth
+legacy_names: []
+curated:
+  tagline: Smooth values over time using the previous frame.
+  overview: Blends each value with the same value from an earlier frame to reduce jitter.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    SmoothFactor: Weight of the current frame. 1 passes it through, 0 repeats the earlier frame.
+    FrameStep: Frames back to blend with.
+    FallbackCurrent: Uses the current frame when no earlier frame exists.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

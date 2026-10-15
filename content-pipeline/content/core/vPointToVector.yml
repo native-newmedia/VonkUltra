@@ -1,0 +1,23 @@
+tool: vPointToVector
+datatype: Vector
+function: Point
+legacy_names: []
+curated:
+  tagline: Creates a vector from a point
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vVectorFromPoint
+    - name: vVectorToPoint
+  params:
+    Point: Point to convert — Output is a Vector holding the point's X/Y/Z coordinates.
+legacy_text: Creates a vector from a point
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 6
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

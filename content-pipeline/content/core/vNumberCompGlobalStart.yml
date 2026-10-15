@@ -1,0 +1,28 @@
+tool: vNumberCompGlobalStart
+datatype: Number
+function: Comp
+legacy_names: []
+curated:
+  tagline: Returns the comp's Global Start This is the first frame of the full Fusion timeline range.
+  overview: null
+  description:
+    - This number is not always set to the same range as the render start timeline control.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vNumberCompCurrentTime
+    - name: vNumberCompFPS
+    - name: vNumberCompFrameFormat
+    - name: vNumberCompGlobalEnd
+  params:
+    GlobalStartTime: Read-only — the first frame of the full Fusion timeline range.
+legacy_text: >-
+  Returns the comp's Global Start This is the first frame of the full Fusion timeline range. This
+  number is not always set to the same range as the render start timeline control.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 32
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

@@ -1,0 +1,24 @@
+tool: vMatrixFromArray
+datatype: Matrix
+function: Array
+legacy_names: []
+curated:
+  tagline: Creates a matrix from an array
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Array: JSON-encoded flat array of numbers to reshape into a matrix.
+    Rows: Number of rows in the resulting matrix. Default 4 matches a 4×4 transform matrix.
+    Columns: Number of columns in the resulting matrix. Default 4 matches a 4×4 transform matrix.
+    ShowInput: Reveals the wire for the Array connection in the Flow view.
+legacy_text: Creates a matrix from an array
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 6
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

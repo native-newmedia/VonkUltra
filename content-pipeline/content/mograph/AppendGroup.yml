@@ -1,0 +1,23 @@
+operation: AppendGroup
+tools:
+  Array: vArrayAppendGroup
+  ScriptVal: vScriptValAppendGroup
+  JSON: vJSONAppendGroup
+legacy_names: []
+curated:
+  tagline: Append several arrays into one array.
+  overview: >-
+    Joins the arrays of all connected inputs in order into one output array. A new input appears
+    each time the last one is connected, up to 64.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    ShowInput: Shows the array input socket on the node.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null
+legacy_text: Append Array Groups to an array

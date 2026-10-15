@@ -1,0 +1,21 @@
+operation: LogicAny
+tools:
+  Array: vArrayLogicAny
+  ScriptVal: vScriptValLogicAny
+  JSON: vJSONLogicAny
+legacy_names: []
+curated:
+  tagline: Test whether any element is set.
+  overview: >-
+    Outputs a one-element array: 1 if any element is above 0, else 0. The Passthrough output carries
+    the input when the result is 1 and an empty array otherwise.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params: {}
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

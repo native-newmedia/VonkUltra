@@ -1,0 +1,19 @@
+operation: LogicNOT
+tools:
+  Array: vArrayLogicNOT
+  ScriptVal: vScriptValLogicNOT
+  JSON: vJSONLogicNOT
+legacy_names: []
+curated:
+  tagline: Invert a mask.
+  overview: Outputs 0 where the input value is above 0 and 1 elsewhere.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params: {}
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

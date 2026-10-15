@@ -1,0 +1,23 @@
+operation: Lemniscate
+tools:
+  Array: vArrayLemniscate
+  ScriptVal: vScriptValLemniscate
+  JSON: vJSONLemniscate
+legacy_names: []
+curated:
+  tagline: Generate points on a lemniscate.
+  overview: Outputs points of a figure eight curve.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    amplitude: Size of the curve.
+    samplecount: Number of sampled points.
+    rotation: Rotation in degrees.
+    scale: Scale of the result.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

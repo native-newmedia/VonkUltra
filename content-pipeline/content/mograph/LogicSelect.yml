@@ -1,0 +1,21 @@
+operation: LogicSelect
+tools:
+  Array: vArrayLogicSelect
+  ScriptVal: vScriptValLogicSelect
+  JSON: vJSONLogicSelect
+legacy_names: []
+curated:
+  tagline: Pick points from A or B with a mask.
+  overview: >-
+    For every index, takes the point from Array A where the mask is above 0 and from Array B
+    otherwise. Values are returned as X, Y, Z points.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params: {}
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

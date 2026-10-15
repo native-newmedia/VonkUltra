@@ -1,0 +1,31 @@
+tool: vPointMultiply
+datatype: Point
+function: Operators
+legacy_names: []
+curated:
+  tagline: >-
+    Returns the product of two Fusion Point objects This node can be used to apply a scale
+    enlargement effect to the origin of the 1st point by the 2nd point's displacement distance.
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vPointAbsolute
+    - name: vPointAdd
+    - name: vPointClamp
+    - name: vPointDivide
+  params:
+    Point1: First point operand.
+    Point2: Second point operand — multiplied against Point1 component-wise.
+    ShowInput: Reveals the wires for the Point1/Point2 connections in the Flow view.
+legacy_text: >-
+  Returns the product of two Fusion Point objects This node can be used to apply a scale enlargement
+  effect to the origin of the 1st point by the 2nd point's displacement distance.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 32
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

@@ -1,0 +1,42 @@
+tool: vTextExecute
+datatype: Text
+function: Script
+legacy_names: []
+curated:
+  tagline: >-
+    Executes code sourced from a Fusion Text object The "Script Language" control is used to define
+    if you want to use Lua or Python code in the text input field.
+  overview: null
+  description:
+    - >-
+      This code is executed asynchronously by the Fusion API function "`self.Comp:Execute()`". In
+      the code block you can return a value from the executed script to the node graph with the
+      function "`OutText()`". An example of that would be '`OutText("Hello World")`'. The output
+      from the vTextExcute node is a text based filepath that holds any results you might have
+      written to disk using the function "OutText()".
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextDoAction
+    - name: vTextDoString
+    - name: vTextProcessOpen
+    - name: vTextRunScript
+  params:
+    ScriptLanguage: Language the Input code is written in — Lua, Python, Python 2, or Python 3.
+    Input: The script code to run — call `OutText("...")` to return a value to the node graph.
+    DisplayLines: Number of lines shown in the Input text box in the Inspector.
+    WrapLines: Wraps long lines in the Input text box instead of scrolling horizontally.
+legacy_text: >-
+  Executes code sourced from a Fusion Text object The "Script Language" control is used to define if
+  you want to use Lua or Python code in the text input field. This code is executed asynchronously
+  by the Fusion API function "`self.Comp:Execute()`". In the code block you can return a value from
+  the executed script to the node graph with the function "`OutText()`". An example of that would be
+  '`OutText("Hello World")`'. The output from the vTextExcute node is a text based filepath that
+  holds any results you might have written to disk using the function "OutText()".
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 95
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

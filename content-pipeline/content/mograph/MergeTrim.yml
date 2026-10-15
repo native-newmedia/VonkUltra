@@ -1,0 +1,82 @@
+operation: MergeTrim
+tools:
+  Array: vArrayMergeTrim
+  ScriptVal: vScriptValMergeTrim
+  JSON: vJSONMergeTrim
+legacy_names:
+  - vArrayMerge
+curated:
+  tagline: >-
+    Concatenate two or more vArrays into a single output — the essential combiner for multi-source
+    point cloud compositions.
+  overview: >-
+    vArrayMerge joins multiple vArrays end-to-end into one combined array. Use it to assemble point
+    clouds from different generators — grid, circle, sphere, OBJ — into a single array for a unified
+    render pass.
+  description:
+    - >-
+      vArrayMerge is the array concatenation node. It takes two or more vArray inputs and appends
+      them sequentially into a single output array. This is the standard method for combining point
+      clouds from different generators — such as a vArrayPointsOnGrid and a vArrayPointsOnSphere —
+      into one unified dataset that flows into a single vArrayShapeRender node.
+    - >-
+      The Which parameter controls how many inputs are active, and Array Structure Mode determines
+      whether arrays are merged by interleaving values or simple concatenation. Use simple
+      concatenation (mode 0) when combining point clouds from separate generators. Interleaved mode
+      is useful when merging parallel per-element data streams that should stay in sync.
+    - >-
+      A typical compositional workflow stacks multiple generators, each offset with vArrayTranslate,
+      then merges them all into a single array before the projection and render steps. This keeps
+      the node graph clean and ensures vArrayShapeRender only needs a single connection, making
+      parameter changes easier to manage at scale.
+  features:
+    - title: Multi-Source Combining
+      desc: >-
+        Combine point clouds from any number of generators — grids, circles, spheres, OBJ imports —
+        into a single pipeline-ready array.
+    - title: Array Structure Modes
+      desc: >-
+        Simple concatenation or interleaved merge — choose the structure that matches how downstream
+        nodes expect the data.
+    - title: Expandable Inputs
+      desc: >-
+        Which parameter scales the number of active inputs, keeping the node compact when combining
+        just two arrays or expanding for complex multi-source compositions.
+    - title: Zero-Cost Utility
+      desc: >-
+        Pure data operation with no rendering overhead — merging happens at the Lua table level
+        before any projection or drawing occurs.
+  connections:
+    - label: Merge grid and circle into one render
+      lines:
+        - vArrayPointsOnGrid.Output -> vArrayTranslate.ArrayA
+        - vArrayTranslate.Output -> vArrayMerge.Array1
+        - vArrayPointsOnCircle.Output -> vArrayMerge.Array2
+        - vArrayMerge.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+    - label: Combine OBJ and sphere
+      lines:
+        - vArrayFromOBJ.Points -> vArrayMerge.Array1
+        - vArrayPointsOnSphere.Output -> vArrayMerge.Array2
+        - vArrayMerge.Output -> vArrayCameraProjection.ArrayA
+  difficulty: Beginner
+  related:
+    - name: vArrayTranslate
+      desc: Offset each source array to a different position before merging.
+    - name: vArraySlicer
+      desc: The inverse operation — split a merged array back into segments.
+    - name: vArrayAppend
+      desc: Append a single element to an array — lighter-weight alternative when adding only one value.
+  params:
+    Which: >-
+      Sets the number of active array inputs to merge. Start at 1 and increase as you add more
+      source arrays.
+    Array1: First vArray input. Additional inputs (Array2, Array3 etc.) appear as Which increases.
+    TrimStart: Entries removed from the start.
+    TrimEnd: Entries removed from the end.
+    EveryNth: Keeps one entry out of every N.
+    Reverse: Reverses the order of the result.
+status:
+  source: rich-json
+  state: imported
+  reviewed_hash: null

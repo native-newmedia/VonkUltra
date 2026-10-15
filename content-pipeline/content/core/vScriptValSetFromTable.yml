@@ -1,0 +1,28 @@
+tool: vScriptValSetFromTable
+datatype: ScriptVal
+function: Key Value
+legacy_names: []
+curated:
+  tagline: Sets the value of a ScriptVal key from a ScriptVal Table object
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vScriptValGetElementToNumber
+    - name: vScriptValGetElementToTable
+    - name: vScriptValGetElementToText
+    - name: vScriptValGetElementXYZToNumber
+  params:
+    ScriptVal: ScriptVal object to modify.
+    Key: Name of the key to insert or update.
+    Value: ScriptVal (table) value to store under Key.
+    ShowInput: Reveals the wire for the ScriptVal connection in the Flow view.
+legacy_text: Sets the value of a ScriptVal key from a ScriptVal Table object
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 12
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

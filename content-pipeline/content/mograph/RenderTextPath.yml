@@ -1,0 +1,48 @@
+operation: RenderTextPath
+tools:
+  Array: vArrayRenderTextPath
+  ScriptVal: vScriptValRenderTextPath
+  JSON: vJSONRenderTextPath
+legacy_names: []
+curated:
+  tagline: Place text along a path.
+  overview: >-
+    Places text on a path given as XY points. The text comes from the input or from a random
+    generator. Outputs the image and the text data.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    offsettext: Moves the text along the path.
+    offsetypos: Moves the text across the path.
+    pathWidth: Width of the path line.
+    showpath: Draws the path.
+    textmode: Input text or Generate random text.
+    chanceOperation: Random text generator. Shown when Text Mode is Generate.
+    arrayLength: Number of generated items. Shown when Text Mode is Generate.
+    seed: Random seed. Shown when Text Mode is Generate.
+    StyledText: Text to place on the path. Shown when Text Mode is Input.
+    Font: Font family.
+    Style: Font style.
+    Size: Text size.
+    Characterspacing: Extra spacing between characters.
+    Case: NONE, UPPER, or LOWER.
+    Justification: Left, Center, or Right.
+    ShowBackground: Draws a box behind each text item.
+    Box_padding: Space between text and box. Shown with Show Box Background.
+    Box_Ver_adjustment: Vertical box offset. Shown with Show Box Background.
+    Box_roundCorners: Corner radius of the box. Shown with Show Box Background.
+    Red: Color for the text.
+    Green: Color for the text.
+    Blue: Color for the text.
+    Alpha: Color for the text.
+    Red_line: Color for the text.
+    Green_line: Color for the text.
+    Blue_line: Color for the text.
+    Alpha_line: Color for the text.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

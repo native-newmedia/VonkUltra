@@ -1,0 +1,34 @@
+tool: vNumberResolvePID
+datatype: Number
+function: Resolve
+legacy_names: []
+curated:
+  tagline: >-
+    Returns the Resolve/Fusion PID (Process ID) A PID value is an integer style number that is used
+    by the operating system to track a running executable.
+  overview: null
+  description:
+    - >-
+      Often PID values are the identifier used to tell an external program to gracefully quit. A PID
+      number can also be used by the "renice" terminal utility to help balance the compute load on a
+      system by scaling back the resource hogging level of a single dominant program that is
+      reducing the overall interactivity of the host computer.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vNumberResolveTimelineFPS
+  params: {}
+legacy_text: >-
+  Returns the Resolve/Fusion PID (Process ID) A PID value is an integer style number that is used by
+  the operating system to track a running executable. Often PID values are the identifier used to
+  tell an external program to gracefully quit. A PID number can also be used by the "renice"
+  terminal utility to help balance the compute load on a system by scaling back the resource hogging
+  level of a single dominant program that is reducing the overall interactivity of the host
+  computer.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 84
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

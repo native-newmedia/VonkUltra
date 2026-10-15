@@ -1,0 +1,60 @@
+operation: GenerateText
+tools:
+  Array: vArrayGenerateText
+  ScriptVal: vScriptValGenerateText
+  JSON: vJSONGenerateText
+legacy_names: []
+curated:
+  tagline: Generate random text and strings.
+  overview: Outputs generated or picked text such as words, names or numbers, with a seed.
+  description: []
+  features: []
+  connections:
+    - label: Example 1
+      lines:
+        - vArrayGenerateText.Output -> vArrayTextWrap.Array
+        - vArrayTextWrap.Text -> vTextViewer.Input
+    - label: Example 2
+      lines:
+        - vArrayGenerateText.Output -> vArrayViewer.Text
+    - label: Example 3
+      lines:
+        - vArrayGenerateText.Output -> vArrayViewer.Text
+    - label: Example 4
+      lines:
+        - vArrayGenerateText.OutputValData -> vArrayViewer.Text
+    - label: Example 5
+      lines:
+        - vArrayGenerateText.OutputValData -> vArrayViewer.Text
+  difficulty: null
+  related: []
+  params:
+    chanceOperation: Type of text generated.
+    arrayLength: Number of values.
+    seed: Seed of the random generator.
+    selectMode: >-
+      Splits the generated text into characters, words, sentences or paragraphs. Options: none,
+      Characters, Words, Sentences, Paragraphs.
+    CharacterCount: Number of characters.
+    WordCount: Number of words.
+    sentenceCount: Number of sentences.
+    paragraphCount: Number of paragraphs.
+    Case: 'ORIGINAL, UPPER or LOWER. Options: NONE, UPPER, LOWER.'
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null
+  connections_source: docsify
+legacy_text: >-
+  Example, generating random Text and Strings The following Generate Random options are available: -
+  Pick from → input Array - Lorem ipsum Basics: - Bool - Character - Word - Letter - Vowel Names: -
+  Name - Male name - Male name w/last - Name w/last - Female name - Female name w/last Numbers: -
+  Hash - Integer - Integer w/min - Integer w/both Color: - rgb - rgba - hsl - hsla Tech: - ip - ipv4
+  - ipv6 Location: - Phone - Address - Street Strings: - String - Syllable - Shuffle Lorem ipsum
+  Node Connections: vArrayGenerateText.chanceOperation = "Lorem ipsum" vArrayGenerateText.selectMode
+  = "Paragraph" vArrayGenerateText.paragraphCount = 8 Name Node Connections:
+  vArrayGenerateText.chanceOperation = "Name" vArrayGenerateText.arrayLength = 1 Female name with
+  last name Node Connections: vArrayGenerateText.chanceOperation = "Female name w/last"
+  vArrayGenerateText.arrayLength = 1 RGB Color Node Connections: vArrayGenerateText.chanceOperation
+  = "rgb" vArrayGenerateText.arrayLength = 12 IPv4 Node Connections:
+  vArrayGenerateText.chanceOperation = "ipv4" vArrayGenerateText.arrayLength = 1

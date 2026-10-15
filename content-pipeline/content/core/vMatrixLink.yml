@@ -1,0 +1,26 @@
+tool: vMatrixLink
+datatype: Matrix
+function: Flow
+legacy_names: []
+curated:
+  tagline: Links to a matrix This allows you to access a matrix that is stored using image metadata.
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vMatrixSwitch
+    - name: vMatrixWireless
+  params:
+    Input: Image carrying the matrix data in its metadata.
+    MetadataKey: Metadata field name the matrix values are stored under.
+    Rows: Number of rows to reshape the metadata array into.
+    Columns: Number of columns to reshape the metadata array into.
+legacy_text: Links to a matrix This allows you to access a matrix that is stored using image metadata.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 17
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

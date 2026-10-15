@@ -1,0 +1,23 @@
+tool: vGradientToImage
+datatype: Gradient
+function: Image
+legacy_names: []
+curated:
+  tagline: Create an image from a Fusion Gradient object
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Gradient: Gradient to render, stretched horizontally across the output image.
+    Width: Width of the generated image, in pixels.
+    Height: Height of the generated image, in pixels.
+legacy_text: Create an image from a Fusion Gradient object
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 8
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

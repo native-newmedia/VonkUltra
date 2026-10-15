@@ -1,0 +1,31 @@
+operation: AlignToMesh
+tools:
+  Array: vArrayAlignToMesh
+  ScriptVal: vScriptValAlignToMesh
+  JSON: vJSONAlignToMesh
+legacy_names: []
+curated:
+  tagline: Replace points with the surface normal of the nearest mesh vertex.
+  overview: >-
+    Finds the closest point on the mesh surface for every input point and outputs the surface normal
+    there.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    outputmode: 'What is output: normals, surface points or a blend. Options: Normals, Surface, Blend.'
+    innormallength: Length of the output normal vectors.
+    innormalanchor: 'Where the normal vector starts. Options: Vector, At Input, At Surface.'
+    inflipnormals: Reverses the normal direction.
+    inblend: >-
+      Mix between the input point and the surface point in Surface and Blend mode. Shown when the
+      related option is enabled.
+    inaffectx: Applies the effect to X.
+    inaffecty: Applies the effect to Y.
+    inaffectz: Applies the effect to Z.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

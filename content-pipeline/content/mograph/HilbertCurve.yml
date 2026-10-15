@@ -1,0 +1,58 @@
+operation: HilbertCurve
+tools:
+  Array: vArrayHilbertCurve
+  ScriptVal: vScriptValHilbertCurve
+  JSON: vJSONHilbertCurve
+legacy_names: []
+curated:
+  tagline: Generate the points of a Hilbert curve of a chosen order, scaled and offset in Z.
+  overview: >-
+    vArrayHilbertCurve has no input and outputs the vertices of a Hilbert space-filling curve in the
+    XY plane. Order sets the detail, Scale the size and Z Offset the height.
+  description:
+    - >-
+      The curve visits every cell of a grid with side 2^Order, so it has side * side points. Each
+      point is centred on the origin: ((x / (side - 1)) - 0.5) * Scale for X and the same for Y. Z
+      is set to Z Offset for all points.
+    - >-
+      The defaults (order 3, scale 1, Z offset 0) give 64 points spanning -0.5 to 0.5. Order ranges
+      from 1 to 8, and the point count quadruples with each step, so order 8 outputs 65536 points.
+    - >-
+      Points come out in curve order. Drawing them as a connected path shows the curve; drawing them
+      as separate points shows the grid.
+  features:
+    - title: Space-filling path
+      desc: The points visit every cell of a 2^Order by 2^Order grid exactly once.
+    - title: Order 1 to 8
+      desc: Each order step quadruples the point count, up to 65536 at order 8.
+    - title: Centred output
+      desc: Points are centred on the origin and spread by Scale.
+    - title: Z offset
+      desc: Z Offset places the whole curve at a fixed Z.
+  connections:
+    - label: Draw the curve
+      lines:
+        - vArrayHilbertCurve.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Distort the curve
+      lines:
+        - vArrayHilbertCurve.Output -> vArrayDisplaceValues.ArrayA
+        - vArrayDisplaceValues.Output -> vArrayCameraProjection.ArrayA
+  difficulty: Beginner
+  related:
+    - name: vArrayPointsOnGrid
+      desc: The same grid positions without the curve ordering.
+    - name: vArrayPhyllotaxis
+      desc: Another procedural 2D point pattern.
+    - name: vArrayCameraProjection
+      desc: Projects the XYZ points so they can be drawn.
+  params:
+    order: Recursion depth of the curve. Range 1 to 8, default 3. Side length is 2^order.
+    scale: Size of the curve. Default 1.
+    zoffset: Z value assigned to all points. Default 0.
+status:
+  source: ai
+  state: ai
+  reviewed_hash: null
+  prompt_version: '1'

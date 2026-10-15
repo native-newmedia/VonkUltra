@@ -1,0 +1,44 @@
+tool: vScriptValGetToNumber
+datatype: ScriptVal
+function: Key Value
+legacy_names: []
+curated:
+  tagline: >-
+    Gets the value of a ScriptVal key as a Fusion Number The output from the vScriptValGetToNumber
+    node is a Number based data type that can be used to drive
+  overview: null
+  description:
+    - >-
+      number based controls in the Inspector view like transforms, rotations, scale, angle, or other
+      parameters. You can also use the Number based output from the vScriptValGetToNumber node to
+      carry out further node-based math operations with nodes like vNumberAdd, vNumberSubtract,
+      vNumberMultiply, vNumberDivide, etc..
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vScriptValGetElementToNumber
+    - name: vScriptValGetElementToTable
+    - name: vScriptValGetElementToText
+    - name: vScriptValGetElementXYZToNumber
+  params:
+    ScriptVal: ScriptVal object to query.
+    Key: >-
+      The key to look up, returned as a Number for driving Inspector controls or downstream math
+      nodes.
+    ShowInput: Reveals the wire for the ScriptVal connection in the Flow view.
+    GetKeyBtn: >-
+      Renames this node to `scriptval_<Key>`, making it easy to identify which key it reads at a
+      glance.
+legacy_text: >-
+  Gets the value of a ScriptVal key as a Fusion Number The output from the vScriptValGetToNumber
+  node is a Number based data type that can be used to drive number based controls in the Inspector
+  view like transforms, rotations, scale, angle, or other parameters. You can also use the Number
+  based output from the vScriptValGetToNumber node to carry out further node-based math operations
+  with nodes like vNumberAdd, vNumberSubtract, vNumberMultiply, vNumberDivide, etc..
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 71
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

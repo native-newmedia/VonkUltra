@@ -1,0 +1,64 @@
+operation: Phyllotaxis
+tools:
+  Array: vArrayPhyllotaxis
+  ScriptVal: vScriptValPhyllotaxis
+  JSON: vJSONPhyllotaxis
+legacy_names: []
+curated:
+  tagline: Generate a spiral of points where each point is turned by a fixed angle from the previous one.
+  overview: >-
+    vArrayPhyllotaxis has no input and outputs Count points on a flat spiral. Rotation is the angle
+    added per point, in radians.
+  description:
+    - >-
+      Point i has angle a = i * Rotation and radius r = Scale * sqrt(i). X is r * cos(a), Y is r *
+      sin(a) and Z is 0. The sqrt term keeps the area per point constant, so points spread out
+      evenly across the disc.
+    - >-
+      Rotation decides the pattern. The golden angle, about 2.39996 radians, gives the familiar
+      sunflower arrangement. Values near simple fractions of 2 * pi produce visible spokes. The
+      default of 0 puts every point on the X axis.
+    - >-
+      Count ranges from 1 to 1000 and Scale from 0.01 to 1. The overall diameter grows with Scale *
+      sqrt(Count).
+    - >-
+      The output is a point array for vArrayCameraProjection and vArrayShapeRender, or for the
+      Modify nodes.
+  features:
+    - title: Constant density
+      desc: Radius grows with the square root of the index, which keeps point density even.
+    - title: Angle step in radians
+      desc: Rotation is the angle added per point, so the golden angle value gives a sunflower pattern.
+    - title: Up to 1000 points
+      desc: Count is limited to 1000 points.
+    - title: Flat output
+      desc: All points have Z = 0.
+  connections:
+    - label: Draw a sunflower pattern
+      lines:
+        - vArrayPhyllotaxis.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Lift the pattern off the plane
+      lines:
+        - vArrayPhyllotaxis.Output -> vArrayTranslate.ArrayA
+        - vArrayTranslate.Output -> vArrayCameraProjection.ArrayA
+  difficulty: Beginner
+  related:
+    - name: vArrayHelix
+      desc: A 3D spiral with a Z rise.
+    - name: vArrayPointsOnCircle
+      desc: Points on a single ring.
+    - name: vArrayPointsOnGrid
+      desc: Points on a regular grid.
+  params:
+    _number: Number of points. Range 1 to 1000, default 1.
+    _scale: Scales the radius of the spiral. Range 0.01 to 1, default 0.01.
+    _rotation: Angle added per point, in radians. Default 0. The golden angle is about 2.39996.
+status:
+  source: ai
+  state: ai
+  reviewed_hash: null
+  connections_source: docsify
+  prompt_version: '1'
+legacy_text: Generate points on Phyllotaxis

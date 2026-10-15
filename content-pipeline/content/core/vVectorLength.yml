@@ -1,0 +1,22 @@
+tool: vVectorLength
+datatype: Vector
+function: Utility
+legacy_names: []
+curated:
+  tagline: Calculates the length of a vector
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Vector: Vector to measure — Output is its magnitude (Euclidean length) as a Number.
+    ShowInput: Reveals the wire for the Vector connection in the Flow view.
+legacy_text: Calculates the length of a vector
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 6
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

@@ -1,0 +1,40 @@
+tool: vScriptValFontMetrics
+datatype: ScriptVal
+function: Font
+legacy_names: []
+curated:
+  tagline: >-
+    Return font measurements as a Fusion ScriptVal object Sample output from the
+    "vScriptValFontMetrics" node when formatted as text based Lua table output looks
+  overview: null
+  description:
+    - >-
+      like: \{ FontMetrics = \{ TypeName = "TextStyleFontMetrics", CharWidthAverage = 0,
+      UnderlineThickness = 123, TextExternalLeading = 0, TextInternalLeading = 0.0232686980609418,
+      TypeNamePtr = "TextStyleFontMetrics*", TextDescent = 0.0175623268698061, Scale = 3610,
+      TextAscent = 0.0624376731301939, FontSize = 0.1, CharWidthSpace = 0.0189196675900277 \}, Font
+      = "Arial Black", Text = "Hello", Style = "Regular", Size = 0.1 \}
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vScriptValFromListFonts
+  params:
+    Font: Font family name to measure, e.g. `Arial Black`.
+    Style: Font style/weight, e.g. `Regular` or `Bold`.
+    StyledText: Sample text the metrics are measured against.
+    Size: Font size used for the measurement.
+legacy_text: >-
+  Return font measurements as a Fusion ScriptVal object Sample output from the
+  "vScriptValFontMetrics" node when formatted as text based Lua table output looks like: \{
+  FontMetrics = \{ TypeName = "TextStyleFontMetrics", CharWidthAverage = 0, UnderlineThickness =
+  123, TextExternalLeading = 0, TextInternalLeading = 0.0232686980609418, TypeNamePtr =
+  "TextStyleFontMetrics*", TextDescent = 0.0175623268698061, Scale = 3610, TextAscent =
+  0.0624376731301939, FontSize = 0.1, CharWidthSpace = 0.0189196675900277 \}, Font = "Arial Black",
+  Text = "Hello", Style = "Regular", Size = 0.1 \}
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 76
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

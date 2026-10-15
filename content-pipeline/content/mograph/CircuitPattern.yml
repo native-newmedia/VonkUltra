@@ -1,0 +1,49 @@
+operation: CircuitPattern
+tools:
+  Array: vArrayCircuitPattern
+  ScriptVal: vScriptValCircuitPattern
+  JSON: vJSONCircuitPattern
+legacy_names: []
+curated:
+  tagline: Draw a circuit-board grid pattern with pulses.
+  overview: >-
+    Builds a grid of nodes joined by orthogonal or 45 degree lines, with optional nodes and an
+    animated pulse that runs along the lines.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Seed: Seed of the random generator.
+    AngleMode: Orthogonal, 45 Degree, or Both.
+    GridRows: Rows of the grid.
+    GridCols: Columns of the grid.
+    Center: Center position.
+    Thickness: Line thickness.
+    Rotation: Rotates the pattern.
+    Scale: Size of the grid cells.
+    ScrollGrid: Shifts the grid.
+    showNodes: Draws a node at each point.
+    'showNodesOutline ': Draws the nodes as outlines.
+    InputSource: Default, Custom, or Random node shape.
+    NodesShape: Node shape number from 1 to 3.
+    NodesSize: Size of the nodes.
+    NodesThickness: Outline thickness of the nodes.
+    nodesCount: Number of nodes.
+    Red_node: Color for the node.
+    Green_node: Color for the node.
+    Blue_node: Color for the node.
+    LineType: Solid, Dash, Dot, Dash Dot, or Dash Dot Dot.
+    JoinType: Bevel or Round corners.
+    showPulse: Draws a moving pulse along the lines.
+    PulseThickness: Thickness of the pulse.
+    PulseSpeed: Speed of the pulse.
+    PulseLength: Length of the pulse.
+    Red: Color for the node.
+    Green: Color for the node.
+    Blue: Color for the node.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

@@ -1,0 +1,30 @@
+tool: vTextTernary
+datatype: Text
+function: Logic
+legacy_names: []
+curated:
+  tagline: Compare a value and return one of two possible strings as the result
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextEqual
+    - name: vTextNotEqual
+  params:
+    Term1: Condition — treated as false when 0, true otherwise.
+    'True': String output when Term 1 is true.
+    'False': String output when Term 1 is false.
+    DisplayLines: Number of lines shown in the True/False text boxes in the Inspector.
+    WrapLines: Wraps long lines in the True/False text boxes instead of scrolling horizontally.
+    ShowInput: Reveals the wire for the Term 1 connection in the Flow view.
+legacy_text: Compare a value and return one of two possible strings as the result
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 13
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null
+  page_only_params:
+    - Term1Separator

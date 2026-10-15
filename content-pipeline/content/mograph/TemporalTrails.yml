@@ -1,0 +1,22 @@
+operation: TemporalTrails
+tools:
+  Array: vArrayTemporalTrails
+  ScriptVal: vScriptValTemporalTrails
+  JSON: vJSONTemporalTrails
+legacy_names: []
+curated:
+  tagline: Build trails by collecting points from recent frames.
+  overview: Collects the points from the last History Length frames into one array.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    HistoryLength: Number of frames to collect, including the current one.
+    FrameStep: Spacing between collected frames.
+    OldestFirst: Orders the points from the oldest frame to the newest. Off puts the newest first.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

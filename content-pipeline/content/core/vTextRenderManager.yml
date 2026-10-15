@@ -1,0 +1,96 @@
+tool: vTextRenderManager
+datatype: Text
+function: Fusion
+legacy_names: []
+curated:
+  tagline: Submit a .comp or .dfq file to the Fusion Studio Render Manager.
+  overview: null
+  description:
+    - >-
+      The vTextRenderManager node is processed when you hit the "render" button in the comp, so it
+      avoids accidentally launching unintended job tasks in an interactive Fusion session. The
+      vTextRenderManager tool allows you to use Vonk Ultra nodes to build the name of a .comp file,
+      and then it can be submitted to the render manager for processing. If you are on a single user
+      artist system, you can submit your Fusion Studio based comps to the Fusion Render Manager and
+      a GUI session of Fusion will be used to render the output. If you have any Fusion Render Node
+      systems connected to the Fusion Render Manager, you have the option to further accelerate your
+      workflows with distributed rendering. The "Render Mode" control allows you to adjust how the
+      composite will be rendered. If "Current Frame" is selected, the parent comp's current frame
+      will be passed to the Fusion Render Node program as the frame to render in the child comp. If
+      "Comp Frame Range" is selected, the parent comp's Render Start - Render End frame range will
+      be sent to the Fusion Render Manager as the frame range to render in the child comp. If "Comp
+      Frame Range" is selected, the parent comp's Render Start - Render End frame range will be sent
+      to the Fusion Render Manager as the frame range to render in the child comp. If "Custom Frame
+      Range" is selected, a set of numerical input controls will be displayed. These controls allow
+      you to manually drive the frame range used by the Fusion Render Manager. If "Predefined Frame
+      Range" is selected, the frame range defined in the original .comp file on disk is used for the
+      rendering task. ##### Multi-View Rendering Tasks If you are processing immersive content, or
+      volumetric video the vTextRenderManager is a huge help. The design goal with the
+      vTextRenderManager node is that you start by using Vonk filesystem nodes to copy Fusion .comp
+      templates into project sub-folders. The comps would be built with relative PathMap based file
+      paths. Then you would kick off the rendering task for these .comp files with the
+      vTextRenderManager node. This allows you to process media from multi-view camera arrays or
+      other complex file structure based media hierarchies. ##### Side by Side Scripting of Comp
+      Renders Fusion has a really neat hidden capability called SxS (side-by-side) scripting. It
+      works with comp files and allows you to make adjustments on the fly when the comp is loaded
+      and rendered. This takes comp template creation and automation to the next level! With SxS
+      scripting, you can place a custom lua script in the same folder as your comp file. If the
+      script has the same base filename it will be run as soon as the comp is rendered. Example SxS
+      Script and Comp Filenames: - Example.comp - Example.lua
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextPopulateToolsByCategory
+    - name: vTextPopulateToolsByCategory_ArraysCreate
+    - name: vTextPopulateToolsByCategory_ArraysModify
+    - name: vTextPopulateToolsByCategory_x
+  params:
+    Refresh: Button — re-checks/refreshes the submitted render job's status.
+    File: Path to the .comp or .dfq file to submit to the Render Manager.
+    RenderMode: >-
+      Which frame range gets rendered — the current frame, the comp's Render Start/End range, a
+      manual Custom Frame Range, or the range stored in the comp file itself (Predefined Frame
+      Range).
+    StartFrame: First frame to render, used when Render Mode is Custom Frame Range.
+    EndFrame: Last frame to render, used when Render Mode is Custom Frame Range.
+    ShowDump: Shows raw submission/debug output from the Render Manager.
+    ShowInput: Reveals the wire for the Comp File connection in the Flow view.
+    ShowRenderManager: Button — opens the Fusion Render Manager window.
+legacy_text: >-
+  Submit a .comp or .dfq file to the Fusion Studio Render Manager. The vTextRenderManager node is
+  processed when you hit the "render" button in the comp, so it avoids accidentally launching
+  unintended job tasks in an interactive Fusion session. The vTextRenderManager tool allows you to
+  use Vonk Ultra nodes to build the name of a .comp file, and then it can be submitted to the render
+  manager for processing. If you are on a single user artist system, you can submit your Fusion
+  Studio based comps to the Fusion Render Manager and a GUI session of Fusion will be used to render
+  the output. If you have any Fusion Render Node systems connected to the Fusion Render Manager, you
+  have the option to further accelerate your workflows with distributed rendering. The "Render Mode"
+  control allows you to adjust how the composite will be rendered. If "Current Frame" is selected,
+  the parent comp's current frame will be passed to the Fusion Render Node program as the frame to
+  render in the child comp. If "Comp Frame Range" is selected, the parent comp's Render Start -
+  Render End frame range will be sent to the Fusion Render Manager as the frame range to render in
+  the child comp. If "Comp Frame Range" is selected, the parent comp's Render Start - Render End
+  frame range will be sent to the Fusion Render Manager as the frame range to render in the child
+  comp. If "Custom Frame Range" is selected, a set of numerical input controls will be displayed.
+  These controls allow you to manually drive the frame range used by the Fusion Render Manager. If
+  "Predefined Frame Range" is selected, the frame range defined in the original .comp file on disk
+  is used for the rendering task. ##### Multi-View Rendering Tasks If you are processing immersive
+  content, or volumetric video the vTextRenderManager is a huge help. The design goal with the
+  vTextRenderManager node is that you start by using Vonk filesystem nodes to copy Fusion .comp
+  templates into project sub-folders. The comps would be built with relative PathMap based file
+  paths. Then you would kick off the rendering task for these .comp files with the
+  vTextRenderManager node. This allows you to process media from multi-view camera arrays or other
+  complex file structure based media hierarchies. ##### Side by Side Scripting of Comp Renders
+  Fusion has a really neat hidden capability called SxS (side-by-side) scripting. It works with comp
+  files and allows you to make adjustments on the fly when the comp is loaded and rendered. This
+  takes comp template creation and automation to the next level! With SxS scripting, you can place a
+  custom lua script in the same folder as your comp file. If the script has the same base filename
+  it will be run as soon as the comp is rendered. Example SxS Script and Comp Filenames: -
+  Example.comp - Example.lua
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 480
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

@@ -1,0 +1,37 @@
+operation: ColorMap
+tools:
+  Array: vArrayColorMap
+  ScriptVal: vScriptValColorMap
+  JSON: vJSONColorMap
+legacy_names: []
+curated:
+  tagline: Map scalar values to point colors.
+  overview: Maps scalar sources to per-point RGBA colors.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Source: >-
+      Value that drives the result. Options: Index, Scalar Input, Position X, Position Y, Position
+      Z, Distance From Center.
+    AutoRange: Uses the minimum and maximum of the data as the range.
+    Clamp: Limits the result to the range 0 to 1.
+    Invert: Inverts the result.
+    FallbackCount: Number of values used when no input array is connected.
+    CenterX: Center position X.
+    CenterY: Center position Y.
+    CenterZ: Center position Z.
+    Red_A: Color value for color A.
+    Green_A: Color value for color A.
+    Blue_A: Color value for color A.
+    Alpha_A: Color value for color A.
+    Red_B: Color value for color A.
+    Green_B: Color value for color A.
+    Blue_B: Color value for color A.
+    Alpha_B: Color value for color A.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

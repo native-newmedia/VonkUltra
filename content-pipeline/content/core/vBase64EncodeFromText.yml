@@ -1,0 +1,28 @@
+tool: vBase64EncodeFromText
+datatype: Base64
+function: Encode
+legacy_names: []
+curated:
+  tagline: Base64 encodes text into a Fusion Text object.
+  overview: null
+  description:
+    - >-
+      This node converts a block of ASCII text into a Base64 format. The "Text" input field is used
+      to specify the source ASCII string to process.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vBase64EncodeFromFile
+  params:
+    Text: ASCII text to Base64-encode.
+    ShowInput: Reveals the Text control for editing or wiring.
+legacy_text: >-
+  Base64 encodes text into a Fusion Text object. This node converts a block of ASCII text into a
+  Base64 format. The "Text" input field is used to specify the source ASCII string to process.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 34
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

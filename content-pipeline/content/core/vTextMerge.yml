@@ -1,0 +1,35 @@
+tool: vTextMerge
+datatype: Text
+function: Substring
+legacy_names: []
+curated:
+  tagline: >-
+    Dynamically joins strings into one Merge together several strings that are connected to the
+    node's text based input connections.
+  overview: null
+  description:
+    - The combined strings are joined with the addition of a user defined separator character.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextSubFormat
+    - name: vTextSubFormatMultiline
+    - name: vTextSubJoin
+    - name: vTextSubReplace
+  params:
+    Which: Reserved input, referenced by name from inside the node's internal script.
+    Text1: >-
+      First string to merge — more Text inputs (Text2, Text3…) are added automatically as each prior
+      one gets wired.
+    Separator: Character(s) placed between each merged string.
+legacy_text: >-
+  Dynamically joins strings into one Merge together several strings that are connected to the node's
+  text based input connections. The combined strings are joined with the addition of a user defined
+  separator character.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 33
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

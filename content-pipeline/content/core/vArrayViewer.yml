@@ -1,0 +1,31 @@
+tool: vArrayViewer
+datatype: Array
+function: Utility
+legacy_names: []
+curated:
+  tagline: View a JSON array in the Inspector
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vArrayConcatenate
+    - name: vArrayCountElement
+    - name: vArrayCountSubElements
+    - name: vArrayJoin
+  params:
+    Text: JSON array text to inspect.
+    ShowDump: >-
+      Prints the parsed array structure to the console each frame, in addition to the tree view
+      below.
+    Sort: Sorts keys alphabetically in the tree view below, instead of showing them in source order.
+    DisplayLines: Number of visible lines in the tree view before scrolling.
+    JSON: Read-only tree view of the parsed array structure.
+legacy_text: View a JSON array in the Inspector
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 7
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

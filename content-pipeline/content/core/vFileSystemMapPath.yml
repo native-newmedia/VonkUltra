@@ -1,0 +1,34 @@
+tool: vFileSystemMapPath
+datatype: FileSystem
+function: General
+legacy_names: []
+curated:
+  tagline: >-
+    Expands a PathMap This node automatically converts a relative filepath into an absolute filepath
+    on the output.
+  overview: null
+  description:
+    - >-
+      This is useful if you want to supply an executable program name, or a filename to an operation
+      like the ProcessOpen node that carries out command-line tasks.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vFileSystemChmod
+    - name: vFileSystemColorTags
+    - name: vFileSystemCreateDir
+    - name: vFileSystemDirExists
+  params:
+    Text: Relative path (e.g. using a `Comp:/` PathMap) to expand into an absolute filepath.
+    ShowInput: Reveals the wire for the Text connection in the Flow view.
+legacy_text: >-
+  Expands a PathMap This node automatically converts a relative filepath into an absolute filepath
+  on the output. This is useful if you want to supply an executable program name, or a filename to
+  an operation like the ProcessOpen node that carries out command-line tasks.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 44
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

@@ -1,0 +1,31 @@
+operation: Packer
+tools:
+  Array: vArrayPacker
+  ScriptVal: vScriptValPacker
+  JSON: vJSONPacker
+legacy_names: []
+curated:
+  tagline: Pack values into groups.
+  overview: Packs flat values into groups of a given size.
+  description: []
+  features: []
+  connections:
+    - label: Example 1
+      lines:
+        - vArrayPointsOnCircle.Output -> vArrayUnPacker.ArrayB
+        - vArrayUnPacker.OutputArray -> vArraySin.ArrayA
+        - vArraySin.Output -> vArrayPacker.ArrayA
+        - vArrayPacker.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+  difficulty: null
+  related: []
+  params:
+    InputNumber: 'Group size: X, X Y or X Y Z.'
+    GroupSize: Group size used instead of the Pack To value.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null
+  connections_source: docsify
+legacy_text: Pack Operations on an Array

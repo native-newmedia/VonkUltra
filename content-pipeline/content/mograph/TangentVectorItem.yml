@@ -1,0 +1,42 @@
+operation: TangentVectorItem
+tools:
+  Array: vArrayTangentVectorItem
+  ScriptVal: vScriptValTangentVectorItem
+  JSON: vJSONTangentVectorItem
+legacy_names: []
+curated:
+  tagline: Create tangent lines along a path.
+  overview: >-
+    Builds a short line at every point of a 2D or 3D path, pointing along the path direction, with
+    optional wave modulation of the length and a polygon at the end of each line.
+  description: []
+  features: []
+  connections:
+    - label: Example 1
+      lines:
+        - vArrayLogarithmicSpiral.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayTangentVectorItem.ArrayPath
+        - vArrayTangentVectorItem.Output -> vArrayShapeRender.ArrayShape
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+  difficulty: null
+  related: []
+  params:
+    num_c: Rotates each tangent by this angle.
+    linelength: Base length of each tangent.
+    scaleFactor: Multiplies the length.
+    amplitude: Strength of the wave added to the length.
+    frequency: Frequency of the wave.
+    phase: Phase of the wave.
+    dampingMode: '--, DMP (damped sine), Sin, SQU (square), TRI (triangle), or SAW (sawtooth).'
+    damping: Decay rate for DMP.
+    nodesides: Sides of the polygon at the tangent end.
+    nodesize: Size of the polygon.
+    noderot: Rotation of the polygon.
+    _time: Time value that drives the wave.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null
+  connections_source: docsify
+legacy_text: Create a vector that is tangent to a curve or surface at a given point

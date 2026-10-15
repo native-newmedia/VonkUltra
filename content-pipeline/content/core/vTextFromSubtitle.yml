@@ -1,0 +1,32 @@
+tool: vTextFromSubtitle
+datatype: Text
+function: Subtitle
+legacy_names: []
+curated:
+  tagline: Creates a Fusion Text object by extracting text from SRT Subtitles
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Input: The SRT subtitle file content to extract text from.
+    DisplayLines: Number of lines shown in the Input text box in the Inspector.
+    WrapLines: Wraps long lines in the Input text box instead of scrolling horizontally.
+    RemoveHTML: Strips HTML markup (e.g. `<i>`) from the extracted subtitle text.
+    RemoveHour: Subtracts the 1-hour offset some SRT exports add to their starting timecode.
+    TimingMode: >-
+      Selects which subtitle line to return — by Timecode (matches the comp's current time) or by
+      Index (a fixed line number).
+    FPS: Frame rate used to convert SRT timecodes to frame numbers in Timecode mode.
+    SequenceStartFrame: Shifts the frame numbering used for timecode matching forwards or backwards.
+    Index: Subtitle line number to return, used in Index timing mode.
+    ShowInput: Reveals the wires for the Sequence Offset/Index connections in the Flow view.
+legacy_text: Creates a Fusion Text object by extracting text from SRT Subtitles
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 11
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

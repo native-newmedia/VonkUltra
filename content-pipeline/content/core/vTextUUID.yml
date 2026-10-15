@@ -1,0 +1,34 @@
+tool: vTextUUID
+datatype: Text
+function: Create
+legacy_names: []
+curated:
+  tagline: >-
+    Creates a UUID Fusion Text object A per-frame (Universally Unique IDentifier) value is generated
+    by this node.
+  overview: null
+  description:
+    - >-
+      This value can be used to help with naming temporary items on disk, or for other tasks where
+      an incrementing index based identifier is not appropriate. A UUID value is formatted like:
+      `11625315-7785-4eb4-8b2f-d6dca235c424`
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextCreate
+    - name: vTextCreateArch
+    - name: vTextCreateBrowse
+    - name: vTextCreateMultiline
+  params: {}
+legacy_text: >-
+  Creates a UUID Fusion Text object A per-frame (Universally Unique IDentifier) value is generated
+  by this node. This value can be used to help with naming temporary items on disk, or for other
+  tasks where an incrementing index based identifier is not appropriate. A UUID value is formatted
+  like: `11625315-7785-4eb4-8b2f-d6dca235c424`
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 50
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

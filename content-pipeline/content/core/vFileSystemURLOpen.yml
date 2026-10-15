@@ -1,0 +1,32 @@
+tool: vFileSystemURLOpen
+datatype: FileSystem
+function: General
+legacy_names: []
+curated:
+  tagline: Opens a file This node opens a URL in an external web-browser.
+  overview: null
+  description:
+    - >-
+      This is useful if you need to display reference material, or assist a user in checking out an
+      asset from a web-based content management system.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vFileSystemChmod
+    - name: vFileSystemColorTags
+    - name: vFileSystemCreateDir
+    - name: vFileSystemDirExists
+  params:
+    Source: URL to open in the system's default web browser.
+    ShowInput: Reveals the wire for the Source URL connection in the Flow view.
+legacy_text: >-
+  Opens a file This node opens a URL in an external web-browser. This is useful if you need to
+  display reference material, or assist a user in checking out an asset from a web-based content
+  management system.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 37
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

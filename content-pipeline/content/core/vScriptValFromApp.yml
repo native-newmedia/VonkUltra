@@ -1,0 +1,36 @@
+tool: vScriptValFromApp
+datatype: ScriptVal
+function: Create
+legacy_names: []
+curated:
+  tagline: >-
+    Create a Fusion ScriptVal object from the Resolve/Fusion application and comp UserData This node
+    explores the output from Resolve() and Fusion(), along with
+  overview: null
+  description:
+    - >-
+      the current composition attributes via GetAttrs(). The result of this process is a very
+      detailed memory dump of the active parameters users typically interface with. In Resolve it is
+      possible to see a report of the Project Manager, Project, Media Pool, Clips, Folders, Markers,
+      and Timelines.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vScriptValCreate
+    - name: vScriptValFromCSV
+    - name: vScriptValFromDate
+    - name: vScriptValFromListFiles
+  params: {}
+legacy_text: >-
+  Create a Fusion ScriptVal object from the Resolve/Fusion application and comp UserData This node
+  explores the output from Resolve() and Fusion(), along with the current composition attributes via
+  GetAttrs(). The result of this process is a very detailed memory dump of the active parameters
+  users typically interface with. In Resolve it is possible to see a report of the Project Manager,
+  Project, Media Pool, Clips, Folders, Markers, and Timelines.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 69
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

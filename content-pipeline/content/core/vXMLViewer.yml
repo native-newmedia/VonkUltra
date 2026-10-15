@@ -1,0 +1,25 @@
+tool: vXMLViewer
+datatype: XML
+function: Utility
+legacy_names: []
+curated:
+  tagline: View XML in the Inspector.
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    ShowDump: Prints the parsed XML structure to the console each frame, in addition to the tree view below.
+    Sort: Sorts keys alphabetically in the tree view below, instead of showing them in source order.
+    DisplayLines: Number of visible lines in the tree view before scrolling.
+    XML: Read-only tree view of the parsed XML structure.
+    Text: XML text to inspect — typically fed from a vScriptValFromXML or file-read node.
+legacy_text: View XML in the Inspector.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 5
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

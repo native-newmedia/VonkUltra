@@ -1,0 +1,30 @@
+tool: vMatrixToRotation
+datatype: Matrix
+function: Transform
+legacy_names: []
+curated:
+  tagline: >-
+    Decomposes a rotation from a matrix in [Euler
+    angles](https://en.wikipedia.org/wiki/Euler_angles).
+  overview: null
+  description:
+    - This returns XYZ rotation values from a 4x4 vMatrix input.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vMatrixFromRotation
+    - name: vMatrixFromScale
+    - name: vMatrixFromTranslation
+    - name: vMatrixToEuler
+  params:
+    Input: 4×4 matrix to decompose — Output is its rotation as X/Y/Z Euler angle values.
+legacy_text: >-
+  Decomposes a rotation from a matrix in [Euler angles](https://en.wikipedia.org/wiki/Euler_angles).
+  This returns XYZ rotation values from a 4x4 vMatrix input.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 19
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

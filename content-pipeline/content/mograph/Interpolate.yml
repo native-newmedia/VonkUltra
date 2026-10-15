@@ -1,0 +1,86 @@
+operation: Interpolate
+tools:
+  Array: vArrayInterpolate
+  ScriptVal: vScriptValInterpolate
+  JSON: vJSONInterpolate
+legacy_names: []
+curated:
+  tagline: >-
+    Blend between two vArrays with easing curves — the morph node for smooth shape transitions and
+    animated layout changes.
+  overview: >-
+    vArrayInterpolate blends element-by-element between Array A and Array B using a Progress value
+    from 0 to 1. Multiple easing options control the interpolation curve, making it the primary node
+    for smooth animated transitions between two point cloud states.
+  description:
+    - >-
+      vArrayInterpolate performs a per-element linear or eased blend between two vArrays of equal
+      length. At Progress 0.0 the output equals Array A exactly; at 1.0 it equals Array B exactly;
+      at 0.5 each element is the midpoint between the two inputs. This makes it the canonical morph
+      node for animated layout transitions in the vArray system.
+    - >-
+      The Select Easing dropdown applies a non-linear curve to the Progress value, transforming what
+      would be a mechanical linear blend into a smooth acceleration or deceleration. Ease In, Ease
+      Out, Ease In-Out, and Back variants are available, making transitions feel physically
+      plausible without needing separate expression-based easing on the Progress parameter.
+    - >-
+      A key workflow is morphing between two structurally different point layouts — such as a grid
+      transitioning to a sphere — by connecting vArrayPointsOnGrid to Array A and
+      vArrayPointsOnSphere to Array B, then animating Progress from 0 to 1. Both arrays must have
+      the same element count; mismatched lengths will produce unexpected results. Connect the output
+      to vArrayCameraProjection and vArrayShapeRender for the final render.
+  features:
+    - title: Per-Element Blend
+      desc: >-
+        Interpolates each element individually between Array A and Array B, enabling smooth morphs
+        between any two point cloud layouts.
+    - title: Built-In Easing
+      desc: >-
+        Select Easing dropdown applies Ease In, Ease Out, Ease In-Out, and Back curves — no separate
+        easing expressions needed on the Progress parameter.
+    - title: Morph Transitions
+      desc: >-
+        Animate grid-to-sphere, circle-to-random, or any two generator outputs morphing into each
+        other in a single node.
+    - title: Expression Driven
+      desc: >-
+        Connect Progress to a time expression or an audio-reactive value for music-synchronised
+        layout morphs.
+  connections:
+    - label: Grid-to-sphere morph
+      lines:
+        - vArrayPointsOnGrid.Output -> vArrayInterpolate.ArrayA
+        - vArrayPointsOnSphere.Output -> vArrayInterpolate.ArrayB
+        - vArrayInterpolate.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+    - label: Circle-to-random transition
+      lines:
+        - vArrayPointsOnCircle.Output -> vArrayInterpolate.ArrayA
+        - vArrayCreateRandom.Output -> vArrayInterpolate.ArrayB
+        - vArrayInterpolate.Output -> vArrayCameraProjection.ArrayA
+  difficulty: Intermediate
+  related:
+    - name: vArrayPointsOnSphere
+      desc: Use as one end state of a morph from a grid or circle layout.
+    - name: vArrayWave
+      desc: Apply wave oscillation to the interpolated output for animated post-processing.
+    - name: vArrayMapRange
+      desc: Remap the Progress input range if your source animation value is not 0–1.
+  params:
+    progress: >-
+      Blend position from 0.0 (Array A) to 1.0 (Array B). Keyframe this parameter to animate the
+      morph over time.
+    selectEasing: >-
+      Easing curve applied to the Progress value: 0 = Linear, 1 = Ease In, 2 = Ease Out, 3 = Ease
+      In-Out, 4 = Back.
+    ShowInput: Reveals the Array A and Array B connection ports on the node in the Fusion node graph.
+    ArrayA: First vArray state — the output at Progress 0.0. Must have the same element count as Array B.
+    ArrayB: Second vArray state — the output at Progress 1.0. Must have the same element count as Array A.
+status:
+  source: rich-json
+  state: imported
+  reviewed_hash: null
+legacy_text: >-
+  Interpolate between two arrays Select Easing options include: - linear - easeInQuad - easeOutQuad
+  - easeInOutQuad - easeInExpo - easeOutExpo - easeInOutExpo Match Array options include: - Trim
+  Array to match - Add Zeros to match

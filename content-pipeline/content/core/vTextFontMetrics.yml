@@ -1,0 +1,24 @@
+tool: vTextFontMetrics
+datatype: Text
+function: Font
+legacy_names: []
+curated:
+  tagline: Return font measurements as Fusion Number objects
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Font: The font family to measure.
+    Style: The font style/weight to measure (e.g. Regular, Bold).
+    StyledText: The sample text to measure with the given Font/Style/Size.
+    Size: Font size used for the measurement.
+legacy_text: Return font measurements as Fusion Number objects
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 7
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

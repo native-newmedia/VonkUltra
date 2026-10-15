@@ -1,0 +1,34 @@
+tool: vScriptValGetToTable
+datatype: ScriptVal
+function: Key Value
+legacy_names: []
+curated:
+  tagline: >-
+    Gets the value of a ScriptVal key as a table The output from the vScriptValGetToTable node is a
+    ScriptVal based data type.
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vScriptValGetElementToNumber
+    - name: vScriptValGetElementToTable
+    - name: vScriptValGetElementToText
+    - name: vScriptValGetElementXYZToNumber
+  params:
+    ScriptVal: ScriptVal object to query.
+    Key: The key to look up, returned as a ScriptVal (table).
+    ShowInput: Reveals the wire for the ScriptVal connection in the Flow view.
+    GetKeyBtn: >-
+      Renames this node to `scriptval_<Key>`, making it easy to identify which key it reads at a
+      glance.
+legacy_text: >-
+  Gets the value of a ScriptVal key as a table The output from the vScriptValGetToTable node is a
+  ScriptVal based data type.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 22
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

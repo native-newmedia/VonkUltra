@@ -1,0 +1,30 @@
+operation: LookAt
+tools:
+  Array: vArrayLookAt
+  ScriptVal: vScriptValLookAt
+  JSON: vJSONLookAt
+legacy_names: []
+curated:
+  tagline: Build look-at direction vectors.
+  overview: Outputs a look-at direction for every point.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    TargetX: Target position X.
+    TargetY: Target position Y.
+    TargetZ: Target position Z.
+    ForwardAxis: 'Axis that points at the target. Options: +Z (default), -Z (flip), +Y, -Y, +X, -X.'
+    InvertDirection: Reverses the direction.
+    Normalize: Outputs unit length vectors.
+    UpX: Up vector X.
+    UpY: Up vector Y.
+    UpZ: Up vector Z.
+    OutputMode: 'Type of the output. Options: Direction Vector, Euler Angles, Full Basis (9-component).'
+    UsePerPointTarget: Uses the Targets input for each point.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

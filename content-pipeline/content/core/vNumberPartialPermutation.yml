@@ -1,0 +1,29 @@
+tool: vNumberPartialPermutation
+datatype: Number
+function: Operators
+legacy_names: []
+curated:
+  tagline: Returns the sum of two numbers
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vNumberAbsolute
+    - name: vNumberAdd
+    - name: vNumberCeil
+    - name: vNumberClamp
+  params:
+    Possibilities: Total number of items to choose from (n).
+    Selection: >-
+      Number of items chosen, order mattering (k) — Output is the partial permutation `n! / (n −
+      k)!`.
+    ShowInput: Reveals the wires for the Possibilities/Selection connections in the Flow view.
+legacy_text: Returns the sum of two numbers
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 6
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

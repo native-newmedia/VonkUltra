@@ -1,0 +1,73 @@
+operation: PointsOnCircle
+tools:
+  Array: vArrayPointsOnCircle
+  ScriptVal: vScriptValPointsOnCircle
+  JSON: vJSONPointsOnCircle
+legacy_names: []
+curated:
+  tagline: >-
+    Place points evenly around a circle, with control over radius, segment count, rotation and path
+    closing.
+  overview: >-
+    vArrayPointsOnCircle has no input and outputs points on a circle in the XY plane at Z = 0.
+    Radius and Round Segments set the circle and Rotate Amount turns it.
+  description:
+    - >-
+      The node places one point every 360 / Round Segments degrees, starting at the Rotate Amount angle. The
+      first point is at radius * (cos, sin) of that angle. All points have Z = 0.
+    - >-
+      Close Path is on by default. It appends a copy of the first point at the end of the array, so
+      a line or path drawn through the points returns to its start. Turn it off to get exactly
+      Round Segments points.
+    - >-
+      Round Segments is an integer with a minimum of 3. Rotate Amount accepts -360 to 360 degrees. Rounds and
+      Point Offset are hidden controls (not shown in the Inspector). Rounds adds extra passes: the
+      number of generated points is floor(Round Segments * (Rounds + 1)). Point Offset scales the angle
+      step by (1 + offset). Both default to 0, which gives a single ring.
+    - >-
+      The output is a point array. Connect it to vArrayCameraProjection and vArrayShapeRender to
+      draw it, or use it as the base for the Modify nodes.
+  features:
+    - title: Even angular spacing
+      desc: Points are placed every 360 / Round Segments degrees.
+    - title: Optional closed path
+      desc: Close Path repeats the first point at the end so paths close on themselves.
+    - title: Rotation control
+      desc: Rotate Amount turns the ring from -360 to 360 degrees.
+    - title: Hidden spiral controls
+      desc: >-
+        The hidden Rounds and Point Offset controls extend the ring into repeated or stretched
+        passes.
+  connections:
+    - label: Draw a ring of points
+      lines:
+        - vArrayPointsOnCircle.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Spin the ring with a rotation modifier
+      lines:
+        - vArrayPointsOnCircle.Output -> vArrayRotateValues.ArrayA
+        - vArrayRotateValues.Output -> vArrayCameraProjection.ArrayA
+  difficulty: Beginner
+  related:
+    - name: vArrayHelix
+      desc: A circle that also rises along Z.
+    - name: vArrayPointsOnGrid
+      desc: Points on a grid instead of a ring.
+    - name: vArrayPointsOnSphere
+      desc: Points on a sphere surface.
+  params:
+    radius: Radius of the circle. Default 0.1.
+    roundsegments: Number of points around the circle. Integer, minimum 3, default 3.
+    PointOffset: Hidden. Scales the angle step by (1 + offset). Default 0.
+    rotateamount: Rotation of the ring in degrees, -360 to 360. Default 0.
+    ClosePath: When on, the first point is appended at the end of the array. On by default.
+    rounds: >-
+      Hidden. Extra passes around the circle. The point count is floor(Round Segments * (Rounds + 1)).
+      Default 0.
+status:
+  source: ai
+  state: ai
+  reviewed_hash: null
+  prompt_version: '1'
+legacy_text: Generate points on Array circle

@@ -1,0 +1,24 @@
+tool: vJSONFromCBORFile
+datatype: CBOR
+function: JSON
+legacy_names: []
+curated:
+  tagline: Casts a CBOR binary file into JSON text
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vJSONToCBORFile
+  params:
+    Input: Path to the `.cbor` file to read and convert to JSON text.
+    ShowInput: Reveals the Input file-path control so a source can be chosen or typed.
+    Sort: Sorts keys alphabetically in the resulting JSON, instead of preserving source order.
+legacy_text: Casts a CBOR binary file into JSON text
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 8
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

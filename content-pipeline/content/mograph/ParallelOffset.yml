@@ -1,0 +1,22 @@
+operation: ParallelOffset
+tools:
+  Array: vArrayParallelOffset
+  ScriptVal: vScriptValParallelOffset
+  JSON: vJSONParallelOffset
+legacy_names: []
+curated:
+  tagline: Offset a path in parallel.
+  overview: Creates parallel offset curves of a path.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    offsetDistance: Distance between the offset curves.
+    _numLeft: Number of curves on the left side.
+    _numright: Number of curves on the right side.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

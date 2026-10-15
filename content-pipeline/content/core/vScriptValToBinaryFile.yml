@@ -1,0 +1,36 @@
+tool: vScriptValToBinaryFile
+datatype: ScriptVal
+function: IO
+legacy_names: []
+curated:
+  tagline: >-
+    Writes a Fusion ScriptVal blob encoded object to a binary file The binary file data is Base64
+    encoded and placed in a Lua table structure.
+  overview: null
+  description:
+    - >-
+      A sample output from this encoding process looks like: \{ Base64 = "SGVsbG8gV29ybGQh",
+      Base64Size = 16, BinarySize = 12, Ext = ".txt", Filename = "Hello.txt" Source =
+      "/Users/vfx/Desktop/Hello.txt", Type = "File", \}
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vScriptValFromBinaryFile
+    - name: vScriptValFromClipboard
+    - name: vScriptValFromFile
+    - name: vScriptValToClipboard
+  params:
+    ScriptVal: Base64-encoded ScriptVal blob to decode and write out as a binary file.
+    File: Destination path for the saved file.
+legacy_text: >-
+  Writes a Fusion ScriptVal blob encoded object to a binary file The binary file data is Base64
+  encoded and placed in a Lua table structure. A sample output from this encoding process looks
+  like: \{ Base64 = "SGVsbG8gV29ybGQh", Base64Size = 16, BinarySize = 12, Ext = ".txt", Filename =
+  "Hello.txt" Source = "/Users/vfx/Desktop/Hello.txt", Type = "File", \}
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 57
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

@@ -1,0 +1,22 @@
+tool: vTextEncodeUrl
+datatype: Text
+function: Encode
+legacy_names: []
+curated:
+  tagline: URL-encodes a Fusion Text object
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Text: The text to URL-encode (e.g. spaces become `%20`).
+    ShowInput: Reveals the wire for the Text connection in the Flow view.
+legacy_text: URL-encodes a Fusion Text object
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 5
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

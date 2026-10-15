@@ -1,0 +1,34 @@
+tool: vArrayFromLuaTable
+datatype: Array
+function: Create
+legacy_names: []
+curated:
+  tagline: >-
+    Casts a Lua Table to an array A Lua table structure is used as the underlying format for Fusion
+    .comp files, Fusion macro/effects template .setting files,
+  overview: null
+  description:
+    - Reactor .atom packages, Fusion preference .prefs, and for Lua metadata table results.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vArrayFromCSV
+    - name: vArrayFromDataWindow
+    - name: vArrayFromJSON
+    - name: vArrayFromMediaIn
+  params:
+    Input: >-
+      Lua table-formatted text to cast into an array — the same format used by Fusion
+      `.comp`/`.setting` files, Reactor `.atom` packages, `.prefs` files, and Lua metadata tables.
+    ShowInput: Reveals the wire for the Input connection in the Flow view.
+legacy_text: >-
+  Casts a Lua Table to an array A Lua table structure is used as the underlying format for Fusion
+  .comp files, Fusion macro/effects template .setting files, Reactor .atom packages, Fusion
+  preference .prefs, and for Lua metadata table results.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 38
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

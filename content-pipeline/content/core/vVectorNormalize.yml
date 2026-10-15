@@ -1,0 +1,26 @@
+tool: vVectorNormalize
+datatype: Vector
+function: Operators
+legacy_names: []
+curated:
+  tagline: Normalizes a vector
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vVectorAdd
+    - name: vVectorCrossProduct
+    - name: vVectorDivideNumber
+    - name: vVectorDotProduct
+  params:
+    Vector: Vector to normalize — Output is the same direction scaled to unit length (magnitude 1).
+    ShowInput: Reveals the wire for the Vector connection in the Flow view.
+legacy_text: Normalizes a vector
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 3
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

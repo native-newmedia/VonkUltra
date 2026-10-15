@@ -1,0 +1,33 @@
+tool: vMatrixMultiply
+datatype: Matrix
+function: Operators
+legacy_names: []
+curated:
+  tagline: >-
+    Multiplies two matrices It is possible combine separate rotation, translation, and scale
+    matrices using a series of connected vMatrixMultiply nodes.
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vMatrixDeterminant
+    - name: vMatrixDivide
+    - name: vMatrixDivideNumber
+    - name: vMatrixInvert
+  params:
+    Matrix1: First matrix operand.
+    Matrix2: >-
+      Second matrix operand — Output is Matrix1 × Matrix2. Chain several vMatrixMultiply nodes to
+      combine separate rotation, translation, and scale matrices.
+    ShowInput: Reveals the wires for the Matrix1/Matrix2 connections in the Flow view.
+legacy_text: >-
+  Multiplies two matrices It is possible combine separate rotation, translation, and scale matrices
+  using a series of connected vMatrixMultiply nodes.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 20
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

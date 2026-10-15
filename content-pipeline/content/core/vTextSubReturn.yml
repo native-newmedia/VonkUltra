@@ -1,0 +1,45 @@
+tool: vTextSubReturn
+datatype: Text
+function: Substring
+legacy_names: []
+curated:
+  tagline: >-
+    Returns a substring of a string This node is used to shorten a string by using the Start and End
+    numeric fields to define the number of characters to remove.
+  overview: null
+  description:
+    - >-
+      A positive number entered in the number input fields is used to define the removal of
+      characters by starting the counting process at the left side of the input string. A negative
+      number in the number input fields is used to define the removal of characters starting on the
+      right side of the input string. This added complexity makes it easier to remove elements like
+      a 3 letter file extension using the negative number input ability to trim off characters
+      starting from the end (right side) of a variable length text string in a precise fashion.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextMerge
+    - name: vTextSubFormat
+    - name: vTextSubFormatMultiline
+    - name: vTextSubJoin
+  params:
+    Text: The source string to extract a substring from.
+    Start: First character to keep — positive counts from the left, negative from the right.
+    End: Last character to keep — positive counts from the left, negative from the right.
+    ShowInput: Reveals the wire for the Text connection in the Flow view.
+legacy_text: >-
+  Returns a substring of a string This node is used to shorten a string by using the Start and End
+  numeric fields to define the number of characters to remove. A positive number entered in the
+  number input fields is used to define the removal of characters by starting the counting process
+  at the left side of the input string. A negative number in the number input fields is used to
+  define the removal of characters starting on the right side of the input string. This added
+  complexity makes it easier to remove elements like a 3 letter file extension using the negative
+  number input ability to trim off characters starting from the end (right side) of a variable
+  length text string in a precise fashion.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 126
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

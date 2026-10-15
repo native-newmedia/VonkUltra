@@ -1,0 +1,32 @@
+tool: vScriptValFromListFonts
+datatype: ScriptVal
+function: Font
+legacy_names: []
+curated:
+  tagline: >-
+    Create a Fusion ScriptVal object from a listing of fonts Sample output from the
+    "vScriptValFromListFonts" node when formatted as text based Lua table output
+  overview: null
+  description:
+    - >-
+      looks like: \{ "Academy Engraved LET", "Al Bayan", "Al Nile", "Al Tarikh", "American
+      Typewriter", "Andale Mono", "Apple Braille", "Apple Chancery", "Apple SD Gothic Neo", "Apple
+      Symbols", "AppleGothic", "AppleMyungjo", "Arial", "Arial Black", "...", \}
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vScriptValFontMetrics
+  params: {}
+legacy_text: >-
+  Create a Fusion ScriptVal object from a listing of fonts Sample output from the
+  "vScriptValFromListFonts" node when formatted as text based Lua table output looks like: \{
+  "Academy Engraved LET", "Al Bayan", "Al Nile", "Al Tarikh", "American Typewriter", "Andale Mono",
+  "Apple Braille", "Apple Chancery", "Apple SD Gothic Neo", "Apple Symbols", "AppleGothic",
+  "AppleMyungjo", "Arial", "Arial Black", "...", \}
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 57
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

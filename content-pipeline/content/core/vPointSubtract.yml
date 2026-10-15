@@ -1,0 +1,31 @@
+tool: vPointSubtract
+datatype: Point
+function: Operators
+legacy_names: []
+curated:
+  tagline: >-
+    Returns the difference of two Fusion Point objects This node can be used to apply a negative
+    offset to the origin of the 1st point by the 2nd point's displacement distance.
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vPointAbsolute
+    - name: vPointAdd
+    - name: vPointClamp
+    - name: vPointDivide
+  params:
+    Point1: First point operand.
+    Point2: Second point operand — its X/Y offset is subtracted from Point1.
+    ShowInput: Reveals the wires for the Point1/Point2 connections in the Flow view.
+legacy_text: >-
+  Returns the difference of two Fusion Point objects This node can be used to apply a negative
+  offset to the origin of the 1st point by the 2nd point's displacement distance.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 31
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

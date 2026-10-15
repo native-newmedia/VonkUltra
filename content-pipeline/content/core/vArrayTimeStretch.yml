@@ -1,0 +1,25 @@
+tool: vArrayTimeStretch
+datatype: Array
+function: Temporal
+legacy_names: []
+curated:
+  tagline: Time based operation on Array
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vArrayTimeSpeed
+  params:
+    Input: JSON array text to sample at a specific time.
+    Time: The frame number to read Input's value at, regardless of the comp's current playhead position.
+    SetSourceTime: Sets Time to the comp's current playhead position — a quick way to snapshot "now".
+    ShowInput: Reveals the wire for the Input connection in the Flow view.
+legacy_text: Time based operation on Array
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 5
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

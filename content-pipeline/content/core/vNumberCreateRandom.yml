@@ -1,0 +1,36 @@
+tool: vNumberCreateRandom
+datatype: Number
+function: Create
+legacy_names: []
+curated:
+  tagline: >-
+    Creates a Fusion Number object This node uses a pseudo-random number generator to create a
+    number that fits within the upper and lower range that is defined.
+  overview: null
+  description:
+    - If you animate the seed value, the number will change on each frame.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vNumberCreate
+    - name: vNumberCreateArch
+    - name: vNumberCreateBool
+    - name: vNumberCreateMultiButton
+  params:
+    Seed: >-
+      Seeds the random number generator — animate this value to get a new random number on each
+      frame.
+    Upper: Upper bound of the random range.
+    Lower: Lower bound of the random range.
+    ShowInput: Reveals the wires for the Seed/Upper/Lower connections in the Flow view.
+legacy_text: >-
+  Creates a Fusion Number object This node uses a pseudo-random number generator to create a number
+  that fits within the upper and lower range that is defined. If you animate the seed value, the
+  number will change on each frame.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 40
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

@@ -1,0 +1,25 @@
+tool: vArrayGetElement
+datatype: Array
+function: Key Value
+legacy_names: []
+curated:
+  tagline: Creates Text from an array element
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vArrayGet
+    - name: vArrayGetIndex
+    - name: vArrayGetKey
+    - name: vArrayKeys
+  params:
+    Input: JSON array text to query.
+legacy_text: Creates Text from an array element
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 6
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

@@ -1,0 +1,24 @@
+operation: FuseClosePoints
+tools:
+  Array: vArrayFuseClosePoints
+  ScriptVal: vScriptValFuseClosePoints
+  JSON: vJSONFuseClosePoints
+legacy_names: []
+curated:
+  tagline: Weld points that are close together.
+  overview: Merges points that lie within a distance threshold and reports statistics.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    DistanceThreshold: Points closer than this are merged.
+    FuseMode: Keep First or Average of the merged points.
+    AxisMode: 'Axes used for the distance. Options: XYZ, XY, XZ, YZ, X Only, Y Only, Z Only.'
+    MinimumClusterSize: Smallest number of points that forms a cluster.
+    DeleteSingles: Removes points that have no neighbour.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

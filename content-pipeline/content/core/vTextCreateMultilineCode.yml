@@ -1,0 +1,28 @@
+tool: vTextCreateMultilineCode
+datatype: Text
+function: Create
+legacy_names: []
+curated:
+  tagline: Create a multi-line Fusion Text object with syntax highlighting
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextCreate
+    - name: vTextCreateArch
+    - name: vTextCreateBrowse
+    - name: vTextCreateMultiline
+  params:
+    Text: The multi-line code to output, shown with syntax highlighting.
+    Syntax: Language used for syntax highlighting — Lua or Python.
+    DisplayLines: Number of lines shown in the Text box in the Inspector.
+    WrapLines: Wraps long lines in the Text box instead of scrolling horizontally.
+legacy_text: Create a multi-line Fusion Text object with syntax highlighting
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 9
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

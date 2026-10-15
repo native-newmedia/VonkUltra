@@ -1,0 +1,23 @@
+tool: vScriptValFromCBORFile
+datatype: CBOR
+function: ScriptVal
+legacy_names: []
+curated:
+  tagline: Reads a Fusion ScriptVal object from a CBOR binary file
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vScriptValToCBORFile
+  params:
+    Input: Path to the `.cbor` file to read.
+    ShowInput: Reveals the Input file-path control so a source can be chosen or typed.
+legacy_text: Reads a Fusion ScriptVal object from a CBOR binary file
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 10
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

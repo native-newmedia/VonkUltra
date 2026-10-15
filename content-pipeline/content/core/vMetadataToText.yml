@@ -1,0 +1,34 @@
+tool: vMetadataToText
+datatype: Meta
+function: Text
+legacy_names: []
+curated:
+  tagline: >-
+    Creates a Fusion Text object from metadata This node is similar to the GetMetadata.fuse with the
+    addition of a "Key" input connection on the node that accepts a Text data type.
+  overview: null
+  description:
+    - >-
+      The "Key" field is used to specify the metadata record. An example of an image metadata record
+      "Key" entry would be the Loader node added attribute of "Filename".
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vMetadataFilename
+    - name: vMetadataFromText
+  params:
+    Input: Image to read the metadata record from.
+    Key: Metadata field name to look up, e.g. the Loader node's `Filename` attribute.
+    ShowInput: Reveals the wire for the Input connection in the Flow view.
+legacy_text: >-
+  Creates a Fusion Text object from metadata This node is similar to the GetMetadata.fuse with the
+  addition of a "Key" input connection on the node that accepts a Text data type. The "Key" field is
+  used to specify the metadata record. An example of an image metadata record "Key" entry would be
+  the Loader node added attribute of "Filename".
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 59
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

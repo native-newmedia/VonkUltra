@@ -1,0 +1,25 @@
+tool: vFileSystemDirExists
+datatype: FileSystem
+function: General
+legacy_names: []
+curated:
+  tagline: Check if a directory exists
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vFileSystemChmod
+    - name: vFileSystemColorTags
+    - name: vFileSystemCreateDir
+    - name: vFileSystemExtendedAttributes
+  params:
+    Text: Directory path to check. Output is 0 if it doesn't exist, 1 if it does.
+legacy_text: Check if a directory exists
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 5
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

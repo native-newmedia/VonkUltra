@@ -1,0 +1,23 @@
+operation: TemporalTimeShift
+tools:
+  Array: vArrayTemporalTimeShift
+  ScriptVal: vScriptValTemporalTimeShift
+  JSON: vJSONTemporalTimeShift
+legacy_names: []
+curated:
+  tagline: Read the input from another frame.
+  overview: >-
+    Outputs the input as it was at the current frame plus Frame Offset. Negative offsets read
+    earlier frames.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    FrameOffset: Frames to shift. Negative reads the past.
+    FallbackCurrent: Uses the current frame when the shifted frame has no data.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

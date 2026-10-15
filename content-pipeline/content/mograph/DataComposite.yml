@@ -1,0 +1,23 @@
+operation: DataComposite
+tools:
+  Array: vArrayDataComposite
+  ScriptVal: vScriptValDataComposite
+  JSON: vJSONDataComposite
+legacy_names: []
+curated:
+  tagline: Pass an image through while forcing data branches to cook.
+  overview: >-
+    Passes the image through unchanged. While Force Data Cook is on, Data A and Data B are read
+    every frame the image is needed, so side-effect nodes upstream of them run on every frame. While
+    it is off, both outputs are empty.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    forcecook: Reads Data A and Data B on every frame and forwards them.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

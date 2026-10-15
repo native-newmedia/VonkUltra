@@ -1,0 +1,31 @@
+operation: TextWrap
+tools:
+  Array: vArrayTextWrap
+  ScriptVal: vScriptValTextWrap
+  JSON: vJSONTextWrap
+legacy_names: []
+curated:
+  tagline: Wrap text to a line width.
+  overview: Splits text into lines of a given width.
+  description: []
+  features: []
+  connections:
+    - label: Example 1
+      lines:
+        - vArrayGenerateText.chanceOperation = "Lorem ipsum"
+        - vArrayGenerateText.selectMode = "Paragraph"
+        - vArrayGenerateText.paragraphCount = 8
+        - vArrayGenerateText.Output -> vArrayTextWrap.Array
+        - vArrayTextWrap.Text -> vTextViewer.Input
+  difficulty: null
+  related: []
+  params:
+    OutputNumber: String or Table.
+    Linelength: Maximum characters per line.
+    num_paragraphs: Number of paragraphs.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null
+  connections_source: docsify
+legacy_text: Text wrap Operations on a Array

@@ -1,0 +1,51 @@
+tool: vColorPermutations
+datatype: Color
+function: General
+legacy_names: []
+curated:
+  tagline: A color node that works with a "Palette Array".
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vColorJuggler
+    - name: vColorSet
+  params:
+    PaletteArray: >-
+      JSON-encoded array of colors — the source palette. Hidden by default; enable Show Input to
+      edit or wire it directly.
+    PaletteResult: >-
+      JSON-encoded array holding the current (possibly reordered) palette — feeds back into itself
+      so Mirror/Left/Right/Shuffle build on the previous result rather than the original.
+    ShowInput: Reveals the Palette Array field for editing or wiring.
+    Mirror: Reverses the order of the palette in Palette Result.
+    Left: Rotates the palette in Palette Result one step to the left.
+    Right: Rotates the palette in Palette Result one step to the right.
+    Shuffle: Randomizes the order of the palette in Palette Result.
+    Reset: >-
+      Restores Palette Result back to the original Palette Array order, discarding any
+      Mirror/Left/Right/Shuffle changes.
+    MirrorCallback: >-
+      Internal flag set by the Mirror button above and cleared once processed — not meant to be
+      toggled manually.
+    LeftCallback: >-
+      Internal flag set by the Left button above and cleared once processed — not meant to be
+      toggled manually.
+    RightCallback: >-
+      Internal flag set by the Right button above and cleared once processed — not meant to be
+      toggled manually.
+    ShuffleCallback: >-
+      Internal flag set by the Shuffle button above and cleared once processed — not meant to be
+      toggled manually.
+    ResetCallback: >-
+      Internal flag set by the Reset button above and cleared once processed — not meant to be
+      toggled manually.
+legacy_text: A color node that works with a "Palette Array".
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 9
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

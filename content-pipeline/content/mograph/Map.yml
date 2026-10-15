@@ -1,0 +1,23 @@
+operation: Map
+tools:
+  Array: vArrayMap
+  ScriptVal: vScriptValMap
+  JSON: vJSONMap
+legacy_names: []
+curated:
+  tagline: Normalize array values.
+  overview: Normalizes values with the selected method.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    NormMethod: >-
+      Method used to normalize the values. Options: Min-Max (0 to 1), Min-Max (Custom Range),
+      Z-Score (Standardize), Unit Vector (L2 Norm), L1 Norm (Sum to 1), Max Abs (Scale by Max).
+    PerAxis: Normalizes X, Y and Z separately.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

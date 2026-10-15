@@ -1,0 +1,34 @@
+tool: vTextRunScript
+datatype: Text
+function: Script
+legacy_names: []
+curated:
+  tagline: >-
+    Runs an external Lua script The "File" text-field is used to specify an external .lua script
+    file.
+  overview: null
+  description:
+    - >-
+      This node is powered by the Lua "`dofile()`" function. Note: This node is effectively
+      deprecated please use vTextDoString Instead.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextDoAction
+    - name: vTextDoString
+    - name: vTextExecute
+    - name: vTextProcessOpen
+  params:
+    File: Path to the external .lua script file to run via `dofile()`.
+    ShowInput: Reveals the wire for the File connection in the Flow view.
+legacy_text: >-
+  Runs an external Lua script The "File" text-field is used to specify an external .lua script file.
+  This node is powered by the Lua "`dofile()`" function. Note: This node is effectively deprecated
+  please use vTextDoString Instead.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 36
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

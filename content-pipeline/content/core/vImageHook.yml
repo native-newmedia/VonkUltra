@@ -1,0 +1,37 @@
+tool: vImageHook
+datatype: Image
+function: Flow
+legacy_names: []
+curated:
+  tagline: The vImageHook node in the Vonk Ultra Core Image toolkit.
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vImageRouter
+    - name: vImageSwitch
+    - name: vImageWireless
+  params:
+    Input: Image passed through unchanged — connect this into the comp so the hook is evaluated.
+    RegExString: Regular expression matched against Loader filenames — any matching Loader triggers this hook.
+    RegExPriority: Evaluation order when multiple ImageHooks match the same Loader — lower runs first.
+    TemplateLoader: Optional template Loader node whose settings new matches should inherit.
+    ShowTemplateLoader: Reveals the wire for the Loader connection in the Flow view.
+    TemplateNodeGraph: Name of a saved node subgraph (macro/group) to insert after any Loader matching Pattern.
+    EnforceTemplateNodeGraph: >-
+      Applies Node Graph even to Loaders that already exist in the comp, not just newly created
+      ones.
+    ShowInput: Reveals the wire for the Input connection in the Flow view.
+    GetColorBtn: Copies the connected node's tile and text colour onto this node.
+    GetNameBtn: Renames this node to match its connected source node, for easy identification.
+    GetSourceBtn: Selects and activates the connected source node in the flow — a quick way to jump to it.
+    Process: Enables this hook. Turn off to temporarily disable it without disconnecting it.
+legacy_text: The vImageHook node in the Vonk Ultra Core Image toolkit.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 10
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

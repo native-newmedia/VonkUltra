@@ -1,0 +1,30 @@
+operation: FromPolylineMulti
+tools:
+  Array: vArrayFromPolylineMulti
+  ScriptVal: vScriptValFromPolylineMulti
+  JSON: vJSONFromPolylineMulti
+legacy_names: []
+curated:
+  tagline: Sample up to 8 drawn polylines into one point list.
+  overview: Samples each polyline and outputs the points with a group per path.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    pathCount: Number of polylines used.
+    pointCount: Number of points per path.
+    closedLoop: Connects the last point of each path to the first.
+    flipY: Mirrors the result along Y.
+    flipX: Mirrors the result along X.
+    aspectCorrect: Corrects for the aspect ratio of the image.
+    scaleX: Scale along X.
+    scaleY: Scale along Y.
+    canvasR: Background color red.
+    canvasG: Background color green.
+    canvasB: Background color blue.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

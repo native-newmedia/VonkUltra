@@ -1,0 +1,30 @@
+tool: vScriptValFromFile
+datatype: ScriptVal
+function: IO
+legacy_names: []
+curated:
+  tagline: >-
+    Reads a Fusion ScriptVal object from a file This node reads a text formatted version of a Lua
+    table structure from disk.
+  overview: null
+  description:
+    - The result is translated into a ScriptVal object on the output.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vScriptValFromBinaryFile
+    - name: vScriptValFromClipboard
+    - name: vScriptValToBinaryFile
+    - name: vScriptValToClipboard
+  params:
+    Input: Path to a Lua table-formatted text file to read.
+legacy_text: >-
+  Reads a Fusion ScriptVal object from a file This node reads a text formatted version of a Lua
+  table structure from disk. The result is translated into a ScriptVal object on the output.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 33
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

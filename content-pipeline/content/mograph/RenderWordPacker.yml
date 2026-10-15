@@ -1,0 +1,35 @@
+operation: RenderWordPacker
+tools:
+  Array: vArrayRenderWordPacker
+  ScriptVal: vScriptValRenderWordPacker
+  JSON: vJSONRenderWordPacker
+legacy_names: []
+curated:
+  tagline: Fill letter shapes with packed words.
+  overview: Fills the outline of the input text groups with words, packed as tightly as the grid allows.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    globalScale: Overall size.
+    Hori_adjustment: Horizontal offset.
+    Ver_adjustment: Vertical offset.
+    GridSize: Resolution of the fill grid.
+    Resolution: Sampling resolution of the fill.
+    Spacing: Space between the packed items.
+    fontselect: Use Font, or Use Front Array (fonts from the font array input).
+    Font: Font family.
+    Size: Text size.
+    Style: Font style.
+    CharacterSpacing: Extra spacing between characters.
+    FitScale: Scales each word to fit.
+    'Red_txt ': Color for the text.
+    Green_txt: Color for the text.
+    Blue_txt: Color for the text.
+    Text: Words to pack.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

@@ -1,0 +1,23 @@
+operation: ToUSD
+tools:
+  Array: vArrayToUSD
+  ScriptVal: vScriptValToUSD
+  JSON: vJSONToUSD
+legacy_names: []
+curated:
+  tagline: Convert an array into OpenUSD ASCII text.
+  overview: Writes points, edges and UVs as USD text.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Sort: Sort order of the object.
+    Path: USD path of the object.
+    ShowInput: Shows the input sockets of the controls.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null
+legacy_text: Convert a Fusion ScriptVal object into OpenUSD ASCII Text

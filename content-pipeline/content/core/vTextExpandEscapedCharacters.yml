@@ -1,0 +1,29 @@
+tool: vTextExpandEscapedCharacters
+datatype: Text
+function: Utility
+legacy_names: []
+curated:
+  tagline: Process escaped newline, return and tab characters in a Fusion Text object
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextDelay
+    - name: vTextDump
+    - name: vTextFromCSVViewer
+    - name: vTextFromFilename
+  params:
+    Text: The text to process for escaped `\n`, `\r`, and `\t` sequences.
+    EspandEscapedCharacters: >-
+      Expand converts literal `\n`/`\r`/`\t` sequences into real newline/return/tab characters;
+      Collapse does the reverse.
+    ShowInput: Reveals the wire for the Text connection in the Flow view.
+legacy_text: Process escaped newline, return and tab characters in a Fusion Text object
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 12
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

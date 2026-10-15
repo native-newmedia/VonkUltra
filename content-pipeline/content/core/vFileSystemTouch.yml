@@ -1,0 +1,27 @@
+tool: vFileSystemTouch
+datatype: FileSystem
+function: General
+legacy_names: []
+curated:
+  tagline: Touch a file/folder's creation and modification dates on macOS and Linux
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vFileSystemChmod
+    - name: vFileSystemColorTags
+    - name: vFileSystemCreateDir
+    - name: vFileSystemDirExists
+  params:
+    Text: >-
+      Path to the file or folder whose creation/modification timestamps are updated to now, creating
+      it first if it doesn't exist.
+legacy_text: Touch a file/folder's creation and modification dates on macOS and Linux
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 11
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

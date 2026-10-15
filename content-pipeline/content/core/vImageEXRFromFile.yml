@@ -1,0 +1,39 @@
+tool: vImageEXRFromFile
+datatype: Image
+function: IO
+legacy_names: []
+curated:
+  tagline: >-
+    Reads an EXR image from a file The "Filename" control is used to define the image filename to
+    load.
+  overview: null
+  description:
+    - >-
+      It can be driven externally by a Text data type connection to the node. The "EXR Part Number"
+      control allows you to select another part element from a multi-part image document. This
+      control can be a bit temperamental so make sure to save the comp document first before
+      changing this value to avoid any loss of time and productivity. The "Time Mode" control allows
+      you to adjust how the frame number for image sequences is processed.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vImageEXRToFile
+    - name: vImageFromClipboard
+    - name: vImageFromColor
+    - name: vImageFromFile
+  params:
+    Filename: Path to the EXR file to load. Can be driven externally by a Text data type connection.
+legacy_text: >-
+  Reads an EXR image from a file The "Filename" control is used to define the image filename to
+  load. It can be driven externally by a Text data type connection to the node. The "EXR Part
+  Number" control allows you to select another part element from a multi-part image document. This
+  control can be a bit temperamental so make sure to save the comp document first before changing
+  this value to avoid any loss of time and productivity. The "Time Mode" control allows you to
+  adjust how the frame number for image sequences is processed.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 95
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

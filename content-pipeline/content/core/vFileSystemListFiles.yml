@@ -1,0 +1,59 @@
+tool: vFileSystemListFiles
+datatype: FileSystem
+function: General
+legacy_names: []
+curated:
+  tagline: >-
+    Creates a Fusion Text object with a list of the folder contents This node scans the contents of
+    a folder path defined in the "Text" field.
+  overview: null
+  description:
+    - >-
+      The output is created as a text based multi-line list of files or folders. The "Pattern" field
+      is used to enter part of the filename that you would like to match in the output. An asterisk
+      character is supported as a wildcard symbol to help with partial filename entry. The Pattern
+      field is typically used to help find files by their extension by entering a value like
+      "`*.exr`", "`*.png`", "`*.mov`", "`*.mp4`", etc. The Mode control can be set to "List Files"
+      or "List Directories". This allows you to filter the output. If you enable the "Export
+      Fullpath" checkbox the full absolute filepath for each item is returned. If the checkbox is
+      disabled, only the filename of the resource is returned without any folder path elements
+      included. The "Expand PathMaps" checkbox will automatically convert any relative filepaths
+      into absolute filepaths on the output. The "Skip Hidden Files" checkbox is used to ignore
+      hidden files like "`.DS_Store`" and "Thumbs.db" documents, along with UNIX style filenames
+      that start with a period. This helps reduce clutter on file listing based outputs.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vFileSystemChmod
+    - name: vFileSystemColorTags
+    - name: vFileSystemCreateDir
+    - name: vFileSystemDirExists
+  params:
+    Text: Folder path to scan.
+    Pattern: Wildcard filter for filenames, e.g. `*.exr` or `*.png`. Leave empty to match everything.
+    Mode: 'Whether to list files or subdirectories: List Files or List Directories.'
+    Export Fullpath: Returns each item's full absolute path, instead of just its filename.
+    ExpandPathMaps: Converts relative paths (like `Comp:/`) into absolute paths in the output.
+    SkipHiddenFiles: Excludes hidden files (`.DS_Store`, `Thumbs.db`, and UNIX dotfiles) from the output.
+    ShowInput: Reveals the wire for the Text connection in the Flow view.
+legacy_text: >-
+  Creates a Fusion Text object with a list of the folder contents This node scans the contents of a
+  folder path defined in the "Text" field. The output is created as a text based multi-line list of
+  files or folders. The "Pattern" field is used to enter part of the filename that you would like to
+  match in the output. An asterisk character is supported as a wildcard symbol to help with partial
+  filename entry. The Pattern field is typically used to help find files by their extension by
+  entering a value like "`*.exr`", "`*.png`", "`*.mov`", "`*.mp4`", etc. The Mode control can be set
+  to "List Files" or "List Directories". This allows you to filter the output. If you enable the
+  "Export Fullpath" checkbox the full absolute filepath for each item is returned. If the checkbox
+  is disabled, only the filename of the resource is returned without any folder path elements
+  included. The "Expand PathMaps" checkbox will automatically convert any relative filepaths into
+  absolute filepaths on the output. The "Skip Hidden Files" checkbox is used to ignore hidden files
+  like "`.DS_Store`" and "Thumbs.db" documents, along with UNIX style filenames that start with a
+  period. This helps reduce clutter on file listing based outputs.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 203
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

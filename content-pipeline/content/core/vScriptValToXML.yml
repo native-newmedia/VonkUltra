@@ -1,0 +1,23 @@
+tool: vScriptValToXML
+datatype: ScriptVal
+function: XML
+legacy_names: []
+curated:
+  tagline: Casts a ScriptVal object into XML text
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vScriptValFromXML
+  params:
+    ScriptVal: ScriptVal Lua table to cast into XML text.
+    Sort: Sorts keys alphabetically in the resulting XML, instead of preserving source order.
+legacy_text: Casts a ScriptVal object into XML text
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 7
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

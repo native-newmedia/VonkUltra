@@ -1,0 +1,63 @@
+tool: vMTLXUsdPreviewSurface
+datatype: MTLX
+function: Surface
+legacy_names: []
+curated:
+  tagline: Creates a UsdPreviewSurface material description
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    SurfaceMaterialName: Name assigned to this UsdPreviewSurface material in the exported MaterialX XML.
+    ShadingGroupName: Name of the shading group/binding the material is assigned to in the exported XML.
+    ExportHeaders: >-
+      Includes the MaterialX XML declaration and namespace headers in the output. Turn off when
+      merging this material's XML into a larger document via vMTLXMerge.
+    DiffuseType: Diffuse colour source — a flat Color using the RGB sliders below, or a Texture map.
+    Diffuse.Color.Red: Red channel of the diffuse colour (0–1). Used when the diffuse Type above is Color.
+    Diffuse.Color.Green: Green channel of the diffuse colour (0–1). Used when the diffuse Type is Color.
+    Diffuse.Color.Blue: Blue channel of the diffuse colour (0–1). Used when the diffuse Type is Color.
+    EmissiveType: >-
+      Emissive (self-illumination) colour source — a flat Color using the RGB sliders below, or a
+      Texture map.
+    Emissive.Color.Red: Red channel of the emissive colour (0–1). Used when the emissive Type above is Color.
+    Emissive.Color.Green: Green channel of the emissive colour (0–1). Used when the emissive Type is Color.
+    Emissive.Color.Blue: Blue channel of the emissive colour (0–1). Used when the emissive Type is Color.
+    WorkflowMode: >-
+      Selects the PBR workflow: Metallic (metalness + base colour) or Specular (explicit specular
+      colour). Reveals the matching controls below.
+    Metallic: Metalness value (0–1). Metallic workflow only.
+    SpecularType: >-
+      Specular colour source — a flat Color using the RGB sliders below, or a Texture map. Specular
+      workflow only.
+    Specular.Color.Red: Red channel of the specular colour (0–1). Specular workflow, Color mode only.
+    Specular.Color.Green: Green channel of the specular colour (0–1). Specular workflow, Color mode only.
+    Specular.Color.Blue: Blue channel of the specular colour (0–1). Specular workflow, Color mode only.
+    NormalColorMode: Surface normal source — a flat Color (a uniform, unperturbed normal) or a Texture normal map.
+    Normal.Color.Red: Red channel of the normal colour (0–1). Used when the normal Type above is Color.
+    Normal.Color.Green: Green channel of the normal colour (0–1). Used when the normal Type is Color.
+    Normal.Color.Blue: >-
+      Blue channel of the normal colour (0–1). Used when the normal Type is Color — 1.0 (pointing
+      straight out) is the default flat normal.
+    Roughness: Surface roughness (0–1) — 0 is a mirror finish, 1 is fully matte.
+    Clearcoat: Strength of an additional clear coat layer over the base material (0–1).
+    ClearcoatRoughness: Roughness of the clear coat layer (0–1), independent of the base Roughness.
+    Opacity: Overall surface opacity (0–1).
+    OpacityThreshold: >-
+      Cutoff below which the surface is fully discarded rather than alpha-blended, for cutout-style
+      materials. 0 disables cutout and uses regular blending.
+    IndexOfRefraction: >-
+      Index of refraction used for the material's transmission/specular response. 1.5 approximates
+      common glass or plastic.
+    Displacement: Displacement amount applied along the surface normal.
+    Occlusion: Ambient occlusion factor (0–1) baked into the material.
+legacy_text: Creates a UsdPreviewSurface material description
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 5
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

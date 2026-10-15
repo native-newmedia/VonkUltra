@@ -1,0 +1,37 @@
+tool: vJSONGetElement
+datatype: JSON
+function: Key Value
+legacy_names: []
+curated:
+  tagline: >-
+    Gets the element of a JSON array The "Index" control is used to access individual entries from a
+    JSON array type of object.
+  overview: null
+  description:
+    - >-
+      The node expects a text based JSON array object as the input. The output from the
+      vJSONGetElement node is a text based data type. It is possible to translate the text based
+      output from this node into numerical values via the vNumberFromText node. The first item is
+      accessed at Index position 1.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vJSONGet
+    - name: vJSONSet
+  params:
+    Input: JSON array text to query.
+    Index: 1-based position of the element to retrieve.
+    ShowInput: Reveals the wire for the Input connection in the Flow view.
+legacy_text: >-
+  Gets the element of a JSON array The "Index" control is used to access individual entries from a
+  JSON array type of object. The node expects a text based JSON array object as the input. The
+  output from the vJSONGetElement node is a text based data type. It is possible to translate the
+  text based output from this node into numerical values via the vNumberFromText node. The first
+  item is accessed at Index position 1.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 75
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

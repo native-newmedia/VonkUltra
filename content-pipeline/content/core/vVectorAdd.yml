@@ -1,0 +1,27 @@
+tool: vVectorAdd
+datatype: Vector
+function: Operators
+legacy_names: []
+curated:
+  tagline: Adds two vectors
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vVectorCrossProduct
+    - name: vVectorDivideNumber
+    - name: vVectorDotProduct
+    - name: vVectorMultiplyNumber
+  params:
+    Vector1: First vector operand (encoded as text).
+    Vector2: Second vector operand — added element-wise to Vector1.
+    ShowInput: Reveals the wires for the Vector1/Vector2 connections in the Flow view.
+legacy_text: Adds two vectors
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 3
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

@@ -1,0 +1,33 @@
+tool: vScriptValGetElementXYZToNumber
+datatype: ScriptVal
+function: Key Value
+legacy_names: []
+curated:
+  tagline: Gets a set of XYZ elements from a ScriptVal array
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vScriptValGetElementToNumber
+    - name: vScriptValGetElementToTable
+    - name: vScriptValGetElementToText
+    - name: vScriptValGetToNumber
+  params:
+    ScriptVal: ScriptVal array to query.
+    IndexX: 1-based position of the element used for the X output.
+    IndexY: 1-based position of the element used for the Y output.
+    IndexZ: 1-based position of the element used for the Z output.
+    ScaleX: Multiplier applied to the X output. Apply Scale only.
+    ScaleY: Multiplier applied to the Y output. Apply Scale only.
+    ScaleZ: Multiplier applied to the Z output. Apply Scale only.
+    ApplyScale: Enables the Scale X/Y/Z multipliers above.
+    ShowInput: Reveals the wire for the ScriptVal connection in the Flow view.
+legacy_text: Gets a set of XYZ elements from a ScriptVal array
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 10
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

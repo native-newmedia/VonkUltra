@@ -1,0 +1,24 @@
+operation: Cylinder
+tools:
+  Array: vArrayCylinder
+  ScriptVal: vScriptValCylinder
+  JSON: vJSONCylinder
+legacy_names: []
+curated:
+  tagline: Generate points on a cylinder.
+  overview: Places points on the sides and caps of a cylinder.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    radius: Radius.
+    height: Height.
+    radialsegments: Segments around the axis.
+    heightsegments: Segments along the height.
+    capmode: Sides, Both or Caps.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

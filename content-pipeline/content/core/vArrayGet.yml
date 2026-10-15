@@ -1,0 +1,28 @@
+tool: vArrayGet
+datatype: Array
+function: Key Value
+legacy_names: []
+curated:
+  tagline: Gets the value of a key in an array
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vArrayGetElement
+    - name: vArrayGetIndex
+    - name: vArrayGetKey
+    - name: vArrayKeys
+  params:
+    Input: JSON array/object text to query.
+    Key: The key to look up.
+    ShowInput: Reveals the wire for the Input connection in the Flow view.
+    GetKeyBtn: Renames this node to `array_<Key>`, making it easy to identify which key it reads at a glance.
+legacy_text: Gets the value of a key in an array
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 9
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

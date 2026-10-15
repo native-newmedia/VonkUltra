@@ -1,0 +1,28 @@
+tool: vImageSlashCommand
+datatype: Image
+function: Script
+legacy_names: []
+curated:
+  tagline: Run a Console Fuse SlashCommand as a node
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vImageProcessOpen
+  params:
+    Input: Image passed through unchanged.
+    Text: The Console Fuse SlashCommand to run, e.g. `/footage list`. See the examples row below.
+    DisplayLines: Number of visible lines in the Text editor before scrolling.
+    WrapLines: Wraps long lines in the Text editor instead of scrolling horizontally.
+    ShowInput: Reveals the wire for the Text connection in the Flow view.
+legacy_text: Run a Console Fuse SlashCommand as a node
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 8
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null
+  page_only_params:
+    - '[=[SlashCommand Examples: /footage list  /for (selected|visible|all) [tooltype['

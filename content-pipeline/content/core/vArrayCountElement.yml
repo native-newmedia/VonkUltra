@@ -1,0 +1,25 @@
+tool: vArrayCountElement
+datatype: Array
+function: Utility
+legacy_names: []
+curated:
+  tagline: Counts the elements in an Array
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vArrayConcatenate
+    - name: vArrayCountSubElements
+    - name: vArrayJoin
+    - name: vArrayMatch
+  params:
+    Text: JSON array text to count. Output is the number of top-level elements it contains.
+legacy_text: Counts the elements in an Array
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 6
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

@@ -1,0 +1,24 @@
+tool: vGuideToFile
+datatype: Guide
+function: IO
+legacy_names: []
+curated:
+  tagline: Writes a vGuide object to a file
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vGuideFromFile
+  params:
+    ScriptVal: The vGuide object to write out — typically fed from vGuideCreate, vGuideShape, or vGuideText.
+    File: Destination path for the saved `.guide` file. Hidden until Show Input is enabled.
+    ShowInput: Reveals the File path control so a destination can be chosen or typed.
+legacy_text: Writes a vGuide object to a file
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 7
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

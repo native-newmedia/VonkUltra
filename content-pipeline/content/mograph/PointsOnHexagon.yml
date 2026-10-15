@@ -1,0 +1,24 @@
+operation: PointsOnHexagon
+tools:
+  Array: vArrayPointsOnHexagon
+  ScriptVal: vScriptValPointsOnHexagon
+  JSON: vJSONPointsOnHexagon
+legacy_names: []
+curated:
+  tagline: Generate points on a hexagon grid.
+  overview: Places points on a hexagonal tiling.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    rows: Number of rows.
+    colums: Number of columns.
+    tileXOffset: Offset between tiles along X.
+    tileYOffset: Offset between tiles along Y.
+    direction: Vertical or Horizontal layout.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

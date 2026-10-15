@@ -1,0 +1,28 @@
+tool: vJSONViewer
+datatype: JSON
+function: Utility
+legacy_names: []
+curated:
+  tagline: View JSON text in the Inspector
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vJSONCountElement
+  params:
+    Text: JSON text to inspect.
+    ShowDump: >-
+      Prints the parsed JSON structure to the console each frame, in addition to the tree view
+      below.
+    Sort: Sorts keys alphabetically in the tree view below, instead of showing them in source order.
+    DisplayLines: Number of visible lines in the tree view before scrolling.
+    JSON: Read-only tree view of the parsed JSON structure.
+legacy_text: View JSON text in the Inspector
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 6
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

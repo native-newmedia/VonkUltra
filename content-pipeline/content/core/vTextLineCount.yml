@@ -1,0 +1,39 @@
+tool: vTextLineCount
+datatype: Text
+function: Utility
+legacy_names: []
+curated:
+  tagline: >-
+    Returns the line count of a multi-line string This node is especially useful if you are working
+    with IFL (Image File Lists), or CSV (Comma Separated Value) / TSV (Tab Separated Value) text
+    files.
+  overview: null
+  description:
+    - >-
+      It gives you a quick indication of how many rows of text are in the supplied multi-line block
+      of text. The output from the node is a Number data type that indicates the total line count.
+      If the text file had ten lines of text supplied to the input connection, then the output from
+      the node would be the number 10.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextDelay
+    - name: vTextDump
+    - name: vTextExpandEscapedCharacters
+    - name: vTextFromCSVViewer
+  params:
+    Text: The multi-line text block to count lines in.
+legacy_text: >-
+  Returns the line count of a multi-line string This node is especially useful if you are working
+  with IFL (Image File Lists), or CSV (Comma Separated Value) / TSV (Tab Separated Value) text
+  files. It gives you a quick indication of how many rows of text are in the supplied multi-line
+  block of text. The output from the node is a Number data type that indicates the total line count.
+  If the text file had ten lines of text supplied to the input connection, then the output from the
+  node would be the number 10.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 95
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

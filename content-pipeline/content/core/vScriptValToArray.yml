@@ -1,0 +1,26 @@
+tool: vScriptValToArray
+datatype: ScriptVal
+function: Array
+legacy_names: []
+curated:
+  tagline: >-
+    Casts a ScriptVal object into a JSON array This node takes a ScriptVal datatype as the input
+    which is translated into a Text based JSON array output.
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vScriptValFromArray
+  params:
+    ScriptVal: ScriptVal Lua table to cast into JSON array text.
+legacy_text: >-
+  Casts a ScriptVal object into a JSON array This node takes a ScriptVal datatype as the input which
+  is translated into a Text based JSON array output.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 27
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

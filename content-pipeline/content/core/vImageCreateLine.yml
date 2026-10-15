@@ -1,0 +1,30 @@
+tool: vImageCreateLine
+datatype: Image
+function: Shape
+legacy_names: []
+curated:
+  tagline: Creates a Line Shape object
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Level: Overall brightness/opacity multiplier for the line.
+    Filter: 'Anti-aliasing filter used to soften the line''s edges: Box, Bartlett, Multi-box, or Gaussian.'
+    SoftEdge: Additional edge softness, blended on top of the Filter setting.
+    Width: Line thickness, as a fraction of frame size.
+    BorderWidth: Width of an additional outline drawn around the line.
+    LineType: 'Dash pattern for the line: Solid, Dash, Dot, Dash Dot, or Dash Dot Dot.'
+    JoinType: 'Corner style where line segments meet: Bevel, Miter, or Round.'
+    Start: Start position of the line, in screen coordinates.
+    End: End position of the line, in screen coordinates.
+    Input: Background image the line is drawn onto.
+legacy_text: Creates a Line Shape object
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 5
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

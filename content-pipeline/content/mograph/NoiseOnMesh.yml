@@ -1,0 +1,34 @@
+operation: NoiseOnMesh
+tools:
+  Array: vArrayNoiseOnMesh
+  ScriptVal: vScriptValNoiseOnMesh
+  JSON: vJSONNoiseOnMesh
+legacy_names: []
+curated:
+  tagline: Displace points with noise on the mesh.
+  overview: Moves points with Perlin or fractal noise along the surface normal or in 3D.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    noisemode: >-
+      Normal Only displaces along the surface normal. 3D Reproject displaces in 3D and projects
+      back.
+    noisetype: Perlin or Fractal noise.
+    amplitude: Strength of the displacement.
+    frequency: Frequency of the noise or wave.
+    octaves: Number of noise layers added together. Shown when the related option is enabled.
+    lacunarity: Frequency multiplier per octave. Shown when the related option is enabled.
+    gain: Amplitude multiplier per octave. Shown when the related option is enabled.
+    animspeed: Speed of the animation over time. 0 is static.
+    seed: Seed of the random generator.
+    surfaceoffset: Offset of the target from the mesh surface.
+    inaffectx: Applies the effect to X.
+    inaffecty: Applies the effect to Y.
+    inaffectz: Applies the effect to Z.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

@@ -1,0 +1,24 @@
+operation: CubicBezier
+tools:
+  Array: vArrayCubicBezier
+  ScriptVal: vScriptValCubicBezier
+  JSON: vJSONCubicBezier
+legacy_names: []
+curated:
+  tagline: Create a cubic Bezier path from points.
+  overview: Builds a smooth Bezier path through the input points and samples it.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    arrayLength: Number of values.
+    Tension: Tension of the path.
+    Subdivisions: Subdivisions per segment.
+    reversearray: Reverses the order of the values.
+    ShowInput: Shows the input sockets of the controls.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

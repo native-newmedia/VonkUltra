@@ -1,0 +1,27 @@
+tool: vMatrixDivideNumber
+datatype: Matrix
+function: Operators
+legacy_names: []
+curated:
+  tagline: Divides a matrix by a number
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vMatrixDeterminant
+    - name: vMatrixDivide
+    - name: vMatrixInvert
+    - name: vMatrixMultiply
+  params:
+    Matrix: Matrix operand.
+    Number: Scalar divisor — every element of Matrix is divided by this value.
+    ShowInput: Reveals the wire for the Matrix connection in the Flow view.
+legacy_text: Divides a matrix by a number
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 6
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

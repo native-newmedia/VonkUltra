@@ -1,0 +1,28 @@
+tool: vGradientNormalizePosition
+datatype: Gradient
+function: Utility
+legacy_names: []
+curated:
+  tagline: Normalizes the position of colors in a Gradient to a uniform spacing from 0-1
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vGradientColorCount
+    - name: vGradientMerge
+    - name: vGradientSlice
+    - name: vGradientSort
+  params:
+    Gradient: >-
+      Gradient whose colour stops are redistributed to even 0–1 spacing, preserving their order but
+      discarding their original positions.
+    ShowDump: Prints the normalized gradient to the console each frame.
+legacy_text: Normalizes the position of colors in a Gradient to a uniform spacing from 0-1
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 14
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

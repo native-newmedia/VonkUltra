@@ -1,0 +1,26 @@
+operation: MirrorThruMesh
+tools:
+  Array: vArrayMirrorThruMesh
+  ScriptVal: vScriptValMirrorThruMesh
+  JSON: vJSONMirrorThruMesh
+legacy_names: []
+curated:
+  tagline: Reflect points through the mesh surface.
+  overview: Reflects every point through the nearest point on the mesh surface.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    mirrortarget: >-
+      Reflect through the surface, the nearest vertex or the nearest face centroid. Options:
+      Surface, Vertex, Face Centroid.
+    blend: Mix between the original points (0) and the result (1).
+    inaffectx: Applies the effect to X.
+    inaffecty: Applies the effect to Y.
+    inaffectz: Applies the effect to Z.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

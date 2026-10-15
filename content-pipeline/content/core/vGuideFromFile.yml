@@ -1,0 +1,23 @@
+tool: vGuideFromFile
+datatype: Guide
+function: IO
+legacy_names: []
+curated:
+  tagline: Reads a vGuide object from a file
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vGuideToFile
+  params:
+    Input: Path to the `.guide` file to read, browsed via the file picker (filtered to `*.guide`).
+    ShowInput: Shows or hides the Input file-path control in the Inspector.
+legacy_text: Reads a vGuide object from a file
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 7
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

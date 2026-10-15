@@ -1,0 +1,29 @@
+operation: TemporalSolverStep
+tools:
+  Array: vArrayTemporalSolverStep
+  ScriptVal: vScriptValTemporalSolverStep
+  JSON: vJSONTemporalSolverStep
+legacy_names: []
+curated:
+  tagline: One feedback step that combines the current frame with an earlier frame.
+  overview: >-
+    Combines each value with the earlier frame using Add, Multiply or Lerp, optionally limits how
+    far it may move, then mixes the result with the current value by Feedback Blend. Reset ignores
+    the earlier frame.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Operation: Add, Multiply or Lerp.
+    FeedbackBlend: 0 returns the current value, 1 returns the combined result.
+    LerpAmount: Mix used when Operation is Lerp.
+    ClampDisplacement: Limits how far the combined value may move from the current value.
+    MaxDisplacement: Largest allowed change per value. Used when Clamp Displacement is on.
+    FrameStep: Frames back to combine with.
+    Reset: Ignores the earlier frame.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

@@ -1,0 +1,26 @@
+operation: Frustum
+tools:
+  Array: vArrayFrustum
+  ScriptVal: vScriptValFrustum
+  JSON: vJSONFrustum
+legacy_names: []
+curated:
+  tagline: Generate points on a cone or frustum.
+  overview: Places points on the side and optional caps of a frustum.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    bottomradius: Radius at the bottom.
+    topradius: Radius at the top.
+    height: Height.
+    radialsegments: Segments around the axis.
+    heightsegments: Segments along the height.
+    includecaps: Adds the end caps.
+    caprings: Rings on each cap.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

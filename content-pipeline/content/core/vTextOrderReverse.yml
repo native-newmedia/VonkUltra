@@ -1,0 +1,29 @@
+tool: vTextOrderReverse
+datatype: Text
+function: Order
+legacy_names: []
+curated:
+  tagline: >-
+    Reverses the order of a Fusion Text object The "Text" field contents will be output
+    letter-by-letter in a right-to-left mirrored fashion that reverses the text's placement.
+  overview: null
+  description:
+    - If you typed in "Hello Shuffle World!" the output would be "!dlroW elffuhS olleH".
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextOrderShuffle
+  params:
+    Text: The text to reverse letter-by-letter.
+    ShowInput: Reveals the wire for the Text connection in the Flow view.
+legacy_text: >-
+  Reverses the order of a Fusion Text object The "Text" field contents will be output
+  letter-by-letter in a right-to-left mirrored fashion that reverses the text's placement. If you
+  typed in "Hello Shuffle World!" the output would be "!dlroW elffuhS olleH".
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 40
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

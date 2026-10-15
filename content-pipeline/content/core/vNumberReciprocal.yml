@@ -1,0 +1,26 @@
+tool: vNumberReciprocal
+datatype: Number
+function: Operators
+legacy_names: []
+curated:
+  tagline: Returns the reciprocal of a number
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vNumberAbsolute
+    - name: vNumberAdd
+    - name: vNumberCeil
+    - name: vNumberClamp
+  params:
+    Number: Value to compute the reciprocal of — Output is `1 / Number`.
+    ShowInput: Reveals the wire for the Number connection in the Flow view.
+legacy_text: Returns the reciprocal of a number
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 6
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

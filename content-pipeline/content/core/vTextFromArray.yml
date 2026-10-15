@@ -1,0 +1,32 @@
+tool: vTextFromArray
+datatype: Text
+function: Create
+legacy_names: []
+curated:
+  tagline: >-
+    Creates Text from an array The "Index" control is used to extract an individual element from a
+    JSON based array.
+  overview: null
+  description:
+    - The output is a text based data type.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextCreate
+    - name: vTextCreateArch
+    - name: vTextCreateBrowse
+    - name: vTextCreateMultiline
+  params:
+    Input: The Array to read an element from, as JSON text.
+    Index: Array element to extract as text.
+    ShowInput: Reveals the wire for the Input connection in the Flow view.
+legacy_text: >-
+  Creates Text from an array The "Index" control is used to extract an individual element from a
+  JSON based array. The output is a text based data type.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 28
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

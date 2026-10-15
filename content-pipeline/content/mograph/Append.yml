@@ -1,0 +1,32 @@
+operation: Append
+tools:
+  Array: vArrayAppend
+  ScriptVal: vScriptValAppend
+  JSON: vJSONAppend
+legacy_names: []
+curated:
+  tagline: Repeat an array a set number of times.
+  overview: Writes the input array Number times in a row into one output array.
+  description: []
+  features: []
+  connections:
+    - label: Example 1
+      lines:
+        - vArrayPointsOnCircle.Output -> vArrayAppend.In_Array
+        - vArrayAppend.Output -> vArrayUnPacker.ArrayB
+        - vArrayUnPacker.OutputArray -> vArraySin.ArrayA
+        - vArraySin.Output -> vArrayPacker.ArrayA
+        - vArrayPacker.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+  difficulty: null
+  related: []
+  params:
+    Number: How many times the input array is repeated.
+    ShowInput: Shows the Number input socket on the node.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null
+  connections_source: docsify
+legacy_text: Append Array to an array

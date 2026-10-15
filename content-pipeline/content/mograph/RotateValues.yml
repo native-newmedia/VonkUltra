@@ -1,0 +1,80 @@
+operation: RotateValues
+tools:
+  Array: vArrayRotateValues
+  ScriptVal: vScriptValRotateValues
+  JSON: vJSONRotateValues
+legacy_names: []
+curated:
+  tagline: >-
+    Cycle the elements of a vArray by N positions — the sequencer shift node for looping patterns
+    and staggered animation offsets.
+  overview: >-
+    vArrayRotateValues shifts all elements in a vArray forward or backward by a set number of
+    positions, wrapping values that fall off one end back to the other. It is the primary tool for
+    creating cyclic sequences and stagger offsets across point arrays.
+  description:
+    - >-
+      vArrayRotateValues performs a circular shift on the element order of a vArray. Elements
+      shifted off the end of the array wrap around to the beginning, preserving the total element
+      count. This is fundamentally different from 3D rotation — it is a data sequencing operation,
+      not a spatial transform.
+    - >-
+      Rotate Amount accepts positive values (shift forward) and negative values (shift backward),
+      and its range of –100 to 100 covers most practical use cases. Animating this parameter over
+      time creates a continuous cycling effect through the array — valuable for sequencing lights in
+      a ring, cycling colour maps, or producing offset wave propagation across a point cloud.
+    - >-
+      Pass Thru mode bypasses the shift entirely, outputting the array unchanged. This is useful
+      during node graph development when you want to temporarily disable the rotation without
+      disconnecting or deleting the node. Pair vArrayRotateValues with vArrayWave to create
+      directional wave patterns that travel through a point array over time.
+  features:
+    - title: Circular Element Shift
+      desc: >-
+        Shifts all elements forward or backward, wrapping values at the boundaries — total element
+        count always stays the same.
+    - title: Signed Rotation Amount
+      desc: >-
+        Positive values shift forward, negative values shift backward (range –100 to 100), enabling
+        full directional control.
+    - title: Animatable Cycling
+      desc: >-
+        Keyframe Rotate Amount to create continuous cycling animations through the array data —
+        ideal for sequencer-style effects.
+    - title: Pass-Through Bypass
+      desc: >-
+        Pass Thru checkbox disables the shift for quick A/B comparison during development without
+        removing the node.
+  connections:
+    - label: Cycling ring sequence
+      lines:
+        - vArrayPointsOnCircle.Output -> vArrayRotateValues.ArrayA
+        - vArrayRotateValues.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+    - label: Stagger before wave
+      lines:
+        - vArrayPointsOnGrid.Output -> vArrayRotateValues.ArrayA
+        - vArrayRotateValues.Output -> vArrayWave.ArrayA
+        - vArrayWave.Output -> vArrayCameraProjection.ArrayA
+  difficulty: Beginner
+  related:
+    - name: vArrayWave
+      desc: Apply a wave oscillation to the rotated array for travelling wave effects.
+    - name: vArrayBuffer
+      desc: Store frame history — pair with vArrayRotateValues for FIFO-style sequencing.
+    - name: vArrayInterpolate
+      desc: Blend between two rotated states for smooth cycling transitions.
+  params:
+    rotateamount: >-
+      Number of positions to shift the array elements. Positive shifts forward, negative shifts
+      backward. Range: –100 to 100.
+    passthru: >-
+      When enabled, bypasses the rotation and passes the input array through unchanged. Use during
+      development to toggle the effect.
+    ShowInput: Reveals the Array A connection port on the node in the Fusion node graph.
+    ArrayA: The vArray whose element order will be circularly shifted.
+status:
+  source: rich-json
+  state: imported
+  reviewed_hash: null
+legacy_text: Rotate Array Between Operations on an Array

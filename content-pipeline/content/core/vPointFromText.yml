@@ -1,0 +1,24 @@
+tool: vPointFromText
+datatype: Point
+function: Text
+legacy_names: []
+curated:
+  tagline: Returns a Fusion Point object from two Text inputs
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vPointToText
+  params:
+    InputX: Text containing the X value of the resulting Point — parsed as a number.
+    InputY: Text containing the Y value of the resulting Point — parsed as a number.
+    ShowInput: Reveals the wires for the InputX/InputY connections in the Flow view.
+legacy_text: Returns a Fusion Point object from two Text inputs
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 9
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

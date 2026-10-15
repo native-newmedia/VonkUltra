@@ -1,0 +1,31 @@
+tool: vNumberEase
+datatype: Number
+function: Operators
+legacy_names: []
+curated:
+  tagline: Performs a specific interpolation between two numbers during a defined time duration
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vNumberAbsolute
+    - name: vNumberAdd
+    - name: vNumberCeil
+    - name: vNumberClamp
+  params:
+    TargetStartTime: Frame the eased interpolation begins on.
+    Duration: Length of the eased interpolation, in frames.
+    Function: Easing curve applied over the interpolation, set via Fusion's native ease-curve picker.
+    Affect: >-
+      Which portion of the interpolation the ease curve is applied to, set via Fusion's native
+      picker.
+    ShowInput: Reveals the wire for the Target Start Time connection in the Flow view.
+legacy_text: Performs a specific interpolation between two numbers during a defined time duration
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 12
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

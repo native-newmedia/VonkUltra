@@ -1,0 +1,19 @@
+operation: LogicAll
+tools:
+  Array: vArrayLogicAll
+  ScriptVal: vScriptValLogicAll
+  JSON: vJSONLogicAll
+legacy_names: []
+curated:
+  tagline: Test whether all elements are set.
+  overview: 'Outputs a one-element array: 1 if every element is above 0, else 0.'
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params: {}
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

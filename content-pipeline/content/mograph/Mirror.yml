@@ -1,0 +1,22 @@
+operation: Mirror
+tools:
+  Array: vArrayMirror
+  ScriptVal: vScriptValMirror
+  JSON: vJSONMirror
+legacy_names: []
+curated:
+  tagline: Mirror points across an axis.
+  overview: Mirrors points across the X, Y or Z axis, optionally combined with the original.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Axis: 'Axis to mirror across. Options: X, Y, Z.'
+    Pivot: Position of the mirror plane.
+    KeepOriginal: Outputs the original points together with the mirrored points.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

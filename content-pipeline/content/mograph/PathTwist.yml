@@ -1,0 +1,23 @@
+operation: PathTwist
+tools:
+  Array: vArrayPathTwist
+  ScriptVal: vScriptValPathTwist
+  JSON: vJSONPathTwist
+legacy_names: []
+curated:
+  tagline: Twist a path.
+  overview: Applies roll or twist along the path frames.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    TwistMode: 'Linear from start to end, or constant. Options: Linear Start-End, Constant.'
+    StartTwist: Twist at the start in degrees.
+    EndTwist: Twist at the end in degrees.
+    ClosedPath: Treats the points as a closed loop.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

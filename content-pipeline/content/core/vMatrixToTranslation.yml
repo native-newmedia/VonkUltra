@@ -1,0 +1,29 @@
+tool: vMatrixToTranslation
+datatype: Matrix
+function: Transform
+legacy_names: []
+curated:
+  tagline: Decomposes translation from a matrix.
+  overview: null
+  description:
+    - This returns XYZ rotation values from a 4x4 vMatrix input.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vMatrixFromRotation
+    - name: vMatrixFromScale
+    - name: vMatrixFromTranslation
+    - name: vMatrixToEuler
+  params:
+    Input: 4×4 matrix to decompose.
+    Translate.X: Read-only output of the matrix's X translation component.
+    Translate.Y: Read-only output of the matrix's Y translation component.
+    Translate.Z: Read-only output of the matrix's Z translation component.
+legacy_text: Decomposes translation from a matrix. This returns XYZ rotation values from a 4x4 vMatrix input.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 15
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

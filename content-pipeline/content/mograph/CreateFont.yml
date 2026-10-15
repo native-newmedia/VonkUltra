@@ -1,0 +1,40 @@
+operation: CreateFont
+tools:
+  Array: vArrayCreateFont
+  ScriptVal: vScriptValCreateFont
+  JSON: vJSONCreateFont
+legacy_names: []
+curated:
+  tagline: Generate an array based font.
+  overview: Samples the outlines of a styled text into a font that other tools can read.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    InputSource: 'Where the data comes from. Options: File, URL, Text.'
+    Filename: File to read. Shown when Input Source is File.
+    URL: Address to read. Shown when Input Source is URL.
+    Input: Text to read. Shown when Input Source is Text.
+    StyledText: Text to convert.
+    Size: Text size.
+    CharacterSpacing: Extra spacing between characters.
+    Case: ORIGINAL, UPPER or LOWER.
+    FlipX: Mirrors the font along X.
+    FlipY: Mirrors the result along Y.
+    Hori_adjustment: Horizontal offset.
+    Ver_adjustment: Vertical offset.
+    sample_points: Number of points per outline.
+    Translate.X: Moves the result along X.
+    Translate.Y: Moves the result along Y.
+    Translate.Z: Moves the result along Z.
+    Rotate.X: Rotation around X in degrees.
+    Rotate.Y: Rotation around Y in degrees.
+    Rotate.Z: Rotation around Z in degrees.
+    Scale.Y: Scale along Y. Shown when Lock X/Y is off.
+    lineSpacing: Spacing between lines.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

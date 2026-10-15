@@ -1,0 +1,30 @@
+tool: vGradientAccumulator
+datatype: Gradient
+function: Temporal
+legacy_names: []
+curated:
+  tagline: Temporally concatenate Gradients
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vGradientTimeSpeed
+    - name: vGradientTimeStretch
+  params:
+    Gradient: >-
+      Gradient sampled once per frame across the Start/End range and concatenated into a single
+      output.
+    StartFrame: First frame to sample.
+    EndFrame: Last frame to sample.
+    Step: Frame increment between samples — use a value above 1 to sample more sparsely.
+    ShowDump: Prints the accumulated gradient to the console each frame.
+    ShowInput: Reveals the wire for the Gradient connection in the Flow view.
+legacy_text: Temporally concatenate Gradients
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 3
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

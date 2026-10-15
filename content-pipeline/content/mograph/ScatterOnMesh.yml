@@ -1,0 +1,67 @@
+operation: ScatterOnMesh
+tools:
+  Array: vArrayScatterOnMesh
+  ScriptVal: vScriptValScatterOnMesh
+  JSON: vJSONScatterOnMesh
+legacy_names: []
+curated:
+  tagline: Scatter points randomly over the surface of a mesh loaded from a file, URL or text.
+  overview: >-
+    vArrayScatterOnMesh reads a mesh and outputs Number of Points points sampled on its triangles. Seed
+    makes the result repeatable and Surface Offset moves points along the surface normal.
+  description:
+    - >-
+      The mesh source is set by Input Source: File, URL or Text. File uses the Filename socket, URL
+      uses the URL control (hidden until URL is selected) and Text uses the Text input socket. The
+      Scale File Units By control multiplies the mesh coordinates.
+    - >-
+      Triangles are picked with probability proportional to their area, so large triangles receive
+      more points. Within a triangle the position uses barycentric coordinates built from two random
+      numbers: u = 1 - sqrt(r1), v = sqrt(r1) * (1 - r2), w = sqrt(r1) * r2. This gives a uniform
+      distribution over the triangle.
+    - >-
+      The random generator is seeded with Random Seed, so the same Random Seed, mesh and Number of Points give the same
+      points. Change Random Seed for a different scatter. Surface Offset moves each point along its
+      triangle normal by that distance; 0 keeps points on the surface.
+    - If the mesh has no triangles, the output is an empty array. Number of Points has a minimum of 2.
+  features:
+    - title: Area-weighted sampling
+      desc: Triangle choice is proportional to area, so point density is even over the surface.
+    - title: Three mesh sources
+      desc: Load from a File, a URL or pass the mesh as Text through a socket.
+    - title: Repeatable
+      desc: A fixed Random Seed gives the same points every time.
+    - title: Surface offset
+      desc: Points can be pushed off the surface along the triangle normal.
+  connections:
+    - label: Scatter on a loaded mesh and draw
+      lines:
+        - vArrayScatterOnMesh.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Scatter, then jitter
+      lines:
+        - vArrayScatterOnMesh.Output -> vArrayDisplaceValues.ArrayA
+        - vArrayDisplaceValues.Output -> vArrayCameraProjection.ArrayA
+  difficulty: Intermediate
+  related:
+    - name: vArrayMaskScatterOnMesh
+      desc: Scatter restricted by a mask.
+    - name: vArrayRelaxScatterOnMesh
+      desc: Scatter followed by a relaxation step.
+    - name: vArrayPointsOnSphere
+      desc: Points on a sphere without needing a mesh.
+  params:
+    inputsource: Selects the mesh source. File, URL or Text.
+    filename: Mesh file to load when Input Source is File. Also available as a socket.
+    url: Mesh URL when Input Source is URL. Hidden until URL is selected.
+    input: Mesh text when Input Source is Text. Available as a socket.
+    scale: Multiplier applied to the mesh coordinates. Default 1.
+    pointcount: Number of points to scatter. Minimum 2, default 1000.
+    seed: Random seed. Same seed gives the same points. Default 0.
+    surfaceoffset: Distance to move each point along the triangle normal. Default 0.
+status:
+  source: ai
+  state: ai
+  reviewed_hash: null
+  prompt_version: '1'

@@ -1,0 +1,27 @@
+tool: vVectorFromPoint
+datatype: Vector
+function: Point
+legacy_names: []
+curated:
+  tagline: Creates a vector from a point
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vPointToVector
+    - name: vVectorToPoint
+  params:
+    Point: Point whose X/Y/Z coordinates are converted to a Vector.
+    Columns: >-
+      How many of the point's components to keep, from the left (X, then X/Y, then X/Y/Z). Default 3
+      keeps all of X/Y/Z.
+    ShowInput: Reveals the wire for the Point connection in the Flow view.
+legacy_text: Creates a vector from a point
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 6
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

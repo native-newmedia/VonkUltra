@@ -1,0 +1,24 @@
+operation: Reverse
+tools:
+  Array: vArrayReverse
+  ScriptVal: vScriptValReverse
+  JSON: vJSONReverse
+legacy_names: []
+curated:
+  tagline: Reverse or reorder an array range.
+  overview: Reverses the whole array or an index range of it.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Direction: 'Direction of the operation. Options: Reverse, Forward.'
+    StartIndex: First index of the range to reverse.
+    EndIndex: Last index of the range to reverse.
+    PreserveMetadata: Keeps the extra values of each point.
+    DebugMode: Prints debug information to the console.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

@@ -1,0 +1,26 @@
+tool: vMetadataFilename
+datatype: Meta
+function: Text
+legacy_names: []
+curated:
+  tagline: Creates a Fusion Text object from an image's metadata filename
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vMetadataFromText
+    - name: vMetadataToText
+  params:
+    Input: Image to read the source filename metadata from.
+    Parse: >-
+      Which part of the filename to extract: FullPath, FullPathMap, Path, PathMap, FullName, Name,
+      CleanName, SNum (sequence number), Number, Extension, Padding, UNC, or Path + Name.
+legacy_text: Creates a Fusion Text object from an image's metadata filename
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 10
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

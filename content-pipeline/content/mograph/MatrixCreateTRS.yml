@@ -1,0 +1,25 @@
+operation: MatrixCreateTRS
+tools:
+  Matrix: vMatrixCreateTRS
+legacy_names: []
+curated:
+  tagline: null
+  overview: null
+  description: []
+  features: []
+  connections:
+    - label: Example 1
+      lines:
+        - vMatrixCreateTRS.Output -> vScriptValLocatorAsset.Matrix
+        - vScriptValLocatorAsset.Output -> vScriptValMergeAsset.ScriptVal
+        - vScriptValMergeAsset.Output -> vScriptValRenderAsset.vGeometry
+        - Background.Output -> vScriptValRenderAsset.Input
+  difficulty: null
+  related: []
+  params: {}
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null
+  connections_source: docsify
+legacy_text: Creates a 4x4 matrix using traditional XYZ translation, rotation, and scale controls

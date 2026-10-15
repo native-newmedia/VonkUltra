@@ -1,0 +1,24 @@
+tool: vArrayToFile
+datatype: Array
+function: IO
+legacy_names: []
+curated:
+  tagline: Writes a JSON array object into a file.
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vArrayFromNet
+  params:
+    Input: JSON array text to write out.
+    File: Destination path for the saved JSON file.
+    ShowInput: Reveals the wire for the Input connection in the Flow view.
+legacy_text: Writes a JSON array object into a file.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 8
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

@@ -1,0 +1,38 @@
+operation: RenderShapePacker
+tools:
+  Array: vArrayRenderShapePacker
+  ScriptVal: vScriptValRenderShapePacker
+  JSON: vJSONRenderShapePacker
+legacy_names: []
+curated:
+  tagline: Fill letter shapes with packed shapes.
+  overview: >-
+    Fills the outline of the input text groups with shapes, using a simple, ultra simple or
+    multi-size grid fill.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Algorithm: Simple Grid Fill, Ultra Simple Grid Fill, or Multi Size Grid Fill.
+    globalScale: Overall size.
+    Hori_adjustment: Horizontal offset.
+    Ver_adjustment: Vertical offset.
+    GridSize: Resolution of the fill grid.
+    Resolution: Sampling resolution of the fill.
+    Spacing: Space between the packed items.
+    CharacterSpacing: Extra spacing between characters.
+    SelectShape: Default, Polygon, or Custom shape.
+    sides: Sides of the polygon.
+    radius: Radius of the packed shapes.
+    angle: Rotation of the packed shapes.
+    SelectFill: Outline or Fill.
+    Thickness: Line thickness.
+    'Red_bg ': Color for the shape.
+    Green_bg: Color for the shape.
+    Blue_bg: Color for the shape.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

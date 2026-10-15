@@ -1,0 +1,38 @@
+tool: vTextFromZip
+datatype: Text
+function: IO
+legacy_names: []
+curated:
+  tagline: >-
+    Reads a Text string from a zip archive This node accesses a plain-text formatted resource that
+    is stored inside a Zip archive using the Fusion v16+/Resolve v15+ based ZipIO library.
+  overview: null
+  description:
+    - >-
+      The "Zip File" field is used to define the filename of the zip archive. The "Extract File"
+      field is used to define the resource that is stored inside the zip archive. Both attributes
+      can be driven externally by a Text data type connection to the node.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextFromClipboard
+    - name: vTextFromComp
+    - name: vTextFromFile
+    - name: vTextFromNet
+  params:
+    ZipFile: Path to the zip archive to read from.
+    ExtractFile: Path, inside the zip archive, of the text resource to extract.
+    ShowInput: Reveals the wires for the Zip File/Extract File connections in the Flow view.
+legacy_text: >-
+  Reads a Text string from a zip archive This node accesses a plain-text formatted resource that is
+  stored inside a Zip archive using the Fusion v16+/Resolve v15+ based ZipIO library. The "Zip File"
+  field is used to define the filename of the zip archive. The "Extract File" field is used to
+  define the resource that is stored inside the zip archive. Both attributes can be driven
+  externally by a Text data type connection to the node.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 76
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

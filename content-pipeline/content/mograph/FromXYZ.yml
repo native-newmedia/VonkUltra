@@ -1,0 +1,39 @@
+operation: FromXYZ
+tools:
+  Array: vArrayFromXYZ
+  ScriptVal: vScriptValFromXYZ
+  JSON: vJSONFromXYZ
+legacy_names: []
+curated:
+  tagline: Convert ASCII XYZ point cloud data into an array.
+  overview: Reads XYZ text from a file, a URL or text and outputs the points.
+  description: []
+  features: []
+  connections:
+    - label: Example 1
+      lines:
+        - vArrayFromXYZ.Points -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Example 2
+      lines:
+        - vArrayFromXYZ.Points -> vArrayMath.ArrayA
+        - vMatrixCreateTRS1.Output -> vArrayMath.ArrayB
+        - vArrayMath.Operation = "Matrix Multiply"
+        - vArrayMath.Output -> vArrayToXYZ.ArrayA
+        - vArrayToXYZ.Output -> vTextToFile.Input
+  difficulty: null
+  related: []
+  params:
+    InputSource: 'Where the data comes from. Options: File, URL, Text.'
+    Filename: File to read. Shown when Input Source is File.
+    URL: Address to read. Shown when Input Source is URL.
+    Input: Text to read. Shown when Input Source is Text.
+    Density: Share of points kept.
+    Scale: Multiplies the coordinates of the file.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null
+  connections_source: docsify
+legacy_text: 'Convert ASCII XYZ point cloud data into a vArray format Transform XYZ Points Node Connections:'

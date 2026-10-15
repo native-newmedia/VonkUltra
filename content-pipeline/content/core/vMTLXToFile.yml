@@ -1,0 +1,26 @@
+tool: vMTLXToFile
+datatype: MTLX
+function: IO
+legacy_names: []
+curated:
+  tagline: Writes an XML string to a MaterialX file
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    File: Destination path for the saved MaterialX (`.mtlx`) file. Hidden until Show Input is enabled.
+    FontSize: Font size used in the XML text preview below.
+    DisplayLines: Number of visible lines in the XML preview before scrolling.
+    WrapLines: Wraps long lines in the XML preview instead of scrolling horizontally.
+    XML: The MaterialX XML content to write, typically fed from vMTLXUsdPreviewSurface or vMTLXMerge.
+    ShowInput: Reveals the MTLX File path control so a destination can be chosen or typed.
+legacy_text: Writes an XML string to a MaterialX file
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 8
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

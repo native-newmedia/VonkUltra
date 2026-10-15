@@ -1,0 +1,26 @@
+tool: vScriptValViewer
+datatype: ScriptVal
+function: Utility
+legacy_names: []
+curated:
+  tagline: View the Fusion ScriptVal object contents in the Inspector
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vScriptValCount
+    - name: vScriptValDump
+    - name: vScriptValMerge
+  params:
+    ShowDump: Prints the ScriptVal contents to the console each frame, in addition to the tree view below.
+    DisplayLines: Number of visible lines in the tree view before scrolling.
+    ScriptVal: ScriptVal value to inspect.
+legacy_text: View the Fusion ScriptVal object contents in the Inspector
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 9
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

@@ -1,0 +1,25 @@
+operation: Repeat
+tools:
+  Array: vArrayRepeat
+  ScriptVal: vScriptValRepeat
+  JSON: vJSONRepeat
+legacy_names: []
+curated:
+  tagline: Repeat a point array.
+  overview: Repeats point arrays with a transform offset per copy.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Copies: Number of copies.
+    OffsetX: Offset per copy along X.
+    OffsetY: Offset per copy along Y.
+    OffsetZ: Offset per copy along Z.
+    RotateStepZ: Rotation per copy around Z.
+    ScaleStep: Scale change per copy.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

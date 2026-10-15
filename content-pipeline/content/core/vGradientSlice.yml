@@ -1,0 +1,29 @@
+tool: vGradientSlice
+datatype: Gradient
+function: Utility
+legacy_names: []
+curated:
+  tagline: Extracts a range of color indexes from a Gradient
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vGradientColorCount
+    - name: vGradientMerge
+    - name: vGradientNormalizePosition
+    - name: vGradientSort
+  params:
+    Gradient: Gradient to slice.
+    Start: 1-based index of the first colour stop to keep.
+    Stop: 1-based index of the last colour stop to keep.
+    ShowDump: Prints the sliced gradient to the console each frame.
+    ShowInput: Reveals the wire for the Gradient connection in the Flow view.
+legacy_text: Extracts a range of color indexes from a Gradient
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 9
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

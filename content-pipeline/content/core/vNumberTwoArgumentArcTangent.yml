@@ -1,0 +1,33 @@
+tool: vNumberTwoArgumentArcTangent
+datatype: Number
+function: Trigonometry
+legacy_names: []
+curated:
+  tagline: >-
+    Returns the arc tangent of y/x (in radians) but uses the signs of both parameters to find the
+    quadrant of the result
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vNumberArcCosine
+    - name: vNumberArcSine
+    - name: vNumberArcTangent
+    - name: vNumberCosine
+  params:
+    X: Horizontal component.
+    'Y': >-
+      Vertical component — Output is `atan2(Y, X)` in radians, the two-argument arc tangent that
+      correctly resolves the angle across all four quadrants using the sign of both X and Y.
+    ShowInput: Reveals the wires for the X/Y connections in the Flow view.
+legacy_text: >-
+  Returns the arc tangent of y/x (in radians) but uses the signs of both parameters to find the
+  quadrant of the result
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 22
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

@@ -1,0 +1,30 @@
+tool: vScriptValToFile
+datatype: ScriptVal
+function: IO
+legacy_names: []
+curated:
+  tagline: >-
+    Writes a Fusion ScriptVal object to a file This node writes a text formatted version of a Lua
+    table structure to disk.
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vScriptValFromBinaryFile
+    - name: vScriptValFromClipboard
+    - name: vScriptValFromFile
+    - name: vScriptValToBinaryFile
+  params:
+    ScriptVal: ScriptVal Lua table to write out.
+    File: Destination path for the saved text file.
+legacy_text: >-
+  Writes a Fusion ScriptVal object to a file This node writes a text formatted version of a Lua
+  table structure to disk.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 22
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

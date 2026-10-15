@@ -1,0 +1,27 @@
+tool: vYAMLViewer
+datatype: YAML
+function: Utility
+legacy_names: []
+curated:
+  tagline: View YAML in the Inspector
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Text: YAML-formatted text to inspect — typically fed from a vScriptValFromYAML or file-read node.
+    ShowDump: >-
+      Prints the parsed YAML structure to the console each frame, in addition to the tree view
+      below.
+    Sort: Sorts keys alphabetically in the tree view below, instead of showing them in source order.
+    DisplayLines: Number of visible lines in the tree view before scrolling.
+    YAML: Read-only tree view of the parsed YAML structure.
+legacy_text: View YAML in the Inspector
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 5
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

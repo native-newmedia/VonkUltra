@@ -1,0 +1,54 @@
+tool: vTextSubSplit
+datatype: Text
+function: Substring
+legacy_names: []
+curated:
+  tagline: >-
+    Returns a substring of a string The "Pattern" text field uses [Lua
+    Patterns](http://lua-users.org/wiki/PatternsTutorial) to parse the string into a JSON like Array
+    object.
+  overview: null
+  description:
+    - >-
+      Additional information about patterns can be read in the [Lua
+      manual](https://www.lua.org/manual/5.3/manual.html#6.4.1). The portion of the pattern you want
+      to return should be placed inside a pair of parentheses characters "(" and ")". If you wanted
+      to return all of the characters from the input string you would use a Pattern of: `(.*)` If
+      you had a list of single word objects that were comma separated like:
+      `Apple;Orange,Pear,Mango` Then you could break the text down into individual objects using a
+      Pattern of: `(%a+),-` The output would be formatted as:
+      `\{"size":4,"array":["Apple","Orange","Pear","Mango"]\}` If you had a string with an IPv4
+      style IP address in it like "192.168.1.1", you could break the text down into individual
+      digits groupings using a Pattern of: `(%d+)` The output would be formatted as:
+      `\{"size":4,"array":["192","168","1","1"]\}`
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextMerge
+    - name: vTextSubFormat
+    - name: vTextSubFormatMultiline
+    - name: vTextSubJoin
+  params:
+    Text: The source string to split into an Array.
+    Pattern: Lua pattern with the capture group `(...)` defining what each split item returns.
+    ShowInput: Reveals the wire for the Text connection in the Flow view.
+legacy_text: >-
+  Returns a substring of a string The "Pattern" text field uses [Lua
+  Patterns](http://lua-users.org/wiki/PatternsTutorial) to parse the string into a JSON like Array
+  object. Additional information about patterns can be read in the [Lua
+  manual](https://www.lua.org/manual/5.3/manual.html#6.4.1). The portion of the pattern you want to
+  return should be placed inside a pair of parentheses characters "(" and ")". If you wanted to
+  return all of the characters from the input string you would use a Pattern of: `(.*)` If you had a
+  list of single word objects that were comma separated like: `Apple;Orange,Pear,Mango` Then you
+  could break the text down into individual objects using a Pattern of: `(%a+),-` The output would
+  be formatted as: `\{"size":4,"array":["Apple","Orange","Pear","Mango"]\}` If you had a string with
+  an IPv4 style IP address in it like "192.168.1.1", you could break the text down into individual
+  digits groupings using a Pattern of: `(%d+)` The output would be formatted as:
+  `\{"size":4,"array":["192","168","1","1"]\}`
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 149
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

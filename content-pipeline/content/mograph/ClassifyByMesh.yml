@@ -1,0 +1,29 @@
+operation: ClassifyByMesh
+tools:
+  Array: vArrayClassifyByMesh
+  ScriptVal: vScriptValClassifyByMesh
+  JSON: vJSONClassifyByMesh
+legacy_names: []
+curated:
+  tagline: Classify points as inside or outside a mesh.
+  overview: Uses the local surface plane of the mesh to output 1 for inside points and 0 for outside points.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    inoffsetspace: 'Surface offset is applied along the normal or in world space. Options: Normal, World.'
+    insurfaceoffsetdistance: Moves the classification plane along the normal.
+    inflipnormal: Reverses the mesh normal direction.
+    inworldoffsetx: World space offset X. Shown when the related option is enabled.
+    inworldoffsety: World space offset Y. Shown when the related option is enabled.
+    inworldoffsetz: World space offset Z. Shown when the related option is enabled.
+    inaffectx: Applies the effect to X.
+    inaffecty: Applies the effect to Y.
+    inaffectz: Applies the effect to Z.
+    insurfacebandthickness: Points within this distance of the surface are treated as inside.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

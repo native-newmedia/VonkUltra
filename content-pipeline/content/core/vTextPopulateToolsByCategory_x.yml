@@ -1,0 +1,25 @@
+tool: vTextPopulateToolsByCategory_x
+datatype: Text
+function: Fusion
+legacy_names: []
+curated:
+  tagline: Populate the flow with every tool in a selected category.
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextPopulateToolsByCategory
+    - name: vTextPopulateToolsByCategory_ArraysCreate
+    - name: vTextPopulateToolsByCategory_ArraysModify
+    - name: vTextRenderComp
+  params:
+    Status: Read-only — status/log text shown after clicking a category link.
+legacy_text: Populate the flow with every tool in a selected category.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 10
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

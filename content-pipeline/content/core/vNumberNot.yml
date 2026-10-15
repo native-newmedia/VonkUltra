@@ -1,0 +1,28 @@
+tool: vNumberNot
+datatype: Number
+function: Logic
+legacy_names: []
+curated:
+  tagline: Performs a logical NOT operation on a number
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vNumberAnd
+    - name: vNumberEqual
+    - name: vNumberGreater
+    - name: vNumberGreaterEqual
+  params:
+    Term1: Value to invert — Output is 1 if Term 1 is 0 (false), otherwise 0.
+    ShowInput: Reveals the wire for the Term 1 connection in the Flow view.
+legacy_text: Performs a logical NOT operation on a number
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 8
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null
+  page_only_params:
+    - Term1Separator

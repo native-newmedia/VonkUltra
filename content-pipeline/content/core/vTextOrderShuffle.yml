@@ -1,0 +1,33 @@
+tool: vTextOrderShuffle
+datatype: Text
+function: Order
+legacy_names: []
+curated:
+  tagline: >-
+    Shuffles the order of a Fusion Text object The "Text" field contents will be output with a
+    randomized order.
+  overview: null
+  description:
+    - >-
+      This is done using an approach known as a
+      [Fisher--Yates](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle) shuffle. If you
+      typed in "Hello Shuffle World!" the output would be "Wdool uhSffod rlHoe!".
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextOrderReverse
+  params:
+    Text: The text whose characters get randomly shuffled (Fisher–Yates).
+    ShowInput: Reveals the wire for the Text connection in the Flow view.
+legacy_text: >-
+  Shuffles the order of a Fusion Text object The "Text" field contents will be output with a
+  randomized order. This is done using an approach known as a
+  [Fisher--Yates](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle) shuffle. If you typed
+  in "Hello Shuffle World!" the output would be "Wdool uhSffod rlHoe!".
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 44
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

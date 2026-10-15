@@ -1,0 +1,20 @@
+operation: FromSpline
+tools:
+  Array: vArrayFromSpline
+  ScriptVal: vScriptValFromSpline
+  JSON: vJSONFromSpline
+legacy_names: []
+curated:
+  tagline: Create an array from a spline.
+  overview: Samples a spline into points.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    mode: Samples uniformly or by distance.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

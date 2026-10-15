@@ -1,0 +1,47 @@
+operation: RampMap
+tools:
+  Array: vArrayRampMap
+  ScriptVal: vScriptValRampMap
+  JSON: vJSONRampMap
+legacy_names: []
+curated:
+  tagline: Map scalar values to colors with a ramp.
+  overview: Maps scalar sources to per-point RGBA colors with a 4-stop ramp.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Source: >-
+      Value that drives the result. Options: Index, Scalar Input, Position X, Position Y, Position
+      Z, Distance From Center.
+    AutoRange: Uses the minimum and maximum of the data as the range.
+    Curve: Shape of the transition. Linear, Smooth or Power.
+    Power: Exponent of the curve.
+    Clamp: Limits the result to the range 0 to 1.
+    Invert: Inverts the result.
+    FallbackCount: Number of values used when no input array is connected.
+    CenterX: Center position X.
+    CenterY: Center position Y.
+    CenterZ: Center position Z.
+    Red_A: Color value for stop A Color.
+    Green_A: Color value for stop A Color.
+    Blue_A: Color value for stop A Color.
+    Alpha_A: Color value for stop A Color.
+    Red_B: Color value for stop A Color.
+    Green_B: Color value for stop A Color.
+    Blue_B: Color value for stop A Color.
+    Alpha_B: Color value for stop A Color.
+    Red_C: Color value for stop A Color.
+    Green_C: Color value for stop A Color.
+    Blue_C: Color value for stop A Color.
+    Alpha_C: Color value for stop A Color.
+    Red_D: Color value for stop A Color.
+    Green_D: Color value for stop A Color.
+    Blue_D: Color value for stop A Color.
+    Alpha_D: Color value for stop A Color.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

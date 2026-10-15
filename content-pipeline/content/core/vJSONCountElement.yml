@@ -1,0 +1,34 @@
+tool: vJSONCountElement
+datatype: JSON
+function: Utility
+legacy_names: []
+curated:
+  tagline: >-
+    Counts the elements in a JSON array The node expects a text based JSON array object as the
+    input.
+  overview: null
+  description:
+    - >-
+      This node returns a number data type that indicates how many array elements exist at this
+      level in a JSON hierarchy. This return value could be used to drive a vTextAccumulator node's
+      EndFrame attribute if you wanted to increment through each of the array elements.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vJSONViewer
+  params:
+    Input: >-
+      JSON array text to count. Output is the number of elements at this level of the hierarchy —
+      useful for driving a vTextAccumulator's EndFrame to step through each element.
+legacy_text: >-
+  Counts the elements in a JSON array The node expects a text based JSON array object as the input.
+  This node returns a number data type that indicates how many array elements exist at this level in
+  a JSON hierarchy. This return value could be used to drive a vTextAccumulator node's EndFrame
+  attribute if you wanted to increment through each of the array elements.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 64
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

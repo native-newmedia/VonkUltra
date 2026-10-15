@@ -1,0 +1,27 @@
+operation: GridPolar
+tools:
+  Array: vArrayGridPolar
+  ScriptVal: vScriptValGridPolar
+  JSON: vJSONGridPolar
+legacy_names: []
+curated:
+  tagline: Create a polar grid.
+  overview: Places points on rings around the center.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    numRings: Number of rings.
+    pointsPerRing: Points on each ring.
+    innerRadius: Radius of the first ring.
+    ringSpacing: Distance between rings.
+    startAngle: Angle of the first point.
+    sweepAngle: Angle covered by each ring.
+    zOffset: Z shift per ring.
+    baseZ: Z position of the first ring.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

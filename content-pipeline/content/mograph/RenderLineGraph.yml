@@ -1,0 +1,34 @@
+operation: RenderLineGraph
+tools:
+  Array: vArrayRenderLineGraph
+  ScriptVal: vScriptValRenderLineGraph
+  JSON: vJSONRenderLineGraph
+legacy_names: []
+curated:
+  tagline: Render a line graph from an array of values.
+  overview: Draws the values as a line, with an optional filled area below it.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    LineRed: Color for the line.
+    LineGreen: Color for the line.
+    LineBlue: Color for the line.
+    LineAlpha: Color for the line.
+    LineWidth: Width of the lines.
+    FillArea: Fills the area under the line.
+    FillRed: Color for the line.
+    FillGreen: Color for the line.
+    FillBlue: Color for the line.
+    FillAlpha: Color for the line.
+    Normalize: Scales the values to fill the chart height.
+    BaselineY: Vertical position of the chart baseline.
+    ChartHeight: Height of the chart.
+    MarginLeft: Space left of the chart.
+    MarginRight: Space right of the chart.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

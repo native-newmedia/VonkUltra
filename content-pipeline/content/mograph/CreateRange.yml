@@ -1,0 +1,114 @@
+operation: CreateRange
+tools:
+  Array: vArrayCreateRange
+  ScriptVal: vScriptValCreateRange
+  JSON: vJSONCreateRange
+legacy_names:
+  - vArrayCreate
+curated:
+  tagline: >-
+    Generate a flat numeric array in four modes — constant fill, 0-1 normalised, 1-2-3 integer
+    sequence, or Min/Max range — the Swiss Army knife seed node.
+  overview: >-
+    vArrayCreate generates a flat numeric array of any length using one of four fill modes: a
+    constant value, a normalised 0–1 sequence, an ascending integer sequence, or a defined Min/Max
+    range. Use it wherever you need a simple numeric array as pipeline input and vArrayCreateMinMax
+    or vArrayPointsOnGrid would be overkill.
+  description:
+    - >-
+      vArrayCreate is the general-purpose array generator in the vArray toolkit. Where
+      vArrayCreateMinMax is optimised for spatial Min/Max pairs and vArrayPointsOnGrid produces
+      structured 2D layouts, vArrayCreate simply fills an array of a given length with numeric
+      values according to one of four selectable modes. It is the right node when you need raw
+      numbers rather than geometric positions — driving parameter offsets, feeding arithmetic
+      modifiers, seeding randomisers, or providing a simple index sequence to downstream logic
+      nodes.
+    - >-
+      Mode Select is the key control, presented as a four-button switcher: Num fills every element
+      with the same constant value (set by the Number parameter); 0-1 generates a linearly spaced
+      sequence from 0 to 1 across the array length; 1,2,3 generates an ascending integer sequence
+      starting at 1; Range exposes Min/Max range controls and distributes values linearly between
+      them. Each mode hides the controls irrelevant to it, keeping the UI clean. Pack To structures
+      the output as X-only, XY pairs, or XYZ triples to match downstream expectations.
+    - >-
+      Reverse Array flips the order of the output — useful when a downstream node expects descending
+      values or when you want to mirror an animation without changing the source data. The Show
+      Input checkbox exposes an ArrayA passthrough port for chaining or merging. In practice,
+      vArrayCreate is most useful early in a pipeline where you need a numeric sequence to drive
+      vArrayMath operations, stagger timing via vArrayStagger, or provide index data to conditional
+      logic nodes.
+  features:
+    - title: Four fill modes
+      desc: >-
+        Switch between constant fill, normalised 0-1 sequence, ascending integer sequence, and
+        Min/Max range — all in a single node with a clean button switcher.
+    - title: Flexible pack format
+      desc: >-
+        Pack To structures output as X, XY, or XYZ to match whatever format the downstream modifier
+        or renderer expects.
+    - title: Reversible output
+      desc: >-
+        Reverse Array flips the output order in one checkbox — no expressions or upstream changes
+        needed to mirror a sequence.
+    - title: Chainable via Show Input
+      desc: >-
+        Expose the ArrayA port to merge or concatenate arrays from multiple vArrayCreate nodes in a
+        single pipeline.
+  connections:
+    - label: Drive a modifier with an index sequence
+      lines:
+        - vArrayCreate.Output -> vArrayMapRange.ArrayA
+        - vArrayMapRange.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Seed a buffer with constant values
+      lines:
+        - vArrayCreate.Output -> vArrayBuffer.ArrayA
+        - vArrayBuffer.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Merge two sequences
+      lines:
+        - vArrayCreate_A.Output -> vArrayCreate_B.ArrayA
+        - vArrayCreate_B.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+  difficulty: Beginner
+  related:
+    - name: vArrayMinMax
+      desc: >-
+        Use when you need a spatial Min/Max range pair for geometric generators — more specialised
+        than vArrayCreate for positional data.
+    - name: vArrayMapRange
+      desc: >-
+        Place after vArrayCreate to remap the generated sequence into a different output range
+        without changing the source values.
+    - name: vArrayBuffer
+      desc: >-
+        Feed vArrayCreate output into vArrayBuffer to accumulate a frame history of the generated
+        sequence for trail and echo effects.
+  params:
+    arrayLength: >-
+      Number of elements in the generated array. Minimum 2. All fill modes distribute their values
+      across this length.
+    'ModeSelect ': >-
+      Selects the array fill mode. Num: fills every element with the constant value set by Number.
+      0-1: linearly distributed sequence from 0 to 1. 1,2,3: ascending integer sequence starting at
+      1. Range: linearly distributed values between a Min and Max. Each mode shows only the controls
+      relevant to it.
+    Number: >-
+      Constant fill value used in Num mode. Every element in the output array is set to this value.
+      Hidden in all other modes.
+    reversearray: >-
+      Flips the order of the output array. Useful when a downstream node expects descending values
+      or when mirroring a sequence animation.
+    InputNumber: >-
+      Output packing format: X (1D flat sequence), X Y (pairs), or X Y Z (triples). Match this to
+      what the downstream node expects.
+    ShowInput: >-
+      Reveals the ArrayA input port, allowing an upstream array to be passed through or merged with
+      the generated output.
+status:
+  source: rich-json
+  state: imported
+  reviewed_hash: null

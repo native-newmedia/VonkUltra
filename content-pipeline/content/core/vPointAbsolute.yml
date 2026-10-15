@@ -1,0 +1,30 @@
+tool: vPointAbsolute
+datatype: Point
+function: Operators
+legacy_names: []
+curated:
+  tagline: >-
+    Returns a Fusion Point object with an absolute value This will remove a negative sign from any
+    point value that is below 0.
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vPointAdd
+    - name: vPointClamp
+    - name: vPointDivide
+    - name: vPointMix
+  params:
+    Point: Point operand — Output has the sign removed from any negative X/Y value.
+    ShowInput: Reveals the wire for the Point connection in the Flow view.
+legacy_text: >-
+  Returns a Fusion Point object with an absolute value This will remove a negative sign from any
+  point value that is below 0.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 23
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

@@ -1,0 +1,25 @@
+tool: vTextToClipboard
+datatype: Text
+function: IO
+legacy_names: []
+curated:
+  tagline: Send text to the clipboard
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextFromClipboard
+    - name: vTextFromComp
+    - name: vTextFromFile
+    - name: vTextFromNet
+  params:
+    Text: The text to copy to the system clipboard.
+legacy_text: Send text to the clipboard
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 5
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

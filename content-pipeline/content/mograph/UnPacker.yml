@@ -1,0 +1,29 @@
+operation: UnPacker
+tools:
+  Array: vArrayUnPacker
+  ScriptVal: vScriptValUnPacker
+  JSON: vJSONUnPacker
+legacy_names: []
+curated:
+  tagline: Unpack grouped values.
+  overview: Splits packed groups back into a flat array.
+  description: []
+  features: []
+  connections:
+    - label: Example 1
+      lines:
+        - vArrayPointsOnCircle.Output -> vArrayUnPacker.ArrayB
+        - vArrayUnPacker.OutputArray -> vArraySin.ArrayA
+        - vArraySin.Output -> vArrayPacker.ArrayA
+        - vArrayPacker.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+  difficulty: null
+  related: []
+  params: {}
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null
+  connections_source: docsify
+legacy_text: Unpack Operations on an Array

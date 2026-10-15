@@ -1,0 +1,24 @@
+tool: vScriptValDump
+datatype: ScriptVal
+function: Utility
+legacy_names: []
+curated:
+  tagline: Dump the contents of a Fusion ScriptVal object to the Console
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vScriptValCount
+    - name: vScriptValMerge
+    - name: vScriptValViewer
+  params:
+    ScriptVal: ScriptVal value passed through unchanged, printed to the Console each frame.
+legacy_text: Dump the contents of a Fusion ScriptVal object to the Console
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 11
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

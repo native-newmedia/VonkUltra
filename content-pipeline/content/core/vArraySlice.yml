@@ -1,0 +1,25 @@
+tool: vArraySlice
+datatype: Array
+function: Utility
+legacy_names: []
+curated:
+  tagline: Creates Text from an array
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vArrayConcatenate
+    - name: vArrayCountElement
+    - name: vArrayCountSubElements
+    - name: vArrayJoin
+  params:
+    Input: JSON array text to slice.
+legacy_text: Creates Text from an array
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 5
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

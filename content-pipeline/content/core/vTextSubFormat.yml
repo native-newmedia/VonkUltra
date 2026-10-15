@@ -1,0 +1,39 @@
+tool: vTextSubFormat
+datatype: Text
+function: Substring
+legacy_names: []
+curated:
+  tagline: >-
+    Formats a template string with input values Each input connection on the vTextSubFormat node can
+    be placed exactly where it is needed using a token approach.
+  overview: null
+  description:
+    - >-
+      A token value is entered using curly braces that surround an integer number like "`\{1\}`" or
+      "`\{2\}`" that represent an input connection number on the node.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextMerge
+    - name: vTextSubFormatMultiline
+    - name: vTextSubJoin
+    - name: vTextSubReplace
+  params:
+    Which: Reserved input, referenced by name from inside the node's internal script.
+    Text1: The first token value, inserted wherever `{1}` appears in Format.
+    Format: Template string containing `{1}`, `{2}`, etc. tokens for each connected input.
+legacy_text: >-
+  Formats a template string with input values Each input connection on the vTextSubFormat node can
+  be placed exactly where it is needed using a token approach. A token value is entered using curly
+  braces that surround an integer number like "`\{1\}`" or "`\{2\}`" that represent an input
+  connection number on the node.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 52
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null
+  page_only_params:
+    - '"Text" .. i'
+    - '"Text" .. (inp_nr + 1)'

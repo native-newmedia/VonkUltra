@@ -1,0 +1,25 @@
+operation: RelaxOnMesh
+tools:
+  Array: vArrayRelaxOnMesh
+  ScriptVal: vScriptValRelaxOnMesh
+  JSON: vJSONRelaxOnMesh
+legacy_names: []
+curated:
+  tagline: Spread points evenly on the mesh.
+  overview: Moves scattered points apart step by step so they distribute evenly over the mesh surface.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    surfaceoffset: Offset of the target from the mesh surface.
+    relaxiterations: Number of smoothing passes.
+    relaxstrength: Strength of each pass.
+    inaffectx: Applies the effect to X.
+    inaffecty: Applies the effect to Y.
+    inaffectz: Applies the effect to Z.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

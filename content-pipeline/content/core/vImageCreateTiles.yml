@@ -1,0 +1,45 @@
+tool: vImageCreateTiles
+datatype: Image
+function: Create
+legacy_names: []
+curated:
+  tagline: >-
+    Creates an image grid layout from an image sequence This node makes it easy to create tiled
+    "texture atlas" like grid layouts.
+  overview: null
+  description:
+    - >-
+      If you need the imagery to be scaled down to a specific size, attach a resize or scale node to
+      the image stream before you connect it to the vImageCreateTiles node. The "Tiles X" control
+      specifies how many images are stacked horizontally. The "Tiles Y" control specifies how many
+      images are stacked vertically. The "Reverse X Order" and "Reverse Y Order" checkboxes are used
+      to provide control over the image placement ordering when the grid layout is built. This
+      allows you to start frame 1 at either of the 4 corners of the frame border.
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Input: >-
+      Image sequence to lay out as a grid — connect a Loader or other sequence-driving node
+      upstream. Resize/scale it first if you need the tiles smaller than source resolution.
+    TilesX: Number of images stacked horizontally.
+    TilesY: Number of images stacked vertically.
+    ReverseXOrder: Places frame 1 on the right instead of the left.
+    ReverseYOrder: >-
+      Places frame 1 at the bottom instead of the top. Combine with Reverse X Order to start from
+      any of the 4 corners.
+legacy_text: >-
+  Creates an image grid layout from an image sequence This node makes it easy to create tiled
+  "texture atlas" like grid layouts. If you need the imagery to be scaled down to a specific size,
+  attach a resize or scale node to the image stream before you connect it to the vImageCreateTiles
+  node. The "Tiles X" control specifies how many images are stacked horizontally. The "Tiles Y"
+  control specifies how many images are stacked vertically. The "Reverse X Order" and "Reverse Y
+  Order" checkboxes are used to provide control over the image placement ordering when the grid
+  layout is built. This allows you to start frame 1 at either of the 4 corners of the frame border.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 117
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

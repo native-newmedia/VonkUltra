@@ -1,0 +1,29 @@
+tool: vNumberDivide
+datatype: Number
+function: Operators
+legacy_names: []
+curated:
+  tagline: Returns the quotient of two numbers
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vNumberAbsolute
+    - name: vNumberAdd
+    - name: vNumberCeil
+    - name: vNumberClamp
+  params:
+    Numerator: Value to be divided.
+    Denominator: Value to divide by.
+    ShowInput: Reveals the wires for the Numerator/Denominator connections in the Flow view.
+legacy_text: Returns the quotient of two numbers
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 6
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null
+  page_only_params:
+    - NumeratorSeparator

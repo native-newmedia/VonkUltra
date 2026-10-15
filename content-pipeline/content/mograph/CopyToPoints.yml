@@ -1,0 +1,29 @@
+operation: CopyToPoints
+tools:
+  Array: vArrayCopyToPoints
+  ScriptVal: vScriptValCopyToPoints
+  JSON: vJSONCopyToPoints
+legacy_names: []
+curated:
+  tagline: Copy a template onto target points.
+  overview: Copies the template point set onto each target point, with scale and seeded rotation variation.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    TemplateScale: Scale of each copy.
+    ScaleX: Scale along X.
+    ScaleY: Scale along Y.
+    ScaleZ: Scale along Z.
+    BaseRotateZ: Rotation of each copy around Z.
+    RandomRotateZ: Random extra rotation around Z.
+    Seed: Seed of the random generator.
+    RandomOffsetX: Random offset along X.
+    RandomOffsetY: Random offset along Y.
+    RandomOffsetZ: Random offset along Z.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

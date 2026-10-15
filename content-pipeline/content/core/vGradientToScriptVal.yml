@@ -1,0 +1,23 @@
+tool: vGradientToScriptVal
+datatype: Gradient
+function: ScriptVal
+legacy_names: []
+curated:
+  tagline: Create a ScriptVal object from a Gradient
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vGradientFromScriptVal
+  params:
+    Gradient: Gradient to convert — Output is a ScriptVal list of `{P, R, G, B, A}` colour-stop entries.
+    ShowDump: Prints the converted ScriptVal table to the console each frame.
+legacy_text: Create a ScriptVal object from a Gradient
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 7
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

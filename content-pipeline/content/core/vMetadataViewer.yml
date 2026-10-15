@@ -1,0 +1,24 @@
+tool: vMetadataViewer
+datatype: Meta
+function: Utility
+legacy_names: []
+curated:
+  tagline: View the image metadata in the Inspector
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Input: Image whose metadata is displayed.
+    ShowDump: Prints the metadata to the console each frame, in addition to the tree view below.
+    DisplayLines: Number of visible lines in the tree view before scrolling.
+    ScriptVal: Read-only tree view of the image's metadata.
+legacy_text: View the image metadata in the Inspector
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 7
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

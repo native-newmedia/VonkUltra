@@ -1,0 +1,35 @@
+operation: Slicer
+tools:
+  Array: vArraySlicer
+  ScriptVal: vScriptValSlicer
+  JSON: vJSONSlicer
+legacy_names: []
+curated:
+  tagline: Cut a range out of an array.
+  overview: >-
+    Returns the entries from Start to Stop. Offset Range moves both by the same amount. With
+    Continuous on, a range that runs past the end wraps around to the start.
+  description: []
+  features: []
+  connections:
+    - label: Example 1
+      lines:
+        - vArrayCircularPoints.Output -> vArraySlicer.Input
+        - vArraySlicer.Array -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+        - vArrayShapeText.OutputValShape -> vArrayShapeRender.ArrayShape
+  difficulty: null
+  related: []
+  params:
+    Start: First entry of the range.
+    Stop: Last entry of the range.
+    OffsetRange: Added to Start and Stop.
+    continuous: Wraps the range around the end of the array.
+    ShowInput: Shows the Start, Stop and Offset Range input socket on the node.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null
+  connections_source: docsify
+legacy_text: Trim the start and end of single or multi-dimensional arrays

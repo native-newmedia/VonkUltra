@@ -1,0 +1,27 @@
+operation: PointsJitter
+tools:
+  Array: vArrayPointsJitter
+  ScriptVal: vScriptValPointsJitter
+  JSON: vJSONPointsJitter
+legacy_names: []
+curated:
+  tagline: Add jitter to array points.
+  overview: >-
+    Moves each XYZ point by a seeded random offset plus a small animated wobble. The same Seed gives
+    the same result.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    jitterx: Maximum jitter per axis.
+    jittery: Maximum jitter per axis.
+    jitterz: Maximum jitter per axis.
+    seed: Random seed. Each point gets its own offset from it.
+    time: Speed of the wobble. At 0 the wobble is frozen.
+    uniform: 'On: even spread from minus to plus Jitter. Off: bell-curve spread.'
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

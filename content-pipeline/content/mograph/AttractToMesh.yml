@@ -1,0 +1,23 @@
+operation: AttractToMesh
+tools:
+  Array: vArrayAttractToMesh
+  ScriptVal: vScriptValAttractToMesh
+  JSON: vJSONAttractToMesh
+legacy_names: []
+curated:
+  tagline: Pull points toward the mesh surface.
+  overview: Moves every input point toward the nearest point on the mesh surface by the strength amount.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    inblend: Mix between the original points (0) and the result (1).
+    inaffectx: Applies the effect to X.
+    inaffecty: Applies the effect to Y.
+    inaffectz: Applies the effect to Z.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

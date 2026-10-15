@@ -1,0 +1,33 @@
+tool: vScriptValFromPixel
+datatype: Gradient
+function: Pixel
+legacy_names: []
+curated:
+  tagline: Return a ScriptVal with the RGB color from pixels in an image
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vGradientFromPixel
+  params:
+    Input: Image to sample colours from.
+    SamplingMode: >-
+      How pixels are sampled: Pixel (a single point), Scanline Horizontal/Vertical (evenly spaced
+      samples along a line), or Rectangle (a 2D grid of samples within an area).
+    Pixel: Position to sample. Pixel mode only.
+    Samples: Number of colour samples generated. Scanline modes only.
+    RectangularCenter: Center of the sampling area. Rectangle mode only.
+    RectangularWidth: Width of the sampling rectangle, as a fraction of frame width. Rectangle mode only.
+    RectangularHeight: Height of the sampling rectangle, as a fraction of frame height. Rectangle mode only.
+    HorizontalSamples: Number of sample columns across the rectangle. Rectangle mode only.
+    VerticalSamples: Number of sample rows across the rectangle. Rectangle mode only.
+    ShowInput: Reveals the wire for the Input connection in the Flow view.
+legacy_text: Return a ScriptVal with the RGB color from pixels in an image
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 12
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

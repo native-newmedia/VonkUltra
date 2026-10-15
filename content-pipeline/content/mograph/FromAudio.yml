@@ -1,0 +1,33 @@
+operation: FromAudio
+tools:
+  Array: vArrayFromAudio
+  ScriptVal: vScriptValFromAudio
+  JSON: vJSONFromAudio
+legacy_names: []
+curated:
+  tagline: Convert .wav audio data into an array.
+  overview: Reads a wave file and outputs the samples as an array.
+  description: []
+  features: []
+  connections:
+    - label: Example 1
+      lines:
+        - vTextCreateBrowse.Output -> vArrayFromAudio.WaveFile
+        - vArrayFromAudio.Output -> vArrayViewer.Text
+        - vArrayFromAudio.Output -> vArrayCountElement.Text
+  difficulty: null
+  related: []
+  params:
+    WaveFile: Wave file to read.
+    SelectChannels: Left, Right or Both. Shown for stereo files.
+    SampleStartFrame: Frame at which reading starts.
+    TimeScale: Stretches the audio in time.
+    Proxy: Number of samples skipped.
+    InputSource: 'Where the data comes from. Options: File, URL, Base64.'
+    URL: Address of the wave file.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null
+  connections_source: docsify
+legacy_text: Convert .wav audio data into a vArray format

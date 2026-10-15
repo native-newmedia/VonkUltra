@@ -1,0 +1,40 @@
+operation: ForEachIndexed
+tools:
+  Array: vArrayForEachIndexed
+  ScriptVal: vScriptValForEachIndexed
+  JSON: vJSONForEachIndexed
+legacy_names: []
+curated:
+  tagline: Apply a transform per index in one pass.
+  overview: Applies an indexed or grouped transform to every point, with easing and animation.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Mode: >-
+      Transform applied per index or per group. Options: Offset X by Index, Offset Y by Index,
+      Offset Z by Index, Offset X by Group, Offset Y by Group, Offset Z by Group, Scale by Index,
+      Rotate X by Group, Rotate Y by Group, Rotate Z by Group, Random Offset X by Group, Random
+      Offset Y by Group, Random Offset Z by Group, Random Offset X by Index, Random Offset Y by
+      Index, Random Offset Z by Index.
+    GroupSize: Number of points per group.
+    IndexAmount: Amount applied per index.
+    GroupAmount: Amount applied per group.
+    RandomMin: Lower end of the random range. Shown when the related option is enabled.
+    RandomMax: Upper end of the random range. Shown when the related option is enabled.
+    AutoAnimate: Animates the effect over time.
+    AnimSpeed: Speed of the animation. Shown when the related option is enabled.
+    AnimDuration: Length of the animation in frames. Shown when the related option is enabled.
+    AnimEaseType: >-
+      Easing of the animation. Options: Linear, Ease In, Ease Out, Ease In-Out, Ease Out-Back. Shown
+      when the related option is enabled.
+    AnimLoopMode: >-
+      Looping or waveform of the animation. Options: Off, Loop, Ping-Pong, Step Mode, Sine Wave,
+      Triangle Wave, Sawtooth Wave. Shown when the related option is enabled.
+    InvertMask: Swaps masked and unmasked areas.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

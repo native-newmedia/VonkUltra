@@ -1,0 +1,30 @@
+tool: vNumberCompFrameFormat
+datatype: Number
+function: Comp
+legacy_names: []
+curated:
+  tagline: >-
+    Returns the comp's frame format This node outputs a Width and Height parameter derived from the
+    current comp's FrameFormat settings.
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vNumberCompCurrentTime
+    - name: vNumberCompFPS
+    - name: vNumberCompGlobalEnd
+    - name: vNumberCompGlobalStart
+  params:
+    Width: Read-only — the comp's current Frame Format width, in pixels.
+    Height: Read-only — the comp's current Frame Format height, in pixels.
+legacy_text: >-
+  Returns the comp's frame format This node outputs a Width and Height parameter derived from the
+  current comp's FrameFormat settings.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 20
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

@@ -1,0 +1,30 @@
+tool: vTextCaseAlternate
+datatype: Text
+function: Case
+legacy_names: []
+curated:
+  tagline: >-
+    Alternates the case of a Fusion Text object A Text based input of "hello world!" would be
+    converted to "hElLo wOrLd!" where every 2nd letter is formatted as a capital letter.
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextCaseInvert
+    - name: vTextCaseLower
+    - name: vTextCaseRandom
+    - name: vTextCaseSentence
+  params:
+    Text: Text to convert — every 2nd letter becomes uppercase.
+    ShowInput: Reveals the wire for the Text connection in the Flow view.
+legacy_text: >-
+  Alternates the case of a Fusion Text object A Text based input of "hello world!" would be
+  converted to "hElLo wOrLd!" where every 2nd letter is formatted as a capital letter.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 31
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

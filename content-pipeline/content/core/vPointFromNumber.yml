@@ -1,0 +1,24 @@
+tool: vPointFromNumber
+datatype: Point
+function: Number
+legacy_names: []
+curated:
+  tagline: Return a Fusion Point object from two numbers
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vPointToNumber
+  params:
+    NumberX: X value of the resulting Point.
+    NumberY: Y value of the resulting Point.
+    ShowInput: Reveals the wires for the Number X/Number Y connections in the Flow view.
+legacy_text: Return a Fusion Point object from two numbers
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 8
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

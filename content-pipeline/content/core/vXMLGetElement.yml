@@ -1,0 +1,28 @@
+tool: vXMLGetElement
+datatype: XML
+function: Key Value
+legacy_names: []
+curated:
+  tagline: Gets the value of a XML key.
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vXMLGet
+  params:
+    Input: XML text to query.
+    Index: 1-based position of the element to retrieve when the XML contains repeated/sibling elements.
+    ShowInput: Reveals the wire for the Input connection in the Flow view.
+    GetKeyBtn: >-
+      Attempts to rename this node using a `Key` value, but this node has no Key input (only Index)
+      — a leftover copy-paste from vXMLGet's identical button. Clicking it renames the node to
+      `xml_nil` rather than anything useful.
+legacy_text: Gets the value of a XML key.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 7
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

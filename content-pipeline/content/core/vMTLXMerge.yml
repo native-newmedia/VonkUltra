@@ -1,0 +1,27 @@
+tool: vMTLXMerge
+datatype: MTLX
+function: Utility
+legacy_names: []
+curated:
+  tagline: Dynamically joins separate MTLX content into one
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Which: >-
+      Internal control tracking how many XML inputs are currently connected. Not meant to be set
+      manually — every connected input is merged, regardless of this value.
+    ExportHeaders: Includes the MaterialX XML declaration and namespace headers in the merged output.
+    XML1: >-
+      The first MaterialX XML fragment to merge. Connecting it reveals XML2 for the next fragment,
+      and so on.
+legacy_text: Dynamically joins separate MTLX content into one
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 7
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

@@ -1,0 +1,27 @@
+tool: vScriptValRemoveElement
+datatype: ScriptVal
+function: Key Value
+legacy_names: []
+curated:
+  tagline: Removes an element from a ScriptVal array using its index position
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vScriptValGetElementToNumber
+    - name: vScriptValGetElementToTable
+    - name: vScriptValGetElementToText
+    - name: vScriptValGetElementXYZToNumber
+  params:
+    ScriptVal: ScriptVal array to remove an element from.
+    Index: 1-based position of the element to remove.
+    ShowInput: Reveals the wire for the ScriptVal connection in the Flow view.
+legacy_text: Removes an element from a ScriptVal array using its index position
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 11
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

@@ -1,0 +1,44 @@
+tool: vPointTween
+datatype: Point
+function: Utility
+legacy_names: []
+curated:
+  tagline: Performs linear interpolation between two Fusion Point objects.
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vPointAngle
+    - name: vPointDelay
+    - name: vPointLength
+  params:
+    Point1: Start point (the eased animation's origin).
+    Point2: End point the animation eases toward.
+    Weight: >-
+      Manual interpolation factor between Point1 (0) and Point2 (1) — only used if you're driving
+      the tween by hand instead of the automatic frame-based timing below.
+    DelayTime: Frame the eased animation begins on.
+    Operator: >-
+      Easing curve applied over the animation: the standard Penner set
+      (Quad/Cubic/Quart/Quint/Expo/Sine/Circ/Back/Elastic, each with In/Out/InOut variants), plus
+      `linear`, `Custom BackOut`, and `Jitter`.
+    custom_backout_strength: Overshoot amount for the Custom BackOut ease function. Custom BackOut mode only.
+    Duration: Length of the eased animation, in frames.
+    speed: Playback rate multiplier applied on top of Duration — 1.0 is normal speed.
+    activate_back_to: >-
+      After reaching Point2, eases back to Point1 following BACK TO DELAY TIME — a there-and-back
+      animation instead of a one-way tween.
+    Back_To_DelayTime: Frames to hold at Point2 before easing back to Point1. Activate BACK TO only.
+    ShowInput: Reveals the wires for the Point1/Point2 connections in the Flow view.
+legacy_text: Performs linear interpolation between two Fusion Point objects.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 8
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null
+  page_only_params:
+    - line1Separator
+    - line2Separator

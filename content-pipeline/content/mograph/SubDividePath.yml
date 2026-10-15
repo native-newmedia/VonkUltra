@@ -1,0 +1,24 @@
+operation: SubDividePath
+tools:
+  Array: vArraySubDividePath
+  ScriptVal: vScriptValSubDividePath
+  JSON: vJSONSubDividePath
+legacy_names: []
+curated:
+  tagline: Add points along a path.
+  overview: >-
+    Subdivides each segment of a point path. The Interpolation control selects how the new points
+    are placed.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Subdivisions: New points per segment.
+    Interpolation: None, Catmull-Rom, Step, B-Spline, or Cardinal.
+    Tension: Spline tension. Shown for B-Spline and Cardinal.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

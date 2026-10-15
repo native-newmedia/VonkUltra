@@ -1,0 +1,38 @@
+tool: vTextCreatePlatform
+datatype: Text
+function: Create
+legacy_names: []
+curated:
+  tagline: >-
+    Creates a unique Fusion Text object per OS platform This node provides a series of text fields
+    that allow you to enter three different string values.
+  overview: null
+  description:
+    - >-
+      The correct string that matches the current operating system platform will be returned when
+      the comp is rendered. This node is a handy way to define the correct parameters to use with a
+      vTextSubFormat or ProcessOpen node.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextCreate
+    - name: vTextCreateArch
+    - name: vTextCreateBrowse
+    - name: vTextCreateMultiline
+  params:
+    macOS: String returned when rendering on macOS.
+    Windows: String returned when rendering on Windows.
+    Linux: String returned when rendering on Linux.
+    ExpandPathMaps: Converts a relative PathMap-based filepath into an absolute path on the output.
+legacy_text: >-
+  Creates a unique Fusion Text object per OS platform This node provides a series of text fields
+  that allow you to enter three different string values. The correct string that matches the current
+  operating system platform will be returned when the comp is rendered. This node is a handy way to
+  define the correct parameters to use with a vTextSubFormat or ProcessOpen node.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 63
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

@@ -1,0 +1,26 @@
+tool: vMatrixColorTransform
+datatype: Matrix
+function: Color
+legacy_names: []
+curated:
+  tagline: Animatible/Modifiable ColorMatrix
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    AffectCanvas: >-
+      Extends the colour transform beyond the current DoD by also setting the background canvas
+      colour — useful when a later Crop node expands the image beyond its original size.
+    Matrix: 4×4 colour transform matrix applied to each pixel's RGBA.
+    ShowInput: Reveals the wire for the Matrix connection in the Flow view.
+    Input: Source image to transform.
+legacy_text: Animatible/Modifiable ColorMatrix
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 2
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

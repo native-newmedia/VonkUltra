@@ -1,0 +1,23 @@
+operation: ApplyMask
+tools:
+  Array: vArrayApplyMask
+  ScriptVal: vScriptValApplyMask
+  JSON: vJSONApplyMask
+legacy_names: []
+curated:
+  tagline: Blend two point arrays with a mask.
+  overview: Blends Base and Modified points per point. A mask value of 0 keeps Base and 1 uses Modified.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Amount: Overall strength of the mask effect.
+    Tightness: Sharpens the transition between Base and Modified.
+    Invert: Swaps masked and unmasked areas.
+    TrimZeros: Removes trailing zero values.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

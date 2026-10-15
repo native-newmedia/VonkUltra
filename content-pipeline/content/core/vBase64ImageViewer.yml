@@ -1,0 +1,22 @@
+tool: vBase64ImageViewer
+datatype: Base64
+function: Utility
+legacy_names: []
+curated:
+  tagline: Displays Bas64 encoded image content in the Inspector window.
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vBase64ToHTML
+  params:
+    Input: Base64-encoded image data to preview in the Inspector.
+legacy_text: Displays Bas64 encoded image content in the Inspector window.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 9
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

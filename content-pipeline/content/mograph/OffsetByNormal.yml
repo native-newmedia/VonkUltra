@@ -1,0 +1,23 @@
+operation: OffsetByNormal
+tools:
+  Array: vArrayOffsetByNormal
+  ScriptVal: vScriptValOffsetByNormal
+  JSON: vJSONOffsetByNormal
+legacy_names: []
+curated:
+  tagline: Offset points along the mesh normal.
+  overview: Moves every point along the normal of the nearest mesh surface point.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    inoffsetdistance: Distance along the normal.
+    inaffectx: Applies the effect to X.
+    inaffecty: Applies the effect to Y.
+    inaffectz: Applies the effect to Z.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

@@ -1,0 +1,26 @@
+tool: vArraySubReturn
+datatype: Array
+function: Substring
+legacy_names: []
+curated:
+  tagline: Concatenates an array
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Input: JSON array text to slice.
+    Start: 1-based index of the first element to keep.
+    End: >-
+      Index of the last element to keep. -1 means the last element, -2 the second-to-last, and so
+      on.
+    ShowInput: Reveals the wire for the Input connection in the Flow view.
+legacy_text: Concatenates an array
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 3
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

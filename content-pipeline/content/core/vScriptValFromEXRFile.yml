@@ -1,0 +1,44 @@
+tool: vScriptValFromEXRFile
+datatype: ScriptVal
+function: Image
+legacy_names: []
+curated:
+  tagline: >-
+    Convert OpenEXR header, part, and channel data into a ScriptVal This node is useful for
+    generating a listing of the channel and part data from an EXR image
+  overview: null
+  description:
+    - >-
+      without having to load the pixel data into a frame buffer. Sample output from the
+      "vScriptValFromEXRFile" node when formatted as text based Lua table output looks like: \{
+      Source = "/Volumes/Farm/Houdini Karma.exr", Filename = "Houdini Karma.exr" Ext = ".exr", Type
+      = "EXRPart", Parts = \{ \{ Name = "C", Width = 3840, Height = 1600, PixelAspectRatio = 1,
+      CenterX = 0, CenterY = 0, Channels = \{ \{ XSampling = 1, YSampling = 1, PLinear = false, Name
+      = "A", Type = 1 \}, \{ XSampling = 1, YSampling = 1, PLinear = false, Name = "B", Type = 1 \},
+      \{ XSampling = 1, YSampling = 1, PLinear = false, Name = "G", Type = 1 \}, \{ XSampling = 1,
+      YSampling = 1, PLinear = false, Name = "R", Type = 1 \} \} \}, \}, \}
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    File: >-
+      Path to the EXR file to inspect. Only the header/part/channel structure is read — pixel data
+      is never loaded.
+    ShowInput: Reveals the wire for the EXR File connection in the Flow view.
+legacy_text: >-
+  Convert OpenEXR header, part, and channel data into a ScriptVal This node is useful for generating
+  a listing of the channel and part data from an EXR image without having to load the pixel data
+  into a frame buffer. Sample output from the "vScriptValFromEXRFile" node when formatted as text
+  based Lua table output looks like: \{ Source = "/Volumes/Farm/Houdini Karma.exr", Filename =
+  "Houdini Karma.exr" Ext = ".exr", Type = "EXRPart", Parts = \{ \{ Name = "C", Width = 3840, Height
+  = 1600, PixelAspectRatio = 1, CenterX = 0, CenterY = 0, Channels = \{ \{ XSampling = 1, YSampling
+  = 1, PLinear = false, Name = "A", Type = 1 \}, \{ XSampling = 1, YSampling = 1, PLinear = false,
+  Name = "B", Type = 1 \}, \{ XSampling = 1, YSampling = 1, PLinear = false, Name = "G", Type = 1
+  \}, \{ XSampling = 1, YSampling = 1, PLinear = false, Name = "R", Type = 1 \} \} \}, \}, \}
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 167
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

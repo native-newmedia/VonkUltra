@@ -1,0 +1,23 @@
+operation: WeightByMeshProx
+tools:
+  Array: vArrayWeightByMeshProx
+  ScriptVal: vScriptValWeightByMeshProx
+  JSON: vJSONWeightByMeshProx
+legacy_names: []
+curated:
+  tagline: Weight points by distance to the mesh.
+  overview: Outputs a weight for each point from its distance to the closest point on the mesh surface.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    maxdistance: Distance from the mesh at which the effect ends.
+    falloff: 'Shape of the falloff. Options: Linear, Squared, Root.'
+    invertweight: Inverts the weights.
+    projectamount: Mix between the original and the surface position.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

@@ -1,0 +1,23 @@
+operation: ScaleFromMesh
+tools:
+  Array: vArrayScaleFromMesh
+  ScriptVal: vScriptValScaleFromMesh
+  JSON: vJSONScaleFromMesh
+legacy_names: []
+curated:
+  tagline: Scale distance from the mesh.
+  overview: Multiplies the distance of every point from the nearest mesh surface point.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    indistancemultiplier: Multiplies the distance to the mesh.
+    inaffectx: Applies the effect to X.
+    inaffecty: Applies the effect to Y.
+    inaffectz: Applies the effect to Z.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

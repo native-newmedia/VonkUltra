@@ -1,0 +1,99 @@
+operation: MinMax
+tools:
+  Array: vArrayMinMax
+  ScriptVal: vScriptValMinMax
+  JSON: vJSONMinMax
+legacy_names:
+  - vArrayCreateMinMax
+curated:
+  tagline: >-
+    Define a numeric range with Min and Max bounds — the essential seed node for arc, grid, and
+    scatter generators.
+  overview: >-
+    vArrayCreateMinMax creates a compact vArray from a set of Min/Max range pairs for X, Y, and Z
+    axes. It is the standard starting point for any pipeline that needs a defined numeric span —
+    feeding directly into point generators like vArrayPointsOnArc or vArrayPointsOnGrid.
+  description:
+    - >-
+      vArrayCreateMinMax is the most fundamental creator node in the vArray pipeline. It defines a
+      numeric range across up to three axes — X, Y, and Z — by specifying minimum and maximum values
+      for each. The output is a compact vArray that downstream generators read as a spatial boundary
+      or value span, making it the default way to seed arc, grid, circle, scatter, and spiral
+      generators with precise numeric constraints. Almost every vArray pipeline starts with this
+      node.
+    - >-
+      The key design principle is separation of concerns: CreateMinMax defines the range, and a
+      generator downstream decides what to do with it. When connected to vArrayPointsOnArc, the X
+      Min/Max values define the angular span of the arc. When connected to vArrayPointsOnGrid, they
+      define the spatial extent of the grid. When connected to vArrayCreateRandom, they constrain
+      the random value output. This means you change the bounds once, here, and every downstream
+      node updates — no duplicated values across the graph.
+    - >-
+      The Pack To control determines how the array is structured for consumption — XY pairs, XYZ
+      triples, or a flat 1D sequence. This must match what the downstream generator expects, and
+      gets it wrong is the most common source of unexpected output. The Seed parameter introduces
+      deterministic randomisation into the range output when procedural variation is needed. The
+      Show Input toggle reveals a passthrough port, useful for chaining or merging multiple range
+      sources.
+  features:
+    - title: Three-axis range definition
+      desc: >-
+        Define independent Min/Max bounds for X, Y, and Z in a single node — no expressions or
+        custom scripting required.
+    - title: Universal generator seed
+      desc: >-
+        Compatible as an input to any vArray generator that accepts a range array — arcs, grids,
+        circles, spirals, and more.
+    - title: Flexible pack modes
+      desc: >-
+        Pack To control structures the output as XY, XYZ, or flat value sequences to match the
+        expected format of downstream nodes.
+    - title: Randomisation support
+      desc: >-
+        Seed parameter adds controlled variation to the range output for procedural workflows that
+        need non-deterministic bounds.
+  connections:
+    - label: Feeding an arc generator
+      lines:
+        - vArrayCreateMinMax.Output -> vArrayPointsOnArc.ArrayA
+        - vArrayPointsOnArc.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Feeding a grid generator
+      lines:
+        - vArrayCreateMinMax.Output -> vArrayPointsOnGrid.ArrayA
+        - vArrayPointsOnGrid.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+  difficulty: Beginner
+  related:
+    - name: vArrayCreate
+      desc: >-
+        Manual array creation by entering values one at a time — more flexible but slower for
+        range-based workflows.
+    - name: vArrayRandom
+      desc: >-
+        Generates an array of random values within a range — similar concept but non-deterministic
+        by design.
+    - name: vArrayList
+      desc: >-
+        Creates an array from a comma-separated list — useful when exact values are needed rather
+        than a range.
+  params:
+    arrayLength: >-
+      Number of values to generate in the output array. Set to 0 to use the range pair count
+      automatically.
+    Seed: >-
+      Random seed for procedural variation. Change this value to get different results while keeping
+      Min/Max bounds the same.
+    Packto: >-
+      Output packing format: XY pairs, XYZ triples, or flat 1D sequence. Must match what the
+      downstream generator expects.
+    ShowInput: >-
+      Reveals an array input port on the node, allowing an upstream range array to be passed through
+      or merged.
+    'ModeSelect ': 'Options: X, XY, XYZ.'
+status:
+  source: rich-json
+  state: imported
+  reviewed_hash: null

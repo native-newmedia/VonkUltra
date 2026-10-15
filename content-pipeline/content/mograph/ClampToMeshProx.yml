@@ -1,0 +1,33 @@
+operation: ClampToMeshProx
+tools:
+  Array: vArrayClampToMeshProx
+  ScriptVal: vScriptValClampToMeshProx
+  JSON: vJSONClampToMeshProx
+legacy_names: []
+curated:
+  tagline: Limit the distance of points from the mesh.
+  overview: Moves points that are farther than the maximum distance from the mesh back to that distance.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    inmaxdistance: Distance from the mesh at which the effect ends.
+    inclampmode: >-
+      Clamps points outside the maximum distance, or points inside it. Options: Outside > Max,
+      Inside < Max.
+    inreferencemode: >-
+      Measures the distance to the surface, the nearest vertex or the nearest centroid. Options:
+      Surface, Vertex, Centroid.
+    inclampblend: Mix between the original and the clamped position.
+    indistanceoffset: Added to Max Distance.
+    inaffectx: Applies the effect to X.
+    inaffecty: Applies the effect to Y.
+    inaffectz: Applies the effect to Z.
+    inpreserveextras: Keeps values beyond X, Y, Z.
+    inpassthroughifnomesh: Outputs the input unchanged when no mesh is connected.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

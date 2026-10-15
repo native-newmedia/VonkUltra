@@ -1,0 +1,30 @@
+tool: vImageEXRToFile
+datatype: Image
+function: IO
+legacy_names: []
+curated:
+  tagline: >-
+    Saves an EXR image to disk The "Filename" control can be driven externally by a Text data type
+    connection to the node.
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vImageEXRFromFile
+    - name: vImageFromClipboard
+    - name: vImageFromColor
+    - name: vImageFromFile
+  params:
+    Input: Image to save as EXR.
+    Filename: Destination path for the saved file. Can be driven externally by a Text data type connection.
+legacy_text: >-
+  Saves an EXR image to disk The "Filename" control can be driven externally by a Text data type
+  connection to the node.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 22
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

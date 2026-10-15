@@ -1,0 +1,25 @@
+tool: vNumberResolveTimelineFPS
+datatype: Number
+function: Resolve
+legacy_names: []
+curated:
+  tagline: >-
+    Returns the Resolve Timeline frame rate This node is useful if you need to perform math
+    operations that need to be informed of the Resolve project's current frame rate value.
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vNumberResolvePID
+  params: {}
+legacy_text: >-
+  Returns the Resolve Timeline frame rate This node is useful if you need to perform math operations
+  that need to be informed of the Resolve project's current frame rate value.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 30
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

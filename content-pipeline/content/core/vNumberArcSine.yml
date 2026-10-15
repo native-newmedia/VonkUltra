@@ -1,0 +1,28 @@
+tool: vNumberArcSine
+datatype: Number
+function: Trigonometry
+legacy_names: []
+curated:
+  tagline: Returns the inverse sine for a number in radians
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vNumberArcCosine
+    - name: vNumberArcTangent
+    - name: vNumberCosine
+    - name: vNumberDegreesToRadians
+  params:
+    Radians: >-
+      Sine ratio (-1 to 1) to compute the arc sine of. Output is in radians. (The field is labeled
+      "Radians" in the source fuse, which is inaccurate — the input here is a ratio, not an angle.)
+    ShowInput: Reveals the wire for the Radians connection in the Flow view.
+legacy_text: Returns the inverse sine for a number in radians
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 9
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

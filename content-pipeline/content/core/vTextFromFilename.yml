@@ -1,0 +1,25 @@
+tool: vTextFromFilename
+datatype: Text
+function: Utility
+legacy_names: []
+curated:
+  tagline: Creates a Fusion Text object by parsing a filepath.
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextDelay
+    - name: vTextDump
+    - name: vTextExpandEscapedCharacters
+    - name: vTextFromCSVViewer
+  params:
+    Text: The filepath to parse.
+legacy_text: Creates a Fusion Text object by parsing a filepath.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 9
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

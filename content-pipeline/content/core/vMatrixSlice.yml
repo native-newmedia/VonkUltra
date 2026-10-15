@@ -1,0 +1,27 @@
+tool: vMatrixSlice
+datatype: Matrix
+function: Utility
+legacy_names: []
+curated:
+  tagline: Slices a matrix
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vMatrixConcatenateHorizontal
+    - name: vMatrixConcatenateVertical
+    - name: vMatrixViewer
+  params:
+    Input1: Matrix to slice.
+    TopLeft: 1-based row (X) and column (Y) of the top-left cell of the extracted range.
+    BottomRight: 1-based row (X) and column (Y) of the bottom-right cell of the extracted range.
+    ShowInput: Reveals the wire for the Input1 connection in the Flow view.
+legacy_text: Slices a matrix
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 3
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

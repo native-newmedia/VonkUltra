@@ -1,0 +1,26 @@
+operation: GridConnect
+tools:
+  Array: vArrayGridConnect
+  ScriptVal: vScriptValGridConnect
+  JSON: vJSONGridConnect
+legacy_names: []
+curated:
+  tagline: Build edges for a grid of points.
+  overview: Builds row, column, diagonal, zigzag and border edges for a grid point array.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    numx: Points per row.
+    numy: Number of rows.
+    Direction: >-
+      Direction of the operation. Options: Horizontal, Vertical, Both, Zigzag (Horizontal), Zigzag
+      (Vertical), Diagonal (Both Directions), Border Only.
+    Stride: Skips lines between the connected ones.
+    ReverseStart: Reverses the start direction of the zigzag.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

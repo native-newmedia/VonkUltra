@@ -1,0 +1,27 @@
+tool: vNumberCompGlobalEnd
+datatype: Number
+function: Comp
+legacy_names: []
+curated:
+  tagline: Returns the comp's Global End This is the last frame of the full Fusion timeline range.
+  overview: null
+  description:
+    - This number is not always set to the same range as the render end timeline control.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vNumberCompCurrentTime
+    - name: vNumberCompFPS
+    - name: vNumberCompFrameFormat
+    - name: vNumberCompGlobalStart
+  params: {}
+legacy_text: >-
+  Returns the comp's Global End This is the last frame of the full Fusion timeline range. This
+  number is not always set to the same range as the render end timeline control.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 32
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

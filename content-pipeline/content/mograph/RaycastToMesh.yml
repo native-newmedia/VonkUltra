@@ -1,0 +1,32 @@
+operation: RaycastToMesh
+tools:
+  Array: vArrayRaycastToMesh
+  ScriptVal: vScriptValRaycastToMesh
+  JSON: vJSONRaycastToMesh
+legacy_names: []
+curated:
+  tagline: Cast rays against the mesh.
+  overview: Casts a ray from each point and returns the nearest mesh vertex hit.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    raymode: >-
+      Ray from a global direction, toward a target point, or from a direction array. Options: Global
+      Dir, Target Point, Dir Array.
+    RayDirX: Direction X.
+    RayDirY: Direction Y.
+    RayDirZ: Direction Z.
+    TargetX: Target position X. Shown when the related option is enabled.
+    TargetY: Target position Y. Shown when the related option is enabled.
+    TargetZ: Target position Z. Shown when the related option is enabled.
+    missbehavior: 'Keeps the point or removes it when the ray misses. Options: Pass Through, Drop Point.'
+    inaffectx: Applies the effect to X.
+    inaffecty: Applies the effect to Y.
+    inaffectz: Applies the effect to Z.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

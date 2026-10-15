@@ -1,0 +1,28 @@
+tool: vScriptValTimeStretch
+datatype: ScriptVal
+function: Temporal
+legacy_names: []
+curated:
+  tagline: Time based operation on ScriptVal objects
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vScriptValAccumulator
+    - name: vScriptValTimeSpeed
+  params:
+    ScriptVal: ScriptVal to sample at a specific time.
+    Time: >-
+      The frame number to read ScriptVal's value at, regardless of the comp's current playhead
+      position.
+    SetSourceTime: Sets Time to the comp's current playhead position — a quick way to snapshot "now".
+    ShowInput: Reveals the wire for the ScriptVal connection in the Flow view.
+legacy_text: Time based operation on ScriptVal objects
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 6
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

@@ -1,0 +1,50 @@
+operation: RenderMesh
+tools:
+  Array: vArrayRenderMesh
+  ScriptVal: vScriptValRenderMesh
+  JSON: vJSONRenderMesh
+legacy_names: []
+curated:
+  tagline: Render a sweep mesh as a shaded 2D image.
+  overview: >-
+    Takes the mesh packet (vertices and faces) from the sweep tools, transforms and projects it, and
+    draws filled and shaded faces with an optional wireframe.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Translate.X: Moves the model along X.
+    Translate.Y: Moves the model along Y.
+    Translate.Z: Moves the model along Z, away from the camera.
+    Rotate.X: Rotation around X in degrees.
+    Rotate.Y: Rotation around Y in degrees.
+    Rotate.Z: Rotation around Z in degrees.
+    RotateAroundCenter: Rotates around the model center.
+    LockXY: Uses one scale value for X and Y.
+    Scale.X: Scale of the model.
+    Scale.Y: Scale along Y. Shown when Lock X/Y is off.
+    Fov: Perspective field of view in degrees.
+    AspectRatio: Aspect ratio used by the projection.
+    ShowFill: Draws the filled surface.
+    ShowWire: Draws the wireframe.
+    WireWidth: Width of the wireframe lines.
+    FlatShading: Uses one shade per face.
+    Ambient: Minimum brightness.
+    LightX: Light direction X.
+    LightY: Light direction Y.
+    LightZ: Light direction Z.
+    ShadeBuckets: Number of shading levels.
+    FillRed: Color for the fill.
+    FillGreen: Color for the fill.
+    FillBlue: Color for the fill.
+    FillAlpha: Color for the fill.
+    WireRed: Color for the fill.
+    WireGreen: Color for the fill.
+    WireBlue: Color for the fill.
+    WireAlpha: Color for the fill.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

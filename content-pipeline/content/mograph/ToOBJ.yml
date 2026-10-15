@@ -1,0 +1,32 @@
+operation: ToOBJ
+tools:
+  Array: vArrayToOBJ
+  ScriptVal: vScriptValToOBJ
+  JSON: vJSONToOBJ
+legacy_names: []
+curated:
+  tagline: Convert an array into Wavefront OBJ text.
+  overview: Writes points, edges and UVs as OBJ text.
+  description: []
+  features: []
+  connections:
+    - label: Example 1
+      lines:
+        - vArrayFromOBJ1.Points -> vArrayMergeOBJ.Points1
+        - vArrayFromOBJ1.Edges -> vArrayMergeOBJ.Edges1
+        - vArrayFromOBJ2.Points -> vArrayMergeOBJ.Points2
+        - vArrayFromOBJ2.Edges -> vArrayMergeOBJ.Edges2
+        - vArrayMergeOBJ.OutputPoints -> vArrayToOBJ.ArrayPoints
+        - vArrayMergeOBJ.OutputEdges -> vArrayToOBJ.ArrayEdges
+        - vArrayToOBJ.Output -> vTextViewer.Input
+        - vArrayToOBJ.Output -> vTextToFile.Input
+  difficulty: null
+  related: []
+  params:
+    ShowInput: Shows the input sockets of the controls.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null
+  connections_source: docsify
+legacy_text: Convert an Array into Wavefront OBJ ASCII Text

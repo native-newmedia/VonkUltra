@@ -1,0 +1,27 @@
+tool: vFileSystemExtendedAttributes
+datatype: FileSystem
+function: General
+legacy_names: []
+curated:
+  tagline: Edit macOS xattr flags on files
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vFileSystemChmod
+    - name: vFileSystemColorTags
+    - name: vFileSystemCreateDir
+    - name: vFileSystemDirExists
+  params:
+    File: >-
+      Path to the file whose extended attributes (macOS `xattr` flags, e.g. the quarantine flag on
+      downloaded files) are edited.
+legacy_text: Edit macOS xattr flags on files
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 6
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

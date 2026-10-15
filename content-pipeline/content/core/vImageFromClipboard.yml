@@ -1,0 +1,36 @@
+tool: vImageFromClipboard
+datatype: Image
+function: IO
+legacy_names: []
+curated:
+  tagline: >-
+    Grabs, saves, then loads the current clipboard image The "Grab" button is used to capture the
+    clipboard contents.
+  overview: null
+  description:
+    - >-
+      It is a handy way to quickly load an image into the compositing node graph without needing to
+      worry about the filename. This node was designed to work with Fusion Standalone v9 on Windows.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vImageEXRFromFile
+    - name: vImageEXRToFile
+    - name: vImageFromColor
+    - name: vImageFromFile
+  params:
+    Grab: >-
+      Captures the current system clipboard image and loads it as this node's output. Fusion
+      Standalone v9 on Windows only.
+legacy_text: >-
+  Grabs, saves, then loads the current clipboard image The "Grab" button is used to capture the
+  clipboard contents. It is a handy way to quickly load an image into the compositing node graph
+  without needing to worry about the filename. This node was designed to work with Fusion Standalone
+  v9 on Windows.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 52
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

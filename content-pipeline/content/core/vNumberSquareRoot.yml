@@ -1,0 +1,26 @@
+tool: vNumberSquareRoot
+datatype: Number
+function: Operators
+legacy_names: []
+curated:
+  tagline: Returns the square root of a number
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vNumberAbsolute
+    - name: vNumberAdd
+    - name: vNumberCeil
+    - name: vNumberClamp
+  params:
+    Radicand: Value to compute the square root of.
+    ShowInput: Reveals the wire for the Radicand connection in the Flow view.
+legacy_text: Returns the square root of a number
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 7
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

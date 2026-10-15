@@ -1,0 +1,37 @@
+tool: vJSONFromNet
+datatype: JSON
+function: IO
+legacy_names: []
+curated:
+  tagline: >-
+    Reads a JSON string from a network URL The network-based JSON resource downloading functionality
+    provided by this node makes it possible to drive a composite from an external cloud based
+    datasource.
+  overview: null
+  description:
+    - >-
+      This means IoT (Internet of Things) electronic sensors, sports statistics, financial data, or
+      any other web enabled datasource can be used on-the-fly to supply Text, Number, Matrix, Array,
+      or other values to nodes in the comp.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vJSONFromFile
+    - name: vJSONToFile
+  params:
+    Input: URL of the network JSON resource to fetch.
+    View URL: Opens Input's URL in the system's default web browser, for a quick sanity check of the source.
+    ShowInput: Reveals the wire for the Input connection in the Flow view.
+legacy_text: >-
+  Reads a JSON string from a network URL The network-based JSON resource downloading functionality
+  provided by this node makes it possible to drive a composite from an external cloud based
+  datasource. This means IoT (Internet of Things) electronic sensors, sports statistics, financial
+  data, or any other web enabled datasource can be used on-the-fly to supply Text, Number, Matrix,
+  Array, or other values to nodes in the comp.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 67
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

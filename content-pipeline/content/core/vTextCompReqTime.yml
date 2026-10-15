@@ -1,0 +1,35 @@
+tool: vTextCompReqTime
+datatype: Text
+function: Comp
+legacy_names: []
+curated:
+  tagline: >-
+    Returns the comp's request time This is the currently requested frame that is being processed at
+    render time.
+  overview: null
+  description:
+    - >-
+      It supports temporal effects like the vTextAccumulate node that iterates over a frame
+      duration.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextCompAppUUID
+    - name: vTextCompCurrentTime
+    - name: vTextCompFilename
+    - name: vTextCompName
+  params:
+    SequenceStartFrame: Shifts the returned request-time frame number forwards or backwards.
+    Padding: Minimum digit count — zero-pads the frame number string (e.g. 3 → "007").
+    ShowInput: Reveals the wire for the Sequence Offset connection in the Flow view.
+legacy_text: >-
+  Returns the comp's request time This is the currently requested frame that is being processed at
+  render time. It supports temporal effects like the vTextAccumulate node that iterates over a frame
+  duration.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 32
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

@@ -1,0 +1,26 @@
+operation: ProfileTransform
+tools:
+  Array: vArrayProfileTransform
+  ScriptVal: vScriptValProfileTransform
+  JSON: vJSONProfileTransform
+legacy_names: []
+curated:
+  tagline: Transform a 2D profile.
+  overview: Translates, rotates, scales and mirrors a 2D sweep profile.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    TranslateX: Translation along X.
+    TranslateY: Translation along Y.
+    Rotate: Rotation in degrees.
+    ScaleX: Scale along X.
+    ScaleY: Scale along Y.
+    MirrorX: Mirrors along X.
+    MirrorY: Mirrors along Y.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

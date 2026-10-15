@@ -1,0 +1,21 @@
+operation: LogicCount
+tools:
+  Array: vArrayLogicCount
+  ScriptVal: vScriptValLogicCount
+  JSON: vJSONLogicCount
+legacy_names: []
+curated:
+  tagline: Count the set elements of a mask.
+  overview: >-
+    Outputs a one-element array with the number of elements above 0. The Passthrough output carries
+    the input unchanged.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params: {}
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

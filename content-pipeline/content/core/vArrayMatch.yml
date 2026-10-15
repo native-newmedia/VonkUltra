@@ -1,0 +1,45 @@
+tool: vArrayMatch
+datatype: Array
+function: Utility
+legacy_names: []
+curated:
+  tagline: >-
+    Gets the value of a key in an array The "Pattern" text field uses [Lua
+    Patterns](http://lua-users.org/wiki/PatternsTutorial) to isolate values from a JSON based Array
+    object.
+  overview: null
+  description:
+    - >-
+      Additional information about patterns can be read in the [Lua
+      manual](https://www.lua.org/manual/5.3/manual.html#6.4.1). "`cryptomatte/[a-z0-9]+/manifest`"
+      is a vArrayMatch Pattern that can be used to access Cryptomatte manifest image metadata. This
+      information can be read from an EXR image via a Loader -\> vArrayFromMetadata -\> vArrayMatch
+      node graph connection process.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vArrayConcatenate
+    - name: vArrayCountElement
+    - name: vArrayCountSubElements
+    - name: vArrayJoin
+  params:
+    Input: JSON array text to search.
+    Pattern: >-
+      A Lua pattern used to isolate matching values, e.g. `cryptomatte/[a-z0-9]+/manifest` to pull
+      Cryptomatte manifest entries out of image metadata parsed via vArrayFromMetadata.
+    ShowInput: Reveals the wire for the Input connection in the Flow view.
+legacy_text: >-
+  Gets the value of a key in an array The "Pattern" text field uses [Lua
+  Patterns](http://lua-users.org/wiki/PatternsTutorial) to isolate values from a JSON based Array
+  object. Additional information about patterns can be read in the [Lua
+  manual](https://www.lua.org/manual/5.3/manual.html#6.4.1). "`cryptomatte/[a-z0-9]+/manifest`" is a
+  vArrayMatch Pattern that can be used to access Cryptomatte manifest image metadata. This
+  information can be read from an EXR image via a Loader -\> vArrayFromMetadata -\> vArrayMatch node
+  graph connection process.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 71
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

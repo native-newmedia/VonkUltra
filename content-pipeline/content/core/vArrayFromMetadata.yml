@@ -1,0 +1,35 @@
+tool: vArrayFromMetadata
+datatype: Array
+function: Create
+legacy_names: []
+curated:
+  tagline: >-
+    Casts metadata to an array This node translates metadata records into a JSON based array
+    structure.
+  overview: null
+  description:
+    - >-
+      This supports tasks like parsing EXR formatted image metadata to extract Cryptomatte matte
+      manifest records.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vArrayFromCSV
+    - name: vArrayFromDataWindow
+    - name: vArrayFromJSON
+    - name: vArrayFromLuaTable
+  params:
+    Input: >-
+      Image whose metadata is converted into a JSON array — useful for parsing things like an EXR's
+      Cryptomatte matte manifest.
+legacy_text: >-
+  Casts metadata to an array This node translates metadata records into a JSON based array
+  structure. This supports tasks like parsing EXR formatted image metadata to extract Cryptomatte
+  matte manifest records.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 31
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

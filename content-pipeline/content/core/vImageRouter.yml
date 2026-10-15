@@ -1,0 +1,30 @@
+tool: vImageRouter
+datatype: Image
+function: Flow
+legacy_names: []
+curated:
+  tagline: Control the output routing of a Fusion Image object
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vImageHook
+    - name: vImageSwitch
+    - name: vImageWireless
+  params:
+    Which: >-
+      Selects which output receives Input: 1 sends it to Output1 (Output2 gets an empty image), any
+      other value sends it to Output2 instead.
+    Input: The image to route to one of the two outputs.
+    ShowInput: >-
+      Reveals the wire for the Which control in the Flow view (despite the name, this toggles
+      Which's visibility, not Input's).
+legacy_text: Control the output routing of a Fusion Image object
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 9
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

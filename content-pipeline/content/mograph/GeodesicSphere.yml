@@ -1,0 +1,21 @@
+operation: GeodesicSphere
+tools:
+  Array: vArrayGeodesicSphere
+  ScriptVal: vScriptValGeodesicSphere
+  JSON: vJSONGeodesicSphere
+legacy_names: []
+curated:
+  tagline: Generate points from an icosphere subdivision.
+  overview: Subdivides an icosahedron and projects the vertices onto a sphere.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    radius: Radius.
+    subdivision: Number of icosahedron subdivisions.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

@@ -1,0 +1,23 @@
+operation: List
+tools:
+  Array: vArrayList
+  ScriptVal: vScriptValList
+  JSON: vJSONList
+legacy_names: []
+curated:
+  tagline: Create an array.
+  overview: Creates a list of values with a length, a group size and optional reversal.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    arrayLength: Number of values.
+    packto: Groups the values as X, X Y or X Y Z.
+    reversearray: Reverses the order of the values.
+    ShowInput: Shows the input sockets of the controls.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

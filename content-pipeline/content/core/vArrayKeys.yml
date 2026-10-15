@@ -1,0 +1,25 @@
+tool: vArrayKeys
+datatype: Array
+function: Key Value
+legacy_names: []
+curated:
+  tagline: Returns the keys present in an array
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vArrayGet
+    - name: vArrayGetElement
+    - name: vArrayGetIndex
+    - name: vArrayGetKey
+  params:
+    Input: JSON object text to inspect — Output lists its key names.
+legacy_text: Returns the keys present in an array
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 7
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

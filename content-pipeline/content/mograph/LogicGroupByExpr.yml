@@ -1,0 +1,24 @@
+operation: LogicGroupByExpr
+tools:
+  Array: vArrayLogicGroupByExpr
+  ScriptVal: vScriptValLogicGroupByExpr
+  JSON: vJSONLogicGroupByExpr
+legacy_names: []
+curated:
+  tagline: Build a mask from an expression.
+  overview: >-
+    Evaluates a Lua expression for every element and outputs 1 where it is true, else 0. The
+    expression can use index, value, x, y, z and math functions. Presets cover common cases.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Preset: Custom, Value > 0, Even Index, Distance < 0.5, X > 0, Y > 0, or Z > 0.
+    DistanceThreshold: Distance limit used by the distance preset.
+    Expression: Expression used when Preset is Custom.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

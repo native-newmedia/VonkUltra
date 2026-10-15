@@ -1,0 +1,27 @@
+operation: SlideOnMesh
+tools:
+  Array: vArraySlideOnMesh
+  ScriptVal: vScriptValSlideOnMesh
+  JSON: vJSONSlideOnMesh
+legacy_names: []
+curated:
+  tagline: Slide points along the mesh.
+  overview: Moves points in a world-space direction and projects them back onto the surface.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    DirX: Direction X.
+    DirY: Direction Y.
+    DirZ: Direction Z.
+    slidedistance: Distance the points slide along the direction.
+    surfaceoffset: Offset of the target from the mesh surface.
+    inaffectx: Applies the effect to X.
+    inaffecty: Applies the effect to Y.
+    inaffectz: Applies the effect to Z.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

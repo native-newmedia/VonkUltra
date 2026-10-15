@@ -1,0 +1,25 @@
+tool: vMatrixToEuler
+datatype: Matrix
+function: Transform
+legacy_names: []
+curated:
+  tagline: Converts a matrix to [Euler angles](https://en.wikipedia.org/wiki/Euler_angles)
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vMatrixFromRotation
+    - name: vMatrixFromScale
+    - name: vMatrixFromTranslation
+    - name: vMatrixToRotation
+  params:
+    Input: Matrix to decompose — Output is its rotation as X/Y/Z Euler angles.
+legacy_text: Converts a matrix to [Euler angles](https://en.wikipedia.org/wiki/Euler_angles)
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 6
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

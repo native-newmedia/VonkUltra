@@ -1,0 +1,28 @@
+tool: vNumberClamp
+datatype: Number
+function: Operators
+legacy_names: []
+curated:
+  tagline: Clamps a number to specific boundaries
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vNumberAbsolute
+    - name: vNumberAdd
+    - name: vNumberCeil
+    - name: vNumberDivide
+  params:
+    Number: Value to clamp.
+    Minimum: Lower bound — values below this are clipped up to it.
+    Maximum: Upper bound — values above this are clipped down to it.
+    ShowInput: Reveals the wire for the Number connection in the Flow view.
+legacy_text: Clamps a number to specific boundaries
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 6
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

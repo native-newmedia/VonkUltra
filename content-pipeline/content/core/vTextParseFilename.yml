@@ -1,0 +1,40 @@
+tool: vTextParseFilename
+datatype: Text
+function: Utility
+legacy_names: []
+curated:
+  tagline: >-
+    Creates a Fusion Text object by parsing a filepath The "Text" input field supports a filepath
+    style of string that contains absolute or relative filepaths (including the use of Fusion
+    PathMaps).
+  overview: null
+  description:
+    - >-
+      The "Parse" ComboControl entries include: "FullPath", "FullPathMap", "Path", "PathMap",
+      "FullName", "Name", "CleanName", "SNum", "Number", "Extension", "Padding", "UNC", and "Path +
+      Name".
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextDelay
+    - name: vTextDump
+    - name: vTextExpandEscapedCharacters
+    - name: vTextFromCSVViewer
+  params:
+    Text: The filepath (absolute, relative, or PathMap-based) to parse.
+    Parse: >-
+      Which part of the filepath to return — FullPath, FullPathMap, Path, PathMap, FullName, Name,
+      CleanName, SNum, Number, Extension, Padding, UNC, or Path + Name.
+legacy_text: >-
+  Creates a Fusion Text object by parsing a filepath The "Text" input field supports a filepath
+  style of string that contains absolute or relative filepaths (including the use of Fusion
+  PathMaps). The "Parse" ComboControl entries include: "FullPath", "FullPathMap", "Path", "PathMap",
+  "FullName", "Name", "CleanName", "SNum", "Number", "Extension", "Padding", "UNC", and "Path +
+  Name".
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 52
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

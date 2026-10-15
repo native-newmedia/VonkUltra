@@ -1,0 +1,35 @@
+operation: MaterialEasing
+tools:
+  Array: vArrayMaterialEasing
+  ScriptVal: vScriptValMaterialEasing
+  JSON: vJSONMaterialEasing
+legacy_names: []
+curated:
+  tagline: Animate points using Material Design 3 easing with staggered offsets.
+  overview: >-
+    Moves each XYZ point by Offset along an easing curve over a set number of frames. Stagger Mode
+    starts each point at a different time.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    EaseType: One of 20 Material Design 3 easing curves. A preview is drawn in the Preview Curve section.
+    OffsetX: Distance each point moves along the axis by the end of the animation.
+    OffsetY: Distance each point moves along the axis by the end of the animation.
+    OffsetZ: Distance each point moves along the axis by the end of the animation.
+    StaggerDelay: Start delay per point, multiplied by the delay from Stagger Mode.
+    StaggerMode: Index Order, Distance from Center, or Random.
+    FalloffX: Shifts the center used by Distance from Center.
+    FalloffY: Shifts the center used by Distance from Center.
+    FalloffZ: Shifts the center used by Distance from Center.
+    Scale factor: Converts distance into delay for Distance from Center.
+    Time: Animation time. Animate this value to play the easing.
+    StartOffset: Time before the animation starts.
+    Duration: Time the easing takes to complete.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null
+legacy_text: Animate points using Material Design 3 easing with staggered offsets

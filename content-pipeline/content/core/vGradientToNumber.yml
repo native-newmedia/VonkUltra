@@ -1,0 +1,23 @@
+tool: vGradientToNumber
+datatype: Gradient
+function: Number
+legacy_names: []
+curated:
+  tagline: Return the Gradient color as Numbers
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Gradient: Gradient to sample.
+    Index: 1-based position of the colour stop to read.
+    ShowInput: Reveals the wire for the Gradient connection in the Flow view.
+legacy_text: Return the Gradient color as Numbers
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 6
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

@@ -1,0 +1,38 @@
+tool: vFileSystemFileExists
+datatype: FileSystem
+function: General
+legacy_names: []
+curated:
+  tagline: >-
+    Checks if a file exists This node reads a filepath defined in the "Text" field and checks if the
+    document exists on disk.
+  overview: null
+  description:
+    - >-
+      The output is the number 0 if the file does not exist, and the number 1 if the file does
+      exist. If you want to connect this node to a Switch node's "Which" field, you will have to use
+      a vNumberAdd node to offset the value up by one to go from a 0-1 range to a 1-2 range.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vFileSystemChmod
+    - name: vFileSystemColorTags
+    - name: vFileSystemCreateDir
+    - name: vFileSystemDirExists
+  params:
+    Text: >-
+      File path to check. Output is 0 if it doesn't exist, 1 if it does — insert a vNumberAdd to
+      shift this into a vSwitch node's 1+ Which range.
+legacy_text: >-
+  Checks if a file exists This node reads a filepath defined in the "Text" field and checks if the
+  document exists on disk. The output is the number 0 if the file does not exist, and the number 1
+  if the file does exist. If you want to connect this node to a Switch node's "Which" field, you
+  will have to use a vNumberAdd node to offset the value up by one to go from a 0-1 range to a 1-2
+  range.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 82
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

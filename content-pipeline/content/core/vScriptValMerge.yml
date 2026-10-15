@@ -1,0 +1,33 @@
+tool: vScriptValMerge
+datatype: ScriptVal
+function: Utility
+legacy_names: []
+curated:
+  tagline: Dynamically join ScriptVal elements into one table
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vScriptValCount
+    - name: vScriptValDump
+    - name: vScriptValViewer
+  params:
+    Which: >-
+      Internal control tracking how many ScriptVal inputs are currently connected. Not meant to be
+      set manually — every connected input is merged, regardless of this value.
+    ScriptVal1: >-
+      The first ScriptVal table to merge. Connecting it reveals ScriptVal2 for the next one, and so
+      on.
+    ShowInput: Reveals the wire for the ScriptVal1 connection in the Flow view.
+legacy_text: Dynamically join ScriptVal elements into one table
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 7
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null
+  page_only_params:
+    - '"ScriptVal" .. i'
+    - '"ScriptVal" .. (inp_nr + 1)'

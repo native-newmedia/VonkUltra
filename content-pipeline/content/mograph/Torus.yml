@@ -1,0 +1,25 @@
+operation: Torus
+tools:
+  Array: vArrayTorus
+  ScriptVal: vScriptValTorus
+  JSON: vJSONTorus
+legacy_names: []
+curated:
+  tagline: Generate points on a torus.
+  overview: Places points on a torus.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    majorradius: Radius of the ring.
+    minorradius: Radius of the tube.
+    usegments: Segments around the ring.
+    vsegments: Segments around the tube.
+    usweep: Angle covered around the ring.
+    includeend: Repeats the first point at the end.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

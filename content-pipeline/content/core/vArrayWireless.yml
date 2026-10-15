@@ -1,0 +1,42 @@
+tool: vArrayWireless
+datatype: Array
+function: Flow
+legacy_names: []
+curated:
+  tagline: >-
+    Create wireless links between JSON array objects The vArrayWireless node allows you to connect
+    to other USD based nodes in your comp without drawing the
+  overview: null
+  description:
+    - >-
+      connection wirelines visually in the Flow/Nodes view. This can be helpful if you need to
+      reduce clutter.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vArraySwitch
+  params:
+    Input: >-
+      The upstream Array connection to link wirelessly. The wire stays hidden in the Flow view
+      unless Show Input is enabled — data still passes through to Output as normal.
+    ShowInput: >-
+      Reveals the wire connecting Input, so it's visible in the Flow/Nodes view like a normal
+      connection.
+    GetColorBtn: >-
+      Copies the connected node's tile and text colour onto this node — a quick way to visually
+      match a wireless link with its source.
+    GetNameBtn: >-
+      Renames this node to `wire_<source node name>`, so it's identifiable as the wireless
+      counterpart of its source.
+    GetSourceBtn: Selects and activates the connected source node in the flow — a quick way to jump to it.
+legacy_text: >-
+  Create wireless links between JSON array objects The vArrayWireless node allows you to connect to
+  other USD based nodes in your comp without drawing the connection wirelines visually in the
+  Flow/Nodes view. This can be helpful if you need to reduce clutter.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 42
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

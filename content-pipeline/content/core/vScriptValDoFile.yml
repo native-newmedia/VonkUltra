@@ -1,0 +1,24 @@
+tool: vScriptValDoFile
+datatype: ScriptVal
+function: Script
+legacy_names: []
+curated:
+  tagline: Return a ScriptVal object from running an external Lua script
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vScriptValDoString
+    - name: vScriptValDoStringMultiplex
+  params:
+    File: Path to the Lua script file to run. Its return value becomes the node's ScriptVal output.
+    ShowInput: Reveals the wire for the File connection in the Flow view.
+legacy_text: Return a ScriptVal object from running an external Lua script
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 10
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

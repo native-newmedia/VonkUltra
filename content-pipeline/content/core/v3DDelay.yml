@@ -1,0 +1,39 @@
+tool: v3DDelay
+datatype: 3D
+function: Utility
+legacy_names: []
+curated:
+  tagline: Creates a delay while passing a Fusion 3D object.
+  overview: null
+  description:
+    - >-
+      The "Input 3D" field is used to connect 3D nodes that interact with Fusion's 3D workspace. The
+      delay effect is measured in seconds. This node is implemented internally using the
+      "bmd.wait()" function. Among several use cases one can find for a tool that can momentarily
+      pause rendering; it can be used to simulate a slow to render comp task when testing a render
+      farm program. It also has applications when running a command line task via the Vonk
+      3DProcessOpen node the system requires a momentary pause to work reliably.
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Input: 3D data passed through unchanged after the delay.
+    Delay: >-
+      Pause duration in seconds, implemented via `bmd.wait()`. Useful for throttling command-line
+      tasks (e.g. v3DProcessOpen) that need a moment to complete, or for simulating a slow render
+      step.
+    ShowInput: Reveals the wire for the Input 3D connection in the Flow view.
+legacy_text: >-
+  Creates a delay while passing a Fusion 3D object. The "Input 3D" field is used to connect 3D nodes
+  that interact with Fusion's 3D workspace. The delay effect is measured in seconds. This node is
+  implemented internally using the "bmd.wait()" function. Among several use cases one can find for a
+  tool that can momentarily pause rendering; it can be used to simulate a slow to render comp task
+  when testing a render farm program. It also has applications when running a command line task via
+  the Vonk 3DProcessOpen node the system requires a momentary pause to work reliably.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 98
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

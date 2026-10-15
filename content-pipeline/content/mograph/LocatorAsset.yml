@@ -1,0 +1,39 @@
+operation: LocatorAsset
+tools:
+  Array: vArrayLocatorAsset
+  ScriptVal: vScriptValLocatorAsset
+  JSON: vJSONLocatorAsset
+legacy_names: []
+curated:
+  tagline: Create a 3D locator or light asset.
+  overview: Creates an asset in the shape of a locator, camera or light symbol.
+  description: []
+  features: []
+  connections:
+    - label: Example 1
+      lines:
+        - vMatrixCreateTRS.Output -> vScriptValLocatorAsset.Matrix
+        - vScriptValLocatorAsset.Output -> vScriptValMergeAsset.ScriptVal
+        - vScriptValMergeAsset.Output -> vScriptValRenderAsset.vGeometry
+        - Background.Output -> vScriptValRenderAsset.Input
+  difficulty: null
+  related: []
+  params:
+    AssetName: Name of the asset.
+    AssetVersion: Version of the asset.
+    LocatorShape: >-
+      Locator, camera or light symbol. Options: Gnomon Locator, Plus Locator, Camera Locator,
+      Ambient Light, Area Light, Directional Light, Dome Light, Point Light, Spot Light, Sphere
+      Light, Tube Light.
+    Red_wire: Color of the asset.
+    Green_wire: Color of the asset.
+    Blue_wire: Color of the asset.
+    Alpha_wire: Color of the asset.
+    SoftEdge: Softness of the asset edges.
+    ShowInput: Shows the input sockets of the controls.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null
+  connections_source: docsify
+legacy_text: Create a ScriptVal based 3D locator cursor asset

@@ -1,0 +1,44 @@
+tool: v3DProcessOpen
+datatype: 3D
+function: Script
+legacy_names: []
+curated:
+  tagline: Launch a command-line process via popen.
+  overview: null
+  description:
+    - >-
+      The "Input 3D" field is used to connect 3D nodes that interact with Fusion's 3D workspace. The
+      "Text" field is used to define the executable program name and the command-line arguments you
+      want to run from a shell session. Typically a vTextSubFormat node is used to build the
+      executable command line string that is supplied to the Text input on a vImageProcessOpen node.
+      If you need cross-platform support, you can use a vTextCreatePlatform or
+      vTextCreatePlatformBrowse node to automatically define the per-OS specific elements like the
+      executable program name and its file extension (.exe, .app, .bat, .sh, .command).
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: v3DSlashCommand
+  params:
+    Input: >-
+      3D data passed through unchanged — connect any node interacting with Fusion's 3D workspace to
+      chain this process launch into a 3D pipeline.
+    Text: >-
+      The executable name and command-line arguments to run, typically built with vTextSubFormat.
+      Use vTextCreatePlatform/vTextCreatePlatformBrowse for cross-platform executable naming.
+    ShowTextInput: Reveals the wire for the Text connection in the Flow view.
+legacy_text: >-
+  Launch a command-line process via popen. The "Input 3D" field is used to connect 3D nodes that
+  interact with Fusion's 3D workspace. The "Text" field is used to define the executable program
+  name and the command-line arguments you want to run from a shell session. Typically a
+  vTextSubFormat node is used to build the executable command line string that is supplied to the
+  Text input on a vImageProcessOpen node. If you need cross-platform support, you can use a
+  vTextCreatePlatform or vTextCreatePlatformBrowse node to automatically define the per-OS specific
+  elements like the executable program name and its file extension (.exe, .app, .bat, .sh,
+  .command).
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 103
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

@@ -1,0 +1,28 @@
+operation: RippleDisplacer
+tools:
+  Array: vArrayRippleDisplacer
+  ScriptVal: vScriptValRippleDisplacer
+  JSON: vJSONRippleDisplacer
+legacy_names: []
+curated:
+  tagline: Displace points with a moving ripple.
+  overview: Creates animated displacement with time-offset arrays.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Time: Offsets the noise or wave in time.
+    Speed: Speed of the animation over time. 0 is static.
+    AutoAnimate: Animates the effect over time.
+    DisplacementMode: 'Direction of the displacement. Options: Radial (from center), Z-Axis Only, XYZ Uniform.'
+    Amplitude: Strength of the displacement.
+    Frequency: Frequency of the noise or wave.
+    WaveType: 'Shape of the wave. Options: Sine, Cosine, Triangle, Square.'
+    OffsetMultiplier: Multiplies the displacement.
+    DebugMode: Prints debug information to the console.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

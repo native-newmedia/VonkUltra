@@ -1,0 +1,34 @@
+operation: RenderGrid
+tools:
+  Array: vArrayRenderGrid
+  ScriptVal: vScriptValRenderGrid
+  JSON: vJSONRenderGrid
+legacy_names: []
+curated:
+  tagline: Render a reference grid with axes.
+  overview: Draws a grid of horizontal and vertical lines, and optionally two axis lines in a second color.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    HDivisions: Number of horizontal divisions.
+    VDivisions: Number of vertical divisions.
+    LineWidth: Width of the lines.
+    GridRed: Color for the grid.
+    GridGreen: Color for the grid.
+    GridBlue: Color for the grid.
+    GridAlpha: Color for the grid.
+    ShowAxes: Draws the two axis lines.
+    AxisX: Position of the vertical axis.
+    AxisY: Position of the horizontal axis.
+    AxisWidth: Width of the axis lines.
+    AxisRed: Color for the grid.
+    AxisGreen: Color for the grid.
+    AxisBlue: Color for the grid.
+    AxisAlpha: Color for the grid.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

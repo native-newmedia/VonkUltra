@@ -1,0 +1,38 @@
+tool: vArrayFromXML
+datatype: Array
+function: Create
+legacy_names: []
+curated:
+  tagline: Creates a JSON array from XML The vArrayFromXML node works with XML formatted plain-text data.
+  overview: null
+  description:
+    - >-
+      The XML data is read from a "vTextFromFile", "vTextFromNet", or "vTextFromZip" node. The
+      output from the vArrayFromXML node is a text data type. The XML records are converted
+      on-the-fly and stored in a JSON based array structure. This JSON array formatted data can be
+      navigated and extracted using the Vonk provided "vArray" nodes like the "vArrayGetElement"
+      node.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vArrayFromCSV
+    - name: vArrayFromDataWindow
+    - name: vArrayFromJSON
+    - name: vArrayFromLuaTable
+  params:
+    Input: >-
+      XML text to convert into a JSON array — typically fed from a vTextFromFile, vTextFromNet, or
+      vTextFromZip node.
+legacy_text: >-
+  Creates a JSON array from XML The vArrayFromXML node works with XML formatted plain-text data. The
+  XML data is read from a "vTextFromFile", "vTextFromNet", or "vTextFromZip" node. The output from
+  the vArrayFromXML node is a text data type. The XML records are converted on-the-fly and stored in
+  a JSON based array structure. This JSON array formatted data can be navigated and extracted using
+  the Vonk provided "vArray" nodes like the "vArrayGetElement" node.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 72
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

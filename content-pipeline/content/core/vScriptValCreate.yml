@@ -1,0 +1,40 @@
+tool: vScriptValCreate
+datatype: ScriptVal
+function: Create
+legacy_names: []
+curated:
+  tagline: >-
+    Create a Fusion ScriptVal object The ScriptVal datatype in Fusion is used to pass Lua tables
+    that hold arbitrary data between nodes.
+  overview: null
+  description:
+    - >-
+      This makes it possible to create custom c-code struct like records that travel through the
+      node graph in a seamless fashion. An example of Lua table formatted information is: \{ num =
+      3.14, foo = "Hello", snafu = \{ tarfu = "Fuse", \}, bar = "World", \}
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vScriptValFromApp
+    - name: vScriptValFromCSV
+    - name: vScriptValFromDate
+    - name: vScriptValFromListFiles
+  params:
+    Text: >-
+      Lua table literal defining the ScriptVal's contents, e.g. `{ num = 3.14, foo = "Hello", bar =
+      { tarfu = "Fuse" } }`.
+    DisplayLines: Number of visible lines in the text editor before scrolling.
+    WrapLines: Wraps long lines in the text editor instead of scrolling horizontally.
+legacy_text: >-
+  Create a Fusion ScriptVal object The ScriptVal datatype in Fusion is used to pass Lua tables that
+  hold arbitrary data between nodes. This makes it possible to create custom c-code struct like
+  records that travel through the node graph in a seamless fashion. An example of Lua table
+  formatted information is: \{ num = 3.14, foo = "Hello", snafu = \{ tarfu = "Fuse", \}, bar =
+  "World", \}
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 69
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

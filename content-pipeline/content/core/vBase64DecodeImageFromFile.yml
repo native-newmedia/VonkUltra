@@ -1,0 +1,30 @@
+tool: vBase64DecodeImageFromFile
+datatype: Base64
+function: Decode
+legacy_names: []
+curated:
+  tagline: Base64 decodes an image into a file.
+  overview: null
+  description:
+    - >-
+      A Base64 encoded image is extracted from an external file, and converted into an image data
+      type that can be displayed in the Fusion viewer window context. The "Input" field is used to
+      specify the filepath to an image that is currently Base64 encoded.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vBase64DecodeFromText
+    - name: vBase64DecodeImageFromText
+  params:
+    Input: Path to a file containing Base64-encoded image data to decode.
+legacy_text: >-
+  Base64 decodes an image into a file. A Base64 encoded image is extracted from an external file,
+  and converted into an image data type that can be displayed in the Fusion viewer window context.
+  The "Input" field is used to specify the filepath to an image that is currently Base64 encoded.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 51
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

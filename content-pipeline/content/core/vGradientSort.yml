@@ -1,0 +1,33 @@
+tool: vGradientSort
+datatype: Gradient
+function: Utility
+legacy_names: []
+curated:
+  tagline: Sort the gradient by color
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vGradientColorCount
+    - name: vGradientMerge
+    - name: vGradientNormalizePosition
+    - name: vGradientSlice
+  params:
+    Gradient: >-
+      Gradient whose colour stops are reordered by Sort Mode, keeping their original
+      positions/values.
+    SortMode: 'Colour property to sort by: Hue & Saturation, Hue, Saturation, Value, or Brightness.'
+    Threshold: >-
+      Minimum hue difference before two stops are treated as distinct when Sort Mode is Hue &
+      Saturation — stops closer than this are compared by saturation instead. Hue & Saturation mode
+      only.
+    ShowDump: Prints the sorted gradient to the console each frame.
+legacy_text: Sort the gradient by color
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 5
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

@@ -1,0 +1,32 @@
+tool: vNumberCreatePlatform
+datatype: Number
+function: Create
+legacy_names: []
+curated:
+  tagline: >-
+    Creates a unique Fusion Number object per OS platform If the fuse is rendered on a macOS system
+    a value of 1 is returned.
+  overview: null
+  description:
+    - >-
+      If the fuse is rendered on a Windows system a value of 2 is returned. If the fuse is rendered
+      on a Linux system a value of 3 is returned.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vNumberCreate
+    - name: vNumberCreateArch
+    - name: vNumberCreateBool
+    - name: vNumberCreateMultiButton
+  params: {}
+legacy_text: >-
+  Creates a unique Fusion Number object per OS platform If the fuse is rendered on a macOS system a
+  value of 1 is returned. If the fuse is rendered on a Windows system a value of 2 is returned. If
+  the fuse is rendered on a Linux system a value of 3 is returned.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 54
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

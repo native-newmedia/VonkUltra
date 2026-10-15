@@ -1,0 +1,20 @@
+operation: Convert2D_3D
+tools:
+  Array: vArrayConvert2D_3D
+  ScriptVal: vScriptValConvert2D_3D
+  JSON: vJSONConvert2D_3D
+legacy_names: []
+curated:
+  tagline: Convert a 2D array to a 3D array.
+  overview: Converts 2D point data to 3D point data.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    InputNumber: Regroups the values as X, X Y or X Y Z.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

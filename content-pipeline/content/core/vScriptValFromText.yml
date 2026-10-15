@@ -1,0 +1,28 @@
+tool: vScriptValFromText
+datatype: ScriptVal
+function: Text
+legacy_names: []
+curated:
+  tagline: >-
+    Convert a Fusion Text object into a ScriptVal This node expects a text formatted version of a
+    Lua table structure as the input.
+  overview: null
+  description:
+    - The result is translated into a ScriptVal object on the output.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vScriptValToText
+  params:
+    Text: Lua table-formatted text to convert into a ScriptVal.
+    ShowInput: Reveals the wire for the Text connection in the Flow view.
+legacy_text: >-
+  Convert a Fusion Text object into a ScriptVal This node expects a text formatted version of a Lua
+  table structure as the input. The result is translated into a ScriptVal object on the output.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 34
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

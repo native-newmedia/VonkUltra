@@ -1,0 +1,22 @@
+tool: vGradientFromArray
+datatype: Gradient
+function: Array
+legacy_names: []
+curated:
+  tagline: Create a Gradient from an array
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Input: JSON-encoded array text to convert into a Gradient.
+    ShowInput: Reveals the wire for the Input connection in the Flow view.
+legacy_text: Create a Gradient from an array
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 6
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

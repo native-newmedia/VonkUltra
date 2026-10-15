@@ -1,0 +1,30 @@
+tool: vScriptValToMetadata
+datatype: ScriptVal
+function: Meta
+legacy_names: []
+curated:
+  tagline: >-
+    Creates a Fusion image with metadata added from a ScriptVal object This node has two input
+    connections which are used for connecting an image and a ScriptVal data type.
+  overview: null
+  description:
+    - The output from the node is the image with metadata added.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vScriptValFromMetadata
+  params:
+    Input: Image the new metadata is attached to.
+    ScriptVal: ScriptVal value to write into the image's metadata.
+    Key: Metadata field name to store ScriptVal under.
+legacy_text: >-
+  Creates a Fusion image with metadata added from a ScriptVal object This node has two input
+  connections which are used for connecting an image and a ScriptVal data type. The output from the
+  node is the image with metadata added.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 40
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

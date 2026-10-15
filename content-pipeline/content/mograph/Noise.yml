@@ -1,0 +1,30 @@
+operation: Noise
+tools:
+  Array: vArrayNoise
+  ScriptVal: vScriptValNoise
+  JSON: vJSONNoise
+legacy_names: []
+curated:
+  tagline: Create a noise array.
+  overview: Creates points displaced by noise, optionally animated or looped.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    numPoints: Number of points.
+    noiseScale: Scale of the noise.
+    seed: Seed of the random generator.
+    animated: Animates the noise.
+    speed: Speed of the animation.
+    noiseFrequency: Frequency of the noise.
+    evolutionOffset: Offset of the noise in time.
+    loopDuration: Length of the loop in frames. 0 disables looping.
+    amplitudeX: Noise strength along X.
+    amplitudeY: Noise strength along Y.
+    amplitudeZ: Noise strength along Z.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

@@ -1,0 +1,26 @@
+tool: vArrayFromDataWindow
+datatype: Array
+function: Create
+legacy_names: []
+curated:
+  tagline: Casts DataWindow to an array
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vArrayFromCSV
+    - name: vArrayFromJSON
+    - name: vArrayFromLuaTable
+    - name: vArrayFromMediaIn
+  params:
+    Input: Image whose DataWindow (the image's active pixel bounding box) is converted to an array.
+    ShowInput: Reveals the wire for the Input connection in the Flow view.
+legacy_text: Casts DataWindow to an array
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 5
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

@@ -1,0 +1,28 @@
+tool: vNumberXSheet
+datatype: Number
+function: Temporal
+legacy_names: []
+curated:
+  tagline: Time based operation on numbers
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vNumberTimeSpeed
+    - name: vNumberTimeStretch
+  params:
+    TargetStartTime: First frame the XSheet range should align to — normally set to the comp's Global Start Time.
+    XSheetSize: Number of frames the XSheet covers.
+    ShowInput: Reveals the wires for the XSheet/XFrameNumbers connections in the Flow view.
+legacy_text: Time based operation on numbers
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 5
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null
+  page_only_params:
+    - XSheet
+    - XFrameNumbers

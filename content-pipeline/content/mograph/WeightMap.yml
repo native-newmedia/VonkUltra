@@ -1,0 +1,35 @@
+operation: WeightMap
+tools:
+  Array: vArrayWeightMap
+  ScriptVal: vScriptValWeightMap
+  JSON: vJSONWeightMap
+legacy_names: []
+curated:
+  tagline: Generate normalized weights per point.
+  overview: Generates a normalized weight array from scalar sources with a falloff curve.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Source: >-
+      Value that drives the result. Options: Index, Scalar Input, Position X, Position Y, Position
+      Z, Distance From Center.
+    AutoRange: Uses the minimum and maximum of the data as the range.
+    Curve: Shape of the transition. Linear, Smooth or Power.
+    Power: Exponent of the curve.
+    Clamp: Limits the result to the range 0 to 1.
+    Invert: Inverts the result.
+    FallbackCount: Number of values used when no input array is connected.
+    CenterX: Center position X.
+    CenterY: Center position Y.
+    CenterZ: Center position Z.
+    OutputMode: >-
+      How the weight is output. Options: Weights Only, Store Weight in 4th Value, Multiply XYZ by
+      Weight, Blend Toward Center, Offset XYZ by Weight.
+    ApplyAmount: Amount of the result applied to the points.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

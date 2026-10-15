@@ -1,0 +1,38 @@
+operation: CreateAsset
+tools:
+  Array: vArrayCreateAsset
+  ScriptVal: vScriptValCreateAsset
+  JSON: vJSONCreateAsset
+legacy_names: []
+curated:
+  tagline: Create a 3D asset from points, edges, UVs and a matrix.
+  overview: Packs points, edges, UVs and a matrix with a name, version and color into one asset.
+  description: []
+  features: []
+  connections:
+    - label: Example 1
+      lines:
+        - vScriptValFromOBJ.ScriptValPoints -> vScriptValCreateAsset.ScriptValPoints
+        - vScriptValFromOBJ.ScriptValEdges -> vScriptValCreateAsset.ScriptValEdges
+        - vScriptValFromOBJ.ScriptValUVs -> vScriptValCreateAsset.ScriptValUVs
+        - vScriptValFromOBJ.ScriptValUVEdges -> vScriptValCreateAsset.ScriptValEdges
+        - vScriptValCreateAsset.Output -> vScriptValMergeAsset.ScriptVal1
+        - vScriptValMergeAsset.Output -> vScriptValRenderAsset.vGeometry
+        - Background.Output -> vScriptValRenderAsset.Input
+  difficulty: null
+  related: []
+  params:
+    AssetName: Name of the asset.
+    AssetVersion: Version of the asset.
+    Red_wire: Color of the asset.
+    Green_wire: Color of the asset.
+    Blue_wire: Color of the asset.
+    Alpha_wire: Color of the asset.
+    SoftEdge: Softness of the asset edges.
+    ShowInput: Shows the input sockets of the controls.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null
+  connections_source: docsify
+legacy_text: Create a ScriptVal based 3D asset from Edge, Point, and vMatrix data

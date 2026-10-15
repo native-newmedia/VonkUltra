@@ -1,0 +1,26 @@
+tool: vGradientTimeSpeed
+datatype: Gradient
+function: Temporal
+legacy_names: []
+curated:
+  tagline: Time based operation on Gradient objects
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vGradientAccumulator
+    - name: vGradientTimeStretch
+  params:
+    Gradient: Gradient to re-time.
+    Speed: Playback rate multiplier applied when reading the value across frames — 1.0 is normal speed.
+    Delay: Time offset in frames applied before the speed change.
+    ShowInput: Reveals the wire for the Gradient connection in the Flow view.
+legacy_text: Time based operation on Gradient objects
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 6
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

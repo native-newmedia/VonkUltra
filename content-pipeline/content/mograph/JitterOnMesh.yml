@@ -1,0 +1,27 @@
+operation: JitterOnMesh
+tools:
+  Array: vArrayJitterOnMesh
+  ScriptVal: vScriptValJitterOnMesh
+  JSON: vJSONJitterOnMesh
+legacy_names: []
+curated:
+  tagline: Jitter points along the mesh surface.
+  overview: Moves points randomly in the tangent plane of the mesh and projects them back onto the surface.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    jitterradius: Maximum random distance along the surface.
+    seed: Seed of the random generator.
+    animatejitter: Changes the jitter over time.
+    animationspeed: Speed of the animation over time. 0 is static.
+    surfaceoffset: Offset of the target from the mesh surface.
+    inaffectx: Applies the effect to X.
+    inaffecty: Applies the effect to Y.
+    inaffectz: Applies the effect to Z.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

@@ -1,0 +1,28 @@
+operation: Project
+tools:
+  Array: vArrayProject
+  ScriptVal: vScriptValProject
+  JSON: vJSONProject
+legacy_names: []
+curated:
+  tagline: Project points onto a surface.
+  overview: Projects points onto a plane, sphere or cylinder.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Mode: >-
+      Shape of the projection. Options: Plane Z, Sphere, Cylinder Z, Plane X, Plane Y, Cylinder X,
+      Cylinder Y.
+    PlaneZ: Position of the projection plane.
+    CenterX: Center position X.
+    CenterY: Center position Y.
+    CenterZ: Center position Z.
+    Radius: Radius of the effect.
+    Blend: Mix between the original points (0) and the result (1).
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

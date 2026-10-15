@@ -1,0 +1,23 @@
+FuRegisterClass("vTest", CT_Tool, { REGS_Name = "vTest" })
+FUSE_NAME = "vTest"
+function Create()
+  self:AddInput("Before", "Before", {
+    LINKID_DataType = "Number",
+    INP_Default = 1,
+  })
+  -- self:AddInput("Dead", "Dead", {
+  --   LINKID_DataType = "Number",
+  --   INP_Default = 2,
+  -- })
+  --[[ self:AddInput("Dead2", "Dead2", {
+    LINKID_DataType = "Number",
+  }) ]]
+  self:AddInput("After", "After", {
+    LINKID_DataType = "Number",
+    INP_Default = 3, -- trailing comment with ( and {
+  })
+  self:AddInput("Str", "Str", {
+    LINKID_DataType = "Text",
+    INP_Default = "a--b",
+  })
+end

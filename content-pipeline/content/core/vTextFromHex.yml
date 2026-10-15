@@ -1,0 +1,47 @@
+tool: vTextFromHex
+datatype: Text
+function: Create
+legacy_names: []
+curated:
+  tagline: >-
+    Converts a Base16 Hex encoded string to ASCII text The "Input" field is used to supply the block
+    of HEX encoded content.
+  overview: null
+  description:
+    - >-
+      The "Separator" text field allows you to enter a value like a space, a tab, a dash, a
+      semicolon, or other character that is present between the Base16 encoded number groups. This
+      user supplied separator information is then used to guide the decoding process. The "Remove
+      Non-Printable Characters" control will automatically remove any ASCII characters that are
+      control characters. In software like the macOS based BBEdit text editor, a non-printable
+      character in a text file would be described as a "Gremlin" and this process would be called
+      "Zapping Gremlins". A sample Hex string that says "Hello World!" is
+      "48656C6C6F20576F726C6421".
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextCreate
+    - name: vTextCreateArch
+    - name: vTextCreateBrowse
+    - name: vTextCreateMultiline
+  params:
+    Input: The Base16 (hex) encoded text to decode.
+    Separator: Character(s) between each hex byte group in Input (e.g. a space or dash).
+    RemoveNonPrintableCharacters: Strips ASCII control characters from the decoded output.
+    ShowInput: Reveals the wire for the Input connection in the Flow view.
+legacy_text: >-
+  Converts a Base16 Hex encoded string to ASCII text The "Input" field is used to supply the block
+  of HEX encoded content. The "Separator" text field allows you to enter a value like a space, a
+  tab, a dash, a semicolon, or other character that is present between the Base16 encoded number
+  groups. This user supplied separator information is then used to guide the decoding process. The
+  "Remove Non-Printable Characters" control will automatically remove any ASCII characters that are
+  control characters. In software like the macOS based BBEdit text editor, a non-printable character
+  in a text file would be described as a "Gremlin" and this process would be called "Zapping
+  Gremlins". A sample Hex string that says "Hello World!" is "48656C6C6F20576F726C6421".
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 121
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

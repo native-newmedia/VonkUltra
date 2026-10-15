@@ -1,0 +1,30 @@
+operation: RelaxScatterOnMesh
+tools:
+  Array: vArrayRelaxScatterOnMesh
+  ScriptVal: vScriptValRelaxScatterOnMesh
+  JSON: vJSONRelaxScatterOnMesh
+legacy_names: []
+curated:
+  tagline: Scatter and relax points on an OBJ mesh.
+  overview: Scatters points on the mesh surface and moves them apart in several passes.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    inputsource: 'Where the data comes from. Options: File, URL, Text.'
+    filename: File to read. Shown when Input Source is File.
+    url: Address to read. Shown when Input Source is URL.
+    input: Text to read. Shown when Input Source is Text.
+    scale: Multiplies the coordinates of the file.
+    pointcount: Number of points.
+    seed: Seed of the random generator.
+    relaxiterations: Number of relaxing passes.
+    candidatesperpoint: Candidate positions tested per point.
+    relaxstrength: Strength of each pass.
+    surfaceoffset: Moves the points away from the surface along the normal.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

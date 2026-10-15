@@ -1,0 +1,26 @@
+tool: vScriptValToClipboard
+datatype: ScriptVal
+function: IO
+legacy_names: []
+curated:
+  tagline: Send a ScriptVal Lua table to the clipboard
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vScriptValFromBinaryFile
+    - name: vScriptValFromClipboard
+    - name: vScriptValFromFile
+    - name: vScriptValToBinaryFile
+  params:
+    ScriptVal: ScriptVal Lua table to copy to the system clipboard as text.
+    ShowInput: Reveals the wire for the ScriptVal connection in the Flow view.
+legacy_text: Send a ScriptVal Lua table to the clipboard
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 8
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

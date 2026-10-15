@@ -1,0 +1,30 @@
+tool: vBase64EncodeFromFile
+datatype: Base64
+function: Encode
+legacy_names: []
+curated:
+  tagline: Base64 encodes a file into a Fusion Text object.
+  overview: null
+  description:
+    - >-
+      This node converts the contents of an external file into a Base64 format. This can help with
+      tasks like creating PNG format imagery that can be embedded inside a Fuse GUI as a block of
+      base64 encoded data. The "File" input field is used to specify the filepath to a document.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vBase64EncodeFromText
+  params:
+    File: Path to the file to Base64-encode.
+legacy_text: >-
+  Base64 encodes a file into a Fusion Text object. This node converts the contents of an external
+  file into a Base64 format. This can help with tasks like creating PNG format imagery that can be
+  embedded inside a Fuse GUI as a block of base64 encoded data. The "File" input field is used to
+  specify the filepath to a document.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 60
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

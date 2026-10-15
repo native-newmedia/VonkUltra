@@ -1,0 +1,30 @@
+tool: vTextCompFilename
+datatype: Text
+function: Comp
+legacy_names: []
+curated:
+  tagline: >-
+    Returns the full path of a comp An example output from this node would be an absolute filepath
+    based string like: "C:/ProgramData/Blackmagic
+  overview: null
+  description:
+    - Design/Fusion/Reactor/Deploy/Comps/Kartaverse/Vonk Ultra/Demo Text/Demo Text.comp"
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextCompAppUUID
+    - name: vTextCompCurrentTime
+    - name: vTextCompName
+    - name: vTextCompReqTime
+  params: {}
+legacy_text: >-
+  Returns the full path of a comp An example output from this node would be an absolute filepath
+  based string like: "C:/ProgramData/Blackmagic Design/Fusion/Reactor/Deploy/Comps/Kartaverse/Vonk
+  Ultra/Demo Text/Demo Text.comp"
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 26
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

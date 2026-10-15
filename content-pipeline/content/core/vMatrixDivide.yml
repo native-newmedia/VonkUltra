@@ -1,0 +1,34 @@
+tool: vMatrixDivide
+datatype: Matrix
+function: Operators
+legacy_names: []
+curated:
+  tagline: Divides two matrices, element-wise.
+  overview: null
+  description:
+    - >-
+      (The old Docsify source text said "Divides a matrix by a number" — a copy-paste leftover from
+      vMatrixDivideNumber; the fuse's own `REGS_OpDescription` and its two-matrix
+      `Matrix1`/`Matrix2` inputs confirm it actually operates on two matrices.)
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vMatrixDeterminant
+    - name: vMatrixDivideNumber
+    - name: vMatrixInvert
+    - name: vMatrixMultiply
+  params:
+    Matrix1: First matrix operand.
+    Matrix2: Second matrix operand — Matrix1 is divided by it, element-wise.
+    ShowInput: Reveals the wires for the Matrix1/Matrix2 connections in the Flow view.
+legacy_text: >-
+  Divides two matrices, element-wise. (The old Docsify source text said "Divides a matrix by a
+  number" — a copy-paste leftover from vMatrixDivideNumber; the fuse's own `REGS_OpDescription` and
+  its two-matrix `Matrix1`/`Matrix2` inputs confirm it actually operates on two matrices.)
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 38
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

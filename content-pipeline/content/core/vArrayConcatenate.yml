@@ -1,0 +1,26 @@
+tool: vArrayConcatenate
+datatype: Array
+function: Utility
+legacy_names: []
+curated:
+  tagline: Concatenates an array
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vArrayCountElement
+    - name: vArrayCountSubElements
+    - name: vArrayJoin
+    - name: vArrayMatch
+  params:
+    Input: A JSON array-of-arrays — Output flattens its sub-arrays into a single top-level array.
+    ShowInput: Reveals the wire for the Input connection in the Flow view.
+legacy_text: Concatenates an array
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 3
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

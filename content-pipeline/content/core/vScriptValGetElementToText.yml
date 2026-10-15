@@ -1,0 +1,40 @@
+tool: vScriptValGetElementToText
+datatype: ScriptVal
+function: Key Value
+legacy_names: []
+curated:
+  tagline: >-
+    Gets an element from a ScriptVal array An example of array like elements in a Lua table would
+    look like this: \{ "1", "2", "3", "4", "5", "6", "7", "8", "9",
+  overview: null
+  description:
+    - >-
+      "10", \} The "Index" control is used to access individual entries from a ScriptVal array like
+      object. The first item is accessed at Index position 1. The output from the
+      vScriptValGetElementToText node is a text based data type. It is possible to translate the
+      text based output from this node into numerical values via the vNumberFromText node.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vScriptValGetElementToNumber
+    - name: vScriptValGetElementToTable
+    - name: vScriptValGetElementXYZToNumber
+    - name: vScriptValGetToNumber
+  params:
+    ScriptVal: ScriptVal array to query.
+    Index: 1-based position of the element to retrieve, converted to Text.
+    ShowInput: Reveals the wire for the ScriptVal connection in the Flow view.
+legacy_text: >-
+  Gets an element from a ScriptVal array An example of array like elements in a Lua table would look
+  like this: \{ "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", \} The "Index" control is used to
+  access individual entries from a ScriptVal array like object. The first item is accessed at Index
+  position 1. The output from the vScriptValGetElementToText node is a text based data type. It is
+  possible to translate the text based output from this node into numerical values via the
+  vNumberFromText node.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 88
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

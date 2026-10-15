@@ -1,0 +1,49 @@
+tool: vBase64ToHTML
+datatype: Base64
+function: Utility
+legacy_names: []
+curated:
+  tagline: Converts a Base64 encoded PNG image into an inline HTML `&lt;IMG>` embed.
+  overview: null
+  description:
+    - >-
+      This node is useful to help prepare an inline Base64 encoded PNG image block. The most common
+      use case for this node is to help fuse coders prepare new icons for use in a fuse's
+      LabelControl element. This supports building Inspector view based icons for your custom fuses
+      or macros. In your fuse the base64 encoded image element would be placed into a variable that
+      is linked into the LabelControl like this: BrandLogo = [[ &lt;center>&lt;img width="160"
+      height="75" src='data:image/png;base64,...'/>&lt;/center> ]] InLabel =
+      self:AddInput(BrandLogo, "Label",\{ LINKID_DataType = "Text", INPID_InputControl =
+      "LabelControl", LBLC_MultiLine = true, INP_External = false, INP_Passive = true,
+      IC_ControlPage = -1, IC_NoLabel = true, IC_NoReset = true, \}) The "`IC_ControlPage = -1,`"
+      tag will move the UI element above the Control Page tabs which makes the same icon visible as
+      you switch between Control Pages. The end result from adding the Base64 icon to a LabelControl
+      is the ability to create a more polished UI for your fuse.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vBase64ImageViewer
+  params:
+    Input: >-
+      Base64-encoded PNG data to wrap in an inline HTML `<img>` tag, ready to paste into a
+      LabelControl's icon field.
+legacy_text: >-
+  Converts a Base64 encoded PNG image into an inline HTML `&lt;IMG>` embed. This node is useful to
+  help prepare an inline Base64 encoded PNG image block. The most common use case for this node is
+  to help fuse coders prepare new icons for use in a fuse's LabelControl element. This supports
+  building Inspector view based icons for your custom fuses or macros. In your fuse the base64
+  encoded image element would be placed into a variable that is linked into the LabelControl like
+  this: BrandLogo = [[ &lt;center>&lt;img width="160" height="75"
+  src='data:image/png;base64,...'/>&lt;/center> ]] InLabel = self:AddInput(BrandLogo, "Label",\{
+  LINKID_DataType = "Text", INPID_InputControl = "LabelControl", LBLC_MultiLine = true, INP_External
+  = false, INP_Passive = true, IC_ControlPage = -1, IC_NoLabel = true, IC_NoReset = true, \}) The
+  "`IC_ControlPage = -1,`" tag will move the UI element above the Control Page tabs which makes the
+  same icon visible as you switch between Control Pages. The end result from adding the Base64 icon
+  to a LabelControl is the ability to create a more polished UI for your fuse.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 171
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

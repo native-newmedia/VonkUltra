@@ -1,0 +1,25 @@
+tool: vScriptValFromDate
+datatype: ScriptVal
+function: Create
+legacy_names: []
+curated:
+  tagline: Create a Fusion ScriptVal object from the Lua os.date() table output
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vScriptValCreate
+    - name: vScriptValFromApp
+    - name: vScriptValFromCSV
+    - name: vScriptValFromListFiles
+  params:
+    UTC: When on, returns the date/time table in UTC instead of local time.
+legacy_text: Create a Fusion ScriptVal object from the Lua os.date() table output
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 11
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

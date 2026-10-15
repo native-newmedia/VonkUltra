@@ -1,0 +1,26 @@
+tool: vMatrixInvert
+datatype: Matrix
+function: Operators
+legacy_names: []
+curated:
+  tagline: Inverts a matrix
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vMatrixDeterminant
+    - name: vMatrixDivide
+    - name: vMatrixDivideNumber
+    - name: vMatrixMultiply
+  params:
+    Matrix: Matrix to invert.
+    ShowInput: Reveals the wire for the Matrix connection in the Flow view.
+legacy_text: Inverts a matrix
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 3
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

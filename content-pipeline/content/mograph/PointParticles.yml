@@ -1,0 +1,66 @@
+operation: PointParticles
+tools:
+  Array: vArrayPointParticles
+  ScriptVal: vScriptValPointParticles
+  JSON: vJSONPointParticles
+legacy_names: []
+curated:
+  tagline: Simple particle generator.
+  overview: Simulates particles with emission, forces and flocking, and outputs their positions.
+  description: []
+  features: []
+  connections:
+    - label: Example 1
+      lines:
+        - vArrayPointParticles.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+  difficulty: null
+  related: []
+  params:
+    timer: Time of the simulation.
+    start_time: Time at which the particles start.
+    part_count: Number of particles.
+    globalScale: Overall size.
+    emissionType: >-
+      Where the particles start. Options: Random, Noise Field, Fibonacci Sphere, Fibonacci Spiral,
+      Fibonacci Disc.
+    sizex: Emission size X.
+    sizey: Emission size Y.
+    sizez: Emission size Z.
+    centerx: Emission center X.
+    centery: Emission center Y.
+    centerz: Emission center Z.
+    noiseScale: Scale of the noise field.
+    noiseStrength: Strength of the noise field.
+    noiseSeed: Seed of the noise field.
+    fibonacciRadius: Radius of the Fibonacci shapes.
+    fibonacciHeight: Height of the Fibonacci shapes.
+    movementx: Velocity X.
+    movementy: Velocity Y.
+    movementz: Velocity Z.
+    gravityStrength: Strength of gravity.
+    windX: Wind X.
+    windY: Wind Y.
+    windZ: Wind Z.
+    turbulenceStrength: Strength of the turbulence.
+    attractorX: Attractor position X.
+    attractorY: Attractor position Y.
+    attractorZ: Attractor position Z.
+    attractorStrength: Strength of the attractor.
+    attractorFalloff: Falloff of the attractor.
+    separationRadius: Radius for separation between particles.
+    separationStrength: Strength of the separation.
+    alignmentRadius: Radius for alignment with neighbours.
+    alignmentStrength: Strength of the alignment.
+    cohesionRadius: Radius for cohesion with neighbours.
+    cohesionStrength: Strength of the cohesion.
+    lifetime: Lifetime of the particles.
+    lifetimeMin: Shortest lifetime.
+    flockingOptimization: Speeds up flocking with a neighbour limit.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null
+  connections_source: docsify
+legacy_text: Simple particle generator

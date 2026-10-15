@@ -1,0 +1,36 @@
+tool: vScriptValToCustomData
+datatype: ScriptVal
+function: Custom Data
+legacy_names: []
+curated:
+  tagline: >-
+    Save a Fusion ScriptVal object to Custom Data The "Text" control is used to specify the key used
+    for the CustomData record.
+  overview: null
+  description:
+    - >-
+      CustomData entries use a dot syntax for the hierarchy. If you define a lower level name it
+      will return the full Lua table structure with multiple preference items at the same time. The
+      "Context" control writes the CustomData to either the Fusion scope, or the Comp scope.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vScriptValFromCustomData
+  params:
+    Input: ScriptVal value to save.
+    Text: CustomData key to write to, using dot syntax for nested levels.
+    Context: 'Scope to write the CustomData to: Fusion (application-wide) or Comp (this composition only).'
+    ShowInput: Reveals the wire for the Input connection in the Flow view.
+legacy_text: >-
+  Save a Fusion ScriptVal object to Custom Data The "Text" control is used to specify the key used
+  for the CustomData record. CustomData entries use a dot syntax for the hierarchy. If you define a
+  lower level name it will return the full Lua table structure with multiple preference items at the
+  same time. The "Context" control writes the CustomData to either the Fusion scope, or the Comp
+  scope.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 69
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

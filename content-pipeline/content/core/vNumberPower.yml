@@ -1,0 +1,27 @@
+tool: vNumberPower
+datatype: Number
+function: Operators
+legacy_names: []
+curated:
+  tagline: Returns the power of a number
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vNumberAbsolute
+    - name: vNumberAdd
+    - name: vNumberCeil
+    - name: vNumberClamp
+  params:
+    Base: Base value.
+    Exponent: Power Base is raised to — Output is `Base ^ Exponent`.
+    ShowInput: Reveals the wires for the Base/Exponent connections in the Flow view.
+legacy_text: Returns the power of a number
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 6
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

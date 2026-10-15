@@ -1,0 +1,45 @@
+tool: vMetadataFromText
+datatype: Meta
+function: Text
+legacy_names: []
+curated:
+  tagline: >-
+    Creates a Fusion image with metadata added from text This node is similar to the
+    SetMetadata.fuse with the addition of input connections on the node that
+  overview: null
+  description:
+    - >-
+      accepts a Text data type for the "Field Name", and "Field Value". A metadata example for
+      Fusion Viewer based Stereo3D "Over/Under" image content is: Field Name: Stereo Field Value:
+      \{Method = "vstack"\} A metadata example for Fusion Viewer based Stereo3D "Side by Side" image
+      content is: Field Name: Stereo Field Value: \{Method = "hstack"\} A metadata example for
+      Fusion Viewer window based 360VR "Latitude/Longitude" image projection content is: Field Name:
+      Pano Field Value: \{Format = "LatLong"\}
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vMetadataFilename
+    - name: vMetadataToText
+  params:
+    Input: Image the new metadata field is attached to.
+    FieldName: Metadata key to set, e.g. `Stereo` or `Pano`.
+    FieldValue: >-
+      Value to store under Field Name, as a Lua table literal for structured metadata — e.g.
+      `{Method = "vstack"}` for over/under stereo, `{Method = "hstack"}` for side-by-side stereo, or
+      `{Format = "LatLong"}` for 360VR latitude/longitude.
+    ShowInput: Reveals the wire for the Input connection in the Flow view.
+legacy_text: >-
+  Creates a Fusion image with metadata added from text This node is similar to the SetMetadata.fuse
+  with the addition of input connections on the node that accepts a Text data type for the "Field
+  Name", and "Field Value". A metadata example for Fusion Viewer based Stereo3D "Over/Under" image
+  content is: Field Name: Stereo Field Value: \{Method = "vstack"\} A metadata example for Fusion
+  Viewer based Stereo3D "Side by Side" image content is: Field Name: Stereo Field Value: \{Method =
+  "hstack"\} A metadata example for Fusion Viewer window based 360VR "Latitude/Longitude" image
+  projection content is: Field Name: Pano Field Value: \{Format = "LatLong"\}
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 102
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

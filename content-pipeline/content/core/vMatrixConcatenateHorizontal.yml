@@ -1,0 +1,28 @@
+tool: vMatrixConcatenateHorizontal
+datatype: Matrix
+function: Utility
+legacy_names: []
+curated:
+  tagline: Concatenates two matrices horizontally
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vMatrixConcatenateVertical
+    - name: vMatrixSlice
+    - name: vMatrixViewer
+  params:
+    Matrix1: Left matrix.
+    Matrix2: >-
+      Right matrix — its columns are appended after Matrix1's, both matrices must have the same row
+      count.
+    ShowInput: Reveals the wires for the Matrix1/Matrix2 connections in the Flow view.
+legacy_text: Concatenates two matrices horizontally
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 4
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

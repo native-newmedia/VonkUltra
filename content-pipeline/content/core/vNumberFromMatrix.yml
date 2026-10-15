@@ -1,0 +1,25 @@
+tool: vNumberFromMatrix
+datatype: Number
+function: Matrix
+legacy_names: []
+curated:
+  tagline: Returns a number from a matrix
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vNumberToMatrix
+  params:
+    Matrix: The Matrix to read a value from, as JSON text.
+    Row: Matrix row of the cell to read.
+    Column: Matrix column of the cell to read.
+    ShowInput: Reveals the wire for the Matrix connection in the Flow view.
+legacy_text: Returns a number from a matrix
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 6
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

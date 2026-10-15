@@ -1,0 +1,22 @@
+operation: LogicCompare
+tools:
+  Array: vArrayLogicCompare
+  ScriptVal: vScriptValLogicCompare
+  JSON: vJSONLogicCompare
+legacy_names: []
+curated:
+  tagline: Compare two arrays into a mask.
+  overview: >-
+    Compares two arrays element by element with the selected operator and outputs 1 where the
+    comparison holds, else 0. The shorter array counts as 0.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Compare: '==, !=, <, >, <=, or >=.'
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

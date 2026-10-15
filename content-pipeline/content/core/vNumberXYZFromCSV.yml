@@ -1,0 +1,39 @@
+tool: vNumberXYZFromCSV
+datatype: Number
+function: Text
+legacy_names: []
+curated:
+  tagline: >-
+    Creates a set of XYZ Fusion Number objects by extracting three cells from a CSV formatted block
+    of text
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vNumberFromCSV
+    - name: vNumberFromText
+  params:
+    Row: CSV line number to read all three values from.
+    ColumnX: Comma-separated field on that line used for the X value.
+    ColumnY: Comma-separated field on that line used for the Y value.
+    ColumnZ: Comma-separated field on that line used for the Z value.
+    ScaleX: Multiplier applied to the X value when Apply Scale is on.
+    ScaleY: Multiplier applied to the Y value when Apply Scale is on.
+    ScaleZ: Multiplier applied to the Z value when Apply Scale is on.
+    ApplyScale: Enables the Scale X/Y/Z multipliers.
+    Input: The CSV-formatted block of text to read from.
+    IgnoreHeaderRow: Offsets Row by 1 so a labelled header line is skipped.
+    DisplayLines: Number of lines shown in the Input text box in the Inspector.
+    WrapLines: Wraps long lines in the Input text box instead of scrolling horizontally.
+    ShowInput: Reveals the wire for the Input connection in the Flow view.
+legacy_text: >-
+  Creates a set of XYZ Fusion Number objects by extracting three cells from a CSV formatted block of
+  text
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 19
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

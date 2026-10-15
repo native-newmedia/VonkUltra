@@ -1,0 +1,25 @@
+tool: vScriptValKeysToText
+datatype: ScriptVal
+function: Key Value
+legacy_names: []
+curated:
+  tagline: Returns the keys present in a ScriptVal object
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vScriptValGetElementToNumber
+    - name: vScriptValGetElementToTable
+    - name: vScriptValGetElementToText
+    - name: vScriptValGetElementXYZToNumber
+  params:
+    ScriptVal: ScriptVal object to inspect — Output lists its key names as Text.
+legacy_text: Returns the keys present in a ScriptVal object
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 8
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

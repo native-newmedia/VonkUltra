@@ -1,0 +1,64 @@
+operation: Buffer
+tools:
+  Array: vArrayBuffer
+  ScriptVal: vScriptValBuffer
+  JSON: vJSONBuffer
+legacy_names: []
+curated:
+  tagline: Generate an array of evenly spaced values between a Low and a High limit.
+  overview: >-
+    vArrayBuffer has no input and outputs Array Length points whose X values run linearly from Low
+    to High. Offset Range shifts both limits.
+  description:
+    - >-
+      The node computes min = Low + Offset Range and max = High + Offset Range. It then outputs
+      Array Length points, evenly spaced from min to max. Each point is (value, 0, 0), so the values
+      are in X and Y and Z are 0.
+    - >-
+      The defaults (length 2, low -1, high 1, offset 0) output two points at X = -1 and X = 1. Raise
+      Array Length for more points between the same limits. Array Length has a minimum of 2.
+    - >-
+      Array Length and Offset Range can also be driven through sockets. The Show Input checkbox
+      toggles whether those two sockets are visible on the node.
+    - >-
+      The node keeps no state between frames. Its output depends only on the current control values,
+      so animating Offset Range moves the whole range over time.
+  features:
+    - title: Linear range
+      desc: Output values are evenly spaced from Low to High.
+    - title: Offset Range
+      desc: One value shifts both limits, which makes it a convenient animation control.
+    - title: Socket control
+      desc: Array Length and Offset Range have sockets that Show Input shows or hides.
+    - title: Stateless
+      desc: The output depends only on the current control values, not on earlier frames.
+  connections:
+    - label: Spread points along X and draw
+      lines:
+        - vArrayBuffer.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Use the range as a base for modifiers
+      lines:
+        - vArrayBuffer.Output -> vArrayMath.ArrayA
+        - vArrayMath.Output -> vArrayCameraProjection.ArrayA
+  difficulty: Beginner
+  related:
+    - name: vArrayCreateRange
+      desc: Another range generator with a start, end and step.
+    - name: vArrayPointsOnGrid
+      desc: Points on a grid instead of a line.
+    - name: vArrayTranslate
+      desc: Moves the generated points.
+  params:
+    Arraylength: Number of points to generate. Minimum 2, default 2. Has a socket.
+    offsetrange: Value added to both limits. Default 0. Has a socket.
+    ShowInput: Shows or hides the Array Length and Offset Range sockets on the node.
+    Low: Lower limit of the range. Default -1.
+    High: Upper limit of the range. Default 1.
+status:
+  source: ai
+  state: ai
+  reviewed_hash: null
+  prompt_version: '1'
+legacy_text: FIFO (first in first out) in an array

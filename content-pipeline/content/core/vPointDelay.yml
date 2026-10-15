@@ -1,0 +1,28 @@
+tool: vPointDelay
+datatype: Point
+function: Utility
+legacy_names: []
+curated:
+  tagline: Creates a Delay while passing a Fusion Point object
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vPointAngle
+    - name: vPointLength
+    - name: vPointTween
+  params:
+    Point: Point passed through unchanged after the delay.
+    Delay: >-
+      Pause duration in seconds, implemented via `bmd.wait()`. Useful for throttling command-line
+      tasks that need a moment to complete, or for simulating a slow render step.
+    ShowInput: Reveals the wire for the Point connection in the Flow view.
+legacy_text: Creates a Delay while passing a Fusion Point object
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 9
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

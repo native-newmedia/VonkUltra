@@ -1,0 +1,27 @@
+tool: vNumberStep
+datatype: Number
+function: Operators
+legacy_names: []
+curated:
+  tagline: Generates a step function by comparing two values
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vNumberAbsolute
+    - name: vNumberAdd
+    - name: vNumberCeil
+    - name: vNumberClamp
+  params:
+    Edge: Threshold value.
+    Number: Value to compare against Edge — Output is 0 if Number is below Edge, 1 otherwise.
+    ShowInput: Reveals the wire for the Number connection in the Flow view.
+legacy_text: Generates a step function by comparing two values
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 8
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

@@ -1,0 +1,25 @@
+operation: PathFrame
+tools:
+  Array: vArrayPathFrame
+  ScriptVal: vScriptValPathFrame
+  JSON: vJSONPathFrame
+legacy_names: []
+curated:
+  tagline: Build frames along a path.
+  overview: Builds tangent, normal and binormal vectors at every path point.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    UpMode: 'Up direction used for the frames. Options: World Y, World Z, Custom.'
+    CustomUpX: Custom up vector X. Shown when the related option is enabled.
+    CustomUpY: Custom up vector Y. Shown when the related option is enabled.
+    CustomUpZ: Custom up vector Z. Shown when the related option is enabled.
+    FlipTangent: Reverses the tangent direction.
+    ClosedPath: Treats the points as a closed loop.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

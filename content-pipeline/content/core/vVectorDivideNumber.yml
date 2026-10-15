@@ -1,0 +1,27 @@
+tool: vVectorDivideNumber
+datatype: Vector
+function: Operators
+legacy_names: []
+curated:
+  tagline: Divides a vector by a number
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vVectorAdd
+    - name: vVectorCrossProduct
+    - name: vVectorDotProduct
+    - name: vVectorMultiplyNumber
+  params:
+    Vector: Vector operand (encoded as text).
+    Number: Scalar divisor — each element of Vector is divided by this value.
+    ShowInput: Reveals the wire for the Vector connection in the Flow view.
+legacy_text: Divides a vector by a number
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 6
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

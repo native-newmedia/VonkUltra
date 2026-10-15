@@ -1,0 +1,22 @@
+tool: vScriptValToPoint
+datatype: ScriptVal
+function: Point
+legacy_names: []
+curated:
+  tagline: Return a Fusion Point object from a ScriptVal
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vScriptValFromPoint
+  params:
+    ScriptVal: ScriptVal array holding X/Y coordinates, e.g. `{ 0.5, 0.5 }`, to convert into a Point.
+legacy_text: Return a Fusion Point object from a ScriptVal
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 8
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

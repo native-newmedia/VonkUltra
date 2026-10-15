@@ -1,0 +1,38 @@
+tool: vTextSubReplace
+datatype: Text
+function: Substring
+legacy_names: []
+curated:
+  tagline: >-
+    Replaces substrings of a string The "Pattern" text field uses [Lua
+    Patterns](http://lua-users.org/wiki/PatternsTutorial) to parse the string.
+  overview: null
+  description:
+    - >-
+      Additional information about patterns can be read in the [Lua
+      manual](https://www.lua.org/manual/5.3/manual.html#6.4.1). The 2nd text field represents the
+      "Replace" text that will be substituted.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextMerge
+    - name: vTextSubFormat
+    - name: vTextSubFormatMultiline
+    - name: vTextSubJoin
+  params:
+    Text: The source text to search and replace within.
+    Pattern: Lua pattern describing the substring(s) to find.
+    Replace: Text that replaces each match of Pattern.
+    ShowInput: Reveals the wire for the Text connection in the Flow view.
+legacy_text: >-
+  Replaces substrings of a string The "Pattern" text field uses [Lua
+  Patterns](http://lua-users.org/wiki/PatternsTutorial) to parse the string. Additional information
+  about patterns can be read in the [Lua manual](https://www.lua.org/manual/5.3/manual.html#6.4.1).
+  The 2nd text field represents the "Replace" text that will be substituted.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 39
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

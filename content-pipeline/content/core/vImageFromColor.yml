@@ -1,0 +1,35 @@
+tool: vImageFromColor
+datatype: Image
+function: IO
+legacy_names: []
+curated:
+  tagline: >-
+    Creates an image from a color This node can act as a fuse based alternative to a Background node
+    if you need to create a fixed size image and fill the image canvas with a flat color.
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vImageEXRFromFile
+    - name: vImageEXRToFile
+    - name: vImageFromClipboard
+    - name: vImageFromFile
+  params:
+    Red: Red channel of the fill colour (0–1).
+    Green: Green channel of the fill colour (0–1).
+    Blue: Blue channel of the fill colour (0–1).
+    Alpha: Alpha (opacity) of the fill colour (0–1).
+    ShowColorInput: Reveals the wires for the Red/Green/Blue/Alpha connections in the Flow view.
+    Width: Width of the generated image, in pixels.
+    Height: Height of the generated image, in pixels.
+legacy_text: >-
+  Creates an image from a color This node can act as a fuse based alternative to a Background node
+  if you need to create a fixed size image and fill the image canvas with a flat color.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 37
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

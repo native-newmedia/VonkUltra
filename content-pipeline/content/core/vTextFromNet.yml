@@ -1,0 +1,43 @@
+tool: vTextFromNet
+datatype: Text
+function: IO
+legacy_names: []
+curated:
+  tagline: >-
+    Reads a Text string from a network URL The "Input" text-field is used to supply the http://,
+    https://, or file:// based URL.
+  overview: null
+  description:
+    - >-
+      The network-based text resource downloading functionality provided by this node makes it
+      possible to drive a composite from an external cloud based datasource like a CSV (Comma
+      Separated Value), TSV (Tab Separated Value), SVG (Scalable Vector Graphics), Fusion Macro
+      .setting, Fusion .comp, etc. This means IoT (Internet of Things) electronic sensors, sports
+      statistics, financial data, or any other web enabled datasource can be used on-the-fly to
+      supply Text, Number, Matrix, Array, or other values to nodes in the comp.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextFromClipboard
+    - name: vTextFromComp
+    - name: vTextFromFile
+    - name: vTextFromZip
+  params:
+    Input: The http://, https://, or file:// URL to download text from.
+    View URL: Button — opens the Input URL in your default browser.
+    ShowInput: Reveals the wire for the Input connection in the Flow view.
+legacy_text: >-
+  Reads a Text string from a network URL The "Input" text-field is used to supply the http://,
+  https://, or file:// based URL. The network-based text resource downloading functionality provided
+  by this node makes it possible to drive a composite from an external cloud based datasource like a
+  CSV (Comma Separated Value), TSV (Tab Separated Value), SVG (Scalable Vector Graphics), Fusion
+  Macro .setting, Fusion .comp, etc. This means IoT (Internet of Things) electronic sensors, sports
+  statistics, financial data, or any other web enabled datasource can be used on-the-fly to supply
+  Text, Number, Matrix, Array, or other values to nodes in the comp.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 101
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

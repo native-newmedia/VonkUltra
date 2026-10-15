@@ -1,0 +1,31 @@
+tool: vImageToFile
+datatype: Image
+function: IO
+legacy_names: []
+curated:
+  tagline: >-
+    Saves a jpg/exr/png/bmp/raw/fusepic image sequence to disk The "File" control can be driven
+    externally by a Text data type connection to the node.
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vImageEXRFromFile
+    - name: vImageEXRToFile
+    - name: vImageFromClipboard
+    - name: vImageFromColor
+  params:
+    File: >-
+      Destination path for the saved image sequence (jpg/exr/png/bmp/raw/fusepic). Can be driven
+      externally by a Text data type connection.
+legacy_text: >-
+  Saves a jpg/exr/png/bmp/raw/fusepic image sequence to disk The "File" control can be driven
+  externally by a Text data type connection to the node.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 23
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

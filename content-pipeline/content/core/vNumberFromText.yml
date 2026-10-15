@@ -1,0 +1,33 @@
+tool: vNumberFromText
+datatype: Number
+function: Text
+legacy_names: []
+curated:
+  tagline: >-
+    Returns a number from a Fusion Text object This node converts an ASCII text based string that
+    holds numerical content like "5" into an actual number data type
+  overview: null
+  description:
+    - >-
+      that can have math operations performed on the value. This is a useful step if you need to
+      connect a numerical value to an Inspector based attribute on another node.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vNumberFromCSV
+    - name: vNumberXYZFromCSV
+  params:
+    Text: The text string to convert — its content must be numeric (e.g. "5").
+    ShowInput: Reveals the wire for the Text connection in the Flow view.
+legacy_text: >-
+  Returns a number from a Fusion Text object This node converts an ASCII text based string that
+  holds numerical content like "5" into an actual number data type that can have math operations
+  performed on the value. This is a useful step if you need to connect a numerical value to an
+  Inspector based attribute on another node.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 58
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

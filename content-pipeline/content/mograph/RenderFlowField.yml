@@ -1,0 +1,33 @@
+operation: RenderFlowField
+tools:
+  Array: vArrayRenderFlowField
+  ScriptVal: vScriptValRenderFlowField
+  JSON: vJSONRenderFlowField
+legacy_names: []
+curated:
+  tagline: Render a noise-driven flow field.
+  overview: >-
+    Draws a grid of short line segments whose angles follow a noise field. Noise offset and
+    animation speed move the field.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Rows: Rows of line segments.
+    Columns: Columns of line segments.
+    LineLength: Length of each segment.
+    LineWidth: Width of the lines.
+    NoiseScale: Scale of the noise.
+    NoiseOffsetX: Shifts the noise along X.
+    NoiseOffsetY: Shifts the noise along Y.
+    AnimSpeed: Speed at which the noise moves over time.
+    LineRed: Color for the line.
+    LineGreen: Color for the line.
+    LineBlue: Color for the line.
+    LineAlpha: Color for the line.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

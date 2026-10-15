@@ -1,0 +1,29 @@
+operation: RenderHistogram
+tools:
+  Array: vArrayRenderHistogram
+  ScriptVal: vScriptValRenderHistogram
+  JSON: vJSONRenderHistogram
+legacy_names: []
+curated:
+  tagline: Render a bar chart from an array of values.
+  overview: Draws one bar per value in the array, with optional normalization to the chart height.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    BarRed: Color for the bar.
+    BarGreen: Color for the bar.
+    BarBlue: Color for the bar.
+    BarAlpha: Color for the bar.
+    BarWidth: Width of each bar.
+    Normalize: Scales the values to fill the chart height.
+    BaselineY: Vertical position of the chart baseline.
+    ChartHeight: Height of the chart.
+    MarginLeft: Space left of the chart.
+    MarginRight: Space right of the chart.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

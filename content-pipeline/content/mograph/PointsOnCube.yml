@@ -1,0 +1,29 @@
+operation: PointsOnCube
+tools:
+  Array: vArrayPointsOnCube
+  ScriptVal: vScriptValPointsOnCube
+  JSON: vJSONPointsOnCube
+legacy_names: []
+curated:
+  tagline: Generate points on a cube.
+  overview: Places points on a 3D grid.
+  description: []
+  features: []
+  connections:
+    - label: Example 1
+      lines:
+        - vArrayPointsOnCube.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+  difficulty: null
+  related: []
+  params:
+    numx: Points along X.
+    numy: Points along Y.
+    numz: Points along Z.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null
+  connections_source: docsify
+legacy_text: Generate points on cube

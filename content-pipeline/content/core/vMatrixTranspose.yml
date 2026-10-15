@@ -1,0 +1,26 @@
+tool: vMatrixTranspose
+datatype: Matrix
+function: Transform
+legacy_names: []
+curated:
+  tagline: Transposes a matrix
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vMatrixFromRotation
+    - name: vMatrixFromScale
+    - name: vMatrixFromTranslation
+    - name: vMatrixToEuler
+  params:
+    Matrix: Matrix to transpose — Output has its rows and columns swapped.
+    ShowInput: Reveals the wire for the Matrix connection in the Flow view.
+legacy_text: Transposes a matrix
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 3
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

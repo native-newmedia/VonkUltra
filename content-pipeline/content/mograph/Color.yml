@@ -1,0 +1,38 @@
+operation: Color
+tools:
+  Array: vArrayColor
+  ScriptVal: vScriptValColor
+  JSON: vJSONColor
+legacy_names: []
+curated:
+  tagline: Color shape elements by index, range or position.
+  overview: >-
+    Colors the elements of a shape table with a default or custom color mapping, based on the
+    element index, a value range, spatial position, or a custom function.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    color: Default or Custom coloring.
+    colorby: Index, range mapping, spatial position, or a custom function.
+    refCenter: Reference point for the spatial mode.
+    MaxColorDist: Distance at which the spatial mapping ends.
+    Offset: Shifts the gradient position.
+    Scale: Scales the gradient position.
+    Power: Curve of the gradient position.
+    Repetitions: Number of times the gradient repeats.
+    Blend: Blends between neighbouring colors.
+    Patterns: Pattern text for the custom mapping.
+    Gradient: Color gradient.
+    subdivColors: Number of subdivisions of the color range.
+    Red_Shape: Color for the custom.
+    Green_Shape: Color for the custom.
+    Blue_Shape: Color for the custom.
+    Alph_Shape: Color for the custom.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null
+legacy_text: Dynamically color 2D Shape elements

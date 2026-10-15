@@ -1,0 +1,19 @@
+operation: LogicPartition
+tools:
+  Array: vArrayLogicPartition
+  ScriptVal: vScriptValLogicPartition
+  JSON: vJSONLogicPartition
+legacy_names: []
+curated:
+  tagline: Split an array with a mask.
+  overview: Sends the elements where the mask is above 0 to Pass and all others to Fail.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params: {}
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

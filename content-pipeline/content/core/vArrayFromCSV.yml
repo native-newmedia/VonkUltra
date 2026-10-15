@@ -1,0 +1,47 @@
+tool: vArrayFromCSV
+datatype: Array
+function: Create
+legacy_names: []
+curated:
+  tagline: >-
+    Creates a JSON array from a CSV row or column The "Array Mode" control provides two options:
+    "Extract Row", and "Extract Column".
+  overview: null
+  description:
+    - >-
+      This makes it easy to select which axis of CSV data you would like to grab a sample from. The
+      "Ignore Header Row" checkbox will offset the first index position to start at line 2 in the
+      CSV file. This will skip over a labelled header row in the source document to avoid that
+      information being accessed as part of the ingested data. The output from vArrayFromCSV is
+      typically connected to an vArrayGetIndex node. This makes it possible to select an individual
+      cell of data.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vArrayFromDataWindow
+    - name: vArrayFromJSON
+    - name: vArrayFromLuaTable
+    - name: vArrayFromMediaIn
+  params:
+    Mode: 'Which axis of the CSV to extract: Extract Row or Extract Column.'
+    index: 1-based row or column number to extract, matching Array Mode.
+    IgnoreHeaderRow: Skips the first line, so Index 1 refers to the first line of actual data rather than a header.
+    Input: CSV text to parse.
+    DisplayLines: Number of visible lines in the Input text editor before scrolling.
+    WrapLines: Wraps long lines in the Input text editor instead of scrolling horizontally.
+    ShowInput: Reveals the wire for the Input connection in the Flow view.
+legacy_text: >-
+  Creates a JSON array from a CSV row or column The "Array Mode" control provides two options:
+  "Extract Row", and "Extract Column". This makes it easy to select which axis of CSV data you would
+  like to grab a sample from. The "Ignore Header Row" checkbox will offset the first index position
+  to start at line 2 in the CSV file. This will skip over a labelled header row in the source
+  document to avoid that information being accessed as part of the ingested data. The output from
+  vArrayFromCSV is typically connected to an vArrayGetIndex node. This makes it possible to select
+  an individual cell of data.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 107
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

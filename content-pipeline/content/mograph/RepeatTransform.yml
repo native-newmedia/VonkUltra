@@ -1,0 +1,61 @@
+operation: RepeatTransform
+tools:
+  Array: vArrayRepeatTransform
+  ScriptVal: vScriptValRepeatTransform
+  JSON: vJSONRepeatTransform
+legacy_names: []
+curated:
+  tagline: Repeat an array with transforms.
+  overview: Repeats an array several times, transforming each copy, and writes instance IDs.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    ArrayMode: 'Arrangement of the copies. Options: Linear, Circular, Spiral, Grid 2D, Grid 3D.'
+    numTimes: Number of copies.
+    Radius: Radius of the effect. Shown when the related option is enabled.
+    SpiralHeight: Height of the spiral. Shown when the related option is enabled.
+    GridX: Columns of the grid. Shown when the related option is enabled.
+    GridY: Rows of the grid. Shown when the related option is enabled.
+    GridZ: Layers of the grid. Shown when the related option is enabled.
+    GridSpacingX: Spacing along X. Shown when the related option is enabled.
+    GridSpacingY: Spacing along Y. Shown when the related option is enabled.
+    GridSpacingZ: Spacing along Z. Shown when the related option is enabled.
+    Translate.X: Translation along X.
+    Translate.Y: Translation along Y.
+    Translate.Z: Translation along Z.
+    Scale.X: Scale along X.
+    Scale.Y: Scale along Y.
+    Scale.Z: Scale along Z.
+    Rotation.X: Rotation per copy around X.
+    Rotation.Y: Rotation per copy around Y.
+    Rotation.Z: Rotation per copy around Z.
+    RotationOrder: 'Order in which the rotations are applied. Options: XYZ, YXZ, ZYX, XZY, YZX, ZXY.'
+    Pivot.X: Pivot X.
+    Pivot.Y: Pivot Y.
+    Pivot.Z: Pivot Z.
+    EnableRandom: Adds random variation to each copy.
+    RandomSeed: Seed of the random generator.
+    RandomTranslate: Random translation range.
+    RandomRotate: Random rotation range.
+    RandomScale: Random scale range.
+    EnableShake: Animates a shake on each copy.
+    Shake.Position.Amplitude: Shake amplitude for position.
+    Shake.Rotation.Amplitude: Shake amplitude for rotation.
+    Shake.Scale.Amplitude: Shake amplitude for scale.
+    Shake.Frequency: Frequency of the noise or wave.
+    Shake.Speed: Speed of the animation.
+    Shake.Phase: Shifts the wave in phase.
+    Shake.Seed: Seed of the random generator.
+    Shake.Lag: Delay between copies in the animation.
+    Shake.CumulativeLag: Adds the lag of every previous copy.
+    Shake.ReverseCumulative: Reverses the direction.
+    MirrorX: Mirrors every second copy along X.
+    MirrorY: Mirrors every second copy along Y.
+    MirrorZ: Mirrors every second copy along Z.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

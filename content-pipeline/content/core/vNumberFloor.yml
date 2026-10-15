@@ -1,0 +1,32 @@
+tool: vNumberFloor
+datatype: Number
+function: Operators
+legacy_names: []
+curated:
+  tagline: >-
+    Returns the integer no less than a number This provides a way to round a floating point number
+    to a whole number (an integer value) by rounding downwards to
+  overview: null
+  description:
+    - remove the digits to the right of the decimal place.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vNumberAbsolute
+    - name: vNumberAdd
+    - name: vNumberCeil
+    - name: vNumberClamp
+  params:
+    Number: Value to round down to the nearest integer.
+    ShowInput: Reveals the wire for the Number connection in the Flow view.
+legacy_text: >-
+  Returns the integer no less than a number This provides a way to round a floating point number to
+  a whole number (an integer value) by rounding downwards to remove the digits to the right of the
+  decimal place.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 39
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

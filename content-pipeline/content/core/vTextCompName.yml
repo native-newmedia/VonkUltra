@@ -1,0 +1,32 @@
+tool: vTextCompName
+datatype: Text
+function: Comp
+legacy_names: []
+curated:
+  tagline: >-
+    Returns the name of the comp An example output from this node would be the base filename for the
+    currently open .comp file like: "Demo Text.comp" If the
+  overview: null
+  description:
+    - >-
+      currently open composite is an unsaved document the node would output a string like:
+      "Composition1"
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextCompAppUUID
+    - name: vTextCompCurrentTime
+    - name: vTextCompFilename
+    - name: vTextCompReqTime
+  params: {}
+legacy_text: >-
+  Returns the name of the comp An example output from this node would be the base filename for the
+  currently open .comp file like: "Demo Text.comp" If the currently open composite is an unsaved
+  document the node would output a string like: "Composition1"
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 43
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

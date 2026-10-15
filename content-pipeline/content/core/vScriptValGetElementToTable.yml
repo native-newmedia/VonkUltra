@@ -1,0 +1,35 @@
+tool: vScriptValGetElementToTable
+datatype: ScriptVal
+function: Key Value
+legacy_names: []
+curated:
+  tagline: >-
+    Gets an element from a ScriptVal array as a table The "Index" control is used to access
+    individual entries from a ScriptVal array like object.
+  overview: null
+  description:
+    - >-
+      The first item is accessed at Index position 1. The output from the
+      vScriptValGetElementToTable node is a ScriptVal based data type.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vScriptValGetElementToNumber
+    - name: vScriptValGetElementToText
+    - name: vScriptValGetElementXYZToNumber
+    - name: vScriptValGetToNumber
+  params:
+    ScriptVal: ScriptVal array to query.
+    Index: 1-based position of the element to retrieve, returned as a ScriptVal (table).
+    ShowInput: Reveals the wire for the ScriptVal connection in the Flow view.
+legacy_text: >-
+  Gets an element from a ScriptVal array as a table The "Index" control is used to access individual
+  entries from a ScriptVal array like object. The first item is accessed at Index position 1. The
+  output from the vScriptValGetElementToTable node is a ScriptVal based data type.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 46
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

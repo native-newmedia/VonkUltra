@@ -1,0 +1,43 @@
+tool: vNumberCreateBool
+datatype: Number
+function: Create
+legacy_names: []
+curated:
+  tagline: >-
+    Returns a 0-1 range integer Fusion Number object This node uses a checkbox control to output a
+    true (1) or false (0) logic state.
+  overview: null
+  description:
+    - >-
+      Usage tip: This node's boolean like checkbox value can be used to drive a Switch node's
+      "Which" control. This checkbox control makes it a single click operation in a macro node
+      (MacroOperator or GroupOperator) to be able to toggle between an input1 / input2 connection.
+      To do this you simply have to insert an vNumberAdd node, (that is set to increment the value
+      up by 1), between the vNumberCreate node's output (0-1) logic state, and the Switch node:
+      vNumberCreateBool.Output > vNumberAdd.Term1 > Switch.Which Node setting to change:
+      vNumberAdd.Term2 = 1
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vNumberCreate
+    - name: vNumberCreateArch
+    - name: vNumberCreateMultiButton
+    - name: vNumberCreatePlatform
+  params:
+    Number: Checkbox — outputs 1 when checked, 0 when unchecked.
+legacy_text: >-
+  Returns a 0-1 range integer Fusion Number object This node uses a checkbox control to output a
+  true (1) or false (0) logic state. Usage tip: This node's boolean like checkbox value can be used
+  to drive a Switch node's "Which" control. This checkbox control makes it a single click operation
+  in a macro node (MacroOperator or GroupOperator) to be able to toggle between an input1 / input2
+  connection. To do this you simply have to insert an vNumberAdd node, (that is set to increment the
+  value up by 1), between the vNumberCreate node's output (0-1) logic state, and the Switch node:
+  vNumberCreateBool.Output > vNumberAdd.Term1 > Switch.Which Node setting to change:
+  vNumberAdd.Term2 = 1
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 114
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

@@ -1,0 +1,32 @@
+operation: TaperedShape
+tools:
+  Array: vArrayTaperedShape
+  ScriptVal: vScriptValTaperedShape
+  JSON: vJSONTaperedShape
+legacy_names: []
+curated:
+  tagline: Draw a tapered path.
+  overview: >-
+    Draws a path as a ribbon whose width changes from a start width to an end width, with solid or
+    gradient color.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    TaperStart: Path position where the taper starts.
+    TaperEnd: Path position where the taper ends.
+    StartWidth: Width at the start.
+    EndWidth: Width at the end.
+    CircleSegments: Segments of the round joints.
+    colorselect: Use Solid or Use Gradient.
+    Gradient: Color gradient.
+    Red: Color for the solid.
+    Green: Color for the solid.
+    Blue: Color for the solid.
+    Alpha: Color for the solid.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

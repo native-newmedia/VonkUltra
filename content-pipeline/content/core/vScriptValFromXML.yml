@@ -1,0 +1,25 @@
+tool: vScriptValFromXML
+datatype: ScriptVal
+function: XML
+legacy_names: []
+curated:
+  tagline: Creates a ScriptVal object from XML This node accepts a text based input in an XML format.
+  overview: null
+  description:
+    - The result is translated into a ScriptVal object on the output.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vScriptValToXML
+  params:
+    Input: XML text to convert into a ScriptVal Lua table.
+legacy_text: >-
+  Creates a ScriptVal object from XML This node accepts a text based input in an XML format. The
+  result is translated into a ScriptVal object on the output.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 28
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

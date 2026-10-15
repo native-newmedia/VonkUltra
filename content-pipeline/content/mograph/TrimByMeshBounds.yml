@@ -1,0 +1,25 @@
+operation: TrimByMeshBounds
+tools:
+  Array: vArrayTrimByMeshBounds
+  ScriptVal: vScriptValTrimByMeshBounds
+  JSON: vJSONTrimByMeshBounds
+legacy_names: []
+curated:
+  tagline: Trim points to the mesh bounds.
+  overview: Trims or clamps points to the axis-aligned bounding box of a mesh or second point array.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    BoundsSource: 'Bounds from the mesh points or from a bounds array. Options: Array Points, Bounds Array.'
+    padding: Grows the bounding box on all sides.
+    mode: Drop removes points outside the bounds. Clamp moves them to the bounds.
+    testX: Tests the X axis.
+    testY: Tests the Y axis.
+    testZ: Tests the Z axis.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

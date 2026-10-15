@@ -1,0 +1,17 @@
+operation: HTML_UIControl_Color
+tools:
+  HTML: vHTML_UIControl_Color
+legacy_names: []
+curated:
+  tagline: null
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params: {}
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

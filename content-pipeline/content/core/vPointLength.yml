@@ -1,0 +1,38 @@
+tool: vPointLength
+datatype: Point
+function: Utility
+legacy_names: []
+curated:
+  tagline: >-
+    Measure the distance between two Fusion Point objects The output from this node is a Number
+    datatype that reports the distance between Point1 and Point2.
+  overview: null
+  description:
+    - >-
+      If you have an image loaded in the viewer window, and then select the vPointLength node to
+      edit its attributes in the Inspector tab, you will see the Point1 and Point2 locator handle
+      overlays onscreen.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vPointAngle
+    - name: vPointDelay
+    - name: vPointTween
+  params:
+    Point1: First point.
+    Point2: >-
+      Second point — Output is the distance between Point1 and Point2. Selecting this node shows
+      both locator handles overlaid in the viewer.
+    ShowInput: Reveals the wires for the Point1/Point2 connections in the Flow view.
+legacy_text: >-
+  Measure the distance between two Fusion Point objects The output from this node is a Number
+  datatype that reports the distance between Point1 and Point2. If you have an image loaded in the
+  viewer window, and then select the vPointLength node to edit its attributes in the Inspector tab,
+  you will see the Point1 and Point2 locator handle overlays onscreen.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 60
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

@@ -1,0 +1,66 @@
+tool: vCryptomatte
+datatype: Image
+function: Matte
+legacy_names: []
+curated:
+  tagline: >-
+    This node is a version of the Cryptomatte fuse that supports an exposed Text data type based
+    input connection to the "Matte List".
+  overview: null
+  description:
+    - >-
+      This is handy if you want to use the Vonk JSON + Metadata + Array features to create technical
+      animations that browse through every matte element stored in the image's manifest records.
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Input: Rendered image carrying the Cryptomatte manifest and ID channels to key from.
+    Locator: >-
+      Pick a pixel in the viewer here — the object under that pixel is the one
+      Add/Remove/Toggle/Show/Hide act on.
+    Add: Adds the object at Matte Locator to the current matte selection.
+    Remove: Removes the object at Matte Locator from the current matte selection.
+    Toggle: Adds the object at Matte Locator if it's not already selected, or removes it if it is.
+    ViewMode: >-
+      Viewer overlay mode: Colors (random ID colours), Edges (object outlines), Beauty (the plain
+      Input image), or Matte (the current selection as a greyscale matte).
+    MatteList: >-
+      The selected object names, as a comma-separated list — the Vonk-specific addition over stock
+      Cryptomatte, letting this be driven or read by Text/JSON/Array nodes instead of only the
+      built-in picker UI.
+    Clear: Empties the current matte selection.
+    ShowInput: Reveals the wire for the Input connection in the Flow view.
+    LayerIndex: >-
+      Which Cryptomatte layer to key from, by index, when an image has more than one (e.g.
+      crypto_object, crypto_material).
+    LayerName: Which Cryptomatte layer to key from, by name — an alternative to Layer Index.
+    LocatorName: >-
+      Diagnostic pixel probe — hover here to check which object name a given pixel resolves to,
+      without changing the matte selection.
+    Show: Reveals the object at Matte Locator without changing the matte selection — a preview button.
+    Hide: Hides the object at Matte Locator without changing the matte selection — a preview button.
+    MatteName: Read-only display of the object name currently under Matte Locator.
+    AddCallback: >-
+      Internal flag set by the Add button above and cleared once processed — not meant to be toggled
+      manually.
+    RemoveCallback: >-
+      Internal flag set by the Remove button above and cleared once processed — not meant to be
+      toggled manually.
+    ToggleCallback: >-
+      Internal flag set by the Toggle button above and cleared once processed — not meant to be
+      toggled manually.
+legacy_text: >-
+  This node is a version of the Cryptomatte fuse that supports an exposed Text data type based input
+  connection to the "Matte List". This is handy if you want to use the Vonk JSON + Metadata + Array
+  features to create technical animations that browse through every matte element stored in the
+  image's manifest records.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 55
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null
+  page_only_params:
+    - name

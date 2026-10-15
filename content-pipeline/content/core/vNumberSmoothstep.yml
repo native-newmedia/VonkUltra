@@ -1,0 +1,30 @@
+tool: vNumberSmoothstep
+datatype: Number
+function: Operators
+legacy_names: []
+curated:
+  tagline: Generates a smoothstep function
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vNumberAbsolute
+    - name: vNumberAdd
+    - name: vNumberCeil
+    - name: vNumberClamp
+  params:
+    Threshold1: Lower edge — Number at or below this returns 0.
+    Threshold2: Upper edge — Number at or above this returns 1.
+    Number: >-
+      Value to smoothly interpolate between Threshold1 and Threshold2, using an S-curve rather than
+      a linear ramp.
+    ShowInput: Reveals the wire for the Number connection in the Flow view.
+legacy_text: Generates a smoothstep function
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 4
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

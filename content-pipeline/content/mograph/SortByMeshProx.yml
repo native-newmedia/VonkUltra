@@ -1,0 +1,25 @@
+operation: SortByMeshProx
+tools:
+  Array: vArraySortByMeshProx
+  ScriptVal: vScriptValSortByMeshProx
+  JSON: vJSONSortByMeshProx
+legacy_names: []
+curated:
+  tagline: Sort points by distance to the mesh.
+  overview: Sorts the points by ascending distance to the nearest mesh surface point.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    proximitymode: >-
+      Distance is measured to the surface, the nearest vertex or the nearest face centroid. Options:
+      Surface, Vertex, Face Centroid.
+    sortorder: Ascending or Descending.
+    blendtotarget: Mix between the original and the target position.
+    targetoffset: Offset of the target position.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

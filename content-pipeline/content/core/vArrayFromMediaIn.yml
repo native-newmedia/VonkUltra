@@ -1,0 +1,32 @@
+tool: vArrayFromMediaIn
+datatype: Array
+function: Create
+legacy_names: []
+curated:
+  tagline: >-
+    Casts a Resolve MediaIn MediaProps to an array This makes it possible to read MediaPool/Edit
+    page timeline information provided by a MediaIn node.
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vArrayFromCSV
+    - name: vArrayFromDataWindow
+    - name: vArrayFromJSON
+    - name: vArrayFromLuaTable
+  params:
+    Input: >-
+      The image connected directly from a MediaIn node — its MediaProps record is converted into
+      this node's output array.
+    ShowInput: Reveals the wire for the MediaIn Input connection in the Flow view.
+legacy_text: >-
+  Casts a Resolve MediaIn MediaProps to an array This makes it possible to read MediaPool/Edit page
+  timeline information provided by a MediaIn node.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 23
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

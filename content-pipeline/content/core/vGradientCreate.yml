@@ -1,0 +1,23 @@
+tool: vGradientCreate
+datatype: Gradient
+function: Create
+legacy_names: []
+curated:
+  tagline: Create a Fusion Gradient object
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Gradient: Fusion's native gradient-bar control — add, move, and colour stops directly in the Inspector.
+    GradientInterpolationMethod: Interpolation style used between colour stops, set via Fusion's own gradient bar UI.
+    ShowInput: Reveals the wire for the Gradient connection in the Flow view.
+legacy_text: Create a Fusion Gradient object
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 5
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

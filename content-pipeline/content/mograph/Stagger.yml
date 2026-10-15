@@ -1,0 +1,33 @@
+operation: Stagger
+tools:
+  Array: vArrayStagger
+  ScriptVal: vScriptValStagger
+  JSON: vJSONStagger
+legacy_names: []
+curated:
+  tagline: Animate points using staggered offsets.
+  overview: >-
+    Moves each XYZ point of an array along a time-based curve, delayed by the point's index. Mode
+    picks the curve. Stagger and Stagger Amount scale it per axis; both default to 0, so nothing
+    moves until they are set.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Mode: 'Offset curve: Linear, Wave, Exponential, Pulse Wave, Triangle Wave, Sawtooth Wave.'
+    StaggerX: Per-axis strength of the stagger.
+    StaggerY: Per-axis strength of the stagger.
+    StaggerZ: Per-axis strength of the stagger.
+    StaggerAmountX: Per-axis offset size, multiplied by Stagger.
+    StaggerAmountY: Per-axis offset size, multiplied by Stagger.
+    StaggerAmountZ: Per-axis offset size, multiplied by Stagger.
+    StaggerDelay: Delay between consecutive points.
+    WaveFreq: Curve speed. Shown for Wave, Pulse Wave, Triangle Wave and Sawtooth Wave.
+    PulseWidth: On-time share of each cycle. Shown for Pulse Wave only.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null
+legacy_text: Animate points using staggered offsets

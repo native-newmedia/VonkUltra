@@ -1,0 +1,25 @@
+tool: vGradientColorCount
+datatype: Gradient
+function: Utility
+legacy_names: []
+curated:
+  tagline: Return the Gradient color count as a number
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vGradientMerge
+    - name: vGradientNormalizePosition
+    - name: vGradientSlice
+    - name: vGradientSort
+  params:
+    Gradient: Gradient to count. Output is the number of colour stops it contains.
+legacy_text: Return the Gradient color count as a number
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 8
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

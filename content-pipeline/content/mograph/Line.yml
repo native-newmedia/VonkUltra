@@ -1,0 +1,27 @@
+operation: Line
+tools:
+  Array: vArrayLine
+  ScriptVal: vScriptValLine
+  JSON: vJSONLine
+legacy_names: []
+curated:
+  tagline: Generate points on a line.
+  overview: Places points between a start and an end position.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    startx: Start position X.
+    starty: Start position Y.
+    startz: Start position Z.
+    endx: End position X.
+    endy: End position Y.
+    endz: End position Z.
+    pointcount: Number of points.
+    includeendpoint: Adds the end point.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

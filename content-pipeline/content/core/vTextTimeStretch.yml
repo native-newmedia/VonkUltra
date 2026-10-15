@@ -1,0 +1,26 @@
+tool: vTextTimeStretch
+datatype: Text
+function: Temporal
+legacy_names: []
+curated:
+  tagline: Time based operation on text
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextAccumulator
+    - name: vTextTimeSpeed
+  params:
+    Input: The text value to resample at the stretched time.
+    Time: The frame Input is read at, regardless of the comp's actual current time.
+    SetSourceTime: Button — copies the comp's current time into the Time control.
+    ShowInput: Reveals the wire for the Input connection in the Flow view.
+legacy_text: Time based operation on text
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 5
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

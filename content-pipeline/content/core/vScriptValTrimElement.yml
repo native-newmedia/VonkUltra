@@ -1,0 +1,39 @@
+tool: vScriptValTrimElement
+datatype: ScriptVal
+function: Key Value
+legacy_names: []
+curated:
+  tagline: >-
+    Extract a range of elements from a ScriptVal array as a table This node is useful for creating
+    animated vector graphics that are revealed over time when your
+  overview: null
+  description:
+    - >-
+      2D point data is encoded into a ScriptVal Lua table structure that represents a polyline
+      shape.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vScriptValGetElementToNumber
+    - name: vScriptValGetElementToTable
+    - name: vScriptValGetElementToText
+    - name: vScriptValGetElementXYZToNumber
+  params:
+    ScriptVal: ScriptVal array to trim, e.g. a polyline's point list.
+    From: >-
+      1-based index of the first element to keep. Animate together with To to reveal a shape over
+      time.
+    To: 1-based index of the last element to keep.
+    Step: Interval between kept elements — 1 keeps every element, 2 keeps every other, and so on.
+    ShowInput: Reveals the wire for the ScriptVal connection in the Flow view.
+legacy_text: >-
+  Extract a range of elements from a ScriptVal array as a table This node is useful for creating
+  animated vector graphics that are revealed over time when your 2D point data is encoded into a
+  ScriptVal Lua table structure that represents a polyline shape.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 44
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

@@ -1,0 +1,33 @@
+tool: vScriptValFromPingHosts
+datatype: ScriptVal
+function: Create
+legacy_names: []
+curated:
+  tagline: >-
+    Create a Fusion ScriptVal object from a Fusion ping hosts subnet scan The ScriptVal formatted
+    Lua table output looks like this: \{ \{ Platform = "Windows",
+  overview: null
+  description:
+    - >-
+      Version = "18.0", Hosts = \{ "FusionServer", "Fusion", "Fusion", "Fusion" \}, HostName = "R1",
+      IP = "10.20.30.1", UserName = "R1$" \}, \}
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vScriptValCreate
+    - name: vScriptValFromApp
+    - name: vScriptValFromCSV
+    - name: vScriptValFromDate
+  params: {}
+legacy_text: >-
+  Create a Fusion ScriptVal object from a Fusion ping hosts subnet scan The ScriptVal formatted Lua
+  table output looks like this: \{ \{ Platform = "Windows", Version = "18.0", Hosts = \{
+  "FusionServer", "Fusion", "Fusion", "Fusion" \}, HostName = "R1", IP = "10.20.30.1", UserName =
+  "R1$" \}, \}
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 48
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

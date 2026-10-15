@@ -1,0 +1,28 @@
+tool: vScriptValFromPoint
+datatype: ScriptVal
+function: Point
+legacy_names: []
+curated:
+  tagline: >-
+    Creates a ScriptVal from a point The ScriptVal formatted Lua table output of an X/Y 2D Point
+    looks like this: \{ 0.5, 0.5 \}
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vScriptValToPoint
+  params:
+    Point: >-
+      Point to convert — Output is a ScriptVal array like `{ 0.5, 0.5 }` holding its X/Y
+      coordinates.
+legacy_text: >-
+  Creates a ScriptVal from a point The ScriptVal formatted Lua table output of an X/Y 2D Point looks
+  like this: \{ 0.5, 0.5 \}
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 24
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

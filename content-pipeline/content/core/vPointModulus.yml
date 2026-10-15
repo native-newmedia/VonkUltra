@@ -1,0 +1,37 @@
+tool: vPointModulus
+datatype: Point
+function: Operators
+legacy_names: []
+curated:
+  tagline: >-
+    Returns the remainder of the division of a Fusion Point object that rounds the quotient towards
+    zero The "Divisor X" and "Divisor Y" controls make it possible
+  overview: null
+  description:
+    - >-
+      to create a looping effect that wraps the Point locator on each axis of motion so it stays
+      within a range of 0 to (one less than the Divisor value).
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vPointAbsolute
+    - name: vPointAdd
+    - name: vPointClamp
+    - name: vPointDivide
+  params:
+    Point: Point to wrap.
+    DivisorX: Wrap range for the X axis — X output loops within 0 to (Divisor X − 1).
+    DivisorY: Wrap range for the Y axis — Y output loops within 0 to (Divisor Y − 1).
+    ShowInput: Reveals the wire for the Point connection in the Flow view.
+legacy_text: >-
+  Returns the remainder of the division of a Fusion Point object that rounds the quotient towards
+  zero The "Divisor X" and "Divisor Y" controls make it possible to create a looping effect that
+  wraps the Point locator on each axis of motion so it stays within a range of 0 to (one less than
+  the Divisor value).
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 57
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

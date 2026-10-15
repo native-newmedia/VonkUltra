@@ -1,0 +1,26 @@
+tool: vNumberTimeSpeed
+datatype: Number
+function: Temporal
+legacy_names: []
+curated:
+  tagline: Time based operation on numbers
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vNumberTimeStretch
+    - name: vNumberXSheet
+  params:
+    Input: The number value to resample against the adjusted time.
+    Speed: Time-remapping speed multiplier applied when reading Input.
+    Delay: Frame offset applied before the Speed multiplier.
+    ShowInput: Reveals the wire for the Input connection in the Flow view.
+legacy_text: Time based operation on numbers
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 5
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

@@ -1,0 +1,31 @@
+operation: TextFont
+tools:
+  Array: vArrayTextFont
+  ScriptVal: vScriptValTextFont
+  JSON: vJSONTextFont
+legacy_names: []
+curated:
+  tagline: Create a text font.
+  overview: Samples the outlines of a styled text into a font array.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    StyledText: Text to convert.
+    Size: Text size.
+    CharacterSpacing: Extra spacing between characters.
+    Hori_adjustment: Horizontal offset.
+    Ver_adjustment: Vertical offset.
+    Translate.X: Moves the result along X.
+    Translate.Y: Moves the result along Y.
+    Translate.Z: Moves the result along Z.
+    Rotate.X: Rotation around X in degrees.
+    Rotate.Y: Rotation around Y in degrees.
+    Rotate.Z: Rotation around Z in degrees.
+    Scale.Y: Scale along Y. Shown when Lock X/Y is off.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

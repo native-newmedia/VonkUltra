@@ -1,0 +1,24 @@
+operation: SnapFaceCentroid
+tools:
+  Array: vArraySnapFaceCentroid
+  ScriptVal: vScriptValSnapFaceCentroid
+  JSON: vJSONSnapFaceCentroid
+legacy_names: []
+curated:
+  tagline: Snap points to the nearest patch centroid.
+  overview: Moves every point to the centroid of the nearest local patch of the mesh.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    inblend: Mix between the original points (0) and the result (1).
+    inmaxdistance: Distance from the mesh at which the effect ends.
+    inaffectx: Applies the effect to X.
+    inaffecty: Applies the effect to Y.
+    inaffectz: Applies the effect to Z.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

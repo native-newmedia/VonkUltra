@@ -1,0 +1,81 @@
+operation: Random
+tools:
+  Array: vArrayRandom
+  ScriptVal: vScriptValRandom
+  JSON: vJSONRandom
+legacy_names:
+  - vArrayCreateRandom
+curated:
+  tagline: >-
+    Generate a seeded array of random values — the noise source for data-driven variation, scatter,
+    and stochastic animation.
+  overview: >-
+    vArrayCreateRandom produces a vArray of pseudo-random numbers from a seed and length. Use it to
+    drive displacement magnitudes, colour offsets, scale variation, or any parameter that needs
+    reproducible randomness.
+  description:
+    - >-
+      vArrayCreateRandom generates a flat array of pseudo-random values using a seed-based
+      algorithm. Because the output is deterministic for any given seed, you get the same random
+      layout every time — critical for production workflows where renders must be reproducible
+      across machines and sessions.
+    - >-
+      Array length sets how many values to generate (minimum 2). Seed controls which random sequence
+      is produced — increment it to explore different variations while keeping all other parameters
+      fixed. Pack To determines whether values are packed as a flat 1D stream or grouped as XYZ
+      triplets for 3D displacement use.
+    - >-
+      Connect the output to vArrayMath to scale the range, then to vArrayDisplaceValues to add
+      per-point noise to a structured grid or sphere. Alternatively drive it directly into
+      vArrayShapeRender's scale or colour input for stochastic size and hue variation across a point
+      cloud. Animating the Seed parameter over time produces a flickering randomness effect.
+  features:
+    - title: Deterministic Seed
+      desc: >-
+        Same seed always produces the same output — essential for reproducible renders across
+        sessions and render farm nodes.
+    - title: Animatable Seed
+      desc: >-
+        Keyframe or expression-drive the Seed parameter to produce flickering randomness or evolving
+        variation over time.
+    - title: Flexible Packing
+      desc: >-
+        Pack To mode outputs values as a flat 1D stream or as XYZ triplets ready to feed directly
+        into displacement nodes.
+    - title: Range-Agnostic
+      desc: >-
+        Pair with vArrayMapRange or vArrayMath to rescale the 0–1 output to any target range needed
+        downstream.
+  connections:
+    - label: Random displacement on a grid
+      lines:
+        - vArrayPointsOnGrid.Output -> vArrayDisplaceValues.ArrayA
+        - vArrayCreateRandom.Output -> vArrayDisplaceValues.ArrayB
+        - vArrayDisplaceValues.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+    - label: Scale random values to range
+      lines:
+        - vArrayCreateRandom.Output -> vArrayMath.ArrayA
+        - vArrayMath.Output -> vArrayShapeRender.ArrayPoint
+  difficulty: Beginner
+  related:
+    - name: vArrayDisplaceValues
+      desc: Use random arrays to drive per-point positional displacement.
+    - name: vArrayMapRange
+      desc: Remap the 0–1 random output to any target value range.
+    - name: vArrayMath
+      desc: Scale or offset random values before passing them downstream.
+  params:
+    arrayLength: >-
+      Number of random values to generate. Must match the length of the array you intend to drive —
+      typically equal to the point count of your generator.
+    Seed: >-
+      Seed for the random number generator. Different seeds produce different sequences. Animating
+      this value creates evolving randomness.
+    InputNumber: >-
+      Output packing mode: 0 = flat 1D array of scalar values, 1 = packed as XY pairs, 2 = packed as
+      XYZ triplets for 3D use.
+status:
+  source: rich-json
+  state: imported
+  reviewed_hash: null

@@ -1,0 +1,29 @@
+tool: vTextFromASCII
+datatype: Text
+function: Create
+legacy_names: []
+curated:
+  tagline: Converts an ASCII code number to text The "Number" control is used to enter an ASCII code value.
+  overview: null
+  description:
+    - The result is a single character placed inside a text data type based output.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextCreate
+    - name: vTextCreateArch
+    - name: vTextCreateBrowse
+    - name: vTextCreateMultiline
+  params:
+    Number: ASCII code value to convert into its corresponding character.
+    ShowInput: Reveals the wire for the Number connection in the Flow view.
+legacy_text: >-
+  Converts an ASCII code number to text The "Number" control is used to enter an ASCII code value.
+  The result is a single character placed inside a text data type based output.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 32
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

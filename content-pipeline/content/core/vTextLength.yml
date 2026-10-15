@@ -1,0 +1,35 @@
+tool: vTextLength
+datatype: Text
+function: Utility
+legacy_names: []
+curated:
+  tagline: >-
+    Returns the length of a string The vTextLength node counts the number of characters present in a
+    string.
+  overview: null
+  description:
+    - >-
+      It returns the text length value as an integer based Number data type. If the text "Hello" was
+      input to the vTextLength node, the output would be a string length measurement of the number
+      5.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextDelay
+    - name: vTextDump
+    - name: vTextExpandEscapedCharacters
+    - name: vTextFromCSVViewer
+  params:
+    Text: The string to measure.
+legacy_text: >-
+  Returns the length of a string The vTextLength node counts the number of characters present in a
+  string. It returns the text length value as an integer based Number data type. If the text "Hello"
+  was input to the vTextLength node, the output would be a string length measurement of the number
+  5.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 53
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

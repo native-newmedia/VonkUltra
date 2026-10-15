@@ -1,0 +1,38 @@
+tool: vTextToHex
+datatype: Text
+function: Create
+legacy_names: []
+curated:
+  tagline: >-
+    Converts a string into Base16 Hex encoded text The "Separator" text field allows you to enter a
+    value like a space, a tab, a dash, a semicolon, or other
+  overview: null
+  description:
+    - >-
+      character you want to use between the Base16 encoded output number groups. The "Remove
+      Non-Printable Characters" control will automatically remove any ASCII characters that are
+      control characters.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextCreate
+    - name: vTextCreateArch
+    - name: vTextCreateBrowse
+    - name: vTextCreateMultiline
+  params:
+    Input: The text to encode as Base16 (hex).
+    Separator: Character(s) placed between each hex byte group in the output (e.g. a space or dash).
+    RemoveNonPrintableCharacters: Strips ASCII control characters from Input before encoding.
+    ShowInput: Reveals the wire for the Input connection in the Flow view.
+legacy_text: >-
+  Converts a string into Base16 Hex encoded text The "Separator" text field allows you to enter a
+  value like a space, a tab, a dash, a semicolon, or other character you want to use between the
+  Base16 encoded output number groups. The "Remove Non-Printable Characters" control will
+  automatically remove any ASCII characters that are control characters.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 56
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

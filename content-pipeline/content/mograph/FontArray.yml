@@ -1,0 +1,22 @@
+operation: FontArray
+tools:
+  Array: vArrayFontArray
+  ScriptVal: vScriptValFontArray
+  JSON: vJSONFontArray
+legacy_names: []
+curated:
+  tagline: Build a table of fonts with style, size and probability.
+  overview: >-
+    Collects up to 6 fonts. Each enabled font is written to a ScriptVal table with its style, size
+    and probability, which downstream tools use to pick fonts.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params: {}
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null
+legacy_text: Return multiple font measurements as a Fusion ScriptVal object

@@ -1,0 +1,38 @@
+tool: vNumberRange
+datatype: Number
+function: Create
+legacy_names: []
+curated:
+  tagline: >-
+    Creates a Fusion Number object The range node creates a list of numbers that vary between the
+    "From" and "To" values.
+  overview: null
+  description:
+    - >-
+      The "Step" control increases the incremental rate of change in the output. If the "From" value
+      was set to 0, and the "To" value was set to 5 the output from the node would be formatted
+      like: \[0,1,2,3,4,5\]
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vNumberCreate
+    - name: vNumberCreateArch
+    - name: vNumberCreateBool
+    - name: vNumberCreateMultiButton
+  params:
+    From: Start of the number sequence.
+    To: End of the number sequence.
+    Step: Increment between each value in the sequence.
+    ShowInput: Reveals the wires for the From/To/Step connections in the Flow view.
+legacy_text: >-
+  Creates a Fusion Number object The range node creates a list of numbers that vary between the
+  "From" and "To" values. The "Step" control increases the incremental rate of change in the output.
+  If the "From" value was set to 0, and the "To" value was set to 5 the output from the node would
+  be formatted like: \[0,1,2,3,4,5\]
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 59
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

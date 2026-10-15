@@ -1,0 +1,25 @@
+tool: vPointTimeSpeed
+datatype: Point
+function: Temporal
+legacy_names: []
+curated:
+  tagline: Time based operations on a Fusion Point object
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vPointTimeStretch
+  params:
+    Point: Point to re-time.
+    Speed: Playback rate multiplier applied when reading the value across frames — 1.0 is normal speed.
+    Delay: Time offset in frames applied before the speed change.
+    ShowInput: Reveals the wire for the Point connection in the Flow view.
+legacy_text: Time based operations on a Fusion Point object
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 8
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

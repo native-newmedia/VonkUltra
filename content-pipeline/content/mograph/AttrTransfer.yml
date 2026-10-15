@@ -1,0 +1,30 @@
+operation: AttrTransfer
+tools:
+  Array: vArrayAttrTransfer
+  ScriptVal: vScriptValAttrTransfer
+  JSON: vJSONAttrTransfer
+legacy_names: []
+curated:
+  tagline: Transfer scalar values from a source to a target.
+  overview: >-
+    Copies scalar values from source points to target points by nearest point or by radius
+    weighting, and can bake them into the output positions.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    TransferMode: 'Nearest source point or radius weighted average. Options: Nearest, Radius Weighted.'
+    Radius: Search radius for Radius Weighted.
+    FalloffPower: Exponent of the falloff curve.
+    DefaultValue: Value used when no source point is found.
+    OutputMode: >-
+      How the transferred value is stored or applied. Options: Store Attribute in 4th Value, Offset
+      X, Offset Y, Offset Z, Offset XYZ, Replace XYZ, Replace X Only, Replace Y Only, Replace Z
+      Only.
+    ApplyAmount: Amount of the result applied to the points.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

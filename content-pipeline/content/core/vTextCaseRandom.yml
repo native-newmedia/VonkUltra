@@ -1,0 +1,30 @@
+tool: vTextCaseRandom
+datatype: Text
+function: Case
+legacy_names: []
+curated:
+  tagline: >-
+    Changes the case of a Fusion Text object in a random fashion A Text based input of "hello
+    world!" would be converted to an output like "hellO WoRlD!".
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextCaseAlternate
+    - name: vTextCaseInvert
+    - name: vTextCaseLower
+    - name: vTextCaseSentence
+  params:
+    Text: Text to convert — each letter's case is randomized.
+    ShowInput: Reveals the wire for the Text connection in the Flow view.
+legacy_text: >-
+  Changes the case of a Fusion Text object in a random fashion A Text based input of "hello world!"
+  would be converted to an output like "hellO WoRlD!".
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 28
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

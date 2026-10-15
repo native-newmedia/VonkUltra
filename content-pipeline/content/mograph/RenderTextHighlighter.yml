@@ -1,0 +1,47 @@
+operation: RenderTextHighlighter
+tools:
+  Array: vArrayRenderTextHighlighter
+  ScriptVal: vScriptValRenderTextHighlighter
+  JSON: vJSONRenderTextHighlighter
+legacy_names: []
+curated:
+  tagline: Draw text with highlight boxes.
+  overview: Draws styled text and places highlight boxes behind a range of its words.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    fontselect: Use Font, or Use Front Array (fonts from the font array input).
+    Font: Font family.
+    Style: Font style.
+    StyledText: Text to highlight.
+    OffsetLow: First entry of the range.
+    OffsetHigh: Last character of the highlight range.
+    Start: First entry of the range.
+    Stop: Last word of the range.
+    OffsetRange: Added to Start and Stop.
+    Case: NONE, UPPER, or LOWER.
+    Size: Text size.
+    Characterspacing: Extra spacing between characters.
+    linespacing: Extra spacing between lines.
+    Padding: Space around the text.
+    roundCorners: Corner radius of the boxes.
+    Padding_TB: Vertical padding.
+    Padding_LR: Horizontal padding.
+    Padding_Y: Vertical offset of the box.
+    Red: Color for the text.
+    Green: Color for the text.
+    Blue: Color for the text.
+    Alpha: Color for the text.
+    Red_bg: Color for the text.
+    Green_bg: Color for the text.
+    Blue_bg: Color for the text.
+    Alpha_bg: Color for the text.
+    OnBlack: Draws on transparent black instead of the input image.
+    Position: Position of the result.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

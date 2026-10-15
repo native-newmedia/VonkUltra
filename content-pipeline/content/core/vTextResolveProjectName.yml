@@ -1,0 +1,25 @@
+tool: vTextResolveProjectName
+datatype: Text
+function: Resolve
+legacy_names: []
+curated:
+  tagline: >-
+    Returns the current Resolve project name This node outputs a Text based string that holds the
+    name of the current Resolve editing project as listed in the Resolve "Project Manager" window.
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextResolvePID
+  params: {}
+legacy_text: >-
+  Returns the current Resolve project name This node outputs a Text based string that holds the name
+  of the current Resolve editing project as listed in the Resolve "Project Manager" window.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 31
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

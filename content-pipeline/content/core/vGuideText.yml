@@ -1,0 +1,30 @@
+tool: vGuideText
+datatype: Guide
+function: Create
+legacy_names: []
+curated:
+  tagline: Create a vGuide object from Lua table formatted text
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vGuideCreate
+    - name: vGuideShape
+  params:
+    Text: >-
+      Lua table source defining the guide's elements, using the same
+      `Rectangle`/`VLine`/`HLine`/`Grid` syntax vGuideShape generates. Write or paste guide
+      definitions directly.
+    DisplayLines: >-
+      Number of visible lines in the text editor. A UI sizing control only — has no effect on the
+      guide data itself.
+    WrapLines: Wraps long lines in the text editor instead of scrolling horizontally.
+legacy_text: Create a vGuide object from Lua table formatted text
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 9
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

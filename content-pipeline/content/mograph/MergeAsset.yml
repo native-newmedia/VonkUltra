@@ -1,0 +1,24 @@
+operation: MergeAsset
+tools:
+  Array: vArrayMergeAsset
+  ScriptVal: vScriptValMergeAsset
+  JSON: vJSONMergeAsset
+legacy_names: []
+curated:
+  tagline: Join asset tables from several inputs into one list.
+  overview: >-
+    Collects the assets of all connected inputs into one output list. The Info list shows vertex and
+    face counts per asset.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    DisplayLines: Number of rows shown in the Info list.
+    Info: Read-only geometry statistics of the connected assets.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null
+legacy_text: Dynamically join ScriptVal Asset elements into one table

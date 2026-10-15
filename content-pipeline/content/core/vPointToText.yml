@@ -1,0 +1,23 @@
+tool: vPointToText
+datatype: Point
+function: Text
+legacy_names: []
+curated:
+  tagline: Return a pair of Text objects from a Fusion Point object
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vPointFromText
+  params:
+    Point: Point to split — outputs its X and Y values as separate Text connections.
+    ShowInput: Reveals the wire for the Point connection in the Flow view.
+legacy_text: Return a pair of Text objects from a Fusion Point object
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 11
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

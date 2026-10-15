@@ -1,0 +1,35 @@
+tool: vTextCreateArch
+datatype: Text
+function: Create
+legacy_names: []
+curated:
+  tagline: >-
+    Creates a unique Fusion Text object per CPU architecture This node provides a series of text
+    fields that allow you to enter three different string values.
+  overview: null
+  description:
+    - >-
+      The correct string that matches the current CPU architecture will be returned when the comp is
+      rendered.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextCreate
+    - name: vTextCreateBrowse
+    - name: vTextCreateMultiline
+    - name: vTextCreateMultilineCode
+  params:
+    x86: String returned when rendering on a 32-bit Intel/AMD CPU.
+    x64: String returned when rendering on a 64-bit Intel/AMD CPU.
+    ARM64: String returned when rendering on an ARM 64-bit CPU (e.g. Apple Silicon).
+legacy_text: >-
+  Creates a unique Fusion Text object per CPU architecture This node provides a series of text
+  fields that allow you to enter three different string values. The correct string that matches the
+  current CPU architecture will be returned when the comp is rendered.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 43
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

@@ -1,0 +1,31 @@
+tool: vTextCreateBrowse
+datatype: Text
+function: Create
+legacy_names: []
+curated:
+  tagline: >-
+    Creates a Fusion Text object with a file browser dialog This node is used to create filepath
+    based Text data type content.
+  overview: null
+  description:
+    - The Browse button displays a file picker dialog.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextCreate
+    - name: vTextCreateArch
+    - name: vTextCreateMultiline
+    - name: vTextCreateMultilineCode
+  params:
+    Text: The filepath text — click Browse to fill it in via a file picker dialog.
+    ExpandPathMaps: Converts a relative PathMap-based filepath into an absolute path on the output.
+legacy_text: >-
+  Creates a Fusion Text object with a file browser dialog This node is used to create filepath based
+  Text data type content. The Browse button displays a file picker dialog.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 30
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

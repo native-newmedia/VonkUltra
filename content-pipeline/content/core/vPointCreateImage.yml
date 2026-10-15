@@ -1,0 +1,42 @@
+tool: vPointCreateImage
+datatype: Point
+function: Create
+legacy_names: []
+curated:
+  tagline: >-
+    Create a Fusion Point object with an image visible in the background The "Add Metadata" checkbox
+    creates image output metadata entries for the point
+  overview: null
+  description:
+    - >-
+      coordinates formatted as: XOffset = 0.5 YOffset = 0.5 If you enable the viewer window's
+      "Metadata" sub-viewer entry you can quickly see the information that is appended to the image
+      output stream.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vPointCreate
+    - name: vPointCreateRandom
+    - name: vPointFromMousePos
+  params:
+    Image: >-
+      Background image shown behind the point picker in the viewer, for visual reference while
+      placing it.
+    Point: On-screen position picker — drag directly in the viewer or type X/Y values in the Inspector.
+    FlipHoriz: Mirrors the X value around the center of the frame (X → 1 − X).
+    FlipVert: Mirrors the Y value around the center of the frame (Y → 1 − Y).
+    AddMetadata: >-
+      Writes the point's coordinates into the output image's metadata as `XOffset`/`YOffset` —
+      viewable via the viewer's Metadata sub-panel.
+legacy_text: >-
+  Create a Fusion Point object with an image visible in the background The "Add Metadata" checkbox
+  creates image output metadata entries for the point coordinates formatted as: XOffset = 0.5
+  YOffset = 0.5 If you enable the viewer window's "Metadata" sub-viewer entry you can quickly see
+  the information that is appended to the image output stream.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 56
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

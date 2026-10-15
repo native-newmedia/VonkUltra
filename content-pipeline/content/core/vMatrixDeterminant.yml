@@ -1,0 +1,26 @@
+tool: vMatrixDeterminant
+datatype: Matrix
+function: Operators
+legacy_names: []
+curated:
+  tagline: Calculates the determinant of a matrix
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vMatrixDivide
+    - name: vMatrixDivideNumber
+    - name: vMatrixInvert
+    - name: vMatrixMultiply
+  params:
+    Matrix: Matrix to compute — Output is its scalar determinant.
+    ShowInput: Reveals the wire for the Matrix connection in the Flow view.
+legacy_text: Calculates the determinant of a matrix
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 6
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

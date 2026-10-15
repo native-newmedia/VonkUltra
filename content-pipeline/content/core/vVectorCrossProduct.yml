@@ -1,0 +1,34 @@
+tool: vVectorCrossProduct
+datatype: Vector
+function: Operators
+legacy_names: []
+curated:
+  tagline: Computes the cross product of two vectors.
+  overview: null
+  description:
+    - >-
+      (The source fuse's own description string says "Adds two vectors" — a copy-paste leftover from
+      vVectorAdd; the node's actual output, confirmed from its `Process` function, is the cross
+      product.)
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vVectorAdd
+    - name: vVectorDivideNumber
+    - name: vVectorDotProduct
+    - name: vVectorMultiplyNumber
+  params:
+    Vector1: First vector operand (encoded as text).
+    Vector2: Second vector operand — Output is the cross product Vector1 × Vector2.
+    ShowInput: Reveals the wires for the Vector1/Vector2 connections in the Flow view.
+legacy_text: >-
+  Computes the cross product of two vectors. (The source fuse's own description string says "Adds
+  two vectors" — a copy-paste leftover from vVectorAdd; the node's actual output, confirmed from its
+  `Process` function, is the cross product.)
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 36
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

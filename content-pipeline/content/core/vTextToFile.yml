@@ -1,0 +1,36 @@
+tool: vTextToFile
+datatype: Text
+function: IO
+legacy_names: []
+curated:
+  tagline: >-
+    Writes a Text string to a file The "Input" text-field holds the textual content that is saved to
+    disk.
+  overview: null
+  description:
+    - >-
+      The "File" text-field specifies the filename for the document. Both of these controls can be
+      driven externally by enabling the "Show Input" checkbox. You would then connect vTextCreate or
+      vTextSubFormat like text based data nodes to the input connections on the vTextToFile node.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextFromClipboard
+    - name: vTextFromComp
+    - name: vTextFromFile
+    - name: vTextFromNet
+  params:
+    Input: The text content to save to disk.
+    File: Destination filename for the saved text file.
+legacy_text: >-
+  Writes a Text string to a file The "Input" text-field holds the textual content that is saved to
+  disk. The "File" text-field specifies the filename for the document. Both of these controls can be
+  driven externally by enabling the "Show Input" checkbox. You would then connect vTextCreate or
+  vTextSubFormat like text based data nodes to the input connections on the vTextToFile node.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 62
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

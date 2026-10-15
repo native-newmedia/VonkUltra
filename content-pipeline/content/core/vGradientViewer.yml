@@ -1,0 +1,30 @@
+tool: vGradientViewer
+datatype: Gradient
+function: Utility
+legacy_names: []
+curated:
+  tagline: View a Gradient object in the Inspector
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vGradientColorCount
+    - name: vGradientMerge
+    - name: vGradientNormalizePosition
+    - name: vGradientSlice
+  params:
+    Gradient: Gradient to inspect.
+    ShowDump: >-
+      Prints the gradient's colour stops to the console each frame, in addition to the tree view
+      below.
+    DisplayLines: Number of visible lines in the tree view before scrolling.
+    ScriptVal: Read-only tree view of the gradient's colour stops.
+legacy_text: View a Gradient object in the Inspector
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 7
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

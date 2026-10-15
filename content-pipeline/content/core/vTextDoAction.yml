@@ -1,0 +1,42 @@
+tool: vTextDoAction
+datatype: Text
+function: Script
+legacy_names: []
+curated:
+  tagline: >-
+    Executes Fusion actions The "Action Name" text field is where the action you want to run is
+    entered.
+  overview: null
+  description:
+    - >-
+      The "Action Params" text field contents are placed inside a Lua table like element \{\}. This
+      information is used to specify any extra attributes you would like to pass along to the action
+      when it is run. The "Wrap Lines" checkbox makes it possible to enable/disable line wrapping in
+      the text preview area. DoAction is launched via the "self.Comp:Execute()" function so it is
+      run asynchronously.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextDoString
+    - name: vTextExecute
+    - name: vTextProcessOpen
+    - name: vTextRunScript
+  params:
+    Text: Output preview — shows the text result once the action runs.
+    ActionName: Name of the Fusion action to run.
+    ActionParams: Extra attributes to pass to the action, written as the contents of a Lua table `{}`.
+    WrapLines: Wraps long lines in the text preview instead of scrolling horizontally.
+legacy_text: >-
+  Executes Fusion actions The "Action Name" text field is where the action you want to run is
+  entered. The "Action Params" text field contents are placed inside a Lua table like element \{\}.
+  This information is used to specify any extra attributes you would like to pass along to the
+  action when it is run. The "Wrap Lines" checkbox makes it possible to enable/disable line wrapping
+  in the text preview area. DoAction is launched via the "self.Comp:Execute()" function so it is run
+  asynchronously.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 83
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

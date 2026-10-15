@@ -1,0 +1,35 @@
+tool: vBase64DecodeImageFromText
+datatype: Base64
+function: Decode
+legacy_names: []
+curated:
+  tagline: Base64 decodes an image from a Fusion Text object.
+  overview: null
+  description:
+    - >-
+      This node extracts a Base64 encoded image resource. A Base64 formatted image is extracted from
+      a block of text, and converted into an image data type that can be displayed in the Fusion
+      viewer window context. The "Text" field is used to specify a block of text that holds Base64
+      encoded image data. The "Show Input" checkbox allows you to source the Text information from
+      an external Text based data node connection.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vBase64DecodeFromText
+    - name: vBase64DecodeImageFromFile
+  params:
+    Text: Base64-encoded image data to decode into a displayable Image.
+    ShowInput: Reveals the Text control so it can be sourced from an external Text node connection.
+legacy_text: >-
+  Base64 decodes an image from a Fusion Text object. This node extracts a Base64 encoded image
+  resource. A Base64 formatted image is extracted from a block of text, and converted into an image
+  data type that can be displayed in the Fusion viewer window context. The "Text" field is used to
+  specify a block of text that holds Base64 encoded image data. The "Show Input" checkbox allows you
+  to source the Text information from an external Text based data node connection.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 81
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

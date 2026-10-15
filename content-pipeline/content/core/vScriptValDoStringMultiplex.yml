@@ -1,0 +1,50 @@
+tool: vScriptValDoStringMultiplex
+datatype: ScriptVal
+function: Script
+legacy_names: []
+curated:
+  tagline: Return a ScriptVal object from running a string of Lua code.
+  overview: null
+  description:
+    - >-
+      Supports multi-input connections for ScriptVals, along with a header code block input for
+      pre-made user defined functions
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vScriptValDoFile
+    - name: vScriptValDoString
+  params:
+    Which: >-
+      Internal control tracking how many ScriptVal inputs are currently connected. Not meant to be
+      set manually.
+    Header: >-
+      Optional wired-in Lua source prepended to the script before it runs, for pre-made user-defined
+      functions shared across nodes.
+    InSource: Selects and activates the node connected to Script Header Wire — a quick way to jump to it.
+    Text: Lua code to execute. Its `return` value becomes the node's ScriptVal output.
+    DisplayLines: Number of visible lines in the Text editor before scrolling.
+    WrapLines: Wraps long lines in the Text editor instead of scrolling horizontally.
+    ShowInput: Reveals the wire for the Text connection in the Flow view.
+    ShowCode: >-
+      Prints the assembled script (including the Script Header Wire) to the console — leave off
+      during long renders to avoid logging overhead.
+    ShowDump: >-
+      Prints the script's output ScriptVal to the console — leave off during long renders to avoid
+      logging overhead.
+    ScriptVal1: >-
+      The first of the multiple ScriptVal inputs, each accessible in the script by its own variable
+      name. Connecting it reveals ScriptVal2 for the next one, and so on.
+legacy_text: >-
+  Return a ScriptVal object from running a string of Lua code. Supports multi-input connections for
+  ScriptVals, along with a header code block input for pre-made user defined functions
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 28
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null
+  page_only_params:
+    - '"ScriptVal" .. i'
+    - '"ScriptVal" .. (inp_nr + 1)'

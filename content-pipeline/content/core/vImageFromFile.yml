@@ -1,0 +1,40 @@
+tool: vImageFromFile
+datatype: Image
+function: IO
+legacy_names: []
+curated:
+  tagline: >-
+    Reads an Image object from a file The "Input" control is used to define the image filename to
+    load.
+  overview: null
+  description:
+    - >-
+      It can be driven externally by a Text data type connection to the node. The "Time Mode"
+      control allows you to adjust how the frame number for image sequences is processed.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vImageEXRFromFile
+    - name: vImageEXRToFile
+    - name: vImageFromClipboard
+    - name: vImageFromColor
+  params:
+    Input: >-
+      Path to the image (or image sequence) to load. Can be driven externally by a Text data type
+      connection.
+    TimeMode: >-
+      How the sequence frame number is resolved: Static Frame (always use Time below), Current Frame
+      (follow the comp's playhead), Request Time (follow the incoming render request), or Time (an
+      explicit, wireable frame number).
+    Time: Frame number to load, used when Time Mode is Static Frame or Time.
+legacy_text: >-
+  Reads an Image object from a file The "Input" control is used to define the image filename to
+  load. It can be driven externally by a Text data type connection to the node. The "Time Mode"
+  control allows you to adjust how the frame number for image sequences is processed.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 50
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

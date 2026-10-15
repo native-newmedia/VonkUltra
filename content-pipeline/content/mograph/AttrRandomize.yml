@@ -1,0 +1,29 @@
+operation: AttrRandomize
+tools:
+  Array: vArrayAttrRandomize
+  ScriptVal: vScriptValAttrRandomize
+  JSON: vJSONAttrRandomize
+legacy_names: []
+curated:
+  tagline: Randomize scalar values or point coordinates.
+  overview: >-
+    Adds a deterministic random offset to scalar values or to point coordinates. The seed makes the
+    result repeatable.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Distribution: Uniform or Gaussian random values.
+    ApplyTo: 'Randomizes the XYZ coordinates or the scalar values. Options: XYZ Coordinates, Scalar Values.'
+    MinOffset: Lower end of the random offset.
+    MaxOffset: Upper end of the random offset.
+    Seed: Seed of the random generator.
+    MaskX: Randomizes X.
+    MaskY: Randomizes Y.
+    MaskZ: Randomizes Z.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

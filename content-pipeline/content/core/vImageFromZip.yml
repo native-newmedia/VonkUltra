@@ -1,0 +1,40 @@
+tool: vImageFromZip
+datatype: Image
+function: IO
+legacy_names: []
+curated:
+  tagline: >-
+    Reads an Image object from a zip archive This node accesses an image resource that is stored
+    inside a Zip archive using the Fusion v16+/Resolve v15+ based ZipIO library.
+  overview: null
+  description:
+    - >-
+      The "Zip File" field is used to define the filename of the zip archive. The "Extract Image"
+      field is used to define the image resource that is stored inside the zip archive. Both
+      attributes can be driven externally by a Text data type connection to the node.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vImageEXRFromFile
+    - name: vImageEXRToFile
+    - name: vImageFromClipboard
+    - name: vImageFromColor
+  params:
+    ZipFile: Path to the zip archive to read from. Can be driven externally by a Text data type connection.
+    ExtractImage: >-
+      Filename of the image resource inside the archive to extract. Can be driven externally by a
+      Text data type connection.
+    ShowInput: Reveals the wires for the Zip File/Extract Image connections in the Flow view.
+legacy_text: >-
+  Reads an Image object from a zip archive This node accesses an image resource that is stored
+  inside a Zip archive using the Fusion v16+/Resolve v15+ based ZipIO library. The "Zip File" field
+  is used to define the filename of the zip archive. The "Extract Image" field is used to define the
+  image resource that is stored inside the zip archive. Both attributes can be driven externally by
+  a Text data type connection to the node.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 76
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

@@ -1,0 +1,85 @@
+operation: Translate
+tools:
+  Array: vArrayTranslate
+  ScriptVal: vScriptValTranslate
+  JSON: vJSONTranslate
+legacy_names: []
+curated:
+  tagline: >-
+    Shift every point in a vArray by a constant XYZ offset — the simplest way to reposition a point
+    cloud in world space.
+  overview: >-
+    vArrayTranslate adds a fixed offset to the X, Y, and Z coordinates of every element in a vArray.
+    Place it after any generator to recentre, spread, or stack point arrays before rendering.
+  description:
+    - >-
+      vArrayTranslate is the positional offset node for vArray pipelines. After a generator like
+      vArrayPointsOnGrid or vArrayPointsOnCircle produces a point cloud, place vArrayTranslate
+      immediately downstream to shift the entire set to a new location without touching the
+      generator's own parameters.
+    - >-
+      X Offset, Y Offset, and Z Offset each accept keyframe-able values, making it straightforward
+      to animate the entire point array flying through frame. Lock X/Y constrains horizontal
+      movement to a uniform scale, and X Scale adjusts the horizontal spread independently of the
+      translation offsets.
+    - >-
+      A common use case is stacking several generator outputs — each feeding its own vArrayTranslate
+      with a different Z Offset — then combining them with vArrayMerge before passing the combined
+      array to vArrayShapeRender. This avoids needing duplicate generator logic and keeps the node
+      graph readable.
+  features:
+    - title: XYZ Offset Control
+      desc: >-
+        Independently keyframeable X, Y, and Z offset values shift the entire point cloud in world
+        space.
+    - title: Animatable Positioning
+      desc: >-
+        All offset parameters accept expressions and keyframes — animate points flying through a
+        scene with no scripting.
+    - title: Lock X/Y Mode
+      desc: >-
+        Lock X/Y constrains horizontal translation to uniform movement, preventing accidental
+        axis-specific drift.
+    - title: Stack-Ready
+      desc: >-
+        Feed multiple translated arrays into vArrayMerge to build composite point clouds from
+        independently positioned generators.
+  connections:
+    - label: Reposition a grid before rendering
+      lines:
+        - vArrayPointsOnGrid.Output -> vArrayTranslate.ArrayA
+        - vArrayTranslate.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+    - label: Stack two arrays at different depths
+      lines:
+        - vArrayPointsOnCircle.Output -> vArrayTranslate.ArrayA
+        - vArrayTranslate.Output -> vArrayMerge.Array1
+        - vArrayMerge.Output -> vArrayShapeRender.ArrayPoint
+  difficulty: Beginner
+  related:
+    - name: vArrayMerge
+      desc: Combine multiple translated arrays into a single point cloud for rendering.
+    - name: vArrayRotateValues
+      desc: >-
+        Rotate element order within the array — pair with vArrayTranslate for animated offset
+        sequences.
+    - name: vArrayDisplaceValues
+      desc: Apply noise-based positional variation on top of a translated point cloud.
+  params:
+    Translate_X: >-
+      Moves all array points along the X axis by this amount. Keyframe to animate horizontal
+      position.
+    Translate_Y: Moves all array points along the Y axis by this amount. Keyframe to animate vertical position.
+    Translate_Z: >-
+      Moves all array points along the Z axis. Useful for stacking multiple point arrays at
+      different depths.
+    LockXY: When enabled, X and Y offsets move together to maintain proportional horizontal positioning.
+    Scale.X: Scales the horizontal spread of the array independently of the translation offsets.
+    ArrayA: The input vArray whose XYZ positions will be offset.
+    ShowInput: Reveals the Array A connection port on the node in the Fusion node graph.
+    Scale.Y: Scale along Y. Shown when Lock X/Y is off. Shown when the related option is enabled.
+status:
+  source: rich-json
+  state: imported
+  reviewed_hash: null
+legacy_text: Transforms array positions

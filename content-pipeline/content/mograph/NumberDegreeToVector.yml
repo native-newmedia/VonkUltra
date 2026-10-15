@@ -1,0 +1,23 @@
+operation: NumberDegreeToVector
+tools:
+  Number: vNumberDegreeToVector
+legacy_names: []
+curated:
+  tagline: null
+  overview: null
+  description: []
+  features: []
+  connections:
+    - label: Example 1
+      lines:
+        - vNumberCompCurrentTime.Output -> vNumberDegreeToVector.Degree
+        - vNumberDegreeToVector.Output -> vJSONViewer.Text
+  difficulty: null
+  related: []
+  params: {}
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null
+  connections_source: docsify
+legacy_text: Calculates a vector (x and y) based on an angle in degrees

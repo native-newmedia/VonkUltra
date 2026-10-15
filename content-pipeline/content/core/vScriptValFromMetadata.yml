@@ -1,0 +1,27 @@
+tool: vScriptValFromMetadata
+datatype: ScriptVal
+function: Meta
+legacy_names: []
+curated:
+  tagline: Casts image metadata to a Fusion ScriptVal object This node takes an image as the input.
+  overview: null
+  description:
+    - The output is the image metadata encoded in a ScriptVal object format.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vScriptValToMetadata
+  params:
+    Input: Image whose metadata is converted to a ScriptVal object.
+    Key: Optional metadata field name to isolate — leave empty to return the full metadata record.
+    ShowInput: Reveals the wire for the Input connection in the Flow view.
+legacy_text: >-
+  Casts image metadata to a Fusion ScriptVal object This node takes an image as the input. The
+  output is the image metadata encoded in a ScriptVal object format.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 28
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

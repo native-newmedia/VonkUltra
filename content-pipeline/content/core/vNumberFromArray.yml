@@ -1,0 +1,26 @@
+tool: vNumberFromArray
+datatype: Number
+function: Array
+legacy_names: []
+curated:
+  tagline: >-
+    Creates a Number from an array The "Index" control allows you to select the array item (cell) to
+    return as a number based value.
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Input: The Array to read a cell from, as JSON text.
+    Index: Array item (cell) to return as a number.
+legacy_text: >-
+  Creates a Number from an array The "Index" control allows you to select the array item (cell) to
+  return as a number based value.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 24
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

@@ -1,0 +1,27 @@
+tool: vVectorSubtract
+datatype: Vector
+function: Operators
+legacy_names: []
+curated:
+  tagline: Subtracts two vectors
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vVectorAdd
+    - name: vVectorCrossProduct
+    - name: vVectorDivideNumber
+    - name: vVectorDotProduct
+  params:
+    Vector1: First vector operand (encoded as text).
+    Vector2: Second vector operand — subtracted element-wise from Vector1.
+    ShowInput: Reveals the wires for the Vector1/Vector2 connections in the Flow view.
+legacy_text: Subtracts two vectors
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 3
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

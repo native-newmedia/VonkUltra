@@ -1,0 +1,28 @@
+operation: ResamplePath
+tools:
+  Array: vArrayResamplePath
+  ScriptVal: vScriptValResamplePath
+  JSON: vJSONResamplePath
+legacy_names: []
+curated:
+  tagline: Resample a path to even spacing.
+  overview: Resamples an ordered path by point count or by distance.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Mode: 'Resample to a point count or to a spacing. Options: Target Count, Target Spacing.'
+    TargetCount: Number of output points. Shown when Mode is Target Count.
+    TargetSpacing: >-
+      Distance between output points. Shown when Mode is Target Spacing. Shown when the related
+      option is enabled.
+    ClosedPath: Treats the points as a closed loop.
+    Interpolation: 'Interpolation used between points. Options: Linear, Catmull-Rom, B-Spline, Cardinal.'
+    InterpSteps: Interpolation subdivisions per segment.
+    Tension: Tension of the spline. Shown when the related option is enabled.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

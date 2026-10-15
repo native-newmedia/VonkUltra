@@ -1,0 +1,25 @@
+tool: vPointTimeStretch
+datatype: Point
+function: Temporal
+legacy_names: []
+curated:
+  tagline: Time based operations on a Fusion Point object
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vPointTimeSpeed
+  params:
+    Point: Point to sample at a specific time.
+    Time: The frame number to read Point's value at, regardless of the comp's current playhead position.
+    SetSourceTime: Sets Time to the comp's current playhead position — a quick way to snapshot "now".
+    ShowInput: Reveals the wire for the Point connection in the Flow view.
+legacy_text: Time based operations on a Fusion Point object
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 8
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

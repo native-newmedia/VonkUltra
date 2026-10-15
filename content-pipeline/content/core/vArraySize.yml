@@ -1,0 +1,26 @@
+tool: vArraySize
+datatype: Array
+function: Utility
+legacy_names: []
+curated:
+  tagline: Gets the size of an array
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vArrayConcatenate
+    - name: vArrayCountElement
+    - name: vArrayCountSubElements
+    - name: vArrayJoin
+  params:
+    Input: JSON array text to measure. Output is its element count.
+    ShowInput: Reveals the wire for the Input connection in the Flow view.
+legacy_text: Gets the size of an array
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 6
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

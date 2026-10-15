@@ -1,0 +1,31 @@
+tool: vTextToHTMLViewer
+datatype: Text
+function: Utility
+legacy_names: []
+curated:
+  tagline: View HTML code in the Inspector
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextDelay
+    - name: vTextDump
+    - name: vTextExpandEscapedCharacters
+    - name: vTextFromCSVViewer
+  params:
+    Input: The HTML code to render in the Inspector viewer.
+    DisplayLines: Number of lines shown in the Input text box in the Inspector.
+    WrapLines: Wraps long lines in the Input text box instead of scrolling horizontally.
+    ShowEditField: Shows the editable Input text box alongside the rendered HTML preview.
+    ShowInput: Reveals the wire for the Input connection in the Flow view.
+legacy_text: View HTML code in the Inspector
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 6
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null
+  page_only_params:
+    - Separator

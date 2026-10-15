@@ -1,0 +1,30 @@
+tool: vNumberCreate
+datatype: Number
+function: Create
+legacy_names: []
+curated:
+  tagline: >-
+    Creates a Fusion Number object This node is the starting point for most number data type based
+    node graphs.
+  overview: null
+  description:
+    - The output is a floating point number that can go up to "1e+38".
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vNumberCreateArch
+    - name: vNumberCreateBool
+    - name: vNumberCreateMultiButton
+    - name: vNumberCreatePlatform
+  params:
+    Number: The number value to output.
+legacy_text: >-
+  Creates a Fusion Number object This node is the starting point for most number data type based
+  node graphs. The output is a floating point number that can go up to "1e+38".
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 32
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

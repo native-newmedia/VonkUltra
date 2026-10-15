@@ -1,0 +1,36 @@
+operation: PointsConnect
+tools:
+  Array: vArrayPointsConnect
+  ScriptVal: vScriptValPointsConnect
+  JSON: vJSONPointsConnect
+legacy_names: []
+curated:
+  tagline: Connect point arrays into a path.
+  overview: Joins several point arrays into one path, with options for the join points.
+  description: []
+  features: []
+  connections:
+    - label: Example 1
+      lines:
+        - vArrayLissajouseSpline1.Output->  vArrayUnPacker1.ArrayA
+        - vArrayLissajouseSpline2.Output->  vArrayUnPacker2.ArrayA
+        - vArrayUnPacker1.OutputArray -> vArrayPointsConnect.ArrayA
+        - vArrayUnPacker2.OutputArray -> vArrayPointsConnect.ArrayB
+        - vArrayPointsConnect.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+  difficulty: null
+  related: []
+  params:
+    MergeMode: 'How the two arrays are combined. Options: Alternate, Append.'
+    ReverseB: Reverses the order of the second array.
+    ConnectionAmount: Connection style.
+    HideUnconnected: Removes points that have no connection.
+    CloseLoop: Connects the last point to the first.
+    DropDuplicateSeam: Removes the repeated point at the seam. Shown when the related option is enabled.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null
+  connections_source: docsify
+legacy_text: Connect points in an array

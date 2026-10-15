@@ -1,0 +1,31 @@
+tool: vTextCompCurrentTime
+datatype: Text
+function: Comp
+legacy_names: []
+curated:
+  tagline: >-
+    Returns the comp's current time value The current time represents the point where the timeline
+    playhead is positioned regardless of any temporal effects that might be happening.
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextCompAppUUID
+    - name: vTextCompFilename
+    - name: vTextCompName
+    - name: vTextCompReqTime
+  params:
+    SequenceStartFrame: Shifts the returned current-time frame number forwards or backwards.
+    Padding: Minimum digit count — zero-pads the frame number string (e.g. 3 → "007").
+    ShowInput: Reveals the wire for the Sequence Offset connection in the Flow view.
+legacy_text: >-
+  Returns the comp's current time value The current time represents the point where the timeline
+  playhead is positioned regardless of any temporal effects that might be happening.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 27
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

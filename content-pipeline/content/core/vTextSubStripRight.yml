@@ -1,0 +1,36 @@
+tool: vTextSubStripRight
+datatype: Text
+function: Substring
+legacy_names: []
+curated:
+  tagline: >-
+    Strips a trailing substring of a string The "Strip" text field is used to define the text you
+    would like to remove from the (right side) of the input text data that is connected to the node.
+  overview: null
+  description:
+    - >-
+      This type of text editing would sometimes be called removing a trailing postfix element from a
+      string.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextMerge
+    - name: vTextSubFormat
+    - name: vTextSubFormatMultiline
+    - name: vTextSubJoin
+  params:
+    Text: The source text to strip a trailing substring from.
+    Strip: The postfix text to remove from the right side of Text.
+    ShowInput: Reveals the wire for the Text connection in the Flow view.
+legacy_text: >-
+  Strips a trailing substring of a string The "Strip" text field is used to define the text you
+  would like to remove from the (right side) of the input text data that is connected to the node.
+  This type of text editing would sometimes be called removing a trailing postfix element from a
+  string.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 54
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

@@ -1,0 +1,29 @@
+tool: vMatrixToScale
+datatype: Matrix
+function: Transform
+legacy_names: []
+curated:
+  tagline: Decomposes scale from a matrix.
+  overview: null
+  description:
+    - This returns XYZ scale values from a 4x4 vMatrix input.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vMatrixFromRotation
+    - name: vMatrixFromScale
+    - name: vMatrixFromTranslation
+    - name: vMatrixToEuler
+  params:
+    Input: 4×4 matrix to decompose.
+    Scale.X: Read-only output of the matrix's X scale component.
+    Scale.Y: Read-only output of the matrix's Y scale component.
+    Scale.Z: Read-only output of the matrix's Z scale component.
+legacy_text: Decomposes scale from a matrix. This returns XYZ scale values from a 4x4 vMatrix input.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 15
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

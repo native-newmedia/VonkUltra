@@ -1,0 +1,31 @@
+tool: vFileSystemFileOpen
+datatype: FileSystem
+function: General
+legacy_names: []
+curated:
+  tagline: >-
+    Opens a file This node will open the "Source File" using the operating system's default file
+    handler.
+  overview: null
+  description:
+    - The exact program launched is defined by the file extension.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vFileSystemChmod
+    - name: vFileSystemColorTags
+    - name: vFileSystemCreateDir
+    - name: vFileSystemDirExists
+  params:
+    Source: Path to the file to open with the OS's default handler for its file extension.
+    ShowInput: Reveals the wire for the Source File connection in the Flow view.
+legacy_text: >-
+  Opens a file This node will open the "Source File" using the operating system's default file
+  handler. The exact program launched is defined by the file extension.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 27
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

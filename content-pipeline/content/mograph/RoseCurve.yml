@@ -1,0 +1,24 @@
+operation: RoseCurve
+tools:
+  Array: vArrayRoseCurve
+  ScriptVal: vScriptValRoseCurve
+  JSON: vJSONRoseCurve
+legacy_names: []
+curated:
+  tagline: Generate points on a rose curve.
+  overview: Outputs points of a rose curve.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    petals: Number of petals.
+    amplitude: Size of the curve.
+    samplecount: Number of sampled points.
+    rotation: Rotation in degrees.
+    scale: Scale of the result.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

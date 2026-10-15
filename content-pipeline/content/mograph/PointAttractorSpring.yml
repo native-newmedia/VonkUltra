@@ -1,0 +1,29 @@
+operation: PointAttractorSpring
+tools:
+  Array: vArrayPointAttractorSpring
+  ScriptVal: vScriptValPointAttractorSpring
+  JSON: vJSONPointAttractorSpring
+legacy_names: []
+curated:
+  tagline: Attract or repel points with a persistent spring.
+  overview: Like PointAttractor, but the spring simulation keeps its velocity from frame to frame.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Strength: Positive values pull points toward the attractor, negative values push them away.
+    Radius: Radius of the effect.
+    FalloffPower: Exponent of the falloff curve.
+    Spring: Strength of the pull back to the start position.
+    Springbouncy: Amount of overshoot.
+    Damping: Reduces the movement speed over time.
+    Position: Position of the attractor in X and Y.
+    Attractor_z: Position of the attractor along Z.
+    multiplier: Multiplies the strength.
+    Use3D: Uses X, Y and Z of the points instead of X and Y.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

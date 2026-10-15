@@ -1,0 +1,25 @@
+tool: vVectorFromArray
+datatype: Vector
+function: Array
+legacy_names: []
+curated:
+  tagline: Creates a vector from an array
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Array: JSON-encoded flat array of numbers to reshape into a vector.
+    Columns: >-
+      Number of elements in the resulting vector — the flat array is packed into a single row of
+      this many columns. Default 3 matches an XYZ vector.
+    ShowInput: Reveals the wire for the Array connection in the Flow view.
+legacy_text: Creates a vector from an array
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 6
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

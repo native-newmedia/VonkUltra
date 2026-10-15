@@ -1,0 +1,29 @@
+tool: vGuideCreate
+datatype: Guide
+function: Create
+legacy_names: []
+curated:
+  tagline: Create a vGuide object
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vGuideShape
+    - name: vGuideText
+  params:
+    Name: Name assigned to the combined guide, stored in the output ScriptVal's `Name` field.
+    Which: >-
+      Internal control tracking how many ScriptVal inputs are currently connected. Not meant to be
+      set manually.
+    ShowDump: >-
+      Prints the assembled guide table to the console each frame — useful for checking the merged
+      output while building a guide chain.
+legacy_text: Create a vGuide object
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 4
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

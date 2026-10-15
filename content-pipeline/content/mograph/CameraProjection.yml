@@ -1,0 +1,120 @@
+operation: CameraProjection
+tools:
+  Array: vArrayCameraProjection
+  ScriptVal: vScriptValCameraProjection
+  JSON: vJSONCameraProjection
+legacy_names: []
+curated:
+  tagline: >-
+    Project 3D world-space point arrays to 2D screen coordinates — the mandatory bridge between
+    every vArray generator and vArrayShapeRender.
+  overview: >-
+    vArrayCameraProjection takes a 3D vArray point table and projects it to screen-space XY
+    coordinates using a configurable virtual camera with position, rotation, scale, and
+    field-of-view controls. It is the required intermediate node between any point generator and
+    vArrayShapeRender — no render pipeline is complete without it.
+  description:
+    - >-
+      vArrayCameraProjection is the perspective engine of the vArray pipeline. Every point generator
+      — vArrayPointsOnCircle, vArrayPointsOnArc, vArrayPointsOnGrid, vArrayCreateMinMax,
+      vArrayFromOBJ — outputs a 3D coordinate table in world space. vArrayShapeRender needs 2D
+      screen-space XY pairs. CameraProjection is the node that does the conversion, applying a full
+      virtual camera transform between the two. Without it, nothing renders correctly.
+    - >-
+      The camera is defined by three transform groups: Translate (X/Y/Z position), Rotate (X/Y/Z
+      rotation in degrees), and Scale (X, with Lock X/Y maintaining aspect ratio). The Z Translate
+      value is the most critical — it controls camera distance from the point cloud and has the
+      largest effect on the apparent size and spread of the projected output. The Field of View
+      control (default 90°) adjusts perspective distortion: lower values produce a flatter, more
+      orthographic look; higher values produce exaggerated foreshortening on 3D arrays.
+    - >-
+      Because CameraProjection is parameterised with standard Fusion controls, all transform values
+      are fully animatable. Keyframe the Z Translate to push in on a point cloud, or animate Y
+      Rotation to orbit around a 3D point array — the screen-space coordinates update every frame
+      and flow directly into ShapeRender. The Lock X/Y checkbox constrains X and Y scale together
+      when scaling; the X Scale parameter acts as a uniform scale when locked. For flat 2D layouts
+      (circle, arc, grid) with no 3D depth, leave the default transform values and just adjust Z
+      Translate to fit the output to frame.
+  features:
+    - title: Full camera transform
+      desc: >-
+        Position, rotate, and scale the virtual camera across all three axes — all parameters are
+        keyframeable for animated fly-throughs and orbits.
+    - title: Field of view control
+      desc: >-
+        Adjustable FOV from orthographic-style flat projection to wide-angle perspective, giving
+        control over the 3D feel of rendered point arrays.
+    - title: Universal pipeline bridge
+      desc: >-
+        Accepts output from any vArray generator and produces the screen-space XY array that
+        vArrayShapeRender requires — one node handles all source types.
+    - title: Lock X/Y aspect ratio
+      desc: >-
+        Checkbox constrains horizontal and vertical scale together, preventing accidental distortion
+        when scaling projected output to frame.
+  connections:
+    - label: Standard 3-node pipeline
+      lines:
+        - vArrayPointsOnCircle.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: With upstream displacement
+      lines:
+        - vArrayPointsOnGrid.Output -> vArrayDisplaceValues.ArrayA
+        - vArrayDisplaceValues.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: OBJ mesh point cloud
+      lines:
+        - vArrayFromOBJ.Points -> vArrayCameraProjection.ArrayA
+        - vArrayFromOBJ.Edges -> vArrayShapeRender.ArrayEdge
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+  difficulty: Beginner
+  related:
+    - name: vArrayShapeRender
+      desc: >-
+        The terminal render node that consumes the screen-space output of CameraProjection and draws
+        shapes at each point position.
+    - name: vArrayPointsOnCircle
+      desc: >-
+        Typical upstream source — generates a ring of 3D points that CameraProjection projects to
+        screen space.
+    - name: vArrayDisplaceValues
+      desc: >-
+        Noise-based modifier that should be placed before CameraProjection to displace 3D
+        world-space positions before projection.
+  params:
+    Translate.X: >-
+      Horizontal position of the virtual camera in world space. Pans the projected output left or
+      right.
+    Translate.Y: Vertical position of the virtual camera in world space. Pans the projected output up or down.
+    Translate.Z: >-
+      Camera distance from the point cloud. This is the primary scale control — increase to zoom
+      out, decrease to zoom in. Most impactful parameter for initial framing.
+    Rotate.X: >-
+      Rotates the camera around the X axis (tilt). Animatable for pitch sweeps through 3D point
+      clouds.
+    Rotate.Y: Rotates the camera around the Y axis (pan). Animate to orbit around a 3D array.
+    Rotate.Z: >-
+      Rotates the camera around the Z axis (roll). Spins the entire projected output around the
+      screen centre.
+    LockXY: >-
+      When enabled, X Scale controls both horizontal and vertical scale uniformly. Disable to
+      stretch or squeeze the projected output independently on each axis.
+    Scale.X: >-
+      Uniform scale of the projected output when Lock X/Y is on. Acts as horizontal-only scale when
+      unlocked.
+    fov: >-
+      Camera field of view in degrees. Lower values flatten perspective towards orthographic
+      projection; higher values exaggerate depth foreshortening on 3D arrays.
+    ArrayA: Primary 3D point array input. Connect the output of any vArray generator or modifier here.
+    RotateAroundCenter: Rotates around the center of the points.
+    Scale.Y: Scale along Y. Shown when Lock X/Y is off. Shown when the related option is enabled.
+    AutoEdges: Creates edges from the points automatically.
+    CloseEdgeLoop: Connects the last auto edge to the first.
+status:
+  source: rich-json
+  state: imported
+  reviewed_hash: null
+legacy_text: Transforms Array using a perspective projection matrix

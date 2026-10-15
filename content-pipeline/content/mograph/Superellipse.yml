@@ -1,0 +1,25 @@
+operation: Superellipse
+tools:
+  Array: vArraySuperellipse
+  ScriptVal: vScriptValSuperellipse
+  JSON: vJSONSuperellipse
+legacy_names: []
+curated:
+  tagline: Generate points on a superellipse.
+  overview: Outputs points of a superellipse.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    amplitudex: Size along X.
+    amplitudey: Size along Y.
+    exponent: Exponent of the shape.
+    samplecount: Number of sampled points.
+    rotation: Rotation in degrees.
+    scale: Scale of the result.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

@@ -1,0 +1,27 @@
+tool: vNumberMin
+datatype: Number
+function: Operators
+legacy_names: []
+curated:
+  tagline: Returns the minimum of two numbers
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vNumberAbsolute
+    - name: vNumberAdd
+    - name: vNumberCeil
+    - name: vNumberClamp
+  params:
+    Number1: First value to compare.
+    Number2: Second value to compare — Output is whichever of Number1/Number2 is smaller.
+    ShowInput: Reveals the wires for the Number1/Number2 connections in the Flow view.
+legacy_text: Returns the minimum of two numbers
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 6
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

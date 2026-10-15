@@ -1,0 +1,27 @@
+tool: vArrayJoin
+datatype: Array
+function: Utility
+legacy_names: []
+curated:
+  tagline: Gets the value of a key in an array
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vArrayConcatenate
+    - name: vArrayCountElement
+    - name: vArrayCountSubElements
+    - name: vArrayMatch
+  params:
+    Input: JSON array text whose elements are joined into a single string.
+    Separator: Text inserted between each joined element.
+    ShowInput: Reveals the wire for the Input connection in the Flow view.
+legacy_text: Gets the value of a key in an array
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 9
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

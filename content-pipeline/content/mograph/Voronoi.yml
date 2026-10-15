@@ -1,0 +1,28 @@
+operation: Voronoi
+tools:
+  Array: vArrayVoronoi
+  ScriptVal: vScriptValVoronoi
+  JSON: vJSONVoronoi
+legacy_names: []
+curated:
+  tagline: Create a Voronoi array.
+  overview: Computes a Voronoi diagram of random cells and outputs the cell outlines.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    numCells: Number of cells.
+    width: Width.
+    height: Height.
+    calcResolution: Resolution of the calculation.
+    simplify: Amount of outline simplification.
+    seed: Seed of the random generator.
+    rangeSelect: Outputs only a range of cells.
+    rangeStart: First cell of the range.
+    rangeEnd: Last cell of the range.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

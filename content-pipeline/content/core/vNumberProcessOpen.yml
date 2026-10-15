@@ -1,0 +1,25 @@
+tool: vNumberProcessOpen
+datatype: Number
+function: Script
+legacy_names: []
+curated:
+  tagline: Launch a command-line process via popen
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vNumberDoString
+    - name: vNumberSlashCommand
+  params:
+    Number: Command exit/return code from the launched process.
+    Text: The command-line command to run via popen.
+    ShowInput: Reveals the wire for the Text connection in the Flow view.
+legacy_text: Launch a command-line process via popen
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 6
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

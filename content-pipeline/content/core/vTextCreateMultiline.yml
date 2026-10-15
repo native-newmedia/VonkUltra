@@ -1,0 +1,41 @@
+tool: vTextCreateMultiline
+datatype: Text
+function: Create
+legacy_names: []
+curated:
+  tagline: >-
+    Creates a multi-line Fusion Text object The "Text" field supports entering multi-line text
+    blocks that can include indentation, tabs, newlines, returns and other plain-text formatting
+    variations.
+  overview: null
+  description:
+    - >-
+      If you need to view this multi-line text based content downstream in the comp, try the
+      vTextViewer node. This node is especially useful if you needed to create the original textual
+      contents used for a shell script that you would save to disk using the vTextToFile node, and
+      then run with a vTextProcessOpen node.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextCreate
+    - name: vTextCreateArch
+    - name: vTextCreateBrowse
+    - name: vTextCreateMultilineCode
+  params:
+    Text: The multi-line text block to output.
+    DisplayLines: Number of lines shown in the Text box in the Inspector.
+    WrapLines: Wraps long lines in the Text box instead of scrolling horizontally.
+legacy_text: >-
+  Creates a multi-line Fusion Text object The "Text" field supports entering multi-line text blocks
+  that can include indentation, tabs, newlines, returns and other plain-text formatting variations.
+  If you need to view this multi-line text based content downstream in the comp, try the vTextViewer
+  node. This node is especially useful if you needed to create the original textual contents used
+  for a shell script that you would save to disk using the vTextToFile node, and then run with a
+  vTextProcessOpen node.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 80
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

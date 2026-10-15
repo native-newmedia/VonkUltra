@@ -1,0 +1,31 @@
+operation: AccumulatorXform
+tools:
+  Array: vArrayAccumulatorXform
+  ScriptVal: vScriptValAccumulatorXform
+  JSON: vJSONAccumulatorXform
+legacy_names: []
+curated:
+  tagline: Concatenate the input from each frame in a range into one array.
+  overview: >-
+    Reads the input at each frame from Start Frame to End Frame and joins the results into one
+    array. Start and End Frame both default to 0, so set a range first.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    StartFrame: First frame to read.
+    EndFrame: Last frame to read.
+    Step: Frame increment between samples.
+    ShowInput: Shows the frame range controls.
+    OffsetX: Offset added per sample.
+    OffsetY: Offset added per sample.
+    OffsetZ: Offset added per sample.
+    RotateX: Rotation added per sample.
+    RotateY: Rotation added per sample.
+    RotateZ: Rotation added per sample.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

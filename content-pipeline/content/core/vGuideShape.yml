@@ -1,0 +1,58 @@
+tool: vGuideShape
+datatype: Guide
+function: Create
+legacy_names: []
+curated:
+  tagline: Create a new guide element
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vGuideCreate
+    - name: vGuideText
+  params:
+    Shape: >-
+      Selects the guide element to generate. Rectangle draws a bordered, fillable box; VLine and
+      HLine draw a single vertical or horizontal line; Grid draws a full grid of evenly spaced lines
+      using H Subdiv/V Subdiv. Each mode reveals only the controls it needs.
+    X1: >-
+      Left edge of the rectangle, or the position of a vertical line, as a 0–1 fraction of frame
+      width. Rectangle and VLine modes.
+    Y1: >-
+      Top edge of the rectangle, or the position of a horizontal line, as a 0–1 fraction of frame
+      height. Rectangle and HLine modes.
+    X2: Right edge of the rectangle, as a 0–1 fraction of frame width. Rectangle mode only.
+    Y2: Bottom edge of the rectangle, as a 0–1 fraction of frame height. Rectangle mode only.
+    HSubdiv: Number of vertical grid lines. Grid mode only.
+    VSubdiv: Number of horizontal grid lines. Grid mode only.
+    Pattern: >-
+      Stipple pattern for the line, encoded as a 16-bit mask (0–65535). The default draws a dashed
+      line; 65535 (all bits set) draws solid.
+    RedLine: Red channel of the line colour (0–1).
+    GreenLine: Green channel of the line colour (0–1).
+    BlueLine: Blue channel of the line colour (0–1).
+    AlphaLine: Alpha (opacity) of the line colour (0–1).
+    UseAlternatingColors: >-
+      In Grid mode, alternates between the line colour above and the alternate colour below for
+      successive grid lines. Grid mode only.
+    PatternAlt: Stipple pattern used for alternating grid lines when Use Alternating Colors is on.
+    RedLineAlt: Red channel of the alternating line colour (0–1). Used when Use Alternating Colors is on.
+    GreenLineAlt: Green channel of the alternating line colour (0–1). Used when Use Alternating Colors is on.
+    BlueLineAlt: Blue channel of the alternating line colour (0–1). Used when Use Alternating Colors is on.
+    AlphaLineAlt: Alpha (opacity) of the alternating line colour (0–1). Used when Use Alternating Colors is on.
+    FillMode: >-
+      Whether the fill colour below is drawn inside or outside the rectangle's border. Rectangle
+      mode only.
+    RedFill: Red channel of the fill colour (0–1). Rectangle mode only.
+    GreenFill: Green channel of the fill colour (0–1). Rectangle mode only.
+    BlueFill: Blue channel of the fill colour (0–1). Rectangle mode only.
+    AlphaFill: Alpha (opacity) of the fill colour (0–1). Rectangle mode only — default is fully transparent.
+legacy_text: Create a new guide element
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 5
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

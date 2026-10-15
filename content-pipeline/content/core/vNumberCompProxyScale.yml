@@ -1,0 +1,24 @@
+tool: vNumberCompProxyScale
+datatype: Number
+function: Comp
+legacy_names: []
+curated:
+  tagline: Returns the comp's Proxy Scale
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vNumberCompCurrentTime
+    - name: vNumberCompFPS
+    - name: vNumberCompFrameFormat
+    - name: vNumberCompGlobalEnd
+  params: {}
+legacy_text: Returns the comp's Proxy Scale
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 5
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

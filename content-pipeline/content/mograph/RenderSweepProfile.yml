@@ -1,0 +1,23 @@
+operation: RenderSweepProfile
+tools:
+  Array: vArrayRenderSweepProfile
+  ScriptVal: vScriptValRenderSweepProfile
+  JSON: vJSONRenderSweepProfile
+legacy_names: []
+curated:
+  tagline: Sweep a profile along a path into mesh data.
+  overview: Sweeps a profile along a path with an optional width input and outputs ribbon or tube mesh data.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    CloseProfile: Connects the last profile point to the first.
+    ClosedPath: Connects the last path point to the first.
+    Caps: Closes the ends of the swept mesh.
+    DefaultWidth: Width used when no Width input is connected.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

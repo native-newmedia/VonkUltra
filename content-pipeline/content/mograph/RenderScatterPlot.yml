@@ -1,0 +1,25 @@
+operation: RenderScatterPlot
+tools:
+  Array: vArrayRenderScatterPlot
+  ScriptVal: vScriptValRenderScatterPlot
+  JSON: vJSONRenderScatterPlot
+legacy_names: []
+curated:
+  tagline: Render scatter plot points.
+  overview: Draws a dot for each [x, y] or [x, y, r] pair in the array.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    PointRed: Color for the point.
+    PointGreen: Color for the point.
+    PointBlue: Color for the point.
+    PointAlpha: Color for the point.
+    PointRadius: Radius of each point.
+    PointSides: Sides of each point.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

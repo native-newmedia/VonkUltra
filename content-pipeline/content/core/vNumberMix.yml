@@ -1,0 +1,30 @@
+tool: vNumberMix
+datatype: Number
+function: Operators
+legacy_names: []
+curated:
+  tagline: Performs a linear interpolation between two numbers
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vNumberAbsolute
+    - name: vNumberAdd
+    - name: vNumberCeil
+    - name: vNumberClamp
+  params:
+    Number1: Value at Weight = 0.
+    Number2: Value at Weight = 1.
+    Weight: >-
+      Interpolation factor between Number1 (0) and Number2 (1). Values outside 0–1 extrapolate
+      beyond either number.
+    ShowInput: Reveals the wires for the Number1/Number2 connections in the Flow view.
+legacy_text: Performs a linear interpolation between two numbers
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 7
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

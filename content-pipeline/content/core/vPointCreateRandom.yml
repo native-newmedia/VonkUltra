@@ -1,0 +1,29 @@
+tool: vPointCreateRandom
+datatype: Point
+function: Create
+legacy_names: []
+curated:
+  tagline: Create a Fusion Point object with a random position.
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vPointCreate
+    - name: vPointCreateImage
+    - name: vPointFromMousePos
+  params:
+    SeedX: >-
+      Seed for the X value's random generator. Different seeds produce different values; animate it
+      for evolving randomness.
+    SeedY: Seed for the Y value's random generator, independent of SeedX.
+    Upper: Upper bound of the random range, shared by both X and Y.
+    Lower: Lower bound of the random range, shared by both X and Y.
+legacy_text: Create a Fusion Point object with a random position.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 9
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

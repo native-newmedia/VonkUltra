@@ -1,0 +1,33 @@
+operation: MergeOBJ
+tools:
+  Array: vArrayMergeOBJ
+  ScriptVal: vScriptValMergeOBJ
+  JSON: vJSONMergeOBJ
+legacy_names: []
+curated:
+  tagline: Merge two OBJ geometries into one.
+  overview: >-
+    Joins two sets of points and edges. Edge indices of the second set are shifted by the point
+    count of the first so they still point at their own vertices.
+  description: []
+  features: []
+  connections:
+    - label: Example 1
+      lines:
+        - vArrayFromOBJ1.Points -> vArrayMergeOBJ.Points1
+        - vArrayFromOBJ1.Edges -> vArrayMergeOBJ.Edges1
+        - vArrayFromOBJ2.Points -> vArrayMergeOBJ.Points2
+        - vArrayFromOBJ2.Edges -> vArrayMergeOBJ.Edges2
+        - vArrayMergeOBJ.OutputPoints -> vArrayToOBJ.ArrayPoints
+        - vArrayMergeOBJ.OutputEdges -> vArrayToOBJ.ArrayEdges
+        - vArrayToOBJ.Output -> vTextViewer.Input
+        - vArrayToOBJ.Output -> vTextToFile.Input
+  difficulty: null
+  related: []
+  params: {}
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null
+  connections_source: docsify
+legacy_text: Merge Wavefront OBJ geometry with edge and point Arrays

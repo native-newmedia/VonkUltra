@@ -1,0 +1,32 @@
+tool: vJSONFromFile
+datatype: JSON
+function: IO
+legacy_names: []
+curated:
+  tagline: >-
+    Reads a JSON string from a file The "Input" text field is used to specify the disk-based
+    filename of the JSON document to be read.
+  overview: null
+  description:
+    - >-
+      The JSON file will be loaded when the node is viewed/rendered. The contents of the JSON file
+      is returned via a text based data type output connection on the node.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vJSONFromNet
+    - name: vJSONToFile
+  params:
+    Input: Path to the JSON file to read. Loaded when the node is viewed or rendered.
+legacy_text: >-
+  Reads a JSON string from a file The "Input" text field is used to specify the disk-based filename
+  of the JSON document to be read. The JSON file will be loaded when the node is viewed/rendered.
+  The contents of the JSON file is returned via a text based data type output connection on the
+  node.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 55
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

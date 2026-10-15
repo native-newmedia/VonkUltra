@@ -1,0 +1,28 @@
+tool: vNumberCompRenderStart
+datatype: Number
+function: Comp
+legacy_names: []
+curated:
+  tagline: >-
+    Returns the comp's Render Start This is the first renderable frame when a batch render is
+    carried out.
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vNumberCompCurrentTime
+    - name: vNumberCompFPS
+    - name: vNumberCompFrameFormat
+    - name: vNumberCompGlobalEnd
+  params: {}
+legacy_text: >-
+  Returns the comp's Render Start This is the first renderable frame when a batch render is carried
+  out.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 18
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

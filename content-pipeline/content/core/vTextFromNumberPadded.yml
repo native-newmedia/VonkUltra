@@ -1,0 +1,31 @@
+tool: vTextFromNumberPadded
+datatype: Text
+function: Create
+legacy_names: []
+curated:
+  tagline: >-
+    Converts a number to a leading zero padded text This node is excellent for creating fixed length
+    numbers thanks to the built-in "Padding" control.
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextCreate
+    - name: vTextCreateArch
+    - name: vTextCreateBrowse
+    - name: vTextCreateMultiline
+  params:
+    Number: The numeric value to convert to text.
+    Padding: Minimum digit count — zero-pads the output string (e.g. 3 → "007").
+    ShowInput: Reveals the wire for the Number connection in the Flow view.
+legacy_text: >-
+  Converts a number to a leading zero padded text This node is excellent for creating fixed length
+  numbers thanks to the built-in "Padding" control.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 24
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

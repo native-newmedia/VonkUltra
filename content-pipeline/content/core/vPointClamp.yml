@@ -1,0 +1,36 @@
+tool: vPointClamp
+datatype: Point
+function: Operators
+legacy_names: []
+curated:
+  tagline: >-
+    Clamp a Fusion Point object to specific boundaries This acts as a hard limiter on the range of
+    numbers that can pass through the Point control.
+  overview: null
+  description:
+    - >-
+      Numbers that exist below the minimum range, or above the maximum range are clipped to those
+      boundaries.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vPointAbsolute
+    - name: vPointAdd
+    - name: vPointDivide
+    - name: vPointMix
+  params:
+    Point: Point to clamp.
+    Minimum: Lower bound — X/Y values below this are clipped up to it.
+    Maximum: Upper bound — X/Y values above this are clipped down to it.
+    ShowInput: Reveals the wire for the Point connection in the Flow view.
+legacy_text: >-
+  Clamp a Fusion Point object to specific boundaries This acts as a hard limiter on the range of
+  numbers that can pass through the Point control. Numbers that exist below the minimum range, or
+  above the maximum range are clipped to those boundaries.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 43
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

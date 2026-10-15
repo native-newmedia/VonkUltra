@@ -1,0 +1,29 @@
+operation: PointAttractor
+tools:
+  Array: vArrayPointAttractor
+  ScriptVal: vScriptValPointAttractor
+  JSON: vJSONPointAttractor
+legacy_names: []
+curated:
+  tagline: Attract or repel points.
+  overview: Moves points toward or away from a 2D or 3D attractor point with spring dynamics.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Strength: Positive values pull points toward the attractor, negative values push them away.
+    Radius: Radius of the effect.
+    FalloffPower: Exponent of the falloff curve.
+    Damping: Reduces the movement speed over time.
+    TimeStep: Time step of the simulation.
+    Position: Position of the attractor in X and Y.
+    Attractor_z: Position of the attractor along Z.
+    multiplier: Multiplies the strength.
+    Use3D: Uses X, Y and Z of the points instead of X and Y.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null
+legacy_text: 2D/3D point attractor/repulsor with spring dynamics

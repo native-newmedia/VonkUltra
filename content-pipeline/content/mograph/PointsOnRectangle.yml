@@ -1,0 +1,30 @@
+operation: PointsOnRectangle
+tools:
+  Array: vArrayPointsOnRectangle
+  ScriptVal: vScriptValPointsOnRectangle
+  JSON: vJSONPointsOnRectangle
+legacy_names: []
+curated:
+  tagline: Generate points on a rectangle.
+  overview: Places points on the outline of a rectangle with optional rounded corners.
+  description: []
+  features: []
+  connections:
+    - label: Example 1
+      lines:
+        - vArrayPointsOnRectangle.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+  difficulty: null
+  related: []
+  params:
+    Segments: Number of segments.
+    width: Width.
+    height: Height.
+    borderRadius: Radius of the corners.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null
+  connections_source: docsify
+legacy_text: Generate points on Rectangle

@@ -1,0 +1,27 @@
+operation: MaskByMesh
+tools:
+  Array: vArrayMaskByMesh
+  ScriptVal: vScriptValMaskByMesh
+  JSON: vJSONMaskByMesh
+legacy_names: []
+curated:
+  tagline: Keep points near the mesh.
+  overview: Keeps only the points within a distance of the mesh surface.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    maxdistance: Distance from the mesh at which the effect ends.
+    mindistance: Distance from the mesh below which points are kept.
+    invertmask: Swaps masked and unmasked areas.
+    maskmode: 'Hard cut or soft falloff. Options: Hard, Soft Falloff.'
+    keepifnomesh: Outputs the input unchanged when no mesh is connected.
+    outputmode: >-
+      Output the original position or the closest point on the surface. Options: Original, Closest
+      On Surface.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

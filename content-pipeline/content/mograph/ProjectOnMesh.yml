@@ -1,0 +1,30 @@
+operation: ProjectOnMesh
+tools:
+  Array: vArrayProjectOnMesh
+  ScriptVal: vScriptValProjectOnMesh
+  JSON: vJSONProjectOnMesh
+legacy_names: []
+curated:
+  tagline: Project points onto the mesh.
+  overview: Projects every point onto the nearest point of the mesh surface.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    surfaceoffset: Offset of the target from the mesh surface.
+    projectionmode: >-
+      Closest surface point, nearest vertex or face center. Options: Closest Surface, Nearest
+      Vertex, Face Center.
+    offsetmode: 'Direction of the offset. Options: Surface Normal, World +Y.'
+    projectionblend: Mix between the original and the projected position.
+    distancemode: 'How Max Distance is applied. Options: No Limit, Hard Cutoff, Clamp.'
+    maxdistance: Distance from the mesh at which the effect ends.
+    inaffectx: Applies the effect to X.
+    inaffecty: Applies the effect to Y.
+    inaffectz: Applies the effect to Z.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

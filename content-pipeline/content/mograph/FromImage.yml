@@ -1,0 +1,24 @@
+operation: FromImage
+tools:
+  Array: vArrayFromImage
+  ScriptVal: vScriptValFromImage
+  JSON: vJSONFromImage
+legacy_names: []
+curated:
+  tagline: Create an array from an image.
+  overview: Samples an image on a grid and outputs the positions that pass the threshold.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    sampleStep: Distance between samples in pixels.
+    threshold: Samples above this value are kept.
+    channel: Channel that is tested.
+    invert: Keeps samples below the threshold.
+    preserveAspect: Keeps the aspect ratio of the image.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

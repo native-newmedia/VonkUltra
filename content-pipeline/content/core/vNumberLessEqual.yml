@@ -1,0 +1,33 @@
+tool: vNumberLessEqual
+datatype: Number
+function: Logic
+legacy_names: []
+curated:
+  tagline: >-
+    Compares two numbers to see if Term 1 is less than or equal to Term 2 A zero (false) or one
+    (true) based number is returned from the comparator operation.
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vNumberAnd
+    - name: vNumberEqual
+    - name: vNumberGreater
+    - name: vNumberGreaterEqual
+  params:
+    Term1: First value to compare.
+    Term2: Second value to compare — Output is 1 if Term 1 is less than or equal to Term 2, otherwise 0.
+    ShowInput: Reveals the wires for the Term 1/Term 2 connections in the Flow view.
+legacy_text: >-
+  Compares two numbers to see if Term 1 is less than or equal to Term 2 A zero (false) or one (true)
+  based number is returned from the comparator operation.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 30
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null
+  page_only_params:
+    - Term1Separator

@@ -1,0 +1,39 @@
+operation: AccumulatorOBJ
+tools:
+  Array: vArrayAccumulatorOBJ
+  ScriptVal: vScriptValAccumulatorOBJ
+  JSON: vJSONAccumulatorOBJ
+legacy_names: []
+curated:
+  tagline: Concatenate mesh points and edges over a frame range.
+  overview: >-
+    Reads the mesh points and edges inputs at each frame from Start Frame to End Frame and merges
+    them into one mesh. Edge indices are shifted so they still point at the right points. Start and
+    End Frame both default to 0, so only one frame is read until you set a range.
+  description: []
+  features: []
+  connections:
+    - label: Example 1
+      lines:
+        - vArrayFromOBJ.Edges -> vArrayAccumulatorOBJ.Edges1
+        - vArrayFromOBJ.Points -> vArrayMath.ArrayA
+        - vMatrixCreateTRS1.Output -> vArrayMath.ArrayB
+        - vArrayMath.Operation = "Matrix Multiply"
+        - vArrayMath.Output -> vArrayAccumulatorOBJ.Points1
+        - vArrayAccumulatorOBJ.OutputEdges -> vArrayShapeRender.ArrayEdge
+        - vArrayAccumulatorOBJ.OutputPoints -> -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+  difficulty: null
+  related: []
+  params:
+    StartFrame: First frame to read.
+    EndFrame: Last frame to read.
+    Step: Frame increment between samples.
+    ShowInput: Shows the frame range controls.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null
+  connections_source: docsify
+legacy_text: Temporally concatenate Wavefront OBJ geometry with edge and point array elements

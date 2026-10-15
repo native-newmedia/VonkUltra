@@ -1,0 +1,56 @@
+tool: vScriptValSwitch
+datatype: ScriptVal
+function: Flow
+legacy_names: []
+curated:
+  tagline: >-
+    Switch between Fusion ScriptVal objects The "Which" control uses an integer number that starts
+    at 1 and counts upwards to define the input connection port that
+  overview: null
+  description:
+    - >-
+      is passed through to the output connection. If you are using a logical comparator that works
+      on a false/true based 0-1 number range and want to connect it to a vScriptValSwitch node's
+      Which input connection, that works on a 1+ number range, simply insert a vNumberAdd node set
+      to increment the number upwards by 1. The "Show Which Input" checkbox is used to hide the
+      Number datatype based input connection for the Which parameter in the Nodes view. The "Show
+      Active Input" checkbox is used as a visualization and diagnostics mode. When enabled, this
+      control automatically toggles the visibility off for the inactive connection wirelines fed
+      into the switch node. This approach makes it possible to visually see in a quick glance the
+      source comp branch that is selected as the input and used by the Which control. All other
+      inputs will be turned into hidden wireless inputs when not in use.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vScriptValWireless
+  params:
+    Which: >-
+      Selects which input (1-based) is passed through to Output. Insert a vNumberAdd (or similar) to
+      shift a 0/1 logic value into this 1+ range if driving it from a comparator.
+    Input1: The first of the switchable inputs — connect the option that should be output when Which = 1.
+    ShowInput: Shows or hides the wire for the Which control in the Flow view.
+    ShowActive: >-
+      When enabled, hides every input wire except the one currently selected by Which — a quick
+      visual way to see which branch is live.
+legacy_text: >-
+  Switch between Fusion ScriptVal objects The "Which" control uses an integer number that starts at
+  1 and counts upwards to define the input connection port that is passed through to the output
+  connection. If you are using a logical comparator that works on a false/true based 0-1 number
+  range and want to connect it to a vScriptValSwitch node's Which input connection, that works on a
+  1+ number range, simply insert a vNumberAdd node set to increment the number upwards by 1. The
+  "Show Which Input" checkbox is used to hide the Number datatype based input connection for the
+  Which parameter in the Nodes view. The "Show Active Input" checkbox is used as a visualization and
+  diagnostics mode. When enabled, this control automatically toggles the visibility off for the
+  inactive connection wirelines fed into the switch node. This approach makes it possible to
+  visually see in a quick glance the source comp branch that is selected as the input and used by
+  the Which control. All other inputs will be turned into hidden wireless inputs when not in use.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 178
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null
+  page_only_params:
+    - '"Input" .. i'
+    - '"Input" .. (inpNr + 1)'

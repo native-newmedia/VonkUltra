@@ -1,0 +1,36 @@
+tool: vTextSortLines
+datatype: Text
+function: Utility
+legacy_names: []
+curated:
+  tagline: >-
+    Sorts a multi-line block of text The "Sort List" checkbox will break apart a multi-line block of
+    text and alphabetically sort the content on a line-by-line basis.
+  overview: null
+  description:
+    - >-
+      The "Remove Duplicates" checkbox is used to remove any line entry that is a duplicate entry,
+      meaning the content is not unique.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextDelay
+    - name: vTextDump
+    - name: vTextExpandEscapedCharacters
+    - name: vTextFromCSVViewer
+  params:
+    Text: The multi-line block of text to sort.
+    Sort: Alphabetically sorts the text on a line-by-line basis.
+    RemoveDuplicates: Drops any line that duplicates one already in the results.
+    ShowInput: Reveals the wire for the Text connection in the Flow view.
+legacy_text: >-
+  Sorts a multi-line block of text The "Sort List" checkbox will break apart a multi-line block of
+  text and alphabetically sort the content on a line-by-line basis. The "Remove Duplicates" checkbox
+  is used to remove any line entry that is a duplicate entry, meaning the content is not unique.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 49
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

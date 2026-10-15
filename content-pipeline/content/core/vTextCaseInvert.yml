@@ -1,0 +1,34 @@
+tool: vTextCaseInvert
+datatype: Text
+function: Case
+legacy_names: []
+curated:
+  tagline: >-
+    Inverts the case of a Fusion Text object A Text based input of "Hello World!" would be converted
+    to "hELLO wORLD!".
+  overview: null
+  description:
+    - >-
+      Every uppercase letter in the output becomes lower case, and every lowercase letter becomes an
+      uppercase letter.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vTextCaseAlternate
+    - name: vTextCaseLower
+    - name: vTextCaseRandom
+    - name: vTextCaseSentence
+  params:
+    Text: Text to convert — uppercase and lowercase letters are swapped.
+    ShowInput: Reveals the wire for the Text connection in the Flow view.
+legacy_text: >-
+  Inverts the case of a Fusion Text object A Text based input of "Hello World!" would be converted
+  to "hELLO wORLD!". Every uppercase letter in the output becomes lower case, and every lowercase
+  letter becomes an uppercase letter.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 38
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

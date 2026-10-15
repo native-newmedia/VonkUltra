@@ -1,0 +1,23 @@
+operation: LogicClamp
+tools:
+  Array: vArrayLogicClamp
+  ScriptVal: vScriptValLogicClamp
+  JSON: vJSONLogicClamp
+legacy_names: []
+curated:
+  tagline: Clamp values to a range.
+  overview: >-
+    Limits every value to the range from Min to Max. The second output does the same for X, Y and Z
+    of point arrays.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Min: Lower limit.
+    Max: Upper limit.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

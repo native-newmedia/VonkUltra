@@ -1,0 +1,65 @@
+operation: Helix
+tools:
+  Array: vArrayHelix
+  ScriptVal: vScriptValHelix
+  JSON: vJSONHelix
+legacy_names: []
+curated:
+  tagline: Generate points along a helix with a set radius, pitch, number of turns and start angle.
+  overview: >-
+    vArrayHelix has no input and outputs an array of XYZ points on a helix around the Z axis. Points
+    count, radius, pitch and turns set the shape.
+  description:
+    - >-
+      The node spaces Number of Points points evenly along the helix. For point i of n, the parameter t
+      is i / (n - 1). The angle is the start angle plus t * turns * 360 degrees, X is radius *
+      cos(angle), Y is radius * sin(angle) and Z is t * turns * pitch.
+    - >-
+      With the defaults (100 points, radius 1, pitch 0.1, 2 turns, start angle 0) the node outputs a
+      flat-looking coil that rises 0.2 units along Z in total. Pitch is the Z distance covered by
+      one full turn, so the total height is pitch * turns.
+    - >-
+      Number of Points is limited to 2 or more and Turns to 0.01 or more. Points are spread over the
+      whole curve, so raising Turns without raising Number of Points makes the spacing between points
+      larger and the coil coarser.
+    - >-
+      The output is a point array. Connect it to vArrayCameraProjection to project it into 2D, then
+      to vArrayShapeRender to draw it, or feed it to the Modify nodes first.
+  features:
+    - title: No input needed
+      desc: The node generates its points from its own controls.
+    - title: Even point spacing in parameter
+      desc: Points are spaced evenly along the curve parameter, from the first point to the last.
+    - title: Pitch and turns control height
+      desc: Total Z height is pitch * turns, so both controls change how tall the helix is.
+    - title: Start angle in degrees
+      desc: Start Angle rotates the whole helix around the Z axis without changing its shape.
+  connections:
+    - label: Draw the helix
+      lines:
+        - vArrayHelix.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Offset the helix before drawing
+      lines:
+        - vArrayHelix.Output -> vArrayTranslate.ArrayA
+        - vArrayTranslate.Output -> vArrayCameraProjection.ArrayA
+  difficulty: Beginner
+  related:
+    - name: vArrayPointsOnCircle
+      desc: A flat ring of points; a helix with zero pitch is a circle.
+    - name: vArrayPhyllotaxis
+      desc: Another procedural point pattern, laid out as a spiral in 2D.
+    - name: vArrayCameraProjection
+      desc: Projects the XYZ points so they can be drawn.
+  params:
+    numPoints: Number of points on the helix. Minimum 2, default 100.
+    radius: Distance of the points from the Z axis. Default 1.
+    pitch: Z distance covered by one full turn. Default 0.1.
+    turns: Number of full turns. Minimum 0.01, default 2.
+    startAngle: Angle of the first point, in degrees. Default 0.
+status:
+  source: ai
+  state: ai
+  reviewed_hash: null
+  prompt_version: '1'

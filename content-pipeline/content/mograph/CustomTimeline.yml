@@ -1,0 +1,56 @@
+operation: CustomTimeline
+tools:
+  Array: vArrayCustomTimeline
+  ScriptVal: vScriptValCustomTimeline
+  JSON: vJSONCustomTimeline
+legacy_names: []
+curated:
+  tagline: Draw a timeline with ticks, numbers, nodes and a pointer.
+  overview: >-
+    Draws a timeline from main and small tick marks, optional numbers and node polygons, and an
+    optional animated pointer. Outputs an image of the timeline and the timeline shape.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    mainNumbers: Number of main sections.
+    M_timelineSize: Height of the main tick marks.
+    smallNumbers: Small divisions per main section.
+    S_timelineSize: Height of the small tick marks.
+    spacing_numbers: Distance between main tick marks.
+    show_Timeline_nodes: Draws a polygon at each main tick.
+    timelineSides: Sides of the node polygon.
+    timelineSize: Size of the node polygon.
+    timelineOffset: Vertical offset of the nodes.
+    Timeline_Rotation: Rotation of the node polygon in degrees.
+    show_Timeline_font: Draws the numbers at the main ticks.
+    Number_StatAt: First number shown.
+    InR_Number_Step: Increment between numbers.
+    show_decimals: When on, numbers are rounded down to whole values.
+    Font: Font family of the numbers.
+    Text_Style: Font style of the numbers.
+    Text_Size: Size of the numbers.
+    Text_Y_Offset: Vertical offset of the numbers.
+    Text_Rotate: Rotation of the numbers in degrees.
+    Timeline_Thickness: Line thickness.
+    Timeline_Type: Solid, Dash, Dot, Dash Dot, or Dash Dot Dot.
+    Timeline_Animation: None, Auto, or Manual pointer animation.
+    Timeline_Animation_Speed: Pointer speed. Shown for Auto.
+    Timeline_Animation_Offset: Pointer position. Shown for Manual.
+    loopAnimation: Wraps the pointer back to the start.
+    PointerShape: None, Arrow, or Custom.
+    Timeline_Arrow_YPos: Vertical position of the pointer.
+    Timeline_Arrow_Rotation: Rotation of the pointer in degrees.
+    Timeline_Arrow_Scale: Scale of the pointer.
+    Timeline_rotation: Rotation of the whole timeline in degrees.
+    R_shape_scale: Scale of the whole timeline.
+    R_shape_posX: Position of the timeline.
+    R_shape_posY: Position of the timeline.
+    ShowInput: Draws over a copy of the input image instead of a transparent image.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null
+legacy_text: Stylized timeline with major and minor tick marks

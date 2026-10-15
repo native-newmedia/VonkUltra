@@ -1,0 +1,80 @@
+operation: RenderAsset
+tools:
+  Array: vArrayRenderAsset
+  ScriptVal: vScriptValRenderAsset
+  JSON: vJSONRenderAsset
+legacy_names: []
+curated:
+  tagline: Render a vGeometry mesh as a 3D wireframe.
+  overview: >-
+    Projects a vGeometry mesh into perspective, draws its lines, dots and optional index numbers
+    onto the image, and can show the UV layout instead of the geometry.
+  description: []
+  features: []
+  connections:
+    - label: Example 1
+      lines:
+        - vScriptValFromOBJ.ScriptValPoints -> vScriptValCreateAsset.ScriptValPoints
+        - vScriptValFromOBJ.ScriptValEdges -> vScriptValCreateAsset.ScriptValEdges
+        - vScriptValFromOBJ.ScriptValUVs -> vScriptValCreateAsset.ScriptValUVs
+        - vScriptValFromOBJ.ScriptValUVEdges -> vScriptValCreateAsset.ScriptValEdges
+        - vScriptValCreateAsset.Output -> vScriptValMergeAsset.ScriptVal1
+        - vScriptValMergeAsset.Output -> vScriptValRenderAsset.vGeometry
+        - Background.Output -> vScriptValRenderAsset.Input
+    - label: Example 2
+      lines:
+        - vMatrixCreateTRS.Output -> vScriptValLocatorAsset.Matrix
+        - vScriptValLocatorAsset.Output -> vScriptValMergeAsset.ScriptVal
+        - vScriptValMergeAsset.Output -> vScriptValRenderAsset.vGeometry
+        - Background.Output -> vScriptValRenderAsset.Input
+  difficulty: null
+  related: []
+  params:
+    View: Geometry or UV Snapshot.
+    showbbox: Draws the bounding box of the model.
+    fov: Perspective field of view in degrees.
+    unconnectlines: Draws the edge list instead of connecting points in order.
+    showlines: Draws the lines.
+    showperobjectcolor: Uses the color stored with each object.
+    showdots: Draws a dot at each point.
+    showindex: Draws the index number at each point.
+    lineWidth: Width of the lines.
+    dotRadius: Radius of the dots.
+    Red_line: Color for the line.
+    Green_line: Color for the line.
+    Blue_line: Color for the line.
+    Alpha_line: Color for the line.
+    dotSides: Number of sides of each dot.
+    DotWidth: Outline width of the dots.
+    hidedots: Hides the built-in dots.
+    hidecustomdots: Hides the custom dot shapes.
+    outlinedots: Draws the dots as outlines.
+    ScaleDots: Scales the dots.
+    Red_dot: Color for the line.
+    Green_dot: Color for the line.
+    Blue_dot: Color for the line.
+    Alpha_dot: Color for the line.
+    TextSize: Size of the index text.
+    TextStyle: Regular or Bold.
+    Red_txt: Color for the line.
+    Green_txt: Color for the line.
+    Blue_txt: Color for the line.
+    Alpha_txt: Color for the line.
+    Fade: Fades the color with distance.
+    LineType: Solid, Dash, Dot, Dash Dot, or Dash Dot Dot.
+    JoinType: Bevel or Round corners.
+    Translate.X: Moves the model along X.
+    Translate.Y: Moves the model along Y.
+    Translate.Z: Moves the model along Z, away from the camera.
+    Rotate.X: Rotation around X in degrees.
+    Rotate.Y: Rotation around Y in degrees.
+    Rotate.Z: Rotation around Z in degrees.
+    LockXY: Uses one scale value for X and Y.
+    Scale.X: Scale of the model.
+    Scale.Y: Scale along Y. Shown when Lock X/Y is off.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null
+  connections_source: docsify
+legacy_text: 'Render 3D wireframe from a ScriptVal Lua table of vGeometry mesh data Example Node Connections:'

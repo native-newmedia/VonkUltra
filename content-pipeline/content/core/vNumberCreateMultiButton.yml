@@ -1,0 +1,25 @@
+tool: vNumberCreateMultiButton
+datatype: Number
+function: Create
+legacy_names: []
+curated:
+  tagline: Creates a Fusion Number object using a MultiButton control for the input
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vNumberCreate
+    - name: vNumberCreateArch
+    - name: vNumberCreateBool
+    - name: vNumberCreatePlatform
+  params:
+    Number: Button grid (1–64) — outputs the selected button's number.
+legacy_text: Creates a Fusion Number object using a MultiButton control for the input
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 12
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

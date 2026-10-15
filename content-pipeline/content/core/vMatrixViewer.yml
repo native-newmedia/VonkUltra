@@ -1,0 +1,29 @@
+tool: vMatrixViewer
+datatype: Matrix
+function: Utility
+legacy_names: []
+curated:
+  tagline: >-
+    View vMatrix content in the Inspector This allows you to see the XYZ translation, rotation, and
+    scale values for a vMatrix.
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vMatrixConcatenateHorizontal
+    - name: vMatrixConcatenateVertical
+    - name: vMatrixSlice
+  params:
+    Transpose: Swaps rows and columns before displaying the decomposed translation/rotation/scale values.
+    ShowDump: Prints the matrix and its decomposed values to the console each frame.
+legacy_text: >-
+  View vMatrix content in the Inspector This allows you to see the XYZ translation, rotation, and
+  scale values for a vMatrix.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 21
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

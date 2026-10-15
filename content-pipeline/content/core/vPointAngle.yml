@@ -1,0 +1,30 @@
+tool: vPointAngle
+datatype: Point
+function: Utility
+legacy_names: []
+curated:
+  tagline: >-
+    Measure the angle in degrees between two Fusion Point objects The output from this node is a
+    Number datatype that reports the angle between Point1 and Point2.
+  overview: null
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vPointDelay
+    - name: vPointLength
+    - name: vPointTween
+  params:
+    Point1: First point.
+    Point2: Second point — Output is the angle in degrees between Point1 and Point2.
+    ShowInput: Reveals the wires for the Point1/Point2 connections in the Flow view.
+legacy_text: >-
+  Measure the angle in degrees between two Fusion Point objects The output from this node is a
+  Number datatype that reports the angle between Point1 and Point2.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 27
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

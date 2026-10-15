@@ -1,0 +1,30 @@
+operation: RenderRadialBurst
+tools:
+  Array: vArrayRenderRadialBurst
+  ScriptVal: vScriptValRenderRadialBurst
+  JSON: vJSONRenderRadialBurst
+legacy_names: []
+curated:
+  tagline: Render lines radiating from a center.
+  overview: Draws evenly spaced lines between an inner and an outer radius around a center point.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Count: Number of lines.
+    CenterX: Horizontal center.
+    CenterY: Vertical center.
+    InnerRadius: Start radius of the lines.
+    OuterRadius: End radius of the lines.
+    LineWidth: Width of the lines.
+    AngleOffset: Rotates all lines.
+    LineRed: Color for the line.
+    LineGreen: Color for the line.
+    LineBlue: Color for the line.
+    LineAlpha: Color for the line.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

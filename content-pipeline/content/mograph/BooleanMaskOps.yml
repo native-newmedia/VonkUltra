@@ -1,0 +1,32 @@
+operation: BooleanMaskOps
+tools:
+  Array: vArrayBooleanMaskOps
+  ScriptVal: vScriptValBooleanMaskOps
+  JSON: vJSONBooleanMaskOps
+legacy_names: []
+curated:
+  tagline: Combine two masks with boolean operations.
+  overview: >-
+    Combines two mask or point arrays with a boolean operation and outputs a mask or the selected
+    points.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    Operation: 'Boolean operation. Options: AND, OR, XOR, A AND NOT B, NOT A, NOT B.'
+    OutputMode: >-
+      Type of the result. Options: Mask Scalars (0/1, any axis true), Per-Axis XYZ Mask
+      ({0/1,0/1,0/1}), Pass A Points When True, Pass B Points When True, Average A/B Points When
+      True.
+    Threshold: Values above this count as true.
+    OutputAmount: Strength of the output.
+    XAmount: Strength on X.
+    YAmount: Strength on Y.
+    ZAmount: Strength on Z.
+    TrimZeros: Removes trailing zero values.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

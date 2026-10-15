@@ -1,0 +1,26 @@
+operation: SnapMeshVertex
+tools:
+  Array: vArraySnapMeshVertex
+  ScriptVal: vScriptValSnapMeshVertex
+  JSON: vJSONSnapMeshVertex
+legacy_names: []
+curated:
+  tagline: Snap points to the nearest mesh vertex.
+  overview: Moves every point to the nearest vertex of the mesh.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    inaffectx: Applies the effect to X.
+    inaffecty: Applies the effect to Y.
+    inaffectz: Applies the effect to Z.
+    snapmode: >-
+      Snap to the nearest vertex, the surface or the nearest centroid. Options: Vertex, Surface,
+      Centroid.
+    blend: Mix between the original points (0) and the result (1).
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

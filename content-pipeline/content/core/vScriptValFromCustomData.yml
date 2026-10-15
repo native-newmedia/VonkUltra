@@ -1,0 +1,37 @@
+tool: vScriptValFromCustomData
+datatype: ScriptVal
+function: Custom Data
+legacy_names: []
+curated:
+  tagline: >-
+    Create a Fusion ScriptVal object from Custom Data The "Text" control is used to specify the key
+    used for the CustomData record.
+  overview: null
+  description:
+    - >-
+      CustomData entries use a dot syntax for the hierarchy. If you define a lower level name it
+      will return the full Lua table structure with multiple preference items at the same time. The
+      "Context" control reads the CustomData from either the Fusion scope, or the Comp scope.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vScriptValToCustomData
+  params:
+    Text: >-
+      CustomData key to read, using dot syntax for nested levels — a higher-level key returns the
+      full sub-table at that level.
+    Context: 'Scope to read the CustomData from: Fusion (application-wide) or Comp (this composition only).'
+    ShowInput: Reveals the wire for the Text connection in the Flow view.
+legacy_text: >-
+  Create a Fusion ScriptVal object from Custom Data The "Text" control is used to specify the key
+  used for the CustomData record. CustomData entries use a dot syntax for the hierarchy. If you
+  define a lower level name it will return the full Lua table structure with multiple preference
+  items at the same time. The "Context" control reads the CustomData from either the Fusion scope,
+  or the Comp scope.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 69
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null

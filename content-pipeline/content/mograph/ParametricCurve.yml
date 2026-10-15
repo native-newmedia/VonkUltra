@@ -1,0 +1,26 @@
+operation: ParametricCurve
+tools:
+  Array: vArrayParametricCurve
+  ScriptVal: vScriptValParametricCurve
+  JSON: vJSONParametricCurve
+legacy_names: []
+curated:
+  tagline: Generate points from parametric expressions.
+  overview: Evaluates X(t), Y(t) and Z(t) expressions over a range of t.
+  description: []
+  features: []
+  connections: []
+  difficulty: null
+  related: []
+  params:
+    exprx: Expression for X.
+    expry: Expression for Y.
+    exprz: Expression for Z.
+    tmin: First value of t.
+    tmax: Last value of t.
+    samplecount: Number of sampled points.
+    scale: Scale of the result.
+status:
+  source: summary
+  state: imported
+  reviewed_hash: null

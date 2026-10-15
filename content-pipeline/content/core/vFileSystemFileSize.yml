@@ -1,0 +1,43 @@
+tool: vFileSystemFileSize
+datatype: FileSystem
+function: General
+legacy_names: []
+curated:
+  tagline: Returns the file size This node takes a single filename as a text based input.
+  overview: null
+  description:
+    - >-
+      It checks the file size of the document and returns the value in the unit of measure you
+      specify. The Unit field supports a wide range of file size output scales including: "Byte
+      (B)", "Kilobyte (KB)", "Kibibyte (KiB)", "Megabyte (MB)", "Mebibyte (MiB)", "Gigabyte (GB)",
+      "Gibibyte (GiB)", "Terabyte (TB)", and "Tebibyte (TiB)". The node has two output connections
+      labelled "Output" and "OutputUnit". The "OutputUnit" connection is handy if you need to create
+      a visual overlay with a Text+ node of file size and want to indicate the scale of measure.
+  features: []
+  connections: []
+  difficulty: null
+  related:
+    - name: vFileSystemChmod
+    - name: vFileSystemColorTags
+    - name: vFileSystemCreateDir
+    - name: vFileSystemDirExists
+  params:
+    Text: Path to the file to measure.
+    Unit: >-
+      Unit for the Output value: Byte, Kilobyte/Kibibyte, Megabyte/Mebibyte, Gigabyte/Gibibyte, or
+      Terabyte/Tebibyte. The node also has an OutputUnit connection carrying the unit's label text,
+      handy for a Text+ overlay.
+legacy_text: >-
+  Returns the file size This node takes a single filename as a text based input. It checks the file
+  size of the document and returns the value in the unit of measure you specify. The Unit field
+  supports a wide range of file size output scales including: "Byte (B)", "Kilobyte (KB)", "Kibibyte
+  (KiB)", "Megabyte (MB)", "Mebibyte (MiB)", "Gigabyte (GB)", "Gibibyte (GiB)", "Terabyte (TB)", and
+  "Tebibyte (TiB)". The node has two output connections labelled "Output" and "OutputUnit". The
+  "OutputUnit" connection is handy if you need to create a visual overlay with a Text+ node of file
+  size and want to indicate the scale of measure.
+status:
+  source: docsify
+  state: imported-unverified
+  lead_words: 104
+  params_source: content-pass-2026-09-18
+  reviewed_hash: null
