@@ -5,21 +5,71 @@ tools:
   JSON: vJSONTrimByMeshBounds
 legacy_names: []
 curated:
-  tagline: Trim points to the mesh bounds.
-  overview: Trims or clamps points to the axis-aligned bounding box of a mesh or second point array.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: Drops or clamps points that lie outside the bounding box of a mesh or of a second point array.
+  overview: >-
+    vArrayTrimByMeshBounds takes an array of XYZ points and a bounding box, and either removes the
+    points outside the box (Drop) or moves them onto its faces (Clamp). The box comes from Mesh
+    Points or from a Bounds Array.
+  description:
+    - >-
+      The box is the smallest axis-aligned box around the Mesh Points, or around the Bounds Array
+      when Bounds Source is set to it. AABB Padding (default 0) grows the box on every side, or
+      shrinks it when negative. Test X, Y and Z (all on by default) choose the axes that are
+      checked.
+    - >-
+      In Drop mode, the default, a point is kept when it is inside the box on all tested axes. In
+      Clamp mode each tested coordinate is limited to the box range. Untested axes are never
+      changed. If the bounds source is empty, the points are output unchanged.
+  features:
+    - title: Two bounds sources
+      desc: Mesh Points or a separate Bounds Array define the box.
+    - title: Drop or clamp
+      desc: Points outside the box are removed or moved onto it.
+    - title: Padding
+      desc: AABB Padding grows or shrinks the box on every side.
+    - title: Axis tests
+      desc: Test X, Y and Z choose the axes that are checked.
+  connections:
+    - label: Keep grid points inside a loaded mesh box and draw
+      lines:
+        - vArrayPointsOnGrid.Output -> vArrayTrimByMeshBounds.ArrayPoints
+        - vArrayFromOBJ.Points -> vArrayTrimByMeshBounds.MeshPoints
+        - vArrayTrimByMeshBounds.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Clamp points to the box of another array
+      lines:
+        - vArrayRandom.Output -> vArrayTrimByMeshBounds.ArrayPoints
+        - vArrayPointsOnRectangle.Output -> vArrayTrimByMeshBounds.BoundsArray
+        - vArrayTrimByMeshBounds.Output -> vArrayTranslate.Input
+  difficulty: Intermediate
+  related:
+    - name: vArrayBoundingBox
+      desc: Calculates a 3D, 2D or 1D bounding box volume from an Array of XYZ, XY or X points.
+    - name: vArrayMaskByMesh
+      desc: Keeps only input points within a distance threshold of the mesh surface.
+    - name: vArrayClamp
+      desc: Clamps numeric values in nested arrays and tables.
   params:
-    BoundsSource: 'Bounds from the mesh points or from a bounds array. Options: Array Points, Bounds Array.'
-    padding: Grows the bounding box on all sides.
-    mode: Drop removes points outside the bounds. Clamp moves them to the bounds.
-    testX: Tests the X axis.
-    testY: Tests the Y axis.
-    testZ: Tests the Z axis.
+    BoundsSource: Array Points (default) uses Mesh Points. Bounds Array uses the Bounds Array input.
+    padding: Grows the box on every side. Negative values shrink it. Slider -10 to 10, default 0.
+    mode: Drop (default) removes points outside the box. Clamp moves them onto it.
+    testX: Checks X against the box when on (default).
+    testY: Checks Y against the box when on (default).
+    testZ: Checks Z against the box when on (default).
+    ArrayPoints: Points to trim.
+    BoundsArray: Points that define the box. Used when Bounds Source is Bounds Array.
+    MeshPoints: Points that define the box. Used when Bounds Source is Array Points.
+    JSONPoints: JSON family. Points to trim.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
+  note: >-
+    The bounding box comes from the raw Mesh Points list (or from the Bounds Array), not from the
+    vmeshutils samples. In Drop mode the kept points are the input elements unchanged, in Clamp mode
+    the points are rewritten with 3 values. If the bounds source has no points, the input is output
+    unchanged. Padding can be negative, which shrinks the box. The Mesh Points port is shown for the
+    Array Points source and the Bounds Array port for the Bounds Array source, after the source is
+    changed.

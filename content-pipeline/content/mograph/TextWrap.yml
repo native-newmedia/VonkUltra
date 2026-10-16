@@ -5,27 +5,60 @@ tools:
   JSON: vJSONTextWrap
 legacy_names: []
 curated:
-  tagline: Wrap text to a line width.
-  overview: Splits text into lines of a given width.
-  description: []
-  features: []
+  tagline: Joins the text of an array and wraps it to a line length, as one string or as a list of lines.
+  overview: >-
+    vArrayTextWrap takes an array of text pieces, joins them with spaces and wraps the result to
+    Line length characters. Output As chooses a single string or a list of lines.
+  description:
+    - >-
+      The pieces of the input are joined with single spaces, split into words, and the words are
+      placed on lines of at most Line length characters (default 25). A word longer than the line
+      length is cut into pieces of that length. Number of Paragraphs (default 1) divides the words
+      into that many groups of about equal size and puts an empty line between them.
+    - >-
+      With Output As String, the default, the Text output holds the lines joined by line breaks.
+      With Table, the TextTable output holds the list of lines. In Table mode the Text output holds
+      a table address and not text. Number of Paragraphs can be connected to another node.
+  features:
+    - title: Wraps to a width
+      desc: Lines break at spaces so that no line is longer than Line length.
+    - title: Long words
+      desc: Words longer than the line are cut into pieces of the line length.
+    - title: Paragraphs
+      desc: Number of Paragraphs puts blank lines between equal groups of words.
+    - title: String or table
+      desc: The result is one string or a list of lines.
   connections:
-    - label: Example 1
+    - label: Wrap generated text
       lines:
-        - vArrayGenerateText.chanceOperation = "Lorem ipsum"
-        - vArrayGenerateText.selectMode = "Paragraph"
-        - vArrayGenerateText.paragraphCount = 8
-        - vArrayGenerateText.Output -> vArrayTextWrap.Array
-        - vArrayTextWrap.Text -> vTextViewer.Input
-  difficulty: null
-  related: []
+        - vArrayGenerateText.OutputValData -> vArrayTextWrap.Array
+        - vArrayTextWrap.Text -> vArrayShapeText.Text
+    - label: Use the lines as a list
+      lines:
+        - vArrayGenerateText.OutputValData -> vArrayTextWrap.Array
+        - vArrayTextWrap.TextTable -> vArrayReverse.Input
+  difficulty: Beginner
+  related:
+    - name: vArrayGenerateText
+      desc: Generates random characters, words, sentences or paragraphs as an Array.
+    - name: vArrayShapeText
+      desc: Creates text shapes from a Text input or random text, with font, size and case.
+    - name: vArrayRenderWordPacker
+      desc: Fills a letter shape with packed text using FitTo and custom input.
   params:
-    OutputNumber: String or Table.
-    Linelength: Maximum characters per line.
-    num_paragraphs: Number of paragraphs.
+    OutputNumber: String (default) gives one string with line breaks. Table gives a list of lines.
+    Linelength: Largest number of characters in a line. Minimum 1, slider 1 to 100, default 25.
+    num_paragraphs: Number of paragraphs the words are divided into. Range 1 to 100, slider 1 to 10, default 1.
+    Array: Array of text pieces, joined with spaces.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
   connections_source: docsify
+  prompt_version: '1'
+  note: >-
+    In Table mode the Text output holds tostring() of a Lua table (an address), not the lines, and
+    in String mode the TextTable output holds the wrapped string in its array field. Words longer
+    than the line length are cut into pieces of that length. The ScriptVal fuse writes tostring of
+    the same value, and the JSON fuse writes the lines without the array and size wrapper.
 legacy_text: Text wrap Operations on a Array

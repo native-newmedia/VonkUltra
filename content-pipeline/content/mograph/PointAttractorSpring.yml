@@ -5,25 +5,80 @@ tools:
   JSON: vJSONPointAttractorSpring
 legacy_names: []
 curated:
-  tagline: Attract or repel points with a persistent spring.
-  overview: Like PointAttractor, but the spring simulation keeps its velocity from frame to frame.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: Attracts or repels points with a spring-damper simulation that keeps its speed between frames.
+  overview: >-
+    vArrayPointAttractorSpring takes an array of points and runs one simulation step per frame. A
+    spring pulls each point back to its input position, and the attractor pushes points inside
+    Radius. A second output draws the radius as a circle.
+  description:
+    - >-
+      Each frame, every point gets a spring term toward its input position, (home - position) *
+      Spring Return - speed * Spring Return * Spring Bounce, then, if it is inside Radius of the
+      attractor, a push of Strength * (1 - (distance / Radius) ^ Falloff Power) along the line to
+      the attractor. The speed is multiplied by Damping and added to the position. The speed carries
+      over to the next frame, so points can overshoot.
+    - >-
+      The simulation restarts from the input points on the first frame, when the frame is not the
+      previous one plus 1, when the point count changes, and when Reset Simulation is pressed. The
+      Falloff Guide output is a circle of 65 points around the attractor at Radius. Defaults are
+      Strength 0.001, Radius 1, Spring Return 0.1, Spring Bounce 0.9 and Damping 0.9.
+  features:
+    - title: Persistent speed
+      desc: Speed is kept from frame to frame, so points overshoot and settle.
+    - title: Reset
+      desc: Reset Simulation restarts from the input points.
+    - title: Falloff guide
+      desc: A second output holds a circle that shows the radius.
+    - title: 2D or 3D
+      desc: Use 3D Points adds Attractor Z and keeps Z in the output.
+  connections:
+    - label: Spring a grid around a point and draw
+      lines:
+        - vArrayPointsOnGrid.Output -> vArrayPointAttractorSpring.ArrayA
+        - vArrayPointAttractorSpring.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Draw the radius guide
+      lines:
+        - vArrayPointAttractorSpring.FalloffGuide -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+  difficulty: Advanced
+  related:
+    - name: vArrayPointAttractor
+      desc: Attractor and repulsor that computes one step per render.
+    - name: vArrayTemporalSmooth
+      desc: Smooths an Array over time with a low-pass filter using previous frame data.
+    - name: vArrayTemporalSolverStep
+      desc: Runs a temporal feedback solver step on an Array.
   params:
-    Strength: Positive values pull points toward the attractor, negative values push them away.
-    Radius: Radius of the effect.
-    FalloffPower: Exponent of the falloff curve.
-    Spring: Strength of the pull back to the start position.
-    Springbouncy: Amount of overshoot.
-    Damping: Reduces the movement speed over time.
-    Position: Position of the attractor in X and Y.
-    Attractor_z: Position of the attractor along Z.
-    multiplier: Multiplies the strength.
-    Use3D: Uses X, Y and Z of the points instead of X and Y.
+    Strength: Force at the attractor. Positive pulls, negative pushes. Slider -0.01 to 0.01, default 0.001.
+    Radius: Distance within which the attractor acts. Minimum 0.000001, slider 0.001 to 5, default 1.
+    FalloffPower: Exponent of the falloff. Minimum 0.01, slider 0.01 to 5, default 1.
+    Spring: Strength of the pull back to the input position. Slider 0 to 1, default 0.1.
+    Springbouncy: Spring Bounce. Scales the damping term inside the spring. Slider 0 to 1, default 0.9.
+    Damping: Multiplies the speed each frame. Slider 0 to 1, default 0.9.
+    Position: >-
+      Attractor position in X and Y, as a point in the viewer. Default 0.5, 0.5, which is 0, 0 in
+      the node.
+    Attractor_z: Attractor position on Z, used with Use 3D Points. Slider -1 to 1, default 0.5.
+    multiplier: Divides the attractor X and Y. Minimum 0.000001, slider 0 to 2, default 1.
+    Use3D: Simulates and outputs Z when on (default). Off gives 2 values per point.
+    Center: Hidden control. Not read by the code.
+    OffsetZ: Hidden control. Not read by the code.
+    Axis: Hidden control. Not read by the code.
+    Offset: Hidden control. Relative Flare Offset. Not read by the code. Default 1.5.
+    Reset: Button. Restarts the simulation from the input points on the next frame.
+    ArrayA: Points to simulate.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
+  note: >-
+    The simulation keeps its state between frames, but only while the frames are rendered one after
+    the other: it restarts from the input points when the frame is not the previous frame plus 1,
+    when the number of points changes, or when Reset Simulation is pressed. Multiplier divides the
+    attractor X and Y (the old text said it multiplies the strength). Center, Z Offset, Axis and
+    Relative Flare Offset are hidden and not read. The Y position uses convertY with an internal
+    image created with original size 0; the resulting value was not checked at runtime. The
+    ScriptVal fuse writes z = 0 for the 2D guide points.

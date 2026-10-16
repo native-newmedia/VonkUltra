@@ -5,30 +5,71 @@ tools:
   JSON: vJSONSin
 legacy_names: []
 curated:
-  tagline: Apply sine or cosine to values.
-  overview: Applies sine or cosine with frequency and amplitude to array values.
-  description: []
-  features: []
+  tagline: Replaces every coordinate with an amplitude-scaled sine or cosine of the coordinate.
+  overview: >-
+    vArraySin takes an array of points and outputs amplitude * wave(value * Frequency + phase) +
+    offset for every coordinate. Math Function picks sine or cosine, and Animation Speed moves the
+    phase with the render time.
+  description:
+    - >-
+      Each coordinate v of each point becomes Amplitude * f(v * Frequency + Animation Speed * time)
+      + Offset * i, where i is the number of the point counted from 1. The result replaces the input
+      value. The defaults are Frequency 0.1, Amplitude 0.01 and Offset 0.
+    - >-
+      The two Math Function buttons are swapped: Sin, the default, gives cosine, and Cos gives sine.
+      Animation Speed (default 0) times the render time is added inside the wave. Show Input exposes
+      the Animation Speed, Frequency, Amplitude and Offset ports on the node. In the Array version,
+      points with fewer than 3 values are dropped.
+  features:
+    - title: Sine or cosine
+      desc: Math Function chooses the wave, with the two button labels swapped in the code.
+    - title: Animatable phase
+      desc: Animation Speed times the render time is added to the phase.
+    - title: Per-point offset
+      desc: Offset is multiplied by the point number and added to every coordinate.
+    - title: Connectable ports
+      desc: Show Input exposes the four values as input ports.
   connections:
-    - label: Example 1
+    - label: Wave a circle and draw
       lines:
-        - vArrayPointsOnCircle.Output -> vArrayUnPacker.ArrayB
+        - vArrayPointsOnCircle.Output -> vArraySin.ArrayA
+        - vArraySin.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Unpack, wave and pack again
+      lines:
+        - vArrayPointsOnCircle.Output -> vArrayUnPacker.ArrayA
         - vArrayUnPacker.OutputArray -> vArraySin.ArrayA
         - vArraySin.Output -> vArrayPacker.ArrayA
         - vArrayPacker.Output -> vArrayCameraProjection.ArrayA
-        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
-        - Background.Output -> vArrayShapeRender.Input
-  difficulty: null
-  related: []
+  difficulty: Beginner
+  related:
+    - name: vArrayMath
+      desc: Applies math operations to an Array.
+    - name: vArrayWave
+      desc: Animates an Array.
+    - name: vArrayPerlin3Noise
+      desc: Applies Perlin noise to array values.
   params:
-    MathFunction: Sin or Cos.
-    animspeed: Speed of the animation over time. 0 is static.
-    Frequency: Frequency of the wave.
-    Amplitude: Amplitude of the wave.
-    offset: Offset added per point index.
+    MathFunction: Sin (default) or Cos. The code swaps them, so Sin outputs cosine and Cos outputs sine.
+    animspeed: Added to the phase as this value times the render time. Slider 0 to 5, default 0.
+    Frequency: Multiplies each value inside the wave. Slider -1 to 1, default 0.1.
+    Amplitude: Multiplies the wave. Slider -1 to 1, default 0.01.
+    offset: Added to every coordinate, multiplied by the point number. Slider -1 to 1, default 0.
+    ShowInput: >-
+      Shows the input ports of Animation Speed, Frequency, Amplitude and Offset when on. Default
+      off.
+    ArrayA: Points whose coordinates are replaced.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
   connections_source: docsify
+  prompt_version: '1'
+  note: >-
+    The Math Function buttons are swapped in the code: Sin (the default) outputs cosine and Cos
+    outputs sine. The node replaces the values with the wave and does not add the wave to them. In
+    the Array fuse, elements that are not lists of 3 or more values are dropped and each point is
+    cut to 3 values. The ScriptVal and JSON fuses keep lists of any length and plain numbers, and
+    count the numbers across all points for Offset instead of using the point number.
 legacy_text: Math Sin - Cos Operations on an Array

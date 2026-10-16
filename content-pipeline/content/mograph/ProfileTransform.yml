@@ -5,22 +5,59 @@ tools:
   JSON: vJSONProfileTransform
 legacy_names: []
 curated:
-  tagline: Transform a 2D profile.
-  overview: Translates, rotates, scales and mirrors a 2D sweep profile.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: Scales, mirrors, rotates and moves a 2D profile in X and Y.
+  overview: >-
+    vArrayProfileTransform takes a profile, a list of points, and outputs it after scale, mirror,
+    rotation and translation. Z is left as it is.
+  description:
+    - >-
+      Each point is changed in this order: X and Y are multiplied by Scale X and Scale Y (Mirror X
+      or Mirror Y flips the sign of that scale), then turned around the origin by Rotate in degrees,
+      then moved by Translate X and Y. Z is not changed. A positive Rotate turns the X axis toward
+      the Y axis. The defaults (Translate 0, Rotate 0, Scale 1, mirrors off) leave the profile as it
+      is.
+    - >-
+      The input can be a point array or a packet with a profile key. Points can be lists or tables
+      with x, y and z keys. The output is a point array with 3 values per point. An empty input
+      gives an empty output.
+  features:
+    - title: Fixed order
+      desc: Scale and mirror, then rotate, then translate.
+    - title: Mirror switches
+      desc: Mirror X and Mirror Y flip the sign of the scale.
+    - title: Z untouched
+      desc: Only X and Y change.
+    - title: Packet input
+      desc: A profile can also come as a packet with a profile key.
+  connections:
+    - label: Place a profile and sweep it
+      lines:
+        - vArrayPointsOnRectangle.Output -> vArrayProfileTransform.Profile
+        - vArrayProfileTransform.Output -> vArrayRenderSweepProfile.Profile
+        - vArrayPathFrame.Output -> vArrayRenderSweepProfile.PathPacket
+    - label: Rotate a profile and draw it
+      lines:
+        - vArrayPointsOnCircle.Output -> vArrayProfileTransform.Profile
+        - vArrayProfileTransform.Output -> vArrayCameraProjection.ArrayA
+  difficulty: Beginner
+  related:
+    - name: vArrayMirror
+      desc: Mirrors point arrays across an X, Y or Z axis with optional combine.
+    - name: vArrayTranslate
+      desc: Translates the positions of an Array.
+    - name: vArrayRenderSweepProfile
+      desc: Sweeps a profile along a path and outputs ribbon or tube mesh data.
   params:
-    TranslateX: Translation along X.
-    TranslateY: Translation along Y.
-    Rotate: Rotation in degrees.
-    ScaleX: Scale along X.
-    ScaleY: Scale along Y.
-    MirrorX: Mirrors along X.
-    MirrorY: Mirrors along Y.
+    TranslateX: Added to X after the rotation. Default 0.
+    TranslateY: Added to Y after the rotation. Default 0.
+    Rotate: Rotation around the origin in degrees. Default 0.
+    ScaleX: Multiplies X before the rotation. Slider -10 to 10, default 1.
+    ScaleY: Multiplies Y before the rotation. Slider -10 to 10, default 1.
+    MirrorX: Flips the sign of Scale X when on. Default off.
+    MirrorY: Flips the sign of Scale Y when on. Default off.
+    Profile: The profile points.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'

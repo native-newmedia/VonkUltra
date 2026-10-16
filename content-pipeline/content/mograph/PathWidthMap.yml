@@ -5,21 +5,64 @@ tools:
   JSON: vJSONPathWidthMap
 legacy_names: []
 curated:
-  tagline: Build width maps for a path.
-  overview: Generates a width or radius value for every path point, for use in path sweeps.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: Writes a width for every point of a path, driven by index, distance or your own numbers.
+  overview: >-
+    vArrayPathWidthMap takes a path or a path packet and outputs a packet with one width per point.
+    Width Min and Width Max set the range, and Source decides how the width changes along the path.
+  description:
+    - >-
+      The width of a point is Width Min + (Width Max - Width Min) * t. Source sets t. Index gives 0
+      at the first point and 1 at the last. Distance gives the share of the path length walked so
+      far, from 0 to 1. Scalar Input uses one number per point from Scalars, and missing entries
+      repeat the last number.
+    - >-
+      Clamp 0-1 (on by default) limits t to 0 to 1, Invert turns it into 1 - t, and Power raises it
+      to that power. The output packet keeps tangent, normal, binormal, twist and closed from the
+      input and adds the widths. The defaults are 0.05 and 0.2. An input without points is passed
+      through.
+  features:
+    - title: Three sources
+      desc: Index, Distance or a Scalars array drive the width.
+    - title: Width range
+      desc: Width Min and Width Max set the smallest and largest width.
+    - title: Curve shaping
+      desc: Power, Invert and Clamp 0-1 shape the transition.
+    - title: Packet pass-through
+      desc: Frames and twist from the input packet are kept in the output.
+  connections:
+    - label: Widths for a framed path, then sweep
+      lines:
+        - vArrayPointsOnArc.Output -> vArrayPathFrame.PathPacket
+        - vArrayPathFrame.Output -> vArrayPathWidthMap.PathPacket
+        - vArrayPathWidthMap.Output -> vArrayRenderSweepProfile.PathPacket
+    - label: Widths from a scalar array
+      lines:
+        - vArrayPointsOnCircle.Output -> vArrayPathWidthMap.PathPacket
+        - vArrayWeightMap.Output -> vArrayPathWidthMap.Scalars
+        - vArrayPathWidthMap.Output -> vArrayRenderSweepProfile.PathPacket
+  difficulty: Intermediate
+  related:
+    - name: vArrayPathFrame
+      desc: Builds tangent, normal and binormal frames along a path.
+    - name: vArrayPathTwist
+      desc: Applies roll or twist along path frames.
+    - name: vArrayRenderSweepProfile
+      desc: Sweeps a profile along a path and outputs ribbon or tube mesh data.
   params:
-    Source: 'Value that drives the result. Options: Index, Distance, Scalar Input.'
-    WidthMin: Smallest width.
-    WidthMax: Largest width.
-    Power: Exponent of the curve.
-    Invert: Inverts the result.
-    Clamp: Limits the result to the range 0 to 1.
+    Source: Index (default), Distance or Scalar Input. The value that drives the width.
+    WidthMin: Width at t = 0. Default 0.05.
+    WidthMax: Width at t = 1. Default 0.2.
+    Power: Exponent applied to t. Minimum 0.001, slider 0.01 to 8, default 1.
+    Invert: Uses 1 - t when on. Default off.
+    Clamp: Limits t to 0 to 1 when on (default).
+    PathPacket: A point array, or a packet with a path.
+    Scalars: One number per path point for Scalar Input.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
+  note: >-
+    With Scalar Input the numbers are used as they are and are not rescaled; they are clamped to 0
+    to 1 only if Clamp 0-1 is on. The path in the output packet is written as points with x, y and z
+    keys, not as lists. An input without points is passed through unchanged.

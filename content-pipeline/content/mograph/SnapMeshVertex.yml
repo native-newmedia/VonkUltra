@@ -5,22 +5,63 @@ tools:
   JSON: vJSONSnapMeshVertex
 legacy_names: []
 curated:
-  tagline: Snap points to the nearest mesh vertex.
-  overview: Moves every point to the nearest vertex of the mesh.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: Moves each point to the closest mesh vertex, patch point or sample, by a Blend amount.
+  overview: >-
+    vArraySnapMeshVertex takes an array of XYZ points and a mesh, and moves each point toward the
+    closest Mesh Points vertex. Snap Mode can switch the target to the patch points.
+  description:
+    - >-
+      Vertex (the default) and Surface both find the closest Mesh Points vertex. Centroid finds the
+      closest patch point, the average of a vertex and its 7 nearest neighbors. The output is the
+      point plus (target - point) * Blend, so Blend 1 (the default) puts the point on the target.
+    - >-
+      Blend runs from 0 to 1, and the output has 3 values per point. Affect X, Y and Z keep
+      unchecked axes at the input value. Only the vertex list of Mesh Points is used, not edges or
+      faces. If the points or the mesh are empty, the output is empty.
+  features:
+    - title: Three snap modes
+      desc: Vertex, Surface and Centroid, where Vertex and Surface give the same result.
+    - title: Blend
+      desc: Blend mixes between the point and the target.
+    - title: Per-axis switches
+      desc: Affect X, Y and Z restrict the move to the checked axes.
+    - title: Vertex list only
+      desc: The node reads the mesh vertices and ignores edges and faces.
+  connections:
+    - label: Snap a grid to a loaded mesh and draw
+      lines:
+        - vArrayPointsOnGrid.Output -> vArraySnapMeshVertex.ArrayPoints
+        - vArrayFromOBJ.Points -> vArraySnapMeshVertex.MeshPoints
+        - vArraySnapMeshVertex.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Snap scattered points
+      lines:
+        - vArrayRandom.Output -> vArraySnapMeshVertex.ArrayPoints
+        - vArrayFromOBJ.Points -> vArraySnapMeshVertex.MeshPoints
+        - vArraySnapMeshVertex.Output -> vArrayTranslate.Input
+  difficulty: Beginner
+  related:
+    - name: vArraySnapFaceCentroid
+      desc: Snaps each input point to the nearest local patch centroid of the mesh.
+    - name: vArrayProjectOnMesh
+      desc: Projects input points onto the nearest mesh surface point.
+    - name: vArrayRaycastToMesh
+      desc: Casts rays from input points against the mesh to find the nearest vertex hit.
   params:
-    inaffectx: Applies the effect to X.
-    inaffecty: Applies the effect to Y.
-    inaffectz: Applies the effect to Z.
-    snapmode: >-
-      Snap to the nearest vertex, the surface or the nearest centroid. Options: Vertex, Surface,
-      Centroid.
-    blend: Mix between the original points (0) and the result (1).
+    inaffectx: X moves when checked (default), otherwise it keeps the input value.
+    inaffecty: Y moves when checked (default), otherwise it keeps the input value.
+    inaffectz: Z moves when checked (default), otherwise it keeps the input value.
+    snapmode: Vertex (default), Surface or Centroid. Vertex and Surface give the same result.
+    blend: Mix between the point (0) and the target (1). Range 0 to 1, default 1.
+    ArrayPoints: Points to snap.
+    MeshPoints: Mesh vertices that the points snap to.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
+  note: >-
+    Vertex and Surface give the same result, since the mesh samples are single vertices. Centroid
+    uses the patch points, each the average of a vertex and its 7 nearest neighbors. With no mesh or
+    no points the output is empty.

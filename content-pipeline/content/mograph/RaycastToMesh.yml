@@ -5,28 +5,78 @@ tools:
   JSON: vJSONRaycastToMesh
 legacy_names: []
 curated:
-  tagline: Cast rays against the mesh.
-  overview: Casts a ray from each point and returns the nearest mesh vertex hit.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: >-
+    Casts a ray from each point and moves it to the nearest mesh vertex that the ray passes close
+    to.
+  overview: >-
+    vArrayRaycastToMesh takes an array of XYZ points and a mesh, shoots a ray from each point, and
+    outputs the mesh vertex that the ray hits first. Ray Mode picks a fixed direction, a target
+    point or a direction per point.
+  description:
+    - >-
+      Each ray starts at a point. In Global Dir the direction is Direction X, Y, Z (default 0, -1,
+      0). In Target Point it runs toward Target X, Y, Z. In Dir Array it comes from the Direction
+      Array input, one direction per point. Directions are made unit length.
+    - >-
+      A mesh vertex is a hit when it is ahead of the point and its distance from the ray line is at
+      most the average spacing of the mesh vertices. The nearest hit along the ray gives the output,
+      which is that vertex, for the checked axes of Affect X, Y and Z. On a miss, Pass Through
+      (default) keeps the point and Drop Point removes it. The check compares every vertex for every
+      point.
+  features:
+    - title: Three ray modes
+      desc: A global direction, a target point or a direction array.
+    - title: Vertex hits
+      desc: The output is the mesh vertex that the ray passes closest ahead.
+    - title: Miss behavior
+      desc: Points that hit nothing are kept or dropped.
+    - title: Per-axis switches
+      desc: Affect X, Y and Z keep unchecked axes at the input value.
+  connections:
+    - label: Drop a grid onto a loaded mesh and draw
+      lines:
+        - vArrayPointsOnGrid.Output -> vArrayRaycastToMesh.ArrayPoints
+        - vArrayFromOBJ.Points -> vArrayRaycastToMesh.MeshPoints
+        - vArrayRaycastToMesh.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Aim rays with a direction array
+      lines:
+        - vArrayPointsOnGrid.Output -> vArrayRaycastToMesh.ArrayPoints
+        - vArrayLookAt.Output -> vArrayRaycastToMesh.DirArray
+        - vArrayFromOBJ.Points -> vArrayRaycastToMesh.MeshPoints
+        - vArrayRaycastToMesh.Output -> vArrayTranslate.Input
+  difficulty: Advanced
+  related:
+    - name: vArraySnapMeshVertex
+      desc: Snaps each input point to the nearest mesh vertex.
+    - name: vArrayProjectOnMesh
+      desc: Projects input points onto the nearest mesh surface point.
+    - name: vArrayLookAt
+      desc: Builds per-point look-at direction vectors.
   params:
-    raymode: >-
-      Ray from a global direction, toward a target point, or from a direction array. Options: Global
-      Dir, Target Point, Dir Array.
-    RayDirX: Direction X.
-    RayDirY: Direction Y.
-    RayDirZ: Direction Z.
-    TargetX: Target position X. Shown when the related option is enabled.
-    TargetY: Target position Y. Shown when the related option is enabled.
-    TargetZ: Target position Z. Shown when the related option is enabled.
-    missbehavior: 'Keeps the point or removes it when the ray misses. Options: Pass Through, Drop Point.'
-    inaffectx: Applies the effect to X.
-    inaffecty: Applies the effect to Y.
-    inaffectz: Applies the effect to Z.
+    raymode: Global Dir (default), Target Point or Dir Array.
+    RayDirX: X of the ray direction in Global Dir mode. Default 0.
+    RayDirY: Y of the ray direction in Global Dir mode. Default -1.
+    RayDirZ: Z of the ray direction in Global Dir mode. Default 0.
+    TargetX: X of the target in Target Point mode. Default 0.
+    TargetY: Y of the target in Target Point mode. Default 0.
+    TargetZ: Z of the target in Target Point mode. Default 0.
+    missbehavior: Pass Through (default) keeps the point when the ray misses. Drop Point removes it.
+    inaffectx: X comes from the hit when checked (default), otherwise it keeps the input value.
+    inaffecty: Y comes from the hit when checked (default), otherwise it keeps the input value.
+    inaffectz: Z comes from the hit when checked (default), otherwise it keeps the input value.
+    DirArray: Direction per point for Dir Array mode. The port is shown only in that mode.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
+  note: >-
+    The ray does not test faces. It tests the mesh vertices: a vertex counts as hit if it lies ahead
+    of the point and within a tolerance of the ray line, where the tolerance is the average distance
+    from each Mesh Points vertex to its nearest other vertex. The nearest hit along the ray wins,
+    and the output is that vertex position. With no mesh data the points follow Miss Behavior. In
+    Dir Array mode, a point without an entry in the array uses the direction 0, -1, 0. Direction X,
+    Y and Z are shown for Global Dir, Target X, Y and Z for Target Point, and the Direction Array
+    port for Dir Array, after the mode has been changed once.

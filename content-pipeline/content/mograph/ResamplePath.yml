@@ -5,24 +5,66 @@ tools:
   JSON: vJSONResamplePath
 legacy_names: []
 curated:
-  tagline: Resample a path to even spacing.
-  overview: Resamples an ordered path by point count or by distance.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: Resamples a path to an even number of points or an even spacing, with optional smoothing.
+  overview: >-
+    vArrayResamplePath takes an ordered path and outputs points spaced evenly along its length. Mode
+    picks a fixed point count or a fixed spacing, and Interpolation can smooth the path first.
+  description:
+    - >-
+      The path is optionally closed (Closed Path adds a copy of the first point at the end) and
+      smoothed with Linear, Catmull-Rom, B-Spline or Cardinal interpolation using Interp Steps
+      subdivisions per segment. Then points are placed at equal distances along the result. Target
+      Count (default 32) gives that many points, including both ends of an open path. Target Spacing
+      (default 0.05) gives a point every that distance and ends on the last point.
+    - >-
+      A closed path does not repeat the first point at the end and has at least 3 points. Tension
+      (default 0) is shown for Cardinal only. In Target Count mode, a path of zero length gives
+      repeated copies of its first point. The output has 3 values per point.
+  features:
+    - title: Count or spacing
+      desc: Target Count sets the number of points, Target Spacing sets the distance.
+    - title: Four interpolations
+      desc: Linear, Catmull-Rom, B-Spline and Cardinal.
+    - title: Closed paths
+      desc: Closed Path joins the end to the start and does not repeat the first point.
+    - title: Even length spacing
+      desc: Points are placed at equal distances along the path length.
+  connections:
+    - label: Resample an arc and draw
+      lines:
+        - vArrayPointsOnArc.Output -> vArrayResamplePath.Points
+        - vArrayResamplePath.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Resample before framing
+      lines:
+        - vArrayCubicBezier.Output -> vArrayResamplePath.Points
+        - vArrayResamplePath.Output -> vArrayPathFrame.PathPacket
+  difficulty: Intermediate
+  related:
+    - name: vArrayReducePoints
+      desc: Reduces the number of points in an Array.
+    - name: vArraySubDividePath
+      desc: Smooths a 2D path.
+    - name: vArrayPathFrame
+      desc: Builds tangent, normal and binormal frames along a path.
   params:
-    Mode: 'Resample to a point count or to a spacing. Options: Target Count, Target Spacing.'
-    TargetCount: Number of output points. Shown when Mode is Target Count.
-    TargetSpacing: >-
-      Distance between output points. Shown when Mode is Target Spacing. Shown when the related
-      option is enabled.
-    ClosedPath: Treats the points as a closed loop.
-    Interpolation: 'Interpolation used between points. Options: Linear, Catmull-Rom, B-Spline, Cardinal.'
-    InterpSteps: Interpolation subdivisions per segment.
-    Tension: Tension of the spline. Shown when the related option is enabled.
+    Mode: Target Count (default) or Target Spacing.
+    TargetCount: Number of output points. Slider 2 to 2048, default 32. Shown in Target Count mode.
+    TargetSpacing: Distance between output points. Slider 0.001 to 2, default 0.05. Shown in Target Spacing mode.
+    ClosedPath: Treats the path as a closed loop when on. Default off.
+    Interpolation: Linear (default), Catmull-Rom, B-Spline or Cardinal.
+    InterpSteps: Subdivisions per segment for the three spline types. Slider 1 to 32, default 8.
+    Tension: Tension of the Cardinal spline. Slider -2 to 2, default 0. Shown for Cardinal only.
+    Points: Ordered path points.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
+  note: >-
+    Interp Steps is used only for Catmull-Rom, B-Spline and Cardinal. With Linear the path is not
+    subdivided. Catmull-Rom needs at least 4 points and B-Spline and Cardinal at least 3, otherwise
+    the path is subdivided linearly. B-Spline here is a quadratic spline that does not pass through
+    the middle points. Tension scales the Cardinal tangents by (1 - Tension) / 2. A path with fewer
+    than 2 points is returned as it is.

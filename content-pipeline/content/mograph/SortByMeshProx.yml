@@ -5,21 +5,71 @@ tools:
   JSON: vJSONSortByMeshProx
 legacy_names: []
 curated:
-  tagline: Sort points by distance to the mesh.
-  overview: Sorts the points by ascending distance to the nearest mesh surface point.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: Sorts points by their distance to the closest mesh vertex, and can pull them toward it.
+  overview: >-
+    vArraySortByMeshProx takes an array of XYZ points and a mesh, and outputs the points sorted by
+    their distance to the mesh. Sort Order picks near first or far first.
+  description:
+    - >-
+      For each point the node finds the reference on the mesh: the closest Mesh Points vertex
+      (Surface and Vertex) or the closest patch point (Face Centroid). The points are sorted by the
+      distance to it, nearest first for Ascending (default) or farthest first for Descending. Equal
+      distances keep their input order.
+    - >-
+      The written points can also move: Blend To Target (0 to 1, default 0) mixes each point toward
+      its reference, and Target Offset (default 0) adds an offset along the normal or along the line
+      from the reference. Only the vertex list of the mesh is used. With no mesh data, the points
+      are output in their original order.
+  features:
+    - title: Sort by mesh distance
+      desc: Points are ordered by their distance to the closest mesh point.
+    - title: Two sort orders
+      desc: Ascending puts the nearest points first, Descending the farthest.
+    - title: Optional move
+      desc: Blend To Target and Target Offset move the points toward or along the reference.
+    - title: Stable ties
+      desc: Points with equal distance keep their input order.
+  connections:
+    - label: Sort a grid by distance to a loaded mesh and draw
+      lines:
+        - vArrayPointsOnGrid.Output -> vArraySortByMeshProx.ArrayPoints
+        - vArrayFromOBJ.Points -> vArraySortByMeshProx.MeshPoints
+        - vArraySortByMeshProx.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Sort scattered points
+      lines:
+        - vArrayRandom.Output -> vArraySortByMeshProx.ArrayPoints
+        - vArrayFromOBJ.Points -> vArraySortByMeshProx.MeshPoints
+        - vArraySortByMeshProx.Output -> vArrayTranslate.Input
+  difficulty: Intermediate
+  related:
+    - name: vArraySortByDistance
+      desc: Sorts an array by point distance.
+    - name: vArrayWeightByMeshProx
+      desc: Outputs a 1D weight per input point based on distance to the mesh surface.
+    - name: vArrayMaskByMesh
+      desc: Keeps only input points within a distance threshold of the mesh surface.
   params:
     proximitymode: >-
-      Distance is measured to the surface, the nearest vertex or the nearest face centroid. Options:
-      Surface, Vertex, Face Centroid.
-    sortorder: Ascending or Descending.
-    blendtotarget: Mix between the original and the target position.
-    targetoffset: Offset of the target position.
+      Surface (default), Vertex or Face Centroid. Surface and Vertex measure to the closest vertex.
+      Face Centroid measures to the closest patch point.
+    sortorder: Ascending (default) puts the nearest points first. Descending puts the farthest first.
+    blendtotarget: Moves each point toward its reference by this share. Range 0 to 1, default 0.
+    targetoffset: >-
+      Offset of each written point along the normal, or along the line from the reference. Slider -5
+      to 5, default 0.
+    ArrayPoints: Points to sort.
+    MeshPoints: Mesh vertices that distances are measured to.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
+  note: >-
+    Surface and Vertex measure to the same point, the closest mesh vertex. Face Centroid measures to
+    the closest patch point, the average of a vertex and its 7 nearest neighbors. The output points
+    are also moved when Blend To Target or Target Offset is not 0. Without any mesh data the points
+    are output in their original order. Target Offset moves along the estimated normal in Surface
+    mode, and along the direction from the reference to the point in the other modes (0, 0, 1 if
+    they coincide).

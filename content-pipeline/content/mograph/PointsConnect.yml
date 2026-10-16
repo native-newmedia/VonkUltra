@@ -5,32 +5,71 @@ tools:
   JSON: vJSONPointsConnect
 legacy_names: []
 curated:
-  tagline: Connect point arrays into a path.
-  overview: Joins several point arrays into one path, with options for the join points.
-  description: []
-  features: []
+  tagline: Joins two point arrays into one path, alternating or appending, with an optional closing point.
+  overview: >-
+    vArrayPointsConnect takes Input A and Input B and outputs one path. Alternate interleaves their
+    points, Append puts the points of A first and then those of B.
+  description:
+    - >-
+      In Alternate mode the path runs A1, B1, A2, B2 and so on, which draws rungs between two
+      curves. In Append mode all points of A come first and then the points of B. Each B point is
+      placed at A + (B - A) * Connection, so Connection 1 (default) uses B as it is and 0 repeats
+      the A point. Reverse B reverses Input B first.
+    - >-
+      Hide Unconnected removes points that have no partner at the same index. Close Loop adds a copy
+      of the first point at the end. With Drop Duplicate Seam on (default, shown only for Close
+      Loop), the copy is skipped when the last point already equals the first. The longer array's
+      extra points are kept unless Hide Unconnected is on.
+  features:
+    - title: Two merge modes
+      desc: Alternate interleaves the arrays and Append joins them end to end.
+    - title: Connection blend
+      desc: Connection mixes the B points toward the A points.
+    - title: Reverse and close
+      desc: Reverse B flips the second array and Close Loop returns to the start.
+    - title: Unpaired points
+      desc: Hide Unconnected drops points that have no partner.
   connections:
-    - label: Example 1
+    - label: Connect two curves with rungs
       lines:
-        - vArrayLissajouseSpline1.Output->  vArrayUnPacker1.ArrayA
-        - vArrayLissajouseSpline2.Output->  vArrayUnPacker2.ArrayA
-        - vArrayUnPacker1.OutputArray -> vArrayPointsConnect.ArrayA
-        - vArrayUnPacker2.OutputArray -> vArrayPointsConnect.ArrayB
+        - vArrayPointsOnCircle.Output -> vArrayPointsConnect.ArrayA
+        - vArrayPointsOnArc.Output -> vArrayPointsConnect.ArrayB
         - vArrayPointsConnect.Output -> vArrayCameraProjection.ArrayA
         - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
         - Background.Output -> vArrayShapeRender.Input
-  difficulty: null
-  related: []
+    - label: Append two grids
+      lines:
+        - vArrayPointsOnGrid.Output -> vArrayPointsConnect.ArrayA
+        - vArrayPointsOnRectangle.Output -> vArrayPointsConnect.ArrayB
+        - vArrayPointsConnect.Output -> vArrayTranslate.Input
+  difficulty: Intermediate
+  related:
+    - name: vArrayAppend
+      desc: Repeats an Array a given number of times.
+    - name: vArrayMergeTrim
+      desc: Dynamically joins Array elements into one table.
+    - name: vArrayGridConnect
+      desc: Builds edge connectivity for a grid point array.
   params:
-    MergeMode: 'How the two arrays are combined. Options: Alternate, Append.'
-    ReverseB: Reverses the order of the second array.
-    ConnectionAmount: Connection style.
-    HideUnconnected: Removes points that have no connection.
-    CloseLoop: Connects the last point to the first.
-    DropDuplicateSeam: Removes the repeated point at the seam. Shown when the related option is enabled.
+    MergeMode: Alternate (default) or Append.
+    ReverseB: Reverses the order of Input B first when on. Default off.
+    ConnectionAmount: Mix from the A point (0) to the B point (1) for each B entry. Range 0 to 1, default 1.
+    HideUnconnected: Removes points that have no partner at the same index when on. Default off.
+    CloseLoop: Adds a copy of the first point at the end when on. Default off.
+    DropDuplicateSeam: >-
+      Skips the added point if the last point already equals the first. Default on. Shown only when
+      Close Loop is on.
+    ArrayA: The first point array.
+    ArrayB: The second point array.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
   connections_source: docsify
+  prompt_version: '1'
+  note: >-
+    Connection is a blend amount from 0 to 1: the second point of each pair is A + (B - A) *
+    Connection, so 1 gives the point of Input B and 0 repeats the point of Input A. The old text
+    called it a connection style. In the JSON fuse the main link numbers of Input B and the output
+    differ from the Array fuse.
 legacy_text: Connect points in an array

@@ -5,31 +5,83 @@ tools:
   JSON: vJSONWeightMap
 legacy_names: []
 curated:
-  tagline: Generate normalized weights per point.
-  overview: Generates a normalized weight array from scalar sources with a falloff curve.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: Turns a value per index into a normalized weight, and can apply it to points.
+  overview: >-
+    vArrayWeightMap reads a value for each index from the index, a scalar array, a point coordinate
+    or the distance to a center, maps it to a weight between Out Min and Out Max, and outputs the
+    weights or the points changed by them.
+  description:
+    - >-
+      The number of weights is the number of Points, else the number of Scalars, else Fallback Count
+      (default 100). Source picks the value: the index, the Scalar Input value, Position X, Y or Z,
+      or the distance to Center X, Y and Z. With Auto Range on, the smallest and largest value are
+      the range, otherwise Range Min and Max are. t is (value - min) / (max - min), clamped if Clamp
+      0-1 is on (default), flipped by Invert, and shaped by Curve (Linear, Smooth or Power). The
+      weight is Out Min + (Out Max - Out Min) * t.
+    - >-
+      Output Mode Weights Only (default) outputs the weights. With Points connected, the other modes
+      output the points: Store Weight in 4th Value adds weight * Apply Amount as a fourth value,
+      Multiply XYZ scales the point, Blend Toward Center moves it toward the center, and Offset XYZ
+      adds the amount to all three axes.
+  features:
+    - title: Six value sources
+      desc: Index, Scalar Input, Position X, Y or Z, or Distance From Center.
+    - title: Curve and range
+      desc: Auto or manual input range, an output range, and Linear, Smooth or Power curves.
+    - title: Five output modes
+      desc: Weights alone, or points changed by the weight in four ways.
+    - title: Fallback count
+      desc: Without inputs the node still outputs Fallback Count weights.
+  connections:
+    - label: Weights by distance from the center
+      lines:
+        - vArrayPointsOnGrid.Output -> vArrayWeightMap.Points
+        - vArrayWeightMap.Output -> vArrayApplyMask.Mask
+    - label: Store weights on the points and draw
+      lines:
+        - vArrayPointsOnGrid.Output -> vArrayWeightMap.Points
+        - vArrayWeightMap.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+  difficulty: Intermediate
+  related:
+    - name: vArrayColorMap
+      desc: Maps scalar sources to per-point RGBA colors.
+    - name: vArrayRampMap
+      desc: Maps scalar sources to per-point RGBA colors using a 4-stop ramp.
+    - name: vArrayMapRange
+      desc: Applies range mapping operations to an Array.
   params:
     Source: >-
-      Value that drives the result. Options: Index, Scalar Input, Position X, Position Y, Position
-      Z, Distance From Center.
-    AutoRange: Uses the minimum and maximum of the data as the range.
-    Curve: Shape of the transition. Linear, Smooth or Power.
-    Power: Exponent of the curve.
-    Clamp: Limits the result to the range 0 to 1.
-    Invert: Inverts the result.
-    FallbackCount: Number of values used when no input array is connected.
-    CenterX: Center position X.
-    CenterY: Center position Y.
-    CenterZ: Center position Z.
+      Index (default), Scalar Input, Position X, Position Y, Position Z or Distance From Center.
+      Position and distance sources give 0 without Points.
+    AutoRange: Uses the smallest and largest value as the range when on (default).
+    Curve: Linear (default), Smooth or Power.
+    Power: Exponent for the Power curve. Minimum 0.001, slider 0.01 to 8, default 1.
+    Clamp: Limits t to 0 to 1 when on (default).
+    Invert: Uses 1 - t when on. Default off.
+    FallbackCount: >-
+      Number of weights when neither Points nor Scalars are connected. Slider 1 to 1000, default
+      100.
+    CenterX: X of the center for Distance From Center and Blend Toward Center. Default 0.
+    CenterY: Y of the center for Distance From Center and Blend Toward Center. Default 0.
+    CenterZ: Z of the center for Distance From Center and Blend Toward Center. Default 0.
     OutputMode: >-
-      How the weight is output. Options: Weights Only, Store Weight in 4th Value, Multiply XYZ by
-      Weight, Blend Toward Center, Offset XYZ by Weight.
-    ApplyAmount: Amount of the result applied to the points.
+      Weights Only (default), Store Weight in 4th Value, Multiply XYZ by Weight, Blend Toward Center
+      or Offset XYZ by Weight.
+    ApplyAmount: Multiplies the weight in the point output modes. Slider -2 to 2, default 1.
+    RangeMin: Low end of the manual range. Used when Auto Range is off. Default 0.
+    RangeMax: High end of the manual range. Used when Auto Range is off. Default 1.
+    OutMin: Weight at t = 0. Default 0.
+    OutMax: Weight at t = 1. Default 1.
+    Points: Optional points. They set the count and feed the position and distance sources.
+    Scalars: Optional numbers. They feed the Scalar Input source.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
+  note: >-
+    The output is a list of numbers, or points when Output Mode is not Weights Only and Points are
+    connected. Blend Toward Center moves a point toward Center X, Y, Z by weight times Apply Amount.
+    Offset XYZ adds the same number to all three axes. Range controls have no limits in the code.

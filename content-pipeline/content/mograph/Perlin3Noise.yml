@@ -5,31 +5,74 @@ tools:
   JSON: vJSONPerlin3Noise
 legacy_names: []
 curated:
-  tagline: Apply Perlin noise to array values.
-  overview: Adds Perlin, fractal or curl noise to array values.
-  description: []
-  features: []
+  tagline: Replaces every number of an array with a Perlin or fractal noise value.
+  overview: >-
+    vArrayPerlin3Noise takes an array of points and outputs a noise value for each coordinate. Time,
+    Frequency and Scale shape the noise, and Noise Type switches to a fractal sum.
+  description:
+    - >-
+      Each coordinate v of each input point is replaced by noise(v * Frequency + Time) * Scale, so
+      the output holds noise values and not the original positions. The noise is sampled along the
+      diagonal of the noise grid, with the same value on both lookup axes. With Time 1 and
+      whole-number coordinates the lookup falls on grid points where Perlin noise is 0.
+    - >-
+      Fractal adds Octaves of the noise, each with twice the frequency and Persistence times the
+      weight of the one before, divided by the total weight. Octaves and Persistence are hidden for
+      Perlin. The Array version flattens the values and regroups them in threes. The ScriptVal and
+      JSON versions keep each point's length.
+    - Show Input exposes the Frequency, Scale and Time ports on the node.
+  features:
+    - title: Two noise types
+      desc: Perlin, or Fractal with Octaves and Persistence.
+    - title: Per-coordinate noise
+      desc: Every coordinate of every point is looked up on its own.
+    - title: Animatable
+      desc: Time offsets the lookup, and can be keyframed.
+    - title: Connectable ports
+      desc: Show Input exposes Frequency, Scale and Time as inputs.
   connections:
-    - label: Example 1
+    - label: Noise on a grid, then draw
       lines:
-        - vArrayCircularPoints.Output->  vArrayUnPacker.ArrayA
-        - vArrayUnPacker.OutputArray -> vArrayPerlin3Noise.Input
-        - vArrayPerlin3Noise.Array ->  vArrayPacker.ArrayA
-        - vArrayPacker.Output -> vArrayCameraProjection.ArrayA
+        - vArrayPointsOnGrid.Output -> vArrayPerlin3Noise.Input
+        - vArrayPerlin3Noise.Output -> vArrayCameraProjection.ArrayA
         - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
         - Background.Output -> vArrayShapeRender.Input
-  difficulty: null
-  related: []
+    - label: Noise values as a mask
+      lines:
+        - vArrayRandom.Output -> vArrayPerlin3Noise.Input
+        - vArrayPerlin3Noise.Output -> vArrayApplyMask.Mask
+  difficulty: Intermediate
+  related:
+    - name: vArrayNoise
+      desc: Creates a Noise Array.
+    - name: vArrayDisplaceValues
+      desc: Displaces XYZ positions using noise with spherical falloff.
+    - name: vArraySin
+      desc: Applies sine and cosine operations to an Array.
   params:
-    noise_type: Perlin or Fractal noise.
-    Timein: Offsets the noise or wave in time.
-    frequency: Frequency of the noise or wave.
-    Scale: Scale of the effect.
-    octaves: Number of noise layers added together. Shown when the related option is enabled.
-    persistence: Amplitude multiplier per octave. Shown when the related option is enabled.
+    noise_type: Perlin (default) or Fractal.
+    Timein: Added to the lookup coordinate. Slider -10 to 10, default 1.
+    frequency: Multiplies each value before the lookup. Slider 0 to 100, default 1.
+    Scale: Multiplies the noise. Slider 0 to 10, default 1.
+    octaves: >-
+      Number of noise layers in Fractal mode. Minimum 1, slider 1 to 10, default 1. Hidden for
+      Perlin.
+    persistence: >-
+      Weight multiplier per layer in Fractal mode. Range 0 and up, slider 0 to 1, default 0.5.
+      Hidden for Perlin.
+    Input: Points whose coordinates are replaced by noise.
+    ShowInput: Shows the Frequency, Scale and Time input ports when on (default).
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
   connections_source: docsify
+  prompt_version: '1'
+  note: >-
+    The node replaces the values with noise; it does not add noise to them (the old overview said it
+    adds). Each value v is turned into noise at the point (v * Frequency + Time, v * Frequency +
+    Time), so X and Y of the lookup are equal. The Array fuse flattens all values of all points into
+    one list and regroups them in threes, so points with 2 values or more than 3 are regrouped. The
+    ScriptVal and JSON fuses keep the length of each point. The code has a Curl type, but the Noise
+    Type buttons only offer Perlin and Fractal. Octaves is a float control.
 legacy_text: Perlin Noise function on array values

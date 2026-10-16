@@ -5,20 +5,68 @@ tools:
   JSON: vJSONSnapFaceCentroid
 legacy_names: []
 curated:
-  tagline: Snap points to the nearest patch centroid.
-  overview: Moves every point to the centroid of the nearest local patch of the mesh.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: Moves each point toward the closest patch point of a mesh, by a Blend amount.
+  overview: >-
+    vArraySnapFaceCentroid takes an array of XYZ points and a mesh. For each point it finds the
+    closest patch point, the average of a mesh vertex and its 7 nearest neighbors, and moves the
+    point toward it.
+  description:
+    - >-
+      For each point the node finds the closest of the patch points, one per mesh vertex. If Max
+      Distance is above 0 and the point is farther away than that, it stays where it is. Otherwise
+      the output is the point plus (patch point - point) * Blend. Blend defaults to 1, which puts
+      the point on the patch point.
+    - >-
+      Affect X, Y and Z keep unchecked axes at the input value. Only the vertex list of Mesh Points
+      is used, not faces. Blend is not limited in the code, so values outside 0 to 1 extrapolate. If
+      the points or the mesh are empty, the output is empty.
+  features:
+    - title: Patch points
+      desc: Targets are averages of a vertex and its nearest neighbors, smoother than the vertices.
+    - title: Distance limit
+      desc: Max Distance leaves points that are too far away where they are.
+    - title: Blend
+      desc: Blend mixes between the point and the patch point.
+    - title: Per-axis switches
+      desc: Affect X, Y and Z restrict the move to the checked axes.
+  connections:
+    - label: Snap a grid to a loaded mesh and draw
+      lines:
+        - vArrayPointsOnGrid.Output -> vArraySnapFaceCentroid.ArrayPoints
+        - vArrayFromOBJ.Points -> vArraySnapFaceCentroid.MeshPoints
+        - vArraySnapFaceCentroid.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Snap scattered points
+      lines:
+        - vArrayRandom.Output -> vArraySnapFaceCentroid.ArrayPoints
+        - vArrayFromOBJ.Points -> vArraySnapFaceCentroid.MeshPoints
+        - vArraySnapFaceCentroid.Output -> vArrayTranslate.Input
+  difficulty: Intermediate
+  related:
+    - name: vArraySnapMeshVertex
+      desc: Snaps each input point to the nearest mesh vertex.
+    - name: vArrayAttractToMesh
+      desc: Lerps input points toward the nearest mesh surface point.
+    - name: vArrayClampToMeshProx
+      desc: Clamps points farther than a maximum distance from the mesh down to that distance.
   params:
-    inblend: Mix between the original points (0) and the result (1).
-    inmaxdistance: Distance from the mesh at which the effect ends.
-    inaffectx: Applies the effect to X.
-    inaffecty: Applies the effect to Y.
-    inaffectz: Applies the effect to Z.
+    inblend: >-
+      Mix between the point (0) and the patch point (1). Slider 0 to 1, default 1. Not limited in
+      the code.
+    inmaxdistance: >-
+      Points farther from the closest patch point than this stay where they are. 0 switches it off.
+      Slider 0 to 2, default 0.
+    inaffectx: X moves when checked (default), otherwise it keeps the input value.
+    inaffecty: Y moves when checked (default), otherwise it keeps the input value.
+    inaffectz: Z moves when checked (default), otherwise it keeps the input value.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
+  note: >-
+    The name and the old text say face centroid, but the code snaps to the patch points, each the
+    average of a mesh vertex and its 7 nearest neighbors. Blend is not limited in the code, so
+    values outside 0 to 1 extrapolate. Max Distance 0 switches the limit off. With no mesh or no
+    points the output is empty.

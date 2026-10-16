@@ -5,88 +5,64 @@ tools:
   JSON: vJSONPointsOnArc
 legacy_names: []
 curated:
-  tagline: >-
-    Distribute a precise point array along an arc — fan layouts, radial data visualisation, animated
-    sweeps.
+  tagline: Builds an arc of points between each pair of consecutive input points.
   overview: >-
-    vArrayPointsOnArc generates a structured array of 2D or 3D points distributed along a defined
-    arc. It is intentionally minimal — the arc geometry is driven entirely by an upstream array
-    input, keeping this node as a clean transformer rather than a generator with its own controls.
+    vArrayPointsOnArc takes an array of points and outputs Smoothness + 1 points on an arc between
+    each consecutive pair. With the default Height Factor of 0 each arc is a half circle in the XY
+    plane with the two points as its diameter.
   description:
     - >-
-      vArrayPointsOnArc generates a structured array of 2D or 3D points distributed along a defined
-      arc. Where vArrayPointsOnCircle gives you a full 360° ring, PointsOnArc gives you surgical
-      control — define the exact start and end angle, the radius, and the center point
-      independently. This makes it the right choice for fan-shaped data visualisations, clock-style
-      progress indicators, radial label placement, and any layout where the arc needs to occupy a
-      specific angular range rather than a full revolution.
+      For every pair of neighboring input points the node places Smoothness - 1 points between them
+      and keeps the two input points at the ends. Each point is the start point turned around a
+      center by an angle that runs from 0 to 180 degrees. With Height Factor 0 the center is the
+      middle of the pair, so the arc is a half circle in the XY plane, and Z follows a cosine
+      between the two Z values.
     - >-
-      The node is driven by its ArrayA input, which defines the angular span as a vArray range. In
-      practice this is almost always the output of vArrayCreateMinMax — set Min to your start angle
-      and Max to your end angle, and PointsOnArc distributes the requested number of points evenly
-      across that range. Because the span comes from an upstream node rather than being hardcoded,
-      it stays live: animate or keyframe the Min/Max values and the arc responds every frame without
-      breaking the rest of the pipeline.
-    - >-
-      The Smoothness control sets how many intermediate segments are used to compute the arc
-      geometry — higher values produce a rounder, more precise curve, lower values produce a faster,
-      more angular approximation. The output is a standard vArray XYZ point table, meaning it slots
-      directly into vArrayCameraProjection, vArrayDisplaceValues, vArrayStagger, or any other
-      modifier without conversion. A minimal pipeline is three nodes: vArrayCreateMinMax →
-      vArrayPointsOnArc → vArrayCameraProjection → vArrayShapeRender with a Background input.
+      Height Factor (hidden, default 0) moves the center sideways by half the distance times the
+      factor and lifts the middle of the arc on Z by the factor times the distance. Smoothness runs
+      from 1 to 100 with a default of 20. A point shared by two pairs is written twice. Fewer than 2
+      input points give an empty output.
   features:
-    - title: Arc span control
-      desc: Define precise start and end angles for partial arcs, full circles, or anything in between.
-    - title: Min/Max driven
-      desc: Accepts a vArrayCreateMinMax input to define the arc span procedurally from data values.
-    - title: 2D / 3D output
-      desc: Switch between XY pairs and XYZ triples to match your downstream pipeline requirements.
-    - title: CameraProjection ready
-      desc: >-
-        Conforms to standard vArray format — feeds directly into vArrayCameraProjection with no
-        conversion.
+    - title: One arc per pair
+      desc: Each pair of neighboring input points gets its own arc.
+    - title: Smoothness
+      desc: Smoothness sets how many segments each arc has.
+    - title: End points kept
+      desc: Every arc starts and ends on the input points.
+    - title: Hidden height control
+      desc: Height Factor bends the arcs and lifts them on Z.
   connections:
-    - label: Standard arc pipeline
+    - label: Arcs between line points and draw
       lines:
-        - vArrayCreateMinMax.Output -> vArrayPointsOnArc.ArrayA
+        - vArrayLine.Output -> vArrayPointsOnArc.ArrayA
         - vArrayPointsOnArc.Output -> vArrayCameraProjection.ArrayA
         - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
         - Background.Output -> vArrayShapeRender.Input
-    - label: With displacement before projection
+    - label: Arcs through rectangle corners
       lines:
-        - vArrayCreateMinMax.Output -> vArrayPointsOnArc.ArrayA
-        - vArrayPointsOnArc.Output -> vArrayDisplaceValues.ArrayA
-        - vArrayDisplaceValues.Output -> vArrayCameraProjection.ArrayA
-        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
-        - Background.Output -> vArrayShapeRender.Input
-    - label: With staggered animation
-      lines:
-        - vArrayCreateMinMax.Output -> vArrayPointsOnArc.ArrayA
-        - vArrayPointsOnArc.Output -> vArrayStagger.ArrayA
-        - vArrayStagger.Output -> vArrayCameraProjection.ArrayA
-        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
-        - Background.Output -> vArrayShapeRender.Input
+        - vArrayPointsOnRectangle.Output -> vArrayPointsOnArc.ArrayA
+        - vArrayPointsOnArc.Output -> vArrayClosePath.Points
   difficulty: Intermediate
   related:
     - name: vArrayPointsOnCircle
-      desc: Full 360° point distribution — use when you need a complete ring rather than a partial arc.
-    - name: vArrayPointsOnGrid
-      desc: >-
-        Rectangular grid layout for matrix-style arrangements — same pipeline pattern, different
-        geometry.
-    - name: vArrayPointsOnHexagon
-      desc: Hex-grid distribution with offset row support — better for packed or organic layouts.
+      desc: Generates points on a circle.
+    - name: vArrayCubicBezier
+      desc: Creates a cubic Bezier path from manually entered control values.
+    - name: vArrayResamplePath
+      desc: Resamples ordered paths to even spacing by count or distance.
   params:
-    smoothness: >-
-      Number of interpolated segments used to compute the arc curve. Higher values produce smoother
-      arcs; lower values produce faster, more angular results. Values above 50 are rarely needed
-      unless rendering at very large scale.
-    ArrayA: >-
-      Required. The input array that defines the arc's angular span and point count. Connect
-      vArrayCreateMinMax here — its X Min/Max define the start and end angles, and its Array Length
-      defines how many points are distributed along the arc.
+    smoothness: Number of segments per arc. Range 1 to 100, default 20.
+    ArrayA: Points that the arcs connect, in order. Each needs 3 values.
+    heightFactor: Hidden control. Bends the arc sideways and lifts it on Z. Slider 0.001 to 1, default 0.
+    mul: Hidden control. Multiplier. Read by the code but not used. Default 0.
 status:
-  source: rich-json
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
+  note: >-
+    The old text says the arc angles come from an upstream min and max node. The code reads no
+    angles: it builds one arc between each pair of consecutive input points, so the Input must hold
+    at least 2 points with 3 values each. Multiplier is hidden and read but not used. Each point
+    shared by two pairs appears twice in the output.
 legacy_text: Generate points on an arc

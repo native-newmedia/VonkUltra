@@ -5,20 +5,62 @@ tools:
   JSON: vJSONReverse
 legacy_names: []
 curated:
-  tagline: Reverse or reorder an array range.
-  overview: Reverses the whole array or an index range of it.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: Reverses the order of an array, or of a range of it, by index.
+  overview: >-
+    vArrayReverse takes an array of any elements and outputs it with the elements from Start Index
+    to End Index in reverse order. Elements outside the range stay where they are.
+  description:
+    - >-
+      Start Index (default 1) and End Index (default -1, which means the last element) mark a range,
+      counted from 1. With Direction Reverse, the default, the elements of the range are written in
+      the opposite order, and the elements before and after the range are copied as they are. With
+      Direction Forward the range is written in its original order, so the output equals the input.
+    - >-
+      The elements can be numbers, points or lists, and they are not changed. End Index is limited
+      to the length of the array, and an End Index below 1 means the end. Preserve Metadata and
+      Debug Mode are in the node but have no effect. An empty input gives an empty output.
+  features:
+    - title: Full or partial reversal
+      desc: The whole array or only the range from Start Index to End Index is reversed.
+    - title: Any element type
+      desc: Numbers, points and lists are moved without being changed.
+    - title: End of array shortcut
+      desc: An End Index of -1 means the last element.
+    - title: Unaffected outside the range
+      desc: Elements before and after the range keep their positions.
+  connections:
+    - label: Reverse a path and draw it
+      lines:
+        - vArrayPointsOnArc.Output -> vArrayReverse.Input
+        - vArrayReverse.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Reverse part of a list
+      lines:
+        - vArrayCreateRange.Output -> vArrayReverse.Input
+        - vArrayReverse.Output -> vArrayMath.ArrayA
+  difficulty: Beginner
+  related:
+    - name: vArrayRotateValues
+      desc: Rotates the indexes and values of an Array.
+    - name: vArraySlicer
+      desc: Trims the start and end of single or multi-dimensional arrays.
+    - name: vArraySortByDistance
+      desc: Sorts an array by point distance.
   params:
-    Direction: 'Direction of the operation. Options: Reverse, Forward.'
-    StartIndex: First index of the range to reverse.
-    EndIndex: Last index of the range to reverse.
-    PreserveMetadata: Keeps the extra values of each point.
-    DebugMode: Prints debug information to the console.
+    Direction: Reverse (default) writes the range backward. Forward writes it in its original order.
+    StartIndex: First index of the range, counted from 1. Minimum 1, slider to 10, default 1.
+    EndIndex: Last index of the range. -1 means the last element. Minimum -1, slider to 10, default -1.
+    PreserveMetadata: Has no effect in the code. Default off.
+    DebugMode: Has no effect in the code. Default off.
+    Input: Array to reverse.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
+  note: >-
+    Preserve Metadata and Debug Mode are not used by Process(): the size value is written the same
+    way whether Preserve Metadata is on or not, and Debug Mode is never read. The elements are
+    copied as they are, so extra values of points are always kept. Forward copies the range in its
+    original order, so it changes nothing.

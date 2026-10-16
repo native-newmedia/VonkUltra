@@ -5,57 +5,117 @@ tools:
   JSON: vJSONRepeatTransform
 legacy_names: []
 curated:
-  tagline: Repeat an array with transforms.
-  overview: Repeats an array several times, transforming each copy, and writes instance IDs.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: Repeats an array in a line, circle, spiral or grid, with transforms spread across the copies.
+  overview: >-
+    vArrayRepeatTransform takes an array of XYZ points and outputs copies of it. Array Mode places
+    the copies, and the Translate, Scale and Rotation controls change them from the first copy to
+    the last. A second output holds the copy number of each point.
+  description:
+    - >-
+      The copies are Number of Times in Linear, Circular and Spiral modes, and Grid Columns times
+      Rows (times Depth for Grid 3D) in the grid modes. Circular puts copies on a circle of Radius
+      in XY, Spiral adds a rise of Spiral Height over the copies, and the grid modes center a grid
+      with the spacings. Translate, Scale and Rotation are totals reached at the last copy, with
+      copy j getting the share j / (Number of Times - 1) of them.
+    - >-
+      Each copy is rotated around the Pivot in the Rotation Order, scaled by 1 + Scale * share, and
+      moved. Random adds seeded offsets per copy, Shake adds smoothed noise over time, and Mirror
+      negates every second copy. Position Array adds three numbers per copy. The Instance IDs output
+      holds the copy number of each point, and ScriptVal Groups the points per copy.
+  features:
+    - title: Five layouts
+      desc: Linear, Circular, Spiral, Grid 2D and Grid 3D.
+    - title: Transforms across copies
+      desc: Translate, Scale and Rotation are spread from the first copy to the last.
+    - title: Random and shake
+      desc: Seeded random variation and smoothed animated noise per copy.
+    - title: Instance IDs
+      desc: A second output gives the copy number of every output point.
+  connections:
+    - label: Repeat a shape in a circle and draw
+      lines:
+        - vArrayPointsOnRectangle.Output -> vArrayRepeatTransform.InputArray
+        - vArrayRepeatTransform.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Use the groups to split the copies
+      lines:
+        - vArrayPointsOnCircle.Output -> vArrayRepeatTransform.InputArray
+        - vArrayRepeatTransform.Output -> vArrayCameraProjection.ArrayA
+        - vArrayRepeatTransform.ScriptValGroups -> vArrayCameraProjection.ArrayGroups
+  difficulty: Advanced
+  related:
+    - name: vArrayRepeat
+      desc: Repeats point arrays with per-copy transform offsets.
+    - name: vArrayCopyToPoints
+      desc: Copies a template point set onto each target point with scale and seeded rotation variation.
+    - name: vArrayForEachIndexed
+      desc: Applies indexed or grouped transforms per point in a single pass.
   params:
-    ArrayMode: 'Arrangement of the copies. Options: Linear, Circular, Spiral, Grid 2D, Grid 3D.'
-    numTimes: Number of copies.
-    Radius: Radius of the effect. Shown when the related option is enabled.
-    SpiralHeight: Height of the spiral. Shown when the related option is enabled.
-    GridX: Columns of the grid. Shown when the related option is enabled.
-    GridY: Rows of the grid. Shown when the related option is enabled.
-    GridZ: Layers of the grid. Shown when the related option is enabled.
-    GridSpacingX: Spacing along X. Shown when the related option is enabled.
-    GridSpacingY: Spacing along Y. Shown when the related option is enabled.
-    GridSpacingZ: Spacing along Z. Shown when the related option is enabled.
-    Translate.X: Translation along X.
-    Translate.Y: Translation along Y.
-    Translate.Z: Translation along Z.
-    Scale.X: Scale along X.
-    Scale.Y: Scale along Y.
-    Scale.Z: Scale along Z.
-    Rotation.X: Rotation per copy around X.
-    Rotation.Y: Rotation per copy around Y.
-    Rotation.Z: Rotation per copy around Z.
-    RotationOrder: 'Order in which the rotations are applied. Options: XYZ, YXZ, ZYX, XZY, YZX, ZXY.'
-    Pivot.X: Pivot X.
-    Pivot.Y: Pivot Y.
-    Pivot.Z: Pivot Z.
-    EnableRandom: Adds random variation to each copy.
-    RandomSeed: Seed of the random generator.
-    RandomTranslate: Random translation range.
-    RandomRotate: Random rotation range.
-    RandomScale: Random scale range.
-    EnableShake: Animates a shake on each copy.
-    Shake.Position.Amplitude: Shake amplitude for position.
-    Shake.Rotation.Amplitude: Shake amplitude for rotation.
-    Shake.Scale.Amplitude: Shake amplitude for scale.
-    Shake.Frequency: Frequency of the noise or wave.
-    Shake.Speed: Speed of the animation.
-    Shake.Phase: Shifts the wave in phase.
-    Shake.Seed: Seed of the random generator.
-    Shake.Lag: Delay between copies in the animation.
-    Shake.CumulativeLag: Adds the lag of every previous copy.
-    Shake.ReverseCumulative: Reverses the direction.
-    MirrorX: Mirrors every second copy along X.
-    MirrorY: Mirrors every second copy along Y.
-    MirrorZ: Mirrors every second copy along Z.
+    ArrayMode: Linear (default), Circular, Spiral, Grid 2D or Grid 3D.
+    numTimes: Number of copies in Linear, Circular and Spiral modes. Slider 1 to 100, default 1.
+    Radius: >-
+      Radius of the circle or spiral in XY. Slider 0 to 10, default 0.1. Shown for Circular and
+      Spiral.
+    SpiralHeight: Rise on Z over all copies. Slider 0 to 10, default 0.1. Shown for Spiral.
+    GridX: Columns of the grid. Slider 1 to 20, default 2. Shown for the grid modes.
+    GridY: Rows of the grid. Slider 1 to 20, default 2. Shown for the grid modes.
+    GridZ: Layers of the grid. Slider 1 to 20, default 3. Shown for Grid 3D.
+    GridSpacingX: Spacing along X. Slider 0 to 5, default 0.1. Shown for the grid modes.
+    GridSpacingY: Spacing along Y. Slider 0 to 5, default 0.1. Shown for the grid modes.
+    GridSpacingZ: Spacing along Z. Slider 0 to 5, default 0.1. Shown for Grid 3D.
+    Translate.X: Total X translation reached at the last copy. Slider -10 to 10, default 0.
+    Translate.Y: Total Y translation reached at the last copy. Slider -10 to 10, default 0.
+    Translate.Z: Total Z translation reached at the last copy. Slider -10 to 10, default 0.
+    Scale.X: Added to the X scale factor of 1 at the last copy. Slider -1 to 1, default 0.
+    Scale.Y: Added to the Y scale factor of 1 at the last copy. Slider -1 to 1, default 0.
+    Scale.Z: Added to the Z scale factor of 1 at the last copy. Slider -1 to 1, default 0.
+    Rotation.X: Total rotation around X in degrees at the last copy. Slider -360 to 360, default 0.
+    Rotation.Y: Total rotation around Y in degrees at the last copy. Slider -360 to 360, default 0.
+    Rotation.Z: Total rotation around Z in degrees at the last copy. Slider -360 to 360, default 0.
+    RotationOrder: Order in which the three rotations are applied, XYZ (default), YXZ, ZYX, XZY, YZX or ZXY.
+    Pivot.X: X of the pivot for rotation and scale. Slider -10 to 10, default 0.
+    Pivot.Y: Y of the pivot for rotation and scale. Slider -10 to 10, default 0.
+    Pivot.Z: Z of the pivot for rotation and scale. Slider -10 to 10, default 0.
+    EnableRandom: Turns on random variation per copy when on. Default off.
+    RandomSeed: Integer, slider 0 to 1000, default 0.
+    RandomTranslate: Random translation per copy, between minus and plus this value. Slider 0 to 5, default 0.
+    RandomRotate: >-
+      Random rotation per copy in degrees, between minus and plus this value. Slider 0 to 180,
+      default 0.
+    RandomScale: >-
+      Random change of the scale factor per copy, between minus and plus this value. Slider 0 to 1,
+      default 0.
+    EnableShake: Turns on the animated noise when on. Default off.
+    Shake.Position.Amplitude: Size of the position noise. Range 0 to 1, default 0.
+    Shake.Rotation.Amplitude: Size of the rotation noise, multiplied by 10 for degrees. Range 0 to 360, default 0.
+    Shake.Scale.Amplitude: Size of the scale noise. Range 0 to 1, default 0.
+    Shake.Frequency: Frequency of the noise. Range 0.1 to 10, default 1.
+    Shake.Speed: How fast the noise moves with the render time. Range 0 to 10, default 0.
+    Shake.Phase: Start offset of the noise in degrees. Range 0 to 360, default 0.
+    Shake.Seed: Integer, range 0 to 1000, default 0.
+    Shake.Lag: Smoothing of the shake over time. Range 0 to 1, default 0.
+    Shake.CumulativeLag: Smoothing where each copy follows the one before it. Range 0 to 1, default 0.
+    Shake.ReverseCumulative: Makes each copy follow the one after it when on, with Cumulative Lag. Default off.
+    MirrorX: Negates X for every second copy when on. Default off.
+    MirrorY: Negates Y for every second copy when on. Default off.
+    MirrorZ: Negates Z for every second copy when on. Default off.
+    InputArray: Points to repeat, or a flat list of numbers, three per point.
+    PosArray: A flat list of numbers, three per copy, added to the copy positions.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
+  note: >-
+    The Translate, Scale and Rotation controls are totals reached at the last copy; copy j gets the
+    share j / (Number of Times - 1) of them. The old text called them per-copy steps. In the grid
+    modes the share still uses Number of Times, so it can go above 1 when the grid has more cells
+    than that, and it is 0 when Number of Times is 1. Scale controls default to 0 and the scale
+    factor is 1 + Scale * share. Position Array is decoded as it is and read as a flat list of
+    numbers, three per copy. An Array-family output has the array and size wrapper, so connecting
+    one gives no offsets (not run in Fusion). Shake keeps its state between renders and restarts
+    when the time goes backwards or the copy count changes. The Shake Rotation Amplitude is
+    multiplied by 10. Radius and Spiral Height are shown for Circular and Spiral, Spiral Height for
+    Spiral only, and the grid controls for the grid modes, after the mode is changed. The ScriptVal
+    fuse names its inputs and groups output differently.

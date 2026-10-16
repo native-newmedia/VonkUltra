@@ -5,25 +5,82 @@ tools:
   JSON: vJSONPointAttractor
 legacy_names: []
 curated:
-  tagline: Attract or repel points.
-  overview: Moves points toward or away from a 2D or 3D attractor point with spring dynamics.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: Pulls points toward, or pushes them away from, an attractor position within a radius.
+  overview: >-
+    vArrayPointAttractor takes an array of points and moves those inside Radius of the attractor
+    toward it, or away from it with a negative Strength. The attractor is set by Attractor Position
+    and Attractor Z.
+  description:
+    - >-
+      For each point closer to the attractor than Radius, the node adds a push of Strength * (1 -
+      (distance / Radius) ^ Falloff Power) along the line to the attractor, scaled by Time Step,
+      multiplies it by Damping, and moves the point by that times Time Step again. Points outside
+      Radius do not move. The move does not depend on the frame.
+    - >-
+      The attractor X and Y come from Attractor Position, centered on 0 and divided by Multiplier.
+      Attractor Z is used when Use 3D Points is on (default), which also keeps the Z of the output.
+      Defaults are Strength 0.001, Radius 1, Falloff Power 1, Damping 0.98 and Time Step 10. Spring
+      Return and Spring Bounce are hidden and have no effect.
+  features:
+    - title: Attract or repel
+      desc: A positive Strength pulls points in and a negative one pushes them out.
+    - title: Radius and falloff
+      desc: The force drops from full at the attractor to 0 at Radius, shaped by Falloff Power.
+    - title: 2D or 3D
+      desc: Use 3D Points adds Attractor Z and keeps Z in the output.
+    - title: Draggable position
+      desc: Attractor Position is a point control in the viewer.
+  connections:
+    - label: Pull a grid toward a point and draw
+      lines:
+        - vArrayPointsOnGrid.Output -> vArrayPointAttractor.ArrayA
+        - vArrayPointAttractor.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Repel scattered points
+      lines:
+        - vArrayRandom.Output -> vArrayPointAttractor.ArrayA
+        - vArrayPointAttractor.Output -> vArrayTranslate.Input
+  difficulty: Intermediate
+  related:
+    - name: vArrayPointAttractorSpring
+      desc: Attractor and repulsor with a persistent spring-damper simulation.
+    - name: vArrayDisplaceValues
+      desc: Displaces XYZ positions using noise with spherical falloff.
+    - name: vArrayAttractToMesh
+      desc: Lerps input points toward the nearest mesh surface point.
   params:
-    Strength: Positive values pull points toward the attractor, negative values push them away.
-    Radius: Radius of the effect.
-    FalloffPower: Exponent of the falloff curve.
-    Damping: Reduces the movement speed over time.
-    TimeStep: Time step of the simulation.
-    Position: Position of the attractor in X and Y.
-    Attractor_z: Position of the attractor along Z.
-    multiplier: Multiplies the strength.
-    Use3D: Uses X, Y and Z of the points instead of X and Y.
+    Strength: Force at the attractor. Positive pulls, negative pushes. Slider -0.01 to 0.01, default 0.001.
+    Radius: Distance within which points are affected. Minimum 0.000001, slider 0.001 to 5, default 1.
+    FalloffPower: Exponent of the falloff. Minimum 0.01, slider 0.01 to 5, default 1.
+    Damping: Multiplies the speed after the push. Slider 0 to 1, default 0.98.
+    TimeStep: Scales the push and the move. Slider 0.01 to 100, default 10.
+    Position: >-
+      Attractor position in X and Y, as a point in the viewer. Default 0.5, 0.5, which is 0, 0 in
+      the node.
+    Attractor_z: Attractor position on Z, used with Use 3D Points. Slider -1 to 1, default 0.5.
+    multiplier: Divides the attractor X and Y. Minimum 0.000001, slider 0 to 2, default 1.
+    Use3D: Uses and outputs Z when on (default). Off gives 2 values per point.
+    Spring: >-
+      Hidden control. Spring Return. Has no effect, since points start at rest at their input
+      position. Default 0.1.
+    Springbouncy: Hidden control. Spring Bounce. Has no effect for the same reason. Default 0.01.
+    Center: Hidden control. Not read by the code.
+    OffsetZ: Hidden control. Not read by the code.
+    Axis: Hidden control. Not read by the code.
+    Offset: Hidden control. Relative Flare Offset. Not read by the code. Default 1.5.
+    ArrayA: Points to move.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
+  note: >-
+    The registered description says spring dynamics, but each render starts every point at rest at
+    its input position, so the spring term is always 0 and Spring Return and Spring Bounce (both
+    hidden) have no effect. Time is not read, so the output does not change between frames.
+    Multiplier divides the attractor X and Y (the old text said it multiplies the strength). Center,
+    Z Offset, Axis and Relative Flare Offset are hidden and not read. The Y position uses convertY
+    with an internal image created with original size 0; the resulting value was not checked at
+    runtime. The attractor Z is not divided by Multiplier.
 legacy_text: 2D/3D point attractor/repulsor with spring dynamics

@@ -5,25 +5,67 @@ tools:
   JSON: vJSONUnPacker
 legacy_names: []
 curated:
-  tagline: Unpack grouped values.
-  overview: Splits packed groups back into a flat array.
-  description: []
-  features: []
+  tagline: Flattens an array of lists and deals its values out to one to four arrays in turn.
+  overview: >-
+    vArrayUnPacker takes an array of numbers or lists of numbers and outputs its values as one flat
+    array, or splits them across 2 to 4 arrays by position. The buttons 1 Array to 4 Arrays set the
+    number of outputs.
+  description:
+    - >-
+      If the input holds lists, for example XYZ points, their values are first written into one flat
+      list in order (x, y, z, x, y, z, ...). If it holds plain values, they are used as they are.
+      The flat list is then dealt out to N arrays in turn: value 1 to array 1, value 2 to array 2,
+      and so on, starting again at array 1 after array N.
+    - >-
+      With 3 outputs, XYZ points are split into an array of all X values, one of all Y values and
+      one of all Z values. N is 1 by default and is set to 1 to 4 by the buttons, which also add the
+      outputs OutputArray_1 to OutputArray_n. OutputArray holds the first array. Each output has the
+      array and size wrapper.
+  features:
+    - title: Flatten
+      desc: Lists of values, such as XYZ points, are written into one flat list.
+    - title: Split into 1 to 4 arrays
+      desc: Values are dealt out in turn, so XYZ points split into X, Y and Z arrays.
+    - title: Buttons set the outputs
+      desc: Pressing 1 Array to 4 Arrays sets the count and adds the outputs.
+    - title: Pairs with Packer
+      desc: vArrayPacker puts the values back into groups.
   connections:
-    - label: Example 1
+    - label: Unpack, change and pack again
       lines:
-        - vArrayPointsOnCircle.Output -> vArrayUnPacker.ArrayB
+        - vArrayPointsOnCircle.Output -> vArrayUnPacker.ArrayA
         - vArrayUnPacker.OutputArray -> vArraySin.ArrayA
         - vArraySin.Output -> vArrayPacker.ArrayA
         - vArrayPacker.Output -> vArrayCameraProjection.ArrayA
-        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
-        - Background.Output -> vArrayShapeRender.Input
-  difficulty: null
-  related: []
-  params: {}
+    - label: Flatten points to a list
+      lines:
+        - vArrayPointsOnGrid.Output -> vArrayUnPacker.ArrayA
+        - vArrayUnPacker.OutputArray -> vArrayMath.ArrayA
+  difficulty: Intermediate
+  related:
+    - name: vArrayPacker
+      desc: Packs an Array into a new array.
+    - name: vArrayConvert2D_3D
+      desc: Converts a 2D array to a 3D array.
+    - name: vArraySlicer
+      desc: Trims the start and end of single or multi-dimensional arrays.
+  params:
+    GroupSize: Hidden control. Number of output arrays, 1 to 4, default 1. The four buttons set it.
+    Reload_1: Button. Sets the node to 1 output array.
+    Reload_2: Button. Sets the node to 2 output arrays and adds the extra outputs.
+    Reload_3: Button. Sets the node to 3 output arrays and adds the extra outputs.
+    Reload_4: Button. Sets the node to 4 output arrays and adds the extra outputs.
+    ArrayA: Array to unpack.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
   connections_source: docsify
+  prompt_version: '1'
+  note: >-
+    The Custom Group Size control is hidden. The four buttons 1 Array to 4 Arrays set it to 1 to 4
+    and create the extra outputs OutputArray_1 to OutputArray_n when pressed, so those outputs exist
+    only after a button was used. OutputArray carries the first array. The old text said the node
+    splits packed groups back into a flat array. It flattens lists of values and deals them out to
+    up to 4 outputs in turn. The JSON fuse accepts a bare array as input.
 legacy_text: Unpack Operations on an Array

@@ -5,43 +5,96 @@ tools:
   JSON: vJSONRampMap
 legacy_names: []
 curated:
-  tagline: Map scalar values to colors with a ramp.
-  overview: Maps scalar sources to per-point RGBA colors with a 4-stop ramp.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: Turns a number per point into a color from a ramp of four color stops.
+  overview: >-
+    vArrayRampMap reads a value for each index from the index, a scalar array, a point coordinate or
+    the distance to a center, and outputs a list of RGBA colors from a four-stop ramp. Curve shapes
+    the transition.
+  description:
+    - >-
+      The number of colors is the number of Points, else the number of Scalars, else Fallback Count
+      (default 100). Source picks the value: the index, the Scalar Input value, Position X, Y or Z,
+      or the distance to Center X, Y and Z. With Auto Range on, the smallest and largest value are
+      the range, otherwise Range Min and Max are.
+    - >-
+      The position t is (value - min) / (max - min), clamped to 0 to 1 if Clamp 0-1 is on (default),
+      flipped by Invert, then shaped by Curve: Linear, Smooth (smoothstep) or Power (t ^ Power).
+      Each color is found on the ramp of stops A to D, which sit at Pos A to Pos D (defaults 0,
+      0.33, 0.66, 1). Below the first stop the color is A, above the last it is D, and in between it
+      is blended linearly.
+  features:
+    - title: Four color stops
+      desc: Each stop has a position, red, green, blue and alpha.
+    - title: Three curves
+      desc: Linear, Smooth or Power shape the transition.
+    - title: Six value sources
+      desc: Index, Scalar Input, Position X, Y or Z, or Distance From Center.
+    - title: Auto or manual range
+      desc: Auto Range uses the smallest and largest value of the data.
+  connections:
+    - label: Color a grid by index and draw
+      lines:
+        - vArrayPointsOnGrid.Output -> vArrayRampMap.Points
+        - vArrayPointsOnGrid.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - vArrayRampMap.Output -> vArrayShapeRender.JSONCustomColor
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Color by a scalar array
+      lines:
+        - vArrayWeightMap.Output -> vArrayRampMap.Scalars
+        - vArrayRampMap.Output -> vArrayShapeRender.JSONCustomColor
+  difficulty: Intermediate
+  related:
+    - name: vArrayColorMap
+      desc: Maps scalar sources to per-point RGBA colors.
+    - name: vArrayWeightMap
+      desc: Generates normalized per-point weight arrays.
+    - name: vArrayShapeRender
+      desc: Creates polygon dot shapes from an Array of XY point pairs.
   params:
     Source: >-
-      Value that drives the result. Options: Index, Scalar Input, Position X, Position Y, Position
-      Z, Distance From Center.
-    AutoRange: Uses the minimum and maximum of the data as the range.
-    Curve: Shape of the transition. Linear, Smooth or Power.
-    Power: Exponent of the curve.
-    Clamp: Limits the result to the range 0 to 1.
-    Invert: Inverts the result.
-    FallbackCount: Number of values used when no input array is connected.
-    CenterX: Center position X.
-    CenterY: Center position Y.
-    CenterZ: Center position Z.
-    Red_A: Color value for stop A Color.
-    Green_A: Color value for stop A Color.
-    Blue_A: Color value for stop A Color.
-    Alpha_A: Color value for stop A Color.
-    Red_B: Color value for stop A Color.
-    Green_B: Color value for stop A Color.
-    Blue_B: Color value for stop A Color.
-    Alpha_B: Color value for stop A Color.
-    Red_C: Color value for stop A Color.
-    Green_C: Color value for stop A Color.
-    Blue_C: Color value for stop A Color.
-    Alpha_C: Color value for stop A Color.
-    Red_D: Color value for stop A Color.
-    Green_D: Color value for stop A Color.
-    Blue_D: Color value for stop A Color.
-    Alpha_D: Color value for stop A Color.
+      Index (default), Scalar Input, Position X, Position Y, Position Z or Distance From Center.
+      Position and distance sources give 0 without Points.
+    AutoRange: Uses the smallest and largest value as the range when on (default).
+    Curve: Linear (default), Smooth or Power.
+    Power: Exponent for the Power curve. Range 0.001 to 10, default 1.
+    Clamp: Limits the position to 0 to 1 when on (default).
+    Invert: Reverses the ramp when on. Default off.
+    FallbackCount: Number of colors when neither Points nor Scalars are connected. Range 1 to 1000, default 100.
+    CenterX: X of the center for Distance From Center. Default 0.
+    CenterY: Y of the center for Distance From Center. Default 0.
+    CenterZ: Z of the center for Distance From Center. Default 0.
+    Red_A: Red of stop A. Default 0.05.
+    Green_A: Green of stop A. Default 0.1.
+    Blue_A: Blue of stop A. Default 0.35.
+    Alpha_A: Alpha of stop A. Default 1.
+    Red_B: Red of stop B. Default 0.1.
+    Green_B: Green of stop B. Default 0.55.
+    Blue_B: Blue of stop B. Default 0.85.
+    Alpha_B: Alpha of stop B. Default 1.
+    Red_C: Red of stop C. Default 0.95.
+    Green_C: Green of stop C. Default 0.72.
+    Blue_C: Blue of stop C. Default 0.2.
+    Alpha_C: Alpha of stop C. Default 1.
+    Red_D: Red of stop D. Default 1.
+    Green_D: Green of stop D. Default 0.2.
+    Blue_D: Blue of stop D. Default 0.1.
+    Alpha_D: Alpha of stop D. Default 1.
+    RangeMin: Low end of the manual range. Used when Auto Range is off. Default 0.
+    RangeMax: High end of the manual range. Used when Auto Range is off. Default 1.
+    Pos_A: Position of stop A on the ramp, 0 to 1. Default 0.
+    Pos_B: Position of stop B on the ramp, 0 to 1. Default 0.33.
+    Pos_C: Position of stop C on the ramp, 0 to 1. Default 0.66.
+    Pos_D: Position of stop D on the ramp, 0 to 1. Default 1.
+    Points: Optional points. They set the count and feed the position and distance sources.
+    Scalars: Optional numbers. They feed the Scalar Input source.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
+  note: >-
+    The old text for the colors of stops B, C and D said "stop A". The Array fuse has the data type
+    ScriptVal: it reads Points and Scalars as arrays and writes a list of {R, G, B, A} tables. Stop
+    positions are kept in order: each position is raised to the one before it. Power is used by the
+    Power curve only.

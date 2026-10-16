@@ -5,26 +5,71 @@ tools:
   JSON: vJSONProjectOnMesh
 legacy_names: []
 curated:
-  tagline: Project points onto the mesh.
-  overview: Projects every point onto the nearest point of the mesh surface.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: Moves each point to the closest mesh vertex, with an offset, a blend and a distance limit.
+  overview: >-
+    vArrayProjectOnMesh takes an array of XYZ points and a mesh, and moves each point to the closest
+    Mesh Points vertex plus Surface Offset. Distance Mode can leave far points alone or limit the
+    move.
+  description:
+    - >-
+      For each point the node finds the closest Mesh Points vertex. The target is that vertex plus
+      Surface Offset along the estimated normal (Surface Normal) or along +Y (World +Y). Projection
+      Blend (0 to 1, default 1) mixes between the point and the target. The three Projection Modes
+      give the same result with this mesh data.
+    - >-
+      With Max Distance above 0, Hard Cutoff leaves a point where it is if the target is farther
+      away than Max Distance, and Clamp moves it only up to that distance toward the target. No
+      Limit ignores Max Distance. Affect X, Y and Z keep unchecked axes at the input value. Only the
+      vertex list is used. If Points or Mesh Points is empty, the output is empty.
+  features:
+    - title: Surface offset
+      desc: The target can be lifted off the vertex along its normal or along +Y.
+    - title: Distance limit
+      desc: Hard Cutoff and Clamp use Max Distance to limit the move.
+    - title: Blend
+      desc: Projection Blend mixes between the point and the target.
+    - title: Per-axis switches
+      desc: Affect X, Y and Z restrict the move to the checked axes.
+  connections:
+    - label: Project a grid onto a loaded mesh and draw
+      lines:
+        - vArrayPointsOnGrid.Output -> vArrayProjectOnMesh.ArrayPoints
+        - vArrayFromOBJ.Points -> vArrayProjectOnMesh.MeshPoints
+        - vArrayProjectOnMesh.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Project scattered points
+      lines:
+        - vArrayRandom.Output -> vArrayProjectOnMesh.ArrayPoints
+        - vArrayFromOBJ.Points -> vArrayProjectOnMesh.MeshPoints
+        - vArrayProjectOnMesh.Output -> vArrayTranslate.Input
+  difficulty: Advanced
+  related:
+    - name: vArrayProject
+      desc: Projects point arrays to a plane, sphere or cylinder.
+    - name: vArraySnapMeshVertex
+      desc: Snaps each input point to the nearest mesh vertex.
+    - name: vArrayAttractToMesh
+      desc: Lerps input points toward the nearest mesh surface point.
   params:
-    surfaceoffset: Offset of the target from the mesh surface.
-    projectionmode: >-
-      Closest surface point, nearest vertex or face center. Options: Closest Surface, Nearest
-      Vertex, Face Center.
-    offsetmode: 'Direction of the offset. Options: Surface Normal, World +Y.'
-    projectionblend: Mix between the original and the projected position.
-    distancemode: 'How Max Distance is applied. Options: No Limit, Hard Cutoff, Clamp.'
-    maxdistance: Distance from the mesh at which the effect ends.
-    inaffectx: Applies the effect to X.
-    inaffecty: Applies the effect to Y.
-    inaffectz: Applies the effect to Z.
+    surfaceoffset: Distance of the target from the vertex. Slider -1 to 1, default 0.
+    projectionmode: Closest Surface (default), Nearest Vertex or Face Center. All three find the closest vertex.
+    offsetmode: Surface Normal (default) or World +Y. The direction of the offset.
+    projectionblend: Mix between the point (0) and the target (1). Range 0 to 1, default 1.
+    distancemode: No Limit (default), Hard Cutoff or Clamp. How Max Distance is used.
+    maxdistance: >-
+      Limit for Hard Cutoff and Clamp. Minimum 0, slider 0 to 5, default 0, which switches the limit
+      off.
+    inaffectx: X comes from the result when checked (default), otherwise it keeps the input value.
+    inaffecty: Y comes from the result when checked (default), otherwise it keeps the input value.
+    inaffectz: Z comes from the result when checked (default), otherwise it keeps the input value.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
+  note: >-
+    All three Projection Modes give the same result, because the mesh samples are single vertices:
+    Closest Surface, Nearest Vertex and Face Center (the mean of three equal corners) all find the
+    closest vertex. The distance for Distance Mode is measured from the point to the offset target,
+    not to the mesh. Max Distance 0 switches the limit off.

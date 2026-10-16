@@ -5,23 +5,65 @@ tools:
   JSON: vJSONSlideOnMesh
 legacy_names: []
 curated:
-  tagline: Slide points along the mesh.
-  overview: Moves points in a world-space direction and projects them back onto the surface.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: Moves each point in a direction, then snaps it to the closest mesh vertex.
+  overview: >-
+    vArraySlideOnMesh takes an array of XYZ points and a mesh. Each point is moved by Slide Distance
+    along Direction X, Y and Z, and the result is replaced by the closest mesh vertex.
+  description:
+    - >-
+      The direction is made unit length. A direction of 0, 0, 0, the default, becomes 0, 0, 1. Each
+      point is moved by Slide Distance (default 0.1, slider -10 to 10) along it, and the node then
+      finds the closest Mesh Points vertex to the moved position. The output is that vertex plus
+      Surface Offset along the normal estimated there.
+    - >-
+      The output points are therefore always mesh vertices. Affect X, Y and Z keep unchecked axes at
+      the input value. If the mesh or the points are empty, the points are output unchanged.
+  features:
+    - title: Directional slide
+      desc: Points move along a fixed direction by Slide Distance before the snap.
+    - title: Snap to vertices
+      desc: The moved position is replaced by the closest mesh vertex.
+    - title: Surface Offset
+      desc: The result can be lifted off the vertex along its estimated normal.
+    - title: Pass-through without mesh
+      desc: Without mesh data the points are output unchanged.
+  connections:
+    - label: Slide a grid over a loaded mesh and draw
+      lines:
+        - vArrayPointsOnGrid.Output -> vArraySlideOnMesh.ArrayPoints
+        - vArrayFromOBJ.Points -> vArraySlideOnMesh.MeshPoints
+        - vArraySlideOnMesh.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Slide scattered points
+      lines:
+        - vArrayRandom.Output -> vArraySlideOnMesh.ArrayPoints
+        - vArrayFromOBJ.Points -> vArraySlideOnMesh.MeshPoints
+        - vArraySlideOnMesh.Output -> vArrayTranslate.Input
+  difficulty: Advanced
+  related:
+    - name: vArrayJitterOnMesh
+      desc: Jitters input points in the mesh tangent plane, then reprojects them onto the mesh.
+    - name: vArrayProjectOnMesh
+      desc: Projects input points onto the nearest mesh surface point.
+    - name: vArraySnapMeshVertex
+      desc: Snaps each input point to the nearest mesh vertex.
   params:
-    DirX: Direction X.
-    DirY: Direction Y.
-    DirZ: Direction Z.
-    slidedistance: Distance the points slide along the direction.
-    surfaceoffset: Offset of the target from the mesh surface.
-    inaffectx: Applies the effect to X.
-    inaffecty: Applies the effect to Y.
-    inaffectz: Applies the effect to Z.
+    DirX: X of the slide direction. Default 0.
+    DirY: Y of the slide direction. Default 0.
+    DirZ: Z of the slide direction. Default 0. A direction of 0, 0, 0 is treated as 0, 0, 1.
+    slidedistance: Distance of the move along the direction. Slider -10 to 10, default 0.1.
+    surfaceoffset: Distance from the vertex along its estimated normal. Slider -1 to 1, default 0.
+    inaffectx: X comes from the result when checked (default), otherwise it keeps the input value.
+    inaffecty: Y comes from the result when checked (default), otherwise it keeps the input value.
+    inaffectz: Z comes from the result when checked (default), otherwise it keeps the input value.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
+  note: >-
+    The default direction 0, 0, 0 has no length, and the code turns it into 0, 0, 1, so the default
+    slides the points by +0.1 on Z. The slid position is replaced by the closest mesh vertex, so the
+    output points are mesh vertices (plus Surface Offset along their estimated normal). With no mesh
+    data the points are output unchanged (3 values).

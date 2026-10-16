@@ -5,25 +5,82 @@ tools:
   JSON: vJSONScatterInstOnMesh
 legacy_names: []
 curated:
-  tagline: Stamp a template on the mesh.
-  overview: Places a template point cloud at each mesh vertex or surface point, oriented to the surface.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: Stamps a template point cloud at every mesh vertex or given position, tilted to the normal.
+  overview: >-
+    vArrayScatterInstOnMesh takes a Template point cloud and places a copy at each mesh vertex, or
+    at each point of Surface Positions. Each copy can be turned to the surface normal, scaled and
+    yawed with seeded variation.
+  description:
+    - >-
+      With Mesh Points connected, the positions are the mesh vertices and the normals are estimated
+      at them. Otherwise the positions come from Surface Positions and the normals from Surface
+      Normals. For each position the template is turned around its Y axis by Yaw Offset (degrees)
+      plus a random amount up to Random Yaw, rotated so that its Y axis follows the normal, scaled
+      by Scale (times a random factor up to Scale Randomness), and moved to the position.
+    - >-
+      Align To Normals (on) and Normal Blend (0 to 1, default 1) decide how far the Y axis follows
+      the normal; with Align off it stays at 0, 1, 0. Preview Decimate keeps every Decimate Step
+      position, and Max Output Points stops the output at that number of points (0 means no limit).
+      The random values come from Seed and the position number. Without positions or template the
+      output is empty.
+  features:
+    - title: Instances on a mesh
+      desc: A copy of the template is placed at every mesh vertex.
+    - title: Normal alignment
+      desc: Each copy is tilted so that its Y axis follows the normal, blended by Normal Blend.
+    - title: Seeded variation
+      desc: Random Yaw and Scale Randomness vary the copies and repeat for the same Seed.
+    - title: Output limits
+      desc: Preview Decimate and Max Output Points limit the number of copies.
+  connections:
+    - label: Stamp a template on a loaded mesh and draw
+      lines:
+        - vArrayFromOBJ.Points -> vArrayScatterInstOnMesh.MeshPoints
+        - vArrayLine.Output -> vArrayScatterInstOnMesh.Template
+        - vArrayScatterInstOnMesh.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Stamp on scattered positions
+      lines:
+        - vArrayScatterOnMesh.Output -> vArrayScatterInstOnMesh.SurfacePositions
+        - vArrayPointsOnCircle.Output -> vArrayScatterInstOnMesh.Template
+        - vArrayScatterInstOnMesh.Output -> vArrayTranslate.Input
+  difficulty: Advanced
+  related:
+    - name: vArrayCopyToPoints
+      desc: Copies a template point set onto each target point with scale and seeded rotation variation.
+    - name: vArrayScatterOnMesh
+      desc: Scatters points across an OBJ mesh surface.
+    - name: vArrayRepeat
+      desc: Repeats point arrays with per-copy transform offsets.
   params:
-    instancescale: Scale of the effect.
-    alignToNormals: Rotates instances to the surface normal.
-    normalBlend: Mix between the world up axis and the normal.
-    yawOffset: Rotation around the normal.
-    yawRandom: Random extra rotation around the normal.
-    scaleRandom: Random variation of the scale.
-    seed: Seed of the random generator.
-    previewdecimate: Outputs fewer points for faster preview.
-    decimatestep: Keeps every Nth point when Preview Decimate is on.
-    maxoutputpoints: Upper limit of output points.
+    instancescale: Scale of each copy. Minimum 0, slider 0 to 10, default 1.
+    alignToNormals: Tilts the copies to the normal when on (default). When off, they are not tilted.
+    normalBlend: Mix from the up axis (0) to the normal (1). Range 0 to 1, default 1.
+    yawOffset: Rotation of each copy around its Y axis in degrees. Slider -180 to 180, default 0.
+    yawRandom: >-
+      Random extra yaw in degrees, between minus and plus this value. Minimum 0, slider 0 to 180,
+      default 0.
+    scaleRandom: >-
+      Random scale variation, up to this share of the scale in either direction. Range 0 to 1,
+      default 0.
+    seed: Integer, range 0 to 1000000, default 0.
+    previewdecimate: Keeps only every Decimate Step position when on. Default off.
+    decimatestep: Step for Preview Decimate. Range 1 to 1024, slider 1 to 32, default 2.
+    maxoutputpoints: Limits the number of output points. 0 means no limit. Default 0.
+    SurfacePositions: Positions for the copies. Used when Mesh Points is empty.
+    Template: The point cloud to copy, with Y as its up axis.
+    SurfaceNormals: Normals for the positions. Used when Mesh Points is empty. Optional.
+    MeshPoints: Mesh vertices. When connected, they give the positions and the estimated normals.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
+  note: >-
+    If Mesh Points is connected and not empty, it is used and the Surface Positions and Surface
+    Normals inputs are ignored. Mesh Points give one position per vertex with the normal estimated
+    from the 8 nearest vertices. Without Mesh Points, Surface Positions is required and Surface
+    Normals is optional (without it, every normal is 0, 1, 0). The template is expected with Y as
+    its up axis, since the rotation maps the Y axis to the normal. Yaw turns the template around its
+    Y axis.

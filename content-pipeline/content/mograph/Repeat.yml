@@ -5,21 +5,58 @@ tools:
   JSON: vJSONRepeat
 legacy_names: []
 curated:
-  tagline: Repeat a point array.
-  overview: Repeats point arrays with a transform offset per copy.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: Repeats a point array Copies times, each copy scaled, rotated around Z and moved a step more.
+  overview: >-
+    vArrayRepeat takes an array of XYZ points and outputs Copies copies of it one after another.
+    Each copy is changed by one more step of scale, Z rotation and offset than the one before.
+  description:
+    - >-
+      Copy number c, counting from 0, is made in this order: the point is multiplied by 1 + Scale
+      Step * c on all three axes, turned around the Z axis by Rotate Step Z * c degrees, then moved
+      by Offset X, Y and Z times c. Copy 0 is the input as it is.
+    - >-
+      Copies has a minimum of 1 and defaults to 3, and Offset X defaults to 0.1, so by default the
+      input is repeated three times along X. The output holds all copies in order, so its length is
+      the input length times Copies. Rotation and scale are around the origin, not around each copy.
+      Input that does not start with a list is passed through.
+  features:
+    - title: Cumulative steps
+      desc: Scale, Z rotation and offset grow by one step for each copy.
+    - title: Original kept
+      desc: The first copy is the unchanged input.
+    - title: Fixed order
+      desc: Scale, then rotation, then offset.
+    - title: Single array output
+      desc: All copies are joined into one array.
+  connections:
+    - label: Repeat a circle along X and draw
+      lines:
+        - vArrayPointsOnCircle.Output -> vArrayRepeat.Input
+        - vArrayRepeat.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Repeat a line
+      lines:
+        - vArrayLine.Output -> vArrayRepeat.Input
+        - vArrayRepeat.Output -> vArrayTranslate.Input
+  difficulty: Beginner
+  related:
+    - name: vArrayRepeatTransform
+      desc: Repeats an Array by transforming it x times.
+    - name: vArrayCopyToPoints
+      desc: Copies a template point set onto each target point with scale and seeded rotation variation.
+    - name: vArrayAppend
+      desc: Repeats an Array a given number of times.
   params:
-    Copies: Number of copies.
-    OffsetX: Offset per copy along X.
-    OffsetY: Offset per copy along Y.
-    OffsetZ: Offset per copy along Z.
-    RotateStepZ: Rotation per copy around Z.
-    ScaleStep: Scale change per copy.
+    Copies: Number of copies. Minimum 1, slider 1 to 100, default 3.
+    OffsetX: Offset on X added for each copy number. Default 0.1.
+    OffsetY: Offset on Y added for each copy number. Default 0.
+    OffsetZ: Offset on Z added for each copy number. Default 0.
+    RotateStepZ: Rotation around Z per copy, in degrees. Slider -360 to 360, default 0.
+    ScaleStep: Scale change per copy, so copy c has the scale 1 + Scale Step * c. Slider -1 to 1, default 0.
+    Input: Points to repeat.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'

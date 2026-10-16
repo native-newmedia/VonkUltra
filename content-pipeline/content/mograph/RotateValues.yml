@@ -5,76 +5,64 @@ tools:
   JSON: vJSONRotateValues
 legacy_names: []
 curated:
-  tagline: >-
-    Cycle the elements of a vArray by N positions — the sequencer shift node for looping patterns
-    and staggered animation offsets.
+  tagline: Cycles the elements of an array forward or backward by a number of positions.
   overview: >-
-    vArrayRotateValues shifts all elements in a vArray forward or backward by a set number of
-    positions, wrapping values that fall off one end back to the other. It is the primary tool for
-    creating cyclic sequences and stagger offsets across point arrays.
+    vArrayRotateValues takes an array and moves every element by Rotate Amount positions, wrapping
+    the elements that fall off one end around to the other. Rotate Amount is the only setting.
   description:
     - >-
-      vArrayRotateValues performs a circular shift on the element order of a vArray. Elements
-      shifted off the end of the array wrap around to the beginning, preserving the total element
-      count. This is fundamentally different from 3D rotation — it is a data sequencing operation,
-      not a spatial transform.
+      With Rotate Amount 1 (the default) every element moves one place toward the end, and the last
+      element becomes the first. A negative amount moves the elements toward the start, and the
+      first element becomes the last. The amount can be -100 to 100, whole numbers, and a larger
+      amount than the array length wraps around.
     - >-
-      Rotate Amount accepts positive values (shift forward) and negative values (shift backward),
-      and its range of –100 to 100 covers most practical use cases. Animating this parameter over
-      time creates a continuous cycling effect through the array — valuable for sequencing lights in
-      a ring, cycling colour maps, or producing offset wave propagation across a point cloud.
-    - >-
-      Pass Thru mode bypasses the shift entirely, outputting the array unchanged. This is useful
-      during node graph development when you want to temporarily disable the rotation without
-      disconnecting or deleting the node. Pair vArrayRotateValues with vArrayWave to create
-      directional wave patterns that travel through a point array over time.
+      The elements can be numbers, points or lists, and they are not changed. Show Input makes the
+      Rotate Amount input port visible, so the amount can be connected to another node. The hidden
+      Pass Thru control has no effect.
   features:
-    - title: Circular Element Shift
-      desc: >-
-        Shifts all elements forward or backward, wrapping values at the boundaries — total element
-        count always stays the same.
-    - title: Signed Rotation Amount
-      desc: >-
-        Positive values shift forward, negative values shift backward (range –100 to 100), enabling
-        full directional control.
-    - title: Animatable Cycling
-      desc: >-
-        Keyframe Rotate Amount to create continuous cycling animations through the array data —
-        ideal for sequencer-style effects.
-    - title: Pass-Through Bypass
-      desc: >-
-        Pass Thru checkbox disables the shift for quick A/B comparison during development without
-        removing the node.
+    - title: Wrapping shift
+      desc: Elements that leave one end re-enter at the other end.
+    - title: Both directions
+      desc: Positive amounts shift toward the end and negative amounts toward the start.
+    - title: Any element type
+      desc: Numbers, points and lists are moved without being changed.
+    - title: Connectable amount
+      desc: Show Input exposes Rotate Amount as an input port.
   connections:
-    - label: Cycling ring sequence
+    - label: Cycle the points of a ring and draw
       lines:
         - vArrayPointsOnCircle.Output -> vArrayRotateValues.ArrayA
         - vArrayRotateValues.Output -> vArrayCameraProjection.ArrayA
         - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
-    - label: Stagger before wave
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Shift a list for a stagger
       lines:
-        - vArrayPointsOnGrid.Output -> vArrayRotateValues.ArrayA
-        - vArrayRotateValues.Output -> vArrayWave.ArrayA
-        - vArrayWave.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCreateRange.Output -> vArrayRotateValues.ArrayA
+        - vArrayRotateValues.Output -> vArrayMath.ArrayA
   difficulty: Beginner
   related:
-    - name: vArrayWave
-      desc: Apply a wave oscillation to the rotated array for travelling wave effects.
-    - name: vArrayBuffer
-      desc: Store frame history — pair with vArrayRotateValues for FIFO-style sequencing.
-    - name: vArrayInterpolate
-      desc: Blend between two rotated states for smooth cycling transitions.
+    - name: vArrayReverse
+      desc: Reverses or reorders an array within a specified index range.
+    - name: vArraySlicer
+      desc: Trims the start and end of single or multi-dimensional arrays.
+    - name: vArrayStagger
+      desc: Animates points using staggered offsets.
   params:
     rotateamount: >-
-      Number of positions to shift the array elements. Positive shifts forward, negative shifts
-      backward. Range: –100 to 100.
-    passthru: >-
-      When enabled, bypasses the rotation and passes the input array through unchanged. Use during
-      development to toggle the effect.
-    ShowInput: Reveals the Array A connection port on the node in the Fusion node graph.
-    ArrayA: The vArray whose element order will be circularly shifted.
+      Number of positions to shift. Whole numbers from -100 to 100, default 1. Positive moves toward
+      the end.
+    passthru: Hidden control. Has no effect in the code. Default off.
+    ShowInput: Shows the input port of Rotate Amount when on. Default off.
+    ArrayA: Array whose elements are shifted.
 status:
-  source: rich-json
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
+  note: >-
+    Pass Thru is a hidden control and has no effect: it only changes a fallback value that is not
+    used because the rotation amount is always given. The old text says it bypasses the rotation.
+    Show Input makes the input port of Rotate Amount visible; the old text said it reveals the Array
+    A port. The Array fuse needs the array and size wrapper on the input. An empty array is not
+    handled.
 legacy_text: Rotate Array Between Operations on an Array

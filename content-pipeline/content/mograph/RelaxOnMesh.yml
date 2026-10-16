@@ -5,21 +5,70 @@ tools:
   JSON: vJSONRelaxOnMesh
 legacy_names: []
 curated:
-  tagline: Spread points evenly on the mesh.
-  overview: Moves scattered points apart step by step so they distribute evenly over the mesh surface.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: >-
+    Moves each point toward the average of its 6 nearest points, then snaps it to the closest mesh
+    vertex.
+  overview: >-
+    vArrayRelaxOnMesh takes an array of XYZ points and a mesh, and repeats a smoothing pass Relax
+    Iterations times. Relax Strength sets how far each point moves in a pass.
+  description:
+    - >-
+      In each pass every point finds its 6 nearest other points and moves toward their average by
+      Relax Strength (0 to 1, default 0.5). The moved point is then replaced by the closest Mesh
+      Points vertex, plus Surface Offset along the normal estimated there. Relax Iterations (default
+      10) is the number of passes.
+    - >-
+      This pulls points toward their neighbors and does not push them apart. After the last pass the
+      points lie on mesh vertices, so points can share a vertex. Affect X, Y and Z keep unchecked
+      axes at the input value. Only the vertex list of the mesh is used. If Points or Mesh Points is
+      empty, the output is empty.
+  features:
+    - title: Iterative smoothing
+      desc: Relax Iterations repeats the pass of moving toward the neighbor average.
+    - title: Snaps to vertices
+      desc: Every pass ends with the closest mesh vertex.
+    - title: Strength
+      desc: Relax Strength sets how far a point moves toward its neighbors in a pass.
+    - title: Surface offset
+      desc: Points can be lifted off the vertices along the estimated normal.
+  connections:
+    - label: Relax scattered points on a loaded mesh and draw
+      lines:
+        - vArrayRandom.Output -> vArrayRelaxOnMesh.ArrayPoints
+        - vArrayFromOBJ.Points -> vArrayRelaxOnMesh.MeshPoints
+        - vArrayRelaxOnMesh.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Relax mesh scatter
+      lines:
+        - vArrayScatterOnMesh.Output -> vArrayRelaxOnMesh.ArrayPoints
+        - vArrayFromOBJ.Points -> vArrayRelaxOnMesh.MeshPoints
+        - vArrayRelaxOnMesh.Output -> vArrayTranslate.Input
+  difficulty: Advanced
+  related:
+    - name: vArrayRelaxScatterOnMesh
+      desc: Scatters and iteratively relaxes points across an OBJ mesh surface.
+    - name: vArrayFuseClosePoints
+      desc: Welds points that are within a distance threshold.
+    - name: vArrayJitterOnMesh
+      desc: Jitters input points in the mesh tangent plane, then reprojects them onto the mesh.
   params:
-    surfaceoffset: Offset of the target from the mesh surface.
-    relaxiterations: Number of smoothing passes.
-    relaxstrength: Strength of each pass.
-    inaffectx: Applies the effect to X.
-    inaffecty: Applies the effect to Y.
-    inaffectz: Applies the effect to Z.
+    surfaceoffset: Distance from the vertex along its estimated normal. Slider -1 to 1, default 0.
+    relaxiterations: Number of passes. Minimum 1, slider 1 to 100, default 10.
+    relaxstrength: >-
+      How far a point moves toward the average of its neighbors in a pass. Range 0 to 1, default
+      0.5.
+    inaffectx: X comes from the result when checked (default), otherwise it keeps the input value.
+    inaffecty: Y comes from the result when checked (default), otherwise it keeps the input value.
+    inaffectz: Z comes from the result when checked (default), otherwise it keeps the input value.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
+  note: >-
+    Each pass moves a point toward the average of its 6 nearest points, which pulls neighbors
+    together, and then puts it on the closest mesh vertex. The old text and the registered
+    description say the points spread out evenly; the code does not push points apart. Because of
+    the snap, every output point is a mesh vertex (plus Surface Offset), and several points can end
+    up on the same vertex. The cost grows with the square of the point count times Relax Iterations.

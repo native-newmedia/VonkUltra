@@ -5,24 +5,71 @@ tools:
   JSON: vJSONRippleDisplacer
 legacy_names: []
 curated:
-  tagline: Displace points with a moving ripple.
-  overview: Creates animated displacement with time-offset arrays.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: Displaces points with a moving wave and writes five copies with different time offsets.
+  overview: >-
+    vArrayRippleDisplacer takes an array of XYZ points and outputs five displaced copies of it on
+    five outputs. Each copy uses the same wave with its own amplitude, frequency and time offset.
+  description:
+    - >-
+      Each point is moved by wave(time + 0.1 * index, Frequency) * Amplitude. Wave Type is Sine,
+      Cosine, Triangle or Square. Displacement Mode moves the point away from the origin (Radial),
+      along Z only, or by the amount on Z and a tenth of it on X and Y (XYZ Uniform). A point at the
+      origin moves to (d, d, d) in Radial mode.
+    - >-
+      Output n uses the amplitude, frequency and time offset of its Array n controls plus a built-in
+      step per output, so the outputs ripple at different times. Time Offset times Offset Multiplier
+      (default 0.3) shifts each copy in time. With Auto Animate on (default) the time is the render
+      time times Animation Speed times 0.1. A disabled array gives an empty output.
+  features:
+    - title: Five outputs
+      desc: Each output is a displaced copy with its own amplitude, frequency and time offset.
+    - title: Four wave types
+      desc: Sine, Cosine, Triangle and Square.
+    - title: Three displacement modes
+      desc: Radial, Z-axis only and XYZ uniform.
+    - title: Auto Animate
+      desc: The time follows the render time unless Auto Animate is off.
+  connections:
+    - label: Ripple a grid and draw the first copy
+      lines:
+        - vArrayPointsOnGrid.Output -> vArrayRippleDisplacer.ArrayA
+        - vArrayRippleDisplacer.Arrays_1 -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Use a later copy
+      lines:
+        - vArrayPointsOnCircle.Output -> vArrayRippleDisplacer.ArrayA
+        - vArrayRippleDisplacer.Arrays_3 -> vArrayTranslate.Input
+  difficulty: Intermediate
+  related:
+    - name: vArrayWave
+      desc: Animates an Array.
+    - name: vArrayDisplaceValues
+      desc: Displaces XYZ positions using noise with spherical falloff.
+    - name: vArrayStagger
+      desc: Animates points using staggered offsets.
   params:
-    Time: Offsets the noise or wave in time.
-    Speed: Speed of the animation over time. 0 is static.
-    AutoAnimate: Animates the effect over time.
-    DisplacementMode: 'Direction of the displacement. Options: Radial (from center), Z-Axis Only, XYZ Uniform.'
-    Amplitude: Strength of the displacement.
-    Frequency: Frequency of the noise or wave.
-    WaveType: 'Shape of the wave. Options: Sine, Cosine, Triangle, Square.'
-    OffsetMultiplier: Multiplies the displacement.
-    DebugMode: Prints debug information to the console.
+    Time: Time used when Auto Animate is off. Slider 0 to 10, default 0.
+    Speed: Multiplies the render time when Auto Animate is on. Slider 0.1 to 5, default 1.
+    AutoAnimate: Uses the render time times Animation Speed times 0.1 as time when on (default).
+    DisplacementMode: Radial (from center) (default), Z-Axis Only or XYZ Uniform.
+    Amplitude: Size of the displacement, multiplied into each output. Slider 0 to 10, default 2.
+    Frequency: Frequency of the wave, multiplied into each output. Slider 0.1 to 5, default 1.
+    WaveType: Sine (default), Cosine, Triangle or Square.
+    OffsetMultiplier: Multiplies the time offsets of the outputs. Slider 0 to 2, default 0.3.
+    DebugMode: Prints information to the console when on. Default off.
+    ArrayA: Points to displace.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
+  note: >-
+    The Time control is used only when Auto Animate is off. With Auto Animate on, the time is the
+    render time times Speed times 0.1 and the Time control is ignored. Offset Multiplier multiplies
+    the time offsets of the arrays, not the displacement as the old text said. Each of the five
+    outputs adds a built-in step: amplitude + 0.2 * (n - 1), frequency + 0.1 * (n - 1) and time
+    offset + 0.3 * (n - 1). A disabled array gives an empty output. The per-array controls Enable
+    Array n, Amplitude n, Frequency n and Time Offset n are created in a loop, so they are not
+    listed as rows. Debug Mode prints to the console. The JSON fuse writes the points without the
+    array and size wrapper.

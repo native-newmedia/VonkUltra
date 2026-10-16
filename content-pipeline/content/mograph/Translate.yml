@@ -5,81 +5,67 @@ tools:
   JSON: vJSONTranslate
 legacy_names: []
 curated:
-  tagline: >-
-    Shift every point in a vArray by a constant XYZ offset — the simplest way to reposition a point
-    cloud in world space.
+  tagline: Adds an XYZ offset to every point, then multiplies it by a scale.
   overview: >-
-    vArrayTranslate adds a fixed offset to the X, Y, and Z coordinates of every element in a vArray.
-    Place it after any generator to recentre, spread, or stack point arrays before rendering.
+    vArrayTranslate takes an array of XYZ points and outputs (point + offset) * scale for each axis.
+    X Scale is used for X and Z, and Y Scale for Y.
   description:
     - >-
-      vArrayTranslate is the positional offset node for vArray pipelines. After a generator like
-      vArrayPointsOnGrid or vArrayPointsOnCircle produces a point cloud, place vArrayTranslate
-      immediately downstream to shift the entire set to a new location without touching the
-      generator's own parameters.
+      Each point becomes ((x + X Offset) * X Scale, (y + Y Offset) * Y Scale, (z + Z Offset) * X
+      Scale). The offsets default to 0 and the scales to 1, so the default leaves the points
+      unchanged. Because the scale is applied after the offset, it also scales the offset.
     - >-
-      X Offset, Y Offset, and Z Offset each accept keyframe-able values, making it straightforward
-      to animate the entire point array flying through frame. Lock X/Y constrains horizontal
-      movement to a uniform scale, and X Scale adjusts the horizontal spread independently of the
-      translation offsets.
-    - >-
-      A common use case is stacking several generator outputs — each feeding its own vArrayTranslate
-      with a different Z Offset — then combining them with vArrayMerge before passing the combined
-      array to vArrayShapeRender. This avoids needing duplicate generator logic and keeps the node
-      graph readable.
+      Lock X/Y (on by default) hides Y Scale, but the code still reads it, so Y Scale keeps its
+      value and is not tied to X Scale. Show Input exposes the offsets and scales as input ports.
+      Elements that are not lists of at least 3 values are dropped, and the output points have 3
+      values.
   features:
-    - title: XYZ Offset Control
-      desc: >-
-        Independently keyframeable X, Y, and Z offset values shift the entire point cloud in world
-        space.
-    - title: Animatable Positioning
-      desc: >-
-        All offset parameters accept expressions and keyframes — animate points flying through a
-        scene with no scripting.
-    - title: Lock X/Y Mode
-      desc: >-
-        Lock X/Y constrains horizontal translation to uniform movement, preventing accidental
-        axis-specific drift.
-    - title: Stack-Ready
-      desc: >-
-        Feed multiple translated arrays into vArrayMerge to build composite point clouds from
-        independently positioned generators.
+    - title: Offset per axis
+      desc: X, Y and Z Offset are added to the coordinates.
+    - title: Scale after the offset
+      desc: X Scale multiplies X and Z, and Y Scale multiplies Y.
+    - title: Connectable values
+      desc: Show Input exposes the offsets and scales as input ports.
+    - title: Unchanged by default
+      desc: Offsets of 0 and scales of 1 leave the points as they are.
   connections:
-    - label: Reposition a grid before rendering
+    - label: Reposition a grid and draw
       lines:
         - vArrayPointsOnGrid.Output -> vArrayTranslate.ArrayA
         - vArrayTranslate.Output -> vArrayCameraProjection.ArrayA
         - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
-    - label: Stack two arrays at different depths
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Move a circle after jitter
       lines:
-        - vArrayPointsOnCircle.Output -> vArrayTranslate.ArrayA
-        - vArrayTranslate.Output -> vArrayMerge.Array1
-        - vArrayMerge.Output -> vArrayShapeRender.ArrayPoint
+        - vArrayPointsOnCircle.Output -> vArrayPointsJitter.Input
+        - vArrayPointsJitter.Output -> vArrayTranslate.ArrayA
   difficulty: Beginner
   related:
-    - name: vArrayMerge
-      desc: Combine multiple translated arrays into a single point cloud for rendering.
-    - name: vArrayRotateValues
-      desc: >-
-        Rotate element order within the array — pair with vArrayTranslate for animated offset
-        sequences.
-    - name: vArrayDisplaceValues
-      desc: Apply noise-based positional variation on top of a translated point cloud.
+    - name: vArrayCameraProjection
+      desc: Transforms an Array using a perspective projection matrix.
+    - name: vArrayRepeat
+      desc: Repeats point arrays with per-copy transform offsets.
+    - name: vArrayMirror
+      desc: Mirrors point arrays across an X, Y or Z axis with optional combine.
   params:
-    Translate_X: >-
-      Moves all array points along the X axis by this amount. Keyframe to animate horizontal
-      position.
-    Translate_Y: Moves all array points along the Y axis by this amount. Keyframe to animate vertical position.
-    Translate_Z: >-
-      Moves all array points along the Z axis. Useful for stacking multiple point arrays at
-      different depths.
-    LockXY: When enabled, X and Y offsets move together to maintain proportional horizontal positioning.
-    Scale.X: Scales the horizontal spread of the array independently of the translation offsets.
-    ArrayA: The input vArray whose XYZ positions will be offset.
-    ShowInput: Reveals the Array A connection port on the node in the Fusion node graph.
-    Scale.Y: Scale along Y. Shown when Lock X/Y is off. Shown when the related option is enabled.
+    Translate_X: Added to X before the scale. Default 0.
+    Translate_Y: Added to Y before the scale. Default 0.
+    Translate_Z: Added to Z before the scale. Default 0.
+    LockXY: Only changes which scale controls are shown. Default on.
+    Scale.X: Multiplies X and Z after the offset. Default 1.
+    ArrayA: Points to move.
+    ShowInput: Shows the input ports of the offsets and scales when on. Default off.
+    Scale.Y: Multiplies Y after the offset. Default 1. Hidden while Lock X/Y is on, but still used.
 status:
-  source: rich-json
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
+  note: >-
+    Lock X/Y only changes what the controls show: the code always reads Y Scale for Y, even while it
+    is hidden, and uses X Scale for both X and Z. The old text said Lock X/Y moves the X and Y
+    offsets together. The offset is added before the scale, so the scale also multiplies the offset.
+    Elements that are not lists of 3 or more values are dropped. Show Input exposes the ports of the
+    offsets and scales; the old text said it reveals the Array A port. The comment in Process()
+    mentions rotation, which the node does not do.
 legacy_text: Transforms array positions
