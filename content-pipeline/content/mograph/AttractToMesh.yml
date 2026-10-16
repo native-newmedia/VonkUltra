@@ -5,31 +5,31 @@ tools:
   JSON: vJSONAttractToMesh
 legacy_names: []
 curated:
-  tagline: Moves each point toward the closest point on a mesh surface by a Blend amount.
+  tagline: Moves each point toward the closest mesh vertex by a Blend amount.
   overview: >-
     vArrayAttractToMesh takes an array of XYZ points and a mesh, and outputs each point moved toward
-    the closest point on the mesh. Blend sets how far, from 0 (no move) to 1 (on the surface).
+    the closest Mesh Points vertex. Blend sets how far, from 0 (no move) to 1 (on the vertex).
   description:
     - >-
-      For every input point the node finds the closest point on the triangles built from Mesh
-      Points. The output is the input point plus (surface point - input point) * Blend, so Blend 0
-      keeps the input and Blend 1 puts the point on the surface.
+      For every input point the node finds the closest vertex of Mesh Points. The output is the
+      input point plus (vertex - input point) * Blend, so Blend 0 keeps the input and Blend 1 puts
+      the point on the vertex.
     - >-
       Blend is clamped to 0 to 1 even though the control accepts other values, and its default is 1.
       Affect X, Y and Z are checked by default. An unchecked axis keeps the input value, so the
       point moves only within the checked axes.
     - >-
-      The search compares every point with every triangle. If Points or Mesh Points is empty, the
-      output is empty.
+      The search compares every point with every vertex. Only the vertex list is used, not edges or
+      faces. If Points or Mesh Points is empty, the output is empty.
   features:
     - title: Blend amount
-      desc: Blend moves the point a fraction of the way to the surface, clamped to 0 to 1.
-    - title: Closest point on faces
-      desc: The target is the closest point on a triangle, not only a vertex.
+      desc: Blend moves the point a fraction of the way to the vertex, clamped to 0 to 1.
+    - title: Closest vertex
+      desc: The target is the closest Mesh Points vertex, not a point on a face.
     - title: Per-axis switches
       desc: Affect X, Y and Z restrict the move to the checked axes.
     - title: Two inputs
-      desc: Points are the input array, and Mesh Points define the surface.
+      desc: Points are the input array, and the Mesh Points vertices are the targets.
   connections:
     - label: Pull a grid toward a loaded mesh and draw
       lines:
@@ -53,11 +53,11 @@ curated:
       desc: Clamps points farther than a maximum distance from the mesh down to that distance.
   params:
     inblend: >-
-      Mix between the input point (0) and the closest surface point (1). Clamped to 0 to 1 in the
-      code, default 1.
-    inaffectx: 'Checked (default): X moves toward the surface. Unchecked: X keeps the input value.'
-    inaffecty: 'Checked (default): Y moves toward the surface. Unchecked: Y keeps the input value.'
-    inaffectz: 'Checked (default): Z moves toward the surface. Unchecked: Z keeps the input value.'
+      Mix between the input point (0) and the closest vertex (1). Clamped to 0 to 1 in the code,
+      default 1.
+    inaffectx: X moves toward the vertex when checked (default), otherwise it keeps the input value.
+    inaffecty: Y moves toward the vertex when checked (default), otherwise it keeps the input value.
+    inaffectz: Z moves toward the vertex when checked (default), otherwise it keeps the input value.
     JSONPoints: JSON family only. The points input that the node reads.
 status:
   source: ai
@@ -67,6 +67,10 @@ status:
   note: >-
     Blend is clamped to 0 to 1 in the code although the control accepts any value. The Array and
     ScriptVal fuses call buildSurfaceSamples(meshPts, false, true), the JSON fuse calls it with the
-    mesh points only, and vArrayAlignToMesh also uses one argument. The vmeshutils module is not in
-    the fuse repository, so what the extra arguments change was not checked. The JSON fuse has two
-    inputs with the main link 1, Points and JSON Points; only JSON Points is read.
+    mesh points only. The extra arguments only skip the normal estimation, which this node does not
+    use, so positions are the same. The JSON fuse has two inputs with the main link 1, Points and
+    JSON Points; only JSON Points is read. vmeshutils.buildSurfaceSamples uses only the vertex list
+    of Mesh Points. It makes one sample per vertex with all three triangle corners equal to that
+    vertex, so every search finds the closest vertex and not a point on a face. The normal of a
+    sample is fitted to the 8 nearest vertices and points away from the centroid of all vertices.
+    Edges and faces are not read.

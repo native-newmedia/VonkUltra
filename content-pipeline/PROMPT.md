@@ -14,6 +14,7 @@ Use this for one function group at a time (for example Mograph Create). Output i
 - Never invent behavior. Do not state units, ranges, or defaults that are not in the fuse. Hidden controls (`IC_Visible = false`) are labelled as hidden.
 - Plain, factual prose. No em dashes. No promotional wording (seamless, powerful, leverage, robust, unlock, essential, foundation, and similar). No claims about what a node is "perfect for".
 - Write text that holds for all three families. Use Array tool names in examples; the renderer swaps the prefix. Mention the ScriptVal or JSON output type only if it matters.
+- Mesh nodes (Mesh Points input) read the mesh through vmeshutils.buildSurfaceSamples. It uses only the vertex list: one sample per vertex, the closest point is the closest vertex, the normal is fitted to the 8 nearest vertices and points away from the mesh centroid, and the patch samples (second argument true) are averages of a vertex and its 7 nearest neighbors. Do not describe triangles, faces or face normals.
 - Do not mention Show Input unless the fuse still has a control with ID `ShowInput`.
 
 ## Fields (curated block)

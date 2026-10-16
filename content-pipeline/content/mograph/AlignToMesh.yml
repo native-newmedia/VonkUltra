@@ -5,29 +5,34 @@ tools:
   JSON: vJSONAlignToMesh
 legacy_names: []
 curated:
-  tagline: Replaces each point with the normal, the closest surface point or a blend, found on a mesh.
+  tagline: >-
+    Replaces each point with the normal at, the position of, or a blend toward the closest mesh
+    vertex.
   overview: >-
-    vArrayAlignToMesh takes an array of XYZ points and a mesh, and finds the closest point on the
-    mesh for every input point. Output Mode decides whether the node writes the surface normal
-    there, the surface point, or a blend between the input and the surface point.
+    vArrayAlignToMesh takes an array of XYZ points and a mesh, and finds the closest Mesh Points
+    vertex for every input point. Output Mode decides whether the node writes the normal estimated
+    there, the vertex position, or a blend between the input and the vertex.
   description:
     - >-
-      For every input point the node searches all triangles built from Mesh Points for the closest
-      point. Output Mode then writes the normal of that triangle (Normals), the closest surface
-      point (Surface), or a point between the input and the surface point (Blend).
+      For every input point the node finds the closest vertex of Mesh Points. Output Mode then
+      writes the normal estimated at that vertex (Normals), the vertex position (Surface), or a
+      point between the input and the vertex (Blend). The normal is fitted to the 8 nearest vertices
+      and points away from the center of the mesh.
     - >-
       In Normals mode the normal is scaled by Normal Length (default 1) and Flip Normals reverses
-      it. Normal Anchor outputs it alone, adds it to the input point or adds it to the surface
-      point. Affect X, Y and Z apply to Surface and Blend only: an unchecked axis keeps the input
-      value. Blend To Surface (0 to 1, default 1) is used in Blend mode.
-    - If either input is empty, the output is empty.
+      it. Normal Anchor outputs it alone, adds it to the input point or adds it to the vertex.
+      Affect X, Y and Z apply to Surface and Blend only: an unchecked axis keeps the input value.
+      Blend To Surface (0 to 1, default 1) is used in Blend mode.
+    - >-
+      Only the vertex list of Mesh Points is used, not its edges or faces. If either input is empty,
+      the output is empty.
   features:
     - title: Three output modes
       desc: Normals, Surface and Blend write different results from the same closest-point search.
     - title: Three normal anchors
       desc: The normal vector is output alone, at the input point or at the surface point.
-    - title: Closest point on faces
-      desc: The search finds points inside triangles and on edges, not only at vertices.
+    - title: Closest vertex
+      desc: The search compares each point with the Mesh Points vertices, not with faces.
     - title: Per-axis switches
       desc: Affect X, Y and Z limit Surface and Blend to the checked axes.
   connections:
@@ -53,15 +58,15 @@ curated:
       desc: Offsets each input point along the nearest mesh surface normal.
   params:
     outputmode: >-
-      Normals (default), Surface or Blend. Normals writes the triangle normal, Surface the closest
-      surface point and Blend a mix of input and surface point.
+      Normals (default), Surface or Blend. Normals writes the normal estimated at the closest
+      vertex, Surface the vertex position and Blend a mix of input and vertex.
     innormallength: Length of the output normal. Minimum 0, slider 0 to 5, default 1. Shown in Normals mode only.
     innormalanchor: >-
       Vector (default) outputs the normal alone, At Input adds it to the input point and At Surface
-      adds it to the closest surface point. Shown in Normals mode only.
+      adds it to the closest vertex. Shown in Normals mode only.
     inflipnormals: Reverses the normal. Default off. Shown in Normals mode only.
     inblend: >-
-      Mix between the input point (0) and the surface point (1). Range 0 to 1, default 1. Hidden
+      Mix between the input point (0) and the closest vertex (1). Range 0 to 1, default 1. Hidden
       unless Output Mode is Blend.
     inaffectx: >-
       Checked (default): X comes from the result. Unchecked: X keeps the input value. Surface and
@@ -78,8 +83,10 @@ status:
   reviewed_hash: null
   prompt_version: '1'
   note: >-
-    The registered description says "nearest mesh vertex". The code finds the closest point on the
-    nearest triangle, which can lie inside a face or on an edge. Affect X, Y and Z are read in every
-    mode but only change the result in Surface and Blend. The Mesh Points input is converted to
-    triangles by meshutils.buildSurfaceSamples from the vmeshutils module, which is not in the fuse
-    repository, so how the triangles and their normals are built was not checked.
+    The registered description says "nearest mesh vertex" and matches the code. The old overview
+    said the node finds the closest point on the mesh surface; it finds the closest vertex. Affect
+    X, Y and Z are read in every mode but only change the result in Surface and Blend.
+    vmeshutils.buildSurfaceSamples uses only the vertex list of Mesh Points. It makes one sample per
+    vertex with all three triangle corners equal to that vertex, so every search finds the closest
+    vertex and not a point on a face. The normal of a sample is fitted to the 8 nearest vertices and
+    points away from the centroid of all vertices. Edges and faces are not read.

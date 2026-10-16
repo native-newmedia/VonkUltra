@@ -5,31 +5,33 @@ tools:
   JSON: vJSONMaskByMesh
 legacy_names: []
 curated:
-  tagline: Keeps only the points whose distance to a mesh surface lies between Min and Max Distance.
+  tagline: >-
+    Keeps only the points whose distance to the closest mesh vertex lies between Min and Max
+    Distance.
   overview: >-
     vArrayMaskByMesh takes an array of XYZ points and a mesh, and outputs the points whose distance
-    to the mesh is inside a band. Invert Mask keeps the other points instead.
+    to the closest mesh vertex is inside a band. Invert Mask keeps the other points instead.
   description:
     - >-
-      For each point the node finds the closest point on the mesh triangles and its distance. In
-      Hard mode the point is kept when the distance is from Min Distance (default 0) up to Max
-      Distance (default 0.1). Min Distance is limited to Max Distance. Invert Mask keeps the points
-      that fail the test instead.
+      For each point the node finds the closest Mesh Points vertex and its distance. In Hard mode
+      the point is kept when the distance is from Min Distance (default 0) up to Max Distance
+      (default 0.1). Min Distance is limited to Max Distance. Invert Mask keeps the points that fail
+      the test instead.
     - >-
       Output Position keeps the original position (default) or moves the point to the closest
-      surface point. Five hidden controls are also read: Falloff Distance, Weight Power, Min Output
-      Weight, Append Weight As 4th Value and Surface Offset. Soft Falloff fades the weight outside
-      the band over the hidden Falloff Distance, which is 0 by default.
+      vertex. Five hidden controls are also read: Falloff Distance, Weight Power, Min Output Weight,
+      Append Weight As 4th Value and Surface Offset. Soft Falloff fades the weight outside the band
+      over the hidden Falloff Distance, which is 0 by default.
     - >-
       If there is no mesh, Keep Input If Mesh Missing (on by default) passes the points through,
       otherwise the output is empty.
   features:
     - title: Distance band
-      desc: Points are kept between Min Distance and Max Distance from the surface.
+      desc: Points are kept between Min and Max Distance from the closest vertex.
     - title: Invertable
       desc: Invert Mask keeps the points outside the band.
-    - title: Surface snap
-      desc: Closest On Surface moves the kept points onto the mesh.
+    - title: Vertex snap
+      desc: Closest On Surface moves the kept points onto the closest mesh vertex.
     - title: No-mesh fallback
       desc: Without a mesh the input can pass through unchanged.
   connections:
@@ -66,8 +68,8 @@ curated:
       Passes the input through when there is no mesh data, if on (default). When off, the output is
       empty.
     outputmode: >-
-      Original (default) keeps the position. Closest On Surface moves the point to the closest
-      surface point.
+      Original (default) keeps the position. Closest On Surface moves the point to the closest mesh
+      vertex.
     falloffdistance: >-
       Hidden control. In Soft Falloff, the distance over which the weight drops from 1 to 0 outside
       the band. Default 0.
@@ -77,8 +79,8 @@ curated:
       0.01.
     appendweight: Hidden control. Adds the weight as a fourth value in Soft Falloff when on. Default off.
     surfaceoffset: >-
-      Hidden control. Offset along the surface normal for Closest On Surface. Slider -1 to 1,
-      default 0.
+      Hidden control. Offset along the estimated normal of the vertex for Closest On Surface. Slider
+      -1 to 1, default 0.
 status:
   source: ai
   state: ai
@@ -89,5 +91,9 @@ status:
     when the distance is between Min Distance and Max Distance. Falloff Distance, Weight Power, Min
     Output Weight, Append Weight As 4th Value and Surface Offset are hidden and NotifyChanged() is
     empty, so they stay hidden. Soft Falloff does nothing different from Hard while the hidden
-    Falloff Distance is 0. Mesh triangles come from buildSurfaceSamples in the vmeshutils module,
-    which is not in the fuse repository, so how they are built was not checked.
+    Falloff Distance is 0. Distances are measured to the closest mesh vertex, and Closest On Surface
+    moves the point to that vertex. vmeshutils.buildSurfaceSamples uses only the vertex list of Mesh
+    Points. It makes one sample per vertex with all three triangle corners equal to that vertex, so
+    every search finds the closest vertex and not a point on a face. The normal of a sample is
+    fitted to the 8 nearest vertices and points away from the centroid of all vertices. Edges and
+    faces are not read.

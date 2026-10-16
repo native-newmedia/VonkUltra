@@ -5,22 +5,23 @@ tools:
   JSON: vJSONClampToMeshProx
 legacy_names: []
 curated:
-  tagline: Moves points that are too far from, or too close to, a mesh to a set distance from it.
+  tagline: Moves points that are too far from, or too close to, the mesh vertices to a set distance.
   overview: >-
     vArrayClampToMeshProx takes an array of XYZ points and a mesh, and keeps each point at a set
-    distance from the reference on the mesh. Clamp Mode picks whether it moves points outside or
+    distance from its reference on the mesh. Clamp Mode picks whether it moves points outside or
     inside Max Distance.
   description:
     - >-
-      For each point the node finds the reference: the closest point on the triangles (Surface), the
-      closest Mesh Points vertex (Vertex) or the closest sample point from vmeshutils (Centroid).
-      Outside > Max moves points whose distance is above Max Distance. Inside < Max moves points
-      whose distance is below it. They are put on the line from the reference through the point at
-      Max Distance + Distance Offset.
+      For each point the node finds the reference: the closest Mesh Points vertex (Surface and
+      Vertex give the same result) or the closest patch point (Centroid), the average of a vertex
+      and its 7 nearest neighbors. Outside > Max moves points whose distance is above Max Distance.
+      Inside < Max moves points whose distance is below it. They are put on the line from the
+      reference through the point at Max Distance + Distance Offset.
     - >-
       Clamp Blend (0 to 1) mixes between the original and the clamped position, and Affect X, Y and
       Z keep unchecked axes at their input value. Preserve Extra Values (on) copies values after the
-      third. Points on the reference use the mesh normal as direction.
+      third. A point on its reference moves along the estimated normal in Surface mode and along +Z
+      otherwise.
     - >-
       With no mesh data, Pass Through If No Mesh (on) outputs the points unchanged, otherwise the
       output is empty.
@@ -28,7 +29,7 @@ curated:
     - title: Two clamp directions
       desc: Outside > Max pulls far points in. Inside < Max pushes near points out.
     - title: Three references
-      desc: Surface, Vertex or Centroid decide what the distance is measured to.
+      desc: Surface and Vertex use the closest vertex. Centroid uses averaged neighbors.
     - title: Distance Offset
       desc: The target distance is Max Distance plus the offset.
     - title: Extra values kept
@@ -49,7 +50,7 @@ curated:
   difficulty: Advanced
   related:
     - name: vArrayAttractToMesh
-      desc: Moves points toward the closest surface point by a Blend amount.
+      desc: Lerps input points toward the nearest mesh surface point.
     - name: vArrayWeightByMeshProx
       desc: Another node that uses the distance to a mesh.
     - name: vArraySortByMeshProx
@@ -59,7 +60,9 @@ curated:
       Distance that decides which points are clamped. Minimum 0 in the code, slider 0 to 2, default
       1.
     inclampmode: Outside > Max (default) or Inside < Max.
-    inreferencemode: Surface (default), Vertex or Centroid. What the distance is measured to.
+    inreferencemode: >-
+      Surface (default), Vertex or Centroid. Surface and Vertex measure to the closest Mesh Points
+      vertex. Centroid measures to the closest average of a vertex and its 7 nearest neighbors.
     inclampblend: Mix between the original (0) and the clamped position (1). Range 0 to 1, default 1.
     indistanceoffset: Added to Max Distance for the target distance. Slider -2 to 2, default 0.
     inaffectx: X is clamped when checked (default), otherwise it keeps the input value.
@@ -76,7 +79,10 @@ status:
   prompt_version: '1'
   note: >-
     The decision to clamp uses Max Distance only, while the target distance is Max Distance plus
-    Distance Offset (not below 0). Max Distance is limited to 0 or more in the code. Centroid mode
-    uses the points returned by buildSurfaceSamples(meshPts, true) from the vmeshutils module, which
-    is not in the fuse repository, so what those samples are was not checked. Vertex mode uses the
-    Mesh Points array itself as the vertex list.
+    Distance Offset (not below 0). Max Distance is limited to 0 or more in the code. Surface and
+    Vertex find the same reference point. A point that lies on its reference moves along the
+    estimated normal in Surface mode and along +Z in Vertex and Centroid mode.
+    vmeshutils.buildSurfaceSamples uses only the vertex list of Mesh Points. It makes one sample per
+    vertex with all three triangle corners equal to that vertex, so every search finds the closest
+    vertex and not a point on a face. The normal of a sample is fitted to the 8 nearest vertices and
+    points away from the centroid of all vertices. Edges and faces are not read.

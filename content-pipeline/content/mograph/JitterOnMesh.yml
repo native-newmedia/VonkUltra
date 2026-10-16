@@ -5,32 +5,33 @@ tools:
   JSON: vJSONJitterOnMesh
 legacy_names: []
 curated:
-  tagline: Moves points randomly in the tangent plane of a mesh and puts them back on the surface.
+  tagline: Jumps each point randomly in the local tangent plane, then snaps it to the closest mesh vertex.
   overview: >-
     vArrayJitterOnMesh takes an array of XYZ points and a mesh. Each point is moved by a random
-    distance up to Jitter Radius in the tangent plane of the nearest surface, then projected back
-    onto the mesh.
+    distance up to Jitter Radius in the tangent plane at the nearest mesh vertex, then replaced by
+    the closest mesh vertex to that position.
   description:
     - >-
-      For each point the node finds the nearest triangle and builds two tangent directions from its
-      normal. It picks a random angle and a distance up to Jitter Radius (spread evenly over the
-      disk), moves the point there, and takes the closest surface point to the result. Surface
-      Offset moves that point along the surface normal.
+      For each point the node finds the closest mesh vertex and builds two tangent directions from
+      the normal estimated there. It picks a random angle and a distance up to Jitter Radius (spread
+      evenly over the disk), moves the point there, and takes the closest mesh vertex to the result.
+      Surface Offset moves that vertex along its estimated normal.
     - >-
-      Random Seed (default 0) fixes the sequence, so the same Seed, points and mesh give the same
-      result. With Animate Jitter on, the seed also changes by 12345 for every whole step of render
-      time times Animation Speed, so the jitter changes in steps. Affect X, Y and Z keep unchecked
-      axes at their input value.
+      The output points are therefore mesh vertices, so a small Jitter Radius on a coarse mesh often
+      returns the same vertex. Random Seed (default 0) fixes the sequence, so the same Seed, points
+      and mesh give the same result. With Animate Jitter on, the seed also changes by 12345 for
+      every whole step of render time times Animation Speed. Affect X, Y and Z keep unchecked axes
+      at their input value.
     - If the mesh or the points are empty, the points are output unchanged.
   features:
-    - title: Jitter on the surface
-      desc: The move is in the tangent plane and the result is projected back onto the mesh.
+    - title: Snaps to vertices
+      desc: The jittered position is replaced by the closest mesh vertex.
     - title: Repeatable
       desc: The same Seed gives the same result.
     - title: Stepped animation
       desc: Animate Jitter changes the seed as render time advances.
     - title: Surface Offset
-      desc: The result can be lifted off the surface along its normal.
+      desc: The result can be lifted off the vertex along its estimated normal.
   connections:
     - label: Jitter a grid on a loaded mesh and draw
       lines:
@@ -54,12 +55,12 @@ curated:
       desc: Iteratively relaxes scattered points toward an even distribution on the mesh surface.
   params:
     jitterradius: >-
-      Largest distance of the random move in the tangent plane. Minimum 0, slider 0 to 1, default
-      0.05.
+      Largest distance of the random move in the tangent plane, before the snap to a vertex. Minimum
+      0, slider 0 to 1, default 0.05.
     seed: Integer from 0, slider to 100000, default 0.
     animatejitter: Changes the seed with the render time when on. Default off.
     animationspeed: Multiplies the render time for the seed steps. Minimum 0, slider 0 to 10, default 1.
-    surfaceoffset: Distance from the surface along its normal. Slider -1 to 1, default 0.
+    surfaceoffset: Distance from the vertex along its estimated normal. Slider -1 to 1, default 0.
     inaffectx: X comes from the result when checked (default), otherwise it keeps the input value.
     inaffecty: Y comes from the result when checked (default), otherwise it keeps the input value.
     inaffectz: Z comes from the result when checked (default), otherwise it keeps the input value.
@@ -69,9 +70,12 @@ status:
   reviewed_hash: null
   prompt_version: '1'
   note: >-
-    The jitter radius is the distance in the tangent plane before the point is projected back onto
-    the surface, so the final move along the surface can differ from it. The random values are drawn
-    in order from the global generator after math.randomseed, so the node reseeds math.random on
-    every render. Mesh triangles come from buildSurfaceSamples in the vmeshutils module, which is
-    not in the fuse repository, so how they are built was not checked. Without mesh data the points
-    are output unchanged.
+    The jitter radius is the distance in the tangent plane before the point is replaced by the
+    closest mesh vertex, so the output points are always mesh vertices (plus Surface Offset along
+    their normal). The random values are drawn in order from the global generator after
+    math.randomseed, so the node reseeds math.random on every render. Without mesh data the points
+    are output unchanged. vmeshutils.buildSurfaceSamples uses only the vertex list of Mesh Points.
+    It makes one sample per vertex with all three triangle corners equal to that vertex, so every
+    search finds the closest vertex and not a point on a face. The normal of a sample is fitted to
+    the 8 nearest vertices and points away from the centroid of all vertices. Edges and faces are
+    not read.
