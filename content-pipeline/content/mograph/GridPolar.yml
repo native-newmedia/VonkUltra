@@ -5,23 +5,69 @@ tools:
   JSON: vJSONGridPolar
 legacy_names: []
 curated:
-  tagline: Create a polar grid.
-  overview: Places points on rings around the center.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: >-
+    Generate points on concentric rings with a set number of rings, points per ring, spacing and
+    sweep angle.
+  overview: >-
+    vArrayGridPolar has no input and outputs an array of XYZ points arranged on concentric rings
+    around the Z axis. Number of Rings and Points per Ring set the point count.
+  description:
+    - >-
+      Ring r (counting from 0) has the radius Inner Radius + r * Ring Spacing and sits at Z = Base Z
+      + r * Z Offset per Ring. Point i on a ring is at the angle Start Angle + (i / Points per Ring)
+      * Sweep Angle, with X = radius * cos(angle) and Y = radius * sin(angle). The output holds
+      Number of Rings * Points per Ring points, ring by ring.
+    - >-
+      With the defaults (5 rings, 12 points per ring, Inner Radius 0.5, Ring Spacing 0.5, Start
+      Angle 0, Sweep Angle 360, Z Offset 0, Base Z 0) the node outputs 60 points on rings with radii
+      0.5, 1.0, 1.5, 2.0 and 2.5, all in the Z = 0 plane.
+    - >-
+      The angle step is the sweep divided by Points per Ring, not by Points per Ring - 1. A 360
+      degree sweep therefore does not repeat the first point, and a smaller sweep ends one step
+      short of the sweep angle. Setting Z Offset per Ring to a value other than 0 stacks the rings
+      along Z and gives a cone or a stepped spiral surface.
+    - >-
+      Number of Rings and Points per Ring are used as entered, with a minimum of 1 set on the
+      controls. Angles are in degrees. Inner Radius of 0 puts every point of the first ring on the
+      origin.
+  features:
+    - title: No input needed
+      desc: The node generates its points from its own controls.
+    - title: Concentric rings
+      desc: Rings are spaced by Ring Spacing starting at Inner Radius.
+    - title: Partial sweeps
+      desc: Start Angle and Sweep Angle limit the rings to an arc.
+    - title: Optional Z stacking
+      desc: Z Offset per Ring raises each ring above the previous one.
+  connections:
+    - label: Draw the grid
+      lines:
+        - vArrayGridPolar.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Offset the grid before drawing
+      lines:
+        - vArrayGridPolar.Output -> vArrayTranslate.ArrayA
+        - vArrayTranslate.Output -> vArrayCameraProjection.ArrayA
+  difficulty: Beginner
+  related:
+    - name: vArrayPointsOnGrid
+      desc: Places points on a rectangular grid instead of rings.
+    - name: vArrayPointsOnCircle
+      desc: Places points on one circle.
+    - name: vArrayCircularPoints
+      desc: Distributes points in circular form.
   params:
-    numRings: Number of rings.
-    pointsPerRing: Points on each ring.
-    innerRadius: Radius of the first ring.
-    ringSpacing: Distance between rings.
-    startAngle: Angle of the first point.
-    sweepAngle: Angle covered by each ring.
-    zOffset: Z shift per ring.
-    baseZ: Z position of the first ring.
+    numRings: Number of concentric rings. Minimum 1, default 5.
+    pointsPerRing: Number of points on each ring. Minimum 1, default 12.
+    innerRadius: Radius of the first ring. Minimum 0, default 0.5.
+    ringSpacing: Radius added for each further ring. Minimum 0, default 0.5.
+    startAngle: Angle of the first point on each ring, in degrees. Default 0.
+    sweepAngle: Angle covered by the points on each ring, in degrees. Range 0 to 360, default 360.
+    zOffset: Z distance added for each further ring. Default 0.
+    baseZ: Z position of the first ring. Default 0.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'

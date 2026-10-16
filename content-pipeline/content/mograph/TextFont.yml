@@ -5,27 +5,89 @@ tools:
   JSON: vJSONTextFont
 legacy_names: []
 curated:
-  tagline: Create a text font.
-  overview: Samples the outlines of a styled text into a font array.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: >-
+    Convert text into outline points of a built-in vector font, with size, spacing, rotation and
+    offset controls.
+  overview: >-
+    vArrayTextFont takes the text of its Styled Text control and outputs the outline points of each
+    character, and a Groups output with the number of points in each outline. The outlines come from
+    a vector font that is built into the Vonk Ultra modules.
+  description:
+    - >-
+      The text is converted to upper case, then each character is looked up in the built-in font. A
+      space adds the Line Spacing value to the horizontal position, which makes that control the
+      word spacing. Characters that are not in the font are skipped. Each other character is written
+      as its outlines. Every outline is a list of points, and the next character starts at the right
+      edge of the first outline plus Character Spacing.
+    - >-
+      The outline points are first mirrored in X and Y, which turns each glyph by 180 degrees. Then
+      Horizontal Adjustment and Vertical Adjustment are added, the points are rotated by X, Y and Z
+      Rotation with the rotation matrices multiplied in X, Y, Z order, and X, Y and Z Offset are
+      added. The values are then multiplied by the scale. The scale is Size when Lock X/Y is on.
+      When it is off, X Scale and Y Scale are used instead and Size has no effect.
+    - >-
+      The Output socket holds all outline points in order. The Groups socket holds one number for
+      each outline, the count of its points, so a node that takes a Groups input can draw each
+      outline as a separate closed shape. Rotation Order, Letter Case, Justification and the two
+      Shear controls are hidden and are not used in the calculation.
+    - >-
+      The font is limited to the characters that its glyph tables contain, and the case is always
+      upper case. The Z coordinate comes from the rotation, so without rotation it is 0.
+  features:
+    - title: Built-in vector font
+      desc: Characters are looked up in a font table that ships with the Vonk Ultra modules.
+    - title: Outlines with groups
+      desc: A Groups socket gives the number of points in each outline.
+    - title: Spacing controls
+      desc: Character Spacing sets the gap between characters and Line Spacing sets the space width.
+    - title: Rotate, offset and scale
+      desc: X, Y and Z controls place the text before it goes on to the next node.
+  connections:
+    - label: Draw the text outlines with their groups
+      lines:
+        - vArrayTextFont.Output -> vArrayCameraProjection.ArrayA
+        - vArrayTextFont.ScriptVal_Groups -> vArrayCameraProjection.ArrayGroups
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - vArrayCameraProjection.Groups -> vArrayShapeRender.ArrayGroups
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Offset the text before drawing
+      lines:
+        - vArrayTextFont.Output -> vArrayTranslate.ArrayA
+        - vArrayTranslate.Output -> vArrayCameraProjection.ArrayA
+  difficulty: Intermediate
+  related:
+    - name: vArrayCreateFont
+      desc: Creates outline points from text with a font definition read from JSON.
+    - name: vArrayGenerateText
+      desc: Generates random text items.
+    - name: vArrayFromPolyline
+      desc: Samples a drawn path into points.
   params:
-    StyledText: Text to convert.
-    Size: Text size.
-    CharacterSpacing: Extra spacing between characters.
-    Hori_adjustment: Horizontal offset.
-    Ver_adjustment: Vertical offset.
-    Translate.X: Moves the result along X.
-    Translate.Y: Moves the result along Y.
-    Translate.Z: Moves the result along Z.
-    Rotate.X: Rotation around X in degrees.
-    Rotate.Y: Rotation around Y in degrees.
-    Rotate.Z: Rotation around Z in degrees.
-    Scale.Y: Scale along Y. Shown when Lock X/Y is off.
+    StyledText: Text to convert. It is changed to upper case.
+    Size: Scale of the text when Lock X/Y is on. Default 1.
+    CharacterSpacing: Gap added after each character. Default 0.05.
+    Hori_adjustment: Value added to X of every point before rotation. Range -0.5 to 0.5.
+    Ver_adjustment: Value added to Y of every point before rotation. Range -0.5 to 0.5.
+    Translate.X: Offset in X, added after rotation and then scaled.
+    Translate.Y: Offset in Y, added after rotation and then scaled.
+    Translate.Z: Offset in Z, added after rotation and then scaled.
+    Rotate.X: Rotation around the X axis, in degrees.
+    Rotate.Y: Rotation around the Y axis, in degrees.
+    Rotate.Z: Rotation around the Z axis, in degrees.
+    Scale.Y: Hidden while Lock X/Y is on. Scale in Y when Lock X/Y is off. Default 1.
+    lineSpacing: Hidden control. Distance added for each space character, which works as word spacing.
+    Case: Hidden control. It is not used, the text is always upper case.
+    Justification: Hidden control. It is not used in the calculation.
+    RotOrder: Hidden control. It is not used, the rotation is always applied in X, Y, Z order.
+    LockXY: When on, the scale comes from Size. When off, X Scale and Y Scale are used. Default on.
+    Scale.X: Hidden while Lock X/Y is on. Scale in X, also used for Z, when Lock X/Y is off. Default 1.
+    Shear.X: Hidden control. It is not used in the calculation. Default 0.
+    Shear.Y: Hidden control. It is not used in the calculation. Default 0.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
+  note: >-
+    Case, Justification, RotOrder and the Shear controls are read or shown but do not change the
+    output. Characters that are not in the font are skipped. The glyph set was not enumerated.

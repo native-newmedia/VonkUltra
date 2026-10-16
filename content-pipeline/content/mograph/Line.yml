@@ -5,23 +5,64 @@ tools:
   JSON: vJSONLine
 legacy_names: []
 curated:
-  tagline: Generate points on a line.
-  overview: Places points between a start and an end position.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: Generate evenly spaced points on a straight line between a start and an end position.
+  overview: >-
+    vArrayLine has no input and outputs an array of XYZ points between Start and End positions.
+    Point Count sets how many points are written.
+  description:
+    - >-
+      For point i of n, the node uses t = i / (n - 1) and writes Start + (End - Start) * t on each
+      of the three axes. The first point is at the start position and, with Include End Point on,
+      the last point is at the end position.
+    - >-
+      With the defaults (Start -0.5, 0, 0, End 0.5, 0, 0, 10 points, Include End Point on) the node
+      outputs ten points on the X axis from -0.5 to 0.5, 0.111 apart.
+    - >-
+      With Include End Point off, t is divided by n instead of n - 1. The spacing is then (End -
+      Start) / n and the last point stops one step before the end position.
+    - >-
+      Point Count is clamped to 2 or more. The start and end positions are not limited. The output
+      contains points only, with no edges.
+  features:
+    - title: No input needed
+      desc: The node generates its points from its own controls.
+    - title: Full 3D endpoints
+      desc: Start and End each have X, Y and Z controls.
+    - title: Linear spacing
+      desc: Points are spaced by equal steps between the start and the end.
+    - title: Optional end point
+      desc: Include End Point decides whether the last point lands on the end position.
+  connections:
+    - label: Draw the line
+      lines:
+        - vArrayLine.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Animate the points with vArrayWave
+      lines:
+        - vArrayLine.Output -> vArrayWave.ArrayA
+        - vArrayWave.Output -> vArrayCameraProjection.ArrayA
+  difficulty: Beginner
+  related:
+    - name: vArrayPointsOnGrid
+      desc: Places points on a grid instead of a single line.
+    - name: vArrayCubicBezier
+      desc: Creates a cubic Bezier path from manually entered control values.
+    - name: vArrayCircularPoints
+      desc: Places points around a circle.
   params:
-    startx: Start position X.
-    starty: Start position Y.
-    startz: Start position Z.
-    endx: End position X.
-    endy: End position Y.
-    endz: End position Z.
-    pointcount: Number of points.
-    includeendpoint: Adds the end point.
+    startx: X position of the first point. Default -0.5.
+    starty: Y position of the first point. Default 0.
+    startz: Z position of the first point. Default 0.
+    endx: X position of the end of the line. Default 0.5.
+    endy: Y position of the end of the line. Default 0.
+    endz: Z position of the end of the line. Default 0.
+    pointcount: Number of points. Clamped to 2 or more, default 10.
+    includeendpoint: >-
+      When on, the last point lands on the end position. When off, the points stop one step before
+      it. Default on.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'

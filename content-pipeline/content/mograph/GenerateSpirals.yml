@@ -5,31 +5,93 @@ tools:
   JSON: vJSONGenerateSpirals
 legacy_names: []
 curated:
-  tagline: Generate spiral splines.
-  overview: Generates one of seven spiral types as points.
-  description: []
-  features: []
+  tagline: >-
+    Generate points on one of seven spirals, Archimedean, Atom, Cornu, Galilean, Hyperbolic,
+    Logarithmic or Lituus.
+  overview: >-
+    vArrayGenerateSpirals has no input and outputs an array of XYZ points on the spiral chosen by
+    Spiral Type. The Growth coefficient, Expansion factor, Max angle and Step size controls change
+    meaning with the type, and only the ones the type uses are shown.
+  description:
+    - >-
+      For Archimedean, Galilean, Hyperbolic, Logarithmic and Lituus the angle theta is stepped from
+      Step size up to Max angle * pi in increments of Step size. The radius is r = a + b * theta
+      (Archimedean), r = theta^1.5 (Galilean), r = 1 / theta (Hyperbolic), r = a * e^(b * theta)
+      (Logarithmic) or r = 1 / sqrt(theta) (Lituus), where a is Growth coefficient and b is
+      Expansion factor. X = r * cos theta and Y = r * sin theta are rotated around the Z axis by
+      Rotation, in degrees, and multiplied by Scale Factor.
+    - >-
+      Archimedean, Galilean, Hyperbolic and Lituus write one point per step with Z = theta * 0.05 *
+      Scale Factor. Logarithmic writes three points per step, the previous point, the midpoint and
+      the current point, starting from the origin, with Z = 0. With the defaults (Logarithmic,
+      Growth coefficient 0.04, Expansion factor 0.22, Max angle 6, Step size 1, Scale Factor 0.1)
+      the node outputs 54 points.
+    - >-
+      Atom writes floor(10 * Step size) + 1 points with theta stepping evenly from 0 to Max angle *
+      pi and r = Growth coefficient * sqrt(theta). Cornu writes floor(10 * Step size) + 1 points on
+      the Euler spiral (C(t), S(t)), the Fresnel integrals of cos(pi * u^2 / 2) and sin(pi * u^2 /
+      2) from 0 to t. It uses Growth coefficient as the end of the t range and 10 * Expansion factor
+      as the number of integration steps in a left-sided sum. Atom and Cornu write Z = 0.
+    - >-
+      Changing Spiral Type shows or hides the controls the type uses and resets Scale Factor to 0.1
+      and Rotation to 0. Archimedean and Logarithmic use all four. Atom uses Growth coefficient, Max
+      angle and Step size. Cornu uses Growth coefficient, Expansion factor and Step size. Galilean,
+      Hyperbolic and Lituus use Max angle and Step size. The hidden Shape Mode control is read but
+      has no effect.
+  features:
+    - title: No input needed
+      desc: The node generates its points from its own controls.
+    - title: Seven spiral types
+      desc: Spiral Type selects the formula, and the unused controls are hidden.
+    - title: Rotation and scale
+      desc: Rotation turns the spiral around Z and Scale Factor multiplies the finished positions.
+    - title: Controls reset on type change
+      desc: Choosing a new type sets Scale Factor to 0.1 and Rotation to 0.
   connections:
-    - label: Example 1
+    - label: Draw the spiral
       lines:
         - vArrayGenerateSpirals.Output -> vArrayCameraProjection.ArrayA
         - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
         - Background.Output -> vArrayShapeRender.Input
-  difficulty: null
-  related: []
+    - label: Offset the spiral before drawing
+      lines:
+        - vArrayGenerateSpirals.Output -> vArrayTranslate.ArrayA
+        - vArrayTranslate.Output -> vArrayCameraProjection.ArrayA
+  difficulty: Intermediate
+  related:
+    - name: vArrayLogarithmicSpiral
+      desc: A separate node for the logarithmic spiral, with a Spiral and a Polygon mode.
+    - name: vArrayCircularPoints
+      desc: Places points on a circle or a spiral with a radius that grows by a fixed amount.
+    - name: vArrayHelix
+      desc: Generates points along a coil with a constant radius.
   params:
     spiraltype: >-
-      Spiral type. Options: Archimedean Spiral, Atom Spiral, Cornu Spiral, Galilean Spiral,
-      Hyperbolic Spiral, Logarithmic Spiral, Lituus Spiral.
-    num_a: Growth rate of the spiral.
-    num_b: Expansion rate of the spiral.
-    num_c: Last angle of the spiral.
-    step: Angle step between points.
-    _rotation: Rotation in degrees.
-    scaleFactor: Scale of the result.
+      Chooses the spiral formula. Changing it shows the controls the type uses and resets Scale
+      Factor and Rotation. Default Logarithmic Spiral.
+    num_a: >-
+      Growth coefficient. Constant a in the Archimedean, Logarithmic and Atom spirals, and the end
+      of the t range in the Cornu spiral. Default 0.04.
+    num_b: >-
+      Expansion factor. Constant b in the Archimedean and Logarithmic spirals, and 10 times it is
+      the number of integration steps in the Cornu spiral. Default 0.22.
+    num_c: >-
+      Max angle in units of pi. The angle runs up to this value times pi. Not used by the Cornu
+      spiral. Default 6.
+    step: >-
+      Angle step for most spirals. For Atom and Cornu, 10 times it is the number of points. Minimum
+      0.01, default 1.
+    _rotation: Angle the spiral is turned around the Z axis, in degrees. Default 0.
+    scaleFactor: Multiplier applied to the finished positions. Minimum 0, default 0.1.
+    mode: Hidden control. It is read by the node but has no effect on the output.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
   connections_source: docsify
+  prompt_version: '1'
+  note: >-
+    The hidden Shape Mode control (mode) is read into inShape and never used. The Logarithmic type
+    here writes Z = 0, while vArrayLogarithmicSpiral writes Z = theta * 0.05. Fuse logic was not
+    changed.
 legacy_text: Generate Spiral splines

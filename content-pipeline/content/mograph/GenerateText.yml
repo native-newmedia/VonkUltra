@@ -5,46 +5,87 @@ tools:
   JSON: vJSONGenerateText
 legacy_names: []
 curated:
-  tagline: Generate random text and strings.
-  overview: Outputs generated or picked text such as words, names or numbers, with a seed.
-  description: []
-  features: []
+  tagline: >-
+    Generate an array of random text items, such as words, names, numbers, colors or lorem ipsum,
+    from a seed.
+  overview: >-
+    vArrayGenerateText outputs an array of text strings. Generate Random picks the kind of text,
+    Array length sets how many items are made, and Seed makes the result repeatable. Lorem ipsum
+    mode builds text of a chosen length instead.
+  description:
+    - >-
+      The node seeds a random generator with Seed and writes Array length items of the chosen kind.
+      The kinds are None, Pick from the input array, Lorem ipsum, Bool, Character, Word, Letter,
+      Vowel, several name types, Hash, three integer types, rgb, rgba, hsl and hsla values, ip, ipv4
+      and ipv6 addresses, Phone, Address, Street, String, Syllable and Shuffle. Color values are
+      written as numbers separated by commas. Bool gives True or False, and Word is capitalized.
+      Shuffle returns one item from a fixed list of letters and digits. None gives an empty array.
+    - >-
+      Pick from input array chooses a random item from the array connected to the Text socket, once
+      for each output item.
+    - >-
+      Lorem ipsum, the default, ignores Array length and Seed and shows Select Mode with four count
+      controls instead. Characters writes Character Count items with 1, 2, 3 and so on up to that
+      many characters. Words, Sentences and Paragraphs do the same with Word Count, Sentence Count
+      and Paragraph Count. Select Mode none, the default, gives an empty array.
+    - >-
+      Letter Case then changes every item to upper case or lower case, or leaves it unchanged. With
+      the defaults the output is empty, so choose a Select Mode or another kind of text first.
+  features:
+    - title: No input needed
+      desc: Most kinds of text are generated without any connection.
+    - title: Many kinds of text
+      desc: Names, words, numbers, colors, network addresses and lorem ipsum are available.
+    - title: Repeatable output
+      desc: Seed fixes the random generator, so the same settings give the same items.
+    - title: Case control
+      desc: Letter Case converts the items to upper or lower case.
   connections:
-    - label: Example 1
+    - label: Pick random items from a list
       lines:
-        - vArrayGenerateText.Output -> vArrayTextWrap.Array
-        - vArrayTextWrap.Text -> vTextViewer.Input
-    - label: Example 2
+        - vArrayRandom.Output -> vArrayGenerateText.Text
+    - label: Generate text and write it as XYZ text
       lines:
-        - vArrayGenerateText.Output -> vArrayViewer.Text
-    - label: Example 3
-      lines:
-        - vArrayGenerateText.Output -> vArrayViewer.Text
-    - label: Example 4
-      lines:
-        - vArrayGenerateText.OutputValData -> vArrayViewer.Text
-    - label: Example 5
-      lines:
-        - vArrayGenerateText.OutputValData -> vArrayViewer.Text
-  difficulty: null
-  related: []
+        - vArrayGenerateText.OutputValData -> vArrayToXYZ.ArrayA
+  difficulty: Intermediate
+  related:
+    - name: vArrayTextFont
+      desc: Creates glyph outlines from text and a font.
+    - name: vArrayCreateFont
+      desc: Creates a font asset for text outlines.
+    - name: vArrayRandom
+      desc: Creates random values between a low and a high limit.
   params:
-    chanceOperation: Type of text generated.
-    arrayLength: Number of values.
-    seed: Seed of the random generator.
+    chanceOperation: Kind of text to generate. Default Lorem ipsum.
+    arrayLength: Number of items to generate. Hidden in Lorem ipsum mode. Minimum 0, default 1.
+    seed: Seed of the random generator. Hidden in Lorem ipsum mode. Default 0.
     selectMode: >-
-      Splits the generated text into characters, words, sentences or paragraphs. Options: none,
-      Characters, Words, Sentences, Paragraphs.
-    CharacterCount: Number of characters.
-    WordCount: Number of words.
-    sentenceCount: Number of sentences.
-    paragraphCount: Number of paragraphs.
-    Case: 'ORIGINAL, UPPER or LOWER. Options: NONE, UPPER, LOWER.'
+      Used by Lorem ipsum. Chooses characters, words, sentences or paragraphs, or none. Default
+      none.
+    CharacterCount: >-
+      Used by Lorem ipsum with Characters. Number of items, and length in characters of the longest.
+      Minimum 0, default 10.
+    WordCount: >-
+      Used by Lorem ipsum with Words. Number of items, and length in words of the longest. Minimum
+      0, default 5.
+    sentenceCount: >-
+      Used by Lorem ipsum with Sentences. Number of items, and length in sentences of the longest.
+      Minimum 0, default 1.
+    paragraphCount: >-
+      Used by Lorem ipsum with Paragraphs. Number of items, and length in paragraphs of the longest.
+      Minimum 0, default 1.
+    Case: Letter Case of every item, NONE, UPPER or LOWER. Default NONE.
+    ScriptValtext: Array of text items that Pick from input array chooses from.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
   connections_source: docsify
+  prompt_version: '1'
+  note: >-
+    In the Generate Random menu, Male name and Name w/last appear to be swapped against the code:
+    Male name calls the generator with the last-name option, and Name w/last calls the male name
+    generator. Not run in Fusion.
 legacy_text: >-
   Example, generating random Text and Strings The following Generate Random options are available: -
   Pick from → input Array - Lorem ipsum Basics: - Bool - Character - Word - Letter - Vowel Names: -

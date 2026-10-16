@@ -5,28 +5,72 @@ tools:
   JSON: vJSONToOBJ
 legacy_names: []
 curated:
-  tagline: Convert an array into Wavefront OBJ text.
-  overview: Writes points, edges and UVs as OBJ text.
-  description: []
-  features: []
+  tagline: >-
+    Convert point, edge, UV and UV edge arrays into Wavefront OBJ ASCII text, with an optional 4x4
+    matrix applied to the points.
+  overview: >-
+    vArrayToOBJ takes arrays on its Points, Edges, UVs and UV Edges sockets and outputs OBJ text. A
+    matrix on the Matrix socket transforms the points before they are written.
+  description:
+    - >-
+      The text starts with a comment line and the line g default. Every entry of the Points array
+      becomes a v line with X, Y and Z written to four decimal places. Every entry of the UVs array
+      becomes a vt line. Entries with two values get a third value of 0, and entries with one value
+      get two values of 0 in the UVs list.
+    - >-
+      Each entry of the Edges array becomes one f line. Its numbers are the vertex indices of the
+      face and are written as they are, without any change. If the UV Edges array has an entry at
+      the same position, each vertex is written as vertex/uv/. Otherwise it is written as vertex//.
+    - >-
+      Points are multiplied by the matrix from the Matrix socket before writing, in the row-vector
+      form that puts the translation in the last row. Without a connected matrix the identity matrix
+      is used, so the points are unchanged. A point entry that does not have two or three values is
+      treated as the origin before the transform.
+    - >-
+      The output is plain text, not an array. Show Input is on by default and shows the five
+      sockets. The node does not write a file. Connect the text to a node that saves text, or copy
+      it from the viewer.
+  features:
+    - title: Points, faces and UVs
+      desc: Points, edges, UVs and UV edges map to v, f and vt lines.
+    - title: Matrix transform
+      desc: A 4x4 matrix on the Matrix socket moves, rotates or scales the points before writing.
+    - title: Indices written as given
+      desc: Face indices are copied from the Edges array without conversion.
+    - title: Text output
+      desc: The result is OBJ ASCII text.
   connections:
-    - label: Example 1
+    - label: Write a generated grid as OBJ text
       lines:
-        - vArrayFromOBJ1.Points -> vArrayMergeOBJ.Points1
-        - vArrayFromOBJ1.Edges -> vArrayMergeOBJ.Edges1
-        - vArrayFromOBJ2.Points -> vArrayMergeOBJ.Points2
-        - vArrayFromOBJ2.Edges -> vArrayMergeOBJ.Edges2
-        - vArrayMergeOBJ.OutputPoints -> vArrayToOBJ.ArrayPoints
-        - vArrayMergeOBJ.OutputEdges -> vArrayToOBJ.ArrayEdges
-        - vArrayToOBJ.Output -> vTextViewer.Input
-        - vArrayToOBJ.Output -> vTextToFile.Input
-  difficulty: null
-  related: []
+        - vArrayPointsOnGrid.Output -> vArrayToOBJ.ArrayPoints
+    - label: Transform the points with a matrix
+      lines:
+        - vArrayPointsOnGrid.Output -> vArrayToOBJ.ArrayPoints
+        - vMatrixCreateTRS.Output -> vArrayToOBJ.Matrix
+  difficulty: Intermediate
+  related:
+    - name: vArrayFromOBJ
+      desc: Reads OBJ data and outputs arrays, the reverse of this node.
+    - name: vArrayToUSD
+      desc: Converts an array into OpenUSD ASCII text.
+    - name: vArrayToXYZ
+      desc: Converts an array into XYZ text with one point per line.
   params:
-    ShowInput: Shows the input sockets of the controls.
+    ShowInput: Shows or hides the five input sockets. Default on.
+    ArrayEdges: Array of face index lists. Each entry becomes one f line.
+    ArrayPoints: Array of points. Each entry becomes one v line.
+    ArrayUV: Array of texture coordinates. Each entry becomes one vt line.
+    ArrayUVEdges: Array of UV index lists, matched to the entries of the Edges array.
+    Matrix: >-
+      A 4x4 matrix as JSON text that is applied to the points. Without it the identity matrix is
+      used.
+    ScriptValUV: Array of texture coordinates. Each entry becomes one vt line.
+    ScriptValUVEdges: Array of UV index lists, matched to the entries of the Edges array.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
   connections_source: docsify
+  prompt_version: '1'
+  note: The node builds its text only. It does not write a file.
 legacy_text: Convert an Array into Wavefront OBJ ASCII Text

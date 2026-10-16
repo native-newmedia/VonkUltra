@@ -5,23 +5,76 @@ tools:
   JSON: vJSONAttractorPoints
 legacy_names: []
 curated:
-  tagline: Generate a point path from a strange attractor.
-  overview: Integrates a Lorenz or Rossler system and outputs the path as points.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: Generate a point path by integrating the Lorenz or Rossler system with a fixed step size.
+  overview: >-
+    vArrayAttractorPoints has no input and outputs an array of XYZ points along a Lorenz or Rossler
+    trajectory. System picks the equations, and Point Count, Step Size and Scale shape the path.
+  description:
+    - >-
+      The node starts at a fixed position and advances it with Euler steps of Step Size. Lorenz
+      starts at (0.1, 0, 0) and uses dx = A * (y - x), dy = x * (B - z) - y and dz = x * y - C * z.
+      Rossler starts at (1, 1, 1) and uses dx = -y - z, dy = x + A * y and dz = B + z * (x - C).
+      Each written point is the current position multiplied by Scale.
+    - >-
+      The first Warmup Steps steps are computed and discarded, and the next Point Count steps are
+      written. With the defaults (Lorenz, 2000 points, 100 warmup steps, Step Size 0.01, Scale 0.02)
+      the node outputs 2000 points that follow the two lobes of the Lorenz trajectory.
+    - >-
+      Changing System sets Param A, B and C to the standard values of that system: 10, 28 and 2.6667
+      for Lorenz, 0.2, 0.2 and 5.7 for Rossler. The three parameters can be changed afterwards. Both
+      systems use all three parameters, but each parameter sits in a different term, so values are
+      not interchangeable between the systems.
+    - >-
+      Point Count is clamped to 2 or more, Warmup Steps to 0 or more and Step Size to 0.000001 or
+      more. A large Step Size makes the Euler integration inaccurate and the path can diverge.
+  features:
+    - title: No input needed
+      desc: The node generates its points from its own controls.
+    - title: Two systems
+      desc: System switches between the Lorenz and Rossler equations.
+    - title: Warmup before output
+      desc: Warmup Steps lets the path settle onto the attractor before points are written.
+    - title: Preset parameters
+      desc: Changing System resets Param A, B and C to the values for that system.
+  connections:
+    - label: Draw the attractor
+      lines:
+        - vArrayAttractorPoints.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Offset the path before drawing
+      lines:
+        - vArrayAttractorPoints.Output -> vArrayTranslate.ArrayA
+        - vArrayTranslate.Output -> vArrayCameraProjection.ArrayA
+  difficulty: Intermediate
+  related:
+    - name: vArrayLissajousSpline
+      desc: Generates points on a Lissajous curve.
+    - name: vArrayParametricCurve
+      desc: Generates points from parametric curve expressions.
+    - name: vArrayHelix
+      desc: Generates points along a coil.
   params:
-    system: Lorenz or Rossler attractor.
-    pointcount: Number of points.
-    warmup: Steps skipped before the points are recorded.
-    stepsize: Time step of the integration.
-    scale: Scale of the result.
-    parama: First attractor parameter.
-    paramb: Second attractor parameter.
-    paramc: Third attractor parameter.
+    system: >-
+      Chooses the Lorenz or Rossler equations. Changing it also sets Param A, B and C to that
+      system's standard values. Default Lorenz.
+    pointcount: Number of points written. Clamped to 2 or more, default 2000.
+    warmup: >-
+      Number of steps computed and discarded before the first point is written. Clamped to 0 or
+      more, default 100.
+    stepsize: Time step of each Euler integration step. Clamped to 0.000001 or more, default 0.01.
+    scale: Multiplier applied to X, Y and Z of every written point. Default 0.02.
+    parama: >-
+      Lorenz uses it as the factor on y - x. Rossler uses it as the factor on y in dy. Default 10,
+      set to 0.2 for Rossler.
+    paramb: >-
+      Lorenz uses it in dy = x * (B - z) - y. Rossler uses it as the constant term in dz. Default
+      28, set to 0.2 for Rossler.
+    paramc: >-
+      Lorenz uses it as the factor on z in dz. Rossler subtracts it from x in dz. Default 2.6667,
+      set to 5.7 for Rossler.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'

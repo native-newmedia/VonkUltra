@@ -19,7 +19,7 @@ Use this for one function group at a time (for example Mograph Create). Output i
 ## Fields (curated block)
 - `tagline`: one sentence, 160 characters at most.
 - `overview`: two sentences. What goes in, what comes out, the one control that matters most.
-- `description`: 3 to 5 paragraphs. Order: what the node computes (with the formula when short), what the defaults produce, the controls that interact, limits and edge cases, typical use.
+- `description`: 500 to 900 characters in total (all paragraphs together), 2 to 4 paragraphs. Cut formulas and edge cases that the parameter table already states. Order: what the node computes (with the formula when short), what the defaults produce, the controls that interact, limits and edge cases, typical use.
 - `features`: exactly 4 `{title, desc}` tiles, each a verifiable property of the node.
 - `connections`: 2 or 3 examples `{label, lines[]}`. Line form `Tool.Socket -> Tool.Socket`. Sockets are the labels shown in Fusion (`Input`, `Output`, `Point`). Only tools and sockets that exist today (the checker verifies). Non-vTool nodes (Background, Merge) are allowed.
 - `difficulty`: Beginner (few controls, no other node needed), Intermediate (needs another node or a concept such as projection or meshes), Advanced (multi-input, state, or several interacting modes).

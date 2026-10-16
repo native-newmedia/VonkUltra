@@ -5,26 +5,81 @@ tools:
   JSON: vJSONNoise
 legacy_names: []
 curated:
-  tagline: Create a noise array.
-  overview: Creates points displaced by noise, optionally animated or looped.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: Generate random XYZ points inside a cube, optionally moved over time by layered noise.
+  overview: >-
+    vArrayNoise has no input and outputs an array of XYZ points scattered at random inside a cube
+    centered on the origin. With Animated on, each point is displaced by noise that changes with the
+    frame time.
+  description:
+    - >-
+      The node seeds Lua's random generator with Seed and places Number of Points points. Each
+      coordinate is a random value between -Noise Scale / 2 and +Noise Scale / 2. With Animated off,
+      these base positions are the output. The same Seed gives the same positions.
+    - >-
+      With Animated on, each point is moved by a noise value on each axis. The noise is three layers
+      of value noise, each layer half as strong and twice as fast as the one before. The
+      displacement on an axis is the noise value, from -1 to 1, multiplied by Noise Scale, the
+      amplitude for that axis and 0.5. The noise is looked up from the point index multiplied by
+      Noise Frequency and from a time value. The Amplitude X, Y and Z controls and Noise Frequency
+      have no effect while Animated is off.
+    - >-
+      The time value is the frame time * Speed * 0.1 + Evolution Offset. If Loop Duration is above
+      0, the time value is instead Evolution Offset + sin(2 * pi * (frame time mod Loop Duration) /
+      Loop Duration) * Speed, which makes the motion repeat every Loop Duration frames.
+    - >-
+      With the defaults (100 points, Noise Scale 1, Seed 0, Animated off) the node outputs 100
+      points inside a unit cube. Number of Points has a minimum of 2.
+  features:
+    - title: No input needed
+      desc: The node generates its points from its own controls.
+    - title: Repeatable positions
+      desc: Seed fixes the base positions, so the same Seed gives the same point cloud.
+    - title: Optional motion
+      desc: Animated displaces each point by layered noise that changes over time.
+    - title: Loop control
+      desc: Loop Duration makes the noise motion repeat after a set number of frames.
+  connections:
+    - label: Draw the point cloud
+      lines:
+        - vArrayNoise.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Offset the cloud before drawing
+      lines:
+        - vArrayNoise.Output -> vArrayTranslate.ArrayA
+        - vArrayTranslate.Output -> vArrayCameraProjection.ArrayA
+  difficulty: Intermediate
+  related:
+    - name: vArrayRandom
+      desc: Generates random values in a range with a Pack To setting.
+    - name: vArrayPointsOnGrid
+      desc: Places points on a regular lattice instead of at random.
+    - name: vArrayPointsOnSphere
+      desc: Generates points on a sphere.
   params:
-    numPoints: Number of points.
-    noiseScale: Scale of the noise.
-    seed: Seed of the random generator.
-    animated: Animates the noise.
-    speed: Speed of the animation.
-    noiseFrequency: Frequency of the noise.
-    evolutionOffset: Offset of the noise in time.
-    loopDuration: Length of the loop in frames. 0 disables looping.
-    amplitudeX: Noise strength along X.
-    amplitudeY: Noise strength along Y.
-    amplitudeZ: Noise strength along Z.
+    numPoints: Number of points. Minimum 2, default 100.
+    noiseScale: >-
+      Size of the cube the base positions are drawn from, and the size of the displacement when
+      Animated is on. Minimum 0.01, default 1.
+    seed: >-
+      Seed of the random generator for the base positions and for the noise. Range 0 to 1,000,000,
+      default 0.
+    animated: When on, each point is displaced by noise that changes with the frame time. Default off.
+    speed: >-
+      Rate of the time value for the noise. In a loop it is also the strength of the time swing.
+      Range 0 to 100, default 1.
+    noiseFrequency: >-
+      Multiplier on the point index used to look up the noise. Higher values make neighboring points
+      move more differently. Range 0.001 to 100, default 1.
+    evolutionOffset: Value added to the time value, which shifts the noise pattern in time. Default 0.
+    loopDuration: >-
+      Number of frames after which the animation repeats. 0 turns looping off. Range 0 to 10000,
+      default 0.
+    amplitudeX: Multiplier on the noise displacement along X. Range 0 to 100, default 1.
+    amplitudeY: Multiplier on the noise displacement along Y. Range 0 to 100, default 1.
+    amplitudeZ: Multiplier on the noise displacement along Z. Range 0 to 100, default 1.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'

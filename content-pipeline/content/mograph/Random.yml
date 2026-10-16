@@ -7,75 +7,62 @@ legacy_names:
   - vArrayCreateRandom
 curated:
   tagline: >-
-    Generate a seeded array of random values — the noise source for data-driven variation, scatter,
-    and stochastic animation.
+    Generate an array of random values between a low and a high limit, packed as X, X Y or X Y Z
+    entries.
   overview: >-
-    vArrayCreateRandom produces a vArray of pseudo-random numbers from a seed and length. Use it to
-    drive displacement magnitudes, colour offsets, scale variation, or any parameter that needs
-    reproducible randomness.
+    vArrayRandom has no input and outputs an array of random entries. Array length sets the number
+    of entries, Pack To sets how many values each entry holds, and the Low and High range sets the
+    limits.
   description:
     - >-
-      vArrayCreateRandom generates a flat array of pseudo-random values using a seed-based
-      algorithm. Because the output is deterministic for any given seed, you get the same random
-      layout every time — critical for production workflows where renders must be reproducible
-      across machines and sessions.
+      The node seeds Lua's random generator with Seed and writes Array length entries. Every value
+      is drawn from a uniform distribution between Low and High. The same Seed gives the same
+      output.
     - >-
-      Array length sets how many values to generate (minimum 2). Seed controls which random sequence
-      is produced — increment it to explore different variations while keeping all other parameters
-      fixed. Pack To determines whether values are packed as a flat 1D stream or grouped as XYZ
-      triplets for 3D displacement use.
+      Pack To selects the entry size: X gives one value per entry, X Y gives two and X Y Z gives
+      three. The same Low and High apply to every value in an entry. With the defaults (Array length
+      2, Low -1, High 1, X Y Z) the node outputs two entries of three values each, so it can be used
+      directly as XYZ points.
     - >-
-      Connect the output to vArrayMath to scale the range, then to vArrayDisplaceValues to add
-      per-point noise to a structured grid or sphere. Alternatively drive it directly into
-      vArrayShapeRender's scale or colour input for stochastic size and hue variation across a point
-      cloud. Animating the Seed parameter over time produces a flickering randomness effect.
+      Array length has a minimum of 2. Seed is a whole number from a slider with a displayed range
+      of -100 to 100 and no limit in the code. Use vArrayMinMax if each value needs its own range.
   features:
-    - title: Deterministic Seed
-      desc: >-
-        Same seed always produces the same output — essential for reproducible renders across
-        sessions and render farm nodes.
-    - title: Animatable Seed
-      desc: >-
-        Keyframe or expression-drive the Seed parameter to produce flickering randomness or evolving
-        variation over time.
-    - title: Flexible Packing
-      desc: >-
-        Pack To mode outputs values as a flat 1D stream or as XYZ triplets ready to feed directly
-        into displacement nodes.
-    - title: Range-Agnostic
-      desc: >-
-        Pair with vArrayMapRange or vArrayMath to rescale the 0–1 output to any target range needed
-        downstream.
+    - title: No input needed
+      desc: The node generates its values from its own controls.
+    - title: Repeatable output
+      desc: Seed fixes the sequence, so the same settings give the same values.
+    - title: Entry size choice
+      desc: Pack To writes entries of one, two or three values.
+    - title: One shared range
+      desc: Low and High apply to every value in the output.
   connections:
-    - label: Random displacement on a grid
+    - label: Draw random points
       lines:
-        - vArrayPointsOnGrid.Output -> vArrayDisplaceValues.ArrayA
-        - vArrayCreateRandom.Output -> vArrayDisplaceValues.ArrayB
-        - vArrayDisplaceValues.Output -> vArrayCameraProjection.ArrayA
+        - vArrayRandom.Output -> vArrayCameraProjection.ArrayA
         - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
-    - label: Scale random values to range
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Offset the points before drawing
       lines:
-        - vArrayCreateRandom.Output -> vArrayMath.ArrayA
-        - vArrayMath.Output -> vArrayShapeRender.ArrayPoint
+        - vArrayRandom.Output -> vArrayTranslate.ArrayA
+        - vArrayTranslate.Output -> vArrayCameraProjection.ArrayA
   difficulty: Beginner
   related:
-    - name: vArrayDisplaceValues
-      desc: Use random arrays to drive per-point positional displacement.
-    - name: vArrayMapRange
-      desc: Remap the 0–1 random output to any target value range.
-    - name: vArrayMath
-      desc: Scale or offset random values before passing them downstream.
+    - name: vArrayMinMax
+      desc: The same idea with a separate range for each value in an entry.
+    - name: vArrayNoise
+      desc: Generates random points in a cube, with optional animated motion.
+    - name: vArrayCreateRange
+      desc: Creates a range of values as an array.
   params:
-    arrayLength: >-
-      Number of random values to generate. Must match the length of the array you intend to drive —
-      typically equal to the point count of your generator.
-    Seed: >-
-      Seed for the random number generator. Different seeds produce different sequences. Animating
-      this value creates evolving randomness.
-    InputNumber: >-
-      Output packing mode: 0 = flat 1D array of scalar values, 1 = packed as XY pairs, 2 = packed as
-      XYZ triplets for 3D use.
+    arrayLength: Number of entries in the output. Minimum 2, default 2.
+    Seed: Seed of the random generator. Default 0.
+    InputNumber: Number of values in each entry, X, X Y or X Y Z. Default X Y Z.
+    Low: Lower end of the range the values are drawn from. Default -1.
+    High: Upper end of the range the values are drawn from. Default 1.
+    Multiply: Hidden control. It is read by the node but has no effect on the output. Default 0.
 status:
-  source: rich-json
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
+  note: The hidden Multiply control is read into mul and never used. Fuse logic was not changed.

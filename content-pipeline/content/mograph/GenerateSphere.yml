@@ -5,28 +5,79 @@ tools:
   JSON: vJSONGenerateSphere
 legacy_names: []
 curated:
-  tagline: Generate a sphere with latitude and longitude lines.
-  overview: Places points along latitude and longitude lines of a sphere.
-  description: []
-  features: []
+  tagline: >-
+    Generate points along latitude circles and longitude lines of a sphere, with trim controls for
+    the poles.
+  overview: >-
+    vArrayGenerateSphere has no input and outputs an array of XYZ points on circles of latitude and
+    lines of longitude of a sphere around the origin, with the polar axis along Z. Number Lat Lines
+    and Number Lon Lines set how many lines are drawn.
+  description:
+    - >-
+      Number Lat Lines circles are spaced evenly in latitude between the poles, not including the
+      poles. Each circle has 101 points, from longitude 0 to 360 degrees, so the last point repeats
+      the first. A circle at latitude a has the radius Radius * cos(a) and sits at Z = Radius *
+      sin(a).
+    - >-
+      Number Lon Lines lines are spaced evenly in longitude, and each runs from the south pole to
+      the north pole with 100 points. The longitude lines are always written. The Include Lon Lines
+      checkbox does not change the output, because the code tests the value as a boolean and a Lua
+      number, including 0, counts as true.
+    - >-
+      Trim Top and Trim Bottom remove points near the poles. Each value is a fraction of the 90
+      degrees between the equator and a pole. Points above latitude 90 degrees minus Trim Top * 90
+      degrees, and below -90 degrees plus Trim Bottom * 90 degrees, are left out of both the
+      latitude circles and the longitude lines. Negative values extend the limits past the poles and
+      remove nothing.
+    - >-
+      With the defaults (Radius 0.3, 1 latitude line, 1 longitude line, no trim) the node outputs
+      201 points, the equator circle with 101 points and one meridian with 100 points. Radius is not
+      limited, so a negative Radius mirrors the sphere.
+  features:
+    - title: No input needed
+      desc: The node generates its points from its own controls.
+    - title: Latitude and longitude lines
+      desc: Lines are written as ordered points that follow each circle or meridian.
+    - title: Pole trimming
+      desc: Trim Top and Trim Bottom cut away points near the poles.
+    - title: Fixed resolution per line
+      desc: Each circle has 101 points and each meridian has 100.
   connections:
-    - label: Example 1
+    - label: Draw the sphere lines
       lines:
         - vArrayGenerateSphere.Output -> vArrayCameraProjection.ArrayA
         - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
         - Background.Output -> vArrayShapeRender.Input
-  difficulty: null
-  related: []
+    - label: Offset the sphere before drawing
+      lines:
+        - vArrayGenerateSphere.Output -> vArrayTranslate.ArrayA
+        - vArrayTranslate.Output -> vArrayCameraProjection.ArrayA
+  difficulty: Beginner
+  related:
+    - name: vArrayGeodesicSphere
+      desc: Generates points on an icosphere instead of latitude and longitude lines.
+    - name: vArrayPointsOnSphere
+      desc: Places points on a sphere with a Fibonacci or random layout.
+    - name: vArrayTorus
+      desc: Generates points on a torus.
   params:
-    radius: Radius.
-    numLatLines: Number of latitude lines.
-    numLonLines: Number of longitude lines.
-    trimTop: Removes the top part of the sphere.
-    trimBot: Removes the bottom part of the sphere.
-    includeLonLines: Adds the longitude lines.
+    radius: Radius of the sphere. Default 0.3.
+    numLatLines: Number of latitude circles. Minimum 0, default 1.
+    numLonLines: Number of longitude lines. Minimum 0, default 1.
+    trimTop: >-
+      Fraction of the 90 degrees from the equator to the north pole that is cut away at the top.
+      Minimum -1, default 0.
+    trimBot: >-
+      Fraction of the 90 degrees from the equator to the south pole that is cut away at the bottom.
+      Minimum -1, default 0.
+    includeLonLines: This control has no effect. Longitude lines are always written. Default off.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
   connections_source: docsify
+  prompt_version: '1'
+  note: >-
+    includeLonLines is read as a number and tested with if value then, so the longitude lines are
+    always written. Fuse logic was not changed.
 legacy_text: Generates a Sphere with longitude/latitude lines

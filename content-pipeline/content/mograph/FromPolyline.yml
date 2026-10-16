@@ -5,25 +5,76 @@ tools:
   JSON: vJSONFromPolyline
 legacy_names: []
 curated:
-  tagline: Sample a drawn polyline into a point list.
-  overview: Samples the polyline at equal arc length steps.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: >-
+    Sample a path drawn in the viewer into evenly spaced points, with flip, aspect and scale
+    controls.
+  overview: >-
+    vArrayFromPolyline outputs an array of XYZ points taken at equal distances along a path that is
+    drawn in the viewer. Point Count sets how many points are taken, and Closed Loop decides whether
+    the path is closed.
+  description:
+    - >-
+      The Path control is a spline that is drawn in the viewer. The node takes Point Count positions
+      along the path at equal fractions of its length. Without Closed Loop the first point is at the
+      start and the last at the end of the path. With Closed Loop on, the spacing is divided by
+      Point Count instead of Point Count - 1, so the last point stops one step before the start and
+      the first point is not repeated.
+    - >-
+      Each point is then changed in this order. Flip X and Flip Y negate the X and Y values. Aspect
+      Correct divides Y by 16 / 9, a fixed ratio that does not depend on the image size. Scale X and
+      Scale Y multiply the values. Z is always 0. Flip X, Flip Y and Aspect Correct are on by
+      default, and both scales default to 2.
+    - >-
+      The node is a source tool and also creates an image. It fills the image with the color from
+      Canvas R, Canvas G and Canvas B, so the path can be drawn and seen in the viewer. The image
+      does not change the point output. If the path has fewer than two points, the output is an
+      empty array.
+    - >-
+      Reset Path clears the drawn path. Point Count is rounded to a whole number and has a minimum
+      of 2.
+  features:
+    - title: Drawn in the viewer
+      desc: The path is a spline that is edited directly in the viewer.
+    - title: Equal spacing along the path
+      desc: Points are placed at equal fractions of the path length.
+    - title: Open or closed
+      desc: Closed Loop avoids repeating the start point at the end.
+    - title: Flip, aspect and scale
+      desc: Flip X, Flip Y, Aspect Correct, Scale X and Scale Y adjust the points after sampling.
+  connections:
+    - label: Draw the sampled path
+      lines:
+        - vArrayFromPolyline.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Offset the points before drawing
+      lines:
+        - vArrayFromPolyline.Output -> vArrayTranslate.ArrayA
+        - vArrayTranslate.Output -> vArrayCameraProjection.ArrayA
+  difficulty: Beginner
+  related:
+    - name: vArrayFromPolylineBG
+      desc: Another way to take points from a drawn path.
+    - name: vArrayFromPolylineMulti
+      desc: Samples several drawn paths.
+    - name: vArrayCubicBezier
+      desc: Creates a cubic Bezier path from manually entered control values.
   params:
-    pointCount: Number of points.
-    closedLoop: Connects the last point to the first.
-    flipY: Mirrors the result along Y.
-    flipX: Mirrors the result along X.
-    aspectCorrect: Corrects for the aspect ratio of the image.
-    scaleX: Scale along X.
-    scaleY: Scale along Y.
-    canvasR: Background color red.
-    canvasG: Background color green.
-    canvasB: Background color blue.
+    pointCount: Number of points taken along the path. Minimum 2, default 64.
+    closedLoop: >-
+      When on, the path is treated as closed and the first point is not repeated at the end. Default
+      off.
+    flipY: Negates Y after sampling. Default on.
+    flipX: Negates X after sampling. Default on.
+    aspectCorrect: Divides Y by 16 / 9. Default on.
+    scaleX: Multiplier applied to X. Minimum 0, default 2.
+    scaleY: Multiplier applied to Y. Minimum 0, default 2.
+    canvasR: Red level of the image the node creates. Range 0 to 1, default 0.15.
+    canvasG: Green level of the image the node creates. Range 0 to 1, default 0.15.
+    canvasB: Blue level of the image the node creates. Range 0 to 1, default 0.25.
+    resetPath: Button that clears the drawn path.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'

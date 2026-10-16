@@ -5,20 +5,72 @@ tools:
   JSON: vJSONPointsOnHexagon
 legacy_names: []
 curated:
-  tagline: Generate points on a hexagon grid.
-  overview: Places points on a hexagonal tiling.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: >-
+    Generate a staggered 2D grid of points laid out for hexagon tiles, with row, column and tile
+    offset controls.
+  overview: >-
+    vArrayPointsOnHexagon has no input and outputs an array of XY points in a staggered grid in the
+    Z = 0 plane. Rows and Columns set the point count, and Direction chooses which lines are shifted
+    by half a step.
+  description:
+    - >-
+      The node writes Rows * Columns points. In Horizontal mode every second row is shifted along X
+      by half the X step. In Vertical mode every second column is shifted along Y by half the Y
+      step. The shifted lines are the ones with an odd index, counting from 0.
+    - >-
+      Point spacing comes from Tile X Offset, Tile Y Offset and Multiplier. In Horizontal mode the X
+      step is Tile X Offset * 1.7 * Multiplier and the Y step is Tile Y Offset * 1.432 * Multiplier.
+      In Vertical mode the X step is Tile X Offset * 1.432 * Multiplier and the Y step is Tile Y
+      Offset * 1.7 * Multiplier. The constants 1.7 and 1.432 are fixed in the node.
+    - >-
+      With the defaults (10 rows, 10 columns, both tile offsets 0.1, Multiplier 0.5, Vertical) the
+      node outputs 100 points with an X step of about 0.0716 and a Y step of 0.085. The grid is
+      shifted by half its size so that it sits near the origin.
+    - >-
+      Rows and Columns are limited to the range 1 to 100 by the controls. Z is always 0. The output
+      contains points only.
+  features:
+    - title: No input needed
+      desc: The node generates its points from its own controls.
+    - title: Two stagger directions
+      desc: Vertical shifts alternate columns and Horizontal shifts alternate rows.
+    - title: Separate tile offsets
+      desc: Tile X Offset and Tile Y Offset set the X and Y step independently.
+    - title: Flat output
+      desc: All points are written with Z = 0.
+  connections:
+    - label: Draw the hexagon grid
+      lines:
+        - vArrayPointsOnHexagon.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Offset the grid before drawing
+      lines:
+        - vArrayPointsOnHexagon.Output -> vArrayTranslate.ArrayA
+        - vArrayTranslate.Output -> vArrayCameraProjection.ArrayA
+  difficulty: Beginner
+  related:
+    - name: vArrayPointsOnGrid
+      desc: A regular rectangular lattice without the stagger.
+    - name: vArrayGridPolar
+      desc: Places points on concentric rings.
+    - name: vArrayPointsOnRectangle
+      desc: Places points on a rounded rectangle outline.
   params:
-    rows: Number of rows.
-    colums: Number of columns.
-    tileXOffset: Offset between tiles along X.
-    tileYOffset: Offset between tiles along Y.
-    direction: Vertical or Horizontal layout.
+    rows: Number of rows. Range 1 to 100, default 10.
+    colums: Number of columns. Range 1 to 100, default 10. The control ID is spelled colums in the fuse.
+    tileXOffset: >-
+      Base step along X, multiplied by 1.7 in Horizontal mode and by 1.432 in Vertical mode. Default
+      0.1.
+    tileYOffset: >-
+      Base step along Y, multiplied by 1.432 in Horizontal mode and by 1.7 in Vertical mode. Default
+      0.1.
+    direction: >-
+      Vertical shifts every second column along Y. Horizontal shifts every second row along X.
+      Default Vertical.
+    mul: Scale applied to both steps. Minimum -1, default 0.5.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'

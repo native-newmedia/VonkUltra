@@ -5,20 +5,75 @@ tools:
   JSON: vJSONFromImage
 legacy_names: []
 curated:
-  tagline: Create an array from an image.
-  overview: Samples an image on a grid and outputs the positions that pass the threshold.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: >-
+    Create points from the pixels of an image channel that pass a threshold, keeping every Nth
+    match.
+  overview: >-
+    vArrayFromImage takes an image on its Image Input socket and outputs an array of XYZ points, one
+    for each kept pixel whose channel value reaches the threshold. Channel, Threshold and Invert
+    choose the pixels, and Sample Step thins them out.
+  description:
+    - >-
+      The node scans every pixel of the image from row 0, column 0. It takes the value of the chosen
+      Channel (0 red, 1 green, 2 blue, 3 alpha), turns it into 1 minus the value if Invert is on,
+      and keeps the pixel if the result is greater than or equal to Threshold. Of the pixels that
+      pass, only every Sample Step-th one is written, starting with the first. Sample Step counts
+      passing pixels, not pixel columns or rows.
+    - >-
+      For a pixel at column px and row py of a w by h image, X = 0.5 - px / (w - 1) and Y = (0.5 -
+      py / (h - 1)) * aspect. Z is the channel value used for the test, after Invert. With Preserve
+      Image Aspect on, aspect is the image height divided by its width, taking pixel aspect into
+      account. With it off, aspect is 1. The positions therefore fit in a box that is 1 unit wide,
+      centered on the origin.
+    - >-
+      The defaults are Sample Step 10, Threshold 0.5, Channel 0, Invert off and Preserve Image
+      Aspect on. A larger image makes the scan slower, and a Sample Step of 1 writes a point for
+      every passing pixel, so the output can become very large.
+    - >-
+      If no image is connected, or the image has no size, the output is an empty array. The node
+      does not process during the pre-calculation pass.
+  features:
+    - title: Image input
+      desc: Any image or mask connected to Image Input can be turned into points.
+    - title: Channel and threshold
+      desc: Channel picks red, green, blue or alpha, and Threshold sets the cutoff, from 0 to 1.
+    - title: Invert option
+      desc: Invert selects the pixels below the cutoff instead of above it.
+    - title: Pixel value as Z
+      desc: Each point carries the tested channel value as its Z coordinate.
+  connections:
+    - label: Draw points from an image
+      lines:
+        - Loader.Output -> vArrayFromImage.ImageInput
+        - vArrayFromImage.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Offset the points before drawing
+      lines:
+        - Loader.Output -> vArrayFromImage.ImageInput
+        - vArrayFromImage.Output -> vArrayTranslate.ArrayA
+        - vArrayTranslate.Output -> vArrayCameraProjection.ArrayA
+  difficulty: Intermediate
+  related:
+    - name: vArrayFromPolyline
+      desc: Samples a path drawn in the viewer into points.
+    - name: vArrayRandom
+      desc: Creates random values between a low and a high limit.
+    - name: vArrayPointsOnGrid
+      desc: Creates a regular lattice of points.
   params:
-    sampleStep: Distance between samples in pixels.
-    threshold: Samples above this value are kept.
-    channel: Channel that is tested.
-    invert: Keeps samples below the threshold.
-    preserveAspect: Keeps the aspect ratio of the image.
+    sampleStep: Writes every Nth pixel that passes the test. Minimum 1, default 10.
+    threshold: A pixel passes when its channel value is at least this value. Range 0 to 1, default 0.5.
+    channel: Channel that is tested, 0 red, 1 green, 2 blue, 3 alpha. Range 0 to 3, default 0.
+    invert: When on, the tested value is 1 minus the channel value. Default off.
+    preserveAspect: When on, Y is scaled by the image height divided by its width. Default on.
+    imageInput: Image whose pixels are tested.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
+  note: >-
+    Image orientation was not tested in Fusion. X runs from +0.5 at pixel column 0 to -0.5 at the
+    last column, and Y from +0.5 at pixel row 0, so the sign of both axes should be checked against
+    a test image.

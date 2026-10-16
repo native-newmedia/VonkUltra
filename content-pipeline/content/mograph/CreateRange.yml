@@ -7,108 +7,71 @@ legacy_names:
   - vArrayCreate
 curated:
   tagline: >-
-    Generate a flat numeric array in four modes — constant fill, 0-1 normalised, 1-2-3 integer
-    sequence, or Min/Max range — the Swiss Army knife seed node.
+    Generate a list of numbers from a constant, a 0 to 1 ramp, a 1,2,3 counter or a low to high
+    range, packed as X, X Y or X Y Z.
   overview: >-
-    vArrayCreate generates a flat numeric array of any length using one of four fill modes: a
-    constant value, a normalised 0–1 sequence, an ascending integer sequence, or a defined Min/Max
-    range. Use it wherever you need a simple numeric array as pipeline input and vArrayCreateMinMax
-    or vArrayPointsOnGrid would be overkill.
+    vArrayCreateRange has no input and outputs an array of numbers grouped into entries of one, two
+    or three values. Mode Select chooses how the numbers are made, Array length sets how many, and
+    Pack To sets the entry size.
   description:
     - >-
-      vArrayCreate is the general-purpose array generator in the vArray toolkit. Where
-      vArrayCreateMinMax is optimised for spatial Min/Max pairs and vArrayPointsOnGrid produces
-      structured 2D layouts, vArrayCreate simply fills an array of a given length with numeric
-      values according to one of four selectable modes. It is the right node when you need raw
-      numbers rather than geometric positions — driving parameter offsets, feeding arithmetic
-      modifiers, seeding randomisers, or providing a simple index sequence to downstream logic
-      nodes.
+      The node first makes Array length numbers. In Num mode every number is the value of Number. In
+      0-1 mode number i of n is (i - 1) / (n - 1), a ramp from 0 to 1. In 1,2,3 mode number i is i.
+      In Range mode the numbers are spaced evenly from Low to High, with number i equal to Low + (i
+      - 1) * (High - Low) / (n - 1).
     - >-
-      Mode Select is the key control, presented as a four-button switcher: Num fills every element
-      with the same constant value (set by the Number parameter); 0-1 generates a linearly spaced
-      sequence from 0 to 1 across the array length; 1,2,3 generates an ascending integer sequence
-      starting at 1; Range exposes Min/Max range controls and distributes values linearly between
-      them. Each mode hides the controls irrelevant to it, keeping the UI clean. Pack To structures
-      the output as X-only, XY pairs, or XYZ triples to match downstream expectations.
+      If Reverse Array is on, the list of numbers is reversed. The numbers are then packed into
+      entries by Pack To: X gives entries of one value, X Y gives entries of two and X Y Z gives
+      entries of three. If the count does not divide evenly, the last entry holds the remaining
+      values and is shorter.
     - >-
-      Reverse Array flips the order of the output — useful when a downstream node expects descending
-      values or when you want to mirror an animation without changing the source data. The Show
-      Input checkbox exposes an ArrayA passthrough port for chaining or merging. In practice,
-      vArrayCreate is most useful early in a pipeline where you need a numeric sequence to drive
-      vArrayMath operations, stagger timing via vArrayStagger, or provide index data to conditional
-      logic nodes.
+      With the defaults (Array length 2, 0-1 mode, Pack To X) the output is two entries, 0 and 1.
+      Number is shown only in Num mode, and Low and High only in Range mode. Array length has a
+      minimum of 2. Show Input adds a connection point to the Array length control so that the
+      length can be driven from another node.
+    - >-
+      The node produces values, not geometry. Set Pack To to X Y Z to use the output as points, or
+      use it with the Modify nodes as a source of values.
   features:
+    - title: No input needed
+      desc: The node generates its values from its own controls.
     - title: Four fill modes
-      desc: >-
-        Switch between constant fill, normalised 0-1 sequence, ascending integer sequence, and
-        Min/Max range — all in a single node with a clean button switcher.
-    - title: Flexible pack format
-      desc: >-
-        Pack To structures output as X, XY, or XYZ to match whatever format the downstream modifier
-        or renderer expects.
-    - title: Reversible output
-      desc: >-
-        Reverse Array flips the output order in one checkbox — no expressions or upstream changes
-        needed to mirror a sequence.
-    - title: Chainable via Show Input
-      desc: >-
-        Expose the ArrayA port to merge or concatenate arrays from multiple vArrayCreate nodes in a
-        single pipeline.
+      desc: Num, 0-1, 1,2,3 and Range cover constants, ramps, counters and spans.
+    - title: Reverse option
+      desc: Reverse Array flips the order of the numbers before they are packed.
+    - title: Packing choice
+      desc: Pack To writes entries of one, two or three values.
   connections:
-    - label: Drive a modifier with an index sequence
+    - label: Draw the values as points, with Pack To set to X Y Z
       lines:
-        - vArrayCreate.Output -> vArrayMapRange.ArrayA
-        - vArrayMapRange.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCreateRange.Output -> vArrayCameraProjection.ArrayA
         - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
         - Background.Output -> vArrayShapeRender.Input
-    - label: Seed a buffer with constant values
+    - label: Offset the values before drawing
       lines:
-        - vArrayCreate.Output -> vArrayBuffer.ArrayA
-        - vArrayBuffer.Output -> vArrayCameraProjection.ArrayA
-        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
-        - Background.Output -> vArrayShapeRender.Input
-    - label: Merge two sequences
-      lines:
-        - vArrayCreate_A.Output -> vArrayCreate_B.ArrayA
-        - vArrayCreate_B.Output -> vArrayCameraProjection.ArrayA
-        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
-        - Background.Output -> vArrayShapeRender.Input
+        - vArrayCreateRange.Output -> vArrayTranslate.ArrayA
+        - vArrayTranslate.Output -> vArrayCameraProjection.ArrayA
   difficulty: Beginner
   related:
+    - name: vArrayList
+      desc: Creates an array from values typed in one by one.
+    - name: vArrayRandom
+      desc: Creates random values between a low and a high limit.
     - name: vArrayMinMax
-      desc: >-
-        Use when you need a spatial Min/Max range pair for geometric generators — more specialised
-        than vArrayCreate for positional data.
-    - name: vArrayMapRange
-      desc: >-
-        Place after vArrayCreate to remap the generated sequence into a different output range
-        without changing the source values.
-    - name: vArrayBuffer
-      desc: >-
-        Feed vArrayCreate output into vArrayBuffer to accumulate a frame history of the generated
-        sequence for trail and echo effects.
+      desc: Creates random values with a separate range for each value in an entry.
   params:
-    arrayLength: >-
-      Number of elements in the generated array. Minimum 2. All fill modes distribute their values
-      across this length.
+    arrayLength: Number of numbers made before packing. Minimum 2, default 2.
     'ModeSelect ': >-
-      Selects the array fill mode. Num: fills every element with the constant value set by Number.
-      0-1: linearly distributed sequence from 0 to 1. 1,2,3: ascending integer sequence starting at
-      1. Range: linearly distributed values between a Min and Max. Each mode shows only the controls
-      relevant to it.
-    Number: >-
-      Constant fill value used in Num mode. Every element in the output array is set to this value.
-      Hidden in all other modes.
-    reversearray: >-
-      Flips the order of the output array. Useful when a downstream node expects descending values
-      or when mirroring a sequence animation.
-    InputNumber: >-
-      Output packing format: X (1D flat sequence), X Y (pairs), or X Y Z (triples). Match this to
-      what the downstream node expects.
-    ShowInput: >-
-      Reveals the ArrayA input port, allowing an upstream array to be passed through or merged with
-      the generated output.
+      Num repeats Number, 0-1 makes a ramp from 0 to 1, 1,2,3 counts up from 1, Range spaces values
+      from Low to High. Default 0-1.
+    Number: Hidden unless Mode Select is Num. The value written for every number in Num mode. Default 0.
+    reversearray: Reverses the order of the numbers before packing. Default off.
+    InputNumber: Number of values in each entry, X, X Y or X Y Z. Default X.
+    ShowInput: Shows or hides a connection point on the Array length control. Default off.
+    Low: Hidden unless Mode Select is Range. First value of the range. Default -1.
+    High: Hidden unless Mode Select is Range. Last value of the range. Default 1.
 status:
-  source: rich-json
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'

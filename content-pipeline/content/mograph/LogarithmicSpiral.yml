@@ -5,28 +5,78 @@ tools:
   JSON: vJSONLogarithmicSpiral
 legacy_names: []
 curated:
-  tagline: Generate a logarithmic spiral.
-  overview: Outputs a logarithmic spiral as a spiral or as a polygon.
-  description: []
-  features: []
+  tagline: >-
+    Generate a logarithmic spiral as segment points or polygon points, with growth, expansion, angle
+    range and step controls.
+  overview: >-
+    vArrayLogarithmicSpiral has no input and outputs an array of XYZ points on a spiral r = a * e^(b
+    * theta) that rises slowly along Z. Mode chooses between segment triplets and polygon pairs.
+  description:
+    - >-
+      The node steps the angle theta from Step Size up to Max Angle * pi in increments of Step Size.
+      At each step the radius is r = Growth Coefficient * e^(Expansion Factor * theta), the position
+      is X = r * cos theta and Y = r * sin theta, and Z = theta * 0.05. X and Y are then rotated
+      around the Z axis by Rotation, in degrees. The Z rise of 0.05 per radian is fixed.
+    - >-
+      In Spiral mode each step writes three points: the previous point, the midpoint between the
+      previous and current points, and the current point. The first previous point is the origin.
+      With the defaults (Growth Coefficient 0.04, Expansion Factor 0.22, Max Angle 6, Step Size
+      1.23) there are 15 steps, so the node outputs 45 points.
+    - >-
+      In Polygon mode each step writes two points: the current point moved by 0.05 in the direction
+      (sin theta, -cos theta), and the previous point. The same defaults give 30 points. Z is the
+      same as in Spiral mode.
+    - >-
+      Max Angle is a whole number counted in units of pi, so 6 gives three full turns. A smaller
+      Step Size gives more steps and a smoother curve. The number of steps is about Max Angle * pi /
+      Step Size. The hidden Scale Factor control is read by the node but not used in the
+      calculation.
+  features:
+    - title: No input needed
+      desc: The node generates its points from its own controls.
+    - title: Two output modes
+      desc: Spiral writes three points per step and Polygon writes two.
+    - title: Exponential radius
+      desc: >-
+        Growth Coefficient sets the starting size and Expansion Factor sets how fast the radius
+        grows.
+    - title: Slow rise along Z
+      desc: Z increases by 0.05 per radian of angle.
   connections:
-    - label: Example 1
+    - label: Draw the spiral
       lines:
         - vArrayLogarithmicSpiral.Output -> vArrayCameraProjection.ArrayA
         - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
         - Background.Output -> vArrayShapeRender.Input
-  difficulty: null
-  related: []
+    - label: Offset the spiral before drawing
+      lines:
+        - vArrayLogarithmicSpiral.Output -> vArrayTranslate.ArrayA
+        - vArrayTranslate.Output -> vArrayCameraProjection.ArrayA
+  difficulty: Beginner
+  related:
+    - name: vArrayGenerateSpirals
+      desc: Another spiral generator in the Create group.
+    - name: vArrayCircularPoints
+      desc: Places points on a circle or a spiral with a radius that grows by a fixed amount.
+    - name: vArrayHelix
+      desc: Generates points along a coil with a constant radius.
   params:
-    mode: Spiral or Polygon.
-    num_a: Growth rate of the spiral.
-    num_b: Expansion rate of the spiral.
-    num_c: Last angle of the spiral.
-    step: Angle step between points.
-    _rotation: Rotation in degrees.
+    mode: >-
+      Spiral writes three points per step. Polygon writes two points per step, offset sideways from
+      the curve. Default Spiral.
+    num_a: Growth coefficient a in r = a * e^(b * theta). Minimum 0.01, default 0.04.
+    num_b: Expansion factor b in r = a * e^(b * theta). Minimum 0.01, default 0.22.
+    num_c: Largest angle in units of pi. Minimum 1, default 6.
+    step: Angle step in radians. Minimum 0.1, default 1.23.
+    _rotation: Angle the spiral is turned around the Z axis, in degrees. Default 0.
+    scaleFactor: Hidden control. It is read by the node but has no effect on the output. Default 1.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
   connections_source: docsify
+  prompt_version: '1'
+  note: >-
+    Process() reads the Scale Factor control into scaleFactor and never uses it, so the hidden
+    control has no effect. Fuse logic was not changed.
 legacy_text: Generate a logarithmic Spiral spline

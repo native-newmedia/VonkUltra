@@ -5,17 +5,58 @@ tools:
   JSON: vJSONGeodesicSphere
 legacy_names: []
 curated:
-  tagline: Generate points from an icosphere subdivision.
-  overview: Subdivides an icosahedron and projects the vertices onto a sphere.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: >-
+    Generate the vertices of a subdivided icosahedron, an icosphere, with a set radius and
+    subdivision level.
+  overview: >-
+    vArrayGeodesicSphere has no input and outputs an array of XYZ points that are the vertices of an
+    icosphere around the origin. Subdivision Level sets how many times each triangle is split.
+  description:
+    - >-
+      Level 0 is an icosahedron with 12 vertices. Each further level splits every triangle into four
+      by adding a point at the middle of each edge and moving it onto the sphere. Every point has
+      the distance Radius from the origin. The number of points is 10 * 4^level + 2, which gives 12,
+      42, 162, 642, 2562 and 10242 for levels 0 to 5.
+    - >-
+      With the defaults (Radius 0.3, Subdivision Level 2) the node outputs 162 points. The first 12
+      points are the original icosahedron vertices, and the new points follow in the order they were
+      created. The points on the sphere are spaced much more evenly than the points of a latitude
+      and longitude grid.
+    - >-
+      Subdivision Level is limited to 0 to 5 and Radius to 0.001 or more. The output contains
+      vertices only. The faces are used internally and are not written.
+  features:
+    - title: No input needed
+      desc: The node generates its points from its own controls.
+    - title: Even spacing
+      desc: Icosphere vertices are spread more evenly than latitude and longitude points.
+    - title: Predictable point count
+      desc: Level n outputs 10 * 4^n + 2 points.
+    - title: Six detail levels
+      desc: Subdivision Level runs from 0 to 5.
+  connections:
+    - label: Draw the sphere points
+      lines:
+        - vArrayGeodesicSphere.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Offset the sphere before drawing
+      lines:
+        - vArrayGeodesicSphere.Output -> vArrayTranslate.ArrayA
+        - vArrayTranslate.Output -> vArrayCameraProjection.ArrayA
+  difficulty: Beginner
+  related:
+    - name: vArrayGenerateSphere
+      desc: Generates latitude and longitude lines on a sphere.
+    - name: vArrayPointsOnSphere
+      desc: Places points on a sphere with a Fibonacci or random layout.
+    - name: vArrayFrustum
+      desc: Generates points on a cone or truncated cone.
   params:
-    radius: Radius.
-    subdivision: Number of icosahedron subdivisions.
+    radius: Distance of every point from the origin. Minimum 0.001, default 0.3.
+    subdivision: Number of times each triangle is split into four. Range 0 to 5, default 2.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'

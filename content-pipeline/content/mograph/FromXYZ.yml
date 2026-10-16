@@ -5,35 +5,69 @@ tools:
   JSON: vJSONFromXYZ
 legacy_names: []
 curated:
-  tagline: Convert ASCII XYZ point cloud data into an array.
-  overview: Reads XYZ text from a file, a URL or text and outputs the points.
-  description: []
-  features: []
+  tagline: >-
+    Read an ASCII XYZ point cloud from a file, a URL or pasted text and output it as an array of
+    points.
+  overview: >-
+    vArrayFromXYZ has no input socket and outputs an array of XYZ points read from text with one
+    point per line. Input Source picks a file, a URL or text typed into the node, and Point Cloud
+    Density and Scale File Units By adjust the result.
+  description:
+    - >-
+      The node reads the source line by line. From each line it takes three whitespace-separated
+      values as X, Y and Z, multiplies them by Scale File Units By and adds the point to the output.
+      Filename goes through Fusion path mapping before it is opened. URL is downloaded as text.
+      Input is used as it is.
+    - >-
+      Point Cloud Density thins the cloud in blocks of 100 lines. The first 100 lines are always
+      kept. After that, the node keeps the last Density lines of every block of 100. With the
+      default of 100 every line is kept, and with 50 about half of the lines after the first 100 are
+      kept.
+    - >-
+      Only the control for the selected source is shown. The code does not skip a line that has
+      fewer than three values, so every line of the source needs to hold an X, a Y and a Z. Extra
+      columns after the third are ignored.
+    - The output socket is named Points. It holds only point positions, with no colors or normals.
+  features:
+    - title: Three sources
+      desc: Input Source reads from a file, a URL or text typed into the node.
+    - title: Density thinning
+      desc: Point Cloud Density keeps a share of the lines after the first 100.
+    - title: Unit scaling
+      desc: Scale File Units By multiplies every coordinate.
+    - title: Path mapping
+      desc: The Filename goes through Fusion path mapping before it is read.
   connections:
-    - label: Example 1
+    - label: Draw the point cloud
       lines:
         - vArrayFromXYZ.Points -> vArrayCameraProjection.ArrayA
         - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
         - Background.Output -> vArrayShapeRender.Input
-    - label: Example 2
+    - label: Offset the point cloud before drawing
       lines:
-        - vArrayFromXYZ.Points -> vArrayMath.ArrayA
-        - vMatrixCreateTRS1.Output -> vArrayMath.ArrayB
-        - vArrayMath.Operation = "Matrix Multiply"
-        - vArrayMath.Output -> vArrayToXYZ.ArrayA
-        - vArrayToXYZ.Output -> vTextToFile.Input
-  difficulty: null
-  related: []
+        - vArrayFromXYZ.Points -> vArrayTranslate.ArrayA
+        - vArrayTranslate.Output -> vArrayCameraProjection.ArrayA
+  difficulty: Beginner
+  related:
+    - name: vArrayToXYZ
+      desc: Writes an array of points as XYZ text, the reverse of this node.
+    - name: vArrayFromOBJ
+      desc: Reads points from an OBJ file.
+    - name: vArrayFromImage
+      desc: Creates points from an image.
   params:
-    InputSource: 'Where the data comes from. Options: File, URL, Text.'
-    Filename: File to read. Shown when Input Source is File.
-    URL: Address to read. Shown when Input Source is URL.
-    Input: Text to read. Shown when Input Source is Text.
-    Density: Share of points kept.
-    Scale: Multiplies the coordinates of the file.
+    InputSource: Where the XYZ text comes from, File, URL or Text. Default File.
+    Filename: Path of the XYZ file. Shown when Input Source is File.
+    URL: Address of a text file with XYZ lines. Shown when Input Source is URL.
+    Input: XYZ text typed or pasted into the node. Shown when Input Source is Text.
+    Density: >-
+      Share of lines kept after the first 100, as the number of lines kept in each block of 100.
+      Range 1 to 100, default 100.
+    Scale: Multiplier applied to X, Y and Z of every point. Default 1.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
   connections_source: docsify
+  prompt_version: '1'
 legacy_text: 'Convert ASCII XYZ point cloud data into a vArray format Transform XYZ Points Node Connections:'

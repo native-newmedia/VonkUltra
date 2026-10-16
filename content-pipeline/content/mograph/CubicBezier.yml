@@ -5,20 +5,82 @@ tools:
   JSON: vJSONCubicBezier
 legacy_names: []
 curated:
-  tagline: Create a cubic Bezier path from points.
-  overview: Builds a smooth Bezier path through the input points and samples it.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: >-
+    Create a smoothed path through control points typed in as values, using cubic Bezier segments
+    with a tension control.
+  overview: >-
+    vArrayCubicBezier has no input and outputs an array of points on a curve built from up to eight
+    control points typed into its value controls. Path Tension and Path Subdivisions shape the
+    curve.
+  description:
+    - >-
+      The node reads Array Length values from the controls [ 1 ] to [ 24 ] and groups them into
+      control points of three values (X, Y, Z). Array Length is rounded down to a multiple of 3, so
+      the default of 2 gives no points and at least 3 is needed. The Pack To control is hidden and
+      set to X Y Z. Reverse Array reverses the order of the control points.
+    - >-
+      With two control points the output is a straight line with Path Subdivisions + 1 points. With
+      three or more, the curve is built from segments that run from control point 2 to control point
+      3, then 3 to 4 and so on up to the last one. The first control point is not on the curve, and
+      only affects the direction at control point 2. Each segment is a cubic Bezier curve with Path
+      Subdivisions + 1 points, so the shared points between segments appear twice.
+    - >-
+      In the default Bezier mode the two inner handles of the segment between points P(i) and P(i+1)
+      are P(i) - (P(i+1) - P(i-1)) * Tension / 3 and P(i+1) + (P(i+2) - P(i)) * Tension / 3. With
+      the default Path Tension of 0 both handles sit on the end points, so the curve is made of
+      straight lines. The hidden Curve Mode control can switch to BSpline, which builds the handles
+      from weighted averages of the neighboring points instead.
+    - >-
+      The 24 value controls are built in a loop and are not listed in the parameter table. Show
+      Input is on by default and shows a connection point on the Array Length control.
+  features:
+    - title: No input needed
+      desc: The node generates its points from typed values.
+    - title: Up to eight control points
+      desc: Twenty-four value controls give eight points of three values.
+    - title: Tension control
+      desc: Path Tension sets the handle length, and 0 gives straight segments.
+    - title: Adjustable resolution
+      desc: Path Subdivisions sets the number of points in each segment.
+  connections:
+    - label: Draw the curve
+      lines:
+        - vArrayCubicBezier.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Offset the curve before drawing
+      lines:
+        - vArrayCubicBezier.Output -> vArrayTranslate.ArrayA
+        - vArrayTranslate.Output -> vArrayCameraProjection.ArrayA
+  difficulty: Intermediate
+  related:
+    - name: vArrayList
+      desc: Creates an array from values typed in one by one, without any curve.
+    - name: vArrayFromSpline
+      desc: Samples a mask spline into points.
+    - name: vArrayResamplePath
+      desc: Resamples ordered paths to even spacing by count or distance.
   params:
-    arrayLength: Number of values.
-    Tension: Tension of the path.
-    Subdivisions: Subdivisions per segment.
-    reversearray: Reverses the order of the values.
-    ShowInput: Shows the input sockets of the controls.
+    arrayLength: >-
+      Number of value controls that are read. Range 2 to 24, default 2. Rounded down to a multiple
+      of 3, so use 3 or more.
+    Tension: Length of the handles on each segment. 0 gives straight segments. Default 0.
+    Subdivisions: >-
+      Number of steps in each curve segment, which gives this value plus one points per segment.
+      Minimum 1, default 20.
+    reversearray: Reverses the order of the control points. Default off.
+    ShowInput: Shows or hides a connection point on the Array Length control. Default on.
+    packto: Hidden control. Chooses X Y or X Y Z control points. Default X Y Z.
+    CurveMode: >-
+      Hidden control. Bezier uses the tension handles, BSpline uses averaged handles. Default
+      Bezier.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
+  note: >-
+    Array Length defaults to 2 while Pack To is X Y Z, so the default output is empty. The loop
+    builds segments from point 2 onward, so the first control point is not on the curve. The tension
+    handle for the start of each segment is P(i) minus the offset, which points backward, so
+    non-zero tension may not give the smooth curve the name suggests. Fuse logic was not changed.

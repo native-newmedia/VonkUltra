@@ -5,19 +5,80 @@ tools:
   JSON: vJSONToUSD
 legacy_names: []
 curated:
-  tagline: Convert an array into OpenUSD ASCII text.
-  overview: Writes points, edges and UVs as USD text.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: >-
+    Convert point, edge, UV and UV edge arrays into OpenUSD ASCII (USDA) text for a single mesh,
+    with an optional 4x4 matrix.
+  overview: >-
+    vArrayToUSD takes arrays on its Points, Edges, UVs and UV Edges sockets and outputs a USDA text
+    for one mesh. A matrix on the Matrix socket transforms the points before they are written.
+  description:
+    - >-
+      The text is a USDA 1.0 file with the default prim vMograph, a document string that names the
+      composition, metersPerUnit 0.01 and upAxis Y. It holds one Xform named vMograph with one Mesh
+      named mesh, which is written as double sided.
+    - >-
+      Edges become faceVertexCounts and faceVertexIndices. Each entry of the Edges array is one
+      face, its length is the vertex count, and every index has 1 subtracted, so the node expects
+      1-based indices like the ones used in OBJ. Points are transformed by the Matrix socket, or by
+      the identity matrix if nothing is connected, and written as point3f values with four decimal
+      places.
+    - >-
+      UVs are written only when both the UVs and the UV Edges arrays have content. The node writes
+      the first two values of each UV as primvars:st with faceVarying interpolation, and the UV
+      Edges as primvars:st:indices, again with 1 subtracted.
+    - >-
+      The Output socket carries the USDA text. The Array socket carries JSON text with the fields
+      sort, path and usda. Sort and Path come from the Object Sort and Object Path controls, which
+      have the defaults Mesh and /vMograph/mesh. They are not written into the USDA text itself.
+  features:
+    - title: Single mesh output
+      desc: One Xform and one Mesh are written, with points, faces and optional UVs.
+    - title: Matrix transform
+      desc: A 4x4 matrix on the Matrix socket transforms the points before writing.
+    - title: Zero-based indices
+      desc: Face and UV indices have 1 subtracted so 1-based input becomes USD indices.
+    - title: Second output with metadata
+      desc: The Array socket holds the USDA text together with the Object Sort and Object Path values.
+  connections:
+    - label: Convert a generated grid to USDA text
+      lines:
+        - vArrayPointsOnGrid.Output -> vArrayToUSD.ArrayPoints
+    - label: Transform the points with a matrix
+      lines:
+        - vArrayPointsOnGrid.Output -> vArrayToUSD.ArrayPoints
+        - vMatrixCreateTRS.Output -> vArrayToUSD.Matrix
+  difficulty: Intermediate
+  related:
+    - name: vArrayToOBJ
+      desc: Converts the same inputs into Wavefront OBJ ASCII text.
+    - name: vArrayFromOBJ
+      desc: Reads OBJ data and outputs arrays.
+    - name: vArrayToXYZ
+      desc: Converts an array into XYZ text with one point per line.
   params:
-    Sort: Sort order of the object.
-    Path: USD path of the object.
-    ShowInput: Shows the input sockets of the controls.
+    Sort: Sort value stored in the sort field of the Array output. Default Mesh.
+    Path: Prim path stored in the path field of the Array output. Default /vMograph/mesh.
+    ShowInput: Shows or hides the Edges, Points, UVs and UV Edges sockets. Default on.
+    ArrayEdges: >-
+      Array of face index lists. Each entry is one face and becomes part of faceVertexCounts and
+      faceVertexIndices.
+    ArrayPoints: Array of points. The points are written as point3f values.
+    ArrayUV: Array of texture coordinates. Written as primvars:st when UV Edges is also connected.
+    ArrayUVEdges: Array of UV index lists. Written as primvars:st:indices.
+    ScriptValEdges: >-
+      Array of face index lists. Each entry is one face and becomes part of faceVertexCounts and
+      faceVertexIndices.
+    ScriptValPoints: Array of points. The points are written as point3f values.
+    ScriptValUV: Array of texture coordinates. Written as primvars:st when UV Edges is also connected.
+    ScriptValUVEdges: Array of UV index lists. Written as primvars:st:indices.
+    Matrix: >-
+      A 4x4 matrix as JSON text that is applied to the points. Without it the identity matrix is
+      used.
+    JSONUV: Array of texture coordinates. Written as primvars:st when UV Edges is also connected.
+    JSONUVEdges: Array of UV index lists. Written as primvars:st:indices.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
 legacy_text: Convert a Fusion ScriptVal object into OpenUSD ASCII Text

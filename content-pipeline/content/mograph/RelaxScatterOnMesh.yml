@@ -5,26 +5,76 @@ tools:
   JSON: vJSONRelaxScatterOnMesh
 legacy_names: []
 curated:
-  tagline: Scatter and relax points on an OBJ mesh.
-  overview: Scatters points on the mesh surface and moves them apart in several passes.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: >-
+    Scatter points on the surface of an OBJ mesh, then move each point to spread them out over
+    several relaxation passes.
+  overview: >-
+    vArrayRelaxScatterOnMesh reads an OBJ mesh from a file, a URL or text, scatters Point Count
+    points on its triangles and improves their spacing in Relax Iterations passes. Candidates Per
+    Point and Relax Strength control each pass.
+  description:
+    - >-
+      The node reads the vertex and face lines of the OBJ text, multiplies the vertices by Scale
+      File Units By, and splits faces with more than three vertices into triangles. Point Count
+      points are placed at random positions with a probability proportional to triangle area, and
+      moved along the triangle normal by Surface Offset. If the mesh has no usable triangle, the
+      node outputs nothing.
+    - >-
+      Each relaxation pass visits every point in order. For a point, the node creates Candidates Per
+      Point new random positions on the mesh. A candidate replaces the point if its distance to the
+      nearest other point is larger than the distance of the point it would replace. With Relax
+      Strength below 1, a replacement that passes this test is carried out only with that
+      probability.
+    - >-
+      With the defaults (1000 points, 5 iterations, 2 candidates, Relax Strength 1) the node outputs
+      1000 points. Relax Iterations of 0 gives the plain random scatter. The nearest-neighbor check
+      compares a point with all others, so the node gets slower with higher point counts and more
+      iterations.
+    - >-
+      The random generator is seeded with Random Seed, so the same Seed, mesh and settings give the
+      same points. The positions are always on the mesh surface, because every candidate is a fresh
+      random position on a triangle. Point Count has a minimum of 2.
+  features:
+    - title: Even spread
+      desc: Relaxation passes move points toward positions with larger gaps to their neighbors.
+    - title: Tunable passes
+      desc: Relax Iterations, Candidates Per Point and Relax Strength control the effort.
+    - title: Three mesh sources
+      desc: Input Source reads the OBJ from a file, a URL or text.
+    - title: Repeatable
+      desc: A fixed Random Seed gives the same points every time.
+  connections:
+    - label: Scatter and relax on a loaded mesh, then draw
+      lines:
+        - vArrayRelaxScatterOnMesh.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Offset the points before drawing
+      lines:
+        - vArrayRelaxScatterOnMesh.Output -> vArrayTranslate.ArrayA
+        - vArrayTranslate.Output -> vArrayCameraProjection.ArrayA
+  difficulty: Intermediate
+  related:
+    - name: vArrayScatterOnMesh
+      desc: Scatters points on a mesh without relaxation.
+    - name: vArrayPoissonOnMesh
+      desc: Scatters points on a mesh with a minimum distance between them.
+    - name: vArrayMaskScatterOnMesh
+      desc: Scatters points on a mesh with a mask.
   params:
-    inputsource: 'Where the data comes from. Options: File, URL, Text.'
-    filename: File to read. Shown when Input Source is File.
-    url: Address to read. Shown when Input Source is URL.
-    input: Text to read. Shown when Input Source is Text.
-    scale: Multiplies the coordinates of the file.
-    pointcount: Number of points.
-    seed: Seed of the random generator.
-    relaxiterations: Number of relaxing passes.
-    candidatesperpoint: Candidate positions tested per point.
-    relaxstrength: Strength of each pass.
-    surfaceoffset: Moves the points away from the surface along the normal.
+    inputsource: Where the OBJ mesh comes from, File, URL or Text. Default File.
+    filename: Path of the OBJ file. Shown when Input Source is File.
+    url: Address of an OBJ file. Hidden until Input Source is URL.
+    input: OBJ text. Hidden until Input Source is Text.
+    scale: Multiplier applied to the vertex coordinates. Default 1.
+    pointcount: Number of points. Minimum 2, default 1000.
+    seed: Seed of the random generator. Minimum 0, default 0.
+    relaxiterations: Number of relaxation passes over all points. Minimum 0, default 5.
+    candidatesperpoint: Number of new positions tried for each point in each pass. Minimum 1, default 2.
+    relaxstrength: Probability that a better candidate replaces the point. Range 0 to 1, default 1.
+    surfaceoffset: Distance each point is moved along the triangle normal. Default 0.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'

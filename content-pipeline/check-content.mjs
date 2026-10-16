@@ -27,6 +27,10 @@ function check(rec, files, label) {
   counts.state[st.state] = (counts.state[st.state] || 0) + 1;
   if (!c.tagline) { counts.noTagline++; add(label, 'tagline', 'missing'); }
   else if (c.tagline.length > 160) add(label, 'tagline', `${c.tagline.length} chars (max 160)`);
+  if (['ai', 'reviewed'].includes(st.state)) {
+    const dl = (c.description || []).join('\n\n').length;
+    if (dl < 500 || dl > 900) add(label, 'description', `${dl} chars (want 500 to 900)`);
+  }
   if (c.features?.length && c.features.length !== 4) add(label, 'features', `${c.features.length} tiles (expected 4)`);
   if (st.state === 'reviewed') {
     if (!c.overview) add(label, 'overview', 'missing on reviewed record');

@@ -5,35 +5,73 @@ tools:
   JSON: vJSONLocatorAsset
 legacy_names: []
 curated:
-  tagline: Create a 3D locator or light asset.
-  overview: Creates an asset in the shape of a locator, camera or light symbol.
-  description: []
-  features: []
+  tagline: Create a vGeometry asset in the shape of a gnomon, a plus, a camera or one of eight light icons.
+  overview: >-
+    vArrayLocatorAsset has no point inputs and outputs a vGeometry asset whose points and edges draw
+    a locator or a light symbol. The Locator menu picks the shape, and a matrix on the Matrix socket
+    positions it.
+  description:
+    - >-
+      The shape is fixed geometry that is written into the asset as points and edges. The Locator
+      menu offers Gnomon Locator, Plus Locator, Camera Locator, Ambient Light, Area Light,
+      Directional Light, Dome Light, Point Light, Spot Light, Sphere Light and Tube Light. The
+      dashed line in the menu is a separator and gives the same shape as the Gnomon Locator.
+    - >-
+      The Gnomon Locator is three lines of length 5 from the origin along X, Y and Z. The asset also
+      holds a bounding box for the shape, the Name, the Version, the wire color from Red, Green,
+      Blue and Alpha, the Soft Edge value, the ID vGeometry and a new UUID that changes on every
+      calculation. The UV lists are empty.
+    - >-
+      Without a connected Matrix, the identity matrix is stored, and the locator sits at the origin.
+      A matrix from a matrix node moves, rotates or scales it when the asset is drawn. If Asset Name
+      is empty or only a space or tab, the name Object is used.
+    - >-
+      The asset is the input of vArrayRenderAsset, which draws it as a 3D wireframe, and of
+      vArrayRenderAssetSVG, which exports an SVG wireframe. The shapes are sized in fixed units, so
+      use the matrix to scale them. Show Input shows or hides the Matrix socket and the Asset Name
+      connection point.
+  features:
+    - title: Eleven shapes
+      desc: Three locators and eight light icons are built in.
+    - title: Positioned by a matrix
+      desc: The Matrix socket places, rotates and scales the locator.
+    - title: Wire color
+      desc: Red, Green, Blue and Alpha set the color stored in the asset.
+    - title: Ready for the asset renderers
+      desc: The output can go to vArrayRenderAsset or vArrayRenderAssetSVG.
   connections:
-    - label: Example 1
+    - label: Draw a locator
       lines:
-        - vMatrixCreateTRS.Output -> vScriptValLocatorAsset.Matrix
-        - vScriptValLocatorAsset.Output -> vScriptValMergeAsset.ScriptVal
-        - vScriptValMergeAsset.Output -> vScriptValRenderAsset.vGeometry
-        - Background.Output -> vScriptValRenderAsset.Input
-  difficulty: null
-  related: []
+        - vArrayLocatorAsset.Output -> vArrayRenderAsset.Input
+    - label: Place a locator with a matrix
+      lines:
+        - vMatrixCreateTRS.Output -> vArrayLocatorAsset.Matrix
+        - vArrayLocatorAsset.Output -> vArrayRenderAsset.Input
+  difficulty: Beginner
+  related:
+    - name: vArrayCreateAsset
+      desc: Creates a vGeometry asset from your own points and edges.
+    - name: vArrayCircularPoints
+      desc: Places points on a circle or a spiral.
+    - name: vArrayToOBJ
+      desc: Converts arrays into OBJ text.
   params:
-    AssetName: Name of the asset.
-    AssetVersion: Version of the asset.
-    LocatorShape: >-
-      Locator, camera or light symbol. Options: Gnomon Locator, Plus Locator, Camera Locator,
-      Ambient Light, Area Light, Directional Light, Dome Light, Point Light, Spot Light, Sphere
-      Light, Tube Light.
-    Red_wire: Color of the asset.
-    Green_wire: Color of the asset.
-    Blue_wire: Color of the asset.
-    Alpha_wire: Color of the asset.
-    SoftEdge: Softness of the asset edges.
-    ShowInput: Shows the input sockets of the controls.
+    AssetName: Name stored in the asset. An empty name becomes Object.
+    AssetVersion: Version number stored in the asset. Default 1.
+    LocatorShape: Shape of the locator or light symbol. Default Gnomon Locator.
+    Red_wire: Red level of the wire color. Default 0.
+    Green_wire: Green level of the wire color. Default 1.
+    Blue_wire: Blue level of the wire color. Default 1.
+    Alpha_wire: Alpha level of the wire color. Range 0 to 1, default 1.
+    SoftEdge: Soft edge value stored in the asset. Minimum 0, default 0.
+    ShowInput: Shows or hides the Matrix socket and the Asset Name connection point. Default on.
+    Matrix: >-
+      4x4 matrix as JSON text. Its list of numbers is stored in the asset. Without it the identity
+      matrix is stored.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
   connections_source: docsify
+  prompt_version: '1'
 legacy_text: Create a ScriptVal based 3D locator cursor asset

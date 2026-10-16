@@ -5,19 +5,66 @@ tools:
   JSON: vJSONList
 legacy_names: []
 curated:
-  tagline: Create an array.
-  overview: Creates a list of values with a length, a group size and optional reversal.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: Create an array from values typed in one by one, packed as X, X Y or X Y Z.
+  overview: >-
+    vArrayList has no input and outputs an array built from up to 24 number controls. Array Length
+    chooses how many of them are used, and Pack To groups them into entries of one, two or three
+    values.
+  description:
+    - >-
+      The node creates 24 number controls named [ 1 ] to [ 24 ]. Array Length sets how many of them
+      are read, from 0 up to 24. The values are packed in order into entries of the size chosen by
+      Pack To.
+    - >-
+      Pack To also trims the count. With X Y, Array Length is rounded down to an even number, and
+      with X Y Z it is rounded down to a multiple of 3, so every entry is complete. The control
+      labels change to show which axis each one feeds, for example [ 1 ] - X, [ 2 ] - Y, [ 3 ] - Z.
+    - >-
+      With Reverse Array on, the order of the entries is reversed. The values inside each entry keep
+      their order. Show Input is on by default and shows a connection point on the Array Length
+      control.
+    - >-
+      Each value control can be animated or connected to another node. The defaults are Array Length
+      1, Pack To X and every value 0, so the node outputs one entry holding the value 0.
+  features:
+    - title: No input needed
+      desc: The node generates its values from its own controls.
+    - title: Up to 24 values
+      desc: Array Length selects how many of the 24 number controls are used.
+    - title: Packing choice
+      desc: Pack To writes entries of one, two or three values.
+    - title: Complete entries only
+      desc: The count is rounded down so every entry has the full number of values.
+  connections:
+    - label: Draw the entries as points, with Pack To set to X Y Z
+      lines:
+        - vArrayList.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Offset the points before drawing
+      lines:
+        - vArrayList.Output -> vArrayTranslate.ArrayA
+        - vArrayTranslate.Output -> vArrayCameraProjection.ArrayA
+  difficulty: Beginner
+  related:
+    - name: vArrayCreateRange
+      desc: Creates numbers from a ramp, a counter or a range instead of typed values.
+    - name: vArrayRandom
+      desc: Creates random values between a low and a high limit.
+    - name: vArrayMinMax
+      desc: Creates random values with a separate range for each value in an entry.
   params:
-    arrayLength: Number of values.
-    packto: Groups the values as X, X Y or X Y Z.
-    reversearray: Reverses the order of the values.
-    ShowInput: Shows the input sockets of the controls.
+    arrayLength: >-
+      Number of value controls that are read. Range 0 to 24, default 1. Rounded down to an even
+      number for X Y and to a multiple of 3 for X Y Z.
+    packto: Number of values in each entry, X, X Y or X Y Z. Default X.
+    reversearray: Reverses the order of the entries. Default off.
+    ShowInput: Shows or hides a connection point on the Array Length control. Default on.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
+  note: >-
+    The 24 value controls are built in a loop (Array_1 to Array_24) and are not listed as
+    parameters.

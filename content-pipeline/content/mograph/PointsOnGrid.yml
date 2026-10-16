@@ -6,93 +6,62 @@ tools:
 legacy_names: []
 curated:
   tagline: >-
-    Generate a rectangular grid of evenly spaced points — the standard starting node for matrix
-    layouts, dot patterns, and scatter workflows.
+    Generate a rectangular lattice of points in X, Y and Z with a set count per axis and one spacing
+    value.
   overview: >-
-    vArrayPointsOnGrid generates a 2D rectangular grid of points defined by column and row counts,
-    with a uniform spacing multiplier. It is the default choice when you need an ordered matrix of
-    positions — feeding directly into vArrayCameraProjection and vArrayShapeRender for immediate
-    output, or into modifiers like vArrayDisplaceValues to break up the regularity.
+    vArrayPointsOnGrid has no input and outputs an array of XYZ points on a regular lattice centered
+    on the origin. Number X, Y and Z set the count on each axis, and Multiplier sets the spacing.
   description:
     - >-
-      vArrayPointsOnGrid is the fundamental grid generator in the vArray toolkit. It produces a 2D
-      rectangular array of evenly spaced points defined by two parameters: the number of columns
-      (Number X) and the number of rows (Number Y). The total point count is always X × Y, and the
-      points are distributed symmetrically around the origin. For matrix layouts, dot-grid
-      backgrounds, scatter starting states, and any composition that needs an ordered rectangular
-      arrangement of positions, this is the right starting node.
+      The node writes Number X * Number Y * Number Z points. Point (x, y, z) is placed at X = x *
+      Multiplier - offset X, Y = y * Multiplier - offset Y and Z = z * Multiplier - offset Z, where
+      each offset is (count - 1) * Multiplier / 2. The lattice is therefore centered on the origin
+      and Multiplier is both the spacing between neighbors and the scale of the whole grid.
     - >-
-      The Multiplyer parameter — a known typo in the fuse — controls the uniform spacing between
-      points. It scales both horizontal and vertical spacing together, so the grid always remains
-      square-celled regardless of the value. Increasing it spreads points further apart; decreasing
-      it compresses the grid toward the centre. Because there is no separate X and Y spacing
-      control, non-square cell spacing requires a downstream vArrayMath or vArrayDisplaceValues
-      modifier to stretch one axis independently.
+      The points are written with X changing fastest, then Y, then Z. With the defaults (1 point on
+      each axis, Multiplier 0.05) the output is a single point at the origin. Setting Number Z to 1
+      gives a flat grid in the Z = 0 plane.
     - >-
-      In the standard pipeline the node connects directly to vArrayCameraProjection, which projects
-      the grid to screen space before vArrayShapeRender draws shapes at each position. For organic
-      variations, insert vArrayDisplaceValues between the grid and the camera — even a small
-      Amplitude value breaks up the regularity into a convincing scatter. The Show Input toggle
-      exposes an ArrayA passthrough port, useful for merging multiple grid arrays or chaining grids
-      of different densities in a single pipeline.
+      A negative Multiplier mirrors the lattice. Each count is limited to 100 by the control, which
+      allows up to 1,000,000 points.
+    - >-
+      The output contains points only. vArrayGridConnect builds edge connectivity for a grid point
+      array.
   features:
-    - title: Simple XY point matrix
-      desc: >-
-        Define columns and rows with two integer controls — total point count is always X × Y with
-        no configuration overhead.
-    - title: Uniform spacing control
-      desc: >-
-        Multiplyer scales the gap between all points simultaneously, keeping the grid square-celled
-        at any density.
-    - title: Scatter-ready output
-      desc: >-
-        Connect vArrayDisplaceValues immediately after to convert the regular grid into an organic
-        scatter — the most common grid workflow.
-    - title: Chainable via Show Input
-      desc: >-
-        Expose the ArrayA port to merge or layer multiple grids of different sizes or spacings in a
-        single pipeline.
+    - title: No input needed
+      desc: The node generates its points from its own controls.
+    - title: Three axes
+      desc: Number X, Number Y and Number Z can each be set from 1 to 100.
+    - title: Centered output
+      desc: The lattice is offset so its center sits on the origin.
+    - title: One spacing control
+      desc: Multiplier sets the distance between neighbors on all three axes.
   connections:
-    - label: Standard grid pipeline
+    - label: Draw the grid
       lines:
         - vArrayPointsOnGrid.Output -> vArrayCameraProjection.ArrayA
         - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
         - Background.Output -> vArrayShapeRender.Input
-    - label: Grid with scatter displacement
+    - label: Animate the grid with vArrayWave
       lines:
-        - vArrayPointsOnGrid.Output -> vArrayDisplaceValues.ArrayA
-        - vArrayDisplaceValues.Output -> vArrayCameraProjection.ArrayA
-        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
-        - Background.Output -> vArrayShapeRender.Input
-    - label: Two grids merged
-      lines:
-        - vArrayPointsOnGrid_A.Output -> vArrayPointsOnGrid_B.ArrayA
-        - vArrayPointsOnGrid_B.Output -> vArrayCameraProjection.ArrayA
-        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
-        - Background.Output -> vArrayShapeRender.Input
+        - vArrayPointsOnGrid.Output -> vArrayWave.ArrayA
+        - vArrayWave.Output -> vArrayCameraProjection.ArrayA
   difficulty: Beginner
   related:
-    - name: vArrayDisplaceValues
-      desc: >-
-        The most natural next node — applies noise displacement to break up grid regularity into
-        organic scatter.
-    - name: vArrayCameraProjection
-      desc: >-
-        Projects the grid's 3D world-space positions to 2D screen coordinates. Always required
-        before vArrayShapeRender.
-    - name: vArrayPointsOnCircle
-      desc: >-
-        Use when you need a radial layout rather than a rectangular one — same pipeline structure,
-        different generator.
+    - name: vArrayPointsOnCube
+      desc: The same lattice with a default of 10 points on each axis.
+    - name: vArrayPointsOnHexagon
+      desc: A staggered grid on a hexagon layout in 2D.
+    - name: vArrayGridConnect
+      desc: Builds edge connectivity for a grid point array.
   params:
-    numx: Number of columns in the grid. Total point count equals Number X × Number Y.
-    numy: Number of rows in the grid. Total point count equals Number X × Number Y.
-    mul: >-
-      Uniform spacing scale between points. Increase to spread the grid out; decrease to compress it
-      toward the origin. Note: labelled 'Multiplyer' in the UI (known typo in the fuse).
-    numz: Points along Z.
+    numx: Number of points along X. Range 1 to 100, default 1.
+    numy: Number of points along Y. Range 1 to 100, default 1.
+    mul: Distance between neighboring points on every axis. Range -1 to 1, default 0.05.
+    numz: Number of points along Z. Range 1 to 100, default 1.
 status:
-  source: rich-json
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
 legacy_text: Generate points on Array Grid

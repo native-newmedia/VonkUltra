@@ -5,20 +5,67 @@ tools:
   JSON: vJSONCylinder
 legacy_names: []
 curated:
-  tagline: Generate points on a cylinder.
-  overview: Places points on the sides and caps of a cylinder.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: Generate points on the side and cap rims of a cylinder along the Z axis.
+  overview: >-
+    vArrayCylinder has no input and outputs an array of XYZ points on a cylinder centered on the
+    origin with its axis along Z. Cap Mode chooses the sides, the caps, or both.
+  description:
+    - >-
+      The side points form Height Segments + 1 rings of Radial Segments points each, stepping from Z
+      = -Height / 2 to Z = +Height / 2. Each point is at X = Radius * cos a and Y = Radius * sin a,
+      where a starts at 0 and advances by 360 / Radial Segments degrees.
+    - >-
+      The cap points are two center points, first (0, 0, Height / 2) and then (0, 0, -Height / 2),
+      followed by a top and a bottom point for each radial position. Caps are rims and centers only,
+      with no interior rings.
+    - >-
+      Cap Mode selects Sides, Both or Caps. Both is the default. In Both mode the rim points of the
+      caps sit at the same positions as the first and last side rings, so those points appear twice.
+      In Caps mode Height Segments has no effect. With the defaults (Radius 0.2, Height 0.5, 24
+      radial segments, 8 height segments, Both) the node outputs 216 side points and 50 cap points,
+      266 in total.
+    - >-
+      Radial Segments is clamped to 3 or more and Height Segments to 1 or more. The output contains
+      points only, with no edges or faces.
+  features:
+    - title: No input needed
+      desc: The node generates its points from its own controls.
+    - title: Three cap modes
+      desc: Sides, Both or Caps controls which groups of points are written.
+    - title: Centered on the origin
+      desc: The cylinder runs from -Height / 2 to +Height / 2 along Z.
+    - title: Independent segment counts
+      desc: Radial Segments and Height Segments set the density around and along the cylinder.
+  connections:
+    - label: Draw the cylinder
+      lines:
+        - vArrayCylinder.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Offset the cylinder before drawing
+      lines:
+        - vArrayCylinder.Output -> vArrayTranslate.ArrayA
+        - vArrayTranslate.Output -> vArrayCameraProjection.ArrayA
+  difficulty: Beginner
+  related:
+    - name: vArrayFrustum
+      desc: A cylinder with separate bottom and top radii.
+    - name: vArrayTorus
+      desc: Generates points on a torus.
+    - name: vArrayPointsOnCircle
+      desc: Generates points on a single circle.
   params:
-    radius: Radius.
-    height: Height.
-    radialsegments: Segments around the axis.
-    heightsegments: Segments along the height.
-    capmode: Sides, Both or Caps.
+    radius: Radius of the cylinder. Minimum 0.001, default 0.2.
+    height: Length of the cylinder along Z. Minimum 0.001, default 0.5.
+    radialsegments: Number of points around the axis in each ring. Clamped to 3 or more, default 24.
+    heightsegments: >-
+      Number of steps along the height, which gives this value plus one rings. Clamped to 1 or more,
+      default 8. Not used in Caps mode.
+    capmode: >-
+      Sides writes the side rings only, Caps writes the two centers and the rim points only, Both
+      writes both. Default Both.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'

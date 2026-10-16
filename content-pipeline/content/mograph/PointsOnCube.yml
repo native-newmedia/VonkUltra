@@ -5,25 +5,66 @@ tools:
   JSON: vJSONPointsOnCube
 legacy_names: []
 curated:
-  tagline: Generate points on a cube.
-  overview: Places points on a 3D grid.
-  description: []
-  features: []
+  tagline: >-
+    Generate a 3D lattice of points with a set count per axis and one spacing value, 10 points per
+    axis by default.
+  overview: >-
+    vArrayPointsOnCube has no input and outputs an array of XYZ points on a regular lattice centered
+    on the origin. Number X, Y and Z set the count on each axis, and Multiplier sets the spacing.
+  description:
+    - >-
+      The node writes Number X * Number Y * Number Z points. Point (x, y, z) is placed at X = x *
+      Multiplier - offset X, Y = y * Multiplier - offset Y and Z = z * Multiplier - offset Z, where
+      each offset is (count - 1) * Multiplier / 2. The lattice is centered on the origin and
+      Multiplier is both the spacing between neighbors and the scale of the whole block.
+    - >-
+      The points fill the whole volume, not only its surface. They are written with X changing
+      fastest, then Y, then Z. With the defaults (10 points on each axis, Multiplier 0.05) the node
+      outputs 1000 points in a cube that spans 0.45 units on each axis.
+    - >-
+      The node uses the same code as vArrayPointsOnGrid. The two differ only in their default
+      counts.
+    - >-
+      A negative Multiplier mirrors the lattice. Each count is limited to 100 by the control, which
+      allows up to 1,000,000 points.
+  features:
+    - title: No input needed
+      desc: The node generates its points from its own controls.
+    - title: Filled volume
+      desc: >-
+        Every lattice position is written, so the output is a block of points and not a hollow
+        shell.
+    - title: Centered output
+      desc: The lattice is offset so its center sits on the origin.
+    - title: One spacing control
+      desc: Multiplier sets the distance between neighbors on all three axes.
   connections:
-    - label: Example 1
+    - label: Draw the lattice
       lines:
         - vArrayPointsOnCube.Output -> vArrayCameraProjection.ArrayA
         - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
         - Background.Output -> vArrayShapeRender.Input
-  difficulty: null
-  related: []
+    - label: Animate the lattice with vArrayWave
+      lines:
+        - vArrayPointsOnCube.Output -> vArrayWave.ArrayA
+        - vArrayWave.Output -> vArrayCameraProjection.ArrayA
+  difficulty: Beginner
+  related:
+    - name: vArrayPointsOnGrid
+      desc: The same lattice with a default of 1 point on each axis.
+    - name: vArrayPointsOnSphere
+      desc: Generates points on a sphere.
+    - name: vArrayCylinder
+      desc: Generates points on a cylinder.
   params:
-    numx: Points along X.
-    numy: Points along Y.
-    numz: Points along Z.
+    numx: Number of points along X. Range 1 to 100, default 10.
+    numy: Number of points along Y. Range 1 to 100, default 10.
+    numz: Number of points along Z. Range 1 to 100, default 10.
+    mul: Distance between neighboring points on every axis. Range -1 to 1, default 0.05.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
   connections_source: docsify
+  prompt_version: '1'
 legacy_text: Generate points on cube

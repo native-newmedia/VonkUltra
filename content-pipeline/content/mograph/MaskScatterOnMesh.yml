@@ -5,34 +5,98 @@ tools:
   JSON: vJSONMaskScatterOnMesh
 legacy_names: []
 curated:
-  tagline: Scatter points on an OBJ mesh with a density mask.
-  overview: Scatters points over the surface of an OBJ mesh. A mask array or image sets the density.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: >-
+    Scatter points on an OBJ mesh with the chance of each triangle weighted by a list of numbers or
+    by an image.
+  overview: >-
+    vArrayMaskScatterOnMesh reads an OBJ mesh from a file, a URL or text and scatters Point Count
+    points on its triangles. Mask Source gives each triangle a weight from an array of numbers or
+    from an image, and Invert Mask and Mask Bias adjust the weights.
+  description:
+    - >-
+      The node reads the vertex and face lines of the OBJ text, multiplies the vertices by Scale
+      File Units By, and splits faces with more than three vertices into triangles. Each point goes
+      to a random triangle with a probability proportional to the triangle area times its weight,
+      and to a random position inside it, then is moved along the triangle normal by Surface Offset.
+      With Mask Source set to None, every weight is 1 and the node scatters by area only.
+    - >-
+      The mask is a list of weights with one entry for each triangle, in the order the triangles
+      were read from the file. With Array, the numbers are taken from the Mask Array Input text, in
+      order, and a triangle without a number gets a weight of 1. With Image, triangle number n reads
+      the image at column (n - 1) mod width and row floor((n - 1) / width), and the weight is the
+      average of the red, green and blue values. The image is therefore read by triangle number, not
+      by position on the mesh.
+    - >-
+      Each weight is clamped to 0 or more. If Invert Mask is on, it becomes 1 minus the weight, with
+      the weight clamped to at most 1 first. The result is then raised to the power Mask Bias, so
+      values above 1 concentrate the points on the triangles with a high weight. Triangles with a
+      weight of 0 receive no points. If all weights are 0, the node outputs nothing. Map Scale and
+      Map Offset move and stretch the lookup in the image, and the lookup position is clamped to the
+      image.
+    - >-
+      The random generator is seeded with Random Seed, so the same Seed, mesh, mask and settings
+      give the same points. Point Count has a minimum of 2. The hidden Debug Image Mapping control,
+      shown when Mask Source is Image, adds extra points to the output on a plane at Debug Plane Z,
+      one for each sampled image position that is brighter than 0.05, taken every Debug Sample Step
+      pixels.
+  features:
+    - title: Weighted triangles
+      desc: >-
+        Each triangle gets a weight, and points are placed with probability proportional to area
+        times weight.
+    - title: Two mask sources
+      desc: Weights come from a list of numbers or from the brightness of an image.
+    - title: Invert and bias
+      desc: Invert Mask and Mask Bias reshape the weights before use.
+    - title: Repeatable
+      desc: A fixed Random Seed gives the same points every time.
+  connections:
+    - label: Scatter with a mask on a loaded mesh and draw
+      lines:
+        - vArrayMaskScatterOnMesh.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Use an image as the mask
+      lines:
+        - Loader.Output -> vArrayMaskScatterOnMesh.MaskImageInput
+        - vArrayMaskScatterOnMesh.Output -> vArrayCameraProjection.ArrayA
+  difficulty: Advanced
+  related:
+    - name: vArrayScatterOnMesh
+      desc: Scatters points on a mesh by area only.
+    - name: vArrayPoissonOnMesh
+      desc: Scatters points on a mesh with a minimum distance between them.
+    - name: vArrayRelaxScatterOnMesh
+      desc: Scatters points on a mesh and relaxes them.
   params:
-    inputsource: 'Where the data comes from. Options: File, URL, Text.'
-    filename: File to read. Shown when Input Source is File.
-    url: Address to read. Shown when Input Source is URL.
-    input: Text to read. Shown when Input Source is Text.
-    masksource: None, Array or Image.
-    maskarrayinput: Mask values. Shown when Mask Source is Array.
-    maskmapscalex: Scale of the mask image along X. Shown when Mask Source is Image.
-    maskmapscaley: Scale of the mask image along Y. Shown when Mask Source is Image.
-    maskmapoffsetx: Offset of the mask image along X. Shown when Mask Source is Image.
-    maskmapoffsety: Offset of the mask image along Y. Shown when Mask Source is Image.
-    debugmode: Shows how the image maps to the mesh. Shown when Mask Source is Image.
-    debugz: Z position of the debug plane. Shown when debug is on.
-    debugstep: Sampling step of the debug display. Shown when debug is on.
-    scale: Multiplies the coordinates of the file.
-    pointcount: Number of points.
-    seed: Seed of the random generator.
-    invertmask: Swaps high and low mask values.
-    maskbias: Shifts the mask values.
-    surfaceoffset: Moves the points away from the surface along the normal.
+    inputsource: Where the OBJ mesh comes from, File, URL or Text. Default File.
+    filename: Path of the OBJ file. Shown when Input Source is File.
+    url: Address of an OBJ file. Hidden until Input Source is URL.
+    input: OBJ text. Hidden until Input Source is Text.
+    masksource: Where the triangle weights come from, None, Array or Image. Default None.
+    maskarrayinput: Hidden until Mask Source is Array. Numbers that give the weight of each triangle in order.
+    maskmapscalex: >-
+      Hidden until Mask Source is Image. Stretches the image lookup horizontally around the image
+      center. Minimum 0.0001, default 1.
+    maskmapscaley: >-
+      Hidden until Mask Source is Image. Stretches the image lookup vertically around the image
+      center. Minimum 0.0001, default 1.
+    maskmapoffsetx: Hidden until Mask Source is Image. Shifts the image lookup horizontally. Default 0.
+    maskmapoffsety: Hidden until Mask Source is Image. Shifts the image lookup vertically. Default 0.
+    debugmode: >-
+      Hidden control. When on with an image mask, adds extra points that show the image lookup.
+      Default off.
+    debugz: Hidden control. Z position of the debug points. Default 0.
+    debugstep: Hidden control. Number of image pixels between debug points. Minimum 1, default 20.
+    scale: Multiplier applied to the vertex coordinates. Default 1.
+    pointcount: Number of points. Minimum 2, default 1000.
+    seed: Seed of the random generator. Minimum 0, default 0.
+    invertmask: When on, each weight is replaced by 1 minus the weight. Default off.
+    maskbias: Exponent applied to each weight. Values above 1 favor high weights. Minimum 0.0001, default 1.
+    surfaceoffset: Distance each point is moved along the triangle normal. Default 0.
+    maskimageinput: Hidden until Mask Source is Image. Image that is read by triangle number.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'

@@ -5,22 +5,56 @@ tools:
   JSON: vJSONToXYZ
 legacy_names: []
 curated:
-  tagline: Convert an array into XYZ text.
-  overview: Writes the points as XYZ text.
-  description: []
-  features: []
+  tagline: Convert an array of points into ASCII XYZ text with one point per line.
+  overview: >-
+    vArrayToXYZ takes an array on its Input socket and outputs text. Each entry of the array becomes
+    one line with its values written to four decimal places.
+  description:
+    - >-
+      For every entry with three values the node writes a line X Y Z, for two values a line X Y and
+      for one value a line with that value. Values are separated by a single space and written with
+      four decimal places, for example 0.2500 0.0000 1.0000.
+    - >-
+      Entries with any other number of values are left out. If the input is empty or not connected,
+      the output is an empty text.
+    - >-
+      The output is plain text and not an array, so it cannot be connected to the Modify nodes. It
+      can be read back with vArrayFromXYZ when its Input Source is set to Text.
+    - >-
+      Show Input is on by default and shows the Input socket on the node. Turning it off hides the
+      socket.
+  features:
+    - title: One point per line
+      desc: Each array entry is written as one line of text.
+    - title: Fixed precision
+      desc: Every value is written with four decimal places.
+    - title: Handles 1, 2 or 3 values
+      desc: Entries with one, two or three values are written, and others are skipped.
+    - title: Round trip with vArrayFromXYZ
+      desc: The text can be read back by vArrayFromXYZ.
   connections:
-    - label: Example 1
+    - label: Write a generated grid as XYZ text
       lines:
-        - vArrayFromXYZ.Points -> vArrayToXYZ.ArrayA
-        - vArrayToXYZ.Output -> vTextToFile.Input
-  difficulty: null
-  related: []
+        - vArrayPointsOnGrid.Output -> vArrayToXYZ.ArrayA
+    - label: Read the text back, with Input Source set to Text
+      lines:
+        - vArrayPointsOnGrid.Output -> vArrayToXYZ.ArrayA
+        - vArrayToXYZ.Output -> vArrayFromXYZ.Input
+  difficulty: Beginner
+  related:
+    - name: vArrayFromXYZ
+      desc: Reads XYZ text and outputs an array of points.
+    - name: vArrayToOBJ
+      desc: Converts an array into Wavefront OBJ ASCII text.
+    - name: vArrayToUSD
+      desc: Converts an array into OpenUSD ASCII text.
   params:
-    ShowInput: Shows the input sockets of the controls.
+    ShowInput: Shows or hides the Input socket. Default on.
+    ArrayA: Array to convert.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
   connections_source: docsify
+  prompt_version: '1'
 legacy_text: Convert an Array into XYZ ASCII Text

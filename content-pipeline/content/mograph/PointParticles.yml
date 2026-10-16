@@ -5,62 +5,125 @@ tools:
   JSON: vJSONPointParticles
 legacy_names: []
 curated:
-  tagline: Simple particle generator.
-  overview: Simulates particles with emission, forces and flocking, and outputs their positions.
-  description: []
-  features: []
+  tagline: >-
+    Simulate a small particle system and output the current particle positions, with emission shapes
+    and force controls.
+  overview: >-
+    vArrayPointParticles has no input and outputs an array of XYZ points, one for each particle at
+    the current time. Emission Type picks the start layout, and the movement, force and flocking
+    controls drive the particles as the frames advance.
+  description:
+    - >-
+      The simulation time is the frame time multiplied by Time. The default for Time is 0, so the
+      time does not advance and the particles stay at their emission positions. Set Time to a value
+      above 0, for example 1, to run the simulation. The system is built again whenever the time is
+      at or before Start Time, when Particles Count changes, and when Restart System is pressed. The
+      state lives in the node, so the result depends on frames being rendered in order.
+    - >-
+      Emission Type sets where each particle starts. Random picks a random position inside a box of
+      Size X, Y and Z centered on the origin. Noise Field picks random positions in the same box and
+      keeps each one with a probability from layered noise, up to 21 tries, then shifts it by noise
+      multiplied by Noise Strength. The three Fibonacci types place particles by index with the
+      golden angle. Fibonacci Sphere uses Fibonacci Radius and the Size values. Fibonacci Spiral is
+      a disc whose radius grows with the index and which rises over Fibonacci Height. Fibonacci Disc
+      is the same disc at Y = 0. Each particle also gets a random start velocity between minus and
+      plus the Movement value on each axis.
+    - >-
+      Each step adds forces to the velocity and then moves the particle. Gravity Strength is added
+      to the Y force, so a positive value pushes up. Wind X, Y and Z add a constant force.
+      Turbulence adds a noise force that depends on the particle X, Y and the time. The attractor
+      pulls toward its position with a force of Attractor Strength divided by distance to the power
+      Attractor Falloff. Separation, Alignment and Cohesion add flocking forces among all particles
+      within their radii, and the speed is limited to 2 units per second after flocking.
+    - >-
+      Every particle has a random lifetime between Lifetime Minimum and Lifetime. When it ends, the
+      particle is emitted again at the current time. All positions are multiplied by Global Scale
+      before output. The Enable checkboxes for gravity, wind, turbulence, attractor and flocking are
+      hidden and have no effect, because the code treats any value as on. The Center X, Y and Z and
+      Flocking Optimization checkboxes are also treated as always on. Flocking therefore updates a
+      third of the particles per frame, and positions are always centered.
+  features:
+    - title: No input needed
+      desc: The node generates its particles from its own controls.
+    - title: Five emission types
+      desc: Random, Noise Field and three Fibonacci layouts.
+    - title: Force controls
+      desc: Gravity, wind, turbulence and an attractor change the velocity of every particle.
+    - title: Flocking rules
+      desc: Separation, Alignment and Cohesion make nearby particles interact.
   connections:
-    - label: Example 1
+    - label: Draw the particles
       lines:
         - vArrayPointParticles.Output -> vArrayCameraProjection.ArrayA
         - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
         - Background.Output -> vArrayShapeRender.Input
-  difficulty: null
-  related: []
+    - label: Offset the particles before drawing
+      lines:
+        - vArrayPointParticles.Output -> vArrayTranslate.ArrayA
+        - vArrayTranslate.Output -> vArrayCameraProjection.ArrayA
+  difficulty: Advanced
+  related:
+    - name: vArrayNoise
+      desc: Generates random points inside a cube with optional animated motion.
+    - name: vArrayPointsOnSphere
+      desc: Places points on a sphere.
+    - name: vArrayAttractorPoints
+      desc: Generates a point path from the Lorenz or Rossler system.
   params:
-    timer: Time of the simulation.
-    start_time: Time at which the particles start.
-    part_count: Number of particles.
-    globalScale: Overall size.
+    timer: Multiplier on the frame time that gives the simulation time. 0 stops time, default 0.
+    start_time: Simulation time at or before which the system is rebuilt. Minimum 0, default 0.
+    part_count: Number of particles. Minimum 0, default 24.
+    globalScale: Multiplier applied to the output positions. Default 1.
     emissionType: >-
-      Where the particles start. Options: Random, Noise Field, Fibonacci Sphere, Fibonacci Spiral,
-      Fibonacci Disc.
-    sizex: Emission size X.
-    sizey: Emission size Y.
-    sizez: Emission size Z.
-    centerx: Emission center X.
-    centery: Emission center Y.
-    centerz: Emission center Z.
-    noiseScale: Scale of the noise field.
-    noiseStrength: Strength of the noise field.
-    noiseSeed: Seed of the noise field.
-    fibonacciRadius: Radius of the Fibonacci shapes.
-    fibonacciHeight: Height of the Fibonacci shapes.
-    movementx: Velocity X.
-    movementy: Velocity Y.
-    movementz: Velocity Z.
-    gravityStrength: Strength of gravity.
-    windX: Wind X.
-    windY: Wind Y.
-    windZ: Wind Z.
-    turbulenceStrength: Strength of the turbulence.
-    attractorX: Attractor position X.
-    attractorY: Attractor position Y.
-    attractorZ: Attractor position Z.
-    attractorStrength: Strength of the attractor.
-    attractorFalloff: Falloff of the attractor.
-    separationRadius: Radius for separation between particles.
-    separationStrength: Strength of the separation.
-    alignmentRadius: Radius for alignment with neighbours.
-    alignmentStrength: Strength of the alignment.
-    cohesionRadius: Radius for cohesion with neighbours.
-    cohesionStrength: Strength of the cohesion.
-    lifetime: Lifetime of the particles.
-    lifetimeMin: Shortest lifetime.
-    flockingOptimization: Speeds up flocking with a neighbour limit.
+      Layout of the start positions, Random, Noise Field, Fibonacci Sphere, Fibonacci Spiral or
+      Fibonacci Disc. Default Fibonacci Sphere.
+    sizex: Size of the emission box in X, and scale of the Fibonacci layouts in X. Default 1.
+    sizey: Size of the emission box in Y, and scale of the Fibonacci layouts in Y. Default 1.
+    sizez: Size of the emission box in Z, and scale of the Fibonacci layouts in Z. Default 1.
+    centerx: Has no effect. The emission box is always centered in X. Default off.
+    centery: Has no effect. The emission box is always centered in Y. Default off.
+    centerz: Has no effect. The emission box is always centered in Z. Default off.
+    noiseScale: Scale of the noise field used by Noise Field emission. Default 0.1.
+    noiseStrength: Size of the noise shift applied to Noise Field positions. Default 0.5.
+    noiseSeed: Seed of the noise for Noise Field emission and turbulence. Default 42.
+    fibonacciRadius: Radius of the Fibonacci layouts. Default 0.3.
+    fibonacciHeight: Height of the Fibonacci Spiral. Default 2.
+    movementx: Largest random start speed in X, in both directions. Default 0.1.
+    movementy: Largest random start speed in Y, in both directions. Default 0.1.
+    movementz: Largest random start speed in Z, in both directions. Default 0.1.
+    gravityStrength: Force added along Y. Positive values push up. Default 0.
+    windX: Wind force along X. Default 0.
+    windY: Wind force along Y. Default 0.
+    windZ: Wind force along Z. Default 0.
+    turbulenceStrength: Strength of the noise force. Default 0.2.
+    attractorX: X position of the attractor. Default 0.
+    attractorY: Y position of the attractor. Default 0.
+    attractorZ: Z position of the attractor. Default 0.
+    attractorStrength: Strength of the pull. Negative values push away. Default 0.
+    attractorFalloff: Exponent of the distance in the attractor force. Default 1.
+    separationRadius: Distance within which neighbors push a particle away. Default 0.5.
+    separationStrength: Strength of the push away from neighbors. Default 0.3.
+    alignmentRadius: Distance within which a particle matches the velocity of neighbors. Default 1.
+    alignmentStrength: Strength of the velocity matching. Default 0.1.
+    cohesionRadius: Distance within which a particle moves toward the center of its neighbors. Default 1.
+    cohesionStrength: Strength of the pull toward the center of the neighbors. Default 0.1.
+    lifetime: Longest lifetime of a particle, in simulation time. Minimum 0, default 2.
+    lifetimeMin: Shortest lifetime of a particle. It is limited to Lifetime. Minimum 0, default 1.
+    flockingOptimization: Has no effect. Flocking is always spread over a third of the particles per frame. Default on.
+    systemInitialized: Button that restarts the particle system.
+    gravityEnable: Hidden control. Has no effect, gravity is always on. Default on.
+    windEnable: Hidden control. Has no effect, wind is always on. Default on.
+    turbulenceEnable: Hidden control. Has no effect, turbulence is always on. Default on.
+    attractorEnable: Hidden control. Has no effect, the attractor is always on. Default on.
+    flockingEnable: Hidden control. Has no effect, flocking is always on. Default on.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
   connections_source: docsify
+  prompt_version: '1'
+  note: >-
+    Enable checkboxes and Center X/Y/Z and Flocking Optimization are numbers tested with if value
+    then, so they are always true in Lua. Time defaults to 0, so the default output is static.
+    Random emission uses an unseeded generator. Fuse logic was not changed.
 legacy_text: Simple particle generator

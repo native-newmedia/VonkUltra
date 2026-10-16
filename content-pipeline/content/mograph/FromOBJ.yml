@@ -6,84 +6,67 @@ tools:
 legacy_names: []
 curated:
   tagline: >-
-    Import vertex positions from any .OBJ mesh file and convert them into a vArray — the bridge
-    between 3D geometry and the vArray pipeline.
+    Read Wavefront OBJ text from a file, a URL or pasted text and output points, faces, UVs and UV
+    indices as arrays.
   overview: >-
-    vArrayFromOBJ reads vertex XYZ data from a Wavefront .OBJ file and outputs a vArray of point
-    positions. Use it to drive vArray motion graphics from real 3D mesh geometry exported from
-    Blender, Cinema 4D, or any modelling application.
+    vArrayFromOBJ has no input socket and outputs four arrays read from OBJ text: Points, Edges, UVs
+    and UV Edges. Input Source picks a file, a URL or text typed into the node.
   description:
     - >-
-      vArrayFromOBJ is the primary 3D import node in the vArray toolkit. It parses the vertex list
-      from any standard Wavefront .OBJ file and produces a vArray of XYZ positions that can flow
-      into the full vArray pipeline — displacement, projection, and rendering. This allows any 3D
-      mesh exported from Blender, Cinema 4D, or Maya to become the source geometry for a vArray
-      motion graphics composition.
+      The node reads the source line by line. Lines that start with v give the Points array, with
+      the first three values of each line multiplied by Scale File Units By. Lines that start with
+      vt give the UVs array with two values each. UV values are not scaled.
     - >-
-      Three input modes cover different workflow needs: File loads directly from disk using a
-      standard file browser, URL fetches a remote OBJ over HTTP for live data workflows, and Input
-      accepts raw OBJ text passed as a string from another node. Scale File Units By lets you
-      normalise geometry from different DCC applications — Maya typically uses centimetres, Blender
-      uses metres — to Fusion's normalised coordinate space.
+      Each line that starts with f gives one entry in the Edges array, holding the vertex indices of
+      the face, and one entry in the UV Edges array, holding the texture coordinate indices. The
+      indices are copied as they are in the file, which means 1-based values for a standard OBJ.
+      Other lines, such as vn, g and usemtl, are ignored.
     - >-
-      Once imported, the vertex array passes to vArrayCameraProjection for 3D-to-2D projection, then
-      to vArrayShapeRender to draw shapes at each vertex position. Pair with vArrayDisplaceValues to
-      add noise or wave-based animation on top of the mesh geometry. This makes vArrayFromOBJ
-      particularly powerful for motion graphics workflows that start with hero geometry from a 3D
-      package rather than procedural generators.
+      The face parser expects vertex references with two slashes, such as 1/2/3 or 1//3. A face
+      written as f 1 2 3 or as 1/2 gives an empty entry, and an index written as 1//3 gives no UV
+      index. The code does not skip a v line that has fewer than three values. Normals are not read.
+    - >-
+      Filename goes through Fusion path mapping before it is opened. URL is downloaded as text.
+      Input is used as it is. Only the control for the selected source is shown.
   features:
-    - title: File, URL, and String Input
-      desc: >-
-        Load geometry from disk, fetch it over HTTP, or pass raw OBJ text as a string — covers
-        local, remote, and data-driven workflows.
-    - title: Unit Scale Compensation
-      desc: >-
-        Scale File Units By corrects for DCC unit differences so geometry from Blender, Maya, and
-        Cinema 4D all land at the same size in Fusion.
-    - title: Full Pipeline Compatible
-      desc: >-
-        Output feeds directly into vArrayCameraProjection, vArrayDisplaceValues, or any other vArray
-        modifier without format conversion.
-    - title: Procedural Source
-      desc: >-
-        Animate vertex positions by hot-swapping OBJ files at different frames or connecting a URL
-        to a live geometry endpoint.
+    - title: Three sources
+      desc: Input Source reads from a file, a URL or text typed into the node.
+    - title: Four outputs
+      desc: Points, Edges, UVs and UV Edges are separate sockets.
+    - title: Unit scaling
+      desc: Scale File Units By multiplies the point coordinates.
+    - title: Indices kept as written
+      desc: Face and UV indices are not converted, so a standard OBJ gives 1-based values.
   connections:
-    - label: Mesh-based point scatter
+    - label: Draw the points of a mesh
       lines:
         - vArrayFromOBJ.Points -> vArrayCameraProjection.ArrayA
-        - vArrayFromOBJ.Edges -> vArrayShapeRender.ArrayEdge
         - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
         - Background.Output -> vArrayShapeRender.Input
-    - label: With displacement
+    - label: Pass the faces along with the points
       lines:
-        - vArrayFromOBJ.Points -> vArrayDisplaceValues.ArrayA
-        - vArrayDisplaceValues.Output -> vArrayCameraProjection.ArrayA
+        - vArrayFromOBJ.Points -> vArrayCameraProjection.ArrayA
+        - vArrayFromOBJ.Edges -> vArrayCameraProjection.ArrayEdge
         - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - vArrayCameraProjection.Edges -> vArrayShapeRender.ArrayEdge
+        - Background.Output -> vArrayShapeRender.Input
   difficulty: Intermediate
   related:
     - name: vArrayToOBJ
-      desc: Export a vArray back to .OBJ format — the write counterpart to vArrayFromOBJ.
-    - name: vArrayCameraProjection
-      desc: Projects 3D vertex positions to 2D screen coordinates for rendering.
-    - name: vArrayDisplaceValues
-      desc: Add procedural displacement to imported mesh vertices.
+      desc: Converts arrays into OBJ text, the reverse of this node.
+    - name: vArrayFromXYZ
+      desc: Reads ASCII XYZ point cloud data.
+    - name: vArrayToUSD
+      desc: Converts arrays into OpenUSD ASCII text.
   params:
-    InputSource: 'Selects the data source mode: 0 = File path, 1 = URL, 2 = Text string input from another node.'
-    Filename: >-
-      Path to the .OBJ file on disk. Use the file browser to locate the geometry file. Active when
-      Input Source is set to File.
-    URL: >-
-      HTTP/HTTPS URL of a remote .OBJ file. Active when Input Source is set to URL. Useful for live
-      data or asset server workflows.
-    Input: >-
-      Raw OBJ-format text passed as a string from another node. Active when Input Source is set to
-      Text. Enables procedurally generated geometry.
-    Scale: >-
-      Multiplies all imported vertex positions by this value. Use to convert from DCC application
-      units to Fusion's normalised coordinate space (e.g. 0.01 for centimetres to metres).
+    InputSource: Where the OBJ text comes from, File, URL or Text. Default File.
+    Filename: Path of the OBJ file. Shown when Input Source is File.
+    URL: Address of an OBJ text file. Shown when Input Source is URL.
+    Input: OBJ text typed or pasted into the node. Shown when Input Source is Text.
+    Scale: Multiplier applied to X, Y and Z of every point. Default 1.
 status:
-  source: rich-json
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
 legacy_text: Convert Wavefront OBJ mesh data into a vArray format

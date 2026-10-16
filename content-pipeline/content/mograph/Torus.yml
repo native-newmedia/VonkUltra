@@ -5,21 +5,73 @@ tools:
   JSON: vJSONTorus
 legacy_names: []
 curated:
-  tagline: Generate points on a torus.
-  overview: Places points on a torus.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: >-
+    Generate points on a torus from a major radius, a minor radius and segment counts around the
+    ring and the tube.
+  overview: >-
+    vArrayTorus has no input and outputs an array of XYZ points on a torus that lies in the XY plane
+    around the Z axis. U Segments and V Segments set the point count, and U Sweep limits how much of
+    the ring is generated.
+  description:
+    - >-
+      The node places V Segments points around the tube at each of U Segments positions around the
+      ring, so the output holds U Segments * V Segments points, ordered ring position by ring
+      position. For ring angle u and tube angle v, X = (Major Radius + Minor Radius * cos v) * cos
+      u, Y = (Major Radius + Minor Radius * cos v) * sin u and Z = Minor Radius * sin v.
+    - >-
+      With the defaults (Major Radius 0.35, Minor Radius 0.1, 24 U Segments, 12 V Segments, U Sweep
+      360) the node outputs 288 points forming a closed torus centered on the origin. The tube
+      angles always cover a full circle.
+    - >-
+      U Sweep sets the angle covered around the ring, from 0 to 360 degrees. Include End decides
+      where the last ring position lands. With it off, the sweep is divided by U Segments, so a 360
+      degree sweep stops one step short of the start and no ring is repeated. With it on, the sweep
+      is divided by U Segments - 1, the last ring lands on the end of the sweep, and a 360 degree
+      sweep puts the last ring on top of the first.
+    - >-
+      Both segment counts are clamped to 3 or more. The node does not compare the two radii, so a
+      Minor Radius larger than the Major Radius gives a self-intersecting surface. The output
+      contains points only, with no edges or faces.
+  features:
+    - title: No input needed
+      desc: The node generates its points from its own controls.
+    - title: Point count is U times V
+      desc: The output always holds U Segments * V Segments points.
+    - title: Partial rings
+      desc: U Sweep limits the ring to an arc between 0 and 360 degrees.
+    - title: Optional end ring
+      desc: >-
+        Include End puts the last ring position on the end of the sweep instead of one step short of
+        it.
+  connections:
+    - label: Draw the torus
+      lines:
+        - vArrayTorus.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Mirror the points across an axis
+      lines:
+        - vArrayTorus.Output -> vArrayMirror.Input
+        - vArrayMirror.Output -> vArrayCameraProjection.ArrayA
+  difficulty: Beginner
+  related:
+    - name: vArrayCylinder
+      desc: Generates points on a cylinder instead of a torus.
+    - name: vArrayHelix
+      desc: Generates points along a coil instead of a closed ring.
+    - name: vArrayPointsOnSphere
+      desc: Generates points on a sphere.
   params:
-    majorradius: Radius of the ring.
-    minorradius: Radius of the tube.
-    usegments: Segments around the ring.
-    vsegments: Segments around the tube.
-    usweep: Angle covered around the ring.
-    includeend: Repeats the first point at the end.
+    majorradius: Distance from the center of the torus to the center of the tube. Minimum 0.001, default 0.35.
+    minorradius: Radius of the tube. Minimum 0.001, default 0.1.
+    usegments: Number of positions around the ring. Clamped to 3 or more, default 24.
+    vsegments: Number of points around the tube at each ring position. Clamped to 3 or more, default 12.
+    usweep: Angle covered around the ring, in degrees. Range 0 to 360, default 360.
+    includeend: >-
+      When on, the last ring position lands on the end of the sweep. When off, it stops one step
+      short. Default off.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'

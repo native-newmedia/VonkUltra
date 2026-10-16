@@ -5,22 +5,65 @@ tools:
   JSON: vJSONParametricCurve
 legacy_names: []
 curated:
-  tagline: Generate points from parametric expressions.
-  overview: Evaluates X(t), Y(t) and Z(t) expressions over a range of t.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: Generate points from X(t), Y(t) and Z(t) expressions evaluated over a range of t.
+  overview: >-
+    vArrayParametricCurve has no input and outputs an array of XYZ points. Each of the three
+    coordinates is given by a text expression in the variable t, which runs from T Min to T Max.
+  description:
+    - >-
+      The node evaluates the three expressions for Sample Count values of t, spaced evenly from T
+      Min to T Max with both ends included. Each result is multiplied by Scale and written as a
+      point. With the defaults (X(t) = cos(t), Y(t) = sin(t), Z(t) = 0, T Min 0, T Max 2 * pi, 360
+      samples, Scale 1) the output is a circle of radius 1.
+    - >-
+      The expressions use Lua syntax with t as the variable. The available names are abs, acos,
+      asin, atan, ceil, cos, deg, exp, floor, log, max, min, pi, pow, rad, sin, sqrt and tan. The
+      node lists examples such as a helix (cos(t), sin(t), t / (2 * pi)), a trefoil knot (sin(t) + 2
+      * sin(2 * t), cos(t) - 2 * cos(2 * t), -sin(3 * t)) and a torus knot ((2 + cos(3 * t)) * cos(2
+      * t), (2 + cos(3 * t)) * sin(2 * t), sin(3 * t)).
+    - >-
+      All three expressions must be filled in. If one is empty, cannot be compiled, or uses one of
+      the blocked words os, io, debug, package, require, dofile, loadfile, collectgarbage, getfenv
+      or setfenv, the output is empty. If an expression gives a value that is not a finite number
+      for some t, that sample is skipped, so the output can hold fewer points than Sample Count.
+    - Sample Count is clamped to 8 or more. Use the constant 0 for an unused axis.
+  features:
+    - title: No input needed
+      desc: The node generates its points from its own expressions.
+    - title: Free expressions
+      desc: X(t), Y(t) and Z(t) are text expressions that can use common math functions.
+    - title: Adjustable t range
+      desc: T Min and T Max set the start and end of the parameter.
+    - title: Safe evaluation
+      desc: Expressions run with only the math names listed, and blocked words give an empty output.
+  connections:
+    - label: Draw the curve
+      lines:
+        - vArrayParametricCurve.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Offset the curve before drawing
+      lines:
+        - vArrayParametricCurve.Output -> vArrayTranslate.ArrayA
+        - vArrayTranslate.Output -> vArrayCameraProjection.ArrayA
+  difficulty: Intermediate
+  related:
+    - name: vArrayLissajousSpline
+      desc: Generates points on a Lissajous curve with dedicated controls.
+    - name: vArrayRoseCurve
+      desc: Generates points on a rose curve with dedicated controls.
+    - name: vArrayHelix
+      desc: Generates points along a helix with dedicated controls.
   params:
-    exprx: Expression for X.
-    expry: Expression for Y.
-    exprz: Expression for Z.
-    tmin: First value of t.
-    tmax: Last value of t.
-    samplecount: Number of sampled points.
-    scale: Scale of the result.
+    exprx: Expression for X in the variable t. Default cos(t).
+    expry: Expression for Y in the variable t. Default sin(t).
+    exprz: Expression for Z in the variable t. Default 0.
+    tmin: Value of t for the first sample. Default 0.
+    tmax: Value of t for the last sample. Default 2 * pi.
+    samplecount: Number of samples. Clamped to 8 or more, default 360.
+    scale: Multiplier applied to X, Y and Z of every point. Minimum 0.001, default 1.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'

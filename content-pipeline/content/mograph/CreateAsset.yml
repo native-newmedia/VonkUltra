@@ -5,34 +5,82 @@ tools:
   JSON: vJSONCreateAsset
 legacy_names: []
 curated:
-  tagline: Create a 3D asset from points, edges, UVs and a matrix.
-  overview: Packs points, edges, UVs and a matrix with a name, version and color into one asset.
-  description: []
-  features: []
+  tagline: >-
+    Bundle points, edges, UVs, UV edges and a matrix into one vGeometry asset with a name, version,
+    wire color and bounding box.
+  overview: >-
+    vArrayCreateAsset takes arrays on its Points, Edges, UVs, UV Edges and Matrix sockets and
+    outputs one JSON asset of type vGeometry. The asset adds a name, a version, a wire color, a soft
+    edge value and the bounding box of the points.
+  description:
+    - >-
+      The node collects the arrays that are connected and stores them in the asset under the names
+      Points, Edges, UVs, UVEdges and Matrix. The Matrix is stored as its flat list of numbers.
+      Sockets without a connection are stored as empty lists.
+    - >-
+      The asset also holds the Name from Asset Name, the Version from Asset Version, the color from
+      Red, Green, Blue and Alpha, the Soft Edge value, the ID vGeometry and a new UUID. If Asset
+      Name is empty or only a space or tab, the name Object is used. The UUID is created on every
+      calculation, so it changes each time the node renders.
+    - >-
+      The bounding box is calculated from the points and stored as BBoxPoints and BBoxEdges. For
+      three-value points it is the 8 corners of a box with 6 faces. For two-value points it is the 4
+      corners of a rectangle with 4 edges. For one-value points it is the minimum and maximum with
+      one edge. The values in the bounding box are the minimum and the maximum of each axis, over
+      all points.
+    - >-
+      The asset is the input of vArrayRenderAsset, which draws it as a 3D wireframe, and of
+      vArrayRenderAssetSVG, which exports an SVG wireframe. The Show Input checkbox shows or hides
+      the input sockets and the Asset Name connection point.
+  features:
+    - title: One asset from several arrays
+      desc: Points, edges, UVs, UV edges and a matrix travel together in a single output.
+    - title: Name and version
+      desc: Asset Name and Asset Version identify the asset, and each calculation adds a new UUID.
+    - title: Wire color
+      desc: Red, Green, Blue and Alpha set the color stored in the asset.
+    - title: Bounding box included
+      desc: The corner points and faces of the bounding box are stored with the asset.
   connections:
-    - label: Example 1
+    - label: Build an asset from a generated grid
       lines:
-        - vScriptValFromOBJ.ScriptValPoints -> vScriptValCreateAsset.ScriptValPoints
-        - vScriptValFromOBJ.ScriptValEdges -> vScriptValCreateAsset.ScriptValEdges
-        - vScriptValFromOBJ.ScriptValUVs -> vScriptValCreateAsset.ScriptValUVs
-        - vScriptValFromOBJ.ScriptValUVEdges -> vScriptValCreateAsset.ScriptValEdges
-        - vScriptValCreateAsset.Output -> vScriptValMergeAsset.ScriptVal1
-        - vScriptValMergeAsset.Output -> vScriptValRenderAsset.vGeometry
-        - Background.Output -> vScriptValRenderAsset.Input
-  difficulty: null
-  related: []
+        - vArrayPointsOnGrid.Output -> vArrayCreateAsset.ArrayPoints
+        - vArrayCreateAsset.Output -> vArrayRenderAsset.Input
+    - label: Add a transform matrix to the asset
+      lines:
+        - vArrayPointsOnGrid.Output -> vArrayCreateAsset.ArrayPoints
+        - vMatrixCreateTRS.Output -> vArrayCreateAsset.Matrix
+        - vArrayCreateAsset.Output -> vArrayRenderAsset.Input
+  difficulty: Intermediate
+  related:
+    - name: vArrayLocatorAsset
+      desc: Creates a vGeometry asset in the shape of a locator or a light.
+    - name: vArrayToOBJ
+      desc: Converts the same kinds of arrays into OBJ text.
+    - name: vArrayToUSD
+      desc: Converts the same kinds of arrays into OpenUSD text.
   params:
-    AssetName: Name of the asset.
-    AssetVersion: Version of the asset.
-    Red_wire: Color of the asset.
-    Green_wire: Color of the asset.
-    Blue_wire: Color of the asset.
-    Alpha_wire: Color of the asset.
-    SoftEdge: Softness of the asset edges.
-    ShowInput: Shows the input sockets of the controls.
+    AssetName: Name stored in the asset. An empty name becomes Object.
+    AssetVersion: Version number stored in the asset. Default 1.
+    Red_wire: Red level of the wire color. Default 0.
+    Green_wire: Green level of the wire color. Default 1.
+    Blue_wire: Blue level of the wire color. Default 1.
+    Alpha_wire: Alpha level of the wire color. Range 0 to 1, default 1.
+    SoftEdge: Soft edge value stored in the asset. Minimum 0, default 0.
+    ShowInput: Shows or hides the input sockets and the Asset Name connection point. Default on.
+    ArrayPoints: Array of points to store.
+    ArrayEdges: Array of face or edge index lists to store.
+    ArrayUVs: Array of texture coordinates to store.
+    ArrayUVEdges: Array of UV index lists to store.
+    ScriptValPoints: Array of points to store.
+    ScriptValEdges: Array of face or edge index lists to store.
+    ScriptValUVs: Array of texture coordinates to store.
+    ScriptValUVEdges: Array of UV index lists to store.
+    Matrix: 4x4 matrix as JSON text. Its list of numbers is stored in the asset.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
   connections_source: docsify
+  prompt_version: '1'
 legacy_text: Create a ScriptVal based 3D asset from Edge, Point, and vMatrix data
