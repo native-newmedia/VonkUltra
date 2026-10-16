@@ -5,29 +5,90 @@ tools:
   JSON: vJSONStagger
 legacy_names: []
 curated:
-  tagline: Animate points using staggered offsets.
+  tagline: Offsets each point on X, Y and Z with a time-based curve that is shifted per point index.
   overview: >-
-    Moves each XYZ point of an array along a time-based curve, delayed by the point's index. Mode
-    picks the curve. Stagger and Stagger Amount scale it per axis; both default to 0, so nothing
-    moves until they are set.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+    vArrayStagger takes an array of XYZ points and adds an animated offset to each axis. Mode picks
+    the curve, and Stagger and Stagger Amount scale it per axis; both default to 0, so nothing moves
+    until they are set.
+  description:
+    - >-
+      For each point the node adds Stagger Amount * Stagger * curve to each axis. The curve depends
+      on Mode, the point index starting at 0, Stagger Delay and the render time, so the result
+      changes from frame to frame.
+    - >-
+      Stagger, Stagger Amount and Stagger Delay all default to 0. Points pass through unchanged
+      until Stagger and Stagger Amount are set, and a delay of 0 gives every point the same curve
+      value. A larger delay shifts each point in time by its index times the delay.
+    - >-
+      Linear is a sine of 0.1 times the shifted time. Linear and Exponential do not read Wave
+      Frequency, which the other four modes use and which defaults to 0.01. Six hidden controls are
+      not read by the code.
+  features:
+    - title: Six offset curves
+      desc: Mode selects Linear, Wave, Exponential, Pulse Wave, Triangle Wave or Sawtooth Wave.
+    - title: Per-axis strength
+      desc: >-
+        Stagger X, Y and Z (slider 0 to 1) and Stagger Amount X, Y and Z (-10 to 10) are set
+        separately.
+    - title: Delay by index
+      desc: Stagger Delay shifts each point by its zero-based index times the delay.
+    - title: Follows render time
+      desc: The curves use the render time of the request, so the output changes per frame.
+  connections:
+    - label: Animate a grid and draw it
+      lines:
+        - vArrayPointsOnGrid.Output -> vArrayStagger.Input
+        - vArrayStagger.OutputData -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Add a fixed offset after the animation
+      lines:
+        - vArrayPointsOnCircle.Output -> vArrayStagger.Input
+        - vArrayStagger.OutputData -> vArrayTranslate.Input
+  difficulty: Intermediate
+  related:
+    - name: vArrayMaterialEasing
+      desc: Moves points along a Material Design 3 easing curve with its own stagger modes.
+    - name: vArrayPointsJitter
+      desc: Adds seeded random offsets and a small time-based wobble to each point.
+    - name: vArrayTranslate
+      desc: Adds a fixed offset to all points.
   params:
-    Mode: 'Offset curve: Linear, Wave, Exponential, Pulse Wave, Triangle Wave, Sawtooth Wave.'
-    StaggerX: Per-axis strength of the stagger.
-    StaggerY: Per-axis strength of the stagger.
-    StaggerZ: Per-axis strength of the stagger.
-    StaggerAmountX: Per-axis offset size, multiplied by Stagger.
-    StaggerAmountY: Per-axis offset size, multiplied by Stagger.
-    StaggerAmountZ: Per-axis offset size, multiplied by Stagger.
-    StaggerDelay: Delay between consecutive points.
-    WaveFreq: Curve speed. Shown for Wave, Pulse Wave, Triangle Wave and Sawtooth Wave.
-    PulseWidth: On-time share of each cycle. Shown for Pulse Wave only.
+    Mode: >-
+      Offset curve: Linear, Wave, Exponential, Pulse Wave, Triangle Wave or Sawtooth Wave. Default
+      Linear.
+    StaggerX: Strength of the offset on X, multiplied by Stagger Amount X. Slider 0 to 1, default 0.
+    StaggerY: Strength of the offset on Y, multiplied by Stagger Amount Y. Slider 0 to 1, default 0.
+    StaggerZ: Strength of the offset on Z, multiplied by Stagger Amount Z. Slider 0 to 1, default 0.
+    StaggerAmountX: Size of the X offset, multiplied by Stagger X. Range -10 to 10, default 0.
+    StaggerAmountY: Size of the Y offset, multiplied by Stagger Y. Range -10 to 10, default 0.
+    StaggerAmountZ: Size of the Z offset, multiplied by Stagger Z. Range -10 to 10, default 0.
+    StaggerDelay: >-
+      Time shift per point index. Minimum 0, default 0. Exponential applies it at one tenth of the
+      value.
+    WaveFreq: >-
+      Frequency of the curve in Wave, Pulse Wave, Triangle Wave and Sawtooth Wave. Hidden unless one
+      of these modes is selected. Minimum 0, default 0.01.
+    PulseWidth: >-
+      Share of each cycle at full value in Pulse Wave, from 0.01 to 1, default 0.5. Hidden unless
+      Pulse Wave is selected.
+    ClampOutput: Hidden control. Not read by the code.
+    MinValue: Hidden control. Not read by the code. Default 0.
+    MaxValue: Hidden control. Not read by the code. Default 1.
+    ReverseIndex: Hidden control. Not read by the code.
+    Yoyo: Hidden control. Not read by the code.
+    Steps: Hidden control. Not read by the code. Range 1 to 100, default 5.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
+  note: >-
+    Mode "Linear" is not linear in the code: it is sin(0.1 * (time - index * delay)) and ignores
+    Wave Frequency. Mode "Exponential" is an envelope times a sine, also not an exponential ramp.
+    The hidden controls Clamp Output, Min Value, Max Value, Reverse Index, Yoyo and Steps are
+    created but Process() never reads them (processStagger gets none of them, and its reverse and
+    yoyo locals are always true). The Stagger Delay fallback in Process() (0.2) is never used
+    because the control default is 0. Sawtooth Wave divides by Wave Frequency, so a value of 0 gives
+    an infinite period.
 legacy_text: Animate points using staggered offsets

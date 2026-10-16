@@ -5,23 +5,74 @@ tools:
   JSON: vJSONPointsJitter
 legacy_names: []
 curated:
-  tagline: Add jitter to array points.
+  tagline: Moves each point by a seeded random offset plus a small time-based wobble.
   overview: >-
-    Moves each XYZ point by a seeded random offset plus a small animated wobble. The same Seed gives
-    the same result.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+    vArrayPointsJitter takes an array of XYZ points and offsets each one on X, Y and Z. Jitter X, Y
+    and Z set the size of the offset, and the same Seed always gives the same result.
+  description:
+    - >-
+      Each point gets a random offset on each axis. With Uniform Jitter on, the offset is drawn from
+      minus Jitter to plus Jitter. With it off, it follows a bell curve with Jitter as the spread,
+      so it has no fixed maximum. The generator is reseeded for every point from Seed and the point
+      index, so a point keeps its offset when the point count changes.
+    - >-
+      A wobble is added on top: X and Z use sin(t + i) * Jitter * 0.5 and Y uses cos(t + i) * Jitter
+      * 0.5, where i is the point number from 1 and t is the render time times Time. At Time 0 the
+      wobble does not vanish. It stays as a fixed offset per point.
+    - Defaults are Jitter 0.1 on each axis and Seed 42. An empty input gives an empty output.
+  features:
+    - title: Repeatable result
+      desc: Each point is reseeded from Seed and its index, so the same Seed gives the same offsets.
+    - title: Two spreads
+      desc: Uniform Jitter chooses an even spread or a bell-curve spread.
+    - title: Separate axis sizes
+      desc: Jitter X, Y and Z are set independently.
+    - title: Animated wobble
+      desc: Time multiplies the render time that drives the sine and cosine wobble.
+  connections:
+    - label: Jitter a grid and draw it
+      lines:
+        - vArrayPointsOnGrid.Output -> vArrayPointsJitter.Input
+        - vArrayPointsJitter.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Jitter a circle, then move it
+      lines:
+        - vArrayPointsOnCircle.Output -> vArrayPointsJitter.Input
+        - vArrayPointsJitter.Output -> vArrayTranslate.Input
+  difficulty: Intermediate
+  related:
+    - name: vArrayStagger
+      desc: Adds an animated offset per axis that is shifted by point index.
+    - name: vArrayMaterialEasing
+      desc: Moves points along an easing curve over time with staggered starts.
+    - name: vArrayRandom
+      desc: Creates random points instead of offsetting existing ones.
   params:
-    jitterx: Maximum jitter per axis.
-    jittery: Maximum jitter per axis.
-    jitterz: Maximum jitter per axis.
-    seed: Random seed. Each point gets its own offset from it.
-    time: Speed of the wobble. At 0 the wobble is frozen.
-    uniform: 'On: even spread from minus to plus Jitter. Off: bell-curve spread.'
+    jitterx: >-
+      Size of the random offset on X. Slider 0 to 1, allowed 0 to 10, default 0.1. Also sets the X
+      wobble amplitude, which is half this value.
+    jittery: >-
+      Size of the random offset on Y. Slider 0 to 1, allowed 0 to 10, default 0.1. Also sets the Y
+      wobble amplitude, which is half this value.
+    jitterz: >-
+      Size of the random offset on Z. Slider 0 to 1, allowed 0 to 10, default 0.1. Also sets the Z
+      wobble amplitude, which is half this value.
+    seed: Integer from 0 to 10000, default 42. Each point is reseeded from it and its index.
+    time: >-
+      Multiplier for the render time used as wobble phase. At 0 the wobble is a fixed offset per
+      point. Minimum 0, default 0.
+    uniform: >-
+      On (default): even spread from minus to plus Jitter. Off: bell-curve spread with Jitter as the
+      spread.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
+  note: >-
+    The old Jitter text said "maximum jitter per axis". That holds only for Uniform Jitter on. With
+    it off the offset is normally distributed with Jitter as the spread, so it has no maximum. The
+    wobble is not removed at Time 0: it stays as a fixed per-point offset of sin(i) * Jitter * 0.5.
+    The JSON and ScriptVal fuses also accept a bare array as input; the Array fuse needs the "array"
+    key.
