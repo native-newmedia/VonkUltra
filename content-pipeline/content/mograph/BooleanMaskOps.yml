@@ -5,28 +5,71 @@ tools:
   JSON: vJSONBooleanMaskOps
 legacy_names: []
 curated:
-  tagline: Combine two masks with boolean operations.
+  tagline: Combines two masks per index with a boolean operation and outputs a mask or points.
   overview: >-
-    Combines two mask or point arrays with a boolean operation and outputs a mask or the selected
-    points.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+    vArrayBooleanMaskOps takes Mask A and Mask B and applies a boolean operation to each index. A
+    value counts as true when it is above Threshold, and Output Mode chooses the form of the result.
+  description:
+    - >-
+      Each element is read as X, Y and Z (a single number is used for all three). A value is true
+      when it is above Threshold. Operation (AND, OR, XOR, A AND NOT B, NOT A or NOT B) is applied
+      to each axis and to the whole point, which is true when any axis is true. Missing elements
+      count as 0.
+    - >-
+      Mask Scalars writes 1 or 0 times Output Amount for the whole point. Per-Axis XYZ Mask writes
+      one 1 or 0 per axis, times Output Amount and X, Y or Z Amount. The three point modes write the
+      A point, the B point or the average of both, scaled by the amounts when the result is true.
+      When it is false they write the A or B point unchanged.
+    - Trim Zeros removes every output element that is zero on all axes.
+  features:
+    - title: Six operations
+      desc: AND, OR, XOR, A AND NOT B, NOT A and NOT B.
+    - title: Five output modes
+      desc: A scalar mask, a per-axis mask, A points, B points or averaged points.
+    - title: Threshold
+      desc: A value is true when it is above Threshold, which defaults to 0.
+    - title: Amount scaling
+      desc: Output Amount and X, Y and Z Amount scale the result values.
+  connections:
+    - label: Combine two masks
+      lines:
+        - vArrayWeightMap.Output -> vArrayLogicThreshold.Input
+        - vArrayLogicThreshold.Output -> vArrayBooleanMaskOps.MaskA
+        - vArrayPerlin3Noise.Output -> vArrayBooleanMaskOps.MaskB
+        - vArrayBooleanMaskOps.Output -> vArrayApplyMask.Mask
+    - label: Pass the A points where the masks agree
+      lines:
+        - vArrayPointsOnGrid.Output -> vArrayBooleanMaskOps.MaskA
+        - vArrayPointsOnCircle.Output -> vArrayBooleanMaskOps.MaskB
+        - vArrayBooleanMaskOps.Output -> vArrayCameraProjection.ArrayA
+  difficulty: Advanced
+  related:
+    - name: vArrayApplyMask
+      desc: Uses a mask to blend two point arrays.
+    - name: vArrayWeightMap
+      desc: Generates normalized per-point weight arrays.
+    - name: vArrayMaskByMesh
+      desc: Keeps only input points within a distance of the mesh surface.
   params:
-    Operation: 'Boolean operation. Options: AND, OR, XOR, A AND NOT B, NOT A, NOT B.'
+    Operation: AND (default), OR, XOR, A AND NOT B, NOT A or NOT B.
     OutputMode: >-
-      Type of the result. Options: Mask Scalars (0/1, any axis true), Per-Axis XYZ Mask
-      ({0/1,0/1,0/1}), Pass A Points When True, Pass B Points When True, Average A/B Points When
-      True.
-    Threshold: Values above this count as true.
-    OutputAmount: Strength of the output.
-    XAmount: Strength on X.
-    YAmount: Strength on Y.
-    ZAmount: Strength on Z.
-    TrimZeros: Removes trailing zero values.
+      Mask Scalars (0/1, any axis true) is the default. Per-Axis XYZ Mask gives one 0 or 1 per axis.
+      The three point modes write the A point, the B point or their average.
+    Threshold: Values above it count as true. Slider -1 to 1, default 0.
+    OutputAmount: Multiplies the result. Minimum 0, default 1. Point modes pass the unscaled point when it is 0.
+    XAmount: Multiplies the X result in the per-axis and point modes. Default 1.
+    YAmount: Multiplies the Y result in the per-axis and point modes. Default 1.
+    ZAmount: Multiplies the Z result in the per-axis and point modes. Default 1.
+    TrimZeros: Removes output elements that are zero on all axes. Default off.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
+  note: >-
+    The modes Pass A Points When True, Pass B Points When True and Average A/B Points When True do
+    not drop points when the result is false: the A or B point is passed unchanged in that case, so
+    the output keeps the input length. When true, the point is multiplied by Output Amount and the
+    axis amounts, which are all 1 by default, so with defaults the output equals the A or B points.
+    Trim Zeros removes every point whose X, Y and Z are all 0, not only trailing zeros. Average mode
+    outputs the A point when false, not the B point.

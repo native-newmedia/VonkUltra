@@ -5,26 +5,75 @@ tools:
   JSON: vJSONLookAt
 legacy_names: []
 curated:
-  tagline: Build look-at direction vectors.
-  overview: Outputs a look-at direction for every point.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: Outputs a direction, Euler angles or a 9-value basis from each point toward a target.
+  overview: >-
+    vArrayLookAt takes an array of points and a target, and writes one result per point. The target
+    is set by Target X, Y and Z, or comes from a Targets array with one target per point.
+  description:
+    - >-
+      For each point the direction is target - point, made unit length if Normalize is on (the
+      default). Forward Axis then re-maps its components, and Invert Direction flips it. Direction
+      Vector outputs these three values. Euler Angles outputs pitch and yaw in degrees and a roll of
+      0.
+    - >-
+      Full Basis outputs nine values: the forward vector, a right vector from the cross product of
+      the up vector (Up X, Y, Z, default 0, 1, 0) and forward, and a third vector from forward and
+      right.
+    - >-
+      With Per-Point Target on, target i comes from the Targets input. A missing or invalid value
+      falls back to Target X, Y and Z. A zero direction gives 0, 0, 0 when Normalize is on.
+  features:
+    - title: Three output forms
+      desc: A direction vector, pitch and yaw angles, or a 9-value basis.
+    - title: Per-point targets
+      desc: A Targets array gives each point its own target.
+    - title: Forward axis remap
+      desc: Six forward axis choices change how the vector components are arranged.
+    - title: Up vector
+      desc: The up vector orients the Full Basis output.
+  connections:
+    - label: Aim a grid at a point
+      lines:
+        - vArrayPointsOnGrid.Output -> vArrayLookAt.Points
+        - vArrayLookAt.Output -> vArrayCameraProjection.ArrayA
+    - label: Aim each point at its own target
+      lines:
+        - vArrayPointsOnCircle.Output -> vArrayLookAt.Points
+        - vArrayPointsOnGrid.Output -> vArrayLookAt.Targets
+        - vArrayLookAt.Output -> vArrayTranslate.Input
+  difficulty: Intermediate
+  related:
+    - name: vArrayPathFrame
+      desc: Builds tangent, normal and binormal frames along a path.
+    - name: vArrayTangentVector
+      desc: Creates a vector that is tangent to a curve or surface at a given point.
+    - name: vArrayOffsetByNormal
+      desc: Offsets each input point along the nearest mesh surface normal.
   params:
-    TargetX: Target position X.
-    TargetY: Target position Y.
-    TargetZ: Target position Z.
-    ForwardAxis: 'Axis that points at the target. Options: +Z (default), -Z (flip), +Y, -Y, +X, -X.'
-    InvertDirection: Reverses the direction.
-    Normalize: Outputs unit length vectors.
-    UpX: Up vector X.
-    UpY: Up vector Y.
-    UpZ: Up vector Z.
-    OutputMode: 'Type of the output. Options: Direction Vector, Euler Angles, Full Basis (9-component).'
-    UsePerPointTarget: Uses the Targets input for each point.
+    TargetX: X of the target. Default 0.
+    TargetY: Y of the target. Default 0.
+    TargetZ: Z of the target. Default 0.
+    ForwardAxis: +Z (default), -Z (flip), +Y, -Y, +X or -X. Re-maps the components of the direction vector.
+    InvertDirection: Reverses the direction. Default off.
+    Normalize: Makes the direction unit length when on (default).
+    UpX: X of the up vector, 0 or 1. Used in Full Basis mode. Default 0.
+    UpY: Y of the up vector, 0 or 1. Used in Full Basis mode. Default 1.
+    UpZ: Z of the up vector, 0 or 1. Used in Full Basis mode. Default 0.
+    OutputMode: Direction Vector (default), Euler Angles (pitch, yaw, 0, in degrees) or Full Basis (9 values).
+    UsePerPointTarget: >-
+      Reads one target per point from Targets when on. Default off. The Targets port is shown only
+      then.
+    Points: The points to aim from.
+    Targets: Optional target points, one per input point. Used when Per-Point Target is on.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
+  note: >-
+    Forward Axis does not rotate a basis. It re-maps the components of the direction vector (+Z
+    keeps it, -Z negates it, +Y gives x, z, -y, -Y gives x, -z, y, +X gives z, y, -x, -X gives -z,
+    y, x), so the old text "axis that points at the target" is only loosely true. The up vector is
+    used only in Full Basis mode. Up X, Y and Z are integer controls limited to 0 and 1. The Euler
+    angle output has pitch and yaw in degrees and a roll of 0. If the first input element is not a
+    list, the input is passed through unchanged.

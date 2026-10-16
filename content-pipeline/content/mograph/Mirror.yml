@@ -5,18 +5,55 @@ tools:
   JSON: vJSONMirror
 legacy_names: []
 curated:
-  tagline: Mirror points across an axis.
-  overview: Mirrors points across the X, Y or Z axis, optionally combined with the original.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: Mirrors points across a plane on the X, Y or Z axis, optionally keeping the originals.
+  overview: >-
+    vArrayMirror takes an array of XYZ points and mirrors them across a plane at a pivot position on
+    one axis. Keep Original adds the mirrored points after the originals.
+  description:
+    - >-
+      Mirror Axis selects X, Y or Z, and Axis Pivot (default 0) is the position of the mirror plane
+      on that axis. The chosen coordinate of every point becomes 2 * pivot - value, and the other
+      two coordinates stay the same. With a pivot of 0, X = 3 becomes X = -3.
+    - >-
+      With Keep Original on (the default), the output holds the original points first and then the
+      mirrored points, so it is twice as long as the input. With it off, only the mirrored points
+      are output. The mirrored points hold X, Y and Z only. Input that does not start with a list is
+      passed through unchanged.
+  features:
+    - title: Three mirror axes
+      desc: Mirror across X, Y or Z.
+    - title: Movable plane
+      desc: Axis Pivot places the mirror plane on the chosen axis.
+    - title: Keep Original
+      desc: The result can hold the originals followed by the mirrored points.
+    - title: Order kept
+      desc: Mirrored points follow the order of the input.
+  connections:
+    - label: Mirror a half circle and draw
+      lines:
+        - vArrayPointsOnArc.Output -> vArrayMirror.Input
+        - vArrayMirror.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Mirror displaced points
+      lines:
+        - vArrayPointsOnGrid.Output -> vArrayDisplaceValues.ArrayA
+        - vArrayDisplaceValues.Output -> vArrayMirror.Input
+        - vArrayMirror.Output -> vArrayTranslate.Input
+  difficulty: Beginner
+  related:
+    - name: vArrayRadialSymmetry
+      desc: Creates radial symmetry from source points.
+    - name: vArrayMirrorThruMesh
+      desc: Reflects each input point through the nearest mesh surface point.
+    - name: vArrayRepeat
+      desc: Repeats point arrays with per-copy transform offsets.
   params:
-    Axis: 'Axis to mirror across. Options: X, Y, Z.'
-    Pivot: Position of the mirror plane.
-    KeepOriginal: Outputs the original points together with the mirrored points.
+    Axis: X (default), Y or Z. The axis across which the points are mirrored.
+    Pivot: Position of the mirror plane on the chosen axis. Default 0.
+    KeepOriginal: Outputs the original points followed by the mirrored points when on (default).
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'

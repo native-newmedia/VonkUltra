@@ -5,87 +5,81 @@ tools:
   JSON: vJSONMath
 legacy_names: []
 curated:
-  tagline: >-
-    Apply add, subtract, multiply, or divide to every element in a vArray — the essential arithmetic
-    node for data-driven motion.
+  tagline: Applies one of 31 math operations to every X, Y and Z value, with a number or a second array.
   overview: >-
-    vArrayMath applies a scalar or per-element arithmetic operation to a vArray. Place it anywhere
-    in the pipeline to scale, offset, or combine numeric arrays before passing them to renderers or
-    downstream modifiers.
+    vArrayMath reads each element of Input A as X, Y and Z and combines it with a number or with the
+    matching element of Input B. Operation chooses the formula, and the output has three values per
+    element.
   description:
     - >-
-      vArrayMath is the go-to arithmetic node in the vArray toolkit. Connect Array A (and optionally
-      Array B), select your operation from the dropdown — Add, Subtract, Multiply, Divide, Power,
-      Modulo, and more — and every element in the array is transformed in a single pass. The result
-      feeds directly into any downstream vArray node.
+      Each element of Input A is read as X, Y and Z (a single number is used for all three) and the
+      operation runs on each axis against B. B is the Number control (default 1) in Use Number mode,
+      or the matching element of Input B in Use Array mode, with 0 for missing entries.
     - >-
-      The Which parameter targets a specific element index (1–64) when you only want to modify part
-      of the array rather than applying the operation globally. Toggle Show Input to expose Array B
-      for per-element operations between two arrays, or leave it off to use the static Number value
-      as the operand.
+      Operation offers 31 choices: arithmetic, min, max, modulo, power, trigonometry, logs,
+      rounding, reciprocal and random values. Divide, Modulo, Log, Square Root and Reciprocal return
+      0 where they are undefined. Matrix Multiply multiplies a translation made from each element by
+      a matrix from Input B and outputs the resulting position.
     - >-
-      Use vArrayMath to normalise ranges after vArrayMapRange, to scale displacement magnitudes
-      before vArrayDisplaceValues, or to combine two numeric datasets from separate vArrayCreate
-      nodes. Its minimal interface keeps the node graph clean while handling the arithmetic layer
-      that almost every intermediate workflow requires.
+      Some labels differ from the formula. Arc Sine, Arc Cosine and Arc Tangent compute sinh, cosh
+      and tanh. Negate computes 1 - A.
   features:
-    - title: Full Arithmetic Set
+    - title: 31 operations
       desc: >-
-        Add, Subtract, Multiply, Divide, Power, and Modulo operations cover every scalar transform
-        needed in data-driven pipelines.
-    - title: Dual-Array Mode
-      desc: >-
-        Enable Array B input for per-element operations between two arrays — blend two datasets,
-        compute differences, or multiply component-wise.
-    - title: Element Targeting
-      desc: >-
-        Which parameter (1–64) lets you apply the operation to a single index within the array
-        without affecting the rest of the data.
-    - title: Pipeline Utility
-      desc: >-
-        Sits cleanly between any generator and modifier node — normalise, scale, or offset data in
-        one step before it reaches the renderer.
+        Arithmetic, comparison, trigonometry, logarithms, rounding, random values and Matrix
+        Multiply.
+    - title: Number or array operand
+      desc: Input Number selects a fixed number or a second array.
+    - title: Axis by axis
+      desc: Each of X, Y and Z is calculated on its own.
+    - title: Status label
+      desc: A label at the top shows whether Input B is connected and in use.
   connections:
-    - label: Scale displacement magnitude
+    - label: Scale displacement amounts
       lines:
-        - vArrayCreateMinMax.Output -> vArrayMath.ArrayA
+        - vArrayRandom.Output -> vArrayMath.ArrayA
         - vArrayMath.Output -> vArrayDisplaceValues.ArrayA
         - vArrayDisplaceValues.Output -> vArrayCameraProjection.ArrayA
-    - label: Combine two data sources
+    - label: Add two arrays
       lines:
-        - vArrayCreate.Output -> vArrayMath.ArrayA
-        - vArrayCreateRandom.Output -> vArrayMath.ArrayB
-        - vArrayMath.Output -> vArrayShapeRender.ArrayPoint
-  difficulty: Beginner
+        - vArrayPointsOnGrid.Output -> vArrayMath.ArrayA
+        - vArrayRandom.Output -> vArrayMath.ArrayB
+        - vArrayMath.Output -> vArrayTranslate.Input
+  difficulty: Intermediate
   related:
     - name: vArrayMapRange
-      desc: Remap array values between input and output ranges before or after arithmetic operations.
-    - name: vArrayDisplaceValues
-      desc: Apply noise-based displacement — use vArrayMath to scale the displacement magnitude first.
-    - name: vArrayCreate
-      desc: Generate the numeric arrays that vArrayMath operates on.
+      desc: Applies range mapping operations to an Array.
+    - name: vArraySin
+      desc: Applies sine and cosine operations to an Array.
+    - name: vArrayClamp
+      desc: Clamps numeric values in nested arrays and tables.
   params:
-    Which: >-
-      Selects which element index (1–64) the operation targets. Useful when modifying a single value
-      within the array rather than every element.
-    Operation: 'Selects the arithmetic operation to apply: Add, Subtract, Multiply, Divide, Power, or Modulo.'
-    InputNumber: >-
-      Toggles the secondary Array B input port. Set to 1 to expose Array B for per-element
-      operations between two arrays.
-    opNumber: >-
-      The scalar operand used when Array B is not connected. For Multiply, 1 = no change; for Add, 0
-      = no change.
-    ConnectInputCallback: >-
-      Internal state flag indicating whether Array B is currently connected. Read-only in normal
-      use.
-    ArrayA: Primary vArray input. All elements in this array are processed by the selected operation.
-    ArrayB: >-
-      Optional secondary vArray input for per-element operations. Must be the same length as Array
-      A.
+    Which: Hidden control. Range 1 to 64. Not read by the code.
+    Operation: >-
+      One of 31 operations, default Add: Add, Subtract A-B, Multiply, Divide A/B, Min, Max, Average,
+      Difference, Modulo A/B, Power A^B, Arc Tangent A/B, Pi, Sine, Cosine, Tangent, Arc Sine, Arc
+      Cosine, Arc Tangent, Log, Log 10, Exponential, Degrees to Radians, Radians to Degrees,
+      Absolute Value, Ceiling, Floor, Square Root, Reciprocal, Negate, Random, Randomseed and Matrix
+      Multiply.
+    InputNumber: Use Number (default) uses the Number control as B. Use Array uses Input B and shows its port.
+    opNumber: The B value in Use Number mode, used on all three axes. Slider -1 to 1, default 1.
+    ConnectInputCallback: Set to 1 automatically when Input B is connected, otherwise 0. Not meant to be edited.
+    ArrayA: Values to process.
+    ArrayB: Second operand in Use Array mode, matched by index. For Matrix Multiply, the matrix text.
+    Matrix: ScriptVal family. Matrix input used by Matrix Multiply.
 status:
-  source: rich-json
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
+  note: >-
+    Several Operation labels do not match the formula. Arc Sine, Arc Cosine and Arc Tangent compute
+    sinh, cosh and tanh. Negate computes 1 - A. Randomseed does not seed anything: it returns a
+    random value between A and B. Random returns A times a random value from 0 to 1. The old text
+    lists only six operations. The old text says Which selects an element; the control is hidden and
+    Process() never reads it. Array B does not have to match the length of Array A; missing entries
+    count as 0. The output always has three values per element. In the ScriptVal fuse the matrix for
+    Matrix Multiply comes from a separate Matrix input and not from Input B.
 legacy_text: >-
   Math Operations on an Array Tip: If you want to apply math operations to arrays of XY or XYZ value
   pairs, the vArrayUnPacker node will extract all the values into a single linear sequence of

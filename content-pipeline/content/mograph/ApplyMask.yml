@@ -5,19 +5,66 @@ tools:
   JSON: vJSONApplyMask
 legacy_names: []
 curated:
-  tagline: Blend two point arrays with a mask.
-  overview: Blends Base and Modified points per point. A mask value of 0 keeps Base and 1 uses Modified.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: Blends Base and Modified points per point, using a mask value from 0 to 1.
+  overview: >-
+    vArrayApplyMask takes Base, Modified and Mask arrays and outputs points between Base and
+    Modified. A mask value of 0 keeps Base and 1 uses Modified, and Amount scales the whole effect.
+  description:
+    - >-
+      Output = Base + (Modified - Base) * m for each index, where m is the mask value after the
+      steps below. The mask value is clamped to 0 to 1, inverted if Invert Mask is on, reshaped by
+      Blend Tightness and multiplied by Amount. A mask element that is a list contributes its first
+      value.
+    - >-
+      Blend Tightness 1 leaves the mask unchanged. Larger values pull values below 0.5 toward 0 and
+      above 0.5 toward 1 with a power curve. The node runs for as many indices as the longest of the
+      three arrays. A missing mask entry counts as 1 and a missing point as 0, 0, 0.
+    - Trim Zeros removes every output point whose X, Y and Z are all 0.
+  features:
+    - title: Per-point blend
+      desc: Each index blends Base toward Modified by its own mask value.
+    - title: Adjustable edge
+      desc: Blend Tightness sharpens values around 0.5 with a power curve.
+    - title: Invert and Amount
+      desc: Invert Mask swaps the areas and Amount scales the mask from 0 to 1.
+    - title: Missing data defaults
+      desc: Missing mask entries count as 1 and missing points as 0, 0, 0.
+  connections:
+    - label: Blend a grid with a jittered copy
+      lines:
+        - vArrayPointsOnGrid.Output -> vArrayApplyMask.Base
+        - vArrayPointsOnGrid.Output -> vArrayPointsJitter.Input
+        - vArrayPointsJitter.Output -> vArrayApplyMask.Modified
+        - vArrayApplyMask.Output -> vArrayCameraProjection.ArrayA
+    - label: Draw the blended points
+      lines:
+        - vArrayApplyMask.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+  difficulty: Intermediate
+  related:
+    - name: vArrayBooleanMaskOps
+      desc: Combines two masks with boolean operations to make a mask.
+    - name: vArrayWeightMap
+      desc: Generates normalized per-point weight arrays.
+    - name: vArrayPointsJitter
+      desc: Adds jitter to the points of an Array, and can produce a Modified array.
   params:
-    Amount: Overall strength of the mask effect.
-    Tightness: Sharpens the transition between Base and Modified.
-    Invert: Swaps masked and unmasked areas.
-    TrimZeros: Removes trailing zero values.
+    Amount: Overall strength of the mask, clamped to 0 to 1. Default 1.
+    Tightness: >-
+      Reshapes the mask with a power curve. 1 (default) leaves it unchanged, larger values push
+      values below 0.5 toward 0 and above 0.5 toward 1. Slider 1 to 10.
+    Invert: Uses 1 minus the mask value. Default off.
+    TrimZeros: Removes output points whose X, Y and Z are all 0. Default off.
+    Base: Points that are kept where the mask is 0.
+    Modified: Points that are used where the mask is 1.
+    Mask: One number per index. A list contributes its first value. Missing entries count as 1.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
+  note: >-
+    Trim Zeros removes every output point whose X, Y and Z are all 0, anywhere in the array, not
+    only trailing zeros as the old text said. A missing mask entry counts as 1, so with no Mask
+    connected the output is the Modified points scaled by Amount.

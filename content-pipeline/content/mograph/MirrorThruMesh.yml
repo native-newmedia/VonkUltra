@@ -5,22 +5,68 @@ tools:
   JSON: vJSONMirrorThruMesh
 legacy_names: []
 curated:
-  tagline: Reflect points through the mesh surface.
-  overview: Reflects every point through the nearest point on the mesh surface.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: Reflects each point through the closest point of a mesh, by a Blend amount.
+  overview: >-
+    vArrayMirrorThruMesh takes an array of XYZ points and a mesh, finds the reference point on the
+    mesh for each point, and puts the point on the opposite side of it. Blend sets how far the point
+    moves toward the reflected position.
+  description:
+    - >-
+      For each input point the node finds a reference point R on the mesh: the closest point on the
+      triangles (Surface), the closest Mesh Points vertex (Vertex) or the closest sample point from
+      vmeshutils (Face Centroid). The reflected position is 2 * R - P, and the output is P plus the
+      difference to that position times Blend.
+    - >-
+      Blend runs from 0 to 1 and defaults to 1, which gives the full reflection. Affect X, Y and Z
+      are checked by default, and an unchecked axis keeps the input value. If Vertex or Face
+      Centroid has no data, the surface is used instead.
+    - With no mesh data, no points are written and the output is empty.
+  features:
+    - title: Three reflection targets
+      desc: Surface, Vertex and Face Centroid choose the point that the position is reflected through.
+    - title: Blend amount
+      desc: Blend moves the points part of the way to the reflected position.
+    - title: Per-axis switches
+      desc: Affect X, Y and Z restrict the result to the checked axes.
+    - title: Surface fallback
+      desc: Vertex and Face Centroid fall back to the surface when they have no data.
+  connections:
+    - label: Reflect a grid through a loaded mesh and draw
+      lines:
+        - vArrayPointsOnGrid.Output -> vArrayMirrorThruMesh.ArrayPoints
+        - vArrayFromOBJ.Points -> vArrayMirrorThruMesh.MeshPoints
+        - vArrayMirrorThruMesh.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Reflect scattered points
+      lines:
+        - vArrayRandom.Output -> vArrayMirrorThruMesh.ArrayPoints
+        - vArrayFromOBJ.Points -> vArrayMirrorThruMesh.MeshPoints
+        - vArrayMirrorThruMesh.Output -> vArrayTranslate.Input
+  difficulty: Advanced
+  related:
+    - name: vArrayMirror
+      desc: Mirrors point arrays across an X, Y or Z axis with optional combine.
+    - name: vArrayAttractToMesh
+      desc: Lerps input points toward the nearest mesh surface point.
+    - name: vArraySnapMeshVertex
+      desc: Snaps each input point to the nearest mesh vertex.
   params:
     mirrortarget: >-
-      Reflect through the surface, the nearest vertex or the nearest face centroid. Options:
-      Surface, Vertex, Face Centroid.
-    blend: Mix between the original points (0) and the result (1).
-    inaffectx: Applies the effect to X.
-    inaffecty: Applies the effect to Y.
-    inaffectz: Applies the effect to Z.
+      Surface (default), Vertex or Face Centroid. The reference that the points are reflected
+      through.
+    blend: Mix between the original (0) and the reflected position (1). Range 0 to 1, default 1.
+    inaffectx: X is reflected when checked (default), otherwise it keeps the input value.
+    inaffecty: Y is reflected when checked (default), otherwise it keeps the input value.
+    inaffectz: Z is reflected when checked (default), otherwise it keeps the input value.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
+  note: >-
+    If the chosen reference (Vertex or Face Centroid) has no data, the code falls back to the
+    surface triangles. If there is no mesh data at all, the points are not passed through: they are
+    left out and the output is empty. Face Centroid uses the points returned by
+    buildSurfaceSamples(meshPts, true) from the vmeshutils module, which is not in the fuse
+    repository, so what those samples are was not checked. Vertex uses the Mesh Points array itself.

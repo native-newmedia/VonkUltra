@@ -5,25 +5,77 @@ tools:
   JSON: vJSONClassifyByMesh
 legacy_names: []
 curated:
-  tagline: Classify points as inside or outside a mesh.
-  overview: Uses the local surface plane of the mesh to output 1 for inside points and 0 for outside points.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: Splits points into inside, outside and on-surface-band outputs relative to a mesh.
+  overview: >-
+    vArrayClassifyByMesh takes an array of XYZ points and a mesh, and writes each point to one of
+    three outputs. The inside test checks which side of the nearest surface plane the point is on.
+  description:
+    - >-
+      For each point the node finds the nearest surface and checks whether the point is behind its
+      normal. Points that are behind it go to Inside, others to Outside. With no mesh, every point
+      goes to Outside. The output points are the input points, with their first three values only.
+    - >-
+      The test position can be shifted first. Normal offset space moves it along the surface normal
+      by Surface Offset Distance, reversed by Flip Normal. World space adds World Offset X, Y and Z.
+      Affect X, Y and Z limit the shift to the checked axes.
+    - >-
+      Surface Band Thickness (default 0) sends points whose test position is within that distance of
+      the surface to On Surface Band instead of Inside or Outside.
+  features:
+    - title: Three outputs
+      desc: Inside, Outside and On Surface Band each carry a point array.
+    - title: Offset test plane
+      desc: The test position can be shifted along the normal or by a world offset.
+    - title: Surface band
+      desc: Points close to the surface are separated from the other two groups.
+    - title: Per-axis switches
+      desc: Affect X, Y and Z restrict the shift of the test position.
+  connections:
+    - label: Draw only the points inside a mesh
+      lines:
+        - vArrayPointsOnGrid.Output -> vArrayClassifyByMesh.ArrayPoints
+        - vArrayFromOBJ.Points -> vArrayClassifyByMesh.MeshPoints
+        - vArrayClassifyByMesh.Inside -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Use the outside points
+      lines:
+        - vArrayRandom.Output -> vArrayClassifyByMesh.ArrayPoints
+        - vArrayFromOBJ.Points -> vArrayClassifyByMesh.MeshPoints
+        - vArrayClassifyByMesh.Outside -> vArrayTranslate.Input
+  difficulty: Advanced
+  related:
+    - name: vArrayMaskByMesh
+      desc: Makes a mask from points and a mesh.
+    - name: vArrayTrimByMeshBounds
+      desc: Removes points using mesh bounds.
+    - name: vArrayClampToMeshProx
+      desc: Keeps points at a set distance from a mesh.
   params:
-    inoffsetspace: 'Surface offset is applied along the normal or in world space. Options: Normal, World.'
-    insurfaceoffsetdistance: Moves the classification plane along the normal.
-    inflipnormal: Reverses the mesh normal direction.
-    inworldoffsetx: World space offset X. Shown when the related option is enabled.
-    inworldoffsety: World space offset Y. Shown when the related option is enabled.
-    inworldoffsetz: World space offset Z. Shown when the related option is enabled.
-    inaffectx: Applies the effect to X.
-    inaffecty: Applies the effect to Y.
-    inaffectz: Applies the effect to Z.
-    insurfacebandthickness: Points within this distance of the surface are treated as inside.
+    inoffsetspace: >-
+      Normal (default) shifts the test position along the surface normal. World shifts it by the
+      World Offset values.
+    insurfaceoffsetdistance: Shift along the normal in Normal space. Slider -1 to 1, default 0. Hidden in World space.
+    inflipnormal: Reverses the normal used for the shift. Default off. Hidden in World space.
+    inworldoffsetx: X shift of the test position in World space. Default 0. Hidden in Normal space.
+    inworldoffsety: Y shift of the test position in World space. Default 0. Hidden in Normal space.
+    inworldoffsetz: Z shift of the test position in World space. Default 0. Hidden in Normal space.
+    inaffectx: The shift applies to X when checked (default).
+    inaffecty: The shift applies to Y when checked (default).
+    inaffectz: The shift applies to Z when checked (default).
+    insurfacebandthickness: >-
+      Points whose test position is within this distance of the surface go to the On Surface Band
+      output. Minimum 0, slider 0 to 1, default 0 (no band).
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
+  note: >-
+    The old overview says the node outputs 1 for inside points and 0 for outside points, and the old
+    Surface Band Thickness text says band points count as inside. The code writes three point arrays
+    to three outputs (Inside, Outside, On Surface Band) and band points go only to the third. Affect
+    X, Y and Z change only the offset test position, not the output points. The inside test uses the
+    samples from buildSurfaceSamples(meshPts, true), while the offset and the band use the triangles
+    from buildSurfaceSamples(meshPts); the vmeshutils module is not in the fuse repository, so the
+    difference between them was not checked. Offset Space visibility is updated inside Process().

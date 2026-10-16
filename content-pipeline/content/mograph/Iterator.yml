@@ -5,22 +5,60 @@ tools:
   JSON: vJSONIterator
 legacy_names: []
 curated:
-  tagline: Loop an array.
-  overview: Repeats an array in a loop.
-  description: []
-  features: []
+  tagline: Keeps every Nth point of an array and skips the points in between.
+  overview: >-
+    vArrayIterator takes an array of XYZ points and outputs points 1, 1 + Step, 1 + 2 * Step and so
+    on. Step is the only control, and 1 keeps every point.
+  description:
+    - >-
+      The node walks the input from the first element in steps of Step and copies the first three
+      values of each element it lands on. With Step 2 on ten points it keeps points 1, 3, 5, 7 and
+      9. With Step 3 it keeps points 1, 4, 7 and 10.
+    - >-
+      Step is an integer from 1, slider 1 to 10, default 1. At 1 every point is copied. Elements
+      that are not lists with at least three values are dropped, so an array of plain numbers gives
+      an empty output.
+    - Despite the name and the registered description, nothing is repeated or looped.
+  features:
+    - title: Every Nth point
+      desc: Step 1 keeps all points, Step 2 every second one, and so on.
+    - title: One control
+      desc: Step is the only setting.
+    - title: Keeps the first point
+      desc: Counting starts at the first element, which is always kept.
+    - title: Points only
+      desc: Elements without at least three values are dropped.
   connections:
-    - label: Example 1
+    - label: Thin out a grid and draw it
+      lines:
+        - vArrayPointsOnGrid.Output -> vArrayIterator.ArrayA
+        - vArrayIterator.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Unpack, thin and pack again
       lines:
         - vArrayUnPacker.OutputArray -> vArrayIterator.ArrayA
         - vArrayIterator.Output -> vArrayPacker.ArrayA
-        - vArrayPacker.Output -> vArrayViewer.Text
-  difficulty: null
-  related: []
-  params: {}
+  difficulty: Beginner
+  related:
+    - name: vArrayReducePoints
+      desc: Reduces the number of points in an Array.
+    - name: vArraySlicer
+      desc: Trims the start and end of single or multi-dimensional arrays.
+    - name: vArrayAppend
+      desc: Repeats an Array a given number of times.
+  params:
+    _Step: >-
+      Take every Nth point, so Step - 1 points are skipped between kept ones. Minimum 1, slider 1 to
+      10, default 1.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
   connections_source: docsify
+  prompt_version: '1'
+  note: >-
+    The registered description and the old text say the node loops or repeats an array. The code
+    keeps every Nth element of the input (Step = N) and does not repeat anything. Only elements that
+    are lists with at least 3 values are kept, and each is cut to its first 3 values.
 legacy_text: Loop an array

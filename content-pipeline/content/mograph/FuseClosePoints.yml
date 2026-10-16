@@ -5,20 +5,65 @@ tools:
   JSON: vJSONFuseClosePoints
 legacy_names: []
 curated:
-  tagline: Weld points that are close together.
-  overview: Merges points that lie within a distance threshold and reports statistics.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: Merges points that lie within a distance of each other into one point.
+  overview: >-
+    vArrayFuseClosePoints takes an array of points and welds those within Distance Threshold of each
+    other. Fuse Mode keeps the first point of each group or the average, and Axis Mode picks the
+    axes used for the distance.
+  description:
+    - >-
+      The node builds clusters. A point joins a cluster if it is within Distance Threshold of any
+      point already in it, so a chain of close points becomes one cluster. Each cluster becomes one
+      point: the first point of the cluster (Keep First) or the average of its X, Y and Z (Average,
+      the default).
+    - >-
+      Axis Mode measures the distance over XYZ, XY, XZ, YZ or a single axis. Clusters with fewer
+      points than Minimum Cluster Size are removed from the output. Delete Singles removes clusters
+      of one point. The order of the output follows the first point of each cluster.
+    - A label under the controls shows the counts of input points, output points and clusters.
+  features:
+    - title: Chained clusters
+      desc: A point joins a cluster when it is close to any member of it.
+    - title: Two fuse modes
+      desc: Keep First uses the first point, Average uses the mean position.
+    - title: Axis selection
+      desc: The distance can use XYZ, any two axes, or one axis.
+    - title: Cluster filters
+      desc: Minimum Cluster Size and Delete Singles remove small clusters.
+  connections:
+    - label: Weld scattered points and draw
+      lines:
+        - vArrayRandom.Output -> vArrayFuseClosePoints.Input
+        - vArrayFuseClosePoints.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Weld a jittered grid
+      lines:
+        - vArrayPointsOnGrid.Output -> vArrayPointsJitter.Input
+        - vArrayPointsJitter.Output -> vArrayFuseClosePoints.Input
+        - vArrayFuseClosePoints.Output -> vArrayTranslate.Input
+  difficulty: Intermediate
+  related:
+    - name: vArrayReducePoints
+      desc: Reduces the number of points in an Array.
+    - name: vArrayPointsJitter
+      desc: Adds jitter to the points of an Array.
+    - name: vArraySortByDistance
+      desc: Sorts an array by point distance.
   params:
-    DistanceThreshold: Points closer than this are merged.
-    FuseMode: Keep First or Average of the merged points.
-    AxisMode: 'Axes used for the distance. Options: XYZ, XY, XZ, YZ, X Only, Y Only, Z Only.'
-    MinimumClusterSize: Smallest number of points that forms a cluster.
-    DeleteSingles: Removes points that have no neighbour.
+    DistanceThreshold: Points within this distance (or exactly at it) are joined. Minimum 0, default 0.02.
+    FuseMode: Keep First or Average (default).
+    AxisMode: XYZ (default), XY, XZ, YZ, X Only, Y Only or Z Only. The axes used for the distance.
+    MinimumClusterSize: Clusters with fewer points are removed from the output. Minimum 1, default 1.
+    DeleteSingles: Removes points that have no neighbour within the threshold when on. Default off.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
+  note: >-
+    A cluster smaller than Minimum Cluster Size is removed from the output, so points are lost when
+    it is above 1, not just "formed" differently as the old text said. The clustering is chained: a
+    point joins a cluster if it is within the threshold of any member, so a long row of close points
+    becomes one cluster. Average mode keeps extra values of the first point. A label under the
+    controls shows counts and is updated in Process().

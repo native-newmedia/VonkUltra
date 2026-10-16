@@ -5,26 +5,70 @@ tools:
   JSON: vJSONAttrTransfer
 legacy_names: []
 curated:
-  tagline: Transfer scalar values from a source to a target.
+  tagline: Copies scalar values from Source points to Target points and stores or applies them.
   overview: >-
-    Copies scalar values from source points to target points by nearest point or by radius
-    weighting, and can bake them into the output positions.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+    vArrayAttrTransfer takes Source points that carry a value and Target points, and finds a value
+    for every Target point. Transfer Mode chooses the nearest source point or a weighted average,
+    and Output Mode chooses how the value is stored.
+  description:
+    - >-
+      For each Target point the node looks up a number in Source. A source point's number is its
+      fourth value, else its value field, else its X. Nearest takes the number of the closest source
+      point. Radius Weighted averages the numbers of all source points within Radius, each weighted
+      by 1 / (distance + 0.000001) ^ Falloff Power.
+    - >-
+      If no source point is in range, or Source is empty, Default Value is used. If Target is empty
+      or not connected, the Source points act as targets.
+    - >-
+      Output Mode stores the number as a fourth value, or multiplies it by Apply Amount and offsets
+      or replaces X, Y, Z or all three axes with that one number.
+  features:
+    - title: Two lookup modes
+      desc: Nearest copies one value. Radius Weighted averages the values within Radius.
+    - title: Nine output modes
+      desc: Store the value as a fourth value, or offset or replace X, Y, Z or all axes.
+    - title: Fallback value
+      desc: Default Value is used when no source point is found.
+    - title: Source as target
+      desc: With no Target, the Source points receive their own values.
+  connections:
+    - label: Transfer values between two arrays
+      lines:
+        - vArrayPointsOnGrid.Output -> vArrayAttrTransfer.Source
+        - vArrayPointsOnCircle.Output -> vArrayAttrTransfer.Target
+        - vArrayAttrTransfer.Output -> vArrayCameraProjection.ArrayA
+    - label: Store values on the target points and draw
+      lines:
+        - vArrayAttrTransfer.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+  difficulty: Advanced
+  related:
+    - name: vArrayAttrRandomize
+      desc: Adds random offsets to coordinates or scalar values.
+    - name: vArrayWeightMap
+      desc: Generates normalized per-point weight arrays.
+    - name: vArrayMapRange
+      desc: Applies range mapping operations to an Array.
   params:
-    TransferMode: 'Nearest source point or radius weighted average. Options: Nearest, Radius Weighted.'
-    Radius: Search radius for Radius Weighted.
-    FalloffPower: Exponent of the falloff curve.
-    DefaultValue: Value used when no source point is found.
+    TransferMode: Nearest (default) or Radius Weighted.
+    Radius: Search radius for Radius Weighted. Minimum 0, default 0.25.
+    FalloffPower: Exponent of the distance weight in Radius Weighted. Range 0.01 to 64, default 2.
+    DefaultValue: Value used when no source point is found. Default 0.
     OutputMode: >-
-      How the transferred value is stored or applied. Options: Store Attribute in 4th Value, Offset
-      X, Offset Y, Offset Z, Offset XYZ, Replace XYZ, Replace X Only, Replace Y Only, Replace Z
-      Only.
-    ApplyAmount: Amount of the result applied to the points.
+      Store Attribute in 4th Value (default), Offset X, Offset Y, Offset Z, Offset XYZ, Replace XYZ,
+      Replace X Only, Replace Y Only or Replace Z Only.
+    ApplyAmount: Multiplies the value in every output mode except the fourth-value store. Default 1.
+    Source: >-
+      Points that supply the values. A point's value is its fourth value, else its value field, else
+      its X.
+    Target: Points that receive the values. If it is empty or not connected, the Source points are used.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
+  note: >-
+    Offset XYZ and Replace XYZ use one number for all three axes, so they do not move or place a
+    point along a direction. Apply Amount is ignored by Store Attribute in 4th Value. The fourth
+    value of a Target point is removed in every mode except that one.

@@ -5,36 +5,92 @@ tools:
   JSON: vJSONForEachIndexed
 legacy_names: []
 curated:
-  tagline: Apply a transform per index in one pass.
-  overview: Applies an indexed or grouped transform to every point, with easing and animation.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: Offsets, scales, rotates or randomizes points by their index or group, with optional animation.
+  overview: >-
+    vArrayForEachIndexed takes an array of XYZ points and applies one of 16 changes that depend on
+    each point's index or group. Group Size cuts the array into groups, and Auto Animate scales the
+    amounts over time.
+  description:
+    - >-
+      Mode selects one change. The Offset modes add the number of the point inside its group times
+      Index Amount (by Index), or the group number times Group Amount (by Group), to X, Y or Z.
+      Scale by Index multiplies the point by 1 + that number times Index Amount. The Rotate modes
+      turn the point around X, Y or Z by the group number times Group Amount degrees.
+    - >-
+      The Random Offset modes add a value between Random Min and Random Max, taken from a fixed hash
+      of the group or point number, so the result repeats. A Mask value above 0 applies the change
+      to that point, and Invert Mask swaps the cases.
+    - >-
+      Auto Animate multiplies the amounts by a factor from the render time, Speed and Duration,
+      using the Loop Mode and Easing curve.
+  features:
+    - title: 16 modes
+      desc: Offsets, scale, rotation and random offsets, by index or by group.
+    - title: Groups
+      desc: Group Size cuts the array into groups of equal size.
+    - title: Mask
+      desc: A second array decides which points change, and Invert Mask swaps them.
+    - title: Auto Animate
+      desc: Seven loop modes and five easing curves drive the amounts over time.
+  connections:
+    - label: Stagger a grid by group and draw
+      lines:
+        - vArrayPointsOnGrid.Output -> vArrayForEachIndexed.Input
+        - vArrayForEachIndexed.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Apply the change to part of the points
+      lines:
+        - vArrayPointsOnCircle.Output -> vArrayForEachIndexed.Input
+        - vArrayLogicThreshold.Output -> vArrayForEachIndexed.Mask
+        - vArrayForEachIndexed.Output -> vArrayTranslate.Input
+  difficulty: Advanced
+  related:
+    - name: vArrayStagger
+      desc: Animates points using staggered offsets.
+    - name: vArrayRepeat
+      desc: Repeats point arrays with per-copy transform offsets.
+    - name: vArrayAttrRandomize
+      desc: Deterministic randomization for scalar arrays or point coordinates.
   params:
     Mode: >-
-      Transform applied per index or per group. Options: Offset X by Index, Offset Y by Index,
-      Offset Z by Index, Offset X by Group, Offset Y by Group, Offset Z by Group, Scale by Index,
-      Rotate X by Group, Rotate Y by Group, Rotate Z by Group, Random Offset X by Group, Random
-      Offset Y by Group, Random Offset Z by Group, Random Offset X by Index, Random Offset Y by
-      Index, Random Offset Z by Index.
-    GroupSize: Number of points per group.
-    IndexAmount: Amount applied per index.
-    GroupAmount: Amount applied per group.
-    RandomMin: Lower end of the random range. Shown when the related option is enabled.
-    RandomMax: Upper end of the random range. Shown when the related option is enabled.
-    AutoAnimate: Animates the effect over time.
-    AnimSpeed: Speed of the animation. Shown when the related option is enabled.
-    AnimDuration: Length of the animation in frames. Shown when the related option is enabled.
+      One of 16 changes, default Offset X by Index. Offset X, Y or Z by Index, Offset X, Y or Z by
+      Group, Scale by Index, Rotate X, Y or Z by Group, Random Offset X, Y or Z by Group, Random
+      Offset X, Y or Z by Index.
+    GroupSize: Points per group. Minimum 1, slider 1 to 128, default 8.
+    IndexAmount: Amount per step inside a group, used by the by-Index offsets and Scale by Index. Default 0.01.
+    GroupAmount: Amount per group, used by the by-Group offsets and the rotations (degrees). Default 0.1.
+    RandomMin: >-
+      Low end of the random range. Slider -10 to 10, default -0.1. Shown for the Random Offset
+      modes.
+    RandomMax: >-
+      High end of the random range. Slider -10 to 10, default 0.1. Shown for the Random Offset
+      modes.
+    AutoAnimate: Multiplies the amounts by an animation factor when on. Default off.
+    AnimSpeed: Multiplies the render time. Slider 0.01 to 10, default 1. Shown when Auto Animate is on.
+    AnimDuration: >-
+      Length of one animation cycle in frames. Minimum 1, slider 1 to 240, default 30. Shown when
+      Auto Animate is on.
     AnimEaseType: >-
-      Easing of the animation. Options: Linear, Ease In, Ease Out, Ease In-Out, Ease Out-Back. Shown
-      when the related option is enabled.
+      Linear (default), Ease In, Ease Out, Ease In-Out or Ease Out-Back. Used by Off, Loop and
+      Ping-Pong only.
     AnimLoopMode: >-
-      Looping or waveform of the animation. Options: Off, Loop, Ping-Pong, Step Mode, Sine Wave,
-      Triangle Wave, Sawtooth Wave. Shown when the related option is enabled.
-    InvertMask: Swaps masked and unmasked areas.
+      Off (default, plays once), Loop, Ping-Pong, Step Mode (8 steps), Sine Wave, Triangle Wave or
+      Sawtooth Wave.
+    InvertMask: Changes the points where the mask is 0 or below instead. Default off.
+    Input: Points to change. Input that does not start with a list is passed through.
+    Mask: >-
+      Optional numbers, one per point. A point is changed where the value is above 0. Missing
+      entries count as 1.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
+  note: >-
+    The modes named "by Index" use the position inside the group (index modulo Group Size), not the
+    position in the whole array, so with the default Group Size of 8 the offsets repeat every 8
+    points. Only the two Random Offset by Index modes use the full index. There is no Seed control:
+    the random values come from a fixed hash of the group or point number. A mask value above 0
+    applies the change, and a missing mask entry counts as 1. Input that does not start with a list
+    is passed through unchanged. Output points keep only X, Y and Z.

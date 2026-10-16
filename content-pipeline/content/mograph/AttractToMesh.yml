@@ -5,19 +5,68 @@ tools:
   JSON: vJSONAttractToMesh
 legacy_names: []
 curated:
-  tagline: Pull points toward the mesh surface.
-  overview: Moves every input point toward the nearest point on the mesh surface by the strength amount.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: Moves each point toward the closest point on a mesh surface by a Blend amount.
+  overview: >-
+    vArrayAttractToMesh takes an array of XYZ points and a mesh, and outputs each point moved toward
+    the closest point on the mesh. Blend sets how far, from 0 (no move) to 1 (on the surface).
+  description:
+    - >-
+      For every input point the node finds the closest point on the triangles built from Mesh
+      Points. The output is the input point plus (surface point - input point) * Blend, so Blend 0
+      keeps the input and Blend 1 puts the point on the surface.
+    - >-
+      Blend is clamped to 0 to 1 even though the control accepts other values, and its default is 1.
+      Affect X, Y and Z are checked by default. An unchecked axis keeps the input value, so the
+      point moves only within the checked axes.
+    - >-
+      The search compares every point with every triangle. If Points or Mesh Points is empty, the
+      output is empty.
+  features:
+    - title: Blend amount
+      desc: Blend moves the point a fraction of the way to the surface, clamped to 0 to 1.
+    - title: Closest point on faces
+      desc: The target is the closest point on a triangle, not only a vertex.
+    - title: Per-axis switches
+      desc: Affect X, Y and Z restrict the move to the checked axes.
+    - title: Two inputs
+      desc: Points are the input array, and Mesh Points define the surface.
+  connections:
+    - label: Pull a grid toward a loaded mesh and draw
+      lines:
+        - vArrayPointsOnGrid.Output -> vArrayAttractToMesh.ArrayPoints
+        - vArrayFromOBJ.Points -> vArrayAttractToMesh.MeshPoints
+        - vArrayAttractToMesh.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Attract scattered points
+      lines:
+        - vArrayRandom.Output -> vArrayAttractToMesh.ArrayPoints
+        - vArrayFromOBJ.Points -> vArrayAttractToMesh.MeshPoints
+        - vArrayAttractToMesh.Output -> vArrayCameraProjection.ArrayA
+  difficulty: Intermediate
+  related:
+    - name: vArrayAlignToMesh
+      desc: Writes the surface normal, the surface point or a blend for each point.
+    - name: vArrayProjectOnMesh
+      desc: Projects input points onto the nearest mesh surface point.
+    - name: vArrayClampToMeshProx
+      desc: Clamps points farther than a maximum distance from the mesh down to that distance.
   params:
-    inblend: Mix between the original points (0) and the result (1).
-    inaffectx: Applies the effect to X.
-    inaffecty: Applies the effect to Y.
-    inaffectz: Applies the effect to Z.
+    inblend: >-
+      Mix between the input point (0) and the closest surface point (1). Clamped to 0 to 1 in the
+      code, default 1.
+    inaffectx: 'Checked (default): X moves toward the surface. Unchecked: X keeps the input value.'
+    inaffecty: 'Checked (default): Y moves toward the surface. Unchecked: Y keeps the input value.'
+    inaffectz: 'Checked (default): Z moves toward the surface. Unchecked: Z keeps the input value.'
+    JSONPoints: JSON family only. The points input that the node reads.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
+  note: >-
+    Blend is clamped to 0 to 1 in the code although the control accepts any value. The Array and
+    ScriptVal fuses call buildSurfaceSamples(meshPts, false, true), the JSON fuse calls it with the
+    mesh points only, and vArrayAlignToMesh also uses one argument. The vmeshutils module is not in
+    the fuse repository, so what the extra arguments change was not checked. The JSON fuse has two
+    inputs with the main link 1, Points and JSON Points; only JSON Points is read.

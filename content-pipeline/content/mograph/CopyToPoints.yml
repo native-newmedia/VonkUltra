@@ -5,25 +5,83 @@ tools:
   JSON: vJSONCopyToPoints
 legacy_names: []
 curated:
-  tagline: Copy a template onto target points.
-  overview: Copies the template point set onto each target point, with scale and seeded rotation variation.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: Copies a template point set onto every target point, with scale and seeded Z rotation.
+  overview: >-
+    vArrayCopyToPoints takes a Template array and a Points array, and outputs one copy of the
+    template at each point. Scale, Base Rotate Z, Random Rotate Z and the random offsets change each
+    copy.
+  description:
+    - >-
+      For each Points entry the template is scaled by Template Scale and Scale X, Y and Z, rotated
+      around Z, and placed at that point. The output has one point for each pair of target point and
+      template point. Without a Template, a single point at 0, 0, 0 is used, so the output has one
+      point per target point.
+    - >-
+      The Z angle in degrees is Base Rotate Z plus a random value between minus and plus Random
+      Rotate Z, chosen per target point. Random Offset X, Y and Z move each copy by a random value
+      between minus and plus the setting. All random values come from Seed and the point index.
+    - >-
+      The scale is applied before the rotation. All template points of one copy share one angle and
+      one offset.
+  features:
+    - title: Template copies
+      desc: Every target point receives a full copy of the template.
+    - title: Seeded variation
+      desc: Rotation and offsets are random per copy and repeat for the same Seed.
+    - title: Per-axis scale
+      desc: Template Scale and Scale X, Y and Z are multiplied.
+    - title: Default template
+      desc: Without a Template input, a single point at the origin is used.
+  connections:
+    - label: Copy a circle template onto a grid and draw
+      lines:
+        - vArrayPointsOnCircle.Output -> vArrayCopyToPoints.Template
+        - vArrayPointsOnGrid.Output -> vArrayCopyToPoints.Points
+        - vArrayCopyToPoints.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Copy onto scattered points
+      lines:
+        - vArrayLine.Output -> vArrayCopyToPoints.Template
+        - vArrayRandom.Output -> vArrayCopyToPoints.Points
+        - vArrayCopyToPoints.Output -> vArrayCameraProjection.ArrayA
+  difficulty: Intermediate
+  related:
+    - name: vArrayRepeat
+      desc: Repeats point arrays with per-copy transform offsets.
+    - name: vArrayRepeatTransform
+      desc: Repeats an Array by transforming it x times.
+    - name: vArrayScatterInstOnMesh
+      desc: Stamps a template point cloud at each mesh vertex or surface point.
   params:
-    TemplateScale: Scale of each copy.
-    ScaleX: Scale along X.
-    ScaleY: Scale along Y.
-    ScaleZ: Scale along Z.
-    BaseRotateZ: Rotation of each copy around Z.
-    RandomRotateZ: Random extra rotation around Z.
-    Seed: Seed of the random generator.
-    RandomOffsetX: Random offset along X.
-    RandomOffsetY: Random offset along Y.
-    RandomOffsetZ: Random offset along Z.
+    TemplateScale: Scale of each copy, multiplied with Scale X, Y and Z. Slider 0 to 4, default 1.
+    ScaleX: Scale of the template on X, applied before the rotation. Slider 0 to 4, default 1.
+    ScaleY: Scale of the template on Y, applied before the rotation. Slider 0 to 4, default 1.
+    ScaleZ: Scale of the template on Z. Slider 0 to 4, default 1.
+    BaseRotateZ: Rotation of each copy around Z in degrees. Slider -360 to 360, default 0.
+    RandomRotateZ: >-
+      Each copy is rotated by a random angle between minus and plus this value, in degrees. Minimum
+      0, default 0.
+    Seed: Integer from 0, slider to 10000, default 0. The same Seed repeats the random values.
+    RandomOffsetX: >-
+      Each copy is moved on X by a random value between minus and plus this value. Minimum 0,
+      default 0.
+    RandomOffsetY: >-
+      Each copy is moved on Y by a random value between minus and plus this value. Minimum 0,
+      default 0.
+    RandomOffsetZ: >-
+      Each copy is moved on Z by a random value between minus and plus this value. Minimum 0,
+      default 0.
+    Template: Points that are copied. If empty, one point at 0, 0, 0 is used.
+    Points: Target points that receive a copy of the template.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
+  note: >-
+    The random values come from math.randomseed followed by math.random for every value, so the node
+    reseeds the global random generator. The random offset is the same for all template points of
+    one copy. Scale is applied before the rotation, so X and Y scale act in the template frame and Z
+    scale is not rotated. Seed and the point index set the rotation (seed + index * 7919) and the
+    offsets (seed + index * 104729, 130363 and 155921 for X, Y and Z).

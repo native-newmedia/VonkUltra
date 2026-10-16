@@ -5,18 +5,64 @@ tools:
   JSON: vJSONParallelOffset
 legacy_names: []
 curated:
-  tagline: Offset a path in parallel.
-  overview: Creates parallel offset curves of a path.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: Builds parallel copies of a path at fixed distances on both sides.
+  overview: >-
+    vArrayParallelOffset takes an array of path points and outputs the path followed by Num Left and
+    Num Right offset copies of it. A second output lists the number of points of each curve.
+  description:
+    - >-
+      Each offset copy moves every path point sideways by a multiple of Offset Distance. The i-th
+      copy on a side is i * Offset Distance away. The sideways direction is perpendicular to the
+      segment that starts at the point and lies in the XY plane, so a path in the XY plane stays in
+      that plane. Num Left curves use one direction and Num Right curves the opposite one.
+    - >-
+      The Output holds the original path first, then the left copies, then the right copies, as one
+      list. The ScriptVal_Groups output holds the point count of each curve in the same order, so
+      the list can be split again. Offset Distance runs from 0.001 to 10 with a default of 0.1, and
+      the counts default to 1.
+  features:
+    - title: Both sides
+      desc: Num Left and Num Right set how many copies are made on each side.
+    - title: Even spacing
+      desc: The i-th copy is i times Offset Distance from the path.
+    - title: Group output
+      desc: A second output lists the point count of the path and of every copy.
+    - title: Path kept
+      desc: The original path is the first curve of the output.
+  connections:
+    - label: Offset an arc and draw the curves
+      lines:
+        - vArrayPointsOnArc.Output -> vArrayParallelOffset.ArrayA
+        - vArrayParallelOffset.Output -> vArrayCameraProjection.ArrayA
+        - vArrayParallelOffset.ScriptVal_Groups -> vArrayCameraProjection.ArrayGroups
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Offset a circle
+      lines:
+        - vArrayPointsOnCircle.Output -> vArrayParallelOffset.ArrayA
+        - vArrayParallelOffset.Output -> vArrayTranslate.Input
+  difficulty: Intermediate
+  related:
+    - name: vArrayPathFrame
+      desc: Builds tangent, normal and binormal frames along a path.
+    - name: vArrayResamplePath
+      desc: Resamples ordered paths to even spacing by count or distance.
+    - name: vArrayRepeat
+      desc: Repeats point arrays with per-copy transform offsets.
   params:
-    offsetDistance: Distance between the offset curves.
-    _numLeft: Number of curves on the left side.
-    _numright: Number of curves on the right side.
+    offsetDistance: Distance between neighboring curves. Range 0.001 to 10, default 0.1.
+    _numLeft: Number of curves on one side. Slider 1 to 10, default 1.
+    _numright: Number of curves on the opposite side. Slider 1 to 10, default 1.
+    ArrayA: Path points, in order.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
+  note: >-
+    Each offset point uses the direction of the segment that starts at that point (the last point
+    uses the last segment), so corners are not mitered and the offset curves can overlap or leave
+    gaps on sharp bends. The perpendicular is the cross product of the segment direction and the Z
+    axis. For a path that runs along +X, the "left" curves lie at negative Y, which is the
+    right-hand side when Y points up. A path with fewer than 2 points gives no offset curves. The
+    JSON fuse reads a bare array and writes nothing for a path with fewer than 2 points.

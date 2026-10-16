@@ -5,18 +5,56 @@ tools:
   JSON: vJSONClamp
 legacy_names: []
 curated:
-  tagline: Clamp numbers to a range.
-  overview: Limits every number in a nested array to the range from Min to Max.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: Limits every number in an array to the range from Min to Max.
+  overview: >-
+    vArrayClamp takes an array of numbers or points, including nested lists, and outputs it with
+    every number held between Min and Max. Values already inside the range are unchanged.
+  description:
+    - >-
+      Every number at any depth of the input is replaced by Min if it is below Min, and by Max if it
+      is above Max. Entries that are not numbers are kept as they are, and the list structure is
+      preserved. The defaults 0 and 1 hold all values in the 0 to 1 range.
+    - >-
+      Min and Max accept -10 to 10. With Auto Swap on, which is the default, the two values are
+      exchanged when Min is larger than Max. With it off and Min larger than Max, values below Min
+      become Min and all other values become Max.
+    - >-
+      The array length and the order of its entries do not change. Only the values are limited, so
+      the node can follow any node that outputs numbers or points.
+  features:
+    - title: Works at any depth
+      desc: Numbers in nested lists and in points are all clamped.
+    - title: Auto Swap
+      desc: Exchanges Min and Max when Min is larger.
+    - title: Structure kept
+      desc: Only numbers change, other entries pass through.
+    - title: Two controls
+      desc: Min and Max are the only values that need setting.
+  connections:
+    - label: Clamp a grid to a range and draw
+      lines:
+        - vArrayPointsOnGrid.Output -> vArrayClamp.Input
+        - vArrayClamp.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Clamp noise before using it as a mask
+      lines:
+        - vArrayPerlin3Noise.Output -> vArrayClamp.Input
+        - vArrayClamp.Output -> vArrayApplyMask.Mask
+  difficulty: Beginner
+  related:
+    - name: vArrayMapRange
+      desc: Applies range mapping operations to an Array.
+    - name: vArrayMap
+      desc: Normalizes Array values using various methods.
+    - name: vArrayMath
+      desc: Applies math operations to an Array.
   params:
-    Min: Lower limit.
-    Max: Upper limit.
-    AutoSwap: Swaps Min and Max when Min is larger.
+    Min: Lower limit. Allowed -10 to 10, default 0.
+    Max: Upper limit. Allowed -10 to 10, default 1.
+    AutoSwap: Exchanges Min and Max when Min is larger. Default on.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'

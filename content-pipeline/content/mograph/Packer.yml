@@ -5,27 +5,63 @@ tools:
   JSON: vJSONPacker
 legacy_names: []
 curated:
-  tagline: Pack values into groups.
-  overview: Packs flat values into groups of a given size.
-  description: []
-  features: []
+  tagline: Cuts a flat array into groups of a chosen size.
+  overview: >-
+    vArrayPacker takes a flat array and outputs a list of groups, each holding Custom Group Size
+    consecutive elements. The Pack To buttons set the group size to 1, 2 or 3.
+  description:
+    - >-
+      The node walks the input in order and fills a group until it holds Custom Group Size elements,
+      then starts a new one. A last group with fewer elements is kept as it is, without padding. So
+      7 numbers with a group size of 3 give groups of 3, 3 and 1 numbers.
+    - >-
+      The Pack To buttons write 0 (--), 1 (X), 2 (X Y) or 3 (X Y Z) into Custom Group Size when
+      pressed. The node uses only Custom Group Size, which defaults to 0 even though Pack To shows
+      X. A size of 0 packs every element into a single group.
+    - Custom Group Size allows 0 to 100, and can be connected to another node.
+  features:
+    - title: Fixed group size
+      desc: Every group holds the same number of elements, except possibly the last one.
+    - title: Preset sizes
+      desc: Pack To sets the size to 1, 2 or 3.
+    - title: Connectable size
+      desc: Custom Group Size can be driven from another node.
+    - title: Partial last group
+      desc: A last group with too few elements is kept, not padded.
   connections:
-    - label: Example 1
+    - label: Unpack, change and pack again
       lines:
-        - vArrayPointsOnCircle.Output -> vArrayUnPacker.ArrayB
+        - vArrayPointsOnCircle.Output -> vArrayUnPacker.ArrayA
         - vArrayUnPacker.OutputArray -> vArraySin.ArrayA
         - vArraySin.Output -> vArrayPacker.ArrayA
         - vArrayPacker.Output -> vArrayCameraProjection.ArrayA
-        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
-        - Background.Output -> vArrayShapeRender.Input
-  difficulty: null
-  related: []
+    - label: Group the values of a list
+      lines:
+        - vArrayRandom.Output -> vArrayPacker.ArrayA
+        - vArrayPacker.Output -> vArrayTranslate.Input
+  difficulty: Beginner
+  related:
+    - name: vArrayUnPacker
+      desc: Unpacks an Array into individual values.
+    - name: vArrayConvert2D_3D
+      desc: Converts a 2D array to a 3D array.
+    - name: vArraySlicer
+      desc: Trims the start and end of single or multi-dimensional arrays.
   params:
-    InputNumber: 'Group size: X, X Y or X Y Z.'
-    GroupSize: Group size used instead of the Pack To value.
+    InputNumber: >-
+      Buttons --, X (default), X Y and X Y Z. Pressing one sets Custom Group Size to 0, 1, 2 or 3.
+      The node does not read the selected button.
+    GroupSize: Number of elements per group. Range 0 to 100, default 0. 0 puts all elements in one group.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
   connections_source: docsify
+  prompt_version: '1'
+  note: >-
+    The Pack To buttons are --, X, X Y and X Y Z. Pressing one writes 0, 1, 2 or 3 into Custom Group
+    Size. Process() reads only Custom Group Size. The control defaults are Pack To = X but Custom
+    Group Size = 0, and a size of 0 puts all elements into one group. The registered description is
+    "Pack an Array into a new array". There is no padding: a last group can be shorter. In the Array
+    fuse the input must be a table with an "array" key. The JSON fuse takes a bare array.
 legacy_text: Pack Operations on an Array

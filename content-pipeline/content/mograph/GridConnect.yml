@@ -5,22 +5,64 @@ tools:
   JSON: vJSONGridConnect
 legacy_names: []
 curated:
-  tagline: Build edges for a grid of points.
-  overview: Builds row, column, diagonal, zigzag and border edges for a grid point array.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: Builds edge lists for a grid of points as rows, columns, zigzags, diagonals or a border.
+  overview: >-
+    vArrayGridConnect has no point input. From Number X and Number Y it outputs edge lists as point
+    numbers, ready for the Edge input of vArrayShapeRender. Direction picks the pattern.
+  description:
+    - >-
+      The node assumes a grid of Number X points per row and Number Y rows, numbered row by row from
+      1, so point (column, row) has the number row * Number X + column + 1. It outputs lists of
+      these numbers.
+    - >-
+      Horizontal gives one line per row, Vertical one per column, and Both gives both. Stride
+      (default 1) skips lines in those three modes. Zigzag (Horizontal) and Zigzag (Vertical) give
+      one line that alternates direction, and Reverse Start flips the first direction. Diagonal
+      gives lines in both diagonal directions. Border Only gives a closed loop around the grid.
+  features:
+    - title: Seven patterns
+      desc: Horizontal, Vertical, Both, two Zigzags, Diagonal and Border Only.
+    - title: No input needed
+      desc: Edges follow from the grid counts alone.
+    - title: Line skipping
+      desc: Stride keeps every Nth row or column in the line modes.
+    - title: Edge Data output
+      desc: The output is meant for the Edge input of vArrayShapeRender.
+  connections:
+    - label: Draw grid lines
+      lines:
+        - vArrayPointsOnGrid.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - vArrayGridConnect.Output -> vArrayShapeRender.ArrayEdge
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Connect a displaced grid
+      lines:
+        - vArrayPointsOnGrid.Output -> vArrayDisplaceValues.ArrayA
+        - vArrayDisplaceValues.Output -> vArrayCameraProjection.ArrayA
+        - vArrayGridConnect.Output -> vArrayShapeRender.ArrayEdge
+  difficulty: Beginner
+  related:
+    - name: vArrayPointsOnGrid
+      desc: Generates points on a grid as an Array.
+    - name: vArrayPointsConnect
+      desc: Connects point arrays into a path.
+    - name: vArrayShapeRender
+      desc: Creates polygon dot shapes from an Array of XY point pairs.
   params:
-    numx: Points per row.
-    numy: Number of rows.
+    numx: Points per row. Range 1 to 10000, slider 1 to 100, default 1.
+    numy: Number of rows. Range 1 to 10000, slider 1 to 100, default 1.
     Direction: >-
-      Direction of the operation. Options: Horizontal, Vertical, Both, Zigzag (Horizontal), Zigzag
-      (Vertical), Diagonal (Both Directions), Border Only.
-    Stride: Skips lines between the connected ones.
-    ReverseStart: Reverses the start direction of the zigzag.
+      Horizontal (default), Vertical, Both, Zigzag (Horizontal), Zigzag (Vertical), Diagonal (Both
+      Directions) or Border Only.
+    Stride: Keeps every Nth row or column in Horizontal, Vertical and Both. Range 1 to 10000, default 1.
+    ReverseStart: Flips the starting direction of the zigzag. Default off.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
+  note: >-
+    The node has no input. It builds edge lists from Number X and Number Y alone, with 1-based point
+    numbers counted row by row (number = row * Number X + column + 1), so the points that it is used
+    with must be in that order and have the same counts. Stride applies only to Horizontal, Vertical
+    and Both. Zigzag: Reverse Start applies only to the two zigzag directions.

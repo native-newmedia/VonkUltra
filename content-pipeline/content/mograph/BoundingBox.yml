@@ -5,24 +5,57 @@ tools:
   JSON: vJSONBoundingBox
 legacy_names: []
 curated:
-  tagline: Calculate the bounding box of a point array.
-  overview: Outputs the corners of the 3D, 2D or 1D bounding box of the input points.
-  description: []
-  features: []
+  tagline: Outputs the corner points and the edges of the bounding box of a point array.
+  overview: >-
+    vArrayBoundingBox takes an array of points and outputs the corners of the smallest box that
+    contains them on the Points output. The Edges output holds the faces or lines that join the
+    corners.
+  description:
+    - >-
+      The node has no controls. It reads the minimum and maximum of X, Y and Z over the input. An
+      element with 3 values updates all three axes, one with 2 values updates X and Y, and one with
+      1 value updates X. Elements of any other length are skipped.
+    - >-
+      With Z limits, the Points output has 8 corners and the Edges output has 6 four-corner faces,
+      given as 1-based corner indices. With only X and Y limits it has 4 corners and 4 two-corner
+      edges. With X only it has 2 values and one edge. An empty input gives empty outputs.
+  features:
+    - title: 3D, 2D or 1D
+      desc: The box has 8, 4 or 2 corners depending on whether the points have 3, 2 or 1 values.
+    - title: Edge output
+      desc: A second output lists faces for a 3D box and edges for a 2D or 1D box.
+    - title: No controls
+      desc: The box follows the input array exactly.
+    - title: 1-based indices
+      desc: Edge entries refer to corners by position in the Points output, starting at 1.
   connections:
-    - label: Example 1
+    - label: Draw the box of a loaded mesh
       lines:
         - vArrayFromOBJ.Points -> vArrayBoundingBox.ArrayA
         - vArrayBoundingBox.Points -> vArrayCameraProjection.ArrayA
         - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
         - vArrayBoundingBox.Edges -> vArrayShapeRender.ArrayEdge
         - Background.Output -> vArrayShapeRender.Input
-  difficulty: null
-  related: []
+    - label: Box of a grid
+      lines:
+        - vArrayPointsOnGrid.Output -> vArrayBoundingBox.ArrayA
+        - vArrayBoundingBox.Points -> vArrayCameraProjection.ArrayA
+  difficulty: Beginner
+  related:
+    - name: vArrayTranslate
+      desc: Translates the positions of an Array.
+    - name: vArrayTrimByMeshBounds
+      desc: Trims or clamps points using the bounding box of a mesh or a second point array.
+    - name: vArrayCameraProjection
+      desc: Transforms an Array using a perspective projection matrix.
   params: {}
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
   connections_source: docsify
+  prompt_version: '1'
+  note: >-
+    Only elements with exactly 1, 2 or 3 values are used. Other lengths are skipped. If any element
+    has 3 values the output is a 3D box and the X and Y limits also include 2 value elements.
 legacy_text: Calculate a 3D, 2D, or 1D bounding box volume from an Array of XYZ/XY/X points

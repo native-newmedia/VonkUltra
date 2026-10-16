@@ -5,19 +5,64 @@ tools:
   JSON: vJSONOffsetByNormal
 legacy_names: []
 curated:
-  tagline: Offset points along the mesh normal.
-  overview: Moves every point along the normal of the nearest mesh surface point.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: Moves each point along the normal of the nearest mesh triangle by Offset Distance.
+  overview: >-
+    vArrayOffsetByNormal takes an array of XYZ points and a mesh, and adds the normal of the nearest
+    mesh triangle times Offset Distance to each point. Offset Distance is the only value that
+    matters, and it defaults to 0.
+  description:
+    - >-
+      For every point the node finds the closest point on the mesh triangles and reads the normal of
+      that triangle. The output point is the input point plus that normal times Offset Distance, so
+      the point moves along the normal from where it is, not from the surface.
+    - >-
+      Offset Distance has a slider from -1 to 1 and defaults to 0, which leaves the points where
+      they are. A negative value moves the points against the normal. Affect X, Y and Z are checked
+      by default, and an unchecked axis keeps its input value.
+    - If the points or the mesh are empty, the output is empty.
+  features:
+    - title: Per-point normals
+      desc: Each point uses the normal of the triangle that is closest to it.
+    - title: Signed distance
+      desc: Negative Offset Distance moves points against the normal.
+    - title: Per-axis switches
+      desc: Affect X, Y and Z restrict the move to the checked axes.
+    - title: One control
+      desc: Offset Distance is the only value to set.
+  connections:
+    - label: Push a grid away from a loaded mesh and draw
+      lines:
+        - vArrayPointsOnGrid.Output -> vArrayOffsetByNormal.ArrayPoints
+        - vArrayFromOBJ.Points -> vArrayOffsetByNormal.MeshPoints
+        - vArrayOffsetByNormal.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Offset scattered points
+      lines:
+        - vArrayScatterOnMesh.Output -> vArrayOffsetByNormal.ArrayPoints
+        - vArrayFromOBJ.Points -> vArrayOffsetByNormal.MeshPoints
+        - vArrayOffsetByNormal.Output -> vArrayTranslate.Input
+  difficulty: Intermediate
+  related:
+    - name: vArrayAlignToMesh
+      desc: Replaces input points with the surface normal of the nearest mesh vertex.
+    - name: vArrayProjectOnMesh
+      desc: Projects input points onto the nearest mesh surface point.
+    - name: vArrayNoiseOnMesh
+      desc: Displaces input points with Perlin or fractal noise along the mesh normal or in 3D.
   params:
-    inoffsetdistance: Distance along the normal.
-    inaffectx: Applies the effect to X.
-    inaffecty: Applies the effect to Y.
-    inaffectz: Applies the effect to Z.
+    inoffsetdistance: Distance along the normal. Slider -1 to 1, default 0.
+    inaffectx: X is offset when checked (default), otherwise it keeps the input value.
+    inaffecty: Y is offset when checked (default), otherwise it keeps the input value.
+    inaffectz: Z is offset when checked (default), otherwise it keeps the input value.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
+  note: >-
+    The offset is applied to the original point, not to the closest surface point: the result is the
+    input point plus the normal of the nearest triangle times Offset Distance. With no mesh or no
+    points the output is empty. Mesh triangles and their normals come from buildSurfaceSamples in
+    the vmeshutils module, which is not in the fuse repository, so how the normals are built was not
+    checked.

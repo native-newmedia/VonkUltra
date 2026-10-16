@@ -5,18 +5,64 @@ tools:
   JSON: vJSONClosePath
 legacy_names: []
 curated:
-  tagline: Open or close a path.
-  overview: Opens, closes or toggles the closure of a path, with options for the seam point.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: Closes or opens a path by adding or removing a repeated end point, with seam options.
+  overview: >-
+    vArrayClosePath takes an array of XYZ points that form a path. Operation closes it, opens it or
+    toggles it, and Seam and Duplicate Endpoint control how the closing point is made.
+  description:
+    - >-
+      A path counts as closed when its first and last points are equal. Open Path removes repeated
+      last points until the path is no longer closed. Close Path removes an existing repeated end
+      first, then applies Seam, then adds a copy of the first point at the end if Duplicate Endpoint
+      is on (default). Toggle opens a closed path and closes an open one.
+    - >-
+      Seam Keep Start leaves the first point as it is. Keep End replaces the first point with a copy
+      of the last. Average replaces it with the average of the first and the last. Seam and
+      Duplicate Endpoint are hidden when Operation is Open Path.
+    - Fewer than 2 points are returned unchanged. Each output point has X, Y and Z only.
+  features:
+    - title: Three operations
+      desc: Close Path, Open Path and Toggle.
+    - title: Seam options
+      desc: Keep Start, Keep End or Average decide the first point when closing.
+    - title: Optional repeated end
+      desc: Duplicate Endpoint adds the first point again at the end.
+    - title: Closed path detection
+      desc: A path is closed when its first and last points are equal.
+  connections:
+    - label: Close a path and draw it
+      lines:
+        - vArrayPointsOnArc.Output -> vArrayClosePath.Points
+        - vArrayClosePath.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Resample a closed path
+      lines:
+        - vArrayPointsOnCircle.Output -> vArrayClosePath.Points
+        - vArrayClosePath.Output -> vArrayResamplePath.Points
+  difficulty: Beginner
+  related:
+    - name: vArrayResamplePath
+      desc: Resamples ordered paths to even spacing by count or distance.
+    - name: vArrayReverse
+      desc: Reverses or reorders an array within an index range.
+    - name: vArrayPathFrame
+      desc: Builds tangent, normal and binormal frames along a path.
   params:
-    Operation: 'Action applied to the path. Options: Close Path, Open Path, Toggle.'
-    Seam: Keep Start, Keep End or Average when closing.
-    DuplicateEndpoint: Adds the first point again at the end of a closed path.
+    Operation: Close Path (default), Open Path or Toggle.
+    Seam: >-
+      Keep Start (default), Keep End or Average. Which first point is used when closing. Hidden for
+      Open Path.
+    DuplicateEndpoint: >-
+      Adds a copy of the first point at the end of a closed path when on (default). Hidden for Open
+      Path.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
+  note: >-
+    Close Path always returns a point list. A path counts as closed when the first and last points
+    are equal (within 0.000000001). With Duplicate Endpoint off, Keep Start returns the points
+    unchanged, and the closure is then only a matter of whether the ends are equal. Points that are
+    not tables are skipped and extra values after the third are dropped.

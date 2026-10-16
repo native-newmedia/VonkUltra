@@ -5,19 +5,66 @@ tools:
   JSON: vJSONMap
 legacy_names: []
 curated:
-  tagline: Normalize array values.
-  overview: Normalizes values with the selected method.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: Rescales the values of an array with min-max, z-score or norm methods.
+  overview: >-
+    vArrayMap takes an array of numbers or points and rescales its values with the chosen
+    normalization method. Per Axis decides whether X, Y and Z are scaled separately or together.
+  description:
+    - >-
+      Normalization Method chooses how the values are rescaled. Min-Max (0 to 1) maps the smallest
+      value to 0 and the largest to 1, and Min-Max (Custom Range) maps them to Custom Min and Max.
+      Z-Score subtracts the mean and divides by the standard deviation. Unit Vector divides by the
+      square root of the sum of squares, L1 Norm by the sum of absolute values, and Max Abs by the
+      largest absolute value.
+    - >-
+      With Per Axis on (the default), each of X, Y and Z is rescaled using its own statistics. With
+      it off, all values of all axes are pooled. A flat list of numbers is rescaled as one set. A
+      zero divisor is replaced by a very small number. A label under the controls shows the
+      statistics.
+    - An empty or invalid input raises an error.
+  features:
+    - title: Six methods
+      desc: Min-Max, Custom Range, Z-Score, L2 norm, L1 norm and Max Abs.
+    - title: Per axis or global
+      desc: Per Axis uses statistics for each axis, or one pool for all values.
+    - title: Custom output range
+      desc: Min-Max (Custom Range) writes values between Custom Min and Custom Max.
+    - title: Statistics label
+      desc: A label under the controls shows the values used.
+  connections:
+    - label: Normalize a point cloud and draw it
+      lines:
+        - vArrayFromOBJ.Points -> vArrayMap.Input
+        - vArrayMap.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Normalize noise values
+      lines:
+        - vArrayNoise.Output -> vArrayMap.Input
+        - vArrayMap.Output -> vArrayClamp.Input
+  difficulty: Intermediate
+  related:
+    - name: vArrayMapRange
+      desc: Applies range mapping operations to an Array.
+    - name: vArrayClamp
+      desc: Clamps numeric values in nested arrays and tables.
+    - name: vArrayMath
+      desc: Applies math operations to an Array.
   params:
     NormMethod: >-
-      Method used to normalize the values. Options: Min-Max (0 to 1), Min-Max (Custom Range),
-      Z-Score (Standardize), Unit Vector (L2 Norm), L1 Norm (Sum to 1), Max Abs (Scale by Max).
-    PerAxis: Normalizes X, Y and Z separately.
+      Min-Max (0 to 1) (default), Min-Max (Custom Range), Z-Score (Standardize), Unit Vector (L2
+      Norm), L1 Norm (Sum to 1) or Max Abs (Scale by Max).
+    PerAxis: Rescales X, Y and Z separately when on (default), or all values together when off.
+    CustomMin: Output minimum for Min-Max (Custom Range). Minimum -1, default 0.
+    CustomMax: Output maximum for Min-Max (Custom Range). Minimum -1, default 1.
+    Array: Numbers or points to rescale.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
+  note: >-
+    With Per Axis on, Unit Vector (L2 Norm), L1 Norm and Max Abs divide each axis column by its own
+    norm or maximum. They do not scale each point by its own length. The Array fuse raises an error
+    for an empty or invalid input. Custom Min and Max are range controls with a minimum allowed
+    value of -1.

@@ -5,25 +5,64 @@ tools:
   JSON: vJSONAttrRandomize
 legacy_names: []
 curated:
-  tagline: Randomize scalar values or point coordinates.
+  tagline: Adds a repeatable random offset to point coordinates or to scalar values.
   overview: >-
-    Adds a deterministic random offset to scalar values or to point coordinates. The seed makes the
-    result repeatable.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+    vArrayAttrRandomize takes an array and adds a random offset between Min Offset and Max Offset to
+    each XYZ point or to each scalar value. The same Seed always gives the same result.
+  description:
+    - >-
+      Each element gets an offset between Min Offset and Max Offset. Apply To XYZ Coordinates gives
+      X, Y and Z their own offsets and writes three values, so a fourth value is dropped. Scalar
+      Values gives a number, or the first value of a list, one offset. Min and Max are swapped if
+      Min is larger.
+    - >-
+      Uniform spreads the offset evenly between the limits. Gaussian centers on their midpoint with
+      a spread of one sixth of their difference and cuts at three spreads, so it stays inside the
+      limits.
+    - >-
+      The value depends only on Seed, the element index and the axis, so the same Seed repeats the
+      result. Randomize X, Y and Z, all on by default, apply to XYZ mode only.
+  features:
+    - title: Repeatable result
+      desc: The offset comes from Seed, index and axis, and does not use math.random.
+    - title: Uniform or Gaussian
+      desc: Distribution chooses an even spread or a bell curve cut at three spreads.
+    - title: Points or scalars
+      desc: Apply To works on XYZ coordinates or on single numbers.
+    - title: Axis switches
+      desc: Randomize X, Y and Z choose which coordinates change in XYZ mode.
+  connections:
+    - label: Randomize a grid and draw
+      lines:
+        - vArrayPointsOnGrid.Output -> vArrayAttrRandomize.Input
+        - vArrayAttrRandomize.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Randomize a circle, then move it
+      lines:
+        - vArrayPointsOnCircle.Output -> vArrayAttrRandomize.Input
+        - vArrayAttrRandomize.Output -> vArrayTranslate.Input
+  difficulty: Beginner
+  related:
+    - name: vArrayPointsJitter
+      desc: Adds seeded offsets plus a time-based wobble to points.
+    - name: vArrayRandom
+      desc: Creates random points instead of offsetting existing ones.
+    - name: vArrayAttrTransfer
+      desc: Transfers scalar values from a source to a target.
   params:
-    Distribution: Uniform or Gaussian random values.
-    ApplyTo: 'Randomizes the XYZ coordinates or the scalar values. Options: XYZ Coordinates, Scalar Values.'
-    MinOffset: Lower end of the random offset.
-    MaxOffset: Upper end of the random offset.
-    Seed: Seed of the random generator.
-    MaskX: Randomizes X.
-    MaskY: Randomizes Y.
-    MaskZ: Randomizes Z.
+    Distribution: Uniform (default) or Gaussian. Gaussian is cut at three spreads and stays inside Min and Max.
+    ApplyTo: >-
+      XYZ Coordinates (default) offsets X, Y and Z of each point. Scalar Values offsets each number,
+      or the first value of a list.
+    MinOffset: Lower limit of the offset. Default -0.1.
+    MaxOffset: Upper limit of the offset. Default 0.1.
+    Seed: Integer from 0, slider to 10000, default 0. The same Seed gives the same offsets.
+    MaskX: Offsets X when checked (default). XYZ mode only.
+    MaskY: Offsets Y when checked (default). XYZ mode only.
+    MaskZ: Offsets Z when checked (default). XYZ mode only.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'

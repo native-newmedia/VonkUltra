@@ -5,23 +5,89 @@ tools:
   JSON: vJSONMaskByMesh
 legacy_names: []
 curated:
-  tagline: Keep points near the mesh.
-  overview: Keeps only the points within a distance of the mesh surface.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: Keeps only the points whose distance to a mesh surface lies between Min and Max Distance.
+  overview: >-
+    vArrayMaskByMesh takes an array of XYZ points and a mesh, and outputs the points whose distance
+    to the mesh is inside a band. Invert Mask keeps the other points instead.
+  description:
+    - >-
+      For each point the node finds the closest point on the mesh triangles and its distance. In
+      Hard mode the point is kept when the distance is from Min Distance (default 0) up to Max
+      Distance (default 0.1). Min Distance is limited to Max Distance. Invert Mask keeps the points
+      that fail the test instead.
+    - >-
+      Output Position keeps the original position (default) or moves the point to the closest
+      surface point. Five hidden controls are also read: Falloff Distance, Weight Power, Min Output
+      Weight, Append Weight As 4th Value and Surface Offset. Soft Falloff fades the weight outside
+      the band over the hidden Falloff Distance, which is 0 by default.
+    - >-
+      If there is no mesh, Keep Input If Mesh Missing (on by default) passes the points through,
+      otherwise the output is empty.
+  features:
+    - title: Distance band
+      desc: Points are kept between Min Distance and Max Distance from the surface.
+    - title: Invertable
+      desc: Invert Mask keeps the points outside the band.
+    - title: Surface snap
+      desc: Closest On Surface moves the kept points onto the mesh.
+    - title: No-mesh fallback
+      desc: Without a mesh the input can pass through unchanged.
+  connections:
+    - label: Keep grid points near a mesh and draw
+      lines:
+        - vArrayPointsOnGrid.Output -> vArrayMaskByMesh.ArrayPoints
+        - vArrayFromOBJ.Points -> vArrayMaskByMesh.MeshPoints
+        - vArrayMaskByMesh.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Filter scattered points
+      lines:
+        - vArrayRandom.Output -> vArrayMaskByMesh.ArrayPoints
+        - vArrayFromOBJ.Points -> vArrayMaskByMesh.MeshPoints
+        - vArrayMaskByMesh.Output -> vArrayTranslate.Input
+  difficulty: Advanced
+  related:
+    - name: vArrayClassifyByMesh
+      desc: Classifies input points as inside or outside the mesh using the local surface plane.
+    - name: vArrayTrimByMeshBounds
+      desc: Trims or clamps input points using the bounding box of a mesh.
+    - name: vArrayWeightByMeshProx
+      desc: Outputs a 1D weight per input point based on distance to the mesh surface.
   params:
-    maxdistance: Distance from the mesh at which the effect ends.
-    mindistance: Distance from the mesh below which points are kept.
-    invertmask: Swaps masked and unmasked areas.
-    maskmode: 'Hard cut or soft falloff. Options: Hard, Soft Falloff.'
-    keepifnomesh: Outputs the input unchanged when no mesh is connected.
+    maxdistance: Largest distance to the mesh that is kept. Minimum 0, slider 0 to 10, default 0.1.
+    mindistance: >-
+      Points closer than this are removed. Minimum 0, slider 0 to 10, default 0. Limited to Max
+      Distance.
+    invertmask: Keeps the points that fail the distance test instead. Default off.
+    maskmode: >-
+      Hard (default) or Soft Falloff. Soft Falloff fades the weight only when the hidden Falloff
+      Distance is above 0.
+    keepifnomesh: >-
+      Passes the input through when there is no mesh data, if on (default). When off, the output is
+      empty.
     outputmode: >-
-      Output the original position or the closest point on the surface. Options: Original, Closest
-      On Surface.
+      Original (default) keeps the position. Closest On Surface moves the point to the closest
+      surface point.
+    falloffdistance: >-
+      Hidden control. In Soft Falloff, the distance over which the weight drops from 1 to 0 outside
+      the band. Default 0.
+    weightpower: Hidden control. Exponent applied to the weight. Range from 0.01, default 1.
+    minoutputweight: >-
+      Hidden control. Points with a weight at or below this value are removed. Range 0 to 1, default
+      0.01.
+    appendweight: Hidden control. Adds the weight as a fourth value in Soft Falloff when on. Default off.
+    surfaceoffset: >-
+      Hidden control. Offset along the surface normal for Closest On Surface. Slider -1 to 1,
+      default 0.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
+  note: >-
+    The old Min Distance text says points below it are kept. The code removes them: points are kept
+    when the distance is between Min Distance and Max Distance. Falloff Distance, Weight Power, Min
+    Output Weight, Append Weight As 4th Value and Surface Offset are hidden and NotifyChanged() is
+    empty, so they stay hidden. Soft Falloff does nothing different from Hard while the hidden
+    Falloff Distance is 0. Mesh triangles come from buildSurfaceSamples in the vmeshutils module,
+    which is not in the fuse repository, so how they are built was not checked.

@@ -5,19 +5,63 @@ tools:
   JSON: vJSONPathTwist
 legacy_names: []
 curated:
-  tagline: Twist a path.
-  overview: Applies roll or twist along the path frames.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: Rotates the normal and binormal of path frames around the tangent by an angle per point.
+  overview: >-
+    vArrayPathTwist takes a path packet with frames, for example from vArrayPathFrame, and rolls the
+    normal and binormal around the tangent at every point. Start Twist and End Twist set the angle
+    in degrees.
+  description:
+    - >-
+      At point i of n, Linear Start-End uses the angle Start Twist + (End Twist - Start Twist) * (i
+      - 1) / (n - 1). Constant uses End Twist for every point. The normal and binormal of that point
+      are rotated by the angle around its tangent.
+    - >-
+      The defaults are 0 and 180 degrees, so the frames make half a turn along the path. The output
+      packet holds the path, the tangent, the twisted normal and binormal, the angle for each point
+      and the closed flag. The path points are not changed.
+    - >-
+      If the input has no frames, they are built from the path with the up vector 0, 1, 0. Closed
+      Path applies then.
+  features:
+    - title: Linear or constant twist
+      desc: The angle grows from Start Twist to End Twist, or stays at End Twist.
+    - title: Roll around the tangent
+      desc: Normal and binormal are rotated around the tangent of each point.
+    - title: Frames built if missing
+      desc: Without frames in the input, they are built from the path.
+    - title: Twist list
+      desc: The output holds the angle of every point.
+  connections:
+    - label: Twist the frames of an arc and sweep a profile
+      lines:
+        - vArrayPointsOnArc.Output -> vArrayPathFrame.PathPacket
+        - vArrayPathFrame.Output -> vArrayPathTwist.PathFramePacket
+        - vArrayPathTwist.Output -> vArrayRenderSweepProfile.PathPacket
+    - label: Twist a path without a frame node
+      lines:
+        - vArrayPointsOnCircle.Output -> vArrayPathTwist.PathFramePacket
+        - vArrayPathTwist.Output -> vArrayRenderSweepProfile.PathPacket
+  difficulty: Advanced
+  related:
+    - name: vArrayPathFrame
+      desc: Builds tangent, normal and binormal frames along a path.
+    - name: vArrayPathWidthMap
+      desc: Generates per-point width or radius maps for a path sweep.
+    - name: vArrayRenderSweepProfile
+      desc: Sweeps a profile along a path and outputs ribbon or tube mesh data.
   params:
-    TwistMode: 'Linear from start to end, or constant. Options: Linear Start-End, Constant.'
-    StartTwist: Twist at the start in degrees.
-    EndTwist: Twist at the end in degrees.
-    ClosedPath: Treats the points as a closed loop.
+    TwistMode: Linear Start-End (default) or Constant. Constant uses End Twist on every point.
+    StartTwist: Angle at the first point in degrees, in Linear Start-End. Default 0.
+    EndTwist: Angle at the last point in degrees, or on every point in Constant. Default 180.
+    ClosedPath: Treats the path as a closed loop when frames have to be built. Default off.
+    PathFramePacket: A packet with a path and frames, for example from vArrayPathFrame.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
+  note: >-
+    Constant mode uses End Twist as the angle on every point, and Start Twist is ignored. If the
+    input packet has no tangent, normal and binormal of the right length, the frames are rebuilt
+    from the path with a fixed up vector of 0, 1, 0. With fewer than 2 points the output is the
+    point list. The width value of the input packet is copied to the output.

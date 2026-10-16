@@ -5,30 +5,80 @@ tools:
   JSON: vJSONNoiseOnMesh
 legacy_names: []
 curated:
-  tagline: Displace points with noise on the mesh.
-  overview: Moves points with Perlin or fractal noise along the surface normal or in 3D.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: Displaces points with Perlin or fractal noise along the mesh normal or in 3D.
+  overview: >-
+    vArrayNoiseOnMesh takes an array of XYZ points and a mesh, and adds a 3D gradient noise to each
+    point. Noise Mode chooses between a move along the surface normal and a 3D move that is
+    projected back onto the mesh.
+  description:
+    - >-
+      The noise is sampled at the point position times Frequency plus Animation Speed times the
+      render time, and scaled by Amplitude. Perlin gives one 3D gradient noise value. Fractal adds
+      Octaves of it, each with its frequency times Lacunarity and its weight times Gain, divided by
+      the total weight. Random Seed changes the noise pattern.
+    - >-
+      Normal Only moves each point to its closest surface point and then along that normal by noise
+      + Surface Offset. 3D Reproject moves the point by three noise values, one for each axis,
+      projects the result onto the mesh and adds Surface Offset along the normal.
+    - >-
+      Affect X, Y and Z keep unchecked axes at their input value. With no input points the output is
+      empty.
+  features:
+    - title: Two noise types
+      desc: Perlin, or Fractal with Octaves, Lacunarity and Gain.
+    - title: Two displacement modes
+      desc: Normal Only works along the surface normal and 3D Reproject moves in 3D first.
+    - title: Animated
+      desc: Animation Speed moves the noise lookup with the render time.
+    - title: Seeded
+      desc: Random Seed picks the noise pattern.
+  connections:
+    - label: Add noise to a grid on a loaded mesh and draw
+      lines:
+        - vArrayPointsOnGrid.Output -> vArrayNoiseOnMesh.ArrayPoints
+        - vArrayFromOBJ.Points -> vArrayNoiseOnMesh.MeshPoints
+        - vArrayNoiseOnMesh.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Add noise to scattered points
+      lines:
+        - vArrayScatterOnMesh.Output -> vArrayNoiseOnMesh.ArrayPoints
+        - vArrayFromOBJ.Points -> vArrayNoiseOnMesh.MeshPoints
+        - vArrayNoiseOnMesh.Output -> vArrayTranslate.Input
+  difficulty: Advanced
+  related:
+    - name: vArrayDisplaceValues
+      desc: Displaces XYZ positions using noise with spherical falloff.
+    - name: vArrayJitterOnMesh
+      desc: Jitters input points in the mesh tangent plane, then reprojects them onto the mesh.
+    - name: vArrayOffsetByNormal
+      desc: Offsets each input point along the nearest mesh surface normal.
   params:
-    noisemode: >-
-      Normal Only displaces along the surface normal. 3D Reproject displaces in 3D and projects
-      back.
-    noisetype: Perlin or Fractal noise.
-    amplitude: Strength of the displacement.
-    frequency: Frequency of the noise or wave.
-    octaves: Number of noise layers added together. Shown when the related option is enabled.
-    lacunarity: Frequency multiplier per octave. Shown when the related option is enabled.
-    gain: Amplitude multiplier per octave. Shown when the related option is enabled.
-    animspeed: Speed of the animation over time. 0 is static.
-    seed: Seed of the random generator.
-    surfaceoffset: Offset of the target from the mesh surface.
-    inaffectx: Applies the effect to X.
-    inaffecty: Applies the effect to Y.
-    inaffectz: Applies the effect to Z.
+    noisemode: Normal Only (default) or 3D Reproject.
+    noisetype: Perlin (default) or Fractal. The fractal controls are shown when Fractal is selected.
+    amplitude: Size of the displacement. Slider 0 to 1, default 0.1.
+    frequency: >-
+      Multiplies the point position before the noise lookup. Minimum 0.0001, slider 0 to 10, default
+      1.
+    octaves: Number of noise layers in Fractal mode. Range 1 to 16, default 4. Hidden for Perlin.
+    lacunarity: Frequency multiplier per layer in Fractal mode. Minimum 1, default 2. Hidden for Perlin.
+    gain: Weight multiplier per layer in Fractal mode. Range 0 to 1, default 0.5. Hidden for Perlin.
+    animspeed: Added to the noise lookup as this value times the render time. Slider 0 to 5, default 0.
+    seed: Integer from 0, slider to 100000, default 0. Changes the noise pattern.
+    surfaceoffset: Distance from the surface along its normal. Slider -1 to 1, default 0.
+    inaffectx: X comes from the result when checked (default), otherwise it keeps the input value.
+    inaffecty: Y comes from the result when checked (default), otherwise it keeps the input value.
+    inaffectz: Z comes from the result when checked (default), otherwise it keeps the input value.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
+  note: >-
+    In Normal Only mode the point is first moved to the closest surface point and then displaced
+    along the normal, so the output lies on the mesh plus the noise. Without a mesh, the reference
+    is the point itself and the normal is Z. The Seed shuffles the noise permutation table with
+    math.randomseed, so the node reseeds the global random generator on every render. The Octaves,
+    Lacunarity and Gain controls are hidden until Noise Type is switched to Fractal. Mesh triangles
+    come from buildSurfaceSamples in the vmeshutils module, which is not in the fuse repository, so
+    how they are built was not checked.

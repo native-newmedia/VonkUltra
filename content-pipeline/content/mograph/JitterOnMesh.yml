@@ -5,23 +5,73 @@ tools:
   JSON: vJSONJitterOnMesh
 legacy_names: []
 curated:
-  tagline: Jitter points along the mesh surface.
-  overview: Moves points randomly in the tangent plane of the mesh and projects them back onto the surface.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: Moves points randomly in the tangent plane of a mesh and puts them back on the surface.
+  overview: >-
+    vArrayJitterOnMesh takes an array of XYZ points and a mesh. Each point is moved by a random
+    distance up to Jitter Radius in the tangent plane of the nearest surface, then projected back
+    onto the mesh.
+  description:
+    - >-
+      For each point the node finds the nearest triangle and builds two tangent directions from its
+      normal. It picks a random angle and a distance up to Jitter Radius (spread evenly over the
+      disk), moves the point there, and takes the closest surface point to the result. Surface
+      Offset moves that point along the surface normal.
+    - >-
+      Random Seed (default 0) fixes the sequence, so the same Seed, points and mesh give the same
+      result. With Animate Jitter on, the seed also changes by 12345 for every whole step of render
+      time times Animation Speed, so the jitter changes in steps. Affect X, Y and Z keep unchecked
+      axes at their input value.
+    - If the mesh or the points are empty, the points are output unchanged.
+  features:
+    - title: Jitter on the surface
+      desc: The move is in the tangent plane and the result is projected back onto the mesh.
+    - title: Repeatable
+      desc: The same Seed gives the same result.
+    - title: Stepped animation
+      desc: Animate Jitter changes the seed as render time advances.
+    - title: Surface Offset
+      desc: The result can be lifted off the surface along its normal.
+  connections:
+    - label: Jitter a grid on a loaded mesh and draw
+      lines:
+        - vArrayPointsOnGrid.Output -> vArrayJitterOnMesh.ArrayPoints
+        - vArrayFromOBJ.Points -> vArrayJitterOnMesh.MeshPoints
+        - vArrayJitterOnMesh.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Jitter scattered points
+      lines:
+        - vArrayScatterOnMesh.Output -> vArrayJitterOnMesh.ArrayPoints
+        - vArrayFromOBJ.Points -> vArrayJitterOnMesh.MeshPoints
+        - vArrayJitterOnMesh.Output -> vArrayTranslate.Input
+  difficulty: Advanced
+  related:
+    - name: vArrayPointsJitter
+      desc: Adds jitter to the points of an Array in 3D.
+    - name: vArraySlideOnMesh
+      desc: Slides input points in a world-space direction, then reprojects them onto the mesh.
+    - name: vArrayRelaxOnMesh
+      desc: Iteratively relaxes scattered points toward an even distribution on the mesh surface.
   params:
-    jitterradius: Maximum random distance along the surface.
-    seed: Seed of the random generator.
-    animatejitter: Changes the jitter over time.
-    animationspeed: Speed of the animation over time. 0 is static.
-    surfaceoffset: Offset of the target from the mesh surface.
-    inaffectx: Applies the effect to X.
-    inaffecty: Applies the effect to Y.
-    inaffectz: Applies the effect to Z.
+    jitterradius: >-
+      Largest distance of the random move in the tangent plane. Minimum 0, slider 0 to 1, default
+      0.05.
+    seed: Integer from 0, slider to 100000, default 0.
+    animatejitter: Changes the seed with the render time when on. Default off.
+    animationspeed: Multiplies the render time for the seed steps. Minimum 0, slider 0 to 10, default 1.
+    surfaceoffset: Distance from the surface along its normal. Slider -1 to 1, default 0.
+    inaffectx: X comes from the result when checked (default), otherwise it keeps the input value.
+    inaffecty: Y comes from the result when checked (default), otherwise it keeps the input value.
+    inaffectz: Z comes from the result when checked (default), otherwise it keeps the input value.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
+  note: >-
+    The jitter radius is the distance in the tangent plane before the point is projected back onto
+    the surface, so the final move along the surface can differ from it. The random values are drawn
+    in order from the global generator after math.randomseed, so the node reseeds math.random on
+    every render. Mesh triangles come from buildSurfaceSamples in the vmeshutils module, which is
+    not in the fuse repository, so how they are built was not checked. Without mesh data the points
+    are output unchanged.

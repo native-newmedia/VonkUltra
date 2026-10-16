@@ -5,29 +5,78 @@ tools:
   JSON: vJSONClampToMeshProx
 legacy_names: []
 curated:
-  tagline: Limit the distance of points from the mesh.
-  overview: Moves points that are farther than the maximum distance from the mesh back to that distance.
-  description: []
-  features: []
-  connections: []
-  difficulty: null
-  related: []
+  tagline: Moves points that are too far from, or too close to, a mesh to a set distance from it.
+  overview: >-
+    vArrayClampToMeshProx takes an array of XYZ points and a mesh, and keeps each point at a set
+    distance from the reference on the mesh. Clamp Mode picks whether it moves points outside or
+    inside Max Distance.
+  description:
+    - >-
+      For each point the node finds the reference: the closest point on the triangles (Surface), the
+      closest Mesh Points vertex (Vertex) or the closest sample point from vmeshutils (Centroid).
+      Outside > Max moves points whose distance is above Max Distance. Inside < Max moves points
+      whose distance is below it. They are put on the line from the reference through the point at
+      Max Distance + Distance Offset.
+    - >-
+      Clamp Blend (0 to 1) mixes between the original and the clamped position, and Affect X, Y and
+      Z keep unchecked axes at their input value. Preserve Extra Values (on) copies values after the
+      third. Points on the reference use the mesh normal as direction.
+    - >-
+      With no mesh data, Pass Through If No Mesh (on) outputs the points unchanged, otherwise the
+      output is empty.
+  features:
+    - title: Two clamp directions
+      desc: Outside > Max pulls far points in. Inside < Max pushes near points out.
+    - title: Three references
+      desc: Surface, Vertex or Centroid decide what the distance is measured to.
+    - title: Distance Offset
+      desc: The target distance is Max Distance plus the offset.
+    - title: Extra values kept
+      desc: Values after X, Y and Z are copied to the output when Preserve Extra Values is on.
+  connections:
+    - label: Keep a grid within reach of a mesh and draw
+      lines:
+        - vArrayPointsOnGrid.Output -> vArrayClampToMeshProx.ArrayPoints
+        - vArrayFromOBJ.Points -> vArrayClampToMeshProx.MeshPoints
+        - vArrayClampToMeshProx.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Clamp scattered points
+      lines:
+        - vArrayRandom.Output -> vArrayClampToMeshProx.ArrayPoints
+        - vArrayFromOBJ.Points -> vArrayClampToMeshProx.MeshPoints
+        - vArrayClampToMeshProx.Output -> vArrayTranslate.Input
+  difficulty: Advanced
+  related:
+    - name: vArrayAttractToMesh
+      desc: Moves points toward the closest surface point by a Blend amount.
+    - name: vArrayWeightByMeshProx
+      desc: Another node that uses the distance to a mesh.
+    - name: vArraySortByMeshProx
+      desc: Another node that uses the distance to a mesh.
   params:
-    inmaxdistance: Distance from the mesh at which the effect ends.
-    inclampmode: >-
-      Clamps points outside the maximum distance, or points inside it. Options: Outside > Max,
-      Inside < Max.
-    inreferencemode: >-
-      Measures the distance to the surface, the nearest vertex or the nearest centroid. Options:
-      Surface, Vertex, Centroid.
-    inclampblend: Mix between the original and the clamped position.
-    indistanceoffset: Added to Max Distance.
-    inaffectx: Applies the effect to X.
-    inaffecty: Applies the effect to Y.
-    inaffectz: Applies the effect to Z.
-    inpreserveextras: Keeps values beyond X, Y, Z.
-    inpassthroughifnomesh: Outputs the input unchanged when no mesh is connected.
+    inmaxdistance: >-
+      Distance that decides which points are clamped. Minimum 0 in the code, slider 0 to 2, default
+      1.
+    inclampmode: Outside > Max (default) or Inside < Max.
+    inreferencemode: Surface (default), Vertex or Centroid. What the distance is measured to.
+    inclampblend: Mix between the original (0) and the clamped position (1). Range 0 to 1, default 1.
+    indistanceoffset: Added to Max Distance for the target distance. Slider -2 to 2, default 0.
+    inaffectx: X is clamped when checked (default), otherwise it keeps the input value.
+    inaffecty: Y is clamped when checked (default), otherwise it keeps the input value.
+    inaffectz: Z is clamped when checked (default), otherwise it keeps the input value.
+    inpreserveextras: Copies values after the third to the output when on (default).
+    inpassthroughifnomesh: >-
+      Outputs the points unchanged when there is no mesh data, if on (default). When off, the output
+      is empty.
 status:
-  source: summary
-  state: imported
+  source: ai
+  state: ai
   reviewed_hash: null
+  prompt_version: '1'
+  note: >-
+    The decision to clamp uses Max Distance only, while the target distance is Max Distance plus
+    Distance Offset (not below 0). Max Distance is limited to 0 or more in the code. Centroid mode
+    uses the points returned by buildSurfaceSamples(meshPts, true) from the vmeshutils module, which
+    is not in the fuse repository, so what those samples are was not checked. Vertex mode uses the
+    Mesh Points array itself as the vertex list.
