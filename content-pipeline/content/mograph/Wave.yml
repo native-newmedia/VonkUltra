@@ -7,7 +7,7 @@ legacy_names: []
 curated:
   tagline: Moves points along a direction by a time-based wave, with a delay per point.
   overview: >-
-    vArrayWave takes an array of XYZ points and adds (X, Y, Z Position) * wave * Falloff to each
+    vArrayWave takes an array of XYZ points and adds (X, Y, Z Amount) * wave * Falloff to each
     point. Wave picks one of 13 wave shapes, and Point Delay staggers the wave along the array.
   description:
     - >-
@@ -15,11 +15,11 @@ curated:
       the wave travels along the array. It is 0 until the frame passes Start At Frame (default 0).
       The shape comes from Wave and runs mostly between 0 and 1. It is multiplied by Strength
       (default 1), negated by Reverse, and multiplied by Falloff (default 0). The point moves by
-      that times X, Y and Z Position.
+      that times X, Y and Z Amount.
     - >-
       Period (default 5) is the length of one cycle in frames. With Limit on, the wave stops after
       Repeat Limit cycles. The 13 shapes are Line, Saw, Tri, Square, Sine, Noise, Pulse, ExpDecay,
-      AbsSine, Stair, Bounce, Cosine and Spike. With the default Falloff of 0 and Positions of 0,
+      AbsSine, Stair, Bounce, Cosine and Spike. With the default Falloff of 0 and Amounts of 0,
       nothing moves.
   features:
     - title: 13 wave shapes
@@ -30,8 +30,8 @@ curated:
       desc: Point Delay shifts the wave in time for each point number.
     - title: Start and limit
       desc: Start At Frame delays the start, and Limit stops the wave after a number of cycles.
-    - title: Direction by position
-      desc: X, Y and Z Position set the direction and size of the move.
+    - title: Direction by amount
+      desc: X, Y and Z Amount set the direction and size of the move.
   connections:
     - label: Wave a grid and draw
       lines:
@@ -78,11 +78,12 @@ status:
   reviewed_hash: null
   prompt_version: '1'
   note: >-
-    The old text describes a wave origin and a falloff with distance. The code has no distance
-    calculation. X, Y and Z Position are the displacement per unit of wave: each point moves by (X,
-    Y, Z Position) * wave * Falloff. Falloff is a multiplier (default 0), so nothing moves until
-    both Falloff and one of the positions are set. Delay (hidden) is not read; Offset (hidden) is
-    added to the wave and defaults to 0. Show Input is hidden and shows the ports of Start At Frame,
-    Period, Strength and Limit. Period 0 divides by zero. The wave starts at 0 until the frame
-    passes Start At Frame.
+    Changed in fix batch F1 (branch fix/findings-f1 of vonk-ultra-mograph), same change in all three
+    families. The controls X, Y and Z Position were renamed X, Y and Z Amount (IDs XPosition,
+    YPosition, ZPosition unchanged), because they are displacement amounts and not a wave origin.
+    The code has no distance calculation. Each point moves by (X, Y, Z Amount) * wave * Falloff.
+    Falloff is a multiplier (default 0), so nothing moves until both Falloff and one of the amounts
+    are set. Delay (hidden) is not read; Offset (hidden) is added to the wave and defaults to 0.
+    Show Input is hidden and shows the ports of Start At Frame, Period, Strength and Limit. Period 0
+    divides by zero. The wave starts at 0 until the frame passes Start At Frame.
 legacy_text: 'Animates an array Wave options include: - Line - Saw - Tri - Square - Sine - Noise'

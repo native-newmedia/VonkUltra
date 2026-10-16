@@ -19,8 +19,8 @@ curated:
     - >-
       Mode Select does not change the calculation. Its buttons -10 - 10, -1 - 1, 0 - 1 and 0 - 360
       write those numbers into New Min and New Max when pressed. New Min and New Max accept -50 to
-      50 and default to -10 and 10. If every number in the input is equal, all of them become New
-      Min. The output is not clamped.
+      50 and default to -1 and 1, which is the default -1 - 1 button. If every number in the input
+      is equal, all of them become New Min. The output is not clamped.
   features:
     - title: Linear remap
       desc: The input range is stretched to the range from New Min to New Max.
@@ -57,18 +57,19 @@ curated:
     ArrayA: >-
       Primary point array input. Connect any upstream vArray generator or modifier here to apply
       range mapping to its values.
-    NewMin: Value that the smallest input number becomes. Allowed -50 to 50, default -10.
-    NewMax: Value that the largest input number becomes. Allowed -50 to 50, default 10.
+    NewMin: Value that the smallest input number becomes. Allowed -50 to 50, default -1.
+    NewMax: Value that the largest input number becomes. Allowed -50 to 50, default 1.
 status:
   source: ai
   state: ai
   reviewed_hash: null
   prompt_version: '1'
   note: >-
-    The old text says Mode Select picks a remapping strategy (clamped, unclamped, normalised).
-    Process() does not read the mode. The four buttons only set New Min and New Max to -10 and 10,
-    -1 and 1, 0 and 1, or 0 and 360 when pressed. The control default is the "-1 - 1" button, while
-    New Min and New Max default to -10 and 10, so the node starts mapping to -10 to 10. The remap is
-    linear and not clamped. The control ID of Mode Select ends with a space ("ModeSelect "). The
+    Changed in fix batch F1 (branch fix/findings-f1 of vonk-ultra-mograph), same change in all three
+    families. New Min and New Max defaulted to -10 and 10 while the default button is "-1 - 1"; they
+    now default to -1 and 1. The old text says Mode Select picks a remapping strategy (clamped,
+    unclamped, normalised). Process() does not read the mode. The four buttons only set New Min and
+    New Max to -10 and 10, -1 and 1, 0 and 1, or 0 and 360 when pressed. The remap is linear and not
+    clamped. The control ID of Mode Select ends with a space ("ModeSelect ") and was kept. The
     ScriptVal and JSON versions keep the other keys of the input table, the Array version does not.
 legacy_text: Map Range Operations on an Array

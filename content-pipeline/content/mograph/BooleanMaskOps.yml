@@ -18,8 +18,8 @@ curated:
     - >-
       Mask Scalars writes 1 or 0 times Output Amount for the whole point. Per-Axis XYZ Mask writes
       one 1 or 0 per axis, times Output Amount and X, Y or Z Amount. The three point modes write the
-      A point, the B point or the average of both, scaled by the amounts when the result is true.
-      When it is false they write the A or B point unchanged.
+      A point, the B point or the average of both, scaled by the amounts, when the result is true.
+      When it is false the element is left out, so the output gets shorter.
     - Trim Zeros removes every output element that is zero on all axes.
   features:
     - title: Six operations
@@ -54,9 +54,12 @@ curated:
     Operation: AND (default), OR, XOR, A AND NOT B, NOT A or NOT B.
     OutputMode: >-
       Mask Scalars (0/1, any axis true) is the default. Per-Axis XYZ Mask gives one 0 or 1 per axis.
-      The three point modes write the A point, the B point or their average.
+      The three point modes write the A point, the B point or their average when the result is true,
+      and leave the element out when it is false.
     Threshold: Values above it count as true. Slider -1 to 1, default 0.
-    OutputAmount: Multiplies the result. Minimum 0, default 1. Point modes pass the unscaled point when it is 0.
+    OutputAmount: >-
+      Multiplies the result. Minimum 0, default 1. In the point modes 0 scales the points to 0, 0,
+      0.
     XAmount: Multiplies the X result in the per-axis and point modes. Default 1.
     YAmount: Multiplies the Y result in the per-axis and point modes. Default 1.
     ZAmount: Multiplies the Z result in the per-axis and point modes. Default 1.
@@ -67,9 +70,11 @@ status:
   reviewed_hash: null
   prompt_version: '1'
   note: >-
-    The modes Pass A Points When True, Pass B Points When True and Average A/B Points When True do
-    not drop points when the result is false: the A or B point is passed unchanged in that case, so
-    the output keeps the input length. When true, the point is multiplied by Output Amount and the
-    axis amounts, which are all 1 by default, so with defaults the output equals the A or B points.
-    Trim Zeros removes every point whose X, Y and Z are all 0, not only trailing zeros. Average mode
-    outputs the A point when false, not the B point.
+    Changed in fix batch F1 (branch fix/findings-f1 of vonk-ultra-mograph), same change in all three
+    families. The modes Pass A Points When True, Pass B Points When True and Average A/B Points When
+    True passed the A or B point unchanged when the result was false, so the output kept the input
+    length; they now leave false elements out. The truth test is the boolean result and not "Output
+    Amount above 0". When true, the point is multiplied by Output Amount and the axis amounts, which
+    are all 1 by default, so with defaults the output equals the A or B points. Trim Zeros removes
+    every point whose X, Y and Z are all 0, not only trailing zeros; the label says "Trim Zeros" and
+    the code was kept.

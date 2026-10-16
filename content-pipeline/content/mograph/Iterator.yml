@@ -18,7 +18,9 @@ curated:
       Step is an integer from 1, slider 1 to 10, default 1. At 1 every point is copied. Elements
       that are not lists with at least three values are dropped, so an array of plain numbers gives
       an empty output.
-    - Despite the name and the registered description, nothing is repeated or looped.
+    - >-
+      Nothing is repeated or looped. The output has at most the input length divided by Step,
+      rounded up, because dropped elements shorten it further.
   features:
     - title: Every Nth point
       desc: Step 1 keeps all points, Step 2 every second one, and so on.
@@ -58,7 +60,9 @@ status:
   connections_source: docsify
   prompt_version: '1'
   note: >-
-    The registered description and the old text say the node loops or repeats an array. The code
-    keeps every Nth element of the input (Step = N) and does not repeat anything. Only elements that
-    are lists with at least 3 values are kept, and each is cut to its first 3 values.
+    Changed in fix batch F1 (branch fix/findings-f1 of vonk-ultra-mograph), same change in all three
+    families. The registered description said "Loop an array" but the code keeps every Nth element
+    of the input (Step = N) and repeats nothing; the description is now "Keep every Nth point of an
+    array". Only elements that are lists with at least 3 values are kept, and each is cut to its
+    first 3 values.
 legacy_text: Loop an array

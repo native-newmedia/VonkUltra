@@ -17,12 +17,12 @@ curated:
       or the matching element of Input B in Use Array mode, with 0 for missing entries.
     - >-
       Operation offers 31 choices: arithmetic, min, max, modulo, power, trigonometry, logs,
-      rounding, reciprocal and random values. Divide, Modulo, Log, Square Root and Reciprocal return
-      0 where they are undefined. Matrix Multiply multiplies a translation made from each element by
-      a matrix from Input B and outputs the resulting position.
+      rounding, reciprocal and random values. Divide, Modulo, Log, Square Root, Reciprocal, Arc Sine
+      and Arc Cosine return 0 where they are undefined. Matrix Multiply multiplies a translation
+      made from each element by a matrix from Input B and outputs the resulting position.
     - >-
-      Some labels differ from the formula. Arc Sine, Arc Cosine and Arc Tangent compute sinh, cosh
-      and tanh. Negate computes 1 - A.
+      Negate returns -A. Random returns A times a random value from 0 to 1, and Random A to B
+      returns a random value between A and B.
   features:
     - title: 31 operations
       desc: >-
@@ -59,8 +59,8 @@ curated:
       One of 31 operations, default Add: Add, Subtract A-B, Multiply, Divide A/B, Min, Max, Average,
       Difference, Modulo A/B, Power A^B, Arc Tangent A/B, Pi, Sine, Cosine, Tangent, Arc Sine, Arc
       Cosine, Arc Tangent, Log, Log 10, Exponential, Degrees to Radians, Radians to Degrees,
-      Absolute Value, Ceiling, Floor, Square Root, Reciprocal, Negate, Random, Randomseed and Matrix
-      Multiply.
+      Absolute Value, Ceiling, Floor, Square Root, Reciprocal, Negate, Random, Random A to B and
+      Matrix Multiply.
     InputNumber: Use Number (default) uses the Number control as B. Use Array uses Input B and shows its port.
     opNumber: The B value in Use Number mode, used on all three axes. Slider -1 to 1, default 1.
     ConnectInputCallback: Set to 1 automatically when Input B is connected, otherwise 0. Not meant to be edited.
@@ -73,13 +73,16 @@ status:
   reviewed_hash: null
   prompt_version: '1'
   note: >-
-    Several Operation labels do not match the formula. Arc Sine, Arc Cosine and Arc Tangent compute
-    sinh, cosh and tanh. Negate computes 1 - A. Randomseed does not seed anything: it returns a
-    random value between A and B. Random returns A times a random value from 0 to 1. The old text
-    lists only six operations. The old text says Which selects an element; the control is hidden and
-    Process() never reads it. Array B does not have to match the length of Array A; missing entries
-    count as 0. The output always has three values per element. In the ScriptVal fuse the matrix for
-    Matrix Multiply comes from a separate Matrix input and not from Input B.
+    Changed in fix batch F1 (branch fix/findings-f1 of vonk-ultra-mograph), same change in all three
+    families. Arc Sine, Arc Cosine and Arc Tangent computed sinh, cosh and tanh; they now compute
+    the inverse functions (Arc Sine and Arc Cosine return 0 outside -1 to 1). Negate computed 1 - A
+    and now returns -A. The entry at index 30 was labelled Randomseed although it seeds nothing; it
+    is now labelled Random A to B and still returns a random value between A and B. Random returns A
+    times a random value from 0 to 1. The old text lists only six operations. The old text says
+    Which selects an element; the control is hidden and Process() never reads it. Array B does not
+    have to match the length of Array A; missing entries count as 0. The output always has three
+    values per element. In the ScriptVal fuse the matrix for Matrix Multiply comes from a separate
+    Matrix input and not from Input B.
 legacy_text: >-
   Math Operations on an Array Tip: If you want to apply math operations to arrays of XY or XYZ value
   pairs, the vArrayUnPacker node will extract all the values into a single linear sequence of

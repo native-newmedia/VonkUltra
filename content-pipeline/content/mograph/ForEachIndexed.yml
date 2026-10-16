@@ -12,10 +12,10 @@ curated:
     amounts over time.
   description:
     - >-
-      Mode selects one change. The Offset modes add the number of the point inside its group times
-      Index Amount (by Index), or the group number times Group Amount (by Group), to X, Y or Z.
-      Scale by Index multiplies the point by 1 + that number times Index Amount. The Rotate modes
-      turn the point around X, Y or Z by the group number times Group Amount degrees.
+      Mode selects one change. The Offset modes add the point number (counted from 0) times Index
+      Amount (by Index), or the group number times Group Amount (by Group), to X, Y or Z. Scale by
+      Index multiplies the point by 1 + the point number times Index Amount. The Rotate modes turn
+      the point around X, Y or Z by the group number times Group Amount degrees.
     - >-
       The Random Offset modes add a value between Random Min and Random Max, taken from a fixed hash
       of the group or point number, so the result repeats. A Mask value above 0 applies the change
@@ -57,8 +57,10 @@ curated:
       One of 16 changes, default Offset X by Index. Offset X, Y or Z by Index, Offset X, Y or Z by
       Group, Scale by Index, Rotate X, Y or Z by Group, Random Offset X, Y or Z by Group, Random
       Offset X, Y or Z by Index.
-    GroupSize: Points per group. Minimum 1, slider 1 to 128, default 8.
-    IndexAmount: Amount per step inside a group, used by the by-Index offsets and Scale by Index. Default 0.01.
+    GroupSize: >-
+      Points per group, used by the by-Group, Rotate and Random Offset by Group modes. Minimum 1,
+      slider 1 to 128, default 8.
+    IndexAmount: Amount per point number, used by the by-Index offsets and Scale by Index. Default 0.01.
     GroupAmount: Amount per group, used by the by-Group offsets and the rotations (degrees). Default 0.1.
     RandomMin: >-
       Low end of the random range. Slider -10 to 10, default -0.1. Shown for the Random Offset
@@ -88,9 +90,10 @@ status:
   reviewed_hash: null
   prompt_version: '1'
   note: >-
-    The modes named "by Index" use the position inside the group (index modulo Group Size), not the
-    position in the whole array, so with the default Group Size of 8 the offsets repeat every 8
-    points. Only the two Random Offset by Index modes use the full index. There is no Seed control:
-    the random values come from a fixed hash of the group or point number. A mask value above 0
-    applies the change, and a missing mask entry counts as 1. Input that does not start with a list
-    is passed through unchanged. Output points keep only X, Y and Z.
+    Changed in fix batch F1 (branch fix/findings-f1 of vonk-ultra-mograph), same change in all three
+    families. The modes named "by Index" used the position inside the group (index modulo Group
+    Size), so with the default Group Size of 8 the offsets repeated every 8 points. They now use the
+    position in the whole array, like the two Random Offset by Index modes. There is no Seed
+    control: the random values come from a fixed hash of the group or point number. A mask value
+    above 0 applies the change, and a missing mask entry counts as 1. Input that does not start with
+    a list is passed through unchanged. Output points keep only X, Y and Z.

@@ -16,13 +16,13 @@ curated:
       + Offset * i, where i is the number of the point counted from 1. The result replaces the input
       value. The defaults are Frequency 0.1, Amplitude 0.01 and Offset 0.
     - >-
-      The two Math Function buttons are swapped: Sin, the default, gives cosine, and Cos gives sine.
-      Animation Speed (default 0) times the render time is added inside the wave. Show Input exposes
-      the Animation Speed, Frequency, Amplitude and Offset ports on the node. In the Array version,
-      points with fewer than 3 values are dropped.
+      Math Function picks f: Sin, the default, gives sine and Cos gives cosine. Animation Speed
+      (default 0) times the render time is added inside the wave. Show Input exposes the Animation
+      Speed, Frequency, Amplitude and Offset ports on the node. In the Array version, points with
+      fewer than 3 values are dropped.
   features:
     - title: Sine or cosine
-      desc: Math Function chooses the wave, with the two button labels swapped in the code.
+      desc: Math Function chooses sine (Sin) or cosine (Cos).
     - title: Animatable phase
       desc: Animation Speed times the render time is added to the phase.
     - title: Per-point offset
@@ -51,7 +51,7 @@ curated:
     - name: vArrayPerlin3Noise
       desc: Applies Perlin noise to array values.
   params:
-    MathFunction: Sin (default) or Cos. The code swaps them, so Sin outputs cosine and Cos outputs sine.
+    MathFunction: Sin (default) gives sine, Cos gives cosine.
     animspeed: Added to the phase as this value times the render time. Slider 0 to 5, default 0.
     Frequency: Multiplies each value inside the wave. Slider -1 to 1, default 0.1.
     Amplitude: Multiplies the wave. Slider -1 to 1, default 0.01.
@@ -67,9 +67,10 @@ status:
   connections_source: docsify
   prompt_version: '1'
   note: >-
-    The Math Function buttons are swapped in the code: Sin (the default) outputs cosine and Cos
-    outputs sine. The node replaces the values with the wave and does not add the wave to them. In
-    the Array fuse, elements that are not lists of 3 or more values are dropped and each point is
-    cut to 3 values. The ScriptVal and JSON fuses keep lists of any length and plain numbers, and
-    count the numbers across all points for Offset instead of using the point number.
+    Changed in fix batch F1 (branch fix/findings-f1 of vonk-ultra-mograph), same change in all three
+    families. The Sin and Cos buttons were swapped (Sin gave cosine); they now match their labels.
+    The node replaces the values with the wave and does not add the wave to them. In the Array fuse,
+    elements that are not lists of 3 or more values are dropped and each point is cut to 3 values.
+    The ScriptVal and JSON fuses keep lists of any length and plain numbers, and count the numbers
+    across all points for Offset instead of using the point number.
 legacy_text: Math Sin - Cos Operations on an Array

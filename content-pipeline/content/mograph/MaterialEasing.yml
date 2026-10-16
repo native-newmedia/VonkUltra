@@ -23,8 +23,9 @@ curated:
       the distance to a center point times 10 times Scale factor, which defaults to 0. Random uses a
       repeatable value from 0 to 0.5 for each index. Stagger Delay defaults to 0.1.
     - >-
-      Before Time reaches a point's start the point stays in place. After the Duration it stays at
-      the full Offset. Expressive Fast Spatial overshoots the Offset by about 9 percent.
+      Before a point's start the point stays in place. After the Duration it stays at the full
+      Offset. With Duration 0 it jumps to the full Offset at its start. Expressive Fast Spatial
+      overshoots by about 9 percent.
   features:
     - title: 20 easing curves
       desc: Easing Type offers Emphasized, Standard, Legacy and Expressive curves, each a cubic bezier.
@@ -55,8 +56,9 @@ curated:
       desc: Adds a fixed offset to all points.
   params:
     EaseType: >-
-      One of 20 Material Design 3 easing curves, default Emphasized Accelerate. The Preview Curve
-      section draws the selected curve.
+      One of 20 easing curves, default Emphasized Accelerate. Standard Fast, Default and Slow
+      Spatial use one curve, and the three Standard Effects entries use the same curves as the three
+      Expressive Effects entries. The Preview Curve section draws the selected curve.
     OffsetX: Distance each point moves on X by the end of the animation. Default 0.
     OffsetY: Distance each point moves on Y by the end of the animation. Default 0.
     OffsetZ: Distance each point moves on Z by the end of the animation. Default 0.
@@ -66,29 +68,32 @@ curated:
       a repeatable value from 0 to 0.5.
     FalloffX: >-
       Shifts the center used by Distance from Center on X. The center is the average of the points
-      plus this value times 10 divided by the point count. Shown only for that mode.
+      plus this value times 10. Shown only for that mode.
     FalloffY: >-
       Shifts the center used by Distance from Center on Y. The center is the average of the points
-      plus this value times 10 divided by the point count. Shown only for that mode.
+      plus this value times 10. Shown only for that mode.
     FalloffZ: >-
       Shifts the center used by Distance from Center on Z. The center is the average of the points
-      plus this value times 10 divided by the point count. Shown only for that mode.
+      plus this value times 10. Shown only for that mode.
     Scale factor: >-
       Converts distance from the center into delay: the distance is multiplied by this value times
       10. Default 0, so every point starts together. Shown only for Distance from Center.
     Time: Animation time, slider 0 to 1, default 0. Animate this value to play the easing.
     StartOffset: Time before the animation starts. Minimum 0, default 0.
-    Duration: Time the easing takes to complete. Slider 0.01 to 10, minimum 0, default 1.
+    Duration: >-
+      Time the easing takes to complete. Slider 0.01 to 10, minimum 0, default 1. 0 makes the move a
+      step.
 status:
   source: ai
   state: ai
   reviewed_hash: null
   prompt_version: '1'
   note: >-
-    Falloff X, Y, Z: the code sets the center to (Falloff * 10 + sum of point coordinates) / point
-    count, so the Falloff shift is divided by the point count and is not a plain shift of the
-    average. Standard Fast, Default and Slow Spatial use one identical curve, and Standard Fast,
-    Default and Slow Effects use the same curves as the three Expressive Effects entries. With no
-    input points the Array fuse writes "[]" and not an object with "array" and "size". Duration 0
-    divides by zero. Unused code: parseJSONArray and the totalPoints argument.
+    Changed in fix batch F1 (branch fix/findings-f1 of vonk-ultra-mograph), same change in all three
+    families. The Falloff shift was divided by the point count; the center is now the average of the
+    points plus Falloff * 10. Duration 0 divided by zero; it is now a step. With no input points the
+    Array fuse wrote "[]" and now writes an object with an empty "array" and size 0. Standard Fast,
+    Default and Slow Spatial use one identical curve, and Standard Fast, Default and Slow Effects
+    use the same curves as the three Expressive Effects entries; this was kept on purpose. Unused
+    code: parseJSONArray and the totalPoints argument.
 legacy_text: Animate points using Material Design 3 easing with staggered offsets

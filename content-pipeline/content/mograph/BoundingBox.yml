@@ -56,6 +56,8 @@ status:
   connections_source: docsify
   prompt_version: '1'
   note: >-
-    Only elements with exactly 1, 2 or 3 values are used. Other lengths are skipped. If any element
-    has 3 values the output is a 3D box and the X and Y limits also include 2 value elements.
+    Reviewed in fix batch F1: the code matches its label and registered description, so the fuse was
+    not changed. Only elements with exactly 1, 2 or 3 values are used. Other lengths are skipped. If
+    any element has 3 values the output is a 3D box and the X and Y limits also include 2 value
+    elements.
 legacy_text: Calculate a 3D, 2D, or 1D bounding box volume from an Array of XYZ/XY/X points

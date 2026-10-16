@@ -16,8 +16,9 @@ curated:
       along Z only, or by the amount on Z and a tenth of it on X and Y (XYZ Uniform). A point at the
       origin moves to (d, d, d) in Radial mode.
     - >-
-      Output n uses the amplitude, frequency and time offset of its Array n controls plus a built-in
-      step per output, so the outputs ripple at different times. Time Offset times Offset Multiplier
+      Output n uses the amplitude, frequency and time offset of its Array n controls. Their defaults
+      step up per output (amplitude 1 + 0.2 * (n - 1), frequency 1 + 0.1 * (n - 1), time offset 0.3
+      * (n - 1)), so the outputs ripple at different times. Time Offset times Offset Multiplier
       (default 0.3) shifts each copy in time. With Auto Animate on (default) the time is the render
       time times Animation Speed times 0.1. A disabled array gives an empty output.
   features:
@@ -49,14 +50,16 @@ curated:
     - name: vArrayStagger
       desc: Animates points using staggered offsets.
   params:
-    Time: Time used when Auto Animate is off. Slider 0 to 10, default 0.
+    Time: >-
+      Time used when Auto Animate is off. Ignored while Auto Animate is on. Slider 0 to 10, default
+      0.
     Speed: Multiplies the render time when Auto Animate is on. Slider 0.1 to 5, default 1.
     AutoAnimate: Uses the render time times Animation Speed times 0.1 as time when on (default).
     DisplacementMode: Radial (from center) (default), Z-Axis Only or XYZ Uniform.
     Amplitude: Size of the displacement, multiplied into each output. Slider 0 to 10, default 2.
     Frequency: Frequency of the wave, multiplied into each output. Slider 0.1 to 5, default 1.
     WaveType: Sine (default), Cosine, Triangle or Square.
-    OffsetMultiplier: Multiplies the time offsets of the outputs. Slider 0 to 2, default 0.3.
+    OffsetMultiplier: Multiplies the time offsets of the outputs, not the displacement. Slider 0 to 2, default 0.3.
     DebugMode: Prints information to the console when on. Default off.
     ArrayA: Points to displace.
 status:
@@ -65,11 +68,13 @@ status:
   reviewed_hash: null
   prompt_version: '1'
   note: >-
-    The Time control is used only when Auto Animate is off. With Auto Animate on, the time is the
-    render time times Speed times 0.1 and the Time control is ignored. Offset Multiplier multiplies
-    the time offsets of the arrays, not the displacement as the old text said. Each of the five
-    outputs adds a built-in step: amplitude + 0.2 * (n - 1), frequency + 0.1 * (n - 1) and time
-    offset + 0.3 * (n - 1). A disabled array gives an empty output. The per-array controls Enable
-    Array n, Amplitude n, Frequency n and Time Offset n are created in a loop, so they are not
-    listed as rows. Debug Mode prints to the console. The JSON fuse writes the points without the
-    array and size wrapper.
+    Changed in fix batch F1 (branch fix/findings-f1 of vonk-ultra-mograph), same change in all three
+    families. Each output used to add a built-in step (amplitude + 0.2 * (n - 1), frequency + 0.1 *
+    (n - 1), time offset + 0.3 * (n - 1)) on top of the value shown in Amplitude n, Frequency n and
+    Time Offset n. The step now sits in the defaults of those controls and the shown value is the
+    value used. The Time control is used only when Auto Animate is off; with it on the time is the
+    render time times Speed times 0.1. Offset Multiplier multiplies the time offsets of the arrays,
+    not the displacement, and the code was kept. A disabled array gives an empty output. The
+    per-array controls Enable Array n, Amplitude n, Frequency n and Time Offset n are created in a
+    loop, so they are not listed as rows. Debug Mode prints to the console. The JSON fuse writes the
+    points without the array and size wrapper.

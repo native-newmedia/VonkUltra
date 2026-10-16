@@ -20,9 +20,10 @@ curated:
       until Stagger and Stagger Amount are set, and a delay of 0 gives every point the same curve
       value. A larger delay shifts each point in time by its index times the delay.
     - >-
-      Linear is a sine of 0.1 times the shifted time. Linear and Exponential do not read Wave
-      Frequency, which the other four modes use and which defaults to 0.01. Six hidden controls are
-      not read by the code.
+      Linear is 0.1 times the shifted time, a straight ramp. Exponential is 1 - exp(-0.1 * t), with
+      t the shifted time and not below 0, so it rises toward 1. Neither reads Wave Frequency, which
+      the other four modes use and which defaults to 0.01. Six hidden controls are not read by the
+      code.
   features:
     - title: Six offset curves
       desc: Mode selects Linear, Wave, Exponential, Pulse Wave, Triangle Wave or Sawtooth Wave.
@@ -84,11 +85,12 @@ status:
   reviewed_hash: null
   prompt_version: '1'
   note: >-
-    Mode "Linear" is not linear in the code: it is sin(0.1 * (time - index * delay)) and ignores
-    Wave Frequency. Mode "Exponential" is an envelope times a sine, also not an exponential ramp.
-    The hidden controls Clamp Output, Min Value, Max Value, Reverse Index, Yoyo and Steps are
-    created but Process() never reads them (processStagger gets none of them, and its reverse and
-    yoyo locals are always true). The Stagger Delay fallback in Process() (0.2) is never used
-    because the control default is 0. Sawtooth Wave divides by Wave Frequency, so a value of 0 gives
-    an infinite period.
+    Changed in fix batch F1 (branch fix/findings-f1 of vonk-ultra-mograph), same change in all three
+    families. Mode Linear was sin(0.1 * (time - index * delay)); it is now 0.1 * (time - index *
+    delay). Mode Exponential was an envelope times a sine; it is now 1 - exp(-0.1 * t) with t = time
+    - index * delay * 0.1, not below 0. The hidden controls Clamp Output, Min Value, Max Value,
+    Reverse Index, Yoyo and Steps are created but Process() never reads them (processStagger gets
+    none of them, and its reverse and yoyo locals are always true). The Stagger Delay fallback in
+    Process() (0.2) is never used because the control default is 0. Sawtooth Wave divides by Wave
+    Frequency, so a value of 0 gives an infinite period.
 legacy_text: Animate points using staggered offsets

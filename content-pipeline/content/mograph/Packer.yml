@@ -16,8 +16,8 @@ curated:
       7 numbers with a group size of 3 give groups of 3, 3 and 1 numbers.
     - >-
       The Pack To buttons write 0 (--), 1 (X), 2 (X Y) or 3 (X Y Z) into Custom Group Size when
-      pressed. The node uses only Custom Group Size, which defaults to 0 even though Pack To shows
-      X. A size of 0 packs every element into a single group.
+      pressed. The node uses only Custom Group Size, which defaults to 1, the same as the default X
+      button. A size of 0 packs every element into a single group.
     - Custom Group Size allows 0 to 100, and can be connected to another node.
   features:
     - title: Fixed group size
@@ -51,7 +51,7 @@ curated:
     InputNumber: >-
       Buttons --, X (default), X Y and X Y Z. Pressing one sets Custom Group Size to 0, 1, 2 or 3.
       The node does not read the selected button.
-    GroupSize: Number of elements per group. Range 0 to 100, default 0. 0 puts all elements in one group.
+    GroupSize: Number of elements per group. Range 0 to 100, default 1. 0 puts all elements in one group.
 status:
   source: ai
   state: ai
@@ -59,9 +59,11 @@ status:
   connections_source: docsify
   prompt_version: '1'
   note: >-
-    The Pack To buttons are --, X, X Y and X Y Z. Pressing one writes 0, 1, 2 or 3 into Custom Group
-    Size. Process() reads only Custom Group Size. The control defaults are Pack To = X but Custom
-    Group Size = 0, and a size of 0 puts all elements into one group. The registered description is
-    "Pack an Array into a new array". There is no padding: a last group can be shorter. In the Array
-    fuse the input must be a table with an "array" key. The JSON fuse takes a bare array.
+    Changed in fix batch F1 (branch fix/findings-f1 of vonk-ultra-mograph), same change in all three
+    families. Custom Group Size defaulted to 0 while Pack To showed X; it now defaults to 1. The
+    Pack To buttons are --, X, X Y and X Y Z. Pressing one writes 0, 1, 2 or 3 into Custom Group
+    Size. Process() reads only Custom Group Size. A size of 0 puts all elements into one group. The
+    registered description is "Pack an Array into a new array". There is no padding: a last group
+    can be shorter. In the Array fuse the input must be a table with an "array" key. The JSON fuse
+    takes a bare array.
 legacy_text: Pack Operations on an Array

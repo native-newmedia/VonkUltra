@@ -71,8 +71,9 @@ status:
   reviewed_hash: null
   prompt_version: '1'
   note: >-
-    The old Jitter text said "maximum jitter per axis". That holds only for Uniform Jitter on. With
-    it off the offset is normally distributed with Jitter as the spread, so it has no maximum. The
-    wobble is not removed at Time 0: it stays as a fixed per-point offset of sin(i) * Jitter * 0.5.
-    The JSON and ScriptVal fuses also accept a bare array as input; the Array fuse needs the "array"
-    key.
+    Reviewed in fix batch F1: the code matches its label and registered description, so the fuse was
+    not changed. The old Jitter text said "maximum jitter per axis". That holds only for Uniform
+    Jitter on. With it off the offset is normally distributed with Jitter as the spread, so it has
+    no maximum. The wobble is not removed at Time 0: it stays as a fixed per-point offset of sin(i)
+    * Jitter * 0.5. The JSON and ScriptVal fuses also accept a bare array as input; the Array fuse
+    needs the "array" key.

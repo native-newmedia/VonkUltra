@@ -17,8 +17,9 @@ curated:
       Direction Forward the range is written in its original order, so the output equals the input.
     - >-
       The elements can be numbers, points or lists, and they are not changed. End Index is limited
-      to the length of the array, and an End Index below 1 means the end. Preserve Metadata and
-      Debug Mode are in the node but have no effect. An empty input gives an empty output.
+      to the length of the array, and an End Index below 1 means the end. Preserve Metadata copies
+      the keys of a wrapped input other than array and size to the output. Debug Mode prints the
+      reversed range to the console.
   features:
     - title: Full or partial reversal
       desc: The whole array or only the range from Start Index to End Index is reversed.
@@ -51,8 +52,11 @@ curated:
     Direction: Reverse (default) writes the range backward. Forward writes it in its original order.
     StartIndex: First index of the range, counted from 1. Minimum 1, slider to 10, default 1.
     EndIndex: Last index of the range. -1 means the last element. Minimum -1, slider to 10, default -1.
-    PreserveMetadata: Has no effect in the code. Default off.
-    DebugMode: Has no effect in the code. Default off.
+    PreserveMetadata: >-
+      When on, the keys of a wrapped input ({"array": ...}) other than array and size are copied to
+      the output. In the ScriptVal and JSON versions this also writes the output as a wrapper.
+      Default off.
+    DebugMode: Prints the reversed range and the array length to the console when on. Default off.
     Input: Array to reverse.
 status:
   source: ai
@@ -60,7 +64,11 @@ status:
   reviewed_hash: null
   prompt_version: '1'
   note: >-
-    Preserve Metadata and Debug Mode are not used by Process(): the size value is written the same
-    way whether Preserve Metadata is on or not, and Debug Mode is never read. The elements are
-    copied as they are, so extra values of points are always kept. Forward copies the range in its
-    original order, so it changes nothing.
+    Changed in fix batch F1 (branch fix/findings-f1 of vonk-ultra-mograph), same change in all three
+    families. Preserve Metadata and Debug Mode were not read by Process(); they now work. Preserve
+    Metadata on copies the other keys of a wrapped input to the output; the ScriptVal and JSON
+    versions write a wrapper {array, size, ...} only when the input was wrapped and the box is on,
+    otherwise a bare array as before. The ScriptVal and JSON versions now also unwrap a wrapped
+    input before reversing; it used to pass through unreversed. The elements are copied as they are,
+    so extra values of points are always kept. Forward copies the range in its original order, so it
+    changes nothing.

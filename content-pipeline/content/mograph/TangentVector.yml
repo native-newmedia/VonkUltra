@@ -12,14 +12,13 @@ curated:
     tangent (flipped).
   description:
     - >-
-      The tangent at a point is the direction to the next point in X and Y, made unit length and
-      multiplied by Scale Factor. The last point reuses the direction of the last segment. Z is not
-      part of the direction. Max angle then rotates the vector around the Z axis by that many
-      degrees.
+      The tangent at a point is the direction to the next point in X, Y and Z, made unit length and
+      multiplied by Scale Factor. The last point reuses the direction of the last segment. Rotate
+      Angle then rotates the vector around the Z axis by that many degrees.
     - >-
       Mode picks the output: Start gives the path points unchanged, End gives the point plus the
-      vector, and flipped gives the point minus the vector. With Scale Factor 0, the default, all
-      three are the same. Scale Factor runs from 0 to 1. The path needs at least 2 points with
+      vector, and flipped gives the point minus the vector. With Scale Factor 0 all three are the
+      same. Scale Factor runs from 0 to 1 and defaults to 1. The path needs at least 2 points with
       exactly 3 numbers each.
   features:
     - title: Three outputs
@@ -27,7 +26,7 @@ curated:
     - title: Scale Factor
       desc: The vector length is the Scale Factor, from 0 to 1.
     - title: Rotation
-      desc: Max angle turns every vector around Z in degrees.
+      desc: Rotate Angle turns every vector around Z in degrees.
     - title: Path order kept
       desc: The output has one point per path point, in path order.
   connections:
@@ -54,7 +53,7 @@ curated:
       Start (default), End or flipped. Start gives the path points, End adds the vector and flipped
       subtracts it.
     angle: Rotation of each vector around Z in degrees. Integer, slider 0 to 360, default 0.
-    scaleFactor: Length of the vector. Range 0 to 1, default 0.
+    scaleFactor: Length of the vector. Range 0 to 1, default 1.
     ArrayPath: Path points, in order.
     ScriptVal1: ScriptVal family. Path points, in order.
     JSONPath: JSON family. Path points, in order.
@@ -65,10 +64,11 @@ status:
   connections_source: docsify
   prompt_version: '1'
   note: >-
-    The tangent is computed in XY only: the Z part of the direction is always 0, so paths that rise
-    in Z get flat tangents. Max angle is not a limit on the angle between segments, as the old text
-    said: it rotates every tangent vector around Z by that many degrees. Scale Factor defaults to 0,
-    which makes every vector zero length, so End and flipped give the same points as Start. Each
-    path point must have exactly 3 numbers and the path at least 2 points, otherwise the node raises
-    an error.
+    Changed in fix batch F1 (branch fix/findings-f1 of vonk-ultra-mograph), same change in all three
+    families. The Z part of the direction was always 0; it is now the Z difference to the next
+    point, so paths that change in Z get 3D tangents. The control "Max angle" was renamed "Rotate
+    Angle" (ID angle): it rotates every tangent vector around Z by that many degrees and is not a
+    limit on the angle between segments. Scale Factor defaulted to 0, which made every vector zero
+    length; it now defaults to 1. Each path point must have exactly 3 numbers and the path at least
+    2 points, otherwise the node raises an error.
 legacy_text: Create a vector that is tangent to a curve or surface at a given point

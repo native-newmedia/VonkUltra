@@ -1,49 +1,49 @@
 # Fuse findings from the content pipeline
 
-Collected while writing the Mograph Array records (Animate, Modify and the mesh follow-up). Nothing here has been fixed: the docs describe what the code does today. Fusion was not run, so each item is read from the Lua code only. Fixes should follow the Mograph repo rules (same change in all three families, `luac -p`, test in Fusion).
+Collected while writing the Mograph Array records (Animate, Modify and the mesh follow-up). The docs describe what the code does today. The rows marked in the Status column were handled in fix batch F1 (branch fix/findings-f1 of native-newmedia/vonk-ultra-mograph, see _Cleanup/FIXES.md there); the records for those tools were re-written against the fixed fuses. Every other row is still open. Fusion was not run, so each item is read from the Lua code only. Fixes should follow the Mograph repo rules (same change in all three families, `luac -p`, test in Fusion).
 
 Families: A = Array, S = ScriptVal, J = JSON. "All" means all three behave this way.
 
 ## 1. Likely bugs (behavior contradicts the label or the registered description)
 
-| Tool | Finding | Families |
-|---|---|---|
-| Sin | The Sin and Cos buttons are swapped: Sin (default) outputs cosine, Cos outputs sine. | All |
-| Math | Arc Sine, Arc Cosine, Arc Tangent compute sinh, cosh, tanh. Negate computes 1 - A. Randomseed returns a random value between A and B and seeds nothing. | All |
-| CameraProjection | Close Edge Loop is inverted: the generated edge returns to point 1 when the box is off. | All |
-| DisplaceValues | X and Y noise is multiplied by 0 (`nx * 0 * falloff`), so only Z moves. The Array fuse displaces X, Y and Z. | S, J |
-| Iterator | Registered as "Loop an array", but it keeps every Nth point. | All |
-| SortByDistance | Smallest Distance and Distance Mode have no effect. `strictDistanceMode and nil or fallbackIndex` always returns the fallback, so Strict equals Preferred, and the result is always the nearest-neighbor chain. | All |
-| RotateValues | Pass Thru has no effect (the amount is always given, so the guard value is unused). Show Input shows the Rotate Amount port, not the Array port. | All |
-| Reverse | Preserve Metadata and Debug Mode are not read. | All |
-| Translate | Lock X/Y only changes visibility. Y Scale is always read, X Scale is used for X and Z. A comment mentions rotation that does not exist. | All |
-| PointAttractor | The spring term is always 0 (points start at rest at their input position), so Spring Return and Spring Bounce do nothing. Time is not read. | All |
-| PointAttractor, PointAttractorSpring | Multiplier divides the attractor X and Y. The old text says it multiplies the strength. Center, Z Offset, Axis and Relative Flare Offset are not read. | All |
-| Wave | X/Y/Z Position are displacement amounts, not a wave origin. Falloff is a plain multiplier with default 0, so nothing moves by default. Delay is not read. | All |
-| Perlin3Noise | Replaces the values with noise (does not add). A Curl type exists in code but the buttons offer only Perlin and Fractal. The Array fuse flattens and regroups by 3, which breaks 2-value points. S and J keep point length. | A differs |
-| MapRange | Mode Select is not read. The default button is -1 to 1, but New Min/Max default to -10 and 10. The control ID of Mode Select ends with a space. | All |
-| Packer | Pack To defaults to X, but Custom Group Size defaults to 0, which packs everything into one group. Only the group size is read. | All |
-| MaskByMesh | Falloff Distance, Weight Power, Min Output Weight, Append Weight and Surface Offset are hidden and never shown (NotifyChanged is empty). Soft Falloff does nothing while Falloff Distance is 0. | All |
-| BooleanMaskOps | The "Pass A / Pass B / Average When True" modes pass the A or B point unchanged when false, so the output length never shrinks. With default amounts they equal the A or B points. Trim Zeros removes any all-zero element, not only trailing ones. | All |
-| ApplyMask | Trim Zeros removes any all-zero point, not only trailing ones. | All |
-| Interpolate | Show Input only shows the Progress port. Arrays are trimmed to the shorter length. | All |
-| AttractToMesh | JSON fuse has two inputs with main link 1 (Points and JSON Points); only JSON Points is read. Array/ScriptVal pass `(meshPts, false, true)` to buildSurfaceSamples, JSON passes one argument. | J differs |
-| ScaleFromMesh | Two point inputs: only Array Points is read, Points (ID Points) is not. | All |
-| SlideOnMesh | Default direction 0, 0, 0 is turned into 0, 0, 1. | All |
-| ProjectOnMesh | Closest Surface, Nearest Vertex and Face Center give the same result. | All |
-| ClampToMeshProx, MirrorThruMesh, SnapMeshVertex, SortByMeshProx | "Surface" and "Vertex" give the same result. The Surface-to-Vertex fallback in MirrorThruMesh never changes anything. | All |
-| RelaxOnMesh | Moves each point toward the average of its 6 nearest points, which pulls points together. The registered description says it spreads them evenly. Output points are mesh vertices. | All |
-| JitterOnMesh, NoiseOnMesh (3D Reproject), SlideOnMesh | The result is replaced by the closest mesh vertex, so outputs are vertices. | All |
-| ClassifyByMesh | Normals point away from the centroid of all vertices, so concave shapes can misclassify. Offset Space visibility is updated inside Process(). | All |
-| TextWrap | In Table mode the Text output holds `tostring(table)`. In String mode the TextTable output holds the string in its array field. | All |
-| TangentVector | Z of the tangent is always 0. Max angle rotates the vectors around Z (it is not a limit between segments). Scale Factor defaults to 0, so End and flipped equal Start. | All |
-| RepeatTransform | Translate/Scale/Rotation are totals reached at the last copy, not per-copy steps. In grid modes the share still uses Number of Times, so it can exceed 1. Position Array is decoded as a bare flat list, so an array-wrapper input gives no offsets (not run). | All |
-| RippleDisplacer | The Time control is ignored while Auto Animate is on. Offset Multiplier scales the time offsets, not the displacement. Each output adds a built-in step to amplitude, frequency and time offset. | All |
-| Stagger (Animate) | Linear is a sine, not linear. Exponential is an envelope times a sine. ClampOutput, MinValue, MaxValue, ReverseIndex, Yoyo and Steps are not read. | All |
-| MaterialEasing (Animate) | Falloff X/Y/Z shift is divided by the point count. Three Standard Spatial curves are identical, and the three Standard Effects curves repeat the Expressive Effects ones. Empty input gives `[]`, not an object. Duration 0 divides by zero. | A |
-| PointsJitter (Animate) | Time 0 leaves a fixed per-point wobble. Jitter has no maximum when Uniform Jitter is off. | All |
-| ForEachIndexed | "by Index" modes use the index inside the group, not the global index. | All |
-| BoundingBox | Elements with other than 1, 2 or 3 values are skipped. | All |
+| Tool | Finding | Families | Status |
+|---|---|---|---|
+| Sin | The Sin and Cos buttons are swapped: Sin (default) outputs cosine, Cos outputs sine. | All | Fixed |
+| Math | Arc Sine, Arc Cosine, Arc Tangent compute sinh, cosh, tanh. Negate computes 1 - A. Randomseed returns a random value between A and B and seeds nothing. | All | Fixed (Randomseed relabelled Random A to B) |
+| CameraProjection | Close Edge Loop is inverted: the generated edge returns to point 1 when the box is off. | All | Open |
+| DisplaceValues | X and Y noise is multiplied by 0 (`nx * 0 * falloff`), so only Z moves. The Array fuse displaces X, Y and Z. | S, J | Open |
+| Iterator | Registered as "Loop an array", but it keeps every Nth point. | All | Description fixed |
+| SortByDistance | Smallest Distance and Distance Mode have no effect. `strictDistanceMode and nil or fallbackIndex` always returns the fallback, so Strict equals Preferred, and the result is always the nearest-neighbor chain. | All | Open |
+| RotateValues | Pass Thru has no effect (the amount is always given, so the guard value is unused). Show Input shows the Rotate Amount port, not the Array port. | All | Open |
+| Reverse | Preserve Metadata and Debug Mode are not read. | All | Preserve Metadata and Debug Mode implemented |
+| Translate | Lock X/Y only changes visibility. Y Scale is always read, X Scale is used for X and Z. A comment mentions rotation that does not exist. | All | Open |
+| PointAttractor | The spring term is always 0 (points start at rest at their input position), so Spring Return and Spring Bounce do nothing. Time is not read. | All | Open |
+| PointAttractor, PointAttractorSpring | Multiplier divides the attractor X and Y. The old text says it multiplies the strength. Center, Z Offset, Axis and Relative Flare Offset are not read. | All | Open |
+| Wave | X/Y/Z Position are displacement amounts, not a wave origin. Falloff is a plain multiplier with default 0, so nothing moves by default. Delay is not read. | All | Relabelled X, Y, Z Amount; Delay unused |
+| Perlin3Noise | Replaces the values with noise (does not add). A Curl type exists in code but the buttons offer only Perlin and Fractal. The Array fuse flattens and regroups by 3, which breaks 2-value points. S and J keep point length. | A differs | Open |
+| MapRange | Mode Select is not read. The default button is -1 to 1, but New Min/Max default to -10 and 10. The control ID of Mode Select ends with a space. | All | Defaults fixed; Mode Select unchanged (preset picker) |
+| Packer | Pack To defaults to X, but Custom Group Size defaults to 0, which packs everything into one group. Only the group size is read. | All | Fixed (Custom Group Size default 1) |
+| MaskByMesh | Falloff Distance, Weight Power, Min Output Weight, Append Weight and Surface Offset are hidden and never shown (NotifyChanged is empty). Soft Falloff does nothing while Falloff Distance is 0. | All | Open |
+| BooleanMaskOps | The "Pass A / Pass B / Average When True" modes pass the A or B point unchanged when false, so the output length never shrinks. With default amounts they equal the A or B points. Trim Zeros removes any all-zero element, not only trailing ones. | All | Pass modes fixed; Trim Zeros kept |
+| ApplyMask | Trim Zeros removes any all-zero point, not only trailing ones. | All | No change, Trim Zeros kept |
+| Interpolate | Show Input only shows the Progress port. Arrays are trimmed to the shorter length. | All | No change, matches its labels |
+| AttractToMesh | JSON fuse has two inputs with main link 1 (Points and JSON Points); only JSON Points is read. Array/ScriptVal pass `(meshPts, false, true)` to buildSurfaceSamples, JSON passes one argument. | J differs | Open |
+| ScaleFromMesh | Two point inputs: only Array Points is read, Points (ID Points) is not. | All | Open |
+| SlideOnMesh | Default direction 0, 0, 0 is turned into 0, 0, 1. | All | Open |
+| ProjectOnMesh | Closest Surface, Nearest Vertex and Face Center give the same result. | All | Open |
+| ClampToMeshProx, MirrorThruMesh, SnapMeshVertex, SortByMeshProx | "Surface" and "Vertex" give the same result. The Surface-to-Vertex fallback in MirrorThruMesh never changes anything. | All | Open |
+| RelaxOnMesh | Moves each point toward the average of its 6 nearest points, which pulls points together. The registered description says it spreads them evenly. Output points are mesh vertices. | All | Open |
+| JitterOnMesh, NoiseOnMesh (3D Reproject), SlideOnMesh | The result is replaced by the closest mesh vertex, so outputs are vertices. | All | Open |
+| ClassifyByMesh | Normals point away from the centroid of all vertices, so concave shapes can misclassify. Offset Space visibility is updated inside Process(). | All | Open |
+| TextWrap | In Table mode the Text output holds `tostring(table)`. In String mode the TextTable output holds the string in its array field. | All | Text output fixed; TextTable kept |
+| TangentVector | Z of the tangent is always 0. Max angle rotates the vectors around Z (it is not a limit between segments). Scale Factor defaults to 0, so End and flipped equal Start. | All | Z fixed; Rotate Angle relabelled; Scale Factor default 1 |
+| RepeatTransform | Translate/Scale/Rotation are totals reached at the last copy, not per-copy steps. In grid modes the share still uses Number of Times, so it can exceed 1. Position Array is decoded as a bare flat list, so an array-wrapper input gives no offsets (not run). | All | Open |
+| RippleDisplacer | The Time control is ignored while Auto Animate is on. Offset Multiplier scales the time offsets, not the displacement. Each output adds a built-in step to amplitude, frequency and time offset. | All | Built-in step moved into defaults; Time and Offset Multiplier kept |
+| Stagger (Animate) | Linear is a sine, not linear. Exponential is an envelope times a sine. ClampOutput, MinValue, MaxValue, ReverseIndex, Yoyo and Steps are not read. | All | Linear and Exponential fixed; hidden controls left |
+| MaterialEasing (Animate) | Falloff X/Y/Z shift is divided by the point count. Three Standard Spatial curves are identical, and the three Standard Effects curves repeat the Expressive Effects ones. Empty input gives `[]`, not an object. Duration 0 divides by zero. | A | Falloff, Duration 0 and empty output fixed; duplicate curves kept |
+| PointsJitter (Animate) | Time 0 leaves a fixed per-point wobble. Jitter has no maximum when Uniform Jitter is off. | All | No change, matches its labels |
+| ForEachIndexed | "by Index" modes use the index inside the group, not the global index. | All | Fixed |
+| BoundingBox | Elements with other than 1, 2 or 3 values are skipped. | All | No change, matches its description |
 
 ## 2. Code quality and risk
 
@@ -68,7 +68,7 @@ The registered description says "nearest mesh vertex" and matches the code. The 
 
 ### ApplyMask
 
-Trim Zeros removes every output point whose X, Y and Z are all 0, anywhere in the array, not only trailing zeros as the old text said. A missing mask entry counts as 1, so with no Mask connected the output is the Modified points scaled by Amount.
+Reviewed in fix batch F1: the code matches its label and registered description, so the fuse was not changed. Trim Zeros does what its label says (it is not limited to trailing zeros). A missing mask entry counts as 1, so with no Mask connected the output is the Modified points scaled by Amount.
 
 ### AttractToMesh
 
@@ -80,11 +80,11 @@ Offset XYZ and Replace XYZ use one number for all three axes, so they do not mov
 
 ### BooleanMaskOps
 
-The modes Pass A Points When True, Pass B Points When True and Average A/B Points When True do not drop points when the result is false: the A or B point is passed unchanged in that case, so the output keeps the input length. When true, the point is multiplied by Output Amount and the axis amounts, which are all 1 by default, so with defaults the output equals the A or B points. Trim Zeros removes every point whose X, Y and Z are all 0, not only trailing zeros. Average mode outputs the A point when false, not the B point.
+Changed in fix batch F1 (branch fix/findings-f1 of vonk-ultra-mograph), same change in all three families. The modes Pass A Points When True, Pass B Points When True and Average A/B Points When True passed the A or B point unchanged when the result was false, so the output kept the input length; they now leave false elements out. The truth test is the boolean result and not "Output Amount above 0". When true, the point is multiplied by Output Amount and the axis amounts, which are all 1 by default, so with defaults the output equals the A or B points. Trim Zeros removes every point whose X, Y and Z are all 0, not only trailing zeros; the label says "Trim Zeros" and the code was kept.
 
 ### BoundingBox
 
-Only elements with exactly 1, 2 or 3 values are used. Other lengths are skipped. If any element has 3 values the output is a 3D box and the X and Y limits also include 2 value elements.
+Reviewed in fix batch F1: the code matches its label and registered description, so the fuse was not changed. Only elements with exactly 1, 2 or 3 values are used. Other lengths are skipped. If any element has 3 values the output is a 3D box and the X and Y limits also include 2 value elements.
 
 ### CameraProjection
 
@@ -128,7 +128,7 @@ The ScriptVal and JSON fuses multiply the X and Y noise by 0 (displaced_x = x + 
 
 ### ForEachIndexed
 
-The modes named "by Index" use the position inside the group (index modulo Group Size), not the position in the whole array, so with the default Group Size of 8 the offsets repeat every 8 points. Only the two Random Offset by Index modes use the full index. There is no Seed control: the random values come from a fixed hash of the group or point number. A mask value above 0 applies the change, and a missing mask entry counts as 1. Input that does not start with a list is passed through unchanged. Output points keep only X, Y and Z.
+Changed in fix batch F1 (branch fix/findings-f1 of vonk-ultra-mograph), same change in all three families. The modes named "by Index" used the position inside the group (index modulo Group Size), so with the default Group Size of 8 the offsets repeated every 8 points. They now use the position in the whole array, like the two Random Offset by Index modes. There is no Seed control: the random values come from a fixed hash of the group or point number. A mask value above 0 applies the change, and a missing mask entry counts as 1. Input that does not start with a list is passed through unchanged. Output points keep only X, Y and Z.
 
 ### FromAudio
 
@@ -168,11 +168,11 @@ The node has no input. It builds edge lists from Number X and Number Y alone, wi
 
 ### Interpolate
 
-The old texts list the easings as Linear, Ease In, Ease Out, Ease In-Out and Back. The control has seven: linear, easeInQuad, easeOutQuad, easeInOutQuad, easeInExpo, easeOutExpo, easeInOutExpo. The old text for Show Input says it reveals the Array A and Array B ports. In the code it only shows the Progress input port. The old text says the two arrays must have the same length; the code trims both to the shorter length.
+Reviewed in fix batch F1: the code matches its label and registered description, so the fuse was not changed. The old texts list the easings as Linear, Ease In, Ease Out, Ease In-Out and Back. The control has seven: linear, easeInQuad, easeOutQuad, easeInOutQuad, easeInExpo, easeOutExpo, easeInOutExpo. The old text for Show Input says it reveals the Array A and Array B ports. In the code it only shows the Progress input port. The old text says the two arrays must have the same length; the code trims both to the shorter length.
 
 ### Iterator
 
-The registered description and the old text say the node loops or repeats an array. The code keeps every Nth element of the input (Step = N) and does not repeat anything. Only elements that are lists with at least 3 values are kept, and each is cut to its first 3 values.
+Changed in fix batch F1 (branch fix/findings-f1 of vonk-ultra-mograph), same change in all three families. The registered description said "Loop an array" but the code keeps every Nth element of the input (Step = N) and repeats nothing; the description is now "Keep every Nth point of an array". Only elements that are lists with at least 3 values are kept, and each is cut to its first 3 values.
 
 ### JitterOnMesh
 
@@ -200,7 +200,7 @@ Scale is multiplied by 1000 in the code, so the default output is large. Auto Fi
 
 ### MapRange
 
-The old text says Mode Select picks a remapping strategy (clamped, unclamped, normalised). Process() does not read the mode. The four buttons only set New Min and New Max to -10 and 10, -1 and 1, 0 and 1, or 0 and 360 when pressed. The control default is the "-1 - 1" button, while New Min and New Max default to -10 and 10, so the node starts mapping to -10 to 10. The remap is linear and not clamped. The control ID of Mode Select ends with a space ("ModeSelect "). The ScriptVal and JSON versions keep the other keys of the input table, the Array version does not.
+Changed in fix batch F1 (branch fix/findings-f1 of vonk-ultra-mograph), same change in all three families. New Min and New Max defaulted to -10 and 10 while the default button is "-1 - 1"; they now default to -1 and 1. The old text says Mode Select picks a remapping strategy (clamped, unclamped, normalised). Process() does not read the mode. The four buttons only set New Min and New Max to -10 and 10, -1 and 1, 0 and 1, or 0 and 360 when pressed. The remap is linear and not clamped. The control ID of Mode Select ends with a space ("ModeSelect ") and was kept. The ScriptVal and JSON versions keep the other keys of the input table, the Array version does not.
 
 ### MaskByMesh
 
@@ -208,11 +208,11 @@ The old Min Distance text says points below it are kept. The code removes them: 
 
 ### MaterialEasing
 
-Falloff X, Y, Z: the code sets the center to (Falloff * 10 + sum of point coordinates) / point count, so the Falloff shift is divided by the point count and is not a plain shift of the average. Standard Fast, Default and Slow Spatial use one identical curve, and Standard Fast, Default and Slow Effects use the same curves as the three Expressive Effects entries. With no input points the Array fuse writes "[]" and not an object with "array" and "size". Duration 0 divides by zero. Unused code: parseJSONArray and the totalPoints argument.
+Changed in fix batch F1 (branch fix/findings-f1 of vonk-ultra-mograph), same change in all three families. The Falloff shift was divided by the point count; the center is now the average of the points plus Falloff * 10. Duration 0 divided by zero; it is now a step. With no input points the Array fuse wrote "[]" and now writes an object with an empty "array" and size 0. Standard Fast, Default and Slow Spatial use one identical curve, and Standard Fast, Default and Slow Effects use the same curves as the three Expressive Effects entries; this was kept on purpose. Unused code: parseJSONArray and the totalPoints argument.
 
 ### Math
 
-Several Operation labels do not match the formula. Arc Sine, Arc Cosine and Arc Tangent compute sinh, cosh and tanh. Negate computes 1 - A. Randomseed does not seed anything: it returns a random value between A and B. Random returns A times a random value from 0 to 1. The old text lists only six operations. The old text says Which selects an element; the control is hidden and Process() never reads it. Array B does not have to match the length of Array A; missing entries count as 0. The output always has three values per element. In the ScriptVal fuse the matrix for Matrix Multiply comes from a separate Matrix input and not from Input B.
+Changed in fix batch F1 (branch fix/findings-f1 of vonk-ultra-mograph), same change in all three families. Arc Sine, Arc Cosine and Arc Tangent computed sinh, cosh and tanh; they now compute the inverse functions (Arc Sine and Arc Cosine return 0 outside -1 to 1). Negate computed 1 - A and now returns -A. The entry at index 30 was labelled Randomseed although it seeds nothing; it is now labelled Random A to B and still returns a random value between A and B. Random returns A times a random value from 0 to 1. The old text lists only six operations. The old text says Which selects an element; the control is hidden and Process() never reads it. Array B does not have to match the length of Array A; missing entries count as 0. The output always has three values per element. In the ScriptVal fuse the matrix for Matrix Multiply comes from a separate Matrix input and not from Input B.
 
 ### MirrorThruMesh
 
@@ -228,7 +228,7 @@ The offset is applied to the original point, not to the closest vertex: the resu
 
 ### Packer
 
-The Pack To buttons are --, X, X Y and X Y Z. Pressing one writes 0, 1, 2 or 3 into Custom Group Size. Process() reads only Custom Group Size. The control defaults are Pack To = X but Custom Group Size = 0, and a size of 0 puts all elements into one group. The registered description is "Pack an Array into a new array". There is no padding: a last group can be shorter. In the Array fuse the input must be a table with an "array" key. The JSON fuse takes a bare array.
+Changed in fix batch F1 (branch fix/findings-f1 of vonk-ultra-mograph), same change in all three families. Custom Group Size defaulted to 0 while Pack To showed X; it now defaults to 1. The Pack To buttons are --, X, X Y and X Y Z. Pressing one writes 0, 1, 2 or 3 into Custom Group Size. Process() reads only Custom Group Size. A size of 0 puts all elements into one group. The registered description is "Pack an Array into a new array". There is no padding: a last group can be shorter. In the Array fuse the input must be a table with an "array" key. The JSON fuse takes a bare array.
 
 ### ParallelOffset
 
@@ -268,7 +268,7 @@ Connection is a blend amount from 0 to 1: the second point of each pair is A + (
 
 ### PointsJitter
 
-The old Jitter text said "maximum jitter per axis". That holds only for Uniform Jitter on. With it off the offset is normally distributed with Jitter as the spread, so it has no maximum. The wobble is not removed at Time 0: it stays as a fixed per-point offset of sin(i) * Jitter * 0.5. The JSON and ScriptVal fuses also accept a bare array as input; the Array fuse needs the "array" key.
+Reviewed in fix batch F1: the code matches its label and registered description, so the fuse was not changed. The old Jitter text said "maximum jitter per axis". That holds only for Uniform Jitter on. With it off the offset is normally distributed with Jitter as the spread, so it has no maximum. The wobble is not removed at Time 0: it stays as a fixed per-point offset of sin(i) * Jitter * 0.5. The JSON and ScriptVal fuses also accept a bare array as input; the Array fuse needs the "array" key.
 
 ### PointsOnArc
 
@@ -316,11 +316,11 @@ Interp Steps is used only for Catmull-Rom, B-Spline and Cardinal. With Linear th
 
 ### Reverse
 
-Preserve Metadata and Debug Mode are not used by Process(): the size value is written the same way whether Preserve Metadata is on or not, and Debug Mode is never read. The elements are copied as they are, so extra values of points are always kept. Forward copies the range in its original order, so it changes nothing.
+Changed in fix batch F1 (branch fix/findings-f1 of vonk-ultra-mograph), same change in all three families. Preserve Metadata and Debug Mode were not read by Process(); they now work. Preserve Metadata on copies the other keys of a wrapped input to the output; the ScriptVal and JSON versions write a wrapper {array, size, ...} only when the input was wrapped and the box is on, otherwise a bare array as before. The ScriptVal and JSON versions now also unwrap a wrapped input before reversing; it used to pass through unreversed. The elements are copied as they are, so extra values of points are always kept. Forward copies the range in its original order, so it changes nothing.
 
 ### RippleDisplacer
 
-The Time control is used only when Auto Animate is off. With Auto Animate on, the time is the render time times Speed times 0.1 and the Time control is ignored. Offset Multiplier multiplies the time offsets of the arrays, not the displacement as the old text said. Each of the five outputs adds a built-in step: amplitude + 0.2 * (n - 1), frequency + 0.1 * (n - 1) and time offset + 0.3 * (n - 1). A disabled array gives an empty output. The per-array controls Enable Array n, Amplitude n, Frequency n and Time Offset n are created in a loop, so they are not listed as rows. Debug Mode prints to the console. The JSON fuse writes the points without the array and size wrapper.
+Changed in fix batch F1 (branch fix/findings-f1 of vonk-ultra-mograph), same change in all three families. Each output used to add a built-in step (amplitude + 0.2 * (n - 1), frequency + 0.1 * (n - 1), time offset + 0.3 * (n - 1)) on top of the value shown in Amplitude n, Frequency n and Time Offset n. The step now sits in the defaults of those controls and the shown value is the value used. The Time control is used only when Auto Animate is off; with it on the time is the render time times Speed times 0.1. Offset Multiplier multiplies the time offsets of the arrays, not the displacement, and the code was kept. A disabled array gives an empty output. The per-array controls Enable Array n, Amplitude n, Frequency n and Time Offset n are created in a loop, so they are not listed as rows. Debug Mode prints to the console. The JSON fuse writes the points without the array and size wrapper.
 
 ### RotateValues
 
@@ -336,7 +336,7 @@ If Mesh Points is connected and not empty, it is used and the Surface Positions 
 
 ### Sin
 
-The Math Function buttons are swapped in the code: Sin (the default) outputs cosine and Cos outputs sine. The node replaces the values with the wave and does not add the wave to them. In the Array fuse, elements that are not lists of 3 or more values are dropped and each point is cut to 3 values. The ScriptVal and JSON fuses keep lists of any length and plain numbers, and count the numbers across all points for Offset instead of using the point number.
+Changed in fix batch F1 (branch fix/findings-f1 of vonk-ultra-mograph), same change in all three families. The Sin and Cos buttons were swapped (Sin gave cosine); they now match their labels. The node replaces the values with the wave and does not add the wave to them. In the Array fuse, elements that are not lists of 3 or more values are dropped and each point is cut to 3 values. The ScriptVal and JSON fuses keep lists of any length and plain numbers, and count the numbers across all points for Offset instead of using the point number.
 
 ### SlideOnMesh
 
@@ -360,11 +360,11 @@ Surface and Vertex measure to the same point, the closest mesh vertex. Face Cent
 
 ### Stagger
 
-Mode "Linear" is not linear in the code: it is sin(0.1 * (time - index * delay)) and ignores Wave Frequency. Mode "Exponential" is an envelope times a sine, also not an exponential ramp. The hidden controls Clamp Output, Min Value, Max Value, Reverse Index, Yoyo and Steps are created but Process() never reads them (processStagger gets none of them, and its reverse and yoyo locals are always true). The Stagger Delay fallback in Process() (0.2) is never used because the control default is 0. Sawtooth Wave divides by Wave Frequency, so a value of 0 gives an infinite period.
+Changed in fix batch F1 (branch fix/findings-f1 of vonk-ultra-mograph), same change in all three families. Mode Linear was sin(0.1 * (time - index * delay)); it is now 0.1 * (time - index * delay). Mode Exponential was an envelope times a sine; it is now 1 - exp(-0.1 * t) with t = time - index * delay * 0.1, not below 0. The hidden controls Clamp Output, Min Value, Max Value, Reverse Index, Yoyo and Steps are created but Process() never reads them (processStagger gets none of them, and its reverse and yoyo locals are always true). The Stagger Delay fallback in Process() (0.2) is never used because the control default is 0. Sawtooth Wave divides by Wave Frequency, so a value of 0 gives an infinite period.
 
 ### TangentVector
 
-The tangent is computed in XY only: the Z part of the direction is always 0, so paths that rise in Z get flat tangents. Max angle is not a limit on the angle between segments, as the old text said: it rotates every tangent vector around Z by that many degrees. Scale Factor defaults to 0, which makes every vector zero length, so End and flipped give the same points as Start. Each path point must have exactly 3 numbers and the path at least 2 points, otherwise the node raises an error.
+Changed in fix batch F1 (branch fix/findings-f1 of vonk-ultra-mograph), same change in all three families. The Z part of the direction was always 0; it is now the Z difference to the next point, so paths that change in Z get 3D tangents. The control "Max angle" was renamed "Rotate Angle" (ID angle): it rotates every tangent vector around Z by that many degrees and is not a limit on the angle between segments. Scale Factor defaulted to 0, which made every vector zero length; it now defaults to 1. Each path point must have exactly 3 numbers and the path at least 2 points, otherwise the node raises an error.
 
 ### TextFont
 
@@ -372,7 +372,7 @@ Case, Justification, RotOrder and the Shear controls are read or shown but do no
 
 ### TextWrap
 
-In Table mode the Text output holds tostring() of a Lua table (an address), not the lines, and in String mode the TextTable output holds the wrapped string in its array field. Words longer than the line length are cut into pieces of that length. The ScriptVal fuse writes tostring of the same value, and the JSON fuse writes the lines without the array and size wrapper.
+Changed in fix batch F1 (branch fix/findings-f1 of vonk-ultra-mograph), same change in all three families. In Table mode the Text output held tostring() of a Lua table (an address); it now holds the lines joined by line breaks. In String mode the TextTable output holds the wrapped string in its array field; this was kept on purpose, as String selects a string result. Words longer than the line length are cut into pieces of that length. The ScriptVal fuse writes the lines as a ScriptVal value, and the JSON fuse writes the lines without the array and size wrapper.
 
 ### ToOBJ
 
@@ -392,7 +392,7 @@ The Custom Group Size control is hidden. The four buttons 1 Array to 4 Arrays se
 
 ### Wave
 
-The old text describes a wave origin and a falloff with distance. The code has no distance calculation. X, Y and Z Position are the displacement per unit of wave: each point moves by (X, Y, Z Position) * wave * Falloff. Falloff is a multiplier (default 0), so nothing moves until both Falloff and one of the positions are set. Delay (hidden) is not read; Offset (hidden) is added to the wave and defaults to 0. Show Input is hidden and shows the ports of Start At Frame, Period, Strength and Limit. Period 0 divides by zero. The wave starts at 0 until the frame passes Start At Frame.
+Changed in fix batch F1 (branch fix/findings-f1 of vonk-ultra-mograph), same change in all three families. The controls X, Y and Z Position were renamed X, Y and Z Amount (IDs XPosition, YPosition, ZPosition unchanged), because they are displacement amounts and not a wave origin. The code has no distance calculation. Each point moves by (X, Y, Z Amount) * wave * Falloff. Falloff is a multiplier (default 0), so nothing moves until both Falloff and one of the amounts are set. Delay (hidden) is not read; Offset (hidden) is added to the wave and defaults to 0. Show Input is hidden and shows the ports of Start At Frame, Period, Strength and Limit. Period 0 divides by zero. The wave starts at 0 until the frame passes Start At Frame.
 
 ### WeightByMeshProx
 

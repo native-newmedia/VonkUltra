@@ -16,9 +16,9 @@ curated:
       length is cut into pieces of that length. Number of Paragraphs (default 1) divides the words
       into that many groups of about equal size and puts an empty line between them.
     - >-
-      With Output As String, the default, the Text output holds the lines joined by line breaks.
-      With Table, the TextTable output holds the list of lines. In Table mode the Text output holds
-      a table address and not text. Number of Paragraphs can be connected to another node.
+      The Text output always holds the wrapped lines joined by line breaks. With Output As Table the
+      TextTable output holds the list of lines. With String, the default, TextTable holds the same
+      string. Number of Paragraphs can be connected to another node.
   features:
     - title: Wraps to a width
       desc: Lines break at spaces so that no line is longer than Line length.
@@ -57,8 +57,11 @@ status:
   connections_source: docsify
   prompt_version: '1'
   note: >-
-    In Table mode the Text output holds tostring() of a Lua table (an address), not the lines, and
-    in String mode the TextTable output holds the wrapped string in its array field. Words longer
-    than the line length are cut into pieces of that length. The ScriptVal fuse writes tostring of
-    the same value, and the JSON fuse writes the lines without the array and size wrapper.
+    Changed in fix batch F1 (branch fix/findings-f1 of vonk-ultra-mograph), same change in all three
+    families. In Table mode the Text output held tostring() of a Lua table (an address); it now
+    holds the lines joined by line breaks. In String mode the TextTable output holds the wrapped
+    string in its array field; this was kept on purpose, as String selects a string result. Words
+    longer than the line length are cut into pieces of that length. The ScriptVal fuse writes the
+    lines as a ScriptVal value, and the JSON fuse writes the lines without the array and size
+    wrapper.
 legacy_text: Text wrap Operations on a Array

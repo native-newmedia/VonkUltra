@@ -65,6 +65,7 @@ status:
   reviewed_hash: null
   prompt_version: '1'
   note: >-
-    Trim Zeros removes every output point whose X, Y and Z are all 0, anywhere in the array, not
-    only trailing zeros as the old text said. A missing mask entry counts as 1, so with no Mask
-    connected the output is the Modified points scaled by Amount.
+    Reviewed in fix batch F1: the code matches its label and registered description, so the fuse was
+    not changed. Trim Zeros does what its label says (it is not limited to trailing zeros). A
+    missing mask entry counts as 1, so with no Mask connected the output is the Modified points
+    scaled by Amount.

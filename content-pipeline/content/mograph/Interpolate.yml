@@ -62,8 +62,9 @@ status:
   reviewed_hash: null
   prompt_version: '1'
   note: >-
-    The old texts list the easings as Linear, Ease In, Ease Out, Ease In-Out and Back. The control
-    has seven: linear, easeInQuad, easeOutQuad, easeInOutQuad, easeInExpo, easeOutExpo,
+    Reviewed in fix batch F1: the code matches its label and registered description, so the fuse was
+    not changed. The old texts list the easings as Linear, Ease In, Ease Out, Ease In-Out and Back.
+    The control has seven: linear, easeInQuad, easeOutQuad, easeInOutQuad, easeInExpo, easeOutExpo,
     easeInOutExpo. The old text for Show Input says it reveals the Array A and Array B ports. In the
     code it only shows the Progress input port. The old text says the two arrays must have the same
     length; the code trims both to the shorter length.
