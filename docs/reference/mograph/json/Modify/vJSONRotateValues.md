@@ -1,7 +1,7 @@
 ---
 sidebar_position: 53
 title: vJSONRotateValues
-description: "Rotate an array indexes and values"
+description: "Cycles the elements of an array forward or backward by a number of positions."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -9,38 +9,58 @@ import TabItem from '@theme/TabItem';
 
 # vJSONRotateValues
 
-Rotate an array indexes and values
+Cycles the elements of an array forward or backward by a number of positions.
 
 <div className="node-badge-row">
+  <span className="node-badge node-badge--beginner">Beginner</span>
   <span className="node-badge">Mograph / JSON</span>
   <span className="node-badge">JSON</span>
-  <span className="node-badge">ScriptVal</span>
   <span className="node-badge">Array</span>
+  <span className="node-badge">ScriptVal</span>
 </div>
 
 <div className="node-screenshot">
   <img src="/VonkUltra/img/reference/mograph/json/vJSONRotateValues.png" alt="vJSONRotateValues node" />
 </div>
 
+vJSONRotateValues takes an array and moves every element by Rotate Amount positions, wrapping the elements that fall off one end around to the other. Rotate Amount is the only setting.
+
 ## Parameters
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Rotate Amount | Integer | `1` | Number of positions the values are shifted. |
-| Pass Thru: 0 or 1 | Integer | `0.0` | — |
-| Show Input | Integer | `0.0` | — |
-| Input | DATATYPE | `—` | Data to process. |
+| Rotate Amount | Integer | `1` | Number of positions to shift. Whole numbers from -100 to 100, default 1. Positive moves toward the end. |
+| Pass Thru: 0 or 1 | Integer | `0.0` | Hidden control. Has no effect in the code. Default off. |
+| Show Input | Integer | `0.0` | Shows the input port of Rotate Amount when on. Default off. |
+| Input | DATATYPE | `—` | Array whose elements are shifted. |
+
+<details>
+<summary>Read the full description</summary>
+
+With Rotate Amount 1 (the default) every element moves one place toward the end, and the last element becomes the first. A negative amount moves the elements toward the start, and the first element becomes the last. The amount can be -100 to 100, whole numbers, and a larger amount than the array length wraps around.
+
+The elements can be numbers, points or lists, and they are not changed. Show Input makes the Rotate Amount input port visible, so the amount can be connected to another node. The hidden Pass Thru control has no effect.
+
+</details>
 
 ## Example Connections
 
 <Tabs>
-<TabItem value="example-1" label="Example 1" default>
+<TabItem value="cycle-the-points-of-a-ring-and-draw" label="Cycle the points of a ring and draw" default>
 
 ```
-vJSONPointsOnHexagon.Output -> vJSONRotateValues.ArrayA
-    vJSONRotateValues.Output -> vJSONCameraProjection.ArrayA
-    vJSONCameraProjection.Output -> vJSONShapeRender.JSONPoint
-    Background.Output -> vJSONShapeRender.Input
+vJSONPointsOnCircle.Output -> vJSONRotateValues.ArrayA
+vJSONRotateValues.Output -> vJSONCameraProjection.ArrayA
+vJSONCameraProjection.Output -> vJSONShapeRender.ArrayPoint
+Background.Output -> vJSONShapeRender.Input
+```
+
+</TabItem>
+<TabItem value="shift-a-list-for-a-stagger" label="Shift a list for a stagger">
+
+```
+vJSONCreateRange.Output -> vJSONRotateValues.ArrayA
+vJSONRotateValues.Output -> vJSONMath.ArrayA
 ```
 
 </TabItem>
@@ -49,12 +69,11 @@ vJSONPointsOnHexagon.Output -> vJSONRotateValues.ArrayA
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="../Create/vJSONPointsOnHexagon">vJSONPointsOnHexagon</a>
-  <a className="node-chip" href="./vJSONCameraProjection">vJSONCameraProjection</a>
-  <a className="node-chip" href="../ShapeRender/vJSONShapeRender">vJSONShapeRender</a>
+  <a className="node-chip" href="./vJSONReverse">vJSONReverse</a>
+  <a className="node-chip" href="../Utility/vJSONSlicer">vJSONSlicer</a>
+  <a className="node-chip" href="../Animate/vJSONStagger">vJSONStagger</a>
 </div>
 
 {/*
-Generated page — node: vJSONRotateValues (JSON/Modify).
-Source: fuse vJSONRotateValues.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Rendered from content-pipeline record (ai).
 */}

@@ -1,7 +1,7 @@
 ---
 sidebar_position: 2
 title: vArrayBuffer
-description: "FIFO (first in first out) array buffer"
+description: "Generate an array of evenly spaced values between a Low and a High limit."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -9,10 +9,10 @@ import TabItem from '@theme/TabItem';
 
 # vArrayBuffer
 
-Store a rolling frame history of any vArray — the foundation for motion trails, echo effects, and time-offset animations.
+Generate an array of evenly spaced values between a Low and a High limit.
 
 <div className="node-badge-row">
-  <span className="node-badge node-badge--intermediate">Intermediate</span>
+  <span className="node-badge node-badge--beginner">Beginner</span>
   <span className="node-badge">Mograph / Array</span>
   <span className="node-badge">Array</span>
   <span className="node-badge">ScriptVal</span>
@@ -23,42 +23,35 @@ Store a rolling frame history of any vArray — the foundation for motion trails
   <img src="/VonkUltra/img/reference/mograph/array/vArrayBuffer.png" alt="vArrayBuffer node" />
 </div>
 
-vArrayBuffer implements a FIFO (first-in, first-out) queue that retains a fixed number of previous array states across frames, outputting the accumulated history as a single flat array. Use it wherever you need a point array to remember where it came from — particle trails, motion echoes, ghost frames, and staggered reveal animations.
+vArrayBuffer has no input and outputs Array Length points whose X values run linearly from Low to High. Offset Range shifts both limits.
 
 ## Parameters
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Array Length (min 2) | Integer | `2` | Number of frames retained in the buffer. The output array contains this many frames concatenated together. Minimum 2. Higher values produce longer trails; lower values produce tighter echoes. |
-| Offset Range | Integer | `0` | Shifts which buffer entry is treated as the current frame. At 0, output leads with the most recent frame. Increasing the value adds temporal delay between the live array state and what is rendered. |
-| Pack To | Dropdown | `0` | Output packing format for the accumulated frame history. Match this to what the downstream node expects — XY pairs or XYZ triples. |
-| Show Input | Checkbox | `Off` | Reveals the ArrayA input port on the node in the Fusion flow. Enable if the upstream connection point is not visible. |
+| Array Length (min 2) | Integer | `2` | Number of points to generate. Minimum 2, default 2. Has a socket. |
+| Low | Float | `-1` | Lower limit of the range. Default -1. |
+| High | Float | `1` | Upper limit of the range. Default 1. |
+| Offset Range | Float | `0.0` | Value added to both limits. Default 0. Has a socket. |
+| Show Input | Integer | `0.0` | Shows or hides the Array Length and Offset Range sockets on the node. |
 
 <details>
 <summary>Read the full description</summary>
 
-vArrayBuffer is a temporal accumulator — it captures the state of an upstream vArray on every frame and holds the last N frames in memory, where N is set by Array Length. On each new frame the oldest entry is dropped and the new one is pushed in, producing a classic FIFO queue. The output is all stored frames concatenated into a single flat vArray, which downstream nodes treat as one continuous point table. This makes every frame's worth of data available to vArrayCameraProjection and vArrayShapeRender simultaneously, creating motion trail and echo effects with zero expressions.
+The node computes min = Low + Offset Range and max = High + Offset Range. It then outputs Array Length points, evenly spaced from min to max. Each point is (value, 0, 0), so the values are in X and Y and Z are 0.
 
-The Offset Range parameter shifts which entry in the buffer is treated as the current frame, effectively scrubbing backwards through the history. At 0, the output leads with the most recent frame. Increasing the offset delays the output, adding latency between the live position and what gets rendered — useful for creating staggered animations where each trail segment is offset in time rather than space. Pack To controls how the accumulated history is structured: XY pairs or XYZ triples, matching the format expected by the downstream generator or renderer.
+The defaults (length 2, low -1, high 1, offset 0) output two points at X = -1 and X = 1. Raise Array Length for more points between the same limits. Array Length has a minimum of 2.
 
-The most common use is a motion trail on a moving point array: connect any animated generator to vArrayBuffer, set Array Length to the desired trail length, then feed the output straight into vArrayCameraProjection and vArrayShapeRender. The trail grows during the first N frames as the buffer fills, then stabilises into a fixed-length stream. For smoother trails, increase Array Length; for a tighter, more responsive echo, keep it short. Show Input reveals the ArrayA port explicitly if it isn’t visible in the Fusion flow.
+Array Length and Offset Range can also be driven through sockets. The Show Input checkbox toggles whether those two sockets are visible on the node.
+
+The node keeps no state between frames. Its output depends only on the current control values, so animating Offset Range moves the whole range over time.
 
 </details>
 
 ## Example Connections
 
 <Tabs>
-<TabItem value="motion-trail-on-animated-circle" label="Motion trail on animated circle" default>
-
-```
-vArrayPointsOnCircle.Output -> vArrayBuffer.ArrayA
-vArrayBuffer.Output -> vArrayCameraProjection.ArrayA
-vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
-Background.Output -> vArrayShapeRender.Input
-```
-
-</TabItem>
-<TabItem value="buffer-to-render-pipeline" label="Buffer to render pipeline">
+<TabItem value="spread-points-along-x-and-draw" label="Spread points along X and draw" default>
 
 ```
 vArrayBuffer.Output -> vArrayCameraProjection.ArrayA
@@ -67,14 +60,11 @@ Background.Output -> vArrayShapeRender.Input
 ```
 
 </TabItem>
-<TabItem value="trail-with-displacement" label="Trail with displacement">
+<TabItem value="use-the-range-as-a-base-for-modifiers" label="Use the range as a base for modifiers">
 
 ```
-vArrayPointsOnGrid.Output -> vArrayDisplaceValues.ArrayA
-vArrayDisplaceValues.Output -> vArrayBuffer.ArrayA
-vArrayBuffer.Output -> vArrayCameraProjection.ArrayA
-vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
-Background.Output -> vArrayShapeRender.Input
+vArrayBuffer.Output -> vArrayMath.ArrayA
+vArrayMath.Output -> vArrayCameraProjection.ArrayA
 ```
 
 </TabItem>
@@ -83,11 +73,11 @@ Background.Output -> vArrayShapeRender.Input
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="../../array/Create/vArrayPointsOnCircle">vArrayPointsOnCircle</a>
-  <a className="node-chip" href="../../array/Modify/vArrayCameraProjection">vArrayCameraProjection</a>
-  <a className="node-chip" href="../../array/Modify/vArrayDisplaceValues">vArrayDisplaceValues</a>
+  <a className="node-chip" href="./vArrayCreateRange">vArrayCreateRange</a>
+  <a className="node-chip" href="./vArrayPointsOnGrid">vArrayPointsOnGrid</a>
+  <a className="node-chip" href="../Modify/vArrayTranslate">vArrayTranslate</a>
 </div>
 
 {/*
-Rich page restored from _output/vArrayBuffer_page.json. Source of truth: fuses.ts / vonkultratools data model.
+Rendered from content-pipeline record (ai).
 */}

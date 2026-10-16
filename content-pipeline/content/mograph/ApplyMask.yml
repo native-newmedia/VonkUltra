@@ -61,8 +61,8 @@ curated:
     Mask: One number per index. A list contributes its first value. Missing entries count as 1.
 status:
   source: ai
-  state: ai
-  reviewed_hash: null
+  state: reviewed
+  reviewed_hash: bf971fe195b3
   prompt_version: '1'
   note: >-
     Reviewed in fix batch F1: the code matches its label and registered description, so the fuse was

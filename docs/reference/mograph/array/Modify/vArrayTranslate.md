@@ -1,7 +1,7 @@
 ---
 sidebar_position: 64
 title: vArrayTranslate
-description: "Move, rotate and scale point positions"
+description: "Adds an XYZ offset to every point, then multiplies it by a scale."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 # vArrayTranslate
 
-Shift every point in a vArray by a constant XYZ offset — the simplest way to reposition a point cloud in world space.
+Adds an XYZ offset to every point, then multiplies it by a scale.
 
 <div className="node-badge-row">
   <span className="node-badge node-badge--beginner">Beginner</span>
@@ -23,57 +23,56 @@ Shift every point in a vArray by a constant XYZ offset — the simplest way to r
   <img src="/VonkUltra/img/reference/mograph/array/vArrayTranslate.png" alt="vArrayTranslate node" />
 </div>
 
-vArrayTranslate adds a fixed offset to the X, Y, and Z coordinates of every element in a vArray. Place it after any generator to recentre, spread, or stack point arrays before rendering.
+vArrayTranslate takes an array of XYZ points and outputs (point + offset) * scale for each axis. X Scale is used for X and Z, and Y Scale for Y.
 
 ## Parameters
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| X Offset | Integer | `—` | Moves all array points along the X axis by this amount. Keyframe to animate horizontal position. |
-| Y Offset | Integer | `—` | Moves all array points along the Y axis by this amount. Keyframe to animate vertical position. |
-| Z Offset | Integer | `—` | Moves all array points along the Z axis. Useful for stacking multiple point arrays at different depths. |
-| Lock X/Y | Checkbox | `1` | When enabled, X and Y offsets move together to maintain proportional horizontal positioning. |
-| X Scale | Integer | `1.0` | Scales the horizontal spread of the array independently of the translation offsets. |
+| X Offset | Float | `—` | Added to X before the scale. Default 0. |
+| Y Offset | Float | `—` | Added to Y before the scale. Default 0. |
+| Z Offset | Float | `—` | Added to Z before the scale. Default 0. |
+| Lock X/Y | Integer | `1` | Only changes which scale controls are shown. Default on. |
+| X Scale | Float | `1.0` | Multiplies X and Z after the offset. Default 1. |
 
 <details>
-<summary>+2 more parameters</summary>
+<summary>+3 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Array A | Float | `—` | The input vArray whose XYZ positions will be offset. |
-| Show Input | Checkbox | `0` | Reveals the Array A connection port on the node in the Fusion node graph. |
+| Y Scale | Float | `1.0` | Multiplies Y after the offset. Default 1. Hidden while Lock X/Y is on, but still used. |
+| Input | DATATYPE | `—` | Points to move. |
+| Show Input | Integer | `0.0` | Shows the input ports of the offsets and scales when on. Default off. |
 
 </details>
 
 <details>
 <summary>Read the full description</summary>
 
-vArrayTranslate is the positional offset node for vArray pipelines. After a generator like vArrayPointsOnGrid or vArrayPointsOnCircle produces a point cloud, place vArrayTranslate immediately downstream to shift the entire set to a new location without touching the generator's own parameters.
+Each point becomes ((x + X Offset) * X Scale, (y + Y Offset) * Y Scale, (z + Z Offset) * X Scale). The offsets default to 0 and the scales to 1, so the default leaves the points unchanged. Because the scale is applied after the offset, it also scales the offset.
 
-X Offset, Y Offset, and Z Offset each accept keyframe-able values, making it straightforward to animate the entire point array flying through frame. Lock X/Y constrains horizontal movement to a uniform scale, and X Scale adjusts the horizontal spread independently of the translation offsets.
-
-A common use case is stacking several generator outputs — each feeding its own vArrayTranslate with a different Z Offset — then combining them with vArrayMerge before passing the combined array to vArrayShapeRender. This avoids needing duplicate generator logic and keeps the node graph readable.
+Lock X/Y (on by default) hides Y Scale, but the code still reads it, so Y Scale keeps its value and is not tied to X Scale. Show Input exposes the offsets and scales as input ports. Elements that are not lists of at least 3 values are dropped, and the output points have 3 values.
 
 </details>
 
 ## Example Connections
 
 <Tabs>
-<TabItem value="reposition-a-grid-before-rendering" label="Reposition a grid before rendering" default>
+<TabItem value="reposition-a-grid-and-draw" label="Reposition a grid and draw" default>
 
 ```
 vArrayPointsOnGrid.Output -> vArrayTranslate.ArrayA
 vArrayTranslate.Output -> vArrayCameraProjection.ArrayA
 vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+Background.Output -> vArrayShapeRender.Input
 ```
 
 </TabItem>
-<TabItem value="stack-two-arrays-at-different-depths" label="Stack two arrays at different depths">
+<TabItem value="move-a-circle-after-jitter" label="Move a circle after jitter">
 
 ```
-vArrayPointsOnCircle.Output -> vArrayTranslate.ArrayA
-vArrayTranslate.Output -> vArrayMerge.Array1
-vArrayMerge.Output -> vArrayShapeRender.ArrayPoint
+vArrayPointsOnCircle.Output -> vArrayPointsJitter.Input
+vArrayPointsJitter.Output -> vArrayTranslate.ArrayA
 ```
 
 </TabItem>
@@ -82,11 +81,11 @@ vArrayMerge.Output -> vArrayShapeRender.ArrayPoint
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="../../array/Utility/vArrayMerge">vArrayMerge</a>
-  <a className="node-chip" href="../../array/Modify/vArrayRotateValues">vArrayRotateValues</a>
-  <a className="node-chip" href="../../array/Modify/vArrayDisplaceValues">vArrayDisplaceValues</a>
+  <a className="node-chip" href="./vArrayCameraProjection">vArrayCameraProjection</a>
+  <a className="node-chip" href="./vArrayRepeat">vArrayRepeat</a>
+  <a className="node-chip" href="./vArrayMirror">vArrayMirror</a>
 </div>
 
 {/*
-Rich page restored from _output/vArrayTranslate_page.json. Source of truth: fuses.ts / vonkultratools data model.
+Rendered from content-pipeline record (ai).
 */}

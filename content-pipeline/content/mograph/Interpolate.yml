@@ -58,8 +58,8 @@ curated:
     ArrayB: Values at Progress 1.
 status:
   source: ai
-  state: ai
-  reviewed_hash: null
+  state: reviewed
+  reviewed_hash: b40f499e13e3
   prompt_version: '1'
   note: >-
     Reviewed in fix batch F1: the code matches its label and registered description, so the fuse was

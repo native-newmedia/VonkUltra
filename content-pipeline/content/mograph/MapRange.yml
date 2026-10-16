@@ -61,8 +61,8 @@ curated:
     NewMax: Value that the largest input number becomes. Allowed -50 to 50, default 1.
 status:
   source: ai
-  state: ai
-  reviewed_hash: null
+  state: reviewed
+  reviewed_hash: f052af0d771a
   prompt_version: '1'
   note: >-
     Changed in fix batch F1 (branch fix/findings-f1 of vonk-ultra-mograph), same change in all three

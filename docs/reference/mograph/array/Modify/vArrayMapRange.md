@@ -1,7 +1,7 @@
 ---
 sidebar_position: 25
 title: vArrayMapRange
-description: "Remap array values to a new range"
+description: "Remaps every number in an array from its own smallest and largest value to a new range."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -9,10 +9,10 @@ import TabItem from '@theme/TabItem';
 
 # vArrayMapRange
 
-Remap every value in a point array from one numeric range to another — the essential normalisation and scaling step between generators and renderers.
+Remaps every number in an array from its own smallest and largest value to a new range.
 
 <div className="node-badge-row">
-  <span className="node-badge node-badge--intermediate">Intermediate</span>
+  <span className="node-badge node-badge--beginner">Beginner</span>
   <span className="node-badge">Mograph / Array</span>
   <span className="node-badge">Array</span>
   <span className="node-badge">ScriptVal</span>
@@ -23,31 +23,30 @@ Remap every value in a point array from one numeric range to another — the ess
   <img src="/VonkUltra/img/reference/mograph/array/vArrayMapRange.png" alt="vArrayMapRange node" />
 </div>
 
-vArrayMapRange applies a range-mapping operation to every value in an upstream vArray, translating coordinates or numeric data from one input range into a target output range. Place it between any generator or modifier and vArrayCameraProjection to normalise, invert, or rescale point positions before rendering.
+vArrayMapRange finds the smallest and the largest number in the whole input and maps that range linearly to New Min and New Max. The four Mode Select buttons are shortcuts for common new ranges.
 
 ## Parameters
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Mode Select | Integer | `1` | Selects the remapping mode applied to all values in the array. Each integer index corresponds to a different strategy (clamped linear, unclamped, normalised, etc.). Check the Fusion UI tooltip for the mode index labels for your fuse version. |
-| Show Input | Checkbox | `Off` | Reveals the ArrayA input port, allowing an upstream point array to be connected for range remapping. |
-| Array A | Array | `—` | Primary point array input. Connect any upstream vArray generator or modifier here to apply range mapping to its values. |
+| Mode Select  | Dropdown | `-1 - 1` | Buttons for -10 - 10, -1 - 1, 0 - 1 and 0 - 360. Pressing one sets New Min and New Max. The node does not read the selected button. |
+| NewMin | Float | `-1` | Value that the smallest input number becomes. Allowed -50 to 50, default -1. |
+| NewMax | Float | `1` | Value that the largest input number becomes. Allowed -50 to 50, default 1. |
+| Input | DATATYPE | `—` | Primary point array input. Connect any upstream vArray generator or modifier here to apply range mapping to its values. |
 
 <details>
 <summary>Read the full description</summary>
 
-vArrayMapRange is a precision scaling node that applies Fusion-style range remapping to every value in a vArray point table. Where a generator like vArrayPointsOnGrid outputs coordinates in its own internal units, MapRange lets you translate those values into whatever numeric range a downstream node expects — without expressions, Lua scripting, or modifier chains. The operation is applied per-value across the entire array in a single pass.
+The node scans every number in the input, including numbers inside lists, and takes the smallest and largest one. Each number v then becomes NewMin + (v - min) * (NewMax - NewMin) / (max - min). The range is shared by all values and axes, so X, Y and Z are not remapped on their own. Text values that read as numbers are remapped too, and other values pass through.
 
-The Mode Select control switches between different remapping behaviours — for example, clamped linear mapping, unclamped extrapolation, or normalised 0–1 output. Because the extracted parameter type shows as Integer, it functions as a mode switcher rather than a continuous slider; each integer value selects a distinct mapping strategy. Check the UI tooltip in Fusion for the mode index labels, as these vary by fuse version.
-
-In a typical pipeline, MapRange sits after a displacement or generator node and before vArrayCameraProjection. A common use case is normalising vArrayDisplaceValues output — the displacement can push coordinates outside the 0–1 normalised range, and MapRange clamps or remaps them back into a renderable space. It also works well after vArrayMath when arithmetic operations have shifted the value range beyond what ShapeRender expects.
+Mode Select does not change the calculation. Its buttons -10 - 10, -1 - 1, 0 - 1 and 0 - 360 write those numbers into New Min and New Max when pressed. New Min and New Max accept -50 to 50 and default to -1 and 1, which is the default -1 - 1 button. If every number in the input is equal, all of them become New Min. The output is not clamped.
 
 </details>
 
 ## Example Connections
 
 <Tabs>
-<TabItem value="remap-after-displacement" label="Remap after displacement" default>
+<TabItem value="remap-displaced-points-and-draw" label="Remap displaced points and draw" default>
 
 ```
 vArrayPointsOnGrid.Output -> vArrayDisplaceValues.ArrayA
@@ -58,13 +57,11 @@ Background.Output -> vArrayShapeRender.Input
 ```
 
 </TabItem>
-<TabItem value="normalise-generator-output" label="Normalise generator output">
+<TabItem value="remap-noise-values" label="Remap noise values">
 
 ```
-vArrayMinMax.Output -> vArrayMapRange.ArrayA
-vArrayMapRange.Output -> vArrayCameraProjection.ArrayA
-vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
-Background.Output -> vArrayShapeRender.Input
+vArrayNoise.Output -> vArrayMapRange.ArrayA
+vArrayMapRange.Output -> vArrayApplyMask.Mask
 ```
 
 </TabItem>
@@ -73,11 +70,11 @@ Background.Output -> vArrayShapeRender.Input
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="../../array/Modify/vArrayDisplaceValues">vArrayDisplaceValues</a>
-  <a className="node-chip" href="../../array/Modify/vArrayCameraProjection">vArrayCameraProjection</a>
-  <a className="node-chip" href="../../array/Create/vArrayPointsOnGrid">vArrayPointsOnGrid</a>
+  <a className="node-chip" href="./vArrayMap">vArrayMap</a>
+  <a className="node-chip" href="./vArrayClamp">vArrayClamp</a>
+  <a className="node-chip" href="./vArrayMath">vArrayMath</a>
 </div>
 
 {/*
-Rich page restored from _output/vArrayMapRange_page.json. Source of truth: fuses.ts / vonkultratools data model.
+Rendered from content-pipeline record (reviewed).
 */}

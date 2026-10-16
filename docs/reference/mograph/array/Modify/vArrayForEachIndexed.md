@@ -1,7 +1,7 @@
 ---
 sidebar_position: 17
 title: vArrayForEachIndexed
-description: "Apply indexed/grouped transforms per point in a single pass."
+description: "Offsets, scales, rotates or randomizes points by their index or group, with optional animation."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -9,9 +9,10 @@ import TabItem from '@theme/TabItem';
 
 # vArrayForEachIndexed
 
-Apply indexed/grouped transforms per point in a single pass.
+Offsets, scales, rotates or randomizes points by their index or group, with optional animation.
 
 <div className="node-badge-row">
+  <span className="node-badge node-badge--advanced">Advanced</span>
   <span className="node-badge">Mograph / Array</span>
   <span className="node-badge">Array</span>
   <span className="node-badge">ScriptVal</span>
@@ -22,43 +23,78 @@ Apply indexed/grouped transforms per point in a single pass.
   <img src="/VonkUltra/img/reference/mograph/array/vArrayForEachIndexed.png" alt="vArrayForEachIndexed node" />
 </div>
 
+vArrayForEachIndexed takes an array of XYZ points and applies one of 16 changes that depend on each point's index or group. Group Size cuts the array into groups, and Auto Animate scales the amounts over time.
+
 ## Parameters
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Mode | Dropdown | `Offset X by Index` | Transform applied per index or per group. Options: Offset X by Index, Offset Y by Index, Offset Z by Index, Offset X by Group, Offset Y by Group, Offset Z by Group, Scale by Index, Rotate X by Group, Rotate Y by Group, Rotate Z by Group, Random Offset X by Group, Random Offset Y by Group, Random Offset Z by Group, Random Offset X by Index, Random Offset Y by Index, Random Offset Z by Index. |
-| Group Size | Integer | `8` | Number of points per group. |
-| Index Amount | Float | `0.01` | Amount applied per index. |
-| Group Amount | Float | `0.1` | Amount applied per group. |
-| Random Min | Float | `-0.1` | Lower end of the random range. Shown when the related option is enabled. |
+| Mode | Dropdown | `Offset X by Index` | One of 16 changes, default Offset X by Index. Offset X, Y or Z by Index, Offset X, Y or Z by Group, Scale by Index, Rotate X, Y or Z by Group, Random Offset X, Y or Z by Group, Random Offset X, Y or Z by Index. |
+| Group Size | Integer | `8` | Points per group, used by the by-Group, Rotate and Random Offset by Group modes. Minimum 1, slider 1 to 128, default 8. |
+| Index Amount | Float | `0.01` | Amount per point number, used by the by-Index offsets and Scale by Index. Default 0.01. |
+| Group Amount | Float | `0.1` | Amount per group, used by the by-Group offsets and the rotations (degrees). Default 0.1. |
+| Random Min | Float | `-0.1` | Low end of the random range. Slider -10 to 10, default -0.1. Shown for the Random Offset modes. |
 
 <details>
 <summary>+9 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Random Max | Float | `0.1` | Upper end of the random range. Shown when the related option is enabled. |
-| Auto Animate | Integer | `0` | Animates the effect over time. |
-| Speed | Float | `1.0` | Speed of the animation. Shown when the related option is enabled. |
-| Duration (frames) | Integer | `30` | Length of the animation in frames. Shown when the related option is enabled. |
-| Easing | Dropdown | `Linear` | Easing of the animation. Options: Linear, Ease In, Ease Out, Ease In-Out, Ease Out-Back. Shown when the related option is enabled. |
-| Loop Mode | Dropdown | `Off` | Looping or waveform of the animation. Options: Off, Loop, Ping-Pong, Step Mode, Sine Wave, Triangle Wave, Sawtooth Wave. Shown when the related option is enabled. |
-| Input | DATATYPE | `—` | Data to process. |
-| Mask | DATATYPE | `—` | Mask with one 0 or 1 value per element. |
-| Invert Mask | Integer | `0` | Swaps masked and unmasked areas. |
+| Random Max | Float | `0.1` | High end of the random range. Slider -10 to 10, default 0.1. Shown for the Random Offset modes. |
+| Auto Animate | Integer | `0` | Multiplies the amounts by an animation factor when on. Default off. |
+| Speed | Float | `1.0` | Multiplies the render time. Slider 0.01 to 10, default 1. Shown when Auto Animate is on. |
+| Duration (frames) | Integer | `30` | Length of one animation cycle in frames. Minimum 1, slider 1 to 240, default 30. Shown when Auto Animate is on. |
+| Easing | Dropdown | `Linear` | Linear (default), Ease In, Ease Out, Ease In-Out or Ease Out-Back. Used by Off, Loop and Ping-Pong only. |
+| Loop Mode | Dropdown | `Off` | Off (default, plays once), Loop, Ping-Pong, Step Mode (8 steps), Sine Wave, Triangle Wave or Sawtooth Wave. |
+| Input | DATATYPE | `—` | Points to change. Input that does not start with a list is passed through. |
+| Mask | DATATYPE | `—` | Optional numbers, one per point. A point is changed where the value is above 0. Missing entries count as 1. |
+| Invert Mask | Integer | `0` | Changes the points where the mask is 0 or below instead. Default off. |
 
 </details>
+
+<details>
+<summary>Read the full description</summary>
+
+Mode selects one change. The Offset modes add the point number (counted from 0) times Index Amount (by Index), or the group number times Group Amount (by Group), to X, Y or Z. Scale by Index multiplies the point by 1 + the point number times Index Amount. The Rotate modes turn the point around X, Y or Z by the group number times Group Amount degrees.
+
+The Random Offset modes add a value between Random Min and Random Max, taken from a fixed hash of the group or point number, so the result repeats. A Mask value above 0 applies the change to that point, and Invert Mask swaps the cases.
+
+Auto Animate multiplies the amounts by a factor from the render time, Speed and Duration, using the Loop Mode and Easing curve.
+
+</details>
+
+## Example Connections
+
+<Tabs>
+<TabItem value="stagger-a-grid-by-group-and-draw" label="Stagger a grid by group and draw" default>
+
+```
+vArrayPointsOnGrid.Output -> vArrayForEachIndexed.Input
+vArrayForEachIndexed.Output -> vArrayCameraProjection.ArrayA
+vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+Background.Output -> vArrayShapeRender.Input
+```
+
+</TabItem>
+<TabItem value="apply-the-change-to-part-of-the-points" label="Apply the change to part of the points">
+
+```
+vArrayPointsOnCircle.Output -> vArrayForEachIndexed.Input
+vArrayLogicThreshold.Output -> vArrayForEachIndexed.Mask
+vArrayForEachIndexed.Output -> vArrayTranslate.Input
+```
+
+</TabItem>
+</Tabs>
 
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="./vArrayBoundingBox">vArrayBoundingBox</a>
-  <a className="node-chip" href="./vArrayCameraProjection">vArrayCameraProjection</a>
-  <a className="node-chip" href="./vArrayConvert2D_3D">vArrayConvert2D_3D</a>
-  <a className="node-chip" href="./vArrayDisplaceValues">vArrayDisplaceValues</a>
+  <a className="node-chip" href="../Animate/vArrayStagger">vArrayStagger</a>
+  <a className="node-chip" href="./vArrayRepeat">vArrayRepeat</a>
+  <a className="node-chip" href="./vArrayAttrRandomize">vArrayAttrRandomize</a>
 </div>
 
 {/*
-Generated page — node: vArrayForEachIndexed (Array/Modify).
-Source: fuse vArrayForEachIndexed.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Rendered from content-pipeline record (reviewed).
 */}

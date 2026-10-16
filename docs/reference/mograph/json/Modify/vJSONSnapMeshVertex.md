@@ -1,7 +1,7 @@
 ---
 sidebar_position: 59
 title: vJSONSnapMeshVertex
-description: "Snap each input point to the nearest OBJ mesh vertex."
+description: "Moves each point to the closest mesh vertex, patch point or sample, by a Blend amount."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -9,28 +9,31 @@ import TabItem from '@theme/TabItem';
 
 # vJSONSnapMeshVertex
 
-Snap each input point to the nearest OBJ mesh vertex.
+Moves each point to the closest mesh vertex, patch point or sample, by a Blend amount.
 
 <div className="node-badge-row">
+  <span className="node-badge node-badge--beginner">Beginner</span>
   <span className="node-badge">Mograph / JSON</span>
   <span className="node-badge">JSON</span>
-  <span className="node-badge">ScriptVal</span>
   <span className="node-badge">Array</span>
+  <span className="node-badge">ScriptVal</span>
 </div>
 
 <div className="node-screenshot">
   <img src="/VonkUltra/img/reference/mograph/json/vJSONSnapMeshVertex.png" alt="vJSONSnapMeshVertex node" />
 </div>
 
+vJSONSnapMeshVertex takes an array of XYZ points and a mesh, and moves each point toward the closest Mesh Points vertex. Snap Mode can switch the target to the patch points.
+
 ## Parameters
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Affect X | Float | `1` | Applies the effect to X. |
-| Affect Y | Float | `1` | Applies the effect to Y. |
-| Affect Z | Float | `1` | Applies the effect to Z. |
-| Snap Mode | Dropdown | `Vertex` | Snap to the nearest vertex, the surface or the nearest centroid. Options: Vertex, Surface, Centroid. |
-| Blend | Float | `1` | Mix between the original points (0) and the result (1). |
+| Affect X | Float | `1` | X moves when checked (default), otherwise it keeps the input value. |
+| Affect Y | Float | `1` | Y moves when checked (default), otherwise it keeps the input value. |
+| Affect Z | Float | `1` | Z moves when checked (default), otherwise it keeps the input value. |
+| Snap Mode | Dropdown | `Vertex` | Vertex (default), Surface or Centroid. Vertex and Surface give the same result. |
+| Blend | Float | `1` | Mix between the point (0) and the target (1). Range 0 to 1, default 1. |
 
 <details>
 <summary>+2 more parameters</summary>
@@ -38,20 +41,52 @@ Snap each input point to the nearest OBJ mesh vertex.
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | Points | DATATYPE | `—` | Point positions. |
-| Mesh Points | DATATYPE | `—` | Points of the mesh that the input is compared with. |
+| Mesh Points | DATATYPE | `—` | Mesh vertices that the points snap to. |
 
 </details>
+
+<details>
+<summary>Read the full description</summary>
+
+Vertex (the default) and Surface both find the closest Mesh Points vertex. Centroid finds the closest patch point, the average of a vertex and its 7 nearest neighbors. The output is the point plus (target - point) * Blend, so Blend 1 (the default) puts the point on the target.
+
+Blend runs from 0 to 1, and the output has 3 values per point. Affect X, Y and Z keep unchecked axes at the input value. Only the vertex list of Mesh Points is used, not edges or faces. If the points or the mesh are empty, the output is empty.
+
+</details>
+
+## Example Connections
+
+<Tabs>
+<TabItem value="snap-a-grid-to-a-loaded-mesh-and-draw" label="Snap a grid to a loaded mesh and draw" default>
+
+```
+vJSONPointsOnGrid.Output -> vJSONSnapMeshVertex.ArrayPoints
+vJSONFromOBJ.Points -> vJSONSnapMeshVertex.MeshPoints
+vJSONSnapMeshVertex.Output -> vJSONCameraProjection.ArrayA
+vJSONCameraProjection.Output -> vJSONShapeRender.ArrayPoint
+Background.Output -> vJSONShapeRender.Input
+```
+
+</TabItem>
+<TabItem value="snap-scattered-points" label="Snap scattered points">
+
+```
+vJSONRandom.Output -> vJSONSnapMeshVertex.ArrayPoints
+vJSONFromOBJ.Points -> vJSONSnapMeshVertex.MeshPoints
+vJSONSnapMeshVertex.Output -> vJSONTranslate.Input
+```
+
+</TabItem>
+</Tabs>
 
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="./vJSONBoundingBox">vJSONBoundingBox</a>
-  <a className="node-chip" href="./vJSONCameraProjection">vJSONCameraProjection</a>
-  <a className="node-chip" href="./vJSONConvert2D_3D">vJSONConvert2D_3D</a>
-  <a className="node-chip" href="./vJSONDisplaceValues">vJSONDisplaceValues</a>
+  <a className="node-chip" href="./vJSONSnapFaceCentroid">vJSONSnapFaceCentroid</a>
+  <a className="node-chip" href="./vJSONProjectOnMesh">vJSONProjectOnMesh</a>
+  <a className="node-chip" href="./vJSONRaycastToMesh">vJSONRaycastToMesh</a>
 </div>
 
 {/*
-Generated page — node: vJSONSnapMeshVertex (JSON/Modify).
-Source: fuse vJSONSnapMeshVertex.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Rendered from content-pipeline record (ai).
 */}

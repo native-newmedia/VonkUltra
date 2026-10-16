@@ -1,7 +1,7 @@
 ---
 sidebar_position: 54
 title: vArrayScaleFromMesh
-description: "Scale each point distance from nearest OBJ mesh surface point by multiplier."
+description: "Scales the vector from the closest mesh vertex to each point by a multiplier."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -9,9 +9,10 @@ import TabItem from '@theme/TabItem';
 
 # vArrayScaleFromMesh
 
-Scale each point distance from nearest OBJ mesh surface point by multiplier.
+Scales the vector from the closest mesh vertex to each point by a multiplier.
 
 <div className="node-badge-row">
+  <span className="node-badge node-badge--intermediate">Intermediate</span>
   <span className="node-badge">Mograph / Array</span>
   <span className="node-badge">Array</span>
   <span className="node-badge">ScriptVal</span>
@@ -22,36 +23,70 @@ Scale each point distance from nearest OBJ mesh surface point by multiplier.
   <img src="/VonkUltra/img/reference/mograph/array/vArrayScaleFromMesh.png" alt="vArrayScaleFromMesh node" />
 </div>
 
+vArrayScaleFromMesh takes an array of XYZ points and a mesh. For each point it finds the closest Mesh Points vertex and multiplies the distance to it by Distance Multiplier.
+
 ## Parameters
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Points | DATATYPE | `—` | Point positions. |
-| Distance Multiplier | Float | `1` | Multiplies the distance to the mesh. |
-| Affect X | Float | `1` | Applies the effect to X. |
-| Affect Y | Float | `1` | Applies the effect to Y. |
-| Affect Z | Float | `1` | Applies the effect to Z. |
+| Points | DATATYPE | `—` | Not read by the code. The points to scale go to Array Points. |
+| Distance Multiplier | Float | `1` | Multiplier for the distance to the closest vertex. Slider 0 to 2, default 1. |
+| Affect X | Float | `1` | X comes from the result when checked (default), otherwise it keeps the input value. |
+| Affect Y | Float | `1` | Y comes from the result when checked (default), otherwise it keeps the input value. |
+| Affect Z | Float | `1` | Z comes from the result when checked (default), otherwise it keeps the input value. |
 
 <details>
 <summary>+2 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Array Points | DATATYPE | `—` | — |
+| Array Points | DATATYPE | `—` | The points to scale. |
 | Mesh Points | DATATYPE | `—` | Points of the mesh that the input is compared with. |
 
 </details>
 
+<details>
+<summary>Read the full description</summary>
+
+Each point P becomes R + (P - R) * Distance Multiplier, where R is the closest Mesh Points vertex. A multiplier of 1 (the default) leaves the points where they are, 0 puts every point on its vertex, and a value above 1 pushes the points away from the vertex along the same line. A negative value would put the point on the opposite side.
+
+Affect X, Y and Z are checked by default, and an unchecked axis keeps its input value. The slider runs from 0 to 2. Only the vertex list of the mesh is used. If the points or the mesh are empty, the output is empty.
+
+</details>
+
+## Example Connections
+
+<Tabs>
+<TabItem value="push-a-grid-away-from-a-loaded-mesh-and-draw" label="Push a grid away from a loaded mesh and draw" default>
+
+```
+vArrayPointsOnGrid.Output -> vArrayScaleFromMesh.ArrayPoints
+vArrayFromOBJ.Points -> vArrayScaleFromMesh.MeshPoints
+vArrayScaleFromMesh.Output -> vArrayCameraProjection.ArrayA
+vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+Background.Output -> vArrayShapeRender.Input
+```
+
+</TabItem>
+<TabItem value="scale-scattered-points" label="Scale scattered points">
+
+```
+vArrayRandom.Output -> vArrayScaleFromMesh.ArrayPoints
+vArrayFromOBJ.Points -> vArrayScaleFromMesh.MeshPoints
+vArrayScaleFromMesh.Output -> vArrayTranslate.Input
+```
+
+</TabItem>
+</Tabs>
+
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="./vArrayBoundingBox">vArrayBoundingBox</a>
-  <a className="node-chip" href="./vArrayCameraProjection">vArrayCameraProjection</a>
-  <a className="node-chip" href="./vArrayConvert2D_3D">vArrayConvert2D_3D</a>
-  <a className="node-chip" href="./vArrayDisplaceValues">vArrayDisplaceValues</a>
+  <a className="node-chip" href="./vArrayOffsetByNormal">vArrayOffsetByNormal</a>
+  <a className="node-chip" href="./vArrayAttractToMesh">vArrayAttractToMesh</a>
+  <a className="node-chip" href="./vArrayClampToMeshProx">vArrayClampToMeshProx</a>
 </div>
 
 {/*
-Generated page — node: vArrayScaleFromMesh (Array/Modify).
-Source: fuse vArrayScaleFromMesh.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Rendered from content-pipeline record (ai).
 */}

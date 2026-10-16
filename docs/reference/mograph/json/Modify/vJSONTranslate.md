@@ -1,7 +1,7 @@
 ---
 sidebar_position: 64
 title: vJSONTranslate
-description: "Transforms array positions"
+description: "Adds an XYZ offset to every point, then multiplies it by a scale."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -9,53 +9,70 @@ import TabItem from '@theme/TabItem';
 
 # vJSONTranslate
 
-Transforms array positions
+Adds an XYZ offset to every point, then multiplies it by a scale.
 
 <div className="node-badge-row">
+  <span className="node-badge node-badge--beginner">Beginner</span>
   <span className="node-badge">Mograph / JSON</span>
   <span className="node-badge">JSON</span>
-  <span className="node-badge">ScriptVal</span>
   <span className="node-badge">Array</span>
+  <span className="node-badge">ScriptVal</span>
 </div>
 
 <div className="node-screenshot">
   <img src="/VonkUltra/img/reference/mograph/json/vJSONTranslate.png" alt="vJSONTranslate node" />
 </div>
 
+vJSONTranslate takes an array of XYZ points and outputs (point + offset) * scale for each axis. X Scale is used for X and Z, and Y Scale for Y.
+
 ## Parameters
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| X Offset | Float | `—` | Moves the points along X. |
-| Y Offset | Float | `—` | Moves the points along Y. |
-| Z Offset | Float | `—` | Moves the points along Z. |
-| Lock X/Y | Integer | `1` | Uses one scale value for X and Y. |
-| X Scale | Float | `1.0` | Scale along X. |
+| X Offset | Float | `—` | Added to X before the scale. Default 0. |
+| Y Offset | Float | `—` | Added to Y before the scale. Default 0. |
+| Z Offset | Float | `—` | Added to Z before the scale. Default 0. |
+| Lock X/Y | Integer | `1` | Only changes which scale controls are shown. Default on. |
+| X Scale | Float | `1.0` | Multiplies X and Z after the offset. Default 1. |
 
 <details>
 <summary>+3 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Y Scale | Float | `1.0` | Scale along Y. Shown when Lock X/Y is off. Shown when the related option is enabled. |
-| Input | DATATYPE | `—` | Data to process. |
-| Show Input | Integer | `0.0` | — |
+| Y Scale | Float | `1.0` | Multiplies Y after the offset. Default 1. Hidden while Lock X/Y is on, but still used. |
+| Input | DATATYPE | `—` | Points to move. |
+| Show Input | Integer | `0.0` | Shows the input ports of the offsets and scales when on. Default off. |
+
+</details>
+
+<details>
+<summary>Read the full description</summary>
+
+Each point becomes ((x + X Offset) * X Scale, (y + Y Offset) * Y Scale, (z + Z Offset) * X Scale). The offsets default to 0 and the scales to 1, so the default leaves the points unchanged. Because the scale is applied after the offset, it also scales the offset.
+
+Lock X/Y (on by default) hides Y Scale, but the code still reads it, so Y Scale keeps its value and is not tied to X Scale. Show Input exposes the offsets and scales as input ports. Elements that are not lists of at least 3 values are dropped, and the output points have 3 values.
 
 </details>
 
 ## Example Connections
 
 <Tabs>
-<TabItem value="example-1" label="Example 1" default>
+<TabItem value="reposition-a-grid-and-draw" label="Reposition a grid and draw" default>
 
 ```
-vJSONPointsOnGrid.Output -> vJSONUnPacker.ArrayA
-    vJSONUnPacker.OutputArray -> vJSONTranslate.ArrayA
-    vJSONTranslate.Output -> vJSONPacker.ArrayA
-    vJSONPacker.Output -> vJSONWave.ArrayA
-    vJSONWave.Output -> vJSONCameraProjection.ArrayA
-    vJSONCameraProjection.Output -> vJSONShapeRender.JSONPoint
-    Background.Output -> vJSONShapeRender.Input
+vJSONPointsOnGrid.Output -> vJSONTranslate.ArrayA
+vJSONTranslate.Output -> vJSONCameraProjection.ArrayA
+vJSONCameraProjection.Output -> vJSONShapeRender.ArrayPoint
+Background.Output -> vJSONShapeRender.Input
+```
+
+</TabItem>
+<TabItem value="move-a-circle-after-jitter" label="Move a circle after jitter">
+
+```
+vJSONPointsOnCircle.Output -> vJSONPointsJitter.Input
+vJSONPointsJitter.Output -> vJSONTranslate.ArrayA
 ```
 
 </TabItem>
@@ -64,15 +81,11 @@ vJSONPointsOnGrid.Output -> vJSONUnPacker.ArrayA
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="../Create/vJSONPointsOnGrid">vJSONPointsOnGrid</a>
-  <a className="node-chip" href="./vJSONUnPacker">vJSONUnPacker</a>
-  <a className="node-chip" href="./vJSONPacker">vJSONPacker</a>
-  <a className="node-chip" href="./vJSONWave">vJSONWave</a>
   <a className="node-chip" href="./vJSONCameraProjection">vJSONCameraProjection</a>
-  <a className="node-chip" href="../ShapeRender/vJSONShapeRender">vJSONShapeRender</a>
+  <a className="node-chip" href="./vJSONRepeat">vJSONRepeat</a>
+  <a className="node-chip" href="./vJSONMirror">vJSONMirror</a>
 </div>
 
 {/*
-Generated page — node: vJSONTranslate (JSON/Modify).
-Source: fuse vJSONTranslate.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Rendered from content-pipeline record (ai).
 */}

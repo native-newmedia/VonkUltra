@@ -1,7 +1,7 @@
 ---
 sidebar_position: 24
 title: vScriptValMap
-description: "Normalize Array Values using various methods."
+description: "Rescales the values of an array with min-max, z-score or norm methods."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -9,9 +9,10 @@ import TabItem from '@theme/TabItem';
 
 # vScriptValMap
 
-Normalize Array Values using various methods.
+Rescales the values of an array with min-max, z-score or norm methods.
 
 <div className="node-badge-row">
+  <span className="node-badge node-badge--intermediate">Intermediate</span>
   <span className="node-badge">Mograph / ScriptVal</span>
   <span className="node-badge">ScriptVal</span>
   <span className="node-badge">Array</span>
@@ -22,26 +23,60 @@ Normalize Array Values using various methods.
   <img src="/VonkUltra/img/reference/mograph/scriptval/vScriptValMap.png" alt="vScriptValMap node" />
 </div>
 
+vScriptValMap takes an array of numbers or points and rescales its values with the chosen normalization method. Per Axis decides whether X, Y and Z are scaled separately or together.
+
 ## Parameters
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Normalization Method | Dropdown | `Min-Max (0 to 1)` | Method used to normalize the values. Options: Min-Max (0 to 1), Min-Max (Custom Range), Z-Score (Standardize), Unit Vector (L2 Norm), L1 Norm (Sum to 1), Max Abs (Scale by Max). |
-| CustomMin | Float | `0` | — |
-| CustomMax | Float | `1` | — |
-| Normalize Per Axis | Integer | `1.0` | Normalizes X, Y and Z separately. |
-| Input | ScriptVal | `—` | Data to process. |
+| Normalization Method | Dropdown | `Min-Max (0 to 1)` | Min-Max (0 to 1) (default), Min-Max (Custom Range), Z-Score (Standardize), Unit Vector (L2 Norm), L1 Norm (Sum to 1) or Max Abs (Scale by Max). |
+| CustomMin | Float | `0` | Output minimum for Min-Max (Custom Range). Minimum -1, default 0. |
+| CustomMax | Float | `1` | Output maximum for Min-Max (Custom Range). Minimum -1, default 1. |
+| Normalize Per Axis | Integer | `1.0` | Rescales X, Y and Z separately when on (default), or all values together when off. |
+| Input | ScriptVal | `—` | Numbers or points to rescale. |
+
+<details>
+<summary>Read the full description</summary>
+
+Normalization Method chooses how the values are rescaled. Min-Max (0 to 1) maps the smallest value to 0 and the largest to 1, and Min-Max (Custom Range) maps them to Custom Min and Max. Z-Score subtracts the mean and divides by the standard deviation. Unit Vector divides by the square root of the sum of squares, L1 Norm by the sum of absolute values, and Max Abs by the largest absolute value.
+
+With Per Axis on (the default), each of X, Y and Z is rescaled using its own statistics. With it off, all values of all axes are pooled. A flat list of numbers is rescaled as one set. A zero divisor is replaced by a very small number. A label under the controls shows the statistics.
+
+An empty or invalid input raises an error.
+
+</details>
+
+## Example Connections
+
+<Tabs>
+<TabItem value="normalize-a-point-cloud-and-draw-it" label="Normalize a point cloud and draw it" default>
+
+```
+vScriptValFromOBJ.Points -> vScriptValMap.Input
+vScriptValMap.Output -> vScriptValCameraProjection.ArrayA
+vScriptValCameraProjection.Output -> vScriptValShapeRender.ArrayPoint
+Background.Output -> vScriptValShapeRender.Input
+```
+
+</TabItem>
+<TabItem value="normalize-noise-values" label="Normalize noise values">
+
+```
+vScriptValNoise.Output -> vScriptValMap.Input
+vScriptValMap.Output -> vScriptValClamp.Input
+```
+
+</TabItem>
+</Tabs>
 
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="./vScriptValBoundingBox">vScriptValBoundingBox</a>
-  <a className="node-chip" href="./vScriptValCameraProjection">vScriptValCameraProjection</a>
-  <a className="node-chip" href="./vScriptValConvert2D_3D">vScriptValConvert2D_3D</a>
-  <a className="node-chip" href="./vScriptValDisplaceValues">vScriptValDisplaceValues</a>
+  <a className="node-chip" href="./vScriptValMapRange">vScriptValMapRange</a>
+  <a className="node-chip" href="./vScriptValClamp">vScriptValClamp</a>
+  <a className="node-chip" href="./vScriptValMath">vScriptValMath</a>
 </div>
 
 {/*
-Generated page — node: vScriptValMap (ScriptVal/Modify).
-Source: fuse vScriptValMap.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Rendered from content-pipeline record (ai).
 */}

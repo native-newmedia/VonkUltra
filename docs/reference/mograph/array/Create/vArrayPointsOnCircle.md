@@ -1,7 +1,7 @@
 ---
 sidebar_position: 39
 title: vArrayPointsOnCircle
-description: "Generate points on a circle"
+description: "Place points evenly around a circle, with control over radius, segment count, rotation and path closing."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 # vArrayPointsOnCircle
 
-Generate a full 360° ring of evenly spaced points — the fastest way to seed circular layouts, radial data visualisations, and looping animations.
+Place points evenly around a circle, with control over radius, segment count, rotation and path closing.
 
 <div className="node-badge-row">
   <span className="node-badge node-badge--beginner">Beginner</span>
@@ -23,33 +23,44 @@ Generate a full 360° ring of evenly spaced points — the fastest way to seed c
   <img src="/VonkUltra/img/reference/mograph/array/vArrayPointsOnCircle.png" alt="vArrayPointsOnCircle node" />
 </div>
 
-vArrayPointsOnCircle generates a structured array of evenly distributed points around a full circle at a defined radius. It is the go-to starting node when you need a complete ring rather than a partial arc — feeding directly into vArrayCameraProjection and then vArrayShapeRender for immediate visual output.
+vArrayPointsOnCircle has no input and outputs points on a circle in the XY plane at Z = 0. Radius and Round Segments set the circle and Rotate Amount turns it.
 
 ## Parameters
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Radius | Float | `0.1` | Radius of the circle in normalised coordinates (0.0–1.0 relative to frame width). Increase to spread points further from centre. |
-| Round Segments | Integer | `1` | Number of points distributed evenly around the full 360° ring. Higher values produce denser, more circular-looking output. |
-| Point Offset | Integer | `0` | Shifts the index origin around the ring. Use when compositing multiple rings and you need them to phase-offset relative to each other. |
-| Rotate Amount | Float | `0` | Rotates the entire ring by degrees. Keyframe this for spinning ring animations without expressions. |
-| Show Input | Checkbox | `Off` | Reveals an ArrayA input port, allowing an upstream point array to be passed through or merged with the generated ring. |
+| Radius | Float | `0.1` | Radius of the circle. Default 0.1. |
+| Round Segments | Integer | `3` | Number of points around the circle. Integer, minimum 3, default 3. |
+| Rounds | Float | `0` | Hidden. Extra passes around the circle. The point count is floor(Round Segments * (Rounds + 1)). Default 0. |
+| Point Offset | Float | `0` | Hidden. Scales the angle step by (1 + offset). Default 0. |
+| Rotate Amount | Float | `0` | Rotation of the ring in degrees, -360 to 360. Default 0. |
+
+<details>
+<summary>+1 more parameters</summary>
+
+| Parameter | Type | Default | Description |
+|---|---|---|---|
+| Close Path | Integer | `1.0` | When on, the first point is appended at the end of the array. On by default. |
+
+</details>
 
 <details>
 <summary>Read the full description</summary>
 
-vArrayPointsOnCircle is the simplest full-ring generator in the vArray toolkit. It places a configurable number of points evenly around a 360° circle at a given radius, outputting a standard vArray XYZ point table that any downstream modifier or renderer can consume. For complete rings — dot matrices, clock faces, radial menus, orbital paths, mandala layouts, and looping animation rigs — this is almost always the right starting node.
+The node places one point every 360 / Round Segments degrees, starting at the Rotate Amount angle. The first point is at radius * (cos, sin) of that angle. All points have Z = 0.
 
-The Round Segments control sets the total number of points distributed around the ring. Because the spacing is always even, the visual output is perfectly regular — no jitter, no gaps. The Point Offset parameter shifts which index is treated as the zero-degree starting position, which is useful when connecting multiple PointsOnCircle nodes in a composition and you need the rings to phase-shift relative to each other. Rotate Amount rotates the entire ring by a degree value, animatable for spinning effects without touching expressions or the Fusion timeline.
+Close Path is on by default. It appends a copy of the first point at the end of the array, so a line or path drawn through the points returns to its start. Turn it off to get exactly Round Segments points.
 
-The node slots directly after any range input and before vArrayCameraProjection in the standard pipeline. Because it generates its own geometry rather than transforming upstream data, it needs no ArrayA input by default — Show Input reveals the passthrough port if you want to merge or chain ring arrays. For partial arcs or sweeps across a defined angular range, use vArrayPointsOnArc instead.
+Round Segments is an integer with a minimum of 3. Rotate Amount accepts -360 to 360 degrees. Rounds and Point Offset are hidden controls (not shown in the Inspector). Rounds adds extra passes: the number of generated points is floor(Round Segments * (Rounds + 1)). Point Offset scales the angle step by (1 + offset). Both default to 0, which gives a single ring.
+
+The output is a point array. Connect it to vArrayCameraProjection and vArrayShapeRender to draw it, or use it as the base for the Modify nodes.
 
 </details>
 
 ## Example Connections
 
 <Tabs>
-<TabItem value="basic-circle-render" label="Basic circle render" default>
+<TabItem value="draw-a-ring-of-points" label="Draw a ring of points" default>
 
 ```
 vArrayPointsOnCircle.Output -> vArrayCameraProjection.ArrayA
@@ -58,23 +69,11 @@ Background.Output -> vArrayShapeRender.Input
 ```
 
 </TabItem>
-<TabItem value="concentric-rings-chained" label="Concentric rings (chained)">
+<TabItem value="spin-the-ring-with-a-rotation-modifier" label="Spin the ring with a rotation modifier">
 
 ```
-vArrayPointsOnCircle_inner.Output -> vArrayPointsOnCircle_outer.ArrayA
-vArrayPointsOnCircle_outer.Output -> vArrayCameraProjection.ArrayA
-vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
-Background.Output -> vArrayShapeRender.Input
-```
-
-</TabItem>
-<TabItem value="with-displacement" label="With displacement">
-
-```
-vArrayPointsOnCircle.Output -> vArrayDisplaceValues.ArrayA
-vArrayDisplaceValues.Output -> vArrayCameraProjection.ArrayA
-vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
-Background.Output -> vArrayShapeRender.Input
+vArrayPointsOnCircle.Output -> vArrayRotateValues.ArrayA
+vArrayRotateValues.Output -> vArrayCameraProjection.ArrayA
 ```
 
 </TabItem>
@@ -83,11 +82,11 @@ Background.Output -> vArrayShapeRender.Input
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="../../array/Modify/vArrayPointsOnArc">vArrayPointsOnArc</a>
-  <a className="node-chip" href="../../array/Modify/vArrayCameraProjection">vArrayCameraProjection</a>
-  <a className="node-chip" href="../../array/ShapeRender/vArrayShapeRender">vArrayShapeRender</a>
+  <a className="node-chip" href="./vArrayHelix">vArrayHelix</a>
+  <a className="node-chip" href="./vArrayPointsOnGrid">vArrayPointsOnGrid</a>
+  <a className="node-chip" href="./vArrayPointsOnSphere">vArrayPointsOnSphere</a>
 </div>
 
 {/*
-Rich page restored from _output/vArrayPointsOnCircle_page.json. Source of truth: fuses.ts / vonkultratools data model.
+Rendered from content-pipeline record (ai).
 */}

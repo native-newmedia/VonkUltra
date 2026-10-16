@@ -1,7 +1,7 @@
 ---
 sidebar_position: 32
 title: vJSONPacker
-description: "Pack an array into a new array"
+description: "Cuts a flat array into groups of a chosen size."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -9,39 +9,59 @@ import TabItem from '@theme/TabItem';
 
 # vJSONPacker
 
-Pack an array into a new array
+Cuts a flat array into groups of a chosen size.
 
 <div className="node-badge-row">
+  <span className="node-badge node-badge--beginner">Beginner</span>
   <span className="node-badge">Mograph / JSON</span>
   <span className="node-badge">JSON</span>
-  <span className="node-badge">ScriptVal</span>
   <span className="node-badge">Array</span>
+  <span className="node-badge">ScriptVal</span>
 </div>
 
 <div className="node-screenshot">
   <img src="/VonkUltra/img/reference/mograph/json/vJSONPacker.png" alt="vJSONPacker node" />
 </div>
 
+vJSONPacker takes a flat array and outputs a list of groups, each holding Custom Group Size consecutive elements. The Pack To buttons set the group size to 1, 2 or 3.
+
 ## Parameters
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Pack To: | Dropdown | `X` | Group size: X, X Y or X Y Z. |
-| Custom Group Size | Integer | `0` | Group size used instead of the Pack To value. |
+| Pack To: | Dropdown | `X` | Buttons --, X (default), X Y and X Y Z. Pressing one sets Custom Group Size to 0, 1, 2 or 3. The node does not read the selected button. |
+| Custom Group Size | Integer | `1` | Number of elements per group. Range 0 to 100, default 1. 0 puts all elements in one group. |
 | Input | DATATYPE | `—` | Data to process. |
+
+<details>
+<summary>Read the full description</summary>
+
+The node walks the input in order and fills a group until it holds Custom Group Size elements, then starts a new one. A last group with fewer elements is kept as it is, without padding. So 7 numbers with a group size of 3 give groups of 3, 3 and 1 numbers.
+
+The Pack To buttons write 0 (--), 1 (X), 2 (X Y) or 3 (X Y Z) into Custom Group Size when pressed. The node uses only Custom Group Size, which defaults to 1, the same as the default X button. A size of 0 packs every element into a single group.
+
+Custom Group Size allows 0 to 100, and can be connected to another node.
+
+</details>
 
 ## Example Connections
 
 <Tabs>
-<TabItem value="example-1" label="Example 1" default>
+<TabItem value="unpack-change-and-pack-again" label="Unpack, change and pack again" default>
 
 ```
-vJSONPointsOnCircle.Output -> vJSONUnPacker.ArrayB
-    vJSONUnPacker.OutputArray -> vJSONSin.ArrayA
-    vJSONSin.Output -> vJSONPacker.ArrayA
-    vJSONPacker.Output -> vJSONCameraProjection.ArrayA
-    vJSONCameraProjection.Output -> vJSONShapeRender.JSONPoint
-    Background.Output -> vJSONShapeRender.Input
+vJSONPointsOnCircle.Output -> vJSONUnPacker.ArrayA
+vJSONUnPacker.OutputArray -> vJSONSin.ArrayA
+vJSONSin.Output -> vJSONPacker.ArrayA
+vJSONPacker.Output -> vJSONCameraProjection.ArrayA
+```
+
+</TabItem>
+<TabItem value="group-the-values-of-a-list" label="Group the values of a list">
+
+```
+vJSONRandom.Output -> vJSONPacker.ArrayA
+vJSONPacker.Output -> vJSONTranslate.Input
 ```
 
 </TabItem>
@@ -50,14 +70,11 @@ vJSONPointsOnCircle.Output -> vJSONUnPacker.ArrayB
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="../Create/vJSONPointsOnCircle">vJSONPointsOnCircle</a>
   <a className="node-chip" href="./vJSONUnPacker">vJSONUnPacker</a>
-  <a className="node-chip" href="./vJSONSin">vJSONSin</a>
-  <a className="node-chip" href="./vJSONCameraProjection">vJSONCameraProjection</a>
-  <a className="node-chip" href="../ShapeRender/vJSONShapeRender">vJSONShapeRender</a>
+  <a className="node-chip" href="./vJSONConvert2D_3D">vJSONConvert2D_3D</a>
+  <a className="node-chip" href="../Utility/vJSONSlicer">vJSONSlicer</a>
 </div>
 
 {/*
-Generated page — node: vJSONPacker (JSON/Modify).
-Source: fuse vJSONPacker.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Rendered from content-pipeline record (reviewed).
 */}

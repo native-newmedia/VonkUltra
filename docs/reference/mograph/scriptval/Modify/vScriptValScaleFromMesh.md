@@ -1,7 +1,7 @@
 ---
 sidebar_position: 54
 title: vScriptValScaleFromMesh
-description: "Scale each point distance from nearest OBJ mesh surface point by multiplier."
+description: "Scales the vector from the closest mesh vertex to each point by a multiplier."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -9,9 +9,10 @@ import TabItem from '@theme/TabItem';
 
 # vScriptValScaleFromMesh
 
-Scale each point distance from nearest OBJ mesh surface point by multiplier.
+Scales the vector from the closest mesh vertex to each point by a multiplier.
 
 <div className="node-badge-row">
+  <span className="node-badge node-badge--intermediate">Intermediate</span>
   <span className="node-badge">Mograph / ScriptVal</span>
   <span className="node-badge">ScriptVal</span>
   <span className="node-badge">Array</span>
@@ -22,14 +23,16 @@ Scale each point distance from nearest OBJ mesh surface point by multiplier.
   <img src="/VonkUltra/img/reference/mograph/scriptval/vScriptValScaleFromMesh.png" alt="vScriptValScaleFromMesh node" />
 </div>
 
+vScriptValScaleFromMesh takes an array of XYZ points and a mesh. For each point it finds the closest Mesh Points vertex and multiplies the distance to it by Distance Multiplier.
+
 ## Parameters
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Distance Multiplier | Float | `1` | Multiplies the distance to the mesh. |
-| Affect X | Float | `1` | Applies the effect to X. |
-| Affect Y | Float | `1` | Applies the effect to Y. |
-| Affect Z | Float | `1` | Applies the effect to Z. |
+| Distance Multiplier | Float | `1` | Multiplier for the distance to the closest vertex. Slider 0 to 2, default 1. |
+| Affect X | Float | `1` | X comes from the result when checked (default), otherwise it keeps the input value. |
+| Affect Y | Float | `1` | Y comes from the result when checked (default), otherwise it keeps the input value. |
+| Affect Z | Float | `1` | Z comes from the result when checked (default), otherwise it keeps the input value. |
 | Points | DATATYPE | `—` | Point positions. |
 
 <details>
@@ -41,16 +44,48 @@ Scale each point distance from nearest OBJ mesh surface point by multiplier.
 
 </details>
 
+<details>
+<summary>Read the full description</summary>
+
+Each point P becomes R + (P - R) * Distance Multiplier, where R is the closest Mesh Points vertex. A multiplier of 1 (the default) leaves the points where they are, 0 puts every point on its vertex, and a value above 1 pushes the points away from the vertex along the same line. A negative value would put the point on the opposite side.
+
+Affect X, Y and Z are checked by default, and an unchecked axis keeps its input value. The slider runs from 0 to 2. Only the vertex list of the mesh is used. If the points or the mesh are empty, the output is empty.
+
+</details>
+
+## Example Connections
+
+<Tabs>
+<TabItem value="push-a-grid-away-from-a-loaded-mesh-and-draw" label="Push a grid away from a loaded mesh and draw" default>
+
+```
+vScriptValPointsOnGrid.Output -> vScriptValScaleFromMesh.ArrayPoints
+vScriptValFromOBJ.Points -> vScriptValScaleFromMesh.MeshPoints
+vScriptValScaleFromMesh.Output -> vScriptValCameraProjection.ArrayA
+vScriptValCameraProjection.Output -> vScriptValShapeRender.ArrayPoint
+Background.Output -> vScriptValShapeRender.Input
+```
+
+</TabItem>
+<TabItem value="scale-scattered-points" label="Scale scattered points">
+
+```
+vScriptValRandom.Output -> vScriptValScaleFromMesh.ArrayPoints
+vScriptValFromOBJ.Points -> vScriptValScaleFromMesh.MeshPoints
+vScriptValScaleFromMesh.Output -> vScriptValTranslate.Input
+```
+
+</TabItem>
+</Tabs>
+
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="./vScriptValBoundingBox">vScriptValBoundingBox</a>
-  <a className="node-chip" href="./vScriptValCameraProjection">vScriptValCameraProjection</a>
-  <a className="node-chip" href="./vScriptValConvert2D_3D">vScriptValConvert2D_3D</a>
-  <a className="node-chip" href="./vScriptValDisplaceValues">vScriptValDisplaceValues</a>
+  <a className="node-chip" href="./vScriptValOffsetByNormal">vScriptValOffsetByNormal</a>
+  <a className="node-chip" href="./vScriptValAttractToMesh">vScriptValAttractToMesh</a>
+  <a className="node-chip" href="./vScriptValClampToMeshProx">vScriptValClampToMeshProx</a>
 </div>
 
 {/*
-Generated page — node: vScriptValScaleFromMesh (ScriptVal/Modify).
-Source: fuse vScriptValScaleFromMesh.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Rendered from content-pipeline record (ai).
 */}

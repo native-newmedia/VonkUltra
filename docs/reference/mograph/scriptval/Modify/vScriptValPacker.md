@@ -1,7 +1,7 @@
 ---
 sidebar_position: 32
 title: vScriptValPacker
-description: "Pack Operations on a ScriptVal"
+description: "Cuts a flat array into groups of a chosen size."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -9,9 +9,10 @@ import TabItem from '@theme/TabItem';
 
 # vScriptValPacker
 
-Pack Operations on a ScriptVal
+Cuts a flat array into groups of a chosen size.
 
 <div className="node-badge-row">
+  <span className="node-badge node-badge--beginner">Beginner</span>
   <span className="node-badge">Mograph / ScriptVal</span>
   <span className="node-badge">ScriptVal</span>
   <span className="node-badge">Array</span>
@@ -22,26 +23,45 @@ Pack Operations on a ScriptVal
   <img src="/VonkUltra/img/reference/mograph/scriptval/vScriptValPacker.png" alt="vScriptValPacker node" />
 </div>
 
+vScriptValPacker takes a flat array and outputs a list of groups, each holding Custom Group Size consecutive elements. The Pack To buttons set the group size to 1, 2 or 3.
+
 ## Parameters
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Pack To: | Dropdown | `X` | Group size: X, X Y or X Y Z. |
-| Custom Group Size | Integer | `0` | Group size used instead of the Pack To value. |
+| Pack To: | Dropdown | `X` | Buttons --, X (default), X Y and X Y Z. Pressing one sets Custom Group Size to 0, 1, 2 or 3. The node does not read the selected button. |
+| Custom Group Size | Integer | `1` | Number of elements per group. Range 0 to 100, default 1. 0 puts all elements in one group. |
 | Input | DATATYPE | `—` | Data to process. |
+
+<details>
+<summary>Read the full description</summary>
+
+The node walks the input in order and fills a group until it holds Custom Group Size elements, then starts a new one. A last group with fewer elements is kept as it is, without padding. So 7 numbers with a group size of 3 give groups of 3, 3 and 1 numbers.
+
+The Pack To buttons write 0 (--), 1 (X), 2 (X Y) or 3 (X Y Z) into Custom Group Size when pressed. The node uses only Custom Group Size, which defaults to 1, the same as the default X button. A size of 0 packs every element into a single group.
+
+Custom Group Size allows 0 to 100, and can be connected to another node.
+
+</details>
 
 ## Example Connections
 
 <Tabs>
-<TabItem value="example-1" label="Example 1" default>
+<TabItem value="unpack-change-and-pack-again" label="Unpack, change and pack again" default>
 
 ```
-vScriptValPointsOnCircle.Output -> vScriptValUnPacker.ScriptVal
-    vScriptValUnPacker.ScriptVal1 -> vScriptValSin.ScriptVal
-    vScriptValSin.Output -> vScriptValPacker.ScriptVal
-    vScriptValPacker.ScriptVal -> vScriptValCameraProjection.ScriptVal
-    vScriptValCameraProjection.Output -> vScriptValShapeRender.ScriptValPoint
-    Background.Output -> vScriptValShapeRender.Input
+vScriptValPointsOnCircle.Output -> vScriptValUnPacker.ArrayA
+vScriptValUnPacker.OutputArray -> vScriptValSin.ArrayA
+vScriptValSin.Output -> vScriptValPacker.ArrayA
+vScriptValPacker.Output -> vScriptValCameraProjection.ArrayA
+```
+
+</TabItem>
+<TabItem value="group-the-values-of-a-list" label="Group the values of a list">
+
+```
+vScriptValRandom.Output -> vScriptValPacker.ArrayA
+vScriptValPacker.Output -> vScriptValTranslate.Input
 ```
 
 </TabItem>
@@ -50,14 +70,11 @@ vScriptValPointsOnCircle.Output -> vScriptValUnPacker.ScriptVal
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="../Create/vScriptValPointsOnCircle">vScriptValPointsOnCircle</a>
   <a className="node-chip" href="./vScriptValUnPacker">vScriptValUnPacker</a>
-  <a className="node-chip" href="./vScriptValSin">vScriptValSin</a>
-  <a className="node-chip" href="./vScriptValCameraProjection">vScriptValCameraProjection</a>
-  <a className="node-chip" href="../ShapeRender/vScriptValShapeRender">vScriptValShapeRender</a>
+  <a className="node-chip" href="./vScriptValConvert2D_3D">vScriptValConvert2D_3D</a>
+  <a className="node-chip" href="../Utility/vScriptValSlicer">vScriptValSlicer</a>
 </div>
 
 {/*
-Generated page — node: vScriptValPacker (ScriptVal/Modify).
-Source: fuse vScriptValPacker.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Rendered from content-pipeline record (reviewed).
 */}

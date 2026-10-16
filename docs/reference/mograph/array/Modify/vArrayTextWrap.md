@@ -1,7 +1,7 @@
 ---
 sidebar_position: 63
 title: vArrayTextWrap
-description: "Text wrap Operations on a Array"
+description: "Joins the text of an array and wraps it to a line length, as one string or as a list of lines."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -9,9 +9,10 @@ import TabItem from '@theme/TabItem';
 
 # vArrayTextWrap
 
-Text wrap Operations on a Array
+Joins the text of an array and wraps it to a line length, as one string or as a list of lines.
 
 <div className="node-badge-row">
+  <span className="node-badge node-badge--beginner">Beginner</span>
   <span className="node-badge">Mograph / Array</span>
   <span className="node-badge">Array</span>
   <span className="node-badge">ScriptVal</span>
@@ -22,26 +23,42 @@ Text wrap Operations on a Array
   <img src="/VonkUltra/img/reference/mograph/array/vArrayTextWrap.png" alt="vArrayTextWrap node" />
 </div>
 
+vArrayTextWrap takes an array of text pieces, joins them with spaces and wraps the result to Line length characters. Output As chooses a single string or a list of lines.
+
 ## Parameters
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Output As: | Dropdown | `String` | String or Table. |
-| Line length | Integer | `25` | Maximum characters per line. |
-| Number of Paragraphs | Integer | `1` | Number of paragraphs. |
-| Input | DATATYPE | `—` | Data to process. |
+| Output As: | Dropdown | `String` | String (default) gives one string with line breaks. Table gives a list of lines. |
+| Line length | Integer | `25` | Largest number of characters in a line. Minimum 1, slider 1 to 100, default 25. |
+| Number of Paragraphs | Integer | `1` | Number of paragraphs the words are divided into. Range 1 to 100, slider 1 to 10, default 1. |
+| Input | DATATYPE | `—` | Array of text pieces, joined with spaces. |
+
+<details>
+<summary>Read the full description</summary>
+
+The pieces of the input are joined with single spaces, split into words, and the words are placed on lines of at most Line length characters (default 25). A word longer than the line length is cut into pieces of that length. Number of Paragraphs (default 1) divides the words into that many groups of about equal size and puts an empty line between them.
+
+The Text output always holds the wrapped lines joined by line breaks. With Output As Table the TextTable output holds the list of lines. With String, the default, TextTable holds the same string. Number of Paragraphs can be connected to another node.
+
+</details>
 
 ## Example Connections
 
 <Tabs>
-<TabItem value="example-1" label="Example 1" default>
+<TabItem value="wrap-generated-text" label="Wrap generated text" default>
 
 ```
-vArrayGenerateText.chanceOperation = "Lorem ipsum"
-    vArrayGenerateText.selectMode = "Paragraph"
-    vArrayGenerateText.paragraphCount = 8
-    vArrayGenerateText.Output -> vArrayTextWrap.Array
-    vArrayTextWrap.Text -> vTextViewer.Input
+vArrayGenerateText.OutputValData -> vArrayTextWrap.Array
+vArrayTextWrap.Text -> vArrayShapeText.Text
+```
+
+</TabItem>
+<TabItem value="use-the-lines-as-a-list" label="Use the lines as a list">
+
+```
+vArrayGenerateText.OutputValData -> vArrayTextWrap.Array
+vArrayTextWrap.TextTable -> vArrayReverse.Input
 ```
 
 </TabItem>
@@ -51,9 +68,10 @@ vArrayGenerateText.chanceOperation = "Lorem ipsum"
 
 <div className="node-chip-row">
   <a className="node-chip" href="../Create/vArrayGenerateText">vArrayGenerateText</a>
+  <a className="node-chip" href="../Shapes/vArrayShapeText">vArrayShapeText</a>
+  <a className="node-chip" href="../ShapeRender/vArrayRenderWordPacker">vArrayRenderWordPacker</a>
 </div>
 
 {/*
-Generated page — node: vArrayTextWrap (Array/Modify).
-Source: fuse vArrayTextWrap.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Rendered from content-pipeline record (reviewed).
 */}

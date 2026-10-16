@@ -51,8 +51,8 @@ curated:
   params: {}
 status:
   source: ai
-  state: ai
-  reviewed_hash: null
+  state: reviewed
+  reviewed_hash: 8ffdc29115cd
   connections_source: docsify
   prompt_version: '1'
   note: >-

@@ -1,7 +1,7 @@
 ---
 sidebar_position: 53
 title: vArrayRotateValues
-description: "Rotate the order of an array"
+description: "Cycles the elements of an array forward or backward by a number of positions."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 # vArrayRotateValues
 
-Cycle the elements of a vArray by N positions — the sequencer shift node for looping patterns and staggered animation offsets.
+Cycles the elements of an array forward or backward by a number of positions.
 
 <div className="node-badge-row">
   <span className="node-badge node-badge--beginner">Beginner</span>
@@ -23,46 +23,44 @@ Cycle the elements of a vArray by N positions — the sequencer shift node for l
   <img src="/VonkUltra/img/reference/mograph/array/vArrayRotateValues.png" alt="vArrayRotateValues node" />
 </div>
 
-vArrayRotateValues shifts all elements in a vArray forward or backward by a set number of positions, wrapping values that fall off one end back to the other. It is the primary tool for creating cyclic sequences and stagger offsets across point arrays.
+vArrayRotateValues takes an array and moves every element by Rotate Amount positions, wrapping the elements that fall off one end around to the other. Rotate Amount is the only setting.
 
 ## Parameters
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Rotate Amount | Integer | `1` | Number of positions to shift the array elements. Positive shifts forward, negative shifts backward. Range: –100 to 100. |
-| Pass Thru: 0 or 1 | Checkbox | `0` | When enabled, bypasses the rotation and passes the input array through unchanged. Use during development to toggle the effect. |
-| Show Input | Checkbox | `0` | Reveals the Array A connection port on the node in the Fusion node graph. |
-| Array A | Float | `—` | The vArray whose element order will be circularly shifted. |
+| Rotate Amount | Integer | `1` | Number of positions to shift. Whole numbers from -100 to 100, default 1. Positive moves toward the end. |
+| Pass Thru: 0 or 1 | Integer | `0.0` | Hidden control. Has no effect in the code. Default off. |
+| Show Input | Integer | `0.0` | Shows the input port of Rotate Amount when on. Default off. |
+| Input | DATATYPE | `—` | Array whose elements are shifted. |
 
 <details>
 <summary>Read the full description</summary>
 
-vArrayRotateValues performs a circular shift on the element order of a vArray. Elements shifted off the end of the array wrap around to the beginning, preserving the total element count. This is fundamentally different from 3D rotation — it is a data sequencing operation, not a spatial transform.
+With Rotate Amount 1 (the default) every element moves one place toward the end, and the last element becomes the first. A negative amount moves the elements toward the start, and the first element becomes the last. The amount can be -100 to 100, whole numbers, and a larger amount than the array length wraps around.
 
-Rotate Amount accepts positive values (shift forward) and negative values (shift backward), and its range of –100 to 100 covers most practical use cases. Animating this parameter over time creates a continuous cycling effect through the array — valuable for sequencing lights in a ring, cycling colour maps, or producing offset wave propagation across a point cloud.
-
-Pass Thru mode bypasses the shift entirely, outputting the array unchanged. This is useful during node graph development when you want to temporarily disable the rotation without disconnecting or deleting the node. Pair vArrayRotateValues with vArrayWave to create directional wave patterns that travel through a point array over time.
+The elements can be numbers, points or lists, and they are not changed. Show Input makes the Rotate Amount input port visible, so the amount can be connected to another node. The hidden Pass Thru control has no effect.
 
 </details>
 
 ## Example Connections
 
 <Tabs>
-<TabItem value="cycling-ring-sequence" label="Cycling ring sequence" default>
+<TabItem value="cycle-the-points-of-a-ring-and-draw" label="Cycle the points of a ring and draw" default>
 
 ```
 vArrayPointsOnCircle.Output -> vArrayRotateValues.ArrayA
 vArrayRotateValues.Output -> vArrayCameraProjection.ArrayA
 vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+Background.Output -> vArrayShapeRender.Input
 ```
 
 </TabItem>
-<TabItem value="stagger-before-wave" label="Stagger before wave">
+<TabItem value="shift-a-list-for-a-stagger" label="Shift a list for a stagger">
 
 ```
-vArrayPointsOnGrid.Output -> vArrayRotateValues.ArrayA
-vArrayRotateValues.Output -> vArrayWave.ArrayA
-vArrayWave.Output -> vArrayCameraProjection.ArrayA
+vArrayCreateRange.Output -> vArrayRotateValues.ArrayA
+vArrayRotateValues.Output -> vArrayMath.ArrayA
 ```
 
 </TabItem>
@@ -71,11 +69,11 @@ vArrayWave.Output -> vArrayCameraProjection.ArrayA
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="../../array/Modify/vArrayWave">vArrayWave</a>
-  <a className="node-chip" href="../../array/Create/vArrayBuffer">vArrayBuffer</a>
-  <a className="node-chip" href="../../array/Modify/vArrayInterpolate">vArrayInterpolate</a>
+  <a className="node-chip" href="./vArrayReverse">vArrayReverse</a>
+  <a className="node-chip" href="../Utility/vArraySlicer">vArraySlicer</a>
+  <a className="node-chip" href="../Animate/vArrayStagger">vArrayStagger</a>
 </div>
 
 {/*
-Rich page restored from _output/vArrayRotateValues_page.json. Source of truth: fuses.ts / vonkultratools data model.
+Rendered from content-pipeline record (ai).
 */}

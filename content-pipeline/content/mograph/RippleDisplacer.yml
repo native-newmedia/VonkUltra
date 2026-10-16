@@ -64,8 +64,8 @@ curated:
     ArrayA: Points to displace.
 status:
   source: ai
-  state: ai
-  reviewed_hash: null
+  state: reviewed
+  reviewed_hash: b90f64c8ff92
   prompt_version: '1'
   note: >-
     Changed in fix batch F1 (branch fix/findings-f1 of vonk-ultra-mograph), same change in all three

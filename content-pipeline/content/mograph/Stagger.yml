@@ -81,8 +81,8 @@ curated:
     Steps: Hidden control. Not read by the code. Range 1 to 100, default 5.
 status:
   source: ai
-  state: ai
-  reviewed_hash: null
+  state: reviewed
+  reviewed_hash: 4e57b8b9a7ff
   prompt_version: '1'
   note: >-
     Changed in fix batch F1 (branch fix/findings-f1 of vonk-ultra-mograph), same change in all three

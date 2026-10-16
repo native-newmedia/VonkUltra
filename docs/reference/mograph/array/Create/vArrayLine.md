@@ -1,7 +1,7 @@
 ---
 sidebar_position: 26
 title: vArrayLine
-description: "Generate points on a line."
+description: "Generate evenly spaced points on a straight line between a start and an end position."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -9,9 +9,10 @@ import TabItem from '@theme/TabItem';
 
 # vArrayLine
 
-Generate points on a line.
+Generate evenly spaced points on a straight line between a start and an end position.
 
 <div className="node-badge-row">
+  <span className="node-badge node-badge--beginner">Beginner</span>
   <span className="node-badge">Mograph / Array</span>
   <span className="node-badge">Array</span>
   <span className="node-badge">ScriptVal</span>
@@ -22,37 +23,72 @@ Generate points on a line.
   <img src="/VonkUltra/img/reference/mograph/array/vArrayLine.png" alt="vArrayLine node" />
 </div>
 
+vArrayLine has no input and outputs an array of XYZ points between Start and End positions. Point Count sets how many points are written.
+
 ## Parameters
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Start X | Float | `-0.5` | Start position X. |
-| Start Y | Float | `0` | Start position Y. |
-| Start Z | Float | `0` | Start position Z. |
-| End X | Float | `0.5` | End position X. |
-| End Y | Float | `0` | End position Y. |
+| Start X | Float | `-0.5` | X position of the first point. Default -0.5. |
+| Start Y | Float | `0` | Y position of the first point. Default 0. |
+| Start Z | Float | `0` | Z position of the first point. Default 0. |
+| End X | Float | `0.5` | X position of the end of the line. Default 0.5. |
+| End Y | Float | `0` | Y position of the end of the line. Default 0. |
 
 <details>
 <summary>+3 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| End Z | Float | `0` | End position Z. |
-| Point Count | Integer | `10` | Number of points. |
-| Include End Point | Integer | `1.0` | Adds the end point. |
+| End Z | Float | `0` | Z position of the end of the line. Default 0. |
+| Point Count | Integer | `10` | Number of points. Clamped to 2 or more, default 10. |
+| Include End Point | Integer | `1.0` | When on, the last point lands on the end position. When off, the points stop one step before it. Default on. |
 
 </details>
+
+<details>
+<summary>Read the full description</summary>
+
+For point i of n, the node uses t = i / (n - 1) and writes Start + (End - Start) * t on each of the three axes. The first point is at the start position and, with Include End Point on, the last point is at the end position.
+
+With the defaults (Start -0.5, 0, 0, End 0.5, 0, 0, 10 points, Include End Point on) the node outputs ten points on the X axis from -0.5 to 0.5, 0.111 apart.
+
+With Include End Point off, t is divided by n instead of n - 1. The spacing is then (End - Start) / n and the last point stops one step before the end position.
+
+Point Count is clamped to 2 or more. The start and end positions are not limited. The output contains points only, with no edges.
+
+</details>
+
+## Example Connections
+
+<Tabs>
+<TabItem value="draw-the-line" label="Draw the line" default>
+
+```
+vArrayLine.Output -> vArrayCameraProjection.ArrayA
+vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+Background.Output -> vArrayShapeRender.Input
+```
+
+</TabItem>
+<TabItem value="animate-the-points-with-varraywave" label="Animate the points with vArrayWave">
+
+```
+vArrayLine.Output -> vArrayWave.ArrayA
+vArrayWave.Output -> vArrayCameraProjection.ArrayA
+```
+
+</TabItem>
+</Tabs>
 
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="./vArrayBuffer">vArrayBuffer</a>
+  <a className="node-chip" href="./vArrayPointsOnGrid">vArrayPointsOnGrid</a>
+  <a className="node-chip" href="./vArrayCubicBezier">vArrayCubicBezier</a>
   <a className="node-chip" href="./vArrayCircularPoints">vArrayCircularPoints</a>
-  <a className="node-chip" href="./vArrayCreateAsset">vArrayCreateAsset</a>
-  <a className="node-chip" href="./vArrayAttractorPoints">vArrayAttractorPoints</a>
 </div>
 
 {/*
-Generated page — node: vArrayLine (Array/Create).
-Source: fuse vArrayLine.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Rendered from content-pipeline record (ai).
 */}

@@ -1,7 +1,7 @@
 ---
 sidebar_position: 8
 title: vArrayCameraProjection
-description: "Project points through a perspective camera"
+description: "Rotates, shifts and scales points, then projects them to 2D with a perspective divide."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -9,10 +9,10 @@ import TabItem from '@theme/TabItem';
 
 # vArrayCameraProjection
 
-Project 3D world-space point arrays to 2D screen coordinates — the mandatory bridge between every vArray generator and vArrayShapeRender.
+Rotates, shifts and scales points, then projects them to 2D with a perspective divide.
 
 <div className="node-badge-row">
-  <span className="node-badge node-badge--beginner">Beginner</span>
+  <span className="node-badge node-badge--intermediate">Intermediate</span>
   <span className="node-badge">Mograph / Array</span>
   <span className="node-badge">Array</span>
   <span className="node-badge">ScriptVal</span>
@@ -23,47 +23,58 @@ Project 3D world-space point arrays to 2D screen coordinates — the mandatory b
   <img src="/VonkUltra/img/reference/mograph/array/vArrayCameraProjection.png" alt="vArrayCameraProjection node" />
 </div>
 
-vArrayCameraProjection takes a 3D vArray point table and projects it to screen-space XY coordinates using a configurable virtual camera with position, rotation, scale, and field-of-view controls. It is the required intermediate node between any point generator and vArrayShapeRender — no render pipeline is complete without it.
+vArrayCameraProjection takes an array of XYZ points and outputs 2D points. It also outputs an Edges array for the points and passes a Groups input through. The output feeds vArrayShapeRender.
 
 ## Parameters
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| X Offset | Float | `0` | Horizontal position of the virtual camera in world space. Pans the projected output left or right. |
-| Y Offset | Float | `0` | Vertical position of the virtual camera in world space. Pans the projected output up or down. |
-| Z Offset | Float | `1.0` | Camera distance from the point cloud. This is the primary scale control — increase to zoom out, decrease to zoom in. Most impactful parameter for initial framing. |
-| X Rotation | Float | `0` | Rotates the camera around the X axis (tilt). Animatable for pitch sweeps through 3D point clouds. |
-| Y Rotation | Float | `0` | Rotates the camera around the Y axis (pan). Animate to orbit around a 3D array. |
+| X Offset | Float | `—` | Added to the X value of every point before projection. Default 0. |
+| Y Offset | Float | `—` | Added to the Y value of every point before projection. Default 0. |
+| Z Offset | Float | `1.0` | Added to the Z value of every point before the divide by Z. Default 1. |
+| Rotation Order | Dropdown | ` XYZ ` | Hidden control, not read by the code. The rotation order is always X, Y, Z. |
+| X Rotation | Float | `—` | Rotation around X in degrees, slider to 360. Default 0. |
 
 <details>
-<summary>+6 more parameters</summary>
+<summary>+17 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Z Rotation | Float | `0` | Rotates the camera around the Z axis (roll). Spins the entire projected output around the screen centre. |
-| Lock X/Y | Checkbox | `On` | When enabled, X Scale controls both horizontal and vertical scale uniformly. Disable to stretch or squeeze the projected output independently on each axis. |
-| X Scale | Float | `1.0` | Uniform scale of the projected output when Lock X/Y is on. Acts as horizontal-only scale when unlocked. |
-| Field of view | Float | `90.0` | Camera field of view in degrees. Lower values flatten perspective towards orthographic projection; higher values exaggerate depth foreshortening on 3D arrays. |
-| Show Input | Checkbox | `On` | Reveals the ArrayA input port on the node. Required to receive the 3D point array from upstream generators. |
-| Array A | Array | `—` | Primary 3D point array input. Connect the output of any vArray generator or modifier here. |
+| Y Rotation | Float | `—` | Rotation around Y in degrees, slider to 360. Default 0. |
+| Z Rotation | Float | `—` | Rotation around Z in degrees, slider to 360. Default 0. |
+| Rotate Around Center | Integer | `1` | Rotates around the centroid of the points when on (default), around the origin when off. |
+| Lock X/Y | Integer | `1` | When on (default), X Scale is used for both X and Y. Y Scale is shown when it is off. |
+| X Scale | Float | `1.0` | Multiplies X and Z. Default 1. Also multiplies Y while Lock X/Y is on. |
+| Y Scale | Float | `1.0` | Multiplies Y when Lock X/Y is off. Default 1. Hidden while it is on. |
+| Field of view | Float | `90.0` | Field of view in degrees. Default 90. |
+| Screen aspect ratio | Float | `16 / 9` | Hidden. Screen aspect ratio, default 16 / 9. It cancels out of the X result. |
+| Near clipping plane | Float | `0.1` | Hidden. Near clipping plane, default 0.1. Read but not used in the projection. |
+| Far clipping plane | Float | `1000` | Hidden. Far clipping plane, default 1000. Read but not used in the projection. |
+| X Shear | Float | `0.0` | Hidden. Default 0. Read but not used. |
+| Y Shear | Float | `0.0` | Hidden. Default 0. Read but not used. |
+| Input | DATATYPE | `—` | Primary 3D point array input. Connect the output of any vArray generator or modifier here. |
+| Edge | DATATYPE | `—` | Optional edges. When connected, they are passed to the Edges output. |
+| Groups | ScriptVal | `—` | Optional groups. Passed to the Groups output unchanged. |
+| Auto Create Edges | Integer | `1` | When on (default) and no Edge input is connected, writes one edge through all points. Needs 2 or more points. |
+| Close Edge Loop | Integer | `0` | Default off. In the code the generated edge returns to the first point when this is off, and ends at the last point when it is on. |
 
 </details>
 
 <details>
 <summary>Read the full description</summary>
 
-vArrayCameraProjection is the perspective engine of the vArray pipeline. Every point generator — vArrayPointsOnCircle, vArrayPointsOnArc, vArrayPointsOnGrid, vArrayMinMax, vArrayFromOBJ — outputs a 3D coordinate table in world space. vArrayShapeRender needs 2D screen-space XY pairs. CameraProjection is the node that does the conversion, applying a full virtual camera transform between the two. Without it, nothing renders correctly.
+Each point is rotated by X, Y and Z Rotation (degrees, in the order X, Y, Z) around the centroid of the points, or the origin if Rotate Around Center is off. Then X, Y and Z Offset are added, X Scale multiplies X and Z, and Y Scale multiplies Y.
 
-The camera is defined by three transform groups: Translate (X/Y/Z position), Rotate (X/Y/Z rotation in degrees), and Scale (X, with Lock X/Y maintaining aspect ratio). The Z Translate value is the most critical — it controls camera distance from the point cloud and has the largest effect on the apparent size and spread of the projected output. The Field of View control (default 90°) adjusts perspective distortion: lower values produce a flatter, more orthographic look; higher values produce exaggerated foreshortening on 3D arrays.
+With s = 1 / tan(fov / 2), the output is X = 0.5 + s * x / (2 * -z) and Y = s * y / (2 * -z) plus an offset from an internal reference image. A Z near 0 is replaced by a small number.
 
-Because CameraProjection is parameterised with standard Fusion controls, all transform values are fully animatable. Keyframe the Z Translate to push in on a point cloud, or animate Y Rotation to orbit around a 3D point array — the screen-space coordinates update every frame and flow directly into ShapeRender. The Lock X/Y checkbox constrains X and Y scale together when scaling; the X Scale parameter acts as a uniform scale when locked. For flat 2D layouts (circle, arc, grid) with no 3D depth, leave the default transform values and just adjust Z Translate to fit the output to frame.
+An Edge input is passed to the Edges output. Without one, Auto Create Edges (on) writes one edge through all points in order, and it returns to point 1 when Close Edge Loop is off. Groups pass through unchanged.
 
 </details>
 
 ## Example Connections
 
 <Tabs>
-<TabItem value="standard-3-node-pipeline" label="Standard 3-node pipeline" default>
+<TabItem value="project-a-circle-and-draw-it" label="Project a circle and draw it" default>
 
 ```
 vArrayPointsOnCircle.Output -> vArrayCameraProjection.ArrayA
@@ -72,22 +83,13 @@ Background.Output -> vArrayShapeRender.Input
 ```
 
 </TabItem>
-<TabItem value="with-upstream-displacement" label="With upstream displacement">
-
-```
-vArrayPointsOnGrid.Output -> vArrayDisplaceValues.ArrayA
-vArrayDisplaceValues.Output -> vArrayCameraProjection.ArrayA
-vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
-Background.Output -> vArrayShapeRender.Input
-```
-
-</TabItem>
-<TabItem value="obj-mesh-point-cloud" label="OBJ mesh point cloud">
+<TabItem value="draw-the-edges-of-a-loaded-mesh" label="Draw the edges of a loaded mesh">
 
 ```
 vArrayFromOBJ.Points -> vArrayCameraProjection.ArrayA
-vArrayFromOBJ.Edges -> vArrayShapeRender.ArrayEdge
+vArrayFromOBJ.Edges -> vArrayCameraProjection.ArrayEdge
 vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+vArrayCameraProjection.Edges -> vArrayShapeRender.ArrayEdge
 Background.Output -> vArrayShapeRender.Input
 ```
 
@@ -97,11 +99,11 @@ Background.Output -> vArrayShapeRender.Input
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="../../array/ShapeRender/vArrayShapeRender">vArrayShapeRender</a>
-  <a className="node-chip" href="../../array/Create/vArrayPointsOnCircle">vArrayPointsOnCircle</a>
-  <a className="node-chip" href="../../array/Modify/vArrayDisplaceValues">vArrayDisplaceValues</a>
+  <a className="node-chip" href="../ShapeRender/vArrayShapeRender">vArrayShapeRender</a>
+  <a className="node-chip" href="./vArrayTranslate">vArrayTranslate</a>
+  <a className="node-chip" href="./vArrayLookAt">vArrayLookAt</a>
 </div>
 
 {/*
-Rich page restored from _output/vArrayCameraProjection_page.json. Source of truth: fuses.ts / vonkultratools data model.
+Rendered from content-pipeline record (ai).
 */}

@@ -1,7 +1,7 @@
 ---
 sidebar_position: 44
 title: vArrayPointsOnSphere
-description: "Generate points on a sphere"
+description: "Generate points on a sphere with a Fibonacci spiral layout or a random layout with three distributions."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 # vArrayPointsOnSphere
 
-Distribute points evenly across a sphere — Fibonacci, random, or trimmed to a hemisphere for 3D scatter and globe visualisations.
+Generate points on a sphere with a Fibonacci spiral layout or a random layout with three distributions.
 
 <div className="node-badge-row">
   <span className="node-badge node-badge--intermediate">Intermediate</span>
@@ -23,48 +23,49 @@ Distribute points evenly across a sphere — Fibonacci, random, or trimmed to a 
   <img src="/VonkUltra/img/reference/mograph/array/vArrayPointsOnSphere.png" alt="vArrayPointsOnSphere node" />
 </div>
 
-vArrayPointsOnSphere generates a vArray of XYZ coordinates distributed across the surface of a sphere. Choose from multiple distribution algorithms and trim the poles to create hemispheres or bands.
+vArrayPointsOnSphere has no input and outputs an array of XYZ points around the origin. Create chooses between a Fibonacci sphere and a random Custom sphere, and the controls shown change with the choice.
 
 ## Parameters
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Create | Integer | `0` | Internal creation mode flag. Controls whether the node regenerates the array on each parameter change. |
-| Amount of points | Integer | `100` | Total number of points to distribute on the sphere surface. Higher values produce denser coverage. |
-| Sphere size | Integer | `0.3` | Radius of the sphere in Fusion's normalised coordinate space. Default 0.3 roughly fills a standard 1920×1080 frame when centred. |
-| Random distance | Integer | `0` | Toggles radial jitter mode. When enabled, points are offset from the surface by a random amount controlled by Random Distance. |
-| Random seed | Integer | `0` | Seed value for the random number generator. Change to get different random layouts while keeping the same point count. |
+| Create | Dropdown | `Fibonacci Sphere` | Chooses the Fibonacci Sphere or the Custom Sphere layout. Changing it shows the controls of that layout. Default Fibonacci Sphere. |
+| Amount of points | Integer | `100` | Number of points. Minimum 2, default 100. |
+| Sphere size | Float | `0.3` | Radius of the sphere. Default 0.3. |
+| Random distance | Float | `0` | Custom Sphere only, hidden in Fibonacci mode. Random amount up to this value that is taken off the start distance of each point. Default 0. |
+| Random seed | Float | `0` | Custom Sphere uses it to seed the random layout. Hidden in Fibonacci mode, where it still seeds the random distances. Default 0. |
 
 <details>
-<summary>+5 more parameters</summary>
+<summary>+6 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Distribution | Integer | `0` | Selects the point distribution algorithm: Fibonacci spiral (even coverage) or random placement. |
-| Trim Top | Integer | `-1` | Upper latitude clipping value (–1 to 1). –1 = no trimming at the top pole. Increase to cut off the upper cap. |
-| Trim Bottom | Integer | `1` | Lower latitude clipping value (–1 to 1). 1 = no trimming at the bottom pole. Decrease to cut off the lower cap. |
-| Random Distance | Integer | `1.0` | Magnitude of the radial offset when Random distance mode is active. Scales how far points are pushed away from the sphere surface. |
-| Show Input | Checkbox | `0` | Reveals optional input ports on the node in the Fusion node graph. |
+| Distribution | Dropdown | `Uniform` | Custom Sphere only. Uniform, Poles or Half. Controls how the random rotation is drawn. Default Uniform. |
+| Trim Top | Float | `-1` | Fibonacci Sphere only. Lower limit for Y before scaling. Range -1 to 1, default -1. |
+| Trim Bottom | Float | `1` | Fibonacci Sphere only. Upper limit for Y before scaling. Range -1 to 1, default 1. |
+| Random Distance | Dropdown | `False` | Fibonacci Sphere only. True adds a second point at a random distance for every point. Default False. |
+| Scale Factor | Float | `1` | Hidden control. Multiplier applied to all points in Custom Sphere mode. Default 1. |
+| Rotate Factor | Float | `0` | Hidden control. It is not used in the calculation. Default 0. |
 
 </details>
 
 <details>
 <summary>Read the full description</summary>
 
-vArrayPointsOnSphere is the primary 3D scatter generator in the vArray toolkit. It computes point positions on the surface of a sphere using a selectable distribution method — Fibonacci spiral for even spacing, or random for organic variation — then outputs a vArray ready for vArrayCameraProjection and vArrayShapeRender.
+In Fibonacci Sphere mode, point i of n has Y = 1 - 2 * i / (n - 1), a horizontal radius of sqrt(1 - Y * Y) and the angle i * pi * (sqrt(5) - 1) around the Y axis, with X = cos(angle) * radius and Z = sin(angle) * radius. All three values are multiplied by Sphere size. The points follow a spiral from the top of the sphere, Y = +1, to the bottom.
 
-The Distribution dropdown controls how points are placed on the surface. Fibonacci spiral distribution produces the most visually even coverage and is the preferred mode for data visualisations such as globe plots. Random distribution with a fixed seed gives repeatable organic layouts. Adjust Random distance to add radial jitter, pushing points off the surface for volumetric effects.
+Trim Top and Trim Bottom clamp the unscaled Y value. The value of the Trim Top control is the lower limit and the value of the Trim Bottom control is the upper limit, so the labels are the reverse of the Y direction. The defaults of -1 and 1 do not change anything. A point outside the limits keeps its X and Z and gets Y set to the limit, so it is flattened onto a plane and not removed. Setting Random Distance to True writes a second point on the same ray for every point, at a random distance between 0 and Sphere size. Random seed seeds the random generator, and in this mode the control is hidden.
 
-Trim Top and Trim Bottom clip the sphere along the Y axis, producing hemispheres, rings, or bands between any two latitude values (–1 to 1). This is particularly useful when the camera angle only sees part of the sphere, or when creating planet visualisations where the poles need to be hidden. Connect the output to vArrayDisplaceValues before rendering to add noise-driven surface variation.
+In Custom Sphere mode the node writes Amount of points points at random positions. Each point starts at (Sphere size, 0, 0), or at (-Sphere size, 0, 0) for every second point, minus a random amount up to Random distance, and is rotated by a random rotation. Distribution picks how the random numbers for the rotation are drawn. Uniform draws from -1 to 1, while Poles and Half draw from 0 to 1, which concentrates the points. In Half every point starts at +Sphere size. The result is multiplied by the hidden Scale Factor. Random seed makes the layout repeatable.
 
-Amount of points scales from 2 to tens of thousands — keep it under 2000 for real-time feedback in Fusion's viewer. Sphere size sets the radius in Fusion's normalised coordinate space (default 0.3 ≈ roughly fills a 1920×1080 frame when centred).
+With the defaults (Fibonacci Sphere, 100 points, Sphere size 0.3) the node outputs 100 points on a sphere of radius 0.3. Amount of points has a minimum of 2. The hidden Rotate Factor control is not used.
 
 </details>
 
 ## Example Connections
 
 <Tabs>
-<TabItem value="standard-3d-scatter-pipeline" label="Standard 3D scatter pipeline" default>
+<TabItem value="draw-the-sphere-points" label="Draw the sphere points" default>
 
 ```
 vArrayPointsOnSphere.Output -> vArrayCameraProjection.ArrayA
@@ -73,12 +74,11 @@ Background.Output -> vArrayShapeRender.Input
 ```
 
 </TabItem>
-<TabItem value="with-noise-displacement" label="With noise displacement">
+<TabItem value="offset-the-points-before-drawing" label="Offset the points before drawing">
 
 ```
-vArrayPointsOnSphere.Output -> vArrayDisplaceValues.ArrayA
-vArrayDisplaceValues.Output -> vArrayCameraProjection.ArrayA
-vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+vArrayPointsOnSphere.Output -> vArrayTranslate.ArrayA
+vArrayTranslate.Output -> vArrayCameraProjection.ArrayA
 ```
 
 </TabItem>
@@ -87,11 +87,11 @@ vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="../../array/Create/vArrayPointsOnCircle">vArrayPointsOnCircle</a>
-  <a className="node-chip" href="../../array/Modify/vArrayDisplaceValues">vArrayDisplaceValues</a>
-  <a className="node-chip" href="../../array/Modify/vArrayCameraProjection">vArrayCameraProjection</a>
+  <a className="node-chip" href="./vArrayGeodesicSphere">vArrayGeodesicSphere</a>
+  <a className="node-chip" href="./vArrayGenerateSphere">vArrayGenerateSphere</a>
+  <a className="node-chip" href="./vArrayNoise">vArrayNoise</a>
 </div>
 
 {/*
-Rich page restored from _output/vArrayPointsOnSphere_page.json. Source of truth: fuses.ts / vonkultratools data model.
+Rendered from content-pipeline record (ai).
 */}

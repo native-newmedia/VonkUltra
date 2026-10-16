@@ -1,7 +1,7 @@
 ---
 sidebar_position: 27
 title: vArrayMath
-description: "Apply a math operation to an array"
+description: "Applies one of 31 math operations to every X, Y and Z value, with a number or a second array."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -9,10 +9,10 @@ import TabItem from '@theme/TabItem';
 
 # vArrayMath
 
-Apply add, subtract, multiply, or divide to every element in a vArray — the essential arithmetic node for data-driven motion.
+Applies one of 31 math operations to every X, Y and Z value, with a number or a second array.
 
 <div className="node-badge-row">
-  <span className="node-badge node-badge--beginner">Beginner</span>
+  <span className="node-badge node-badge--intermediate">Intermediate</span>
   <span className="node-badge">Mograph / Array</span>
   <span className="node-badge">Array</span>
   <span className="node-badge">ScriptVal</span>
@@ -23,58 +23,57 @@ Apply add, subtract, multiply, or divide to every element in a vArray — the es
   <img src="/VonkUltra/img/reference/mograph/array/vArrayMath.png" alt="vArrayMath node" />
 </div>
 
-vArrayMath applies a scalar or per-element arithmetic operation to a vArray. Place it anywhere in the pipeline to scale, offset, or combine numeric arrays before passing them to renderers or downstream modifiers.
+vArrayMath reads each element of Input A as X, Y and Z and combines it with a number or with the matching element of Input B. Operation chooses the formula, and the output has three values per element.
 
 ## Parameters
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Which | Integer | `—` | Selects which element index (1–64) the operation targets. Useful when modifying a single value within the array rather than every element. |
-| Operation | Dropdown | `0` | Selects the arithmetic operation to apply: Add, Subtract, Multiply, Divide, Power, or Modulo. |
-| Input Number | Integer | `0` | Toggles the secondary Array B input port. Set to 1 to expose Array B for per-element operations between two arrays. |
-| Number | Integer | `1` | The scalar operand used when Array B is not connected. For Multiply, 1 = no change; for Add, 0 = no change. |
-| Show Input | Checkbox | `0` | Reveals the Array B connection port on the node in the Fusion node graph. |
+| Which | Integer | `—` | Hidden control. Range 1 to 64. Not read by the code. |
+| Operation  | Dropdown | `Add` | One of 31 operations, default Add: Add, Subtract A-B, Multiply, Divide A/B, Min, Max, Average, Difference, Modulo A/B, Power A^B, Arc Tangent A/B, Pi, Sine, Cosine, Tangent, Arc Sine, Arc Cosine, Arc Tangent, Log, Log 10, Exponential, Degrees to Radians, Radians to Degrees, Absolute Value, Ceiling, Floor, Square Root, Reciprocal, Negate, Random, Random A to B and Matrix Multiply. |
+| Input Number | Dropdown | `Use Number` | Use Number (default) uses the Number control as B. Use Array uses Input B and shows its port. |
+| Number | Float | `1` | The B value in Use Number mode, used on all three axes. Slider -1 to 1, default 1. |
+| Connected | Integer | `0.0` | Set to 1 automatically when Input B is connected, otherwise 0. Not meant to be edited. |
 
 <details>
-<summary>+3 more parameters</summary>
+<summary>+2 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Connected | Checkbox | `0` | Internal state flag indicating whether Array B is currently connected. Read-only in normal use. |
-| Array A | Float | `—` | Primary vArray input. All elements in this array are processed by the selected operation. |
-| Array B | Float | `—` | Optional secondary vArray input for per-element operations. Must be the same length as Array A. |
+| Input A | DATATYPE | `—` | Values to process. |
+| Input B | DATATYPE | `—` | Second operand in Use Array mode, matched by index. For Matrix Multiply, the matrix text. |
 
 </details>
 
 <details>
 <summary>Read the full description</summary>
 
-vArrayMath is the go-to arithmetic node in the vArray toolkit. Connect Array A (and optionally Array B), select your operation from the dropdown — Add, Subtract, Multiply, Divide, Power, Modulo, and more — and every element in the array is transformed in a single pass. The result feeds directly into any downstream vArray node.
+Each element of Input A is read as X, Y and Z (a single number is used for all three) and the operation runs on each axis against B. B is the Number control (default 1) in Use Number mode, or the matching element of Input B in Use Array mode, with 0 for missing entries.
 
-The Which parameter targets a specific element index (1–64) when you only want to modify part of the array rather than applying the operation globally. Toggle Show Input to expose Array B for per-element operations between two arrays, or leave it off to use the static Number value as the operand.
+Operation offers 31 choices: arithmetic, min, max, modulo, power, trigonometry, logs, rounding, reciprocal and random values. Divide, Modulo, Log, Square Root, Reciprocal, Arc Sine and Arc Cosine return 0 where they are undefined. Matrix Multiply multiplies a translation made from each element by a matrix from Input B and outputs the resulting position.
 
-Use vArrayMath to normalise ranges after vArrayMapRange, to scale displacement magnitudes before vArrayDisplaceValues, or to combine two numeric datasets from separate vArrayCreate nodes. Its minimal interface keeps the node graph clean while handling the arithmetic layer that almost every intermediate workflow requires.
+Negate returns -A. Random returns A times a random value from 0 to 1, and Random A to B returns a random value between A and B.
 
 </details>
 
 ## Example Connections
 
 <Tabs>
-<TabItem value="scale-displacement-magnitude" label="Scale displacement magnitude" default>
+<TabItem value="scale-displacement-amounts" label="Scale displacement amounts" default>
 
 ```
-vArrayMinMax.Output -> vArrayMath.ArrayA
+vArrayRandom.Output -> vArrayMath.ArrayA
 vArrayMath.Output -> vArrayDisplaceValues.ArrayA
 vArrayDisplaceValues.Output -> vArrayCameraProjection.ArrayA
 ```
 
 </TabItem>
-<TabItem value="combine-two-data-sources" label="Combine two data sources">
+<TabItem value="add-two-arrays" label="Add two arrays">
 
 ```
-vArrayCreate.Output -> vArrayMath.ArrayA
+vArrayPointsOnGrid.Output -> vArrayMath.ArrayA
 vArrayRandom.Output -> vArrayMath.ArrayB
-vArrayMath.Output -> vArrayShapeRender.ArrayPoint
+vArrayMath.Output -> vArrayTranslate.Input
 ```
 
 </TabItem>
@@ -83,11 +82,11 @@ vArrayMath.Output -> vArrayShapeRender.ArrayPoint
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="../../array/Modify/vArrayMapRange">vArrayMapRange</a>
-  <a className="node-chip" href="../../array/Modify/vArrayDisplaceValues">vArrayDisplaceValues</a>
-  <a className="node-chip" href="../../array/Create/vArrayCreate">vArrayCreate</a>
+  <a className="node-chip" href="./vArrayMapRange">vArrayMapRange</a>
+  <a className="node-chip" href="./vArraySin">vArraySin</a>
+  <a className="node-chip" href="./vArrayClamp">vArrayClamp</a>
 </div>
 
 {/*
-Rich page restored from _output/vArrayMath_page.json. Source of truth: fuses.ts / vonkultratools data model.
+Rendered from content-pipeline record (reviewed).
 */}

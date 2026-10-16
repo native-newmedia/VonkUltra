@@ -1,7 +1,7 @@
 ---
 sidebar_position: 51
 title: vArrayReverse
-description: "Reverse or reorder array within specified index range."
+description: "Reverses the order of an array, or of a range of it, by index."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -9,9 +9,10 @@ import TabItem from '@theme/TabItem';
 
 # vArrayReverse
 
-Reverse or reorder array within specified index range. Supports full/partial reversal with metadata preservation.
+Reverses the order of an array, or of a range of it, by index.
 
 <div className="node-badge-row">
+  <span className="node-badge node-badge--beginner">Beginner</span>
   <span className="node-badge">Mograph / Array</span>
   <span className="node-badge">Array</span>
   <span className="node-badge">ScriptVal</span>
@@ -22,35 +23,67 @@ Reverse or reorder array within specified index range. Supports full/partial rev
   <img src="/VonkUltra/img/reference/mograph/array/vArrayReverse.png" alt="vArrayReverse node" />
 </div>
 
+vArrayReverse takes an array of any elements and outputs it with the elements from Start Index to End Index in reverse order. Elements outside the range stay where they are.
+
 ## Parameters
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input | DATATYPE | `—` | Data to process. |
-| Direction | Dropdown | `Reverse` | Direction of the operation. Options: Reverse, Forward. |
-| Start Index | Integer | `1` | First index of the range to reverse. |
-| End Index | Integer | `-1` | Last index of the range to reverse. |
-| Preserve Metadata | Integer | `0` | Keeps the extra values of each point. |
+| Input | DATATYPE | `—` | Array to reverse. |
+| Direction | Dropdown | `Reverse` | Reverse (default) writes the range backward. Forward writes it in its original order. |
+| Start Index | Integer | `1` | First index of the range, counted from 1. Minimum 1, slider to 10, default 1. |
+| End Index | Integer | `-1` | Last index of the range. -1 means the last element. Minimum -1, slider to 10, default -1. |
+| Preserve Metadata | Integer | `0` | When on, the keys of a wrapped input (&#123;"array": ...&#125;) other than array and size are copied to the output. In the ScriptVal and JSON versions this also writes the output as a wrapper. Default off. |
 
 <details>
 <summary>+1 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Debug Mode | Integer | `0` | Prints debug information to the console. |
+| Debug Mode | Integer | `0` | Prints the reversed range and the array length to the console when on. Default off. |
 
 </details>
+
+<details>
+<summary>Read the full description</summary>
+
+Start Index (default 1) and End Index (default -1, which means the last element) mark a range, counted from 1. With Direction Reverse, the default, the elements of the range are written in the opposite order, and the elements before and after the range are copied as they are. With Direction Forward the range is written in its original order, so the output equals the input.
+
+The elements can be numbers, points or lists, and they are not changed. End Index is limited to the length of the array, and an End Index below 1 means the end. Preserve Metadata copies the keys of a wrapped input other than array and size to the output. Debug Mode prints the reversed range to the console.
+
+</details>
+
+## Example Connections
+
+<Tabs>
+<TabItem value="reverse-a-path-and-draw-it" label="Reverse a path and draw it" default>
+
+```
+vArrayPointsOnArc.Output -> vArrayReverse.Input
+vArrayReverse.Output -> vArrayCameraProjection.ArrayA
+vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+Background.Output -> vArrayShapeRender.Input
+```
+
+</TabItem>
+<TabItem value="reverse-part-of-a-list" label="Reverse part of a list">
+
+```
+vArrayCreateRange.Output -> vArrayReverse.Input
+vArrayReverse.Output -> vArrayMath.ArrayA
+```
+
+</TabItem>
+</Tabs>
 
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="./vArrayBoundingBox">vArrayBoundingBox</a>
-  <a className="node-chip" href="./vArrayCameraProjection">vArrayCameraProjection</a>
-  <a className="node-chip" href="./vArrayConvert2D_3D">vArrayConvert2D_3D</a>
-  <a className="node-chip" href="./vArrayDisplaceValues">vArrayDisplaceValues</a>
+  <a className="node-chip" href="./vArrayRotateValues">vArrayRotateValues</a>
+  <a className="node-chip" href="../Utility/vArraySlicer">vArraySlicer</a>
+  <a className="node-chip" href="./vArraySortByDistance">vArraySortByDistance</a>
 </div>
 
 {/*
-Generated page — node: vArrayReverse (Array/Modify).
-Source: fuse vArrayReverse.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Rendered from content-pipeline record (reviewed).
 */}

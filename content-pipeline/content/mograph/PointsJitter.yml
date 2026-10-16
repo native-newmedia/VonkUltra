@@ -67,8 +67,8 @@ curated:
       spread.
 status:
   source: ai
-  state: ai
-  reviewed_hash: null
+  state: reviewed
+  reviewed_hash: 4c80cf459ad8
   prompt_version: '1'
   note: >-
     Reviewed in fix batch F1: the code matches its label and registered description, so the fuse was

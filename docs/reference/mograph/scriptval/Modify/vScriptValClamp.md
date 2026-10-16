@@ -1,7 +1,7 @@
 ---
 sidebar_position: 9
 title: vScriptValClamp
-description: "Clamp numeric values in nested arrays/tables."
+description: "Limits every number in an array to the range from Min to Max."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -9,9 +9,10 @@ import TabItem from '@theme/TabItem';
 
 # vScriptValClamp
 
-Clamp numeric values in nested arrays/tables.
+Limits every number in an array to the range from Min to Max.
 
 <div className="node-badge-row">
+  <span className="node-badge node-badge--beginner">Beginner</span>
   <span className="node-badge">Mograph / ScriptVal</span>
   <span className="node-badge">ScriptVal</span>
   <span className="node-badge">Array</span>
@@ -22,25 +23,59 @@ Clamp numeric values in nested arrays/tables.
   <img src="/VonkUltra/img/reference/mograph/scriptval/vScriptValClamp.png" alt="vScriptValClamp node" />
 </div>
 
+vScriptValClamp takes an array of numbers or points, including nested lists, and outputs it with every number held between Min and Max. Values already inside the range are unchanged.
+
 ## Parameters
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Min | Float | `0` | Lower limit. |
-| Max | Float | `1` | Upper limit. |
-| Auto Swap Min/Max | Integer | `1` | Swaps Min and Max when Min is larger. |
+| Min | Float | `0` | Lower limit. Allowed -10 to 10, default 0. |
+| Max | Float | `1` | Upper limit. Allowed -10 to 10, default 1. |
+| Auto Swap Min/Max | Integer | `1` | Exchanges Min and Max when Min is larger. Default on. |
 | Input | DATATYPE | `—` | Data to process. |
+
+<details>
+<summary>Read the full description</summary>
+
+Every number at any depth of the input is replaced by Min if it is below Min, and by Max if it is above Max. Entries that are not numbers are kept as they are, and the list structure is preserved. The defaults 0 and 1 hold all values in the 0 to 1 range.
+
+Min and Max accept -10 to 10. With Auto Swap on, which is the default, the two values are exchanged when Min is larger than Max. With it off and Min larger than Max, values below Min become Min and all other values become Max.
+
+The array length and the order of its entries do not change. Only the values are limited, so the node can follow any node that outputs numbers or points.
+
+</details>
+
+## Example Connections
+
+<Tabs>
+<TabItem value="clamp-a-grid-to-a-range-and-draw" label="Clamp a grid to a range and draw" default>
+
+```
+vScriptValPointsOnGrid.Output -> vScriptValClamp.Input
+vScriptValClamp.Output -> vScriptValCameraProjection.ArrayA
+vScriptValCameraProjection.Output -> vScriptValShapeRender.ArrayPoint
+Background.Output -> vScriptValShapeRender.Input
+```
+
+</TabItem>
+<TabItem value="clamp-noise-before-using-it-as-a-mask" label="Clamp noise before using it as a mask">
+
+```
+vScriptValPerlin3Noise.Output -> vScriptValClamp.Input
+vScriptValClamp.Output -> vScriptValApplyMask.Mask
+```
+
+</TabItem>
+</Tabs>
 
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="./vScriptValBoundingBox">vScriptValBoundingBox</a>
-  <a className="node-chip" href="./vScriptValCameraProjection">vScriptValCameraProjection</a>
-  <a className="node-chip" href="./vScriptValConvert2D_3D">vScriptValConvert2D_3D</a>
-  <a className="node-chip" href="./vScriptValDisplaceValues">vScriptValDisplaceValues</a>
+  <a className="node-chip" href="./vScriptValMapRange">vScriptValMapRange</a>
+  <a className="node-chip" href="./vScriptValMap">vScriptValMap</a>
+  <a className="node-chip" href="./vScriptValMath">vScriptValMath</a>
 </div>
 
 {/*
-Generated page — node: vScriptValClamp (ScriptVal/Modify).
-Source: fuse vScriptValClamp.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Rendered from content-pipeline record (ai).
 */}

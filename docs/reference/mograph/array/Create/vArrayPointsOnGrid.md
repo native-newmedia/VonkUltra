@@ -1,7 +1,7 @@
 ---
 sidebar_position: 41
 title: vArrayPointsOnGrid
-description: "Generate points on a grid"
+description: "Generate a rectangular lattice of points in X, Y and Z with a set count per axis and one spacing value."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 # vArrayPointsOnGrid
 
-Generate a rectangular grid of evenly spaced points — the standard starting node for matrix layouts, dot patterns, and scatter workflows.
+Generate a rectangular lattice of points in X, Y and Z with a set count per axis and one spacing value.
 
 <div className="node-badge-row">
   <span className="node-badge node-badge--beginner">Beginner</span>
@@ -23,32 +23,34 @@ Generate a rectangular grid of evenly spaced points — the standard starting no
   <img src="/VonkUltra/img/reference/mograph/array/vArrayPointsOnGrid.png" alt="vArrayPointsOnGrid node" />
 </div>
 
-vArrayPointsOnGrid generates a 2D rectangular grid of points defined by column and row counts, with a uniform spacing multiplier. It is the default choice when you need an ordered matrix of positions — feeding directly into vArrayCameraProjection and vArrayShapeRender for immediate output, or into modifiers like vArrayDisplaceValues to break up the regularity.
+vArrayPointsOnGrid has no input and outputs an array of XYZ points on a regular lattice centered on the origin. Number X, Y and Z set the count on each axis, and Multiplier sets the spacing.
 
 ## Parameters
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Number X | Integer | `1` | Number of columns in the grid. Total point count equals Number X × Number Y. |
-| Number Y | Integer | `1` | Number of rows in the grid. Total point count equals Number X × Number Y. |
-| Multiplyer | Float | `0.05` | Uniform spacing scale between points. Increase to spread the grid out; decrease to compress it toward the origin. Note: labelled 'Multiplyer' in the UI (known typo in the fuse). |
-| Show Input | Checkbox | `Off` | Reveals the ArrayA input port, allowing an upstream point array to be passed through or merged with the generated grid. |
+| Number X | Integer | `1` | Number of points along X. Range 1 to 100, default 1. |
+| Number Y | Integer | `1` | Number of points along Y. Range 1 to 100, default 1. |
+| Number Z | Integer | `1` | Number of points along Z. Range 1 to 100, default 1. |
+| Multiplier | Float | `0.05` | Distance between neighboring points on every axis. Range -1 to 1, default 0.05. |
 
 <details>
 <summary>Read the full description</summary>
 
-vArrayPointsOnGrid is the fundamental grid generator in the vArray toolkit. It produces a 2D rectangular array of evenly spaced points defined by two parameters: the number of columns (Number X) and the number of rows (Number Y). The total point count is always X × Y, and the points are distributed symmetrically around the origin. For matrix layouts, dot-grid backgrounds, scatter starting states, and any composition that needs an ordered rectangular arrangement of positions, this is the right starting node.
+The node writes Number X * Number Y * Number Z points. Point (x, y, z) is placed at X = x * Multiplier - offset X, Y = y * Multiplier - offset Y and Z = z * Multiplier - offset Z, where each offset is (count - 1) * Multiplier / 2. The lattice is therefore centered on the origin and Multiplier is both the spacing between neighbors and the scale of the whole grid.
 
-The Multiplyer parameter — a known typo in the fuse — controls the uniform spacing between points. It scales both horizontal and vertical spacing together, so the grid always remains square-celled regardless of the value. Increasing it spreads points further apart; decreasing it compresses the grid toward the centre. Because there is no separate X and Y spacing control, non-square cell spacing requires a downstream vArrayMath or vArrayDisplaceValues modifier to stretch one axis independently.
+The points are written with X changing fastest, then Y, then Z. With the defaults (1 point on each axis, Multiplier 0.05) the output is a single point at the origin. Setting Number Z to 1 gives a flat grid in the Z = 0 plane.
 
-In the standard pipeline the node connects directly to vArrayCameraProjection, which projects the grid to screen space before vArrayShapeRender draws shapes at each position. For organic variations, insert vArrayDisplaceValues between the grid and the camera — even a small Amplitude value breaks up the regularity into a convincing scatter. The Show Input toggle exposes an ArrayA passthrough port, useful for merging multiple grid arrays or chaining grids of different densities in a single pipeline.
+A negative Multiplier mirrors the lattice. Each count is limited to 100 by the control, which allows up to 1,000,000 points.
+
+The output contains points only. vArrayGridConnect builds edge connectivity for a grid point array.
 
 </details>
 
 ## Example Connections
 
 <Tabs>
-<TabItem value="standard-grid-pipeline" label="Standard grid pipeline" default>
+<TabItem value="draw-the-grid" label="Draw the grid" default>
 
 ```
 vArrayPointsOnGrid.Output -> vArrayCameraProjection.ArrayA
@@ -57,23 +59,11 @@ Background.Output -> vArrayShapeRender.Input
 ```
 
 </TabItem>
-<TabItem value="grid-with-scatter-displacement" label="Grid with scatter displacement">
+<TabItem value="animate-the-grid-with-varraywave" label="Animate the grid with vArrayWave">
 
 ```
-vArrayPointsOnGrid.Output -> vArrayDisplaceValues.ArrayA
-vArrayDisplaceValues.Output -> vArrayCameraProjection.ArrayA
-vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
-Background.Output -> vArrayShapeRender.Input
-```
-
-</TabItem>
-<TabItem value="two-grids-merged" label="Two grids merged">
-
-```
-vArrayPointsOnGrid_A.Output -> vArrayPointsOnGrid_B.ArrayA
-vArrayPointsOnGrid_B.Output -> vArrayCameraProjection.ArrayA
-vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
-Background.Output -> vArrayShapeRender.Input
+vArrayPointsOnGrid.Output -> vArrayWave.ArrayA
+vArrayWave.Output -> vArrayCameraProjection.ArrayA
 ```
 
 </TabItem>
@@ -82,11 +72,11 @@ Background.Output -> vArrayShapeRender.Input
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="../../array/Modify/vArrayDisplaceValues">vArrayDisplaceValues</a>
-  <a className="node-chip" href="../../array/Modify/vArrayCameraProjection">vArrayCameraProjection</a>
-  <a className="node-chip" href="../../array/Create/vArrayPointsOnCircle">vArrayPointsOnCircle</a>
+  <a className="node-chip" href="./vArrayPointsOnCube">vArrayPointsOnCube</a>
+  <a className="node-chip" href="./vArrayPointsOnHexagon">vArrayPointsOnHexagon</a>
+  <a className="node-chip" href="../Modify/vArrayGridConnect">vArrayGridConnect</a>
 </div>
 
 {/*
-Rich page restored from _output/vArrayPointsOnGrid_page.json. Source of truth: fuses.ts / vonkultratools data model.
+Rendered from content-pipeline record (ai).
 */}

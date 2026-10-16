@@ -59,8 +59,8 @@ curated:
     JSONPath: JSON family. Path points, in order.
 status:
   source: ai
-  state: ai
-  reviewed_hash: null
+  state: reviewed
+  reviewed_hash: c7c3f1a9241d
   connections_source: docsify
   prompt_version: '1'
   note: >-

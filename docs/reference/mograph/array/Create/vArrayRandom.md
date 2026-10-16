@@ -1,7 +1,7 @@
 ---
 sidebar_position: 47
 title: vArrayRandom
-description: "Create a random array"
+description: "Generate an array of random values between a low and a high limit, packed as X, X Y or X Y Z entries."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 # vArrayRandom
 
-Generate a seeded array of random values — the noise source for data-driven variation, scatter, and stochastic animation.
+Generate an array of random values between a low and a high limit, packed as X, X Y or X Y Z entries.
 
 <div className="node-badge-row">
   <span className="node-badge node-badge--beginner">Beginner</span>
@@ -23,46 +23,55 @@ Generate a seeded array of random values — the noise source for data-driven va
   <img src="/VonkUltra/img/reference/mograph/array/vArrayRandom.png" alt="vArrayRandom node" />
 </div>
 
-vArrayRandom produces a vArray of pseudo-random numbers from a seed and length. Use it to drive displacement magnitudes, colour offsets, scale variation, or any parameter that needs reproducible randomness.
+vArrayRandom has no input and outputs an array of random entries. Array length sets the number of entries, Pack To sets how many values each entry holds, and the Low and High range sets the limits.
 
 ## Parameters
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Array length | Integer | `2` | Number of random values to generate. Must match the length of the array you intend to drive — typically equal to the point count of your generator. |
-| Seed | Integer | `0` | Seed for the random number generator. Different seeds produce different sequences. Animating this value creates evolving randomness. |
-| Pack To | Integer | `0` | Output packing mode: 0 = flat 1D array of scalar values, 1 = packed as XY pairs, 2 = packed as XYZ triplets for 3D use. |
-| Show Input | Checkbox | `0` | Reveals optional input ports on the node in the Fusion node graph. |
+| Array length | Integer | `2` | Number of entries in the output. Minimum 2, default 2. |
+| Low | Float | `-1` | Lower end of the range the values are drawn from. Default -1. |
+| High | Float | `1` | Upper end of the range the values are drawn from. Default 1. |
+| Multiply | Float | `0` | Hidden control. It is read by the node but has no effect on the output. Default 0. |
+| Seed | Integer | `0` | Seed of the random generator. Default 0. |
+
+<details>
+<summary>+1 more parameters</summary>
+
+| Parameter | Type | Default | Description |
+|---|---|---|---|
+| Pack To: | Dropdown | `X Y Z` | Number of values in each entry, X, X Y or X Y Z. Default X Y Z. |
+
+</details>
 
 <details>
 <summary>Read the full description</summary>
 
-vArrayRandom generates a flat array of pseudo-random values using a seed-based algorithm. Because the output is deterministic for any given seed, you get the same random layout every time — critical for production workflows where renders must be reproducible across machines and sessions.
+The node seeds Lua's random generator with Seed and writes Array length entries. Every value is drawn from a uniform distribution between Low and High. The same Seed gives the same output.
 
-Array length sets how many values to generate (minimum 2). Seed controls which random sequence is produced — increment it to explore different variations while keeping all other parameters fixed. Pack To determines whether values are packed as a flat 1D stream or grouped as XYZ triplets for 3D displacement use.
+Pack To selects the entry size: X gives one value per entry, X Y gives two and X Y Z gives three. The same Low and High apply to every value in an entry. With the defaults (Array length 2, Low -1, High 1, X Y Z) the node outputs two entries of three values each, so it can be used directly as XYZ points.
 
-Connect the output to vArrayMath to scale the range, then to vArrayDisplaceValues to add per-point noise to a structured grid or sphere. Alternatively drive it directly into vArrayShapeRender's scale or colour input for stochastic size and hue variation across a point cloud. Animating the Seed parameter over time produces a flickering randomness effect.
+Array length has a minimum of 2. Seed is a whole number from a slider with a displayed range of -100 to 100 and no limit in the code. Use vArrayMinMax if each value needs its own range.
 
 </details>
 
 ## Example Connections
 
 <Tabs>
-<TabItem value="random-displacement-on-a-grid" label="Random displacement on a grid" default>
+<TabItem value="draw-random-points" label="Draw random points" default>
 
 ```
-vArrayPointsOnGrid.Output -> vArrayDisplaceValues.ArrayA
-vArrayRandom.Output -> vArrayDisplaceValues.ArrayB
-vArrayDisplaceValues.Output -> vArrayCameraProjection.ArrayA
+vArrayRandom.Output -> vArrayCameraProjection.ArrayA
 vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+Background.Output -> vArrayShapeRender.Input
 ```
 
 </TabItem>
-<TabItem value="scale-random-values-to-range" label="Scale random values to range">
+<TabItem value="offset-the-points-before-drawing" label="Offset the points before drawing">
 
 ```
-vArrayRandom.Output -> vArrayMath.ArrayA
-vArrayMath.Output -> vArrayShapeRender.ArrayPoint
+vArrayRandom.Output -> vArrayTranslate.ArrayA
+vArrayTranslate.Output -> vArrayCameraProjection.ArrayA
 ```
 
 </TabItem>
@@ -71,11 +80,11 @@ vArrayMath.Output -> vArrayShapeRender.ArrayPoint
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="../../array/Modify/vArrayDisplaceValues">vArrayDisplaceValues</a>
-  <a className="node-chip" href="../../array/Modify/vArrayMapRange">vArrayMapRange</a>
-  <a className="node-chip" href="../../array/Modify/vArrayMath">vArrayMath</a>
+  <a className="node-chip" href="./vArrayMinMax">vArrayMinMax</a>
+  <a className="node-chip" href="./vArrayNoise">vArrayNoise</a>
+  <a className="node-chip" href="./vArrayCreateRange">vArrayCreateRange</a>
 </div>
 
 {/*
-Rich page restored from _output/vArrayCreateRandom_page.json. Source of truth: fuses.ts / vonkultratools data model.
+Rendered from content-pipeline record (ai).
 */}

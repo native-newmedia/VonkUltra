@@ -52,8 +52,8 @@ curated:
     Array: Array of text pieces, joined with spaces.
 status:
   source: ai
-  state: ai
-  reviewed_hash: null
+  state: reviewed
+  reviewed_hash: c2f69659125c
   connections_source: docsify
   prompt_version: '1'
   note: >-

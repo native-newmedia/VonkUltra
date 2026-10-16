@@ -1,7 +1,7 @@
 ---
 sidebar_position: 60
 title: vArraySortByDistance
-description: "Sort points by distance"
+description: "Reorders points into a nearest-neighbor chain that starts at the first point."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -9,10 +9,10 @@ import TabItem from '@theme/TabItem';
 
 # vArraySortByDistance
 
-Re-order vArray elements by their spatial proximity — essential for nearest-neighbour connections, path optimisation, and proximity-based effects.
+Reorders points into a nearest-neighbor chain that starts at the first point.
 
 <div className="node-badge-row">
-  <span className="node-badge node-badge--intermediate">Intermediate</span>
+  <span className="node-badge node-badge--beginner">Beginner</span>
   <span className="node-badge">Mograph / Array</span>
   <span className="node-badge">Array</span>
   <span className="node-badge">ScriptVal</span>
@@ -23,45 +23,43 @@ Re-order vArray elements by their spatial proximity — essential for nearest-ne
   <img src="/VonkUltra/img/reference/mograph/array/vArraySortByDistance.png" alt="vArraySortByDistance node" />
 </div>
 
-vArraySortByDistance reorders the elements in a vArray from nearest to farthest based on inter-point distances. Use it before vArrayShapeRender to draw connections in spatially optimised order, or before vArrayBuffer to record proximity-sorted trails.
+vArraySortByDistance takes an array of XYZ points and outputs them in a new order: the first point, then the closest unused point to it, and so on. The two controls do not change that order.
 
 ## Parameters
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Smallest Distance | Integer | `0.01` | Minimum distance threshold. Point pairs closer than this value are treated as coincident and their relative order is preserved. Increase to loosen large-scale sorting. |
-| Show Input | Checkbox | `0` | Reveals the Array input port on the node in the Fusion node graph. |
-| Array | Float | `—` | The vArray of XYZ point positions to sort by spatial proximity. |
+| Smallest Distance | Float | `1.0` | Has no effect on the order in the code. Minimum 0, slider 0 to 10, default 1. |
+| Distance Mode | Dropdown | `Preferred` | Preferred (default) or Strict. Has no effect on the order in the code. |
+| Input | DATATYPE | `—` | Points to sort. |
 
 <details>
 <summary>Read the full description</summary>
 
-vArraySortByDistance performs a spatial sort on a vArray, reordering elements so that each consecutive point is the nearest unvisited neighbour of the previous one. This greedy nearest-neighbour traversal produces a path through the point cloud that minimises jump distances — useful for line-drawing effects where you want continuous connected strokes rather than random teleports across the frame.
+The first input point stays first. Each next point is the unused point that is closest to the one before. This produces a path that always steps to the nearest neighbor, which avoids long jumps when points are drawn in order. Points that are not lists of at least 3 values are dropped, and each output point has 3 values.
 
-Smallest Distance sets a proximity threshold. Points closer together than this value are treated as coincident and their relative order is left unchanged. Increasing this threshold loosens the sort, allowing short-range clusters to remain in their original order while only sorting at larger scales.
-
-A common application is connecting scattered OBJ vertices with vArrayShapeRender's edge mode after sorting — the result looks like a hand-drawn path tracing through a point cloud rather than randomly ordered segments. Pair with vArrayBuffer to record the sorted path over time for trail effects that trace the proximity order across frames.
+Smallest Distance (default 1) and Distance Mode (Preferred or Strict) are in the node, but in the code both end in the same choice, the nearest unused point, so they do not change the result. The search compares every unused point at every step, so it slows down with the square of the point count.
 
 </details>
 
 ## Example Connections
 
 <Tabs>
-<TabItem value="proximity-sorted-edge-drawing" label="Proximity-sorted edge drawing" default>
+<TabItem value="order-scattered-points-and-draw-the-path" label="Order scattered points and draw the path" default>
 
 ```
-vArrayFromOBJ.Points -> vArraySortByDistance.Array
+vArrayRandom.Output -> vArraySortByDistance.Array
 vArraySortByDistance.Output -> vArrayCameraProjection.ArrayA
 vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+Background.Output -> vArrayShapeRender.Input
 ```
 
 </TabItem>
-<TabItem value="sorted-trail-recording" label="Sorted trail recording">
+<TabItem value="order-points-loaded-from-a-mesh" label="Order points loaded from a mesh">
 
 ```
-vArrayPointsOnGrid.Output -> vArraySortByDistance.Array
-vArraySortByDistance.Output -> vArrayBuffer.Input
-vArrayBuffer.Output -> vArrayShapeRender.ArrayPoint
+vArrayFromOBJ.Points -> vArraySortByDistance.Array
+vArraySortByDistance.Output -> vArrayResamplePath.Points
 ```
 
 </TabItem>
@@ -70,11 +68,11 @@ vArrayBuffer.Output -> vArrayShapeRender.ArrayPoint
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="../../array/Create/vArrayFromOBJ">vArrayFromOBJ</a>
-  <a className="node-chip" href="../../array/Create/vArrayBuffer">vArrayBuffer</a>
-  <a className="node-chip" href="../../array/ShapeRender/vArrayShapeRender">vArrayShapeRender</a>
+  <a className="node-chip" href="./vArraySortByMeshProx">vArraySortByMeshProx</a>
+  <a className="node-chip" href="./vArrayReverse">vArrayReverse</a>
+  <a className="node-chip" href="./vArrayResamplePath">vArrayResamplePath</a>
 </div>
 
 {/*
-Rich page restored from _output/vArraySortByDistance_page.json. Source of truth: fuses.ts / vonkultratools data model.
+Rendered from content-pipeline record (ai).
 */}

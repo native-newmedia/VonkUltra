@@ -1,7 +1,7 @@
 ---
 sidebar_position: 67
 title: vArrayWave
-description: "Animate an array with a wave"
+description: "Moves points along a direction by a time-based wave, with a delay per point."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 # vArrayWave
 
-Apply a ripple wave to every point in a vArray over time — the animation engine for oscillating, pulsing, and travelling wave effects.
+Moves points along a direction by a time-based wave, with a delay per point.
 
 <div className="node-badge-row">
   <span className="node-badge node-badge--intermediate">Intermediate</span>
@@ -23,51 +23,50 @@ Apply a ripple wave to every point in a vArray over time — the animation engin
   <img src="/VonkUltra/img/reference/mograph/array/vArrayWave.png" alt="vArrayWave node" />
 </div>
 
-vArrayWave applies a time-based sinusoidal oscillation to the XYZ positions of a vArray. Point Delay staggers the wave across elements to produce ripple propagation, and Falloff controls how the wave decays with distance from the wave origin.
+vArrayWave takes an array of XYZ points and adds (X, Y, Z Amount) * wave * Falloff to each point. Wave picks one of 13 wave shapes, and Point Delay staggers the wave along the array.
 
 ## Parameters
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Wave | Float | `—` | Internal wave computation output — not directly user-editable. Driven by the current frame and all other wave parameters. |
-| START AT FRAME | Integer | `0` | Frame number at which the wave animation begins. Set to a non-zero value to delay the wave onset, useful for synchronising to cuts or transitions. |
-| Period | Float | `5.0` | Wave period — effectively the wavelength. Lower values = faster oscillation. Range: 0–50. |
-| Strength | Float | `1.0` | Displacement amplitude. Higher values produce larger oscillations. Range: 0–10. |
-| Limit | Checkbox | `0` | When enabled, clamps the wave displacement to prevent points from exceeding a defined boundary region. |
+| Wave | FuID | `—` | Shape of the wave. One of 13 shapes. |
+| Start At Frame | Integer | `0` | Frame at which the wave starts. The wave is 0 before it. Minimum 0, slider to 2500, default 0. |
+| Period | Float | `5.0` | Length of one cycle in frames. Minimum 0, slider 0 to 50, default 5. |
+| Strength | Float | `1.0` | Multiplies the wave. Slider to 10, default 1. |
+| Delay | Float | `0.0` | Hidden control. Not read by the code. Default 0. |
 
 <details>
-<summary>+8 more parameters</summary>
+<summary>+11 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Repeat | Float | `1.0` | Controls how many wave cycles repeat across the array length. Higher values produce more compressed wave patterns. |
-| Reverse | Checkbox | `0` | Inverts the direction of wave propagation across the array. |
-| Falloff | Float | `0.01` | Rate at which wave energy decays with distance from the origin point. Lower values produce a tighter falloff zone. Range: 0.001–1.0. |
-| Point Delay | Float | `0` | Phase offset applied sequentially to each element. Non-zero values create the travelling ripple effect by staggering the wave phase per point. |
-| X Position | Float | `0` | X coordinate of the wave origin. Animate to move the wave source horizontally through the point cloud. |
-| Y Position | Float | `0` | Y coordinate of the wave origin. Animate to move the wave source vertically. |
-| Z Position | Float | `0` | Z coordinate of the wave origin. Move wave source in depth for 3D ripple effects. |
-| Array A | Float | `—` | The input vArray whose XYZ positions will be oscillated by the wave. |
+| Offset | Float | `—` | Hidden control. Added to the wave after Strength. Default 0. |
+| Repeat Limit | Integer | `1.0` | Number of cycles when Limit is on. Whole numbers from 0, slider 0 to 10, default 1. Shown when Limit is on. |
+| Limit | Float | `0.0` | Stops the wave after Repeat Limit cycles when on. Default off. |
+| Reverse | Float | `0.0` | Negates the wave when on. Default off. |
+| Falloff | Float | `0.0` | Multiplies the wave before it is applied. Slider 0 to 1, default 0. Not a distance falloff. |
+| Point Delay | Float | `0.0` | Time shift per point number, in frames. Minimum 0, slider 0 to 1, default 0. |
+| X Amount | Float | `0.0` | X part of the move per unit of wave. Range -10 to 10, default 0. |
+| Y Amount | Float | `0.0` | Y part of the move per unit of wave. Range -10 to 10, default 0. |
+| Z Amount | Float | `0.0` | Z part of the move per unit of wave. Range -10 to 10, default 0. |
+| Show Input | Integer | `1.0` | Hidden control. Shows the input ports of Start At Frame, Period, Strength and Limit when on. Default on. |
+| Input | DATATYPE | `—` | Points to move. |
 
 </details>
 
 <details>
 <summary>Read the full description</summary>
 
-vArrayWave is the primary animation modifier in the vArray toolkit. It reads the current frame number, calculates a sine wave at each point's position, and displaces the array values accordingly. The result is a continuous, physically convincing oscillation that travels through the point cloud over time without any keyframing.
+The wave value is computed from the frame time minus Point Delay times the point number, so the wave travels along the array. It is 0 until the frame passes Start At Frame (default 0). The shape comes from Wave and runs mostly between 0 and 1. It is multiplied by Strength (default 1), negated by Reverse, and multiplied by Falloff (default 0). The point moves by that times X, Y and Z Amount.
 
-Period controls the wavelength — higher values slow the wave frequency. Strength scales the displacement amplitude. Point Delay staggers the phase of each element sequentially, which is what creates the travelling ripple effect: without it, all points oscillate in sync. Falloff shapes how the wave energy decays with distance from the X/Y/Z position parameters, enabling ripples that emanate from a specific origin point.
-
-START AT FRAME sets the frame number at which the wave begins animating, useful for synchronising wave onset to a cut point or transition. Limit checkbox clamps the displacement to prevent points from leaving a defined region. Reverse inverts the direction of wave propagation. Connect vArrayWave between any generator and vArrayCameraProjection — it is a pure modifier and works with any vArray regardless of how the points were created.
-
-For maximum expressiveness, animate the X/Y/Z Position parameters to move the wave origin through the point cloud over time, or combine multiple vArrayWave nodes in series for complex interference patterns. Pair with vArrayBuffer to leave time-offset trails behind each oscillating point.
+Period (default 5) is the length of one cycle in frames. With Limit on, the wave stops after Repeat Limit cycles. The 13 shapes are Line, Saw, Tri, Square, Sine, Noise, Pulse, ExpDecay, AbsSine, Stair, Bounce, Cosine and Spike. With the default Falloff of 0 and Amounts of 0, nothing moves.
 
 </details>
 
 ## Example Connections
 
 <Tabs>
-<TabItem value="ripple-on-a-grid" label="Ripple on a grid" default>
+<TabItem value="wave-a-grid-and-draw" label="Wave a grid and draw" default>
 
 ```
 vArrayPointsOnGrid.Output -> vArrayWave.ArrayA
@@ -77,12 +76,11 @@ Background.Output -> vArrayShapeRender.Input
 ```
 
 </TabItem>
-<TabItem value="wave-with-trails" label="Wave with trails">
+<TabItem value="wave-a-circle" label="Wave a circle">
 
 ```
 vArrayPointsOnCircle.Output -> vArrayWave.ArrayA
-vArrayWave.Output -> vArrayBuffer.Input
-vArrayBuffer.Output -> vArrayShapeRender.ArrayPoint
+vArrayWave.Output -> vArrayTranslate.ArrayA
 ```
 
 </TabItem>
@@ -91,11 +89,11 @@ vArrayBuffer.Output -> vArrayShapeRender.ArrayPoint
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="../../array/Create/vArrayBuffer">vArrayBuffer</a>
-  <a className="node-chip" href="../../array/Modify/vArrayDisplaceValues">vArrayDisplaceValues</a>
-  <a className="node-chip" href="../../array/Modify/vArrayRotateValues">vArrayRotateValues</a>
+  <a className="node-chip" href="./vArrayRippleDisplacer">vArrayRippleDisplacer</a>
+  <a className="node-chip" href="./vArraySin">vArraySin</a>
+  <a className="node-chip" href="../Animate/vArrayStagger">vArrayStagger</a>
 </div>
 
 {/*
-Rich page restored from _output/vArrayWave_page.json. Source of truth: fuses.ts / vonkultratools data model.
+Rendered from content-pipeline record (reviewed).
 */}

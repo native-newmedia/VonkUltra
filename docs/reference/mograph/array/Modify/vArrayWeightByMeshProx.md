@@ -1,7 +1,7 @@
 ---
 sidebar_position: 68
 title: vArrayWeightByMeshProx
-description: "Output a 1D weight per input point based on distance to the closest point on an OBJ mesh surface."
+description: "Outputs a 0 to 1 weight per point from its distance to the closest mesh vertex."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -9,9 +9,10 @@ import TabItem from '@theme/TabItem';
 
 # vArrayWeightByMeshProx
 
-Output a 1D weight per input point based on distance to the closest point on an OBJ mesh surface.
+Outputs a 0 to 1 weight per point from its distance to the closest mesh vertex.
 
 <div className="node-badge-row">
+  <span className="node-badge node-badge--intermediate">Intermediate</span>
   <span className="node-badge">Mograph / Array</span>
   <span className="node-badge">Array</span>
   <span className="node-badge">ScriptVal</span>
@@ -22,35 +23,67 @@ Output a 1D weight per input point based on distance to the closest point on an 
   <img src="/VonkUltra/img/reference/mograph/array/vArrayWeightByMeshProx.png" alt="vArrayWeightByMeshProx node" />
 </div>
 
+vArrayWeightByMeshProx takes an array of XYZ points and a mesh, and outputs one weight per point on the Output socket. A second output, Points, holds the points projected toward the mesh.
+
 ## Parameters
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Max Distance | Float | `0.5` | Distance from the mesh at which the effect ends. |
-| Falloff | Dropdown | `Linear` | Shape of the falloff. Options: Linear, Squared, Root. |
-| Invert Weight | Integer | `0` | Inverts the weights. |
-| Project Amount | Float | `1` | Mix between the original and the surface position. |
-| Points | DATATYPE | `—` | Point positions. |
+| Max Distance | Float | `0.5` | Distance at which the weight reaches 1. Minimum 0.0001, slider 0.0001 to 10, default 0.5. |
+| Falloff | Dropdown | `Linear` | Linear (default), Squared or Root. The shape of the weight. |
+| Invert Weight | Integer | `0` | Uses 1 minus the weight when on. Default off. |
+| Project Amount | Float | `1` | How far the Points output moves toward the closest vertex. Range 0 to 1, default 1. |
+| Points | DATATYPE | `—` | Points to weigh. |
 
 <details>
 <summary>+1 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Mesh Points | DATATYPE | `—` | Points of the mesh that the input is compared with. |
+| Mesh Points | DATATYPE | `—` | Mesh vertices that distances are measured to. |
 
 </details>
+
+<details>
+<summary>Read the full description</summary>
+
+For each point the node finds the closest Mesh Points vertex and takes the distance d. The raw weight is min(1, d / Max Distance), which is 0 at the mesh and 1 at Max Distance or farther. Falloff shapes it: Linear uses it as it is, Squared squares it, Root takes the square root. Invert Weight turns the weight into 1 minus it. Max Distance defaults to 0.5 and has a minimum of 0.0001.
+
+The Points output holds each point moved toward its closest vertex by Project Amount (0 to 1, default 1), so by default it holds the vertices. Both outputs have the array and size wrapper. With an empty mesh both outputs are empty.
+
+</details>
+
+## Example Connections
+
+<Tabs>
+<TabItem value="use-weights-as-a-mask" label="Use weights as a mask" default>
+
+```
+vArrayPointsOnGrid.Output -> vArrayWeightByMeshProx.ArrayPoints
+vArrayFromOBJ.Points -> vArrayWeightByMeshProx.MeshPoints
+vArrayWeightByMeshProx.Output -> vArrayApplyMask.Mask
+```
+
+</TabItem>
+<TabItem value="color-points-by-distance-to-the-mesh" label="Color points by distance to the mesh">
+
+```
+vArrayPointsOnGrid.Output -> vArrayWeightByMeshProx.ArrayPoints
+vArrayFromOBJ.Points -> vArrayWeightByMeshProx.MeshPoints
+vArrayWeightByMeshProx.Output -> vArrayRampMap.Scalars
+```
+
+</TabItem>
+</Tabs>
 
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="./vArrayBoundingBox">vArrayBoundingBox</a>
-  <a className="node-chip" href="./vArrayCameraProjection">vArrayCameraProjection</a>
-  <a className="node-chip" href="./vArrayConvert2D_3D">vArrayConvert2D_3D</a>
-  <a className="node-chip" href="./vArrayDisplaceValues">vArrayDisplaceValues</a>
+  <a className="node-chip" href="./vArrayWeightMap">vArrayWeightMap</a>
+  <a className="node-chip" href="./vArrayMaskByMesh">vArrayMaskByMesh</a>
+  <a className="node-chip" href="./vArraySortByMeshProx">vArraySortByMeshProx</a>
 </div>
 
 {/*
-Generated page — node: vArrayWeightByMeshProx (Array/Modify).
-Source: fuse vArrayWeightByMeshProx.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Rendered from content-pipeline record (ai).
 */}

@@ -1,7 +1,7 @@
 ---
 sidebar_position: 64
 title: vScriptValTranslate
-description: "Transforms array positions"
+description: "Adds an XYZ offset to every point, then multiplies it by a scale."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -9,9 +9,10 @@ import TabItem from '@theme/TabItem';
 
 # vScriptValTranslate
 
-Transforms array positions
+Adds an XYZ offset to every point, then multiplies it by a scale.
 
 <div className="node-badge-row">
+  <span className="node-badge node-badge--beginner">Beginner</span>
   <span className="node-badge">Mograph / ScriptVal</span>
   <span className="node-badge">ScriptVal</span>
   <span className="node-badge">Array</span>
@@ -22,40 +23,56 @@ Transforms array positions
   <img src="/VonkUltra/img/reference/mograph/scriptval/vScriptValTranslate.png" alt="vScriptValTranslate node" />
 </div>
 
+vScriptValTranslate takes an array of XYZ points and outputs (point + offset) * scale for each axis. X Scale is used for X and Z, and Y Scale for Y.
+
 ## Parameters
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| X Offset | Float | `—` | Moves the points along X. |
-| Y Offset | Float | `—` | Moves the points along Y. |
-| Z Offset | Float | `—` | Moves the points along Z. |
-| Lock X/Y | Integer | `1` | Uses one scale value for X and Y. |
-| X Scale | Float | `1.0` | Scale along X. |
+| X Offset | Float | `—` | Added to X before the scale. Default 0. |
+| Y Offset | Float | `—` | Added to Y before the scale. Default 0. |
+| Z Offset | Float | `—` | Added to Z before the scale. Default 0. |
+| Lock X/Y | Integer | `1` | Only changes which scale controls are shown. Default on. |
+| X Scale | Float | `1.0` | Multiplies X and Z after the offset. Default 1. |
 
 <details>
 <summary>+3 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Y Scale | Float | `1.0` | Scale along Y. Shown when Lock X/Y is off. Shown when the related option is enabled. |
+| Y Scale | Float | `1.0` | Multiplies Y after the offset. Default 1. Hidden while Lock X/Y is on, but still used. |
 | Input | DATATYPE | `—` | Data to process. |
-| Show Input | Integer | `0.0` | — |
+| Show Input | Integer | `0.0` | Shows the input ports of the offsets and scales when on. Default off. |
+
+</details>
+
+<details>
+<summary>Read the full description</summary>
+
+Each point becomes ((x + X Offset) * X Scale, (y + Y Offset) * Y Scale, (z + Z Offset) * X Scale). The offsets default to 0 and the scales to 1, so the default leaves the points unchanged. Because the scale is applied after the offset, it also scales the offset.
+
+Lock X/Y (on by default) hides Y Scale, but the code still reads it, so Y Scale keeps its value and is not tied to X Scale. Show Input exposes the offsets and scales as input ports. Elements that are not lists of at least 3 values are dropped, and the output points have 3 values.
 
 </details>
 
 ## Example Connections
 
 <Tabs>
-<TabItem value="example-1" label="Example 1" default>
+<TabItem value="reposition-a-grid-and-draw" label="Reposition a grid and draw" default>
 
 ```
-vScriptValPointsOnGrid.Output -> vScriptValUnPacker.ScriptVal
-    vScriptValUnPacker.ScriptVal1 -> vScriptValTranslate.ScriptVal
-    vScriptValTranslate.Output -> vScriptValPacker.ScriptVal
-    vScriptValPacker.ScriptVal -> vScriptValWave.ScriptVal
-    vScriptValWave.Output -> vScriptValCameraProjection.ScriptVal
-    vScriptValCameraProjection.Output -> vScriptValShapeRender.ScriptValPoint
-    Background.Output -> vScriptValShapeRender.Input
+vScriptValPointsOnGrid.Output -> vScriptValTranslate.ArrayA
+vScriptValTranslate.Output -> vScriptValCameraProjection.ArrayA
+vScriptValCameraProjection.Output -> vScriptValShapeRender.ArrayPoint
+Background.Output -> vScriptValShapeRender.Input
+```
+
+</TabItem>
+<TabItem value="move-a-circle-after-jitter" label="Move a circle after jitter">
+
+```
+vScriptValPointsOnCircle.Output -> vScriptValPointsJitter.Input
+vScriptValPointsJitter.Output -> vScriptValTranslate.ArrayA
 ```
 
 </TabItem>
@@ -64,15 +81,11 @@ vScriptValPointsOnGrid.Output -> vScriptValUnPacker.ScriptVal
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="../Create/vScriptValPointsOnGrid">vScriptValPointsOnGrid</a>
-  <a className="node-chip" href="./vScriptValUnPacker">vScriptValUnPacker</a>
-  <a className="node-chip" href="./vScriptValPacker">vScriptValPacker</a>
-  <a className="node-chip" href="./vScriptValWave">vScriptValWave</a>
   <a className="node-chip" href="./vScriptValCameraProjection">vScriptValCameraProjection</a>
-  <a className="node-chip" href="../ShapeRender/vScriptValShapeRender">vScriptValShapeRender</a>
+  <a className="node-chip" href="./vScriptValRepeat">vScriptValRepeat</a>
+  <a className="node-chip" href="./vScriptValMirror">vScriptValMirror</a>
 </div>
 
 {/*
-Generated page — node: vScriptValTranslate (ScriptVal/Modify).
-Source: fuse vScriptValTranslate.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Rendered from content-pipeline record (ai).
 */}

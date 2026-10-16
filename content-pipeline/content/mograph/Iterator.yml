@@ -55,8 +55,8 @@ curated:
       10, default 1.
 status:
   source: ai
-  state: ai
-  reviewed_hash: null
+  state: reviewed
+  reviewed_hash: 67e630488150
   connections_source: docsify
   prompt_version: '1'
   note: >-

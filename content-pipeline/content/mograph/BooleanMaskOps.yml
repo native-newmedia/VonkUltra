@@ -66,8 +66,8 @@ curated:
     TrimZeros: Removes output elements that are zero on all axes. Default off.
 status:
   source: ai
-  state: ai
-  reviewed_hash: null
+  state: reviewed
+  reviewed_hash: 92059ec5e171
   prompt_version: '1'
   note: >-
     Changed in fix batch F1 (branch fix/findings-f1 of vonk-ultra-mograph), same change in all three

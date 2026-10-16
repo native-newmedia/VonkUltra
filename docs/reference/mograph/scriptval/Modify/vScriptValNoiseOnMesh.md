@@ -1,7 +1,7 @@
 ---
 sidebar_position: 30
 title: vScriptValNoiseOnMesh
-description: "Displace input points with Perlin/Fractal noise along mesh surface normal or in 3D."
+description: "Displaces points with Perlin or fractal noise along the mesh normal or in 3D."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -9,9 +9,10 @@ import TabItem from '@theme/TabItem';
 
 # vScriptValNoiseOnMesh
 
-Displace input points with Perlin/Fractal noise along mesh surface normal or in 3D.
+Displaces points with Perlin or fractal noise along the mesh normal or in 3D.
 
 <div className="node-badge-row">
+  <span className="node-badge node-badge--advanced">Advanced</span>
   <span className="node-badge">Mograph / ScriptVal</span>
   <span className="node-badge">ScriptVal</span>
   <span className="node-badge">Array</span>
@@ -22,44 +23,80 @@ Displace input points with Perlin/Fractal noise along mesh surface normal or in 
   <img src="/VonkUltra/img/reference/mograph/scriptval/vScriptValNoiseOnMesh.png" alt="vScriptValNoiseOnMesh node" />
 </div>
 
+vScriptValNoiseOnMesh takes an array of XYZ points and a mesh, and adds a 3D gradient noise to each point. Noise Mode chooses between a move along the normal at the closest vertex and a 3D move that is snapped to the nearest mesh vertex.
+
 ## Parameters
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Noise Mode | Dropdown | `Normal Only` | Normal Only displaces along the surface normal. 3D Reproject displaces in 3D and projects back. |
-| Noise Type | Dropdown | `Perlin` | Perlin or Fractal noise. |
-| Amplitude | Float | `0.1` | Strength of the displacement. |
-| Frequency | Float | `1` | Frequency of the noise or wave. |
-| Octaves | Integer | `4` | Number of noise layers added together. Shown when the related option is enabled. |
+| Noise Mode | Dropdown | `Normal Only` | Normal Only (default) or 3D Reproject. 3D Reproject outputs mesh vertices. |
+| Noise Type | Dropdown | `Perlin` | Perlin (default) or Fractal. The fractal controls are shown when Fractal is selected. |
+| Amplitude | Float | `0.1` | Size of the displacement. Slider 0 to 1, default 0.1. |
+| Frequency | Float | `1` | Multiplies the point position before the noise lookup. Minimum 0.0001, slider 0 to 10, default 1. |
+| Octaves | Integer | `4` | Number of noise layers in Fractal mode. Range 1 to 16, default 4. Hidden for Perlin. |
 
 <details>
 <summary>+10 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Lacunarity | Float | `2` | Frequency multiplier per octave. Shown when the related option is enabled. |
-| Gain | Float | `0.5` | Amplitude multiplier per octave. Shown when the related option is enabled. |
-| Animation Speed | Float | `0` | Speed of the animation over time. 0 is static. |
-| Random Seed | Integer | `0` | Seed of the random generator. |
-| Surface Offset | Float | `0` | Offset of the target from the mesh surface. |
-| Affect X | Float | `1` | Applies the effect to X. |
-| Affect Y | Float | `1` | Applies the effect to Y. |
-| Affect Z | Float | `1` | Applies the effect to Z. |
+| Lacunarity | Float | `2` | Frequency multiplier per layer in Fractal mode. Minimum 1, default 2. Hidden for Perlin. |
+| Gain | Float | `0.5` | Weight multiplier per layer in Fractal mode. Range 0 to 1, default 0.5. Hidden for Perlin. |
+| Animation Speed | Float | `0` | Added to the noise lookup as this value times the render time. Slider 0 to 5, default 0. |
+| Random Seed | Integer | `0` | Integer from 0, slider to 100000, default 0. Changes the noise pattern. |
+| Surface Offset | Float | `0` | Distance from the vertex along its estimated normal. Slider -1 to 1, default 0. |
+| Affect X | Float | `1` | X comes from the result when checked (default), otherwise it keeps the input value. |
+| Affect Y | Float | `1` | Y comes from the result when checked (default), otherwise it keeps the input value. |
+| Affect Z | Float | `1` | Z comes from the result when checked (default), otherwise it keeps the input value. |
 | Points | DATATYPE | `—` | Point positions. |
 | Mesh Points | DATATYPE | `—` | Points of the mesh that the input is compared with. |
 
 </details>
 
+<details>
+<summary>Read the full description</summary>
+
+The noise is sampled at the point position times Frequency plus Animation Speed times the render time, and scaled by Amplitude. Perlin gives one 3D gradient noise value. Fractal adds Octaves of it, each with its frequency times Lacunarity and its weight times Gain, divided by the total weight. Random Seed changes the noise pattern.
+
+Normal Only moves each point to its closest mesh vertex and then along the normal estimated there by noise + Surface Offset. 3D Reproject moves the point by three noise values, one for each axis, replaces the result with the closest mesh vertex and adds Surface Offset along that normal.
+
+Affect X, Y and Z keep unchecked axes at their input value. With no input points the output is empty.
+
+</details>
+
+## Example Connections
+
+<Tabs>
+<TabItem value="add-noise-to-a-grid-on-a-loaded-mesh-and-draw" label="Add noise to a grid on a loaded mesh and draw" default>
+
+```
+vScriptValPointsOnGrid.Output -> vScriptValNoiseOnMesh.ArrayPoints
+vScriptValFromOBJ.Points -> vScriptValNoiseOnMesh.MeshPoints
+vScriptValNoiseOnMesh.Output -> vScriptValCameraProjection.ArrayA
+vScriptValCameraProjection.Output -> vScriptValShapeRender.ArrayPoint
+Background.Output -> vScriptValShapeRender.Input
+```
+
+</TabItem>
+<TabItem value="add-noise-to-scattered-points" label="Add noise to scattered points">
+
+```
+vScriptValScatterOnMesh.Output -> vScriptValNoiseOnMesh.ArrayPoints
+vScriptValFromOBJ.Points -> vScriptValNoiseOnMesh.MeshPoints
+vScriptValNoiseOnMesh.Output -> vScriptValTranslate.Input
+```
+
+</TabItem>
+</Tabs>
+
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="./vScriptValBoundingBox">vScriptValBoundingBox</a>
-  <a className="node-chip" href="./vScriptValCameraProjection">vScriptValCameraProjection</a>
-  <a className="node-chip" href="./vScriptValConvert2D_3D">vScriptValConvert2D_3D</a>
   <a className="node-chip" href="./vScriptValDisplaceValues">vScriptValDisplaceValues</a>
+  <a className="node-chip" href="./vScriptValJitterOnMesh">vScriptValJitterOnMesh</a>
+  <a className="node-chip" href="./vScriptValOffsetByNormal">vScriptValOffsetByNormal</a>
 </div>
 
 {/*
-Generated page — node: vScriptValNoiseOnMesh (ScriptVal/Modify).
-Source: fuse vScriptValNoiseOnMesh.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Rendered from content-pipeline record (ai).
 */}

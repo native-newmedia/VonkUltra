@@ -1,7 +1,7 @@
 ---
 sidebar_position: 20
 title: vArrayInterpolate
-description: "Blend two arrays"
+description: "Blends two arrays value by value with a Progress amount and an easing curve."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 # vArrayInterpolate
 
-Blend between two vArrays with easing curves — the morph node for smooth shape transitions and animated layout changes.
+Blends two arrays value by value with a Progress amount and an easing curve.
 
 <div className="node-badge-row">
   <span className="node-badge node-badge--intermediate">Intermediate</span>
@@ -23,48 +23,49 @@ Blend between two vArrays with easing curves — the morph node for smooth shape
   <img src="/VonkUltra/img/reference/mograph/array/vArrayInterpolate.png" alt="vArrayInterpolate node" />
 </div>
 
-vArrayInterpolate blends element-by-element between Array A and Array B using a Progress value from 0 to 1. Multiple easing options control the interpolation curve, making it the primary node for smooth animated transitions between two point cloud states.
+vArrayInterpolate takes Input A and Input B and outputs values between them. Progress 0 gives A, 1 gives B, and Select Easing shapes the curve in between.
 
 ## Parameters
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Progress | Integer | `0` | Blend position from 0.0 (Array A) to 1.0 (Array B). Keyframe this parameter to animate the morph over time. |
-| Select Easing | Integer | `0` | Easing curve applied to the Progress value: 0 = Linear, 1 = Ease In, 2 = Ease Out, 3 = Ease In-Out, 4 = Back. |
-| Show Input | Checkbox | `0` | Reveals the Array A and Array B connection ports on the node in the Fusion node graph. |
-| Array A | Float | `—` | First vArray state — the output at Progress 0.0. Must have the same element count as Array B. |
-| Array B | Float | `—` | Second vArray state — the output at Progress 1.0. Must have the same element count as Array A. |
+| Progress | Float | `0` | Blend position from 0 (Input A) to 1 (Input B). Range 0 to 1, default 0. |
+| Select Easing | Dropdown | `linear` | linear (default), easeInQuad, easeOutQuad, easeInOutQuad, easeInExpo, easeOutExpo or easeInOutExpo. |
+| Show Input | Integer | `0.0` | Shows a Progress input port on the node when on. Default off. |
+| Input A | DATATYPE | `—` | Values at Progress 0. |
+| Input B | DATATYPE | `—` | Values at Progress 1. |
 
 <details>
 <summary>Read the full description</summary>
 
-vArrayInterpolate performs a per-element linear or eased blend between two vArrays of equal length. At Progress 0.0 the output equals Array A exactly; at 1.0 it equals Array B exactly; at 0.5 each element is the midpoint between the two inputs. This makes it the canonical morph node for animated layout transitions in the vArray system.
+Each value is A + (B - A) * ease(Progress). Lists inside the arrays are blended value by value, so XYZ points work. If the arrays differ in length, both are cut to the shorter one. Progress is limited to 0 to 1 and defaults to 0, which outputs Input A.
 
-The Select Easing dropdown applies a non-linear curve to the Progress value, transforming what would be a mechanical linear blend into a smooth acceleration or deceleration. Ease In, Ease Out, Ease In-Out, and Back variants are available, making transitions feel physically plausible without needing separate expression-based easing on the Progress parameter.
+Select Easing chooses linear, easeInQuad, easeOutQuad, easeInOutQuad, easeInExpo, easeOutExpo or easeInOutExpo. The easing function is applied to Progress before the blend.
 
-A key workflow is morphing between two structurally different point layouts — such as a grid transitioning to a sphere — by connecting vArrayPointsOnGrid to Array A and vArrayPointsOnSphere to Array B, then animating Progress from 0 to 1. Both arrays must have the same element count; mismatched lengths will produce unexpected results. Connect the output to vArrayCameraProjection and vArrayShapeRender for the final render.
+Show Input makes a Progress input port available on the node, so the value can be connected.
 
 </details>
 
 ## Example Connections
 
 <Tabs>
-<TabItem value="grid-to-sphere-morph" label="Grid-to-sphere morph" default>
+<TabItem value="morph-a-grid-into-a-sphere-and-draw" label="Morph a grid into a sphere and draw" default>
 
 ```
 vArrayPointsOnGrid.Output -> vArrayInterpolate.ArrayA
 vArrayPointsOnSphere.Output -> vArrayInterpolate.ArrayB
 vArrayInterpolate.Output -> vArrayCameraProjection.ArrayA
 vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+Background.Output -> vArrayShapeRender.Input
 ```
 
 </TabItem>
-<TabItem value="circle-to-random-transition" label="Circle-to-random transition">
+<TabItem value="blend-a-circle-into-a-rectangle" label="Blend a circle into a rectangle">
 
 ```
 vArrayPointsOnCircle.Output -> vArrayInterpolate.ArrayA
-vArrayRandom.Output -> vArrayInterpolate.ArrayB
-vArrayInterpolate.Output -> vArrayCameraProjection.ArrayA
+vArrayPointsOnRectangle.Output -> vArrayInterpolate.ArrayB
+vArrayInterpolate.Output -> vArrayTranslate.Input
 ```
 
 </TabItem>
@@ -73,11 +74,11 @@ vArrayInterpolate.Output -> vArrayCameraProjection.ArrayA
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="../../array/Create/vArrayPointsOnSphere">vArrayPointsOnSphere</a>
-  <a className="node-chip" href="../../array/Modify/vArrayWave">vArrayWave</a>
-  <a className="node-chip" href="../../array/Modify/vArrayMapRange">vArrayMapRange</a>
+  <a className="node-chip" href="./vArrayApplyMask">vArrayApplyMask</a>
+  <a className="node-chip" href="../Animate/vArrayMaterialEasing">vArrayMaterialEasing</a>
+  <a className="node-chip" href="./vArrayMapRange">vArrayMapRange</a>
 </div>
 
 {/*
-Rich page restored from _output/vArrayInterpolate_page.json. Source of truth: fuses.ts / vonkultratools data model.
+Rendered from content-pipeline record (reviewed).
 */}

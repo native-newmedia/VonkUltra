@@ -1,7 +1,7 @@
 ---
 sidebar_position: 7
 title: vArrayBoundingBox
-description: "Calculate a 3D, 2D, or 1D bounding box volume from an Array of XYZ/XY/X points"
+description: "Outputs the corner points and the edges of the bounding box of a point array."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -9,9 +9,10 @@ import TabItem from '@theme/TabItem';
 
 # vArrayBoundingBox
 
-Calculate a 3D, 2D, or 1D bounding box volume from an Array of XYZ/XY/X points
+Outputs the corner points and the edges of the bounding box of a point array.
 
 <div className="node-badge-row">
+  <span className="node-badge node-badge--beginner">Beginner</span>
   <span className="node-badge">Mograph / Array</span>
   <span className="node-badge">Array</span>
   <span className="node-badge">ScriptVal</span>
@@ -22,23 +23,42 @@ Calculate a 3D, 2D, or 1D bounding box volume from an Array of XYZ/XY/X points
   <img src="/VonkUltra/img/reference/mograph/array/vArrayBoundingBox.png" alt="vArrayBoundingBox node" />
 </div>
 
+vArrayBoundingBox takes an array of points and outputs the corners of the smallest box that contains them on the Points output. The Edges output holds the faces or lines that join the corners.
+
 ## Parameters
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
 | Input | DATATYPE | `—` | Data to process. |
 
+<details>
+<summary>Read the full description</summary>
+
+The node has no controls. It reads the minimum and maximum of X, Y and Z over the input. An element with 3 values updates all three axes, one with 2 values updates X and Y, and one with 1 value updates X. Elements of any other length are skipped.
+
+With Z limits, the Points output has 8 corners and the Edges output has 6 four-corner faces, given as 1-based corner indices. With only X and Y limits it has 4 corners and 4 two-corner edges. With X only it has 2 values and one edge. An empty input gives empty outputs.
+
+</details>
+
 ## Example Connections
 
 <Tabs>
-<TabItem value="example-1" label="Example 1" default>
+<TabItem value="draw-the-box-of-a-loaded-mesh" label="Draw the box of a loaded mesh" default>
 
 ```
 vArrayFromOBJ.Points -> vArrayBoundingBox.ArrayA
-    vArrayBoundingBox.Points -> vArrayCameraProjection.ArrayA
-    vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
-    vArrayBoundingBox.Edges -> vArrayShapeRender.ArrayEdge
-    Background.Output -> vArrayShapeRender.Input
+vArrayBoundingBox.Points -> vArrayCameraProjection.ArrayA
+vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+vArrayBoundingBox.Edges -> vArrayShapeRender.ArrayEdge
+Background.Output -> vArrayShapeRender.Input
+```
+
+</TabItem>
+<TabItem value="box-of-a-grid" label="Box of a grid">
+
+```
+vArrayPointsOnGrid.Output -> vArrayBoundingBox.ArrayA
+vArrayBoundingBox.Points -> vArrayCameraProjection.ArrayA
 ```
 
 </TabItem>
@@ -47,12 +67,11 @@ vArrayFromOBJ.Points -> vArrayBoundingBox.ArrayA
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="../Create/vArrayFromOBJ">vArrayFromOBJ</a>
+  <a className="node-chip" href="./vArrayTranslate">vArrayTranslate</a>
+  <a className="node-chip" href="./vArrayTrimByMeshBounds">vArrayTrimByMeshBounds</a>
   <a className="node-chip" href="./vArrayCameraProjection">vArrayCameraProjection</a>
-  <a className="node-chip" href="../ShapeRender/vArrayShapeRender">vArrayShapeRender</a>
 </div>
 
 {/*
-Generated page — node: vArrayBoundingBox (Array/Modify).
-Source: fuse vArrayBoundingBox.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Rendered from content-pipeline record (reviewed).
 */}

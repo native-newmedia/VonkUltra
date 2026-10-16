@@ -1,7 +1,7 @@
 ---
 sidebar_position: 34
 title: vArrayMinMax
-description: "Create an array from minimum and maximum values"
+description: "Generate an array of random values where each value in an entry has its own minimum and maximum."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 # vArrayMinMax
 
-Define a numeric range with Min and Max bounds — the essential seed node for arc, grid, and scatter generators.
+Generate an array of random values where each value in an entry has its own minimum and maximum.
 
 <div className="node-badge-row">
   <span className="node-badge node-badge--beginner">Beginner</span>
@@ -23,59 +23,61 @@ Define a numeric range with Min and Max bounds — the essential seed node for a
   <img src="/VonkUltra/img/reference/mograph/array/vArrayMinMax.png" alt="vArrayMinMax node" />
 </div>
 
-vArrayMinMax creates a compact vArray from a set of Min/Max range pairs for X, Y, and Z axes. It is the standard starting point for any pipeline that needs a defined numeric span — feeding directly into point generators like vArrayPointsOnArc or vArrayPointsOnGrid.
+vArrayMinMax has no input and outputs an array of random entries. Array length sets the number of entries, Pack To sets whether each entry holds X, X Y or X Y Z, and each value has its own range.
 
 ## Parameters
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Array length | Integer | `0` | Number of values to generate in the output array. Set to 0 to use the range pair count automatically. |
-| Range for X (Min / Max) | Range | `-1 / 1` | Minimum and maximum bounds for the X axis. Drag the range handles or type values directly. |
-| Range for Y (Min / Max) | Range | `-1 / 1` | Minimum and maximum bounds for the Y axis. |
-| Range for Z (Min / Max) | Range | `-1 / 1` | Minimum and maximum bounds for the Z axis. Only used when downstream node expects 3D input. |
-| Seed | Integer | `0` | Random seed for procedural variation. Change this value to get different results while keeping Min/Max bounds the same. |
+| Array length | Integer | `1` | Number of entries in the output. Minimum 0, default 1. |
+| Min1 | Float | `-1` | Lower limit of the first value in each entry. Default -1. |
+| Max1 | Float | `1` | Upper limit of the first value in each entry. Default 1. |
+| Min2 | Float | `-1` | Lower limit of the second value in each entry. Default -1. |
+| Max2 | Float | `1` | Upper limit of the second value in each entry. Default 1. |
 
 <details>
-<summary>+2 more parameters</summary>
+<summary>+5 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Pack To | Dropdown | `XY` | Output packing format: XY pairs, XYZ triples, or flat 1D sequence. Must match what the downstream generator expects. |
-| Show Input | Checkbox | `Off` | Reveals an array input port on the node, allowing an upstream range array to be passed through or merged. |
+| Min3 | Float | `-1` | Lower limit of the third value in each entry. Default -1. |
+| Max3 | Float | `1` | Upper limit of the third value in each entry. Default 1. |
+| Seed | Integer | `0` | Seed of the random generator. Default 0. |
+| Pack To: | Dropdown | `XY` | Number of values in each entry, X, XY or XYZ. Default XY. |
+| Show Input | Integer | `0.0` | Shows or hides a connection point on the Array length control. Default off. |
 
 </details>
 
 <details>
 <summary>Read the full description</summary>
 
-vArrayMinMax is the most fundamental creator node in the vArray pipeline. It defines a numeric range across up to three axes — X, Y, and Z — by specifying minimum and maximum values for each. The output is a compact vArray that downstream generators read as a spatial boundary or value span, making it the default way to seed arc, grid, circle, scatter, and spiral generators with precise numeric constraints. Almost every vArray pipeline starts with this node.
+The node seeds Lua's random generator with Seed and writes Array length entries. The first value of each entry is drawn uniformly between Min 1 and Max 1, the second between Min 2 and Max 2 and the third between Min 3 and Max 3. The same Seed gives the same output.
 
-The key design principle is separation of concerns: CreateMinMax defines the range, and a generator downstream decides what to do with it. When connected to vArrayPointsOnArc, the X Min/Max values define the angular span of the arc. When connected to vArrayPointsOnGrid, they define the spatial extent of the grid. When connected to vArrayRandom, they constrain the random value output. This means you change the bounds once, here, and every downstream node updates — no duplicated values across the graph.
+Pack To selects how many of the three ranges are used: X uses range 1, XY uses ranges 1 and 2, and XYZ uses all three. With the defaults (Array length 1, XY, every range -1 to 1) the node outputs one entry with two values. Ranges that are not used are ignored.
 
-The Pack To control determines how the array is structured for consumption — XY pairs, XYZ triples, or a flat 1D sequence. This must match what the downstream generator expects, and gets it wrong is the most common source of unexpected output. The Seed parameter introduces deterministic randomisation into the range output when procedural variation is needed. The Show Input toggle reveals a passthrough port, useful for chaining or merging multiple range sources.
+Array length can be 0, which gives an empty array. Show Input adds a connection point to the Array length control so that the length can be driven from another node.
+
+Use vArrayRandom when one range is enough for every value.
 
 </details>
 
 ## Example Connections
 
 <Tabs>
-<TabItem value="feeding-an-arc-generator" label="Feeding an arc generator" default>
+<TabItem value="draw-random-points" label="Draw random points" default>
 
 ```
-vArrayMinMax.Output -> vArrayPointsOnArc.ArrayA
-vArrayPointsOnArc.Output -> vArrayCameraProjection.ArrayA
+vArrayMinMax.Output -> vArrayCameraProjection.ArrayA
 vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
 Background.Output -> vArrayShapeRender.Input
 ```
 
 </TabItem>
-<TabItem value="feeding-a-grid-generator" label="Feeding a grid generator">
+<TabItem value="offset-the-points-before-drawing" label="Offset the points before drawing">
 
 ```
-vArrayMinMax.Output -> vArrayPointsOnGrid.ArrayA
-vArrayPointsOnGrid.Output -> vArrayCameraProjection.ArrayA
-vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
-Background.Output -> vArrayShapeRender.Input
+vArrayMinMax.Output -> vArrayTranslate.ArrayA
+vArrayTranslate.Output -> vArrayCameraProjection.ArrayA
 ```
 
 </TabItem>
@@ -84,11 +86,11 @@ Background.Output -> vArrayShapeRender.Input
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="../../array/Create/vArrayCreate">vArrayCreate</a>
-  <a className="node-chip" href="../../array/Create/vArrayRandom">vArrayRandom</a>
-  <a className="node-chip" href="../../array/Create/vArrayList">vArrayList</a>
+  <a className="node-chip" href="./vArrayRandom">vArrayRandom</a>
+  <a className="node-chip" href="./vArrayNoise">vArrayNoise</a>
+  <a className="node-chip" href="./vArrayCreateRange">vArrayCreateRange</a>
 </div>
 
 {/*
-Rich page restored from _output/vArrayCreateMinMax_page.json. Source of truth: fuses.ts / vonkultratools data model.
+Rendered from content-pipeline record (ai).
 */}

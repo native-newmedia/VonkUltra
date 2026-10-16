@@ -1,7 +1,7 @@
 ---
 sidebar_position: 23
 title: vScriptValLookAt
-description: "Build per-point look-at direction vectors."
+description: "Outputs a direction, Euler angles or a 9-value basis from each point toward a target."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -9,9 +9,10 @@ import TabItem from '@theme/TabItem';
 
 # vScriptValLookAt
 
-Build per-point look-at direction vectors.
+Outputs a direction, Euler angles or a 9-value basis from each point toward a target.
 
 <div className="node-badge-row">
+  <span className="node-badge node-badge--intermediate">Intermediate</span>
   <span className="node-badge">Mograph / ScriptVal</span>
   <span className="node-badge">ScriptVal</span>
   <span className="node-badge">Array</span>
@@ -22,42 +23,75 @@ Build per-point look-at direction vectors.
   <img src="/VonkUltra/img/reference/mograph/scriptval/vScriptValLookAt.png" alt="vScriptValLookAt node" />
 </div>
 
+vScriptValLookAt takes an array of points and a target, and writes one result per point. The target is set by Target X, Y and Z, or comes from a Targets array with one target per point.
+
 ## Parameters
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Target X | Float | `0` | Target position X. |
-| Target Y | Float | `0` | Target position Y. |
-| Target Z | Float | `0` | Target position Z. |
-| Forward Axis | Dropdown | `+Z (default)` | Axis that points at the target. Options: +Z (default), -Z (flip), +Y, -Y, +X, -X. |
-| Invert Direction | Integer | `0` | Reverses the direction. |
+| Target X | Float | `0` | X of the target. Default 0. |
+| Target Y | Float | `0` | Y of the target. Default 0. |
+| Target Z | Float | `0` | Z of the target. Default 0. |
+| Forward Axis | Dropdown | `+Z (default)` | +Z (default), -Z (flip), +Y, -Y, +X or -X. Re-maps the components of the direction vector. |
+| Invert Direction | Integer | `0` | Reverses the direction. Default off. |
 
 <details>
 <summary>+8 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Normalize | Integer | `1` | Outputs unit length vectors. |
-| Up X | Integer | `0` | Up vector X. |
-| Up Y | Integer | `1` | Up vector Y. |
-| Up Z | Integer | `0` | Up vector Z. |
-| Output Mode | Dropdown | `Direction Vector` | Type of the output. Options: Direction Vector, Euler Angles, Full Basis (9-component). |
-| Per-Point Target | Integer | `0` | Uses the Targets input for each point. |
-| Points | DATATYPE | `—` | Point positions. |
-| Targets | DATATYPE | `—` | — |
+| Normalize | Integer | `1` | Makes the direction unit length when on (default). |
+| Up X | Integer | `0` | X of the up vector, 0 or 1. Used in Full Basis mode. Default 0. |
+| Up Y | Integer | `1` | Y of the up vector, 0 or 1. Used in Full Basis mode. Default 1. |
+| Up Z | Integer | `0` | Z of the up vector, 0 or 1. Used in Full Basis mode. Default 0. |
+| Output Mode | Dropdown | `Direction Vector` | Direction Vector (default), Euler Angles (pitch, yaw, 0, in degrees) or Full Basis (9 values). |
+| Per-Point Target | Integer | `0` | Reads one target per point from Targets when on. Default off. The Targets port is shown only then. |
+| Points | DATATYPE | `—` | The points to aim from. |
+| Targets | DATATYPE | `—` | Optional target points, one per input point. Used when Per-Point Target is on. |
 
 </details>
+
+<details>
+<summary>Read the full description</summary>
+
+For each point the direction is target - point, made unit length if Normalize is on (the default). Forward Axis then re-maps its components, and Invert Direction flips it. Direction Vector outputs these three values. Euler Angles outputs pitch and yaw in degrees and a roll of 0.
+
+Full Basis outputs nine values: the forward vector, a right vector from the cross product of the up vector (Up X, Y, Z, default 0, 1, 0) and forward, and a third vector from forward and right.
+
+With Per-Point Target on, target i comes from the Targets input. A missing or invalid value falls back to Target X, Y and Z. A zero direction gives 0, 0, 0 when Normalize is on.
+
+</details>
+
+## Example Connections
+
+<Tabs>
+<TabItem value="aim-a-grid-at-a-point" label="Aim a grid at a point" default>
+
+```
+vScriptValPointsOnGrid.Output -> vScriptValLookAt.Points
+vScriptValLookAt.Output -> vScriptValCameraProjection.ArrayA
+```
+
+</TabItem>
+<TabItem value="aim-each-point-at-its-own-target" label="Aim each point at its own target">
+
+```
+vScriptValPointsOnCircle.Output -> vScriptValLookAt.Points
+vScriptValPointsOnGrid.Output -> vScriptValLookAt.Targets
+vScriptValLookAt.Output -> vScriptValTranslate.Input
+```
+
+</TabItem>
+</Tabs>
 
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="./vScriptValBoundingBox">vScriptValBoundingBox</a>
-  <a className="node-chip" href="./vScriptValCameraProjection">vScriptValCameraProjection</a>
-  <a className="node-chip" href="./vScriptValConvert2D_3D">vScriptValConvert2D_3D</a>
-  <a className="node-chip" href="./vScriptValDisplaceValues">vScriptValDisplaceValues</a>
+  <a className="node-chip" href="./vScriptValPathFrame">vScriptValPathFrame</a>
+  <a className="node-chip" href="./vScriptValTangentVector">vScriptValTangentVector</a>
+  <a className="node-chip" href="./vScriptValOffsetByNormal">vScriptValOffsetByNormal</a>
 </div>
 
 {/*
-Generated page — node: vScriptValLookAt (ScriptVal/Modify).
-Source: fuse vScriptValLookAt.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Rendered from content-pipeline record (ai).
 */}

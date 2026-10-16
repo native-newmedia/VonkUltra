@@ -1,7 +1,7 @@
 ---
 sidebar_position: 11
 title: vArrayFromOBJ
-description: "Convert Wavefront OBJ mesh data into an array"
+description: "Read Wavefront OBJ text from a file, a URL or pasted text and output points, faces, UVs and UV indices as arrays."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 # vArrayFromOBJ
 
-Import vertex positions from any .OBJ mesh file and convert them into a vArray — the bridge between 3D geometry and the vArray pipeline.
+Read Wavefront OBJ text from a file, a URL or pasted text and output points, faces, UVs and UV indices as arrays.
 
 <div className="node-badge-row">
   <span className="node-badge node-badge--intermediate">Intermediate</span>
@@ -23,48 +23,51 @@ Import vertex positions from any .OBJ mesh file and convert them into a vArray �
   <img src="/VonkUltra/img/reference/mograph/array/vArrayFromOBJ.png" alt="vArrayFromOBJ node" />
 </div>
 
-vArrayFromOBJ reads vertex XYZ data from a Wavefront .OBJ file and outputs a vArray of point positions. Use it to drive vArray motion graphics from real 3D mesh geometry exported from Blender, Cinema 4D, or any modelling application.
+vArrayFromOBJ has no input socket and outputs four arrays read from OBJ text: Points, Edges, UVs and UV Edges. Input Source picks a file, a URL or text typed into the node.
 
 ## Parameters
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Input Source | Integer | `0` | Selects the data source mode: 0 = File path, 1 = URL, 2 = Text string input from another node. |
-| Filename | File | `—` | Path to the .OBJ file on disk. Use the file browser to locate the geometry file. Active when Input Source is set to File. |
-| URL | Text | `—` | HTTP/HTTPS URL of a remote .OBJ file. Active when Input Source is set to URL. Useful for live data or asset server workflows. |
-| Input | Text | `—` | Raw OBJ-format text passed as a string from another node. Active when Input Source is set to Text. Enables procedurally generated geometry. |
-| Scale File Units By | Integer | `1` | Multiplies all imported vertex positions by this value. Use to convert from DCC application units to Fusion's normalised coordinate space (e.g. 0.01 for centimetres to metres). |
+| Input Source | Dropdown | `File` | Where the OBJ text comes from, File, URL or Text. Default File. |
+| Filename | Text | `—` | Path of the OBJ file. Shown when Input Source is File. |
+| URL | Text | `—` | Address of an OBJ text file. Shown when Input Source is URL. |
+| Input | Text | `—` | OBJ text typed or pasted into the node. Shown when Input Source is Text. |
+| Scale File Units By | Float | `1` | Multiplier applied to X, Y and Z of every point. Default 1. |
 
 <details>
 <summary>Read the full description</summary>
 
-vArrayFromOBJ is the primary 3D import node in the vArray toolkit. It parses the vertex list from any standard Wavefront .OBJ file and produces a vArray of XYZ positions that can flow into the full vArray pipeline — displacement, projection, and rendering. This allows any 3D mesh exported from Blender, Cinema 4D, or Maya to become the source geometry for a vArray motion graphics composition.
+The node reads the source line by line. Lines that start with v give the Points array, with the first three values of each line multiplied by Scale File Units By. Lines that start with vt give the UVs array with two values each. UV values are not scaled.
 
-Three input modes cover different workflow needs: File loads directly from disk using a standard file browser, URL fetches a remote OBJ over HTTP for live data workflows, and Input accepts raw OBJ text passed as a string from another node. Scale File Units By lets you normalise geometry from different DCC applications — Maya typically uses centimetres, Blender uses metres — to Fusion's normalised coordinate space.
+Each line that starts with f gives one entry in the Edges array, holding the vertex indices of the face, and one entry in the UV Edges array, holding the texture coordinate indices. The indices are copied as they are in the file, which means 1-based values for a standard OBJ. Other lines, such as vn, g and usemtl, are ignored.
 
-Once imported, the vertex array passes to vArrayCameraProjection for 3D-to-2D projection, then to vArrayShapeRender to draw shapes at each vertex position. Pair with vArrayDisplaceValues to add noise or wave-based animation on top of the mesh geometry. This makes vArrayFromOBJ particularly powerful for motion graphics workflows that start with hero geometry from a 3D package rather than procedural generators.
+The face parser expects vertex references with two slashes, such as 1/2/3 or 1//3. A face written as f 1 2 3 or as 1/2 gives an empty entry, and an index written as 1//3 gives no UV index. The code does not skip a v line that has fewer than three values. Normals are not read.
+
+Filename goes through Fusion path mapping before it is opened. URL is downloaded as text. Input is used as it is. Only the control for the selected source is shown.
 
 </details>
 
 ## Example Connections
 
 <Tabs>
-<TabItem value="mesh-based-point-scatter" label="Mesh-based point scatter" default>
+<TabItem value="draw-the-points-of-a-mesh" label="Draw the points of a mesh" default>
 
 ```
 vArrayFromOBJ.Points -> vArrayCameraProjection.ArrayA
-vArrayFromOBJ.Edges -> vArrayShapeRender.ArrayEdge
 vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
 Background.Output -> vArrayShapeRender.Input
 ```
 
 </TabItem>
-<TabItem value="with-displacement" label="With displacement">
+<TabItem value="pass-the-faces-along-with-the-points" label="Pass the faces along with the points">
 
 ```
-vArrayFromOBJ.Points -> vArrayDisplaceValues.ArrayA
-vArrayDisplaceValues.Output -> vArrayCameraProjection.ArrayA
+vArrayFromOBJ.Points -> vArrayCameraProjection.ArrayA
+vArrayFromOBJ.Edges -> vArrayCameraProjection.ArrayEdge
 vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+vArrayCameraProjection.Edges -> vArrayShapeRender.ArrayEdge
+Background.Output -> vArrayShapeRender.Input
 ```
 
 </TabItem>
@@ -73,11 +76,11 @@ vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="../../array/Create/vArrayToOBJ">vArrayToOBJ</a>
-  <a className="node-chip" href="../../array/Modify/vArrayCameraProjection">vArrayCameraProjection</a>
-  <a className="node-chip" href="../../array/Modify/vArrayDisplaceValues">vArrayDisplaceValues</a>
+  <a className="node-chip" href="./vArrayToOBJ">vArrayToOBJ</a>
+  <a className="node-chip" href="./vArrayFromXYZ">vArrayFromXYZ</a>
+  <a className="node-chip" href="./vArrayToUSD">vArrayToUSD</a>
 </div>
 
 {/*
-Rich page restored from _output/vArrayFromOBJ_page.json. Source of truth: fuses.ts / vonkultratools data model.
+Rendered from content-pipeline record (ai).
 */}

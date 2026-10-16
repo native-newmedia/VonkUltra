@@ -1,7 +1,7 @@
 ---
 sidebar_position: 44
 title: vArrayProjectOnMesh
-description: "Project input points onto the nearest OBJ mesh surface."
+description: "Moves each point to the closest mesh vertex, with an offset, a blend and a distance limit."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -9,9 +9,10 @@ import TabItem from '@theme/TabItem';
 
 # vArrayProjectOnMesh
 
-Project input points onto the nearest OBJ mesh surface.
+Moves each point to the closest mesh vertex, with an offset, a blend and a distance limit.
 
 <div className="node-badge-row">
+  <span className="node-badge node-badge--advanced">Advanced</span>
   <span className="node-badge">Mograph / Array</span>
   <span className="node-badge">Array</span>
   <span className="node-badge">ScriptVal</span>
@@ -22,40 +23,74 @@ Project input points onto the nearest OBJ mesh surface.
   <img src="/VonkUltra/img/reference/mograph/array/vArrayProjectOnMesh.png" alt="vArrayProjectOnMesh node" />
 </div>
 
+vArrayProjectOnMesh takes an array of XYZ points and a mesh, and moves each point to the closest Mesh Points vertex plus Surface Offset. Distance Mode can leave far points alone or limit the move.
+
 ## Parameters
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Surface Offset | Float | `0` | Offset of the target from the mesh surface. |
-| Projection Mode | Dropdown | `Closest Surface` | Closest surface point, nearest vertex or face center. Options: Closest Surface, Nearest Vertex, Face Center. |
-| Offset Direction | Dropdown | `Surface Normal` | Direction of the offset. Options: Surface Normal, World +Y. |
-| Projection Blend | Float | `1` | Mix between the original and the projected position. |
-| Distance Mode | Dropdown | `No Limit` | How Max Distance is applied. Options: No Limit, Hard Cutoff, Clamp. |
+| Surface Offset | Float | `0` | Distance of the target from the vertex. Slider -1 to 1, default 0. |
+| Projection Mode | Dropdown | `Closest Surface` | Closest Surface (default), Nearest Vertex or Face Center. All three find the closest vertex. |
+| Offset Direction | Dropdown | `Surface Normal` | Surface Normal (default) or World +Y. The direction of the offset. |
+| Projection Blend | Float | `1` | Mix between the point (0) and the target (1). Range 0 to 1, default 1. |
+| Distance Mode | Dropdown | `No Limit` | No Limit (default), Hard Cutoff or Clamp. How Max Distance is used. |
 
 <details>
 <summary>+6 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Max Distance | Float | `0` | Distance from the mesh at which the effect ends. |
-| Affect X | Float | `1` | Applies the effect to X. |
-| Affect Y | Float | `1` | Applies the effect to Y. |
-| Affect Z | Float | `1` | Applies the effect to Z. |
+| Max Distance | Float | `0` | Limit for Hard Cutoff and Clamp. Minimum 0, slider 0 to 5, default 0, which switches the limit off. |
+| Affect X | Float | `1` | X comes from the result when checked (default), otherwise it keeps the input value. |
+| Affect Y | Float | `1` | Y comes from the result when checked (default), otherwise it keeps the input value. |
+| Affect Z | Float | `1` | Z comes from the result when checked (default), otherwise it keeps the input value. |
 | Points | DATATYPE | `—` | Point positions. |
 | Mesh Points | DATATYPE | `—` | Points of the mesh that the input is compared with. |
 
 </details>
 
+<details>
+<summary>Read the full description</summary>
+
+For each point the node finds the closest Mesh Points vertex. The target is that vertex plus Surface Offset along the estimated normal (Surface Normal) or along +Y (World +Y). Projection Blend (0 to 1, default 1) mixes between the point and the target. The three Projection Modes give the same result with this mesh data.
+
+With Max Distance above 0, Hard Cutoff leaves a point where it is if the target is farther away than Max Distance, and Clamp moves it only up to that distance toward the target. No Limit ignores Max Distance. Affect X, Y and Z keep unchecked axes at the input value. Only the vertex list is used. If Points or Mesh Points is empty, the output is empty.
+
+</details>
+
+## Example Connections
+
+<Tabs>
+<TabItem value="project-a-grid-onto-a-loaded-mesh-and-draw" label="Project a grid onto a loaded mesh and draw" default>
+
+```
+vArrayPointsOnGrid.Output -> vArrayProjectOnMesh.ArrayPoints
+vArrayFromOBJ.Points -> vArrayProjectOnMesh.MeshPoints
+vArrayProjectOnMesh.Output -> vArrayCameraProjection.ArrayA
+vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+Background.Output -> vArrayShapeRender.Input
+```
+
+</TabItem>
+<TabItem value="project-scattered-points" label="Project scattered points">
+
+```
+vArrayRandom.Output -> vArrayProjectOnMesh.ArrayPoints
+vArrayFromOBJ.Points -> vArrayProjectOnMesh.MeshPoints
+vArrayProjectOnMesh.Output -> vArrayTranslate.Input
+```
+
+</TabItem>
+</Tabs>
+
 ## Related Nodes
 
 <div className="node-chip-row">
-  <a className="node-chip" href="./vArrayBoundingBox">vArrayBoundingBox</a>
-  <a className="node-chip" href="./vArrayCameraProjection">vArrayCameraProjection</a>
-  <a className="node-chip" href="./vArrayConvert2D_3D">vArrayConvert2D_3D</a>
-  <a className="node-chip" href="./vArrayDisplaceValues">vArrayDisplaceValues</a>
+  <a className="node-chip" href="./vArrayProject">vArrayProject</a>
+  <a className="node-chip" href="./vArraySnapMeshVertex">vArraySnapMeshVertex</a>
+  <a className="node-chip" href="./vArrayAttractToMesh">vArrayAttractToMesh</a>
 </div>
 
 {/*
-Generated page — node: vArrayProjectOnMesh (Array/Modify).
-Source: fuse vArrayProjectOnMesh.fuse + Docsify mega-page. Param descriptions pending the content pass (content-plan.md §6).
+Rendered from content-pipeline record (ai).
 */}
