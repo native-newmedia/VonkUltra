@@ -1,0 +1,74 @@
+operation: ScaleFromMesh
+tools:
+  Array: vArrayScaleFromMesh
+  ScriptVal: vScriptValScaleFromMesh
+  JSON: vJSONScaleFromMesh
+legacy_names: []
+curated:
+  tagline: Scales the vector from the closest mesh vertex to each point by a multiplier.
+  overview: >-
+    vArrayScaleFromMesh takes an array of XYZ points and a mesh. For each point it finds the closest
+    Mesh Points vertex and multiplies the distance to it by Distance Multiplier.
+  description:
+    - >-
+      Each point P becomes R + (P - R) * Distance Multiplier, where R is the closest mesh point: the
+      closest vertex, or with Mesh Faces connected the closest point on the triangles. A multiplier
+      of 1 (the default) leaves the points where they are, 0 puts every point on R, and a value
+      above 1 pushes the points away from R along the same line.
+    - >-
+      A negative value would put the point on the opposite side, but the slider runs from 0 to 2.
+      Affect X, Y and Z are checked by default, and an unchecked axis keeps its input value. If the
+      points or the mesh are empty, the output is empty.
+  features:
+    - title: Scales the distance
+      desc: The offset from the closest mesh point is multiplied, along the same line.
+    - title: Collapse and expand
+      desc: Values below 1 pull points to the mesh and values above 1 push them out.
+    - title: Per-axis switches
+      desc: Affect X, Y and Z restrict the result to the checked axes.
+    - title: One control
+      desc: Distance Multiplier is the only value to set.
+  connections:
+    - label: Push a grid away from a loaded mesh and draw
+      lines:
+        - vArrayPointsOnGrid.Output -> vArrayScaleFromMesh.ArrayPoints
+        - vArrayFromOBJ.Points -> vArrayScaleFromMesh.MeshPoints
+        - vArrayScaleFromMesh.Output -> vArrayCameraProjection.ArrayA
+        - vArrayCameraProjection.Output -> vArrayShapeRender.ArrayPoint
+        - Background.Output -> vArrayShapeRender.Input
+    - label: Scale scattered points
+      lines:
+        - vArrayRandom.Output -> vArrayScaleFromMesh.ArrayPoints
+        - vArrayFromOBJ.Points -> vArrayScaleFromMesh.MeshPoints
+        - vArrayScaleFromMesh.Output -> vArrayTranslate.Input
+  difficulty: Intermediate
+  related:
+    - name: vArrayOffsetByNormal
+      desc: Offsets each input point along the nearest mesh surface normal.
+    - name: vArrayAttractToMesh
+      desc: Lerps input points toward the nearest mesh surface point.
+    - name: vArrayClampToMeshProx
+      desc: Clamps points farther than a maximum distance from the mesh down to that distance.
+  params:
+    indistancemultiplier: Multiplier for the distance to the closest vertex. Slider 0 to 2, default 1.
+    inaffectx: X comes from the result when checked (default), otherwise it keeps the input value.
+    inaffecty: Y comes from the result when checked (default), otherwise it keeps the input value.
+    inaffectz: Z comes from the result when checked (default), otherwise it keeps the input value.
+    Points: Not read by the code. The points to scale go to Array Points.
+    ArrayPoints: The points to scale.
+    MeshFaces: >-
+      Optional. Face index lists of the mesh, from the Edges output of vArrayFromOBJ. Not connected:
+      R is the closest vertex. Connected: the closest point on the triangles.
+status:
+  source: ai
+  state: ai
+  reviewed_hash: null
+  prompt_version: '1'
+  note: >-
+    The Array fuse has two point inputs: it reads only Array Points (the one that holds the points
+    to scale), and the input named Points (ID Points) is not read by Process(). Since fix batch F5
+    the unused one no longer takes the main link. The ScriptVal and JSON fuses have a single
+    Points input. The distance is measured to the closest mesh point, so the result depends on how
+    densely the mesh is sampled. With no mesh or no points the output is empty. Since fix batch F5
+    the node has an optional Mesh Faces input (Edges output of vArrayFromOBJ); the text describes
+    the node with and without it.
