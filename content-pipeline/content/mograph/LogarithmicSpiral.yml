@@ -13,24 +13,15 @@ curated:
     * theta) that rises slowly along Z. Mode chooses between segment triplets and polygon pairs.
   description:
     - >-
-      The node steps the angle theta from Step Size up to Max Angle * pi in increments of Step Size.
-      At each step the radius is r = Growth Coefficient * e^(Expansion Factor * theta), the position
-      is X = r * cos theta and Y = r * sin theta, and Z = theta * 0.05. X and Y are then rotated
-      around the Z axis by Rotation, in degrees. The Z rise of 0.05 per radian is fixed.
+      Theta runs from Step Size to Max Angle * pi in steps of Step Size. The radius is r = Growth
+      Coefficient * e^(Expansion Factor * theta), X = r * cos theta, Y = r * sin theta and Z = theta
+      * 0.05, a fixed rise per radian. X and Y are rotated around Z by Rotation, in degrees.
     - >-
-      In Spiral mode each step writes three points: the previous point, the midpoint between the
-      previous and current points, and the current point. The first previous point is the origin.
-      With the defaults (Growth Coefficient 0.04, Expansion Factor 0.22, Max Angle 6, Step Size
-      1.23) there are 15 steps, so the node outputs 45 points.
-    - >-
-      In Polygon mode each step writes two points: the current point moved by 0.05 in the direction
-      (sin theta, -cos theta), and the previous point. The same defaults give 30 points. Z is the
-      same as in Spiral mode.
-    - >-
-      Max Angle is a whole number counted in units of pi, so 6 gives three full turns. A smaller
-      Step Size gives more steps and a smoother curve. The number of steps is about Max Angle * pi /
-      Step Size. The hidden Scale Factor control is read by the node but not used in the
-      calculation.
+      Spiral mode writes three points per step: the previous point, the midpoint and the current
+      point, starting at the origin. With the defaults (Growth Coefficient 0.04, Expansion Factor
+      0.22, Max Angle 6, Step Size 1.23) it outputs 45 points. Polygon mode writes two points per
+      step: the current point moved by 0.05 along (sin theta, -cos theta), and the previous point.
+      The hidden Scale Factor is read and not used.
   features:
     - title: No input needed
       desc: The node generates its points from its own controls.

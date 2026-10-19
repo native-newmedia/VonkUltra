@@ -15,24 +15,15 @@ curated:
   description:
     - >-
       The node reads a GeoJSON FeatureCollection and collects the coordinates of its Point, Polygon,
-      MultiPolygon, LineString and MultiLineString features. Every polygon ring, line or point
-      becomes one shape. A plain JSON array of shapes, each a list of [longitude, latitude] pairs,
-      is also accepted. If the text is empty, cannot be read or holds no shapes, the output is
-      empty.
+      MultiPolygon, LineString and MultiLineString features. Each ring, line or point is one shape.
+      A plain array of shapes, each a list of [longitude, latitude] pairs, is also accepted. Empty
+      or unreadable text gives an empty output.
     - >-
-      Each position is projected with the Web Mercator formula on a map that is Map Zoom Width wide
-      and 1 high. X = (longitude + 180) * Map Zoom Width / 360 and the vertical position comes from
-      ln(tan(pi / 4 + latitude / 2)). The map is then shifted so that Center Longitude and Center
-      Latitude sit at the origin, and Y points up.
-    - >-
-      Afterwards the points are scaled around their own average position by Scale * 1000 and shifted
-      by Offset X and Offset Y. Because of the factor of 1000, the default Scale of 1 makes the map
-      1000 times wider than the unscaled projection, and a Scale of 0.001 leaves it at the projected
-      size. Z is always 0.
-    - >-
-      The Groups output holds the number of points of each shape in order, as a list. Use it with
-      the nodes that take a Groups input to keep the shapes separate. The hidden Auto Fit control is
-      read but not used.
+      Positions use the Web Mercator formula on a map Map Zoom Width wide and 1 high, shifted so
+      Center Longitude and Center Latitude sit at the origin, with Y up. The points are then scaled
+      around their average position by Scale * 1000 and shifted by Offset X and Offset Y, so the
+      default Scale of 1 makes the map 1000 times the projected size. Z is 0. The Groups output
+      lists the point count of each shape.
   features:
     - title: GeoJSON input
       desc: Point, line, polygon and multipart features are read from a FeatureCollection.
