@@ -85,8 +85,8 @@ curated:
     JSONGroups: JSON family. Optional groups. Passed to the Groups output unchanged.
 status:
   source: ai
-  state: ai
-  reviewed_hash: null
+  state: reviewed
+  reviewed_hash: cc3e9f11ad3d
   prompt_version: '1'
   note: >-
     Rewritten against the fuse after fix batch F2 (branch fix/findings-f2 of vonk-ultra-mograph):

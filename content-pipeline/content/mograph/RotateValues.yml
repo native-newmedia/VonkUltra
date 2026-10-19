@@ -58,8 +58,8 @@ curated:
     ArrayA: Array whose elements are shifted.
 status:
   source: ai
-  state: ai
-  reviewed_hash: null
+  state: reviewed
+  reviewed_hash: 3c5c8d832d4c
   prompt_version: '1'
   note: >-
     Rewritten against the fuse after fix batch F2 (branch fix/findings-f2 of vonk-ultra-mograph):

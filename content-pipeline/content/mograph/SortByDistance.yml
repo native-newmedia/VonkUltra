@@ -61,8 +61,8 @@ curated:
       point is not closer than Smallest Distance.
 status:
   source: ai
-  state: ai
-  reviewed_hash: null
+  state: reviewed
+  reviewed_hash: 29bc88b9f19f
   prompt_version: '1'
   note: >-
     Rewritten against the fuse after fix batch F2 (branch fix/findings-f2 of vonk-ultra-mograph).

@@ -63,8 +63,8 @@ curated:
     ShowInput: Shows the Frequency, Scale and Time input ports when on (default).
 status:
   source: ai
-  state: ai
-  reviewed_hash: null
+  state: reviewed
+  reviewed_hash: 6b1541739cc6
   connections_source: docsify
   prompt_version: '1'
   note: >-

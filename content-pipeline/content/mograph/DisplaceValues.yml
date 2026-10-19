@@ -69,8 +69,8 @@ curated:
     animspeed: Added to the noise lookup as this value times the render time. Slider 0 to 5, default 0.
 status:
   source: ai
-  state: ai
-  reviewed_hash: null
+  state: reviewed
+  reviewed_hash: 45069381da6a
   prompt_version: '1'
   note: >-
     Rewritten against the fuse after fix batch F2 (branch fix/findings-f2 of vonk-ultra-mograph):

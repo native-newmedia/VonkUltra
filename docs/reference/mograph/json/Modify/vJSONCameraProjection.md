@@ -56,7 +56,7 @@ vJSONCameraProjection takes an array of XYZ points and outputs 2D points. It als
 | Edge | Text | `—` | JSON family. Optional edges. When connected, they are passed to the Edges output. |
 | Groups | ScriptVal | `—` | JSON family. Optional groups. Passed to the Groups output unchanged. |
 | Auto Create Edges | Integer | `1` | When on (default) and no Edge input is connected, writes one edge through all points. Needs 2 or more points. |
-| Close Edge Loop | Integer | `0` | Default off. In the code the generated edge returns to the first point when this is off, and ends at the last point when it is on. |
+| Close Edge Loop | Integer | `0` | Default off. When on, the generated edge returns to the first point. When off, it ends at the last point. |
 
 </details>
 
@@ -67,7 +67,7 @@ Each point is rotated by X, Y and Z Rotation (degrees, in the order X, Y, Z) aro
 
 With s = 1 / tan(fov / 2), the output is X = 0.5 + s * x / (2 * -z) and Y = s * y / (2 * -z) plus an offset from an internal reference image. A Z near 0 is replaced by a small number.
 
-An Edge input is passed to the Edges output. Without one, Auto Create Edges (on) writes one edge through all points in order, and it returns to point 1 when Close Edge Loop is off. Groups pass through unchanged.
+An Edge input is passed to the Edges output. Without one, Auto Create Edges (on) writes one edge through all points in order, and it returns to point 1 when Close Edge Loop is on. Groups pass through unchanged.
 
 </details>
 
@@ -105,5 +105,5 @@ Background.Output -> vJSONShapeRender.Input
 </div>
 
 {/*
-Rendered from content-pipeline record (ai).
+Rendered from content-pipeline record (reviewed).
 */}

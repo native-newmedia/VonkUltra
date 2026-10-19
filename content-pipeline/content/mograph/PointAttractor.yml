@@ -72,8 +72,8 @@ curated:
     ArrayA: Points to move.
 status:
   source: ai
-  state: ai
-  reviewed_hash: null
+  state: reviewed
+  reviewed_hash: 517b3b4ae1ee
   prompt_version: '1'
   note: >-
     The registered description was changed in fix batch F2 (branch fix/findings-f2 of

@@ -51,7 +51,7 @@ vJSONPerlin3Noise takes an array of points and outputs a noise value for each co
 
 Each coordinate v of each input point is replaced by noise(v * Frequency + Time) * Scale, so the output holds noise values and not the original positions. The noise is sampled along the diagonal of the noise grid, with the same value on both lookup axes. With Time 1 and whole-number coordinates the lookup falls on grid points where Perlin noise is 0.
 
-Fractal adds Octaves of the noise, each with twice the frequency and Persistence times the weight of the one before, divided by the total weight. Octaves and Persistence are hidden for Perlin. The Array version flattens the values and regroups them in threes. The ScriptVal and JSON versions keep each point's length.
+Fractal adds Octaves of the noise, each with twice the frequency and Persistence times the weight of the one before, divided by the total weight. Octaves and Persistence are hidden for Perlin. Every output point has as many values as its input point, in all three families.
 
 Show Input exposes the Frequency, Scale and Time ports on the node.
 
@@ -89,5 +89,5 @@ vJSONPerlin3Noise.Output -> vJSONApplyMask.Mask
 </div>
 
 {/*
-Rendered from content-pipeline record (ai).
+Rendered from content-pipeline record (reviewed).
 */}

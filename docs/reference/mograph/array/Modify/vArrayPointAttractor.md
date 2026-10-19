@@ -95,5 +95,5 @@ vArrayPointAttractor.Output -> vArrayTranslate.Input
 </div>
 
 {/*
-Rendered from content-pipeline record (ai).
+Rendered from content-pipeline record (reviewed).
 */}

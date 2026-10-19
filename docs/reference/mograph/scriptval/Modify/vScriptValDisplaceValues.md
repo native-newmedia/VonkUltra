@@ -56,7 +56,7 @@ Each point moves by noise * Amplitude * falloff on X, Y and Z. The noise is a ha
 
 At the default Noise Rate of 0.001 the wrapped coordinates stay so small that every point gets the same noise value (about 0.72). Larger rates give variation between points. Amplitude and Noise Scale default to 0, so nothing moves until they are set.
 
-The falloff is max(0, 1 - (distance / radius) ^ tightness), measured from the FallOff Sphere position. Invert falloff uses 1 minus that value. The ScriptVal and JSON versions displace Z only.
+The falloff is max(0, 1 - (distance / radius) ^ tightness), measured from the FallOff Sphere position. Invert falloff uses 1 minus that value. All three families displace X, Y and Z.
 
 </details>
 
@@ -92,5 +92,5 @@ vScriptValDisplaceValues.Output -> vScriptValCameraProjection.ArrayA
 </div>
 
 {/*
-Rendered from content-pipeline record (ai).
+Rendered from content-pipeline record (reviewed).
 */}

@@ -23,7 +23,7 @@ Adds an XYZ offset to every point, then multiplies it by a scale.
   <img src="/VonkUltra/img/reference/mograph/json/vJSONTranslate.png" alt="vJSONTranslate node" />
 </div>
 
-vJSONTranslate takes an array of XYZ points and outputs (point + offset) * scale for each axis. X Scale is used for X and Z, and Y Scale for Y.
+vJSONTranslate takes an array of XYZ points and outputs (point + offset) * scale for each axis. X Scale is used for X and Z, and for Y while Lock X/Y is on. Y Scale is used for Y when Lock X/Y is off.
 
 ## Parameters
 
@@ -32,15 +32,15 @@ vJSONTranslate takes an array of XYZ points and outputs (point + offset) * scale
 | X Offset | Float | `—` | Added to X before the scale. Default 0. |
 | Y Offset | Float | `—` | Added to Y before the scale. Default 0. |
 | Z Offset | Float | `—` | Added to Z before the scale. Default 0. |
-| Lock X/Y | Integer | `1` | Only changes which scale controls are shown. Default on. |
-| X Scale | Float | `1.0` | Multiplies X and Z after the offset. Default 1. |
+| Lock X/Y | Integer | `1` | When on (default), Y uses X Scale and Y Scale is hidden. When off, Y Scale is used for Y. |
+| X Scale | Float | `1.0` | Multiplies X and Z after the offset. Default 1. Also multiplies Y while Lock X/Y is on. |
 
 <details>
 <summary>+3 more parameters</summary>
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| Y Scale | Float | `1.0` | Multiplies Y after the offset. Default 1. Hidden while Lock X/Y is on, but still used. |
+| Y Scale | Float | `1.0` | Multiplies Y after the offset when Lock X/Y is off. Default 1. Hidden while it is on. |
 | Input | DATATYPE | `—` | Points to move. |
 | Show Input | Integer | `0.0` | Shows the input ports of the offsets and scales when on. Default off. |
 
@@ -51,7 +51,7 @@ vJSONTranslate takes an array of XYZ points and outputs (point + offset) * scale
 
 Each point becomes ((x + X Offset) * X Scale, (y + Y Offset) * Y Scale, (z + Z Offset) * X Scale). The offsets default to 0 and the scales to 1, so the default leaves the points unchanged. Because the scale is applied after the offset, it also scales the offset.
 
-Lock X/Y (on by default) hides Y Scale, but the code still reads it, so Y Scale keeps its value and is not tied to X Scale. Show Input exposes the offsets and scales as input ports. Elements that are not lists of at least 3 values are dropped, and the output points have 3 values.
+Lock X/Y is on by default. While it is on, Y Scale is hidden and Y uses X Scale. With it off, Y Scale scales Y on its own. Show Input exposes the offsets and scales as input ports. Elements that are not lists of at least 3 values are dropped, and the output points have 3 values.
 
 </details>
 
@@ -87,5 +87,5 @@ vJSONPointsJitter.Output -> vJSONTranslate.ArrayA
 </div>
 
 {/*
-Rendered from content-pipeline record (ai).
+Rendered from content-pipeline record (reviewed).
 */}
