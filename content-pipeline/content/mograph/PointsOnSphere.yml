@@ -16,28 +16,16 @@ curated:
     - >-
       In Fibonacci Sphere mode, point i of n has Y = 1 - 2 * i / (n - 1), a horizontal radius of
       sqrt(1 - Y * Y) and the angle i * pi * (sqrt(5) - 1) around the Y axis, with X = cos(angle) *
-      radius and Z = sin(angle) * radius. All three values are multiplied by Sphere size. The points
-      follow a spiral from the top of the sphere, Y = +1, to the bottom.
+      radius and Z = sin(angle) * radius. All three are multiplied by Sphere size. The points follow
+      a spiral from the top (Y = +1) to the bottom.
     - >-
-      Trim Top and Trim Bottom clamp the unscaled Y value. The value of the Trim Top control is the
-      lower limit and the value of the Trim Bottom control is the upper limit, so the labels are the
-      reverse of the Y direction. The defaults of -1 and 1 do not change anything. A point outside
-      the limits keeps its X and Z and gets Y set to the limit, so it is flattened onto a plane and
-      not removed. Setting Random Distance to True writes a second point on the same ray for every
-      point, at a random distance between 0 and Sphere size. Random seed seeds the random generator,
-      and in this mode the control is hidden.
+      Trim Top is the upper limit and Trim Bottom the lower limit for the unscaled Y (defaults 1 and
+      -1, so nothing changes). A point outside the limits keeps its X and Z and gets Y set to the
+      limit, so it is flattened and not removed. Random Distance adds a second point on the same ray
+      at a random distance up to Sphere size.
     - >-
-      In Custom Sphere mode the node writes Amount of points points at random positions. Each point
-      starts at (Sphere size, 0, 0), or at (-Sphere size, 0, 0) for every second point, minus a
-      random amount up to Random distance, and is rotated by a random rotation. Distribution picks
-      how the random numbers for the rotation are drawn. Uniform draws from -1 to 1, while Poles and
-      Half draw from 0 to 1, which concentrates the points. In Half every point starts at +Sphere
-      size. The result is multiplied by the hidden Scale Factor. Random seed makes the layout
-      repeatable.
-    - >-
-      With the defaults (Fibonacci Sphere, 100 points, Sphere size 0.3) the node outputs 100 points
-      on a sphere of radius 0.3. Amount of points has a minimum of 2. The hidden Rotate Factor
-      control is not used.
+      In Custom Sphere mode the node writes Amount of points random points. Distribution picks how
+      the random rotation is drawn, and Random seed makes the layout repeatable.
   features:
     - title: No input needed
       desc: The node generates its points from its own controls.
@@ -80,12 +68,20 @@ curated:
     Distribution: >-
       Custom Sphere only. Uniform, Poles or Half. Controls how the random rotation is drawn. Default
       Uniform.
-    trimTop: Fibonacci Sphere only. Lower limit for Y before scaling. Range -1 to 1, default -1.
-    trimbottom: Fibonacci Sphere only. Upper limit for Y before scaling. Range -1 to 1, default 1.
+    trimTop: >-
+      Upper limit for Y before scaling, on the control labelled Trim Top in the Array and ScriptVal
+      tools (default 1). In the JSON tool this ID belongs to the control labelled Trim Bottom, the
+      lower limit (default -1).
+    trimbottom: >-
+      Lower limit for Y before scaling, on the control labelled Trim Bottom (default -1). Fibonacci
+      Sphere only.
     Randomdistance: >-
       Custom Sphere only, hidden in Fibonacci mode. Random amount up to this value that is taken off
       the start distance of each point. Default 0.
-    trimBottom: Removes the bottom part of the sphere.
+    trimBottom: >-
+      Lower limit for Y before scaling, on the control labelled Trim Bottom in the ScriptVal tool
+      (default -1). In the JSON tool this ID belongs to the control labelled Trim Top, the upper
+      limit (default 1).
     scaleFactor: Hidden control. Multiplier applied to all points in Custom Sphere mode. Default 1.
     rotFactor: Hidden control. It is not used in the calculation. Default 0.
 status:
@@ -94,7 +90,9 @@ status:
   reviewed_hash: null
   prompt_version: '1'
   note: >-
-    The controls labelled Trim Top and Trim Bottom feed the lower and upper Y limit respectively, so
-    the labels are the reverse of the Y direction. Hidden Rotate Factor is not used. Fuse logic was
-    not changed.
+    Rewritten against the fuse after fix batch F3 (branch fix/findings-f3 of vonk-ultra-mograph).
+    The control labelled Trim Top fed the lower Y limit and the control labelled Trim Bottom the
+    upper one. Trim Top is now the upper limit (default 1) and Trim Bottom the lower limit (default
+    -1). The control IDs differ between the families: in the JSON fuse the ID trimBottom belongs to
+    the control labelled Trim Top. Hidden Rotate Factor is not used. Nothing was run in Fusion.
 legacy_text: Generate points on Sphere

@@ -1,6 +1,6 @@
 # Fuse findings from the content pipeline
 
-Collected while writing the Mograph Array records (Animate, Modify and the mesh follow-up). The docs describe what the code does today. The rows marked in the Status column were handled in fix batch F1 (branch fix/findings-f1 of native-newmedia/vonk-ultra-mograph, see _Cleanup/FIXES.md there); the records for those tools were re-written against the fixed fuses. Batch F2 (branch fix/findings-f2, same repository) handled CameraProjection, DisplaceValues, RotateValues, Translate and Perlin3Noise, and recorded decisions for the other F2 rows. Every other row is still open. Fusion was not run, so each item is read from the Lua code only. Fixes should follow the Mograph repo rules (same change in all three families, `luac -p`, test in Fusion).
+Collected while writing the Mograph Array records (Animate, Modify and the mesh follow-up). The docs describe what the code does today. The rows marked in the Status column were handled in fix batch F1 (branch fix/findings-f1 of native-newmedia/vonk-ultra-mograph, see _Cleanup/FIXES.md there); the records for those tools were re-written against the fixed fuses. Batch F3 (branch fix/findings-f3) handled the Create tools listed after BoundingBox. Batch F2 (branch fix/findings-f2, same repository) handled CameraProjection, DisplaceValues, RotateValues, Translate and Perlin3Noise, and recorded decisions for the other F2 rows. Every other row is still open. Fusion was not run, so each item is read from the Lua code only. Fixes should follow the Mograph repo rules (same change in all three families, `luac -p`, test in Fusion).
 
 Families: A = Array, S = ScriptVal, J = JSON. "All" means all three behave this way.
 
@@ -44,6 +44,16 @@ Families: A = Array, S = ScriptVal, J = JSON. "All" means all three behave this 
 | PointsJitter (Animate) | Time 0 leaves a fixed per-point wobble. Jitter has no maximum when Uniform Jitter is off. | All | No change, matches its labels |
 | ForEachIndexed | "by Index" modes use the index inside the group, not the global index. | All | Fixed |
 | BoundingBox | Elements with other than 1, 2 or 3 values are skipped. | All | No change, matches its description |
+| PointsOnRectangle | Line Strip, Loop and the four corner checkboxes are numbers tested with `if value then`, so they have no effect. | All | Fixed in F3 (`> 0.5`; Loop and Line Strip now default off in effect) |
+| GenerateSphere | includeLonLines has no effect (same pattern). | All | Fixed in F3 |
+| PointParticles | The Enable checkboxes, Center X/Y/Z and Flocking Optimization are always true (same pattern). Time defaults to 0, so the default output is static. | All | Checkboxes fixed in F3; Time default kept |
+| GenerateText | In Generate Random, "Male name" and "Name w/last" appear swapped against the code. | All | Fixed in F3 |
+| PointsOnSphere | The Trim Top and Trim Bottom labels feed the lower and upper Y limit the wrong way round. | All | Fixed in F3 (defaults swapped with the labels) |
+| CubicBezier | Default Array Length 2 with Pack To X Y Z gives an empty output. | All | Fixed in F3 (default 6) |
+| GenerateSpirals, LogarithmicSpiral | The Logarithmic type writes Z = 0 in GenerateSpirals and Z = theta * 0.05 in LogarithmicSpiral. | All | Open, decision needed (see FIXES.md F3) |
+| MapGeoJSON | Scale is multiplied by 1000 in the code. Auto Fit is read and not used. | All | Open, decision needed (Scale); Auto Fit left |
+| FromSpline | X and Y are multiplied by Width Scale + 0.5 and Height Scale + 0.5, so the defaults of 1.5 give a factor of 2. | All | Fixed in F3 (defaults 2) |
+| Random | The hidden Multiply control is read and never used. | All | No change, hidden control left |
 
 ## 2. Code quality and risk
 

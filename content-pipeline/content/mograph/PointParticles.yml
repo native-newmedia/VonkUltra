@@ -14,34 +14,18 @@ curated:
     controls drive the particles as the frames advance.
   description:
     - >-
-      The simulation time is the frame time multiplied by Time. The default for Time is 0, so the
-      time does not advance and the particles stay at their emission positions. Set Time to a value
-      above 0, for example 1, to run the simulation. The system is built again whenever the time is
-      at or before Start Time, when Particles Count changes, and when Restart System is pressed. The
-      state lives in the node, so the result depends on frames being rendered in order.
+      Time multiplies the frame time to give the simulation time. Its default is 0, so the particles
+      stay at their emission positions. Set it above 0 to run the simulation. The system is rebuilt
+      when the time is at or before Start Time, when Particles Count changes and when Restart System
+      is pressed. The state lives in the node, so frames must be rendered in order.
     - >-
-      Emission Type sets where each particle starts. Random picks a random position inside a box of
-      Size X, Y and Z centered on the origin. Noise Field picks random positions in the same box and
-      keeps each one with a probability from layered noise, up to 21 tries, then shifts it by noise
-      multiplied by Noise Strength. The three Fibonacci types place particles by index with the
-      golden angle. Fibonacci Sphere uses Fibonacci Radius and the Size values. Fibonacci Spiral is
-      a disc whose radius grows with the index and which rises over Fibonacci Height. Fibonacci Disc
-      is the same disc at Y = 0. Each particle also gets a random start velocity between minus and
-      plus the Movement value on each axis.
+      Emission Type sets the start positions: a random point in a box of Size X, Y and Z, a noise
+      filtered version of it, or one of three Fibonacci layouts. With Center X, Y or Z on, the box
+      is centered on the origin on that axis, otherwise it runs from 0 to Size.
     - >-
-      Each step adds forces to the velocity and then moves the particle. Gravity Strength is added
-      to the Y force, so a positive value pushes up. Wind X, Y and Z add a constant force.
-      Turbulence adds a noise force that depends on the particle X, Y and the time. The attractor
-      pulls toward its position with a force of Attractor Strength divided by distance to the power
-      Attractor Falloff. Separation, Alignment and Cohesion add flocking forces among all particles
-      within their radii, and the speed is limited to 2 units per second after flocking.
-    - >-
-      Every particle has a random lifetime between Lifetime Minimum and Lifetime. When it ends, the
-      particle is emitted again at the current time. All positions are multiplied by Global Scale
-      before output. The Enable checkboxes for gravity, wind, turbulence, attractor and flocking are
-      hidden and have no effect, because the code treats any value as on. The Center X, Y and Z and
-      Flocking Optimization checkboxes are also treated as always on. Flocking therefore updates a
-      third of the particles per frame, and positions are always centered.
+      Each step adds gravity, wind, turbulence, an attractor and flocking forces, each only when its
+      hidden Enable box is on (default on). Flocking Optimization updates a third of the particles
+      per frame. Particles live between Lifetime Minimum and Lifetime, then are emitted again.
   features:
     - title: No input needed
       desc: The node generates its particles from its own controls.
@@ -80,9 +64,15 @@ curated:
     sizex: Size of the emission box in X, and scale of the Fibonacci layouts in X. Default 1.
     sizey: Size of the emission box in Y, and scale of the Fibonacci layouts in Y. Default 1.
     sizez: Size of the emission box in Z, and scale of the Fibonacci layouts in Z. Default 1.
-    centerx: Has no effect. The emission box is always centered in X. Default off.
-    centery: Has no effect. The emission box is always centered in Y. Default off.
-    centerz: Has no effect. The emission box is always centered in Z. Default off.
+    centerx: >-
+      When on, the emission box is centered on X, from -Size/2 to Size/2. When off it runs from 0 to
+      Size. Default off.
+    centery: >-
+      When on, the emission box is centered on Y, from -Size/2 to Size/2. When off it runs from 0 to
+      Size. Default off.
+    centerz: >-
+      When on, the emission box is centered on Z, from -Size/2 to Size/2. When off it runs from 0 to
+      Size. Default off.
     noiseScale: Scale of the noise field used by Noise Field emission. Default 0.1.
     noiseStrength: Size of the noise shift applied to Noise Field positions. Default 0.5.
     noiseSeed: Seed of the noise for Noise Field emission and turbulence. Default 42.
@@ -109,13 +99,15 @@ curated:
     cohesionStrength: Strength of the pull toward the center of the neighbors. Default 0.1.
     lifetime: Longest lifetime of a particle, in simulation time. Minimum 0, default 2.
     lifetimeMin: Shortest lifetime of a particle. It is limited to Lifetime. Minimum 0, default 1.
-    flockingOptimization: Has no effect. Flocking is always spread over a third of the particles per frame. Default on.
+    flockingOptimization: >-
+      When on, flocking forces are calculated for a third of the particles per frame. When off, for
+      every particle. Default on.
     systemInitialized: Button that restarts the particle system.
-    gravityEnable: Hidden control. Has no effect, gravity is always on. Default on.
-    windEnable: Hidden control. Has no effect, wind is always on. Default on.
-    turbulenceEnable: Hidden control. Has no effect, turbulence is always on. Default on.
-    attractorEnable: Hidden control. Has no effect, the attractor is always on. Default on.
-    flockingEnable: Hidden control. Has no effect, flocking is always on. Default on.
+    gravityEnable: Hidden control. Turns gravity on or off. Default on.
+    windEnable: Hidden control. Turns wind on or off. Default on.
+    turbulenceEnable: Hidden control. Turns turbulence on or off. Default on.
+    attractorEnable: Hidden control. Turns the attractor on or off. Default on.
+    flockingEnable: Hidden control. Turns flocking on or off. Default on.
 status:
   source: ai
   state: ai
@@ -123,7 +115,9 @@ status:
   connections_source: docsify
   prompt_version: '1'
   note: >-
-    Enable checkboxes and Center X/Y/Z and Flocking Optimization are numbers tested with if value
-    then, so they are always true in Lua. Time defaults to 0, so the default output is static.
-    Random emission uses an unseeded generator. Fuse logic was not changed.
+    Rewritten against the fuse after fix batch F3 (branch fix/findings-f3 of vonk-ultra-mograph).
+    The Enable checkboxes, Center X/Y/Z and Flocking Optimization were numbers tested with if value
+    then, so they were always true. They are now tested with > 0.5. Center X/Y/Z default to off, so
+    the default emission box is no longer centered. Time defaults to 0, so the default output is
+    static. Random emission uses an unseeded generator. Nothing was run in Fusion.
 legacy_text: Simple particle generator

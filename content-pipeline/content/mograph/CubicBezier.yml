@@ -16,23 +16,14 @@ curated:
     - >-
       The node reads Array Length values from the controls [ 1 ] to [ 24 ] and groups them into
       control points of three values (X, Y, Z). Array Length is rounded down to a multiple of 3, so
-      the default of 2 gives no points and at least 3 is needed. The Pack To control is hidden and
-      set to X Y Z. Reverse Array reverses the order of the control points.
+      the default of 6 gives two points and at least 3 is needed. All values default to 0. Pack To
+      is hidden and set to X Y Z. Reverse Array reverses the order of the control points.
     - >-
-      With two control points the output is a straight line with Path Subdivisions + 1 points. With
-      three or more, the curve is built from segments that run from control point 2 to control point
-      3, then 3 to 4 and so on up to the last one. The first control point is not on the curve, and
-      only affects the direction at control point 2. Each segment is a cubic Bezier curve with Path
-      Subdivisions + 1 points, so the shared points between segments appear twice.
-    - >-
-      In the default Bezier mode the two inner handles of the segment between points P(i) and P(i+1)
-      are P(i) - (P(i+1) - P(i-1)) * Tension / 3 and P(i+1) + (P(i+2) - P(i)) * Tension / 3. With
-      the default Path Tension of 0 both handles sit on the end points, so the curve is made of
-      straight lines. The hidden Curve Mode control can switch to BSpline, which builds the handles
-      from weighted averages of the neighboring points instead.
-    - >-
-      The 24 value controls are built in a loop and are not listed in the parameter table. Show
-      Input is on by default and shows a connection point on the Array Length control.
+      With two control points the output is a straight line of Path Subdivisions + 1 points. With
+      three or more, segments run from control point 2 to 3, then 3 to 4 and so on, so the first
+      control point is not on the curve. Each segment is a cubic Bezier with Path Subdivisions + 1
+      points. With the default Path Tension of 0 the handles sit on the end points, so the curve is
+      made of straight lines. The hidden Curve Mode can switch to BSpline.
   features:
     - title: No input needed
       desc: The node generates its points from typed values.
@@ -62,7 +53,7 @@ curated:
       desc: Resamples ordered paths to even spacing by count or distance.
   params:
     arrayLength: >-
-      Number of value controls that are read. Range 2 to 24, default 2. Rounded down to a multiple
+      Number of value controls that are read. Range 2 to 24, default 6. Rounded down to a multiple
       of 3, so use 3 or more.
     Tension: Length of the handles on each segment. 0 gives straight segments. Default 0.
     Subdivisions: >-
@@ -80,7 +71,9 @@ status:
   reviewed_hash: null
   prompt_version: '1'
   note: >-
-    Array Length defaults to 2 while Pack To is X Y Z, so the default output is empty. The loop
-    builds segments from point 2 onward, so the first control point is not on the curve. The tension
-    handle for the start of each segment is P(i) minus the offset, which points backward, so
-    non-zero tension may not give the smooth curve the name suggests. Fuse logic was not changed.
+    Rewritten against the fuse after fix batch F3 (branch fix/findings-f3 of vonk-ultra-mograph).
+    Array Length defaulted to 2 while Pack To is X Y Z, so the default output was empty. The default
+    is now 6. The loop builds segments from point 2 onward, so the first control point is not on the
+    curve. The tension handle for the start of each segment is P(i) minus the offset, which points
+    backward, so non-zero tension may not give the smooth curve the name suggests. Nothing was run
+    in Fusion.

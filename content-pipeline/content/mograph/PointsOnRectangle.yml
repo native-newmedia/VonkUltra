@@ -14,32 +14,23 @@ curated:
     the points per corner.
   description:
     - >-
-      The corner radius is Border Radius * min(Width, Height) / 2, so a Border Radius of 0 gives
-      sharp corners and 1 rounds the shorter side completely. Each corner contributes Segments
-      points along a quarter circle, starting on the side edge and stopping one step before the top
-      or bottom edge. The straight edges are not sampled. They appear as the jump from the end of
-      one corner arc to the start of the next.
+      The corner radius is Border Radius * min(Width, Height) / 2, so 0 gives sharp corners and 1
+      rounds the shorter side fully. Each rounded corner contributes Segments points along a quarter
+      circle. Straight edges are not sampled, they appear as the jump between the end of one arc and
+      the start of the next. Width and Height are absolute values and the rectangle is centered on
+      the origin.
     - >-
-      The output is a list of line segments. The first point of the outline is appended at the end
-      to close it, and then every pair of neighboring points is written out as two points, so each
-      outline point appears twice. With the defaults (Segments 24, Width 0.5, Height 0.5, Border
-      Radius 0.5) the outline has 96 points and the output has 192.
-    - >-
-      Width and Height are used as absolute values, and the rectangle is centered on the origin.
-      With a Border Radius of 0 the 24 points in each corner are identical, so the corner positions
-      repeat.
-    - >-
-      The fuse also has the hidden controls Line Strip, Loop and the four corner checkboxes. The
-      code tests them as boolean values, and a Lua number, including 0, counts as true, so changing
-      them has no effect. The outline is always closed, always written as segment pairs, and all
-      four corners are always rounded.
+      The four corner checkboxes (default on) are hidden. A corner that is off gives one sharp
+      corner point instead of an arc. Loop (default off) adds the first point at the end. Line Strip
+      (default off) writes every pair of neighboring points as two points, so each point appears
+      twice. With the defaults (Segments 24) the output has 96 points.
   features:
     - title: No input needed
       desc: The node generates its points from its own controls.
     - title: Rounded corners
       desc: Border Radius runs from sharp corners at 0 to a fully rounded short side at 1.
-    - title: Segment pairs
-      desc: The output lists each line segment as two consecutive points.
+    - title: Optional segment pairs
+      desc: Line Strip lists each line segment as two consecutive points.
     - title: Flat output
       desc: All points are written with Z = 0.
   connections:
@@ -68,23 +59,21 @@ curated:
       Corner radius as a fraction of half the shorter side. 0 gives sharp corners and 1 gives a
       fully rounded short side. Default 0.5.
     LineStrip: >-
-      Hidden control. No effect, because the code treats any value as on and always writes segment
-      pairs. Default off.
-    loop: >-
-      Hidden control. No effect, because the code treats any value as on and always closes the
-      outline. Default off.
+      Hidden control. When on, every pair of neighboring points is written as two points. Default
+      off.
+    loop: Hidden control. When on, the first point is added at the end of the outline. Default off.
     TopLeftCorner: >-
-      Hidden control. No effect, because the code treats any value as on and always rounds this
-      corner. Default on.
+      Hidden control. When on, this corner is an arc of Segments points, when off one sharp corner
+      point. Default on.
     TopRightCorner: >-
-      Hidden control. No effect, because the code treats any value as on and always rounds this
-      corner. Default on.
+      Hidden control. When on, this corner is an arc of Segments points, when off one sharp corner
+      point. Default on.
     BottomLeftCorner: >-
-      Hidden control. No effect, because the code treats any value as on and always rounds this
-      corner. Default on.
+      Hidden control. When on, this corner is an arc of Segments points, when off one sharp corner
+      point. Default on.
     BottomRightCorner: >-
-      Hidden control. No effect, because the code treats any value as on and always rounds this
-      corner. Default on.
+      Hidden control. When on, this corner is an arc of Segments points, when off one sharp corner
+      point. Default on.
 status:
   source: ai
   state: ai
@@ -92,7 +81,8 @@ status:
   connections_source: docsify
   prompt_version: '1'
   note: >-
-    Process() tests the Line Strip, Loop and four corner checkbox values with if value then. A Lua
-    number is always true, including 0, so these hidden controls cannot change the output. Fuse
-    logic was not changed.
+    Rewritten against the fuse after fix batch F3 (branch fix/findings-f3 of vonk-ultra-mograph).
+    Process() tested the Line Strip, Loop and four corner checkbox values with if value then, so the
+    hidden controls had no effect. They are now tested with > 0.5, so Loop and Line Strip default to
+    off and the default output is no longer closed or written as pairs. Nothing was run in Fusion.
 legacy_text: Generate points on Rectangle

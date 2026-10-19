@@ -13,28 +13,18 @@ curated:
   description:
     - >-
       Load Spline (Current Frame) copies the Bezier polyline of the tool connected to Spline Input,
-      at the current time, into the hidden Spline Data control. It also stores the composition frame
-      size and pixel aspect. The node samples this stored copy, so a change to the mask is picked up
-      only when the button is pressed again.
+      at the current time, into the hidden Spline Data control, with the frame size and pixel
+      aspect. The node samples this stored copy, so a mask change is picked up only when the button
+      is pressed again.
     - >-
-      Each spline segment is a cubic Bezier curve made from its two points and their handles. A
-      closed spline includes the segment back to the start. In Uniform mode (0) the samples are
-      spaced evenly in curve parameter, so each segment receives the same share of points whatever
-      its length. In Distance mode (1) the samples are spaced evenly by arc length over the whole
-      spline, with 32 subdivisions of each segment used to measure length. The number of samples
-      comes from the hidden Number of Samples control, default 100. All points have Z = 0.
+      Each segment is a cubic Bezier made from its two points and their handles. In Uniform mode (0)
+      the samples are spaced evenly in curve parameter. In Distance mode (1) they are spaced evenly
+      by arc length. Number of Samples (hidden, default 100) sets the count. All points have Z = 0.
     - >-
-      The points are then changed in this order. Flip X and Flip Y negate the values. X is
-      multiplied by Width Scale + 0.5, and by the frame aspect (width * pixel aspect X / height *
-      pixel aspect Y) when Auto Width is on. Y is converted by the frame height over width ratio
-      when Auto Height is on, and multiplied by Height Scale + 0.5. With the defaults (flips on,
-      Auto Width off, Auto Height on, both scales 1.5) X is multiplied by 2 and Y is multiplied by 2
-      and by the frame height over width ratio.
-    - >-
-      If no spline is stored, the node falls back to the hidden JSON Point Data text, a JSON list of
-      [x, y] or [x, y, z] entries, which goes through the same flips and scales. Only Mode and the
-      Load button are visible. The other controls are hidden and can be changed from a script or a
-      connection.
+      Then Flip X and Flip Y negate the values, X is multiplied by Width Scale (and by the frame
+      aspect when Auto Width is on), and Y by the frame height over width ratio when Auto Height is
+      on and by Height Scale. Both scales default to 2. If no spline is stored, the hidden JSON
+      Point Data list is used instead.
   features:
     - title: Mask spline input
       desc: The Bezier spline of a connected mask is sampled, including its handles.
@@ -81,8 +71,8 @@ curated:
     flipY: Hidden control. Negates Y. Default on.
     autoWidth: Hidden control. Multiplies X by the frame aspect ratio. Default off.
     autoHeight: Hidden control. Multiplies Y by the frame height over width ratio. Default on.
-    widthScale: Hidden control. X is multiplied by this value plus 0.5. Default 1.5.
-    heightScale: Hidden control. Y is multiplied by this value plus 0.5. Default 1.5.
+    widthScale: Hidden control. X is multiplied by this value. Default 2.
+    heightScale: Hidden control. Y is multiplied by this value. Default 2.
     pointData: Hidden control. JSON list of points that is used when no spline is stored.
 status:
   source: ai
@@ -90,6 +80,8 @@ status:
   reviewed_hash: null
   prompt_version: '1'
   note: >-
-    Process() multiplies X and Y by widthScale + 0.5 and heightScale + 0.5, so the defaults of 1.5
-    give a factor of 2. Most controls are hidden, including Number of Samples. Fuse logic was not
-    changed.
+    Rewritten against the fuse after fix batch F3 (branch fix/findings-f3 of vonk-ultra-mograph).
+    Process() multiplied X and Y by widthScale + 0.5 and heightScale + 0.5, so the defaults of 1.5
+    gave a factor of 2. The factors are now Width Scale and Height Scale, and both defaults are 2,
+    so the default output is unchanged. Most controls are hidden, including Number of Samples.
+    Nothing was run in Fusion.

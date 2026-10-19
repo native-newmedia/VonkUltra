@@ -15,24 +15,14 @@ curated:
   description:
     - >-
       Number Lat Lines circles are spaced evenly in latitude between the poles, not including the
-      poles. Each circle has 101 points, from longitude 0 to 360 degrees, so the last point repeats
-      the first. A circle at latitude a has the radius Radius * cos(a) and sits at Z = Radius *
-      sin(a).
+      poles. Each circle has 101 points, from longitude 0 to 360 degrees. A circle at latitude a has
+      the radius Radius * cos(a) and sits at Z = Radius * sin(a), so the polar axis is Z.
     - >-
-      Number Lon Lines lines are spaced evenly in longitude, and each runs from the south pole to
-      the north pole with 100 points. The longitude lines are always written. The Include Lon Lines
-      checkbox does not change the output, because the code tests the value as a boolean and a Lua
-      number, including 0, counts as true.
-    - >-
-      Trim Top and Trim Bottom remove points near the poles. Each value is a fraction of the 90
-      degrees between the equator and a pole. Points above latitude 90 degrees minus Trim Top * 90
-      degrees, and below -90 degrees plus Trim Bottom * 90 degrees, are left out of both the
-      latitude circles and the longitude lines. Negative values extend the limits past the poles and
-      remove nothing.
-    - >-
-      With the defaults (Radius 0.3, 1 latitude line, 1 longitude line, no trim) the node outputs
-      201 points, the equator circle with 101 points and one meridian with 100 points. Radius is not
-      limited, so a negative Radius mirrors the sphere.
+      Include Lon Lines (default off) adds Number Lon Lines lines spaced evenly in longitude, each
+      running from the south pole to the north pole with up to 101 points. Trim Top and Trim Bottom
+      are fractions of the 90 degrees from the equator to a pole. Points beyond them are left out of
+      both the circles and the lines. With the defaults (Radius 0.3, 1 latitude line, no trim) the
+      output is the 101 points of the equator circle.
   features:
     - title: No input needed
       desc: The node generates its points from its own controls.
@@ -70,7 +60,9 @@ curated:
     trimBot: >-
       Fraction of the 90 degrees from the equator to the south pole that is cut away at the bottom.
       Minimum -1, default 0.
-    includeLonLines: This control has no effect. Longitude lines are always written. Default off.
+    includeLonLines: >-
+      When on, the longitude lines are written after the latitude circles. When off, only the
+      circles are written. Default off.
 status:
   source: ai
   state: ai
@@ -78,6 +70,7 @@ status:
   connections_source: docsify
   prompt_version: '1'
   note: >-
-    includeLonLines is read as a number and tested with if value then, so the longitude lines are
-    always written. Fuse logic was not changed.
+    Rewritten against the fuse after fix batch F3 (branch fix/findings-f3 of vonk-ultra-mograph).
+    includeLonLines was read as a number and tested with if value then, so the longitude lines were
+    always written. It is now tested with > 0.5 and defaults to off. Nothing was run in Fusion.
 legacy_text: Generates a Sphere with longitude/latitude lines
