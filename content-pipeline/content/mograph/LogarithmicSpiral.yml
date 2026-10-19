@@ -77,6 +77,8 @@ status:
   connections_source: docsify
   prompt_version: '1'
   note: >-
-    Process() reads the Scale Factor control into scaleFactor and never uses it, so the hidden
-    control has no effect. Fuse logic was not changed.
+    Reworded after fix batch F3 (branch fix/findings-f3 of vonk-ultra-mograph): the decision was
+    that both this tool and the Logarithmic type of vArrayGenerateSpirals rise in Z with theta *
+    0.05, so the fuse was not changed. Process() reads the Scale Factor control into scaleFactor and
+    never uses it, so the hidden control has no effect. Nothing was run in Fusion.
 legacy_text: Generate a logarithmic Spiral spline

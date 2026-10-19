@@ -67,8 +67,8 @@ curated:
     InCenterLat: Latitude that is placed at the origin, in degrees. Range -90 to 90, default 0.
     InCenterLon: Longitude that is placed at the origin, in degrees. Range -180 to 180, default 0.
     InScale: >-
-      Scale around the average point position. The value is multiplied by 1000. Minimum 0.001,
-      default 1.
+      Scale around the average point position. The value is multiplied by 1000, so the range 0.001
+      to 1 gives factors of 1 to 1000. Default 1.
     InOffsetX: Distance added to X after scaling. Default 0.
     InOffsetY: Distance added to Y after scaling. Default 0.
     InAutoFit: Hidden control. It is read by the node but has no effect. Default on.
@@ -80,6 +80,7 @@ status:
   connections_source: docsify
   prompt_version: '1'
   note: >-
-    Scale is multiplied by 1000 in the code, so the default output is large. Auto Fit is read and
-    not used. Fuse logic was not changed.
+    Reworded after fix batch F3 (branch fix/findings-f3 of vonk-ultra-mograph): the decision was to
+    keep the factor of 1000 on Scale, so the fuse was not changed. The Scale range 0.001 to 1 gives
+    factors of 1 to 1000. Auto Fit is hidden, read and not used. Nothing was run in Fusion.
 legacy_text: Map from geographic coordinates

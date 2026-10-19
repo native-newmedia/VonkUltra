@@ -50,8 +50,8 @@ Families: A = Array, S = ScriptVal, J = JSON. "All" means all three behave this 
 | GenerateText | In Generate Random, "Male name" and "Name w/last" appear swapped against the code. | All | Fixed in F3 |
 | PointsOnSphere | The Trim Top and Trim Bottom labels feed the lower and upper Y limit the wrong way round. | All | Fixed in F3 (defaults swapped with the labels) |
 | CubicBezier | Default Array Length 2 with Pack To X Y Z gives an empty output. | All | Fixed in F3 (default 6) |
-| GenerateSpirals, LogarithmicSpiral | The Logarithmic type writes Z = 0 in GenerateSpirals and Z = theta * 0.05 in LogarithmicSpiral. | All | Open, decision needed (see FIXES.md F3) |
-| MapGeoJSON | Scale is multiplied by 1000 in the code. Auto Fit is read and not used. | All | Open, decision needed (Scale); Auto Fit left |
+| GenerateSpirals, LogarithmicSpiral | The Logarithmic type writes Z = 0 in GenerateSpirals and Z = theta * 0.05 in LogarithmicSpiral. | All | Fixed in F3 (GenerateSpirals Logarithmic rises in Z, decided) |
+| MapGeoJSON | Scale is multiplied by 1000 in the code. Auto Fit is read and not used. | All | Scale kept (factor 1000, decided); Auto Fit left |
 | FromSpline | X and Y are multiplied by Width Scale + 0.5 and Height Scale + 0.5, so the defaults of 1.5 give a factor of 2. | All | Fixed in F3 (defaults 2) |
 | Random | The hidden Multiply control is read and never used. | All | No change, hidden control left |
 

@@ -14,30 +14,17 @@ curated:
     meaning with the type, and only the ones the type uses are shown.
   description:
     - >-
-      For Archimedean, Galilean, Hyperbolic, Logarithmic and Lituus the angle theta is stepped from
-      Step size up to Max angle * pi in increments of Step size. The radius is r = a + b * theta
-      (Archimedean), r = theta^1.5 (Galilean), r = 1 / theta (Hyperbolic), r = a * e^(b * theta)
-      (Logarithmic) or r = 1 / sqrt(theta) (Lituus), where a is Growth coefficient and b is
-      Expansion factor. X = r * cos theta and Y = r * sin theta are rotated around the Z axis by
-      Rotation, in degrees, and multiplied by Scale Factor.
+      For Archimedean, Galilean, Hyperbolic, Logarithmic and Lituus the angle theta runs from Step
+      size to Max angle * pi in steps of Step size. The radius is a + b * theta (Archimedean),
+      theta^1.5 (Galilean), 1 / theta (Hyperbolic), a * e^(b * theta) (Logarithmic) or 1 /
+      sqrt(theta) (Lituus), with a = Growth coefficient and b = Expansion factor. X and Y are
+      rotated by Rotation (degrees) and multiplied by Scale Factor.
     - >-
-      Archimedean, Galilean, Hyperbolic and Lituus write one point per step with Z = theta * 0.05 *
-      Scale Factor. Logarithmic writes three points per step, the previous point, the midpoint and
-      the current point, starting from the origin, with Z = 0. With the defaults (Logarithmic,
-      Growth coefficient 0.04, Expansion factor 0.22, Max angle 6, Step size 1, Scale Factor 0.1)
-      the node outputs 54 points.
-    - >-
-      Atom writes floor(10 * Step size) + 1 points with theta stepping evenly from 0 to Max angle *
-      pi and r = Growth coefficient * sqrt(theta). Cornu writes floor(10 * Step size) + 1 points on
-      the Euler spiral (C(t), S(t)), the Fresnel integrals of cos(pi * u^2 / 2) and sin(pi * u^2 /
-      2) from 0 to t. It uses Growth coefficient as the end of the t range and 10 * Expansion factor
-      as the number of integration steps in a left-sided sum. Atom and Cornu write Z = 0.
-    - >-
-      Changing Spiral Type shows or hides the controls the type uses and resets Scale Factor to 0.1
-      and Rotation to 0. Archimedean and Logarithmic use all four. Atom uses Growth coefficient, Max
-      angle and Step size. Cornu uses Growth coefficient, Expansion factor and Step size. Galilean,
-      Hyperbolic and Lituus use Max angle and Step size. The hidden Shape Mode control is read but
-      has no effect.
+      These five types write Z = theta * 0.05 * Scale Factor, so the spiral rises. Logarithmic
+      writes three points per step (previous, midpoint, current), starting at the origin; with the
+      defaults it outputs 54 points. Atom (r = a * sqrt(theta)) and Cornu (Euler spiral) write 10 *
+      Step size + 1 points with Z = 0. Changing Spiral Type resets Scale Factor to 0.1 and Rotation
+      to 0.
   features:
     - title: No input needed
       desc: The node generates its points from its own controls.
@@ -91,7 +78,8 @@ status:
   connections_source: docsify
   prompt_version: '1'
   note: >-
-    The hidden Shape Mode control (mode) is read into inShape and never used. The Logarithmic type
-    here writes Z = 0, while vArrayLogarithmicSpiral writes Z = theta * 0.05. Fuse logic was not
-    changed.
+    Rewritten against the fuse after fix batch F3 (branch fix/findings-f3 of vonk-ultra-mograph).
+    The Logarithmic type wrote Z = 0 while vArrayLogarithmicSpiral writes Z = theta * 0.05. It now
+    writes Z = theta * 0.05 * Scale Factor, like the other types that rise. The hidden Shape Mode
+    control (mode) is read into inShape and never used. Nothing was run in Fusion.
 legacy_text: Generate Spiral splines
