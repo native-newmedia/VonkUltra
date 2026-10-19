@@ -18,8 +18,7 @@ curated:
     - >-
       Fractal adds Octaves of the noise, each with twice the frequency and Persistence times the
       weight of the one before, divided by the total weight. Octaves and Persistence are hidden for
-      Perlin. The Array version flattens the values and regroups them in threes. The ScriptVal and
-      JSON versions keep each point's length.
+      Perlin. Every output point has as many values as its input point, in all three families.
     - Show Input exposes the Frequency, Scale and Time ports on the node.
   features:
     - title: Two noise types
@@ -69,10 +68,11 @@ status:
   connections_source: docsify
   prompt_version: '1'
   note: >-
-    The node replaces the values with noise; it does not add noise to them (the old overview said it
-    adds). Each value v is turned into noise at the point (v * Frequency + Time, v * Frequency +
-    Time), so X and Y of the lookup are equal. The Array fuse flattens all values of all points into
-    one list and regroups them in threes, so points with 2 values or more than 3 are regrouped. The
-    ScriptVal and JSON fuses keep the length of each point. The code has a Curl type, but the Noise
-    Type buttons only offer Perlin and Fractal. Octaves is a float control.
+    Rewritten against the fuse after fix batch F2 (branch fix/findings-f2 of vonk-ultra-mograph):
+    the Array fuse no longer flattens the values and regroups them in threes, so all three families
+    keep the length of each point. The node replaces the values with noise; it does not add noise to
+    them (the old overview said it adds). Each value v is turned into noise at the point (v *
+    Frequency + Time, v * Frequency + Time), so X and Y of the lookup are equal. The code has a Curl
+    type, but the Noise Type buttons only offer Perlin and Fractal. Octaves is a float control.
+    Nothing was run in Fusion.
 legacy_text: Perlin Noise function on array values

@@ -8,22 +8,25 @@ curated:
   tagline: Adds an XYZ offset to every point, then multiplies it by a scale.
   overview: >-
     vArrayTranslate takes an array of XYZ points and outputs (point + offset) * scale for each axis.
-    X Scale is used for X and Z, and Y Scale for Y.
+    X Scale is used for X and Z, and for Y while Lock X/Y is on. Y Scale is used for Y when Lock X/Y
+    is off.
   description:
     - >-
       Each point becomes ((x + X Offset) * X Scale, (y + Y Offset) * Y Scale, (z + Z Offset) * X
       Scale). The offsets default to 0 and the scales to 1, so the default leaves the points
       unchanged. Because the scale is applied after the offset, it also scales the offset.
     - >-
-      Lock X/Y (on by default) hides Y Scale, but the code still reads it, so Y Scale keeps its
-      value and is not tied to X Scale. Show Input exposes the offsets and scales as input ports.
+      Lock X/Y is on by default. While it is on, Y Scale is hidden and Y uses X Scale. With it off,
+      Y Scale scales Y on its own. Show Input exposes the offsets and scales as input ports.
       Elements that are not lists of at least 3 values are dropped, and the output points have 3
       values.
   features:
     - title: Offset per axis
       desc: X, Y and Z Offset are added to the coordinates.
     - title: Scale after the offset
-      desc: X Scale multiplies X and Z, and Y Scale multiplies Y.
+      desc: >-
+        X Scale multiplies X and Z, and Y as well while Lock X/Y is on. Y Scale multiplies Y when it
+        is off.
     - title: Connectable values
       desc: Show Input exposes the offsets and scales as input ports.
     - title: Unchanged by default
@@ -51,21 +54,21 @@ curated:
     Translate_X: Added to X before the scale. Default 0.
     Translate_Y: Added to Y before the scale. Default 0.
     Translate_Z: Added to Z before the scale. Default 0.
-    LockXY: Only changes which scale controls are shown. Default on.
-    Scale.X: Multiplies X and Z after the offset. Default 1.
+    LockXY: When on (default), Y uses X Scale and Y Scale is hidden. When off, Y Scale is used for Y.
+    Scale.X: Multiplies X and Z after the offset. Default 1. Also multiplies Y while Lock X/Y is on.
     ArrayA: Points to move.
     ShowInput: Shows the input ports of the offsets and scales when on. Default off.
-    Scale.Y: Multiplies Y after the offset. Default 1. Hidden while Lock X/Y is on, but still used.
+    Scale.Y: Multiplies Y after the offset when Lock X/Y is off. Default 1. Hidden while it is on.
 status:
   source: ai
   state: ai
   reviewed_hash: null
   prompt_version: '1'
   note: >-
-    Lock X/Y only changes what the controls show: the code always reads Y Scale for Y, even while it
-    is hidden, and uses X Scale for both X and Z. The old text said Lock X/Y moves the X and Y
-    offsets together. The offset is added before the scale, so the scale also multiplies the offset.
-    Elements that are not lists of 3 or more values are dropped. Show Input exposes the ports of the
-    offsets and scales; the old text said it reveals the Array A port. The comment in Process()
-    mentions rotation, which the node does not do.
+    Rewritten against the fuse after fix batch F2 (branch fix/findings-f2 of vonk-ultra-mograph):
+    with Lock X/Y on, Y now uses X Scale, and the comment in Process() no longer mentions rotation.
+    X Scale is used for X and Z. The offset is added before the scale, so the scale also multiplies
+    the offset. Elements that are not lists of 3 or more values are dropped. Show Input exposes the
+    ports of the offsets and scales; the old text said it reveals the Array A port. Nothing was run
+    in Fusion.
 legacy_text: Transforms array positions

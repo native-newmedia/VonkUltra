@@ -18,7 +18,7 @@ curated:
     - >-
       The elements can be numbers, points or lists, and they are not changed. Show Input makes the
       Rotate Amount input port visible, so the amount can be connected to another node. The hidden
-      Pass Thru control has no effect.
+      Pass Thru control, when on, sets the amount to 0 and the array keeps its order.
   features:
     - title: Wrapping shift
       desc: Elements that leave one end re-enter at the other end.
@@ -51,7 +51,9 @@ curated:
     rotateamount: >-
       Number of positions to shift. Whole numbers from -100 to 100, default 1. Positive moves toward
       the end.
-    passthru: Hidden control. Has no effect in the code. Default off.
+    passthru: >-
+      Hidden control. When on, the rotation is skipped and the array is returned in its input order.
+      Default off.
     ShowInput: Shows the input port of Rotate Amount when on. Default off.
     ArrayA: Array whose elements are shifted.
 status:
@@ -60,9 +62,10 @@ status:
   reviewed_hash: null
   prompt_version: '1'
   note: >-
-    Pass Thru is a hidden control and has no effect: it only changes a fallback value that is not
-    used because the rotation amount is always given. The old text says it bypasses the rotation.
-    Show Input makes the input port of Rotate Amount visible; the old text said it reveals the Array
-    A port. The Array fuse needs the array and size wrapper on the input. An empty array is not
-    handled.
+    Rewritten against the fuse after fix batch F2 (branch fix/findings-f2 of vonk-ultra-mograph):
+    Pass Thru is now read, and when it is on the rotation amount is 0. It is hidden, so only an old
+    comp, a script or an expression can set it. Show Input makes the input port of Rotate Amount
+    visible; the old text said it reveals the Array A port, which is always visible. The Array fuse
+    needs the array and size wrapper on the input. An empty array is not handled. Nothing was run in
+    Fusion.
 legacy_text: Rotate Array Between Operations on an Array

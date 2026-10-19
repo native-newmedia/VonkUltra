@@ -1,6 +1,6 @@
 # Fuse findings from the content pipeline
 
-Collected while writing the Mograph Array records (Animate, Modify and the mesh follow-up). The docs describe what the code does today. The rows marked in the Status column were handled in fix batch F1 (branch fix/findings-f1 of native-newmedia/vonk-ultra-mograph, see _Cleanup/FIXES.md there); the records for those tools were re-written against the fixed fuses. Every other row is still open. Fusion was not run, so each item is read from the Lua code only. Fixes should follow the Mograph repo rules (same change in all three families, `luac -p`, test in Fusion).
+Collected while writing the Mograph Array records (Animate, Modify and the mesh follow-up). The docs describe what the code does today. The rows marked in the Status column were handled in fix batch F1 (branch fix/findings-f1 of native-newmedia/vonk-ultra-mograph, see _Cleanup/FIXES.md there); the records for those tools were re-written against the fixed fuses. Batch F2 (branch fix/findings-f2, same repository) handled CameraProjection, DisplaceValues, RotateValues, Translate and Perlin3Noise, and recorded decisions for the other F2 rows. Every other row is still open. Fusion was not run, so each item is read from the Lua code only. Fixes should follow the Mograph repo rules (same change in all three families, `luac -p`, test in Fusion).
 
 Families: A = Array, S = ScriptVal, J = JSON. "All" means all three behave this way.
 
@@ -10,17 +10,17 @@ Families: A = Array, S = ScriptVal, J = JSON. "All" means all three behave this 
 |---|---|---|---|
 | Sin | The Sin and Cos buttons are swapped: Sin (default) outputs cosine, Cos outputs sine. | All | Fixed |
 | Math | Arc Sine, Arc Cosine, Arc Tangent compute sinh, cosh, tanh. Negate computes 1 - A. Randomseed returns a random value between A and B and seeds nothing. | All | Fixed (Randomseed relabelled Random A to B) |
-| CameraProjection | Close Edge Loop is inverted: the generated edge returns to point 1 when the box is off. | All | Open |
-| DisplaceValues | X and Y noise is multiplied by 0 (`nx * 0 * falloff`), so only Z moves. The Array fuse displaces X, Y and Z. | S, J | Open |
+| CameraProjection | Close Edge Loop is inverted: the generated edge returns to point 1 when the box is off. | All | Fixed in F2 (Close Edge Loop) |
+| DisplaceValues | X and Y noise is multiplied by 0 (`nx * 0 * falloff`), so only Z moves. The Array fuse displaces X, Y and Z. | S, J | Fixed in F2 (S, J) |
 | Iterator | Registered as "Loop an array", but it keeps every Nth point. | All | Description fixed |
-| SortByDistance | Smallest Distance and Distance Mode have no effect. `strictDistanceMode and nil or fallbackIndex` always returns the fallback, so Strict equals Preferred, and the result is always the nearest-neighbor chain. | All | Open |
-| RotateValues | Pass Thru has no effect (the amount is always given, so the guard value is unused). Show Input shows the Rotate Amount port, not the Array port. | All | Open |
+| SortByDistance | Smallest Distance and Distance Mode have no effect. `strictDistanceMode and nil or fallbackIndex` always returns the fallback, so Strict equals Preferred, and the result is always the nearest-neighbor chain. | All | Open, decision needed (see FIXES.md F2) |
+| RotateValues | Pass Thru has no effect (the amount is always given, so the guard value is unused). Show Input shows the Rotate Amount port, not the Array port. | All | Pass Thru fixed in F2; Show Input kept |
 | Reverse | Preserve Metadata and Debug Mode are not read. | All | Preserve Metadata and Debug Mode implemented |
-| Translate | Lock X/Y only changes visibility. Y Scale is always read, X Scale is used for X and Z. A comment mentions rotation that does not exist. | All | Open |
-| PointAttractor | The spring term is always 0 (points start at rest at their input position), so Spring Return and Spring Bounce do nothing. Time is not read. | All | Open |
-| PointAttractor, PointAttractorSpring | Multiplier divides the attractor X and Y. The old text says it multiplies the strength. Center, Z Offset, Axis and Relative Flare Offset are not read. | All | Open |
+| Translate | Lock X/Y only changes visibility. Y Scale is always read, X Scale is used for X and Z. A comment mentions rotation that does not exist. | All | Lock X/Y fixed in F2; comment fixed |
+| PointAttractor | The spring term is always 0 (points start at rest at their input position), so Spring Return and Spring Bounce do nothing. Time is not read. | All | Open, decision needed (spring dynamics); Time kept |
+| PointAttractor, PointAttractorSpring | Multiplier divides the attractor X and Y. The old text says it multiplies the strength. Center, Z Offset, Axis and Relative Flare Offset are not read. | All | No change in F2, matches its label (Multiplier); hidden controls left |
 | Wave | X/Y/Z Position are displacement amounts, not a wave origin. Falloff is a plain multiplier with default 0, so nothing moves by default. Delay is not read. | All | Relabelled X, Y, Z Amount; Delay unused |
-| Perlin3Noise | Replaces the values with noise (does not add). A Curl type exists in code but the buttons offer only Perlin and Fractal. The Array fuse flattens and regroups by 3, which breaks 2-value points. S and J keep point length. | A differs | Open |
+| Perlin3Noise | Replaces the values with noise (does not add). A Curl type exists in code but the buttons offer only Perlin and Fractal. The Array fuse flattens and regroups by 3, which breaks 2-value points. S and J keep point length. | A differs | Array regrouping fixed in F2; Replace and Curl kept |
 | MapRange | Mode Select is not read. The default button is -1 to 1, but New Min/Max default to -10 and 10. The control ID of Mode Select ends with a space. | All | Defaults fixed; Mode Select unchanged (preset picker) |
 | Packer | Pack To defaults to X, but Custom Group Size defaults to 0, which packs everything into one group. Only the group size is read. | All | Fixed (Custom Group Size default 1) |
 | MaskByMesh | Falloff Distance, Weight Power, Min Output Weight, Append Weight and Surface Offset are hidden and never shown (NotifyChanged is empty). Soft Falloff does nothing while Falloff Distance is 0. | All | Open |
@@ -37,7 +37,7 @@ Families: A = Array, S = ScriptVal, J = JSON. "All" means all three behave this 
 | ClassifyByMesh | Normals point away from the centroid of all vertices, so concave shapes can misclassify. Offset Space visibility is updated inside Process(). | All | Open |
 | TextWrap | In Table mode the Text output holds `tostring(table)`. In String mode the TextTable output holds the string in its array field. | All | Text output fixed; TextTable kept |
 | TangentVector | Z of the tangent is always 0. Max angle rotates the vectors around Z (it is not a limit between segments). Scale Factor defaults to 0, so End and flipped equal Start. | All | Z fixed; Rotate Angle relabelled; Scale Factor default 1 |
-| RepeatTransform | Translate/Scale/Rotation are totals reached at the last copy, not per-copy steps. In grid modes the share still uses Number of Times, so it can exceed 1. Position Array is decoded as a bare flat list, so an array-wrapper input gives no offsets (not run). | All | Open |
+| RepeatTransform | Translate/Scale/Rotation are totals reached at the last copy, not per-copy steps. In grid modes the share still uses Number of Times, so it can exceed 1. Position Array is decoded as a bare flat list, so an array-wrapper input gives no offsets (not run). | All | No change in F2, matches its labels |
 | RippleDisplacer | The Time control is ignored while Auto Animate is on. Offset Multiplier scales the time offsets, not the displacement. Each output adds a built-in step to amplitude, frequency and time offset. | All | Built-in step moved into defaults; Time and Offset Multiplier kept |
 | Stagger (Animate) | Linear is a sine, not linear. Exponential is an envelope times a sine. ClampOutput, MinValue, MaxValue, ReverseIndex, Yoyo and Steps are not read. | All | Linear and Exponential fixed; hidden controls left |
 | MaterialEasing (Animate) | Falloff X/Y/Z shift is divided by the point count. Three Standard Spatial curves are identical, and the three Standard Effects curves repeat the Expressive Effects ones. Empty input gives `[]`, not an object. Duration 0 divides by zero. | A | Falloff, Duration 0 and empty output fixed; duplicate curves kept |

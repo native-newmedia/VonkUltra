@@ -22,8 +22,7 @@ curated:
       Noise Scale default to 0, so nothing moves until they are set.
     - >-
       The falloff is max(0, 1 - (distance / radius) ^ tightness), measured from the FallOff Sphere
-      position. Invert falloff uses 1 minus that value. The ScriptVal and JSON versions displace Z
-      only.
+      position. Invert falloff uses 1 minus that value. All three families displace X, Y and Z.
   features:
     - title: Noise displacement
       desc: Each axis uses its own noise value, scaled by Amplitude and the falloff.
@@ -74,12 +73,12 @@ status:
   reviewed_hash: null
   prompt_version: '1'
   note: >-
-    The ScriptVal and JSON fuses multiply the X and Y noise by 0 (displaced_x = x + nx * 0 *
-    falloff), so only Z is displaced there; the Array fuse displaces X, Y and Z. Noise Rate is not a
-    time offset as the old text said. It is the length used for a modulo on each coordinate, so
-    values below about 0.005 make the noise constant for every point (0.7182 at the default). The
-    noise value is between 0 and 1 and is never negative, so the displacement is one-sided. The old
-    text says the UI labels read "Nosie Scale" and "Nosie Rate"; in the fuse the labels are Noise
-    Scale and Noise Rate and only the control ID nosie_rate has the typo. Extra values after the
-    third are dropped.
+    Rewritten against the fuse after fix batch F2 (branch fix/findings-f2 of vonk-ultra-mograph):
+    the ScriptVal and JSON fuses multiplied the X and Y noise by 0 and now displace X, Y and Z like
+    the Array fuse. Noise Rate is not a time offset as the old text said. It is the length used for
+    a modulo on each coordinate, so values below about 0.005 make the noise constant for every point
+    (0.7182 at the default). The noise value is between 0 and 1 and is never negative, so the
+    displacement is one-sided. The old text says the UI labels read "Nosie Scale" and "Nosie Rate";
+    in the fuse the labels are Noise Scale and Noise Rate and only the control ID nosie_rate has the
+    typo. Extra values after the third are dropped. Nothing was run in Fusion.
 legacy_text: Displace XYZ positions using noise with spherical falloff

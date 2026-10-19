@@ -20,8 +20,8 @@ curated:
       plus an offset from an internal reference image. A Z near 0 is replaced by a small number.
     - >-
       An Edge input is passed to the Edges output. Without one, Auto Create Edges (on) writes one
-      edge through all points in order, and it returns to point 1 when Close Edge Loop is off.
-      Groups pass through unchanged.
+      edge through all points in order, and it returns to point 1 when Close Edge Loop is on. Groups
+      pass through unchanged.
   features:
     - title: Perspective projection
       desc: Field of view sets the divide, and the output has two values per point.
@@ -69,8 +69,8 @@ curated:
       When on (default) and no Edge input is connected, writes one edge through all points. Needs 2
       or more points.
     CloseEdgeLoop: >-
-      Default off. In the code the generated edge returns to the first point when this is off, and
-      ends at the last point when it is on.
+      Default off. When on, the generated edge returns to the first point. When off, it ends at the
+      last point.
     RotOrder: Hidden control, not read by the code. The rotation order is always X, Y, Z.
     aspect_ratio: Hidden. Screen aspect ratio, default 16 / 9. It cancels out of the X result.
     near: Hidden. Near clipping plane, default 0.1. Read but not used in the projection.
@@ -89,12 +89,13 @@ status:
   reviewed_hash: null
   prompt_version: '1'
   note: >-
-    The old text describes a camera: X, Y and Z Offset are added to the point coordinates before the
-    projection, not applied to a camera. Rotation Order is created but hidden and Process() never
-    reads it; the rotation order is always X, then Y, then Z. Near and Far are hidden and read but
-    not used by the projection. Shear X and Y are hidden, read and not used. The old text says Close
-    Edge Loop connects the last edge to the first, but the code closes the edge when the checkbox is
-    off and leaves it open when it is on. The Y output adds convertY(0.5), computed from an Image
-    created inside the node with an original size of 0; the resulting value was not checked at
-    runtime. The old tagline and overview call the node mandatory, which the code does not require.
+    Rewritten against the fuse after fix batch F2 (branch fix/findings-f2 of vonk-ultra-mograph):
+    Close Edge Loop was inverted and now closes the generated edge when it is on. The old text
+    describes a camera: X, Y and Z Offset are added to the point coordinates before the projection,
+    not applied to a camera. Rotation Order is created but hidden and Process() never reads it; the
+    rotation order is always X, then Y, then Z. Near and Far are hidden and read but not used by the
+    projection. Shear X and Y are hidden, read and not used. The Y output adds convertY(0.5),
+    computed from an Image created inside the node with an original size of 0; the resulting value
+    was not checked at runtime. Nothing was run in Fusion. The old tagline and overview call the
+    node mandatory, which the code does not require.
 legacy_text: Transforms Array using a perspective projection matrix
