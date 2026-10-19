@@ -8,28 +8,30 @@ curated:
   tagline: Reorders points into a nearest-neighbor chain that starts at the first point.
   overview: >-
     vArraySortByDistance takes an array of XYZ points and outputs them in a new order: the first
-    point, then the closest unused point to it, and so on. The two controls do not change that
-    order.
+    point, then the closest unused point to it, and so on. Distance Mode decides what happens when
+    the closest point is farther than Smallest Distance.
   description:
     - >-
       The first input point stays first. Each next point is the unused point that is closest to the
-      one before. This produces a path that always steps to the nearest neighbor, which avoids long
-      jumps when points are drawn in order. Points that are not lists of at least 3 values are
-      dropped, and each output point has 3 values.
+      one before, which avoids long jumps when points are drawn in order. Points that are not lists
+      of at least 3 values are dropped, and each output point has 3 values.
     - >-
-      Smallest Distance (default 1) and Distance Mode (Preferred or Strict) are in the node, but in
-      the code both end in the same choice, the nearest unused point, so they do not change the
-      result. The search compares every unused point at every step, so it slows down with the square
-      of the point count.
+      In Preferred mode (default) the chain always continues with the closest unused point, whatever
+      its distance. In Strict mode the chain stops at the first step where no unused point is closer
+      than Smallest Distance (default 1) to the last point. The points not reached are then added
+      after the chain in their input order. The search compares every unused point at every step, so
+      it slows down with the square of the point count.
   features:
     - title: Nearest-neighbor path
       desc: Each point is followed by the closest point that is not used yet.
     - title: First point kept
       desc: The chain always starts at the first input point.
+    - title: Strict mode
+      desc: >-
+        The chain stops when the next point is farther than Smallest Distance, and the rest follow
+        in input order.
     - title: Points only
       desc: Elements without 3 values are dropped.
-    - title: Controls without effect
-      desc: Smallest Distance and Distance Mode do not change the order.
   connections:
     - label: Order scattered points and draw the path
       lines:
@@ -50,20 +52,22 @@ curated:
     - name: vArrayResamplePath
       desc: Resamples ordered paths to even spacing by count or distance.
   params:
-    smallDist: Has no effect on the order in the code. Minimum 0, slider 0 to 10, default 1.
+    smallDist: >-
+      Largest step allowed in Strict mode. Not used in Preferred mode. Minimum 0, slider 0 to 10,
+      default 1.
     Array: Points to sort.
-    distanceMode: Preferred (default) or Strict. Has no effect on the order in the code.
+    distanceMode: >-
+      Preferred (default) always steps to the closest unused point. Strict stops the chain when that
+      point is not closer than Smallest Distance.
 status:
   source: ai
   state: ai
   reviewed_hash: null
   prompt_version: '1'
   note: >-
-    Smallest Distance and Distance Mode do not change the result. Both branches of the search end up
-    choosing the nearest unvisited point: the "preferred" pick is the nearest point under Smallest
-    Distance, and the fallback is the nearest point overall. In Strict mode the expression
-    strictDistanceMode and nil or fallbackIndex still returns the fallback, because "x and nil" is
-    never true in Lua. So the order is always the nearest-neighbor chain from the first point.
-    Elements that are not lists of 3 or more values are dropped, and the output points have 3
-    values.
+    Rewritten against the fuse after fix batch F2 (branch fix/findings-f2 of vonk-ultra-mograph).
+    Before, Smallest Distance and Distance Mode had no effect because strictDistanceMode and nil or
+    fallbackIndex always returned the fallback. Now Strict ends the chain when no unused point is
+    within Smallest Distance, and the points not reached follow in input order. Preferred is the
+    nearest-neighbor chain as before. Nothing was run in Fusion.
 legacy_text: Sort array by point distance

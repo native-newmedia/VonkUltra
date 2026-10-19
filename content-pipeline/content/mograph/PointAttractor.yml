@@ -76,11 +76,13 @@ status:
   reviewed_hash: null
   prompt_version: '1'
   note: >-
-    The registered description says spring dynamics, but each render starts every point at rest at
-    its input position, so the spring term is always 0 and Spring Return and Spring Bounce (both
-    hidden) have no effect. Time is not read, so the output does not change between frames.
-    Multiplier divides the attractor X and Y (the old text said it multiplies the strength). Center,
-    Z Offset, Axis and Relative Flare Offset are hidden and not read. The Y position uses convertY
-    with an internal image created with original size 0; the resulting value was not checked at
-    runtime. The attractor Z is not divided by Multiplier.
+    The registered description was changed in fix batch F2 (branch fix/findings-f2 of
+    vonk-ultra-mograph) from "with spring dynamics" to "2D/3D point attractor/repulsor". Each render
+    starts every point at rest at its input position, so the spring term is always 0 and Spring
+    Return and Spring Bounce (both hidden) have no effect. PointAttractorSpring is the tool with
+    state. Time is not read, so the output does not change between frames. Multiplier divides the
+    attractor X and Y (the old text said it multiplies the strength). Center, Z Offset, Axis and
+    Relative Flare Offset are hidden and not read. The Y position uses convertY with an internal
+    image created with original size 0; the resulting value was not checked at runtime. The
+    attractor Z is not divided by Multiplier. Nothing was run in Fusion.
 legacy_text: 2D/3D point attractor/repulsor with spring dynamics
