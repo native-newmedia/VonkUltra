@@ -13,13 +13,13 @@ curated:
     to the closest mesh vertex is inside a band. Invert Mask keeps the other points instead.
   description:
     - >-
-      For each point the node finds the closest Mesh Points vertex and its distance. In Hard mode
-      the point is kept when the distance is from Min Distance (default 0) up to Max Distance
-      (default 0.1). Min Distance is limited to Max Distance. Invert Mask keeps the points that fail
-      the test instead.
+      For each point the node finds the closest mesh point and its distance: the closest vertex, or
+      with Mesh Faces connected the closest point on the triangles. In Hard mode the point is kept
+      when the distance is from Min Distance (default 0) up to Max Distance (default 0.1). Min
+      Distance is limited to Max Distance. Invert Mask keeps the points that fail the test.
     - >-
-      Output Position keeps the original position (default) or moves the point to the closest
-      vertex. Five hidden controls are also read: Falloff Distance, Weight Power, Min Output Weight,
+      Output Position keeps the original position (default) or moves the point to the closest mesh
+      point. Five hidden controls are also read: Falloff Distance, Weight Power, Min Output Weight,
       Append Weight As 4th Value and Surface Offset. Soft Falloff fades the weight outside the band
       over the hidden Falloff Distance, which is 0 by default.
     - >-
@@ -27,11 +27,13 @@ curated:
       otherwise the output is empty.
   features:
     - title: Distance band
-      desc: Points are kept between Min and Max Distance from the closest vertex.
+      desc: Points are kept between Min and Max Distance from the closest mesh point.
     - title: Invertable
       desc: Invert Mask keeps the points outside the band.
-    - title: Vertex snap
-      desc: Closest On Surface moves the kept points onto the closest mesh vertex.
+    - title: Mesh snap
+      desc: >-
+        Closest On Surface moves the kept points onto the closest vertex, or triangle point with
+        Mesh Faces.
     - title: No-mesh fallback
       desc: Without a mesh the input can pass through unchanged.
   connections:
@@ -81,6 +83,9 @@ curated:
     surfaceoffset: >-
       Hidden control. Offset along the estimated normal of the vertex for Closest On Surface. Slider
       -1 to 1, default 0.
+    MeshFaces: >-
+      Optional. Face index lists of the mesh, from the Edges output of vArrayFromOBJ. Not connected:
+      distances are measured to the vertices. Connected: to the triangles.
 status:
   source: ai
   state: ai
@@ -92,8 +97,8 @@ status:
     Output Weight, Append Weight As 4th Value and Surface Offset are hidden and NotifyChanged() is
     empty, so they stay hidden. Soft Falloff does nothing different from Hard while the hidden
     Falloff Distance is 0. Distances are measured to the closest mesh vertex, and Closest On Surface
-    moves the point to that vertex. vmeshutils.buildSurfaceSamples uses only the vertex list of Mesh
-    Points. It makes one sample per vertex with all three triangle corners equal to that vertex, so
-    every search finds the closest vertex and not a point on a face. The normal of a sample is
-    fitted to the 8 nearest vertices and points away from the centroid of all vertices. Edges and
-    faces are not read.
+    moves the point to that vertex. It makes one sample per vertex with all three triangle corners
+    equal to that vertex, so every search finds the closest vertex and not a point on a face. The
+    normal of a sample is fitted to the 8 nearest vertices and points away from the centroid of all
+    vertices. Edges and faces are not read. Since fix batch F5 the node has an optional Mesh Faces
+    input (Edges output of vArrayFromOBJ); the text describes the node with and without it.

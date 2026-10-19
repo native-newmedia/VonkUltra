@@ -13,18 +13,20 @@ curated:
     - >-
       The direction is made unit length. A direction of 0, 0, 0, the default, becomes 0, 0, 1. Each
       point is moved by Slide Distance (default 0.1, slider -10 to 10) along it, and the node then
-      finds the closest Mesh Points vertex to the moved position. The output is that vertex plus
-      Surface Offset along the normal estimated there.
+      finds the closest mesh point to the moved position. The output is that mesh point plus Surface
+      Offset along the normal there.
     - >-
-      The output points are therefore always mesh vertices. Affect X, Y and Z keep unchecked axes at
-      the input value. If the mesh or the points are empty, the points are output unchanged.
+      Without Mesh Faces the mesh points are the vertices, so the output points are always mesh
+      vertices. With Mesh Faces connected the closest point is on the triangles and the normal is
+      the face normal, so the result can lie inside a face. Affect X, Y and Z keep unchecked axes at
+      their input value. If the mesh or the points are empty, the points are output unchanged.
   features:
     - title: Directional slide
       desc: Points move along a fixed direction by Slide Distance before the snap.
-    - title: Snap to vertices
-      desc: The moved position is replaced by the closest mesh vertex.
+    - title: Snap to the mesh
+      desc: The moved position is replaced by the closest vertex, or triangle point with Mesh Faces.
     - title: Surface Offset
-      desc: The result can be lifted off the vertex along its estimated normal.
+      desc: The result can be lifted off the mesh along its normal.
     - title: Pass-through without mesh
       desc: Without mesh data the points are output unchanged.
   connections:
@@ -57,6 +59,10 @@ curated:
     inaffectx: X comes from the result when checked (default), otherwise it keeps the input value.
     inaffecty: Y comes from the result when checked (default), otherwise it keeps the input value.
     inaffectz: Z comes from the result when checked (default), otherwise it keeps the input value.
+    MeshFaces: >-
+      Optional. Face index lists of the mesh, from the Edges output of vArrayFromOBJ. Not connected:
+      the moved position snaps to the closest vertex. Connected: to the closest point on the
+      triangles.
 status:
   source: ai
   state: ai
@@ -66,4 +72,6 @@ status:
     The default direction 0, 0, 0 has no length, and the code turns it into 0, 0, 1, so the default
     slides the points by +0.1 on Z. The slid position is replaced by the closest mesh vertex, so the
     output points are mesh vertices (plus Surface Offset along their estimated normal). With no mesh
-    data the points are output unchanged (3 values).
+    data the points are output unchanged (3 values). Since fix batch F5 the node has an optional
+    Mesh Faces input (Edges output of vArrayFromOBJ); the text describes the node with and without
+    it.

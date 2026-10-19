@@ -14,21 +14,22 @@ curated:
     - >-
       The noise is sampled at the point position times Frequency plus Animation Speed times the
       render time, and scaled by Amplitude. Perlin gives one 3D gradient noise value. Fractal adds
-      Octaves of it, each with its frequency times Lacunarity and its weight times Gain, divided by
-      the total weight. Random Seed changes the noise pattern.
+      Octaves of it, each with its frequency times Lacunarity and its weight times Gain. Random Seed
+      shuffles the permutation table with a local hash, not the global random generator.
     - >-
-      Normal Only moves each point to its closest mesh vertex and then along the normal estimated
-      there by noise + Surface Offset. 3D Reproject moves the point by three noise values, one for
-      each axis, replaces the result with the closest mesh vertex and adds Surface Offset along that
-      normal.
-    - >-
-      Affect X, Y and Z keep unchecked axes at their input value. With no input points the output is
-      empty.
+      Normal Only moves each point to the closest mesh point and then along the normal there by
+      noise + Surface Offset. 3D Reproject moves the point by three noise values, one per axis,
+      replaces the result with the closest mesh point and adds Surface Offset along its normal. The
+      mesh point is the closest vertex, or with Mesh Faces connected the closest point on the
+      triangles.
+    - Affect X, Y and Z keep unchecked axes. With no input points the output is empty.
   features:
     - title: Two noise types
       desc: Perlin, or Fractal with Octaves, Lacunarity and Gain.
     - title: Two displacement modes
-      desc: Normal Only works along the normal at the closest vertex and 3D Reproject moves in 3D first.
+      desc: >-
+        Normal Only works along the normal at the closest mesh point and 3D Reproject moves in 3D
+        first.
     - title: Animated
       desc: Animation Speed moves the noise lookup with the render time.
     - title: Seeded
@@ -70,20 +71,14 @@ curated:
     inaffectx: X comes from the result when checked (default), otherwise it keeps the input value.
     inaffecty: Y comes from the result when checked (default), otherwise it keeps the input value.
     inaffectz: Z comes from the result when checked (default), otherwise it keeps the input value.
+    MeshFaces: >-
+      Optional. Face index lists of the mesh, from the Edges output of vArrayFromOBJ. Not connected:
+      points snap to vertices. Connected: to the closest point on the triangles, with face normals.
 status:
   source: ai
   state: ai
   reviewed_hash: null
   prompt_version: '1'
   note: >-
-    In Normal Only mode the point is first moved to the closest mesh vertex and then displaced along
-    the normal estimated there, so the output lies on the vertices plus the noise. In 3D Reproject
-    mode the displaced point is replaced by the closest mesh vertex, so the output points are
-    vertices (plus Surface Offset). Without a mesh, the reference is the point itself and the normal
-    is Z. The Seed shuffles the noise permutation table with math.randomseed, so the node reseeds
-    the global random generator on every render. The Octaves, Lacunarity and Gain controls are
-    hidden until Noise Type is switched to Fractal. vmeshutils.buildSurfaceSamples uses only the
-    vertex list of Mesh Points. It makes one sample per vertex with all three triangle corners equal
-    to that vertex, so every search finds the closest vertex and not a point on a face. The normal
-    of a sample is fitted to the 8 nearest vertices and points away from the centroid of all
-    vertices. Edges and faces are not read.
+    The Seed shuffles the permutation table with a local hash since fix batch F5, no longer with
+    math.randomseed. The noise pattern per Seed differs from older comps.

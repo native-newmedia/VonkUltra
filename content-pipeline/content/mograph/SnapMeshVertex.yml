@@ -11,22 +11,24 @@ curated:
     closest Mesh Points vertex. Snap Mode can switch the target to the patch points.
   description:
     - >-
-      Vertex (the default) and Surface both find the closest Mesh Points vertex. Centroid finds the
-      closest patch point, the average of a vertex and its 7 nearest neighbors. The output is the
-      point plus (target - point) * Blend, so Blend 1 (the default) puts the point on the target.
+      Vertex (the default) always finds the closest Mesh Points vertex. Surface finds the closest
+      vertex too, or with Mesh Faces connected the closest point on the triangles. Centroid finds
+      the closest patch point: the average of a vertex and its 7 nearest neighbors, or a triangle
+      center with Mesh Faces. Without Mesh Faces, Vertex and Surface give the same result.
     - >-
-      Blend runs from 0 to 1, and the output has 3 values per point. Affect X, Y and Z keep
-      unchecked axes at the input value. Only the vertex list of Mesh Points is used, not edges or
-      faces. If the points or the mesh are empty, the output is empty.
+      The output is the point plus (target - point) * Blend, so Blend 1 (the default) puts the point
+      on the target. Blend runs from 0 to 1, and the output has 3 values per point. Affect X, Y and
+      Z keep unchecked axes at the input value. If the points or the mesh are empty, the output is
+      empty.
   features:
     - title: Three snap modes
-      desc: Vertex, Surface and Centroid, where Vertex and Surface give the same result.
+      desc: Vertex, Surface and Centroid. Surface and Centroid use triangles with Mesh Faces.
     - title: Blend
       desc: Blend mixes between the point and the target.
     - title: Per-axis switches
       desc: Affect X, Y and Z restrict the move to the checked axes.
-    - title: Vertex list only
-      desc: The node reads the mesh vertices and ignores edges and faces.
+    - title: Faces optional
+      desc: Mesh Faces is optional. Without it only the vertex list is read.
   connections:
     - label: Snap a grid to a loaded mesh and draw
       lines:
@@ -56,6 +58,9 @@ curated:
     blend: Mix between the point (0) and the target (1). Range 0 to 1, default 1.
     ArrayPoints: Points to snap.
     MeshPoints: Mesh vertices that the points snap to.
+    MeshFaces: >-
+      Optional. Face index lists of the mesh, from the Edges output of vArrayFromOBJ. Surface and
+      Centroid use triangle points and centers when connected; Vertex stays on the vertices.
 status:
   source: ai
   state: ai
@@ -64,4 +69,5 @@ status:
   note: >-
     Vertex and Surface give the same result, since the mesh samples are single vertices. Centroid
     uses the patch points, each the average of a vertex and its 7 nearest neighbors. With no mesh or
-    no points the output is empty.
+    no points the output is empty. Since fix batch F5 the node has an optional Mesh Faces input
+    (Edges output of vArrayFromOBJ); the text describes the node with and without it.

@@ -11,14 +11,15 @@ curated:
     their distance to the mesh. Sort Order picks near first or far first.
   description:
     - >-
-      For each point the node finds the reference on the mesh: the closest Mesh Points vertex
-      (Surface and Vertex) or the closest patch point (Face Centroid). The points are sorted by the
-      distance to it, nearest first for Ascending (default) or farthest first for Descending. Equal
-      distances keep their input order.
+      For each point the node finds the reference on the mesh by Proximity To. Surface uses the
+      closest vertex, or with Mesh Faces connected the closest point on the triangles. Vertex uses
+      the closest vertex. Face Centroid uses the closest patch point: a neighbor average, or a
+      triangle center with Mesh Faces. The points are sorted by the distance to it, nearest first
+      for Ascending (default) or farthest first for Descending.
     - >-
-      The written points can also move: Blend To Target (0 to 1, default 0) mixes each point toward
-      its reference, and Target Offset (default 0) adds an offset along the normal or along the line
-      from the reference. Only the vertex list of the mesh is used. With no mesh data, the points
+      Equal distances keep their input order. Blend To Target (0 to 1, default 0) mixes each written
+      point toward its reference, and Target Offset (default 0) adds an offset along the normal in
+      Surface mode, or along the line from the reference otherwise. With no mesh data, the points
       are output in their original order.
   features:
     - title: Sort by mesh distance
@@ -61,6 +62,9 @@ curated:
       to 5, default 0.
     ArrayPoints: Points to sort.
     MeshPoints: Mesh vertices that distances are measured to.
+    MeshFaces: >-
+      Optional. Face index lists of the mesh, from the Edges output of vArrayFromOBJ. Surface and
+      Face Centroid use triangles when connected; Vertex stays on the vertices.
 status:
   source: ai
   state: ai
@@ -72,4 +76,5 @@ status:
     are also moved when Blend To Target or Target Offset is not 0. Without any mesh data the points
     are output in their original order. Target Offset moves along the estimated normal in Surface
     mode, and along the direction from the reference to the point in the other modes (0, 0, 1 if
-    they coincide).
+    they coincide). Since fix batch F5 the node has an optional Mesh Faces input (Edges output of
+    vArrayFromOBJ); the text describes the node with and without it.

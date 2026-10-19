@@ -11,25 +11,26 @@ curated:
     the closest Mesh Points vertex. Blend sets how far, from 0 (no move) to 1 (on the vertex).
   description:
     - >-
-      For every input point the node finds the closest vertex of Mesh Points. The output is the
-      input point plus (vertex - input point) * Blend, so Blend 0 keeps the input and Blend 1 puts
-      the point on the vertex.
+      For every input point the node finds the closest point of Mesh Points: the closest vertex, or
+      with Mesh Faces connected the closest point on the triangles. The output is the input point
+      plus (target - input point) * Blend, so Blend 0 keeps the input and Blend 1 puts the point on
+      the target.
     - >-
       Blend is clamped to 0 to 1 even though the control accepts other values, and its default is 1.
       Affect X, Y and Z are checked by default. An unchecked axis keeps the input value, so the
       point moves only within the checked axes.
     - >-
-      The search compares every point with every vertex. Only the vertex list is used, not edges or
-      faces. If Points or Mesh Points is empty, the output is empty.
+      The search compares every point with every vertex or triangle. If Points or Mesh Points is
+      empty, the output is empty.
   features:
     - title: Blend amount
-      desc: Blend moves the point a fraction of the way to the vertex, clamped to 0 to 1.
-    - title: Closest vertex
-      desc: The target is the closest Mesh Points vertex, not a point on a face.
+      desc: Blend moves the point a fraction of the way to the target, clamped to 0 to 1.
+    - title: Closest target
+      desc: The target is the closest vertex, or the closest point on the triangles with Mesh Faces.
     - title: Per-axis switches
       desc: Affect X, Y and Z restrict the move to the checked axes.
     - title: Two inputs
-      desc: Points are the input array, and the Mesh Points vertices are the targets.
+      desc: Points are the input array, and Mesh Points gives the targets.
   connections:
     - label: Pull a grid toward a loaded mesh and draw
       lines:
@@ -59,6 +60,12 @@ curated:
     inaffecty: Y moves toward the vertex when checked (default), otherwise it keeps the input value.
     inaffectz: Z moves toward the vertex when checked (default), otherwise it keeps the input value.
     JSONPoints: JSON family only. The points input that the node reads.
+    MeshFaces: >-
+      Optional. Face index lists of the mesh, from the Edges output of vArrayFromOBJ. Not connected:
+      points move toward the closest vertex. Connected: toward the closest point on the triangles.
+    Points: >-
+      Input of the JSON fuse that Process() does not read. The points to move come from the JSON
+      Points input.
 status:
   source: ai
   state: ai
@@ -69,8 +76,9 @@ status:
     ScriptVal fuses call buildSurfaceSamples(meshPts, false, true), the JSON fuse calls it with the
     mesh points only. The extra arguments only skip the normal estimation, which this node does not
     use, so positions are the same. The JSON fuse has two inputs with the main link 1, Points and
-    JSON Points; only JSON Points is read. vmeshutils.buildSurfaceSamples uses only the vertex list
-    of Mesh Points. It makes one sample per vertex with all three triangle corners equal to that
-    vertex, so every search finds the closest vertex and not a point on a face. The normal of a
-    sample is fitted to the 8 nearest vertices and points away from the centroid of all vertices.
-    Edges and faces are not read.
+    JSON Points; only JSON Points is read. It makes one sample per vertex with all three triangle
+    corners equal to that vertex, so every search finds the closest vertex and not a point on a
+    face. The normal of a sample is fitted to the 8 nearest vertices and points away from the
+    centroid of all vertices. Edges and faces are not read. Since fix batch F5 the node has an
+    optional Mesh Faces input (Edges output of vArrayFromOBJ); the text describes the node with and
+    without it.

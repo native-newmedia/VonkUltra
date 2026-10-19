@@ -12,24 +12,24 @@ curated:
     inside Max Distance.
   description:
     - >-
-      For each point the node finds the reference: the closest Mesh Points vertex (Surface and
-      Vertex give the same result) or the closest patch point (Centroid), the average of a vertex
-      and its 7 nearest neighbors. Outside > Max moves points whose distance is above Max Distance.
-      Inside < Max moves points whose distance is below it. They are put on the line from the
-      reference through the point at Max Distance + Distance Offset.
+      For each point the node finds a reference on the mesh by Reference. Surface uses the closest
+      vertex, or with Mesh Faces connected the closest point on the triangles. Vertex always uses
+      the closest vertex. Centroid uses the closest patch point: the average of a vertex and its 7
+      nearest neighbors, or a triangle center with Mesh Faces.
     - >-
-      Clamp Blend (0 to 1) mixes between the original and the clamped position, and Affect X, Y and
-      Z keep unchecked axes at their input value. Preserve Extra Values (on) copies values after the
-      third. A point on its reference moves along the estimated normal in Surface mode and along +Z
-      otherwise.
+      Outside > Max moves points whose distance is above Max Distance, Inside < Max moves points
+      below it. They are put on the line from the reference through the point at Max Distance +
+      Distance Offset. Clamp Blend (0 to 1) mixes the original and the clamped position. Affect X, Y
+      and Z keep unchecked axes.
     - >-
-      With no mesh data, Pass Through If No Mesh (on) outputs the points unchanged, otherwise the
-      output is empty.
+      A point on its reference moves along the normal in Surface mode and along +Z otherwise.
+      Preserve Extra Values (on) copies values after the third. With no mesh, Pass Through If No
+      Mesh (on) outputs the points unchanged, otherwise the output is empty.
   features:
     - title: Two clamp directions
       desc: Outside > Max pulls far points in. Inside < Max pushes near points out.
     - title: Three references
-      desc: Surface and Vertex use the closest vertex. Centroid uses averaged neighbors.
+      desc: Surface, Vertex and Centroid. Surface and Centroid use triangles with Mesh Faces.
     - title: Distance Offset
       desc: The target distance is Max Distance plus the offset.
     - title: Extra values kept
@@ -72,6 +72,10 @@ curated:
     inpassthroughifnomesh: >-
       Outputs the points unchanged when there is no mesh data, if on (default). When off, the output
       is empty.
+    MeshFaces: >-
+      Optional. Face index lists of the mesh, from the Edges output of vArrayFromOBJ. Surface uses
+      triangle points and Centroid uses triangle centers when connected. Not connected: vertices and
+      neighbor averages.
 status:
   source: ai
   state: ai
@@ -81,8 +85,9 @@ status:
     The decision to clamp uses Max Distance only, while the target distance is Max Distance plus
     Distance Offset (not below 0). Max Distance is limited to 0 or more in the code. Surface and
     Vertex find the same reference point. A point that lies on its reference moves along the
-    estimated normal in Surface mode and along +Z in Vertex and Centroid mode.
-    vmeshutils.buildSurfaceSamples uses only the vertex list of Mesh Points. It makes one sample per
-    vertex with all three triangle corners equal to that vertex, so every search finds the closest
-    vertex and not a point on a face. The normal of a sample is fitted to the 8 nearest vertices and
-    points away from the centroid of all vertices. Edges and faces are not read.
+    estimated normal in Surface mode and along +Z in Vertex and Centroid mode. It makes one sample
+    per vertex with all three triangle corners equal to that vertex, so every search finds the
+    closest vertex and not a point on a face. The normal of a sample is fitted to the 8 nearest
+    vertices and points away from the centroid of all vertices. Edges and faces are not read. Since
+    fix batch F5 the node has an optional Mesh Faces input (Edges output of vArrayFromOBJ); the text
+    describes the node with and without it.

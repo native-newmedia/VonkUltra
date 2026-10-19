@@ -11,15 +11,15 @@ curated:
     on the Output socket. A second output, Points, holds the points projected toward the mesh.
   description:
     - >-
-      For each point the node finds the closest Mesh Points vertex and takes the distance d. The raw
-      weight is min(1, d / Max Distance), which is 0 at the mesh and 1 at Max Distance or farther.
-      Falloff shapes it: Linear uses it as it is, Squared squares it, Root takes the square root.
-      Invert Weight turns the weight into 1 minus it. Max Distance defaults to 0.5 and has a minimum
-      of 0.0001.
+      For each point the node finds the closest mesh point (a vertex, or with Mesh Faces connected a
+      point on the triangles) and takes the distance d. The raw weight is min(1, d / Max Distance),
+      which is 0 at the mesh and 1 at Max Distance or farther. Falloff shapes it: Linear uses it as
+      it is, Squared squares it, Root takes the square root. Invert Weight turns the weight into 1
+      minus it. Max Distance defaults to 0.5 and has a minimum of 0.0001.
     - >-
-      The Points output holds each point moved toward its closest vertex by Project Amount (0 to 1,
-      default 1), so by default it holds the vertices. Both outputs have the array and size wrapper.
-      With an empty mesh both outputs are empty.
+      The Points output holds each point moved toward its closest mesh point by Project Amount (0 to
+      1, default 1). Both outputs have the array and size wrapper. With an empty mesh both outputs
+      are empty.
   features:
     - title: Weights from distance
       desc: Weight is 0 on the mesh and 1 at Max Distance and beyond.
@@ -55,6 +55,9 @@ curated:
     projectamount: How far the Points output moves toward the closest vertex. Range 0 to 1, default 1.
     ArrayPoints: Points to weigh.
     MeshPoints: Mesh vertices that distances are measured to.
+    MeshFaces: >-
+      Optional. Face index lists of the mesh, from the Edges output of vArrayFromOBJ. Not connected:
+      distances go to the closest vertex. Connected: to the closest point on the triangles.
 status:
   source: ai
   state: ai
@@ -65,4 +68,5 @@ status:
     Weight flips it. Distances are measured to the closest mesh vertex. The second output, Points,
     holds the points moved toward that vertex by Project Amount, which defaults to 1, so by default
     it holds the vertices. With no mesh data both outputs are empty. The ScriptVal and JSON fuses
-    name the outputs differently.
+    name the outputs differently. Since fix batch F5 the node has an optional Mesh Faces input
+    (Edges output of vArrayFromOBJ); the text describes the node with and without it.

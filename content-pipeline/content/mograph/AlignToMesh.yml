@@ -14,25 +14,27 @@ curated:
     there, the vertex position, or a blend between the input and the vertex.
   description:
     - >-
-      For every input point the node finds the closest vertex of Mesh Points. Output Mode then
-      writes the normal estimated at that vertex (Normals), the vertex position (Surface), or a
-      point between the input and the vertex (Blend). The normal is fitted to the 8 nearest vertices
-      and points away from the center of the mesh.
+      For every input point the node finds the closest point of Mesh Points. Output Mode then writes
+      the normal there (Normals), the position (Surface), or a point between the input and that
+      position (Blend). Without Mesh Faces the closest point is the closest vertex and the normal is
+      fitted to the 8 nearest vertices, pointing away from the center of the mesh.
     - >-
-      In Normals mode the normal is scaled by Normal Length (default 1) and Flip Normals reverses
-      it. Normal Anchor outputs it alone, adds it to the input point or adds it to the vertex.
-      Affect X, Y and Z apply to Surface and Blend only: an unchecked axis keeps the input value.
-      Blend To Surface (0 to 1, default 1) is used in Blend mode.
+      With Mesh Faces connected the closest point is on the triangles and the normal is the face
+      normal in OBJ winding order, not flipped. In Normals mode the normal is scaled by Normal
+      Length (default 1) and Flip Normals reverses it. Normal Anchor outputs it alone, adds it to
+      the input point or to the surface point.
     - >-
-      Only the vertex list of Mesh Points is used, not its edges or faces. If either input is empty,
-      the output is empty.
+      Affect X, Y and Z apply to Surface and Blend only. Blend To Surface (0 to 1, default 1) is
+      used in Blend mode. If either input is empty, the output is empty.
   features:
     - title: Three output modes
       desc: Normals, Surface and Blend write different results from the same closest-point search.
     - title: Three normal anchors
       desc: The normal vector is output alone, at the input point or at the surface point.
-    - title: Closest vertex
-      desc: The search compares each point with the Mesh Points vertices, not with faces.
+    - title: Closest point
+      desc: >-
+        The search finds the closest vertex, or the closest point on the triangles when Mesh Faces
+        is connected.
     - title: Per-axis switches
       desc: Affect X, Y and Z limit Surface and Blend to the checked axes.
   connections:
@@ -77,6 +79,9 @@ curated:
     inaffectz: >-
       Checked (default): Z comes from the result. Unchecked: Z keeps the input value. Surface and
       Blend only.
+    MeshFaces: >-
+      Optional. Face index lists of the mesh, from the Edges output of vArrayFromOBJ. Not connected:
+      the closest vertex is used. Connected: the closest point on the triangles and the face normal.
 status:
   source: ai
   state: ai
@@ -85,8 +90,9 @@ status:
   note: >-
     The registered description says "nearest mesh vertex" and matches the code. The old overview
     said the node finds the closest point on the mesh surface; it finds the closest vertex. Affect
-    X, Y and Z are read in every mode but only change the result in Surface and Blend.
-    vmeshutils.buildSurfaceSamples uses only the vertex list of Mesh Points. It makes one sample per
-    vertex with all three triangle corners equal to that vertex, so every search finds the closest
-    vertex and not a point on a face. The normal of a sample is fitted to the 8 nearest vertices and
-    points away from the centroid of all vertices. Edges and faces are not read.
+    X, Y and Z are read in every mode but only change the result in Surface and Blend. It makes one
+    sample per vertex with all three triangle corners equal to that vertex, so every search finds
+    the closest vertex and not a point on a face. The normal of a sample is fitted to the 8 nearest
+    vertices and points away from the centroid of all vertices. Edges and faces are not read. Since
+    fix batch F5 the node has an optional Mesh Faces input (Edges output of vArrayFromOBJ); the text
+    describes the node with and without it.

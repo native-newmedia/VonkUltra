@@ -6,8 +6,8 @@ tools:
 legacy_names: []
 curated:
   tagline: >-
-    Casts a ray from each point and moves it to the nearest mesh vertex that the ray passes close
-    to.
+    Casts a ray from each point and moves it to the vertex the ray passes close to, or to the
+    triangle it hits.
   overview: >-
     vArrayRaycastToMesh takes an array of XYZ points and a mesh, shoots a ray from each point, and
     outputs the mesh vertex that the ray hits first. Ray Mode picks a fixed direction, a target
@@ -18,16 +18,21 @@ curated:
       0). In Target Point it runs toward Target X, Y, Z. In Dir Array it comes from the Direction
       Array input, one direction per point. Directions are made unit length.
     - >-
-      A mesh vertex is a hit when it is ahead of the point and its distance from the ray line is at
-      most the average spacing of the mesh vertices. The nearest hit along the ray gives the output,
-      which is that vertex, for the checked axes of Affect X, Y and Z. On a miss, Pass Through
-      (default) keeps the point and Drop Point removes it. The check compares every vertex for every
-      point.
+      Without Mesh Faces a mesh vertex is a hit when it is ahead of the point and its distance from
+      the ray line is at most the average spacing of the vertices; the nearest hit gives the output,
+      which is that vertex. With Mesh Faces connected the ray is tested against the triangles and
+      the output is the nearest hit point on a triangle.
+    - >-
+      The output is limited to the checked axes of Affect X, Y and Z. On a miss, Pass Through
+      (default) keeps the point and Drop Point removes it. Without faces the check compares every
+      vertex for every point.
   features:
     - title: Three ray modes
       desc: A global direction, a target point or a direction array.
-    - title: Vertex hits
-      desc: The output is the mesh vertex that the ray passes closest ahead.
+    - title: Hit result
+      desc: >-
+        The output is the vertex the ray passes closest ahead, or the triangle hit point with Mesh
+        Faces.
     - title: Miss behavior
       desc: Points that hit nothing are kept or dropped.
     - title: Per-axis switches
@@ -67,6 +72,10 @@ curated:
     inaffecty: Y comes from the hit when checked (default), otherwise it keeps the input value.
     inaffectz: Z comes from the hit when checked (default), otherwise it keeps the input value.
     DirArray: Direction per point for Dir Array mode. The port is shown only in that mode.
+    MeshFaces: >-
+      Optional. Face index lists of the mesh, from the Edges output of vArrayFromOBJ. Not connected:
+      the ray is tested against vertices with a tolerance. Connected: against the triangles,
+      exactly.
 status:
   source: ai
   state: ai
@@ -79,4 +88,6 @@ status:
     and the output is that vertex position. With no mesh data the points follow Miss Behavior. In
     Dir Array mode, a point without an entry in the array uses the direction 0, -1, 0. Direction X,
     Y and Z are shown for Global Dir, Target X, Y and Z for Target Point, and the Direction Array
-    port for Dir Array, after the mode has been changed once.
+    port for Dir Array, after the mode has been changed once. Since fix batch F5 the node has an
+    optional Mesh Faces input (Edges output of vArrayFromOBJ); the text describes the node with and
+    without it.

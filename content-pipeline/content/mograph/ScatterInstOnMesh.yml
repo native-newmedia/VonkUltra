@@ -13,19 +13,22 @@ curated:
   description:
     - >-
       With Mesh Points connected, the positions are the mesh vertices and the normals are estimated
-      at them. Otherwise the positions come from Surface Positions and the normals from Surface
-      Normals. For each position the template is turned around its Y axis by Yaw Offset (degrees)
-      plus a random amount up to Random Yaw, rotated so that its Y axis follows the normal, scaled
-      by Scale (times a random factor up to Scale Randomness), and moved to the position.
+      at them. With Mesh Faces also connected there is one position per triangle, at its center,
+      with the face normal. Otherwise the positions come from Surface Positions and the normals from
+      Surface Normals.
     - >-
-      Align To Normals (on) and Normal Blend (0 to 1, default 1) decide how far the Y axis follows
-      the normal; with Align off it stays at 0, 1, 0. Preview Decimate keeps every Decimate Step
-      position, and Max Output Points stops the output at that number of points (0 means no limit).
-      The random values come from Seed and the position number. Without positions or template the
-      output is empty.
+      For each position the template is turned around its Y axis by Yaw Offset (degrees) plus a
+      random amount up to Random Yaw, rotated so that its Y axis follows the normal, scaled by Scale
+      (times a random factor up to Scale Randomness), and moved to the position. Align To Normals
+      (on) and Normal Blend (0 to 1, default 1) decide how far the Y axis follows the normal.
+    - >-
+      Preview Decimate keeps every Decimate Step position, and Max Output Points stops the output at
+      that number of points (0 means no limit). Without positions or template the output is empty.
   features:
     - title: Instances on a mesh
-      desc: A copy of the template is placed at every mesh vertex.
+      desc: >-
+        A copy of the template is placed at every vertex, or at every triangle center with Mesh
+        Faces.
     - title: Normal alignment
       desc: Each copy is tilted so that its Y axis follows the normal, blended by Normal Blend.
     - title: Seeded variation
@@ -72,6 +75,9 @@ curated:
     Template: The point cloud to copy, with Y as its up axis.
     SurfaceNormals: Normals for the positions. Used when Mesh Points is empty. Optional.
     MeshPoints: Mesh vertices. When connected, they give the positions and the estimated normals.
+    MeshFaces: >-
+      Optional. Face index lists of the mesh, from the Edges output of vArrayFromOBJ. Connected: one
+      instance per triangle center instead of one per vertex. Only used together with Mesh Points.
 status:
   source: ai
   state: ai
@@ -83,4 +89,5 @@ status:
     from the 8 nearest vertices. Without Mesh Points, Surface Positions is required and Surface
     Normals is optional (without it, every normal is 0, 1, 0). The template is expected with Y as
     its up axis, since the rotation maps the Y axis to the normal. Yaw turns the template around its
-    Y axis.
+    Y axis. Since fix batch F5 the node has an optional Mesh Faces input (Edges output of
+    vArrayFromOBJ); the text describes the node with and without it.

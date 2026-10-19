@@ -14,23 +14,23 @@ curated:
   description:
     - >-
       In each pass every point finds its 6 nearest other points and moves toward their average by
-      Relax Strength (0 to 1, default 0.5). The moved point is then replaced by the closest Mesh
-      Points vertex, plus Surface Offset along the normal estimated there. Relax Iterations (default
-      10) is the number of passes.
+      Relax Strength (0 to 1, default 0.5). The moved point is then replaced by the closest mesh
+      point, plus Surface Offset along the normal there. Relax Iterations (default 10) is the number
+      of passes. The mesh point is the closest vertex, or with Mesh Faces connected the closest
+      point on the triangles.
     - >-
-      This pulls points toward their neighbors and does not push them apart. After the last pass the
-      points lie on mesh vertices, so points can share a vertex. Affect X, Y and Z keep unchecked
-      axes at the input value. Only the vertex list of the mesh is used. If Points or Mesh Points is
-      empty, the output is empty.
+      This pulls points toward their neighbors and does not push them apart. Without Mesh Faces the
+      points lie on mesh vertices after the last pass, so points can share a vertex. Affect X, Y and
+      Z keep unchecked axes. If Points or Mesh Points is empty, the output is empty.
   features:
     - title: Iterative smoothing
       desc: Relax Iterations repeats the pass of moving toward the neighbor average.
-    - title: Snaps to vertices
-      desc: Every pass ends with the closest mesh vertex.
+    - title: Snaps to the mesh
+      desc: Every pass ends with the closest vertex, or triangle point with Mesh Faces.
     - title: Strength
       desc: Relax Strength sets how far a point moves toward its neighbors in a pass.
     - title: Surface offset
-      desc: Points can be lifted off the vertices along the estimated normal.
+      desc: Points can be lifted off the mesh along the normal.
   connections:
     - label: Relax scattered points on a loaded mesh and draw
       lines:
@@ -61,6 +61,9 @@ curated:
     inaffectx: X comes from the result when checked (default), otherwise it keeps the input value.
     inaffecty: Y comes from the result when checked (default), otherwise it keeps the input value.
     inaffectz: Z comes from the result when checked (default), otherwise it keeps the input value.
+    MeshFaces: >-
+      Optional. Face index lists of the mesh, from the Edges output of vArrayFromOBJ. Not connected:
+      each pass ends on the closest vertex. Connected: on the closest point of the triangles.
 status:
   source: ai
   state: ai
@@ -72,3 +75,5 @@ status:
     description say the points spread out evenly; the code does not push points apart. Because of
     the snap, every output point is a mesh vertex (plus Surface Offset), and several points can end
     up on the same vertex. The cost grows with the square of the point count times Relax Iterations.
+    Since fix batch F5 the node has an optional Mesh Faces input (Edges output of vArrayFromOBJ);
+    the text describes the node with and without it.

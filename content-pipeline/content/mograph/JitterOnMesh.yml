@@ -12,26 +12,30 @@ curated:
     the closest mesh vertex to that position.
   description:
     - >-
-      For each point the node finds the closest mesh vertex and builds two tangent directions from
-      the normal estimated there. It picks a random angle and a distance up to Jitter Radius (spread
-      evenly over the disk), moves the point there, and takes the closest mesh vertex to the result.
-      Surface Offset moves that vertex along its estimated normal.
+      For each point the node finds the closest mesh point and builds two tangent directions from
+      the normal there. It picks a random angle and a distance up to Jitter Radius (spread evenly
+      over the disk), moves the point there and takes the closest mesh point to the result. Surface
+      Offset moves it along its normal.
     - >-
-      The output points are therefore mesh vertices, so a small Jitter Radius on a coarse mesh often
-      returns the same vertex. Random Seed (default 0) fixes the sequence, so the same Seed, points
-      and mesh give the same result. With Animate Jitter on, the seed also changes by 12345 for
-      every whole step of render time times Animation Speed. Affect X, Y and Z keep unchecked axes
-      at their input value.
-    - If the mesh or the points are empty, the points are output unchanged.
+      Without Mesh Faces the mesh points are the vertices, so the output points are vertices and a
+      small Jitter Radius on a coarse mesh often returns the same one. With Mesh Faces connected the
+      result is the closest point on the triangles, with the face normal.
+    - >-
+      The random values come from a hash of the point number and Random Seed (default 0), so the
+      same Seed, points and mesh give the same result. With Animate Jitter on, the seed also changes
+      by 12345 per whole step of render time times Animation Speed. Affect X, Y and Z keep unchecked
+      axes.
   features:
-    - title: Snaps to vertices
-      desc: The jittered position is replaced by the closest mesh vertex.
+    - title: Snaps to the mesh
+      desc: >-
+        The jittered position is replaced by the closest vertex, or the closest triangle point with
+        Mesh Faces.
     - title: Repeatable
       desc: The same Seed gives the same result.
     - title: Stepped animation
       desc: Animate Jitter changes the seed as render time advances.
     - title: Surface Offset
-      desc: The result can be lifted off the vertex along its estimated normal.
+      desc: The result can be lifted off the mesh along its normal.
   connections:
     - label: Jitter a grid on a loaded mesh and draw
       lines:
@@ -64,18 +68,15 @@ curated:
     inaffectx: X comes from the result when checked (default), otherwise it keeps the input value.
     inaffecty: Y comes from the result when checked (default), otherwise it keeps the input value.
     inaffectz: Z comes from the result when checked (default), otherwise it keeps the input value.
+    MeshFaces: >-
+      Optional. Face index lists of the mesh, from the Edges output of vArrayFromOBJ. Not connected:
+      the result snaps to the closest vertex. Connected: it snaps to the closest point on the
+      triangles.
 status:
   source: ai
   state: ai
   reviewed_hash: null
   prompt_version: '1'
   note: >-
-    The jitter radius is the distance in the tangent plane before the point is replaced by the
-    closest mesh vertex, so the output points are always mesh vertices (plus Surface Offset along
-    their normal). The random values are drawn in order from the global generator after
-    math.randomseed, so the node reseeds math.random on every render. Without mesh data the points
-    are output unchanged. vmeshutils.buildSurfaceSamples uses only the vertex list of Mesh Points.
-    It makes one sample per vertex with all three triangle corners equal to that vertex, so every
-    search finds the closest vertex and not a point on a face. The normal of a sample is fitted to
-    the 8 nearest vertices and points away from the centroid of all vertices. Edges and faces are
-    not read.
+    Random values come from a local hash of the point index and Seed since fix batch F5, no longer
+    from math.randomseed. Numbers per Seed differ from older comps.

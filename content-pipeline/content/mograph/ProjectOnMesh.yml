@@ -12,22 +12,23 @@ curated:
     move.
   description:
     - >-
-      For each point the node finds the closest Mesh Points vertex. The target is that vertex plus
-      Surface Offset along the estimated normal (Surface Normal) or along +Y (World +Y). Projection
-      Blend (0 to 1, default 1) mixes between the point and the target. The three Projection Modes
-      give the same result with this mesh data.
+      For each point the node finds a target by Projection Mode. Closest Surface uses the closest
+      point on the triangles, Nearest Vertex the closest vertex, Face Center the closest triangle
+      center (quads are split into triangles). Without Mesh Faces every sample is a single vertex,
+      so the three modes give the same result. The target plus Surface Offset along the normal
+      (Surface Normal) or along +Y (World +Y) is the projected position.
     - >-
-      With Max Distance above 0, Hard Cutoff leaves a point where it is if the target is farther
-      away than Max Distance, and Clamp moves it only up to that distance toward the target. No
-      Limit ignores Max Distance. Affect X, Y and Z keep unchecked axes at the input value. Only the
-      vertex list is used. If Points or Mesh Points is empty, the output is empty.
+      Projection Blend (0 to 1, default 1) mixes between the point and the result. With Max Distance
+      above 0, Hard Cutoff leaves a point where it is if the target is farther away than Max
+      Distance, and Clamp moves it only up to that distance. No Limit ignores Max Distance. Affect
+      X, Y and Z keep unchecked axes. If Points or Mesh Points is empty, the output is empty.
   features:
     - title: Surface offset
-      desc: The target can be lifted off the vertex along its normal or along +Y.
+      desc: The target can be lifted off the mesh along its normal or along +Y.
     - title: Distance limit
       desc: Hard Cutoff and Clamp use Max Distance to limit the move.
-    - title: Blend
-      desc: Projection Blend mixes between the point and the target.
+    - title: Three projection modes
+      desc: They differ only when Mesh Faces is connected.
     - title: Per-axis switches
       desc: Affect X, Y and Z restrict the move to the checked axes.
   connections:
@@ -63,6 +64,9 @@ curated:
     inaffectx: X comes from the result when checked (default), otherwise it keeps the input value.
     inaffecty: Y comes from the result when checked (default), otherwise it keeps the input value.
     inaffectz: Z comes from the result when checked (default), otherwise it keeps the input value.
+    MeshFaces: >-
+      Optional. Face index lists of the mesh, from the Edges output of vArrayFromOBJ. Needed to make
+      the three Projection Modes differ: not connected, they all give the closest vertex.
 status:
   source: ai
   state: ai
@@ -72,4 +76,6 @@ status:
     All three Projection Modes give the same result, because the mesh samples are single vertices:
     Closest Surface, Nearest Vertex and Face Center (the mean of three equal corners) all find the
     closest vertex. The distance for Distance Mode is measured from the point to the offset target,
-    not to the mesh. Max Distance 0 switches the limit off.
+    not to the mesh. Max Distance 0 switches the limit off. Since fix batch F5 the node has an
+    optional Mesh Faces input (Edges output of vArrayFromOBJ); the text describes the node with and
+    without it.

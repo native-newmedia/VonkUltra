@@ -12,17 +12,18 @@ curated:
     point toward it.
   description:
     - >-
-      For each point the node finds the closest of the patch points, one per mesh vertex. If Max
-      Distance is above 0 and the point is farther away than that, it stays where it is. Otherwise
-      the output is the point plus (patch point - point) * Blend. Blend defaults to 1, which puts
-      the point on the patch point.
+      For each point the node finds the closest patch point. Without Mesh Faces there is one per
+      vertex: the average of the vertex and its 7 nearest neighbors. With Mesh Faces connected there
+      is one per triangle, at its center (quads are split into triangles). If Max Distance is above
+      0 and the point is farther away than that, it stays where it is.
     - >-
-      Affect X, Y and Z keep unchecked axes at the input value. Only the vertex list of Mesh Points
-      is used, not faces. Blend is not limited in the code, so values outside 0 to 1 extrapolate. If
-      the points or the mesh are empty, the output is empty.
+      Otherwise the output is the point plus (patch point - point) * Blend. Blend defaults to 1,
+      which puts the point on the patch point, and it is not limited in the code, so values outside
+      0 to 1 extrapolate. Affect X, Y and Z keep unchecked axes at the input value. If the points or
+      the mesh are empty, the output is empty.
   features:
     - title: Patch points
-      desc: Targets are averages of a vertex and its nearest neighbors, smoother than the vertices.
+      desc: Targets are neighbor averages without Mesh Faces and triangle centers with it.
     - title: Distance limit
       desc: Max Distance leaves points that are too far away where they are.
     - title: Blend
@@ -60,13 +61,14 @@ curated:
     inaffectx: X moves when checked (default), otherwise it keeps the input value.
     inaffecty: Y moves when checked (default), otherwise it keeps the input value.
     inaffectz: Z moves when checked (default), otherwise it keeps the input value.
+    MeshFaces: >-
+      Optional. Face index lists of the mesh, from the Edges output of vArrayFromOBJ. Needed for
+      real face centers: not connected, the targets are neighbor averages of the vertices.
 status:
   source: ai
   state: ai
   reviewed_hash: null
   prompt_version: '1'
   note: >-
-    The name and the old text say face centroid, but the code snaps to the patch points, each the
-    average of a mesh vertex and its 7 nearest neighbors. Blend is not limited in the code, so
-    values outside 0 to 1 extrapolate. Max Distance 0 switches the limit off. With no mesh or no
-    points the output is empty.
+    The name says face centroid. Without Mesh Faces the targets are averages of a vertex and its 7
+    nearest neighbors; with Mesh Faces (since fix batch F5) they are triangle centers.

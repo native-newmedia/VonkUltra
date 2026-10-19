@@ -12,18 +12,19 @@ curated:
     that matters, and it defaults to 0.
   description:
     - >-
-      For every point the node finds the closest Mesh Points vertex and reads the normal estimated
-      there, which is fitted to the 8 nearest vertices and points away from the center of the mesh.
-      The output point is the input point plus that normal times Offset Distance, so the point moves
-      along the normal from where it is, not from the mesh.
+      For every point the node finds the closest mesh point and reads the normal there. Without Mesh
+      Faces that is the closest vertex, and the normal is fitted to the 8 nearest vertices and
+      points away from the center of the mesh. With Mesh Faces connected it is the closest point on
+      the triangles and the face normal in OBJ winding order. The output is the input point plus the
+      normal times Offset Distance.
     - >-
       Offset Distance has a slider from -1 to 1 and defaults to 0, which leaves the points where
       they are. A negative value moves the points against the normal. Affect X, Y and Z are checked
-      by default, and an unchecked axis keeps its input value.
-    - If the points or the mesh are empty, the output is empty.
+      by default; an unchecked axis keeps its input value. If the points or the mesh are empty, the
+      output is empty.
   features:
     - title: Per-point normals
-      desc: Each point uses the normal estimated at its closest mesh vertex.
+      desc: Each point uses the normal at its closest vertex, or the face normal with Mesh Faces.
     - title: Signed distance
       desc: Negative Offset Distance moves points against the normal.
     - title: Per-axis switches
@@ -56,6 +57,9 @@ curated:
     inaffectx: X is offset when checked (default), otherwise it keeps the input value.
     inaffecty: Y is offset when checked (default), otherwise it keeps the input value.
     inaffectz: Z is offset when checked (default), otherwise it keeps the input value.
+    MeshFaces: >-
+      Optional. Face index lists of the mesh, from the Edges output of vArrayFromOBJ. Not connected:
+      normals are estimated at the vertices. Connected: face normals.
 status:
   source: ai
   state: ai
@@ -64,8 +68,8 @@ status:
   note: >-
     The offset is applied to the original point, not to the closest vertex: the result is the input
     point plus the normal estimated at the closest mesh vertex times Offset Distance. With no mesh
-    or no points the output is empty. vmeshutils.buildSurfaceSamples uses only the vertex list of
-    Mesh Points. It makes one sample per vertex with all three triangle corners equal to that
-    vertex, so every search finds the closest vertex and not a point on a face. The normal of a
-    sample is fitted to the 8 nearest vertices and points away from the centroid of all vertices.
-    Edges and faces are not read.
+    or no points the output is empty. It makes one sample per vertex with all three triangle corners
+    equal to that vertex, so every search finds the closest vertex and not a point on a face. The
+    normal of a sample is fitted to the 8 nearest vertices and points away from the centroid of all
+    vertices. Edges and faces are not read. Since fix batch F5 the node has an optional Mesh Faces
+    input (Edges output of vArrayFromOBJ); the text describes the node with and without it.

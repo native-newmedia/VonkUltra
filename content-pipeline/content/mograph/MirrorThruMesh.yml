@@ -12,19 +12,19 @@ curated:
     moves toward the reflected position.
   description:
     - >-
-      For each input point the node finds a reference point R: the closest Mesh Points vertex
-      (Surface and Vertex give the same result) or the closest patch point (Face Centroid), the
-      average of a vertex and its 7 nearest neighbors. The reflected position is 2 * R - P, and the
-      output is P plus the difference to that position times Blend.
+      For each input point the node finds a reference point R by Mirror Through. Surface uses the
+      closest vertex, or with Mesh Faces connected the closest point on the triangles. Vertex always
+      uses the closest vertex. Face Centroid uses the closest patch point: the average of a vertex
+      and its 7 nearest neighbors, or a triangle center with Mesh Faces. Without Mesh Faces, Surface
+      and Vertex give the same result.
     - >-
-      Blend runs from 0 to 1 and defaults to 1, which gives the full reflection. Affect X, Y and Z
-      are checked by default, and an unchecked axis keeps the input value.
+      The reflected position is 2 * R - P, and the output is P plus the difference to that position
+      times Blend. Blend runs from 0 to 1 and defaults to 1, which gives the full reflection. Affect
+      X, Y and Z are checked by default, and an unchecked axis keeps the input value.
     - With no mesh vertices, no points are written and the output is empty.
   features:
     - title: Three reflection modes
-      desc: >-
-        Surface and Vertex reflect through the closest vertex, Face Centroid through averaged
-        neighbors.
+      desc: Surface, Vertex and Face Centroid. Surface and Face Centroid use triangles with Mesh Faces.
     - title: Blend amount
       desc: Blend moves the points part of the way to the reflected position.
     - title: Per-axis switches
@@ -60,16 +60,18 @@ curated:
     inaffectx: X is reflected when checked (default), otherwise it keeps the input value.
     inaffecty: Y is reflected when checked (default), otherwise it keeps the input value.
     inaffectz: Z is reflected when checked (default), otherwise it keeps the input value.
+    MeshFaces: >-
+      Optional. Face index lists of the mesh, from the Edges output of vArrayFromOBJ. Surface uses
+      triangle points and Face Centroid uses triangle centers when connected.
 status:
   source: ai
   state: ai
   reviewed_hash: null
   prompt_version: '1'
   note: >-
-    Surface and Vertex find the same reference point. All reference lists come from the same vertex
-    list, so the fallback to the surface never changes the result: with no mesh vertices at all the
-    points are not passed through, they are left out and the output is empty.
-    vmeshutils.buildSurfaceSamples uses only the vertex list of Mesh Points. It makes one sample per
-    vertex with all three triangle corners equal to that vertex, so every search finds the closest
-    vertex and not a point on a face. The normal of a sample is fitted to the 8 nearest vertices and
-    points away from the centroid of all vertices. Edges and faces are not read.
+    Surface and Vertex find the same reference point. It makes one sample per vertex with all three
+    triangle corners equal to that vertex, so every search finds the closest vertex and not a point
+    on a face. The normal of a sample is fitted to the 8 nearest vertices and points away from the
+    centroid of all vertices. Edges and faces are not read. Since fix batch F5 the node has an
+    optional Mesh Faces input (Edges output of vArrayFromOBJ); the text describes the node with and
+    without it.

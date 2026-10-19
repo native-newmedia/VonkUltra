@@ -12,24 +12,26 @@ curated:
     point is on.
   description:
     - >-
-      For each point the node finds the closest patch point (the average of a vertex and its 7
-      nearest neighbors) and the normal estimated there, which points away from the center of the
-      mesh. Points behind that normal go to Inside, others to Outside. With no mesh, every point
-      goes to Outside. The output points are the input points, with their first three values only.
+      Without Mesh Faces the node finds the closest patch point (the average of a vertex and its 7
+      nearest neighbors) and the normal there, which points away from the center of the mesh. Points
+      behind it go to Inside, the others to Outside, so concave shapes can be misclassified. With
+      Mesh Faces connected the node shoots a ray from the test position through the triangles, and
+      an odd number of hits means Inside.
     - >-
-      The test position can be shifted first. Normal offset space moves it along the normal of the
-      closest vertex by Surface Offset Distance, reversed by Flip Normal. World space adds World
-      Offset X, Y and Z. Affect X, Y and Z limit the shift to the checked axes.
+      The test position can be shifted first. Normal offset space moves it along the normal at the
+      closest mesh point (face normal with Mesh Faces) by Surface Offset Distance, reversed by Flip
+      Normal. World space adds World Offset X, Y and Z. Affect X, Y and Z limit the shift.
     - >-
       Surface Band Thickness (default 0) sends points whose test position is within that distance of
-      the closest mesh vertex to On Surface Band instead of Inside or Outside.
+      the closest vertex, or triangle point, to On Surface Band. With no mesh, every point goes to
+      Outside.
   features:
     - title: Three outputs
       desc: Inside, Outside and On Surface Band each carry a point array.
     - title: Offset test plane
       desc: The test position can be shifted along the normal or by a world offset.
-    - title: Vertex band
-      desc: Points close to a mesh vertex are separated from the other two groups.
+    - title: Inside test
+      desc: A plane test by default, a ray count through the triangles with Mesh Faces.
     - title: Per-axis switches
       desc: Affect X, Y and Z restrict the shift of the test position.
   connections:
@@ -68,6 +70,10 @@ curated:
     insurfacebandthickness: >-
       Points whose test position is within this distance of the closest mesh vertex go to the On
       Surface Band output. Minimum 0, slider 0 to 1, default 0 (no band).
+    MeshFaces: >-
+      Optional. Face index lists of the mesh, from the Edges output of vArrayFromOBJ. Not connected:
+      the plane test at the closest patch point. Connected: a ray count through the triangles, which
+      also works for concave closed meshes.
 status:
   source: ai
   state: ai
@@ -81,8 +87,9 @@ status:
     is updated inside Process(). The inside test uses the patch samples (average of a vertex and its
     7 nearest neighbors) and their estimated normals, while the offset and the band use the vertex
     samples. Because normals point away from the centroid of all vertices, on concave shapes a
-    normal can point the wrong way and the inside test can be wrong. vmeshutils.buildSurfaceSamples
-    uses only the vertex list of Mesh Points. It makes one sample per vertex with all three triangle
-    corners equal to that vertex, so every search finds the closest vertex and not a point on a
-    face. The normal of a sample is fitted to the 8 nearest vertices and points away from the
-    centroid of all vertices. Edges and faces are not read.
+    normal can point the wrong way and the inside test can be wrong. It makes one sample per vertex
+    with all three triangle corners equal to that vertex, so every search finds the closest vertex
+    and not a point on a face. The normal of a sample is fitted to the 8 nearest vertices and points
+    away from the centroid of all vertices. Edges and faces are not read. Since fix batch F5 the
+    node has an optional Mesh Faces input (Edges output of vArrayFromOBJ); the text describes the
+    node with and without it.
