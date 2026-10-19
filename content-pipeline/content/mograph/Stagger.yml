@@ -20,10 +20,10 @@ curated:
       until Stagger and Stagger Amount are set, and a delay of 0 gives every point the same curve
       value. A larger delay shifts each point in time by its index times the delay.
     - >-
-      Linear is 0.1 times the shifted time, a straight ramp. Exponential is 1 - exp(-0.1 * t), with
-      t the shifted time and not below 0, so it rises toward 1. Neither reads Wave Frequency, which
-      the other four modes use and which defaults to 0.01. Six hidden controls are not read by the
-      code.
+      Linear is 0.1 times the shifted time. Exponential is 1 - exp(-0.1 * t), with t the shifted
+      time and not below 0. Neither reads Wave Frequency, which the other four modes use and which
+      defaults to 0.01. With Wave Frequency 0, Sawtooth Wave gives -1 for every point. Six hidden
+      controls are not read.
   features:
     - title: Six offset curves
       desc: Mode selects Linear, Wave, Exponential, Pulse Wave, Triangle Wave or Sawtooth Wave.
@@ -69,7 +69,8 @@ curated:
       value.
     WaveFreq: >-
       Frequency of the curve in Wave, Pulse Wave, Triangle Wave and Sawtooth Wave. Hidden unless one
-      of these modes is selected. Minimum 0, default 0.01.
+      of these modes is selected. Minimum 0, default 0.01. With 0, Sawtooth Wave offsets every point
+      by minus the amount.
     PulseWidth: >-
       Share of each cycle at full value in Pulse Wave, from 0.01 to 1, default 0.5. Hidden unless
       Pulse Wave is selected.
@@ -81,16 +82,15 @@ curated:
     Steps: Hidden control. Not read by the code. Range 1 to 100, default 5.
 status:
   source: ai
-  state: reviewed
-  reviewed_hash: 4e57b8b9a7ff
+  state: ai
+  reviewed_hash: null
   prompt_version: '1'
   note: >-
-    Changed in fix batch F1 (branch fix/findings-f1 of vonk-ultra-mograph), same change in all three
-    families. Mode Linear was sin(0.1 * (time - index * delay)); it is now 0.1 * (time - index *
-    delay). Mode Exponential was an envelope times a sine; it is now 1 - exp(-0.1 * t) with t = time
-    - index * delay * 0.1, not below 0. The hidden controls Clamp Output, Min Value, Max Value,
-    Reverse Index, Yoyo and Steps are created but Process() never reads them (processStagger gets
-    none of them, and its reverse and yoyo locals are always true). The Stagger Delay fallback in
-    Process() (0.2) is never used because the control default is 0. Sawtooth Wave divides by Wave
-    Frequency, so a value of 0 gives an infinite period.
+    Sawtooth Wave with Wave Frequency 0 was guarded in fix batch F4 (branch fix/findings-f4 of
+    vonk-ultra-mograph): the phase is 0 in that case, so the sawtooth value is -1 and every element
+    is offset by minus the amount. Batch F1 changed Linear (was sin(0.1 * t), now 0.1 * (time -
+    index * delay)) and Exponential (now 1 - exp(-0.1 * t) with t = time - index * delay * 0.1, not
+    below 0). The hidden controls Clamp Output, Min Value, Max Value, Reverse Index, Yoyo and Steps
+    are created but Process() never reads them. The Stagger Delay fallback in Process() (0.2) is
+    never used. Nothing was run in Fusion.
 legacy_text: Animate points using staggered offsets

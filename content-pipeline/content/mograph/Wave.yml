@@ -17,10 +17,10 @@ curated:
       (default 1), negated by Reverse, and multiplied by Falloff (default 0). The point moves by
       that times X, Y and Z Amount.
     - >-
-      Period (default 5) is the length of one cycle in frames. With Limit on, the wave stops after
-      Repeat Limit cycles. The 13 shapes are Line, Saw, Tri, Square, Sine, Noise, Pulse, ExpDecay,
-      AbsSine, Stair, Bounce, Cosine and Spike. With the default Falloff of 0 and Amounts of 0,
-      nothing moves.
+      Period (default 5) is the length of one cycle in frames. A Period of 0 holds the wave at phase
+      0. With Limit on, the wave stops after Repeat Limit cycles. The 13 shapes are Line, Saw, Tri,
+      Square, Sine, Noise, Pulse, ExpDecay, AbsSine, Stair, Bounce, Cosine and Spike. With the
+      default Falloff of 0 and Amounts of 0, nothing moves.
   features:
     - title: 13 wave shapes
       desc: >-
@@ -54,7 +54,9 @@ curated:
   params:
     Wave: Shape of the wave. One of 13 shapes.
     DelayTime: Frame at which the wave starts. The wave is 0 before it. Minimum 0, slider to 2500, default 0.
-    Period: Length of one cycle in frames. Minimum 0, slider 0 to 50, default 5.
+    Period: >-
+      Length of one cycle in frames. Minimum 0, slider 0 to 50, default 5. A value of 0 holds the
+      wave at phase 0.
     Strength: Multiplies the wave. Slider to 10, default 1.
     Limit: Stops the wave after Repeat Limit cycles when on. Default off.
     Reverse: Negates the wave when on. Default off.
@@ -74,16 +76,16 @@ curated:
       Default on.
 status:
   source: ai
-  state: reviewed
-  reviewed_hash: 76e6a102c231
+  state: ai
+  reviewed_hash: null
   prompt_version: '1'
   note: >-
-    Changed in fix batch F1 (branch fix/findings-f1 of vonk-ultra-mograph), same change in all three
-    families. The controls X, Y and Z Position were renamed X, Y and Z Amount (IDs XPosition,
-    YPosition, ZPosition unchanged), because they are displacement amounts and not a wave origin.
-    The code has no distance calculation. Each point moves by (X, Y, Z Amount) * wave * Falloff.
-    Falloff is a multiplier (default 0), so nothing moves until both Falloff and one of the amounts
-    are set. Delay (hidden) is not read; Offset (hidden) is added to the wave and defaults to 0.
-    Show Input is hidden and shows the ports of Start At Frame, Period, Strength and Limit. Period 0
-    divides by zero. The wave starts at 0 until the frame passes Start At Frame.
+    Period 0 was guarded in fix batch F4 (branch fix/findings-f4 of vonk-ultra-mograph): the
+    frequency is 1 / Period, and it is now 0 when Period is 0, so the wave stays at phase 0 and the
+    result is finite (Line, Saw and Tri give 0, Square and Pulse give 1, Sine 0.5, Cosine 1). The
+    controls X, Y and Z Position were renamed X, Y and Z Amount in batch F1 (IDs unchanged). Falloff
+    is a multiplier (default 0), so nothing moves until both Falloff and one of the amounts are set.
+    Delay (hidden) is not read; Offset (hidden) is added to the wave and defaults to 0. Show Input
+    is hidden and shows the ports of Start At Frame, Period, Strength and Limit. Nothing was run in
+    Fusion.
 legacy_text: 'Animates an array Wave options include: - Line - Saw - Tri - Square - Sine - Noise'

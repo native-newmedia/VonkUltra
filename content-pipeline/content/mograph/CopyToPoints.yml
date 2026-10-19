@@ -19,10 +19,10 @@ curated:
     - >-
       The Z angle in degrees is Base Rotate Z plus a random value between minus and plus Random
       Rotate Z, chosen per target point. Random Offset X, Y and Z move each copy by a random value
-      between minus and plus the setting. All random values come from Seed and the point index.
-    - >-
-      The scale is applied before the rotation. All template points of one copy share one angle and
-      one offset.
+      between minus and plus the setting. The random values are a hash of Seed and the point index,
+      so the same Seed gives the same values on every render, and the node does not change the
+      global random generator. The scale is applied before the rotation. All template points of one
+      copy share one angle and one offset.
   features:
     - title: Template copies
       desc: Every target point receives a full copy of the template.
@@ -80,8 +80,11 @@ status:
   reviewed_hash: null
   prompt_version: '1'
   note: >-
-    The random values come from math.randomseed followed by math.random for every value, so the node
-    reseeds the global random generator. The random offset is the same for all template points of
-    one copy. Scale is applied before the rotation, so X and Y scale act in the template frame and Z
-    scale is not rotated. Seed and the point index set the rotation (seed + index * 7919) and the
-    offsets (seed + index * 104729, 130363 and 155921 for X, Y and Z).
+    Rewritten against the fuse after fix batch F4 (branch fix/findings-f4 of vonk-ultra-mograph).
+    The node used to call math.randomseed and math.random for every value, which reseeded the global
+    generator. randomUnit now hashes the clamped seed in plain arithmetic and touches no global
+    state. The numbers a given Seed gives are different from before. The random offset is the same
+    for all template points of one copy. Scale is applied before the rotation, so X and Y scale act
+    in the template frame and Z scale is not rotated. Seed and the point index set the rotation
+    (seed + index * 7919) and the offsets (seed + index * 104729, 130363 and 155921 for X, Y and Z).
+    Nothing was run in Fusion.

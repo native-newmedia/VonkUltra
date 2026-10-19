@@ -17,12 +17,13 @@ curated:
       coordinate wrapped by a modulo of Noise Rate. Its value lies between 0 and 1, so a positive
       Amplitude moves points toward positive values.
     - >-
-      At the default Noise Rate of 0.001 the wrapped coordinates stay so small that every point gets
-      the same noise value (about 0.72). Larger rates give variation between points. Amplitude and
-      Noise Scale default to 0, so nothing moves until they are set.
+      The default Noise Rate is 0.001. Below 0.0053 the wrapped coordinates are stretched to a range
+      of 0 to 1000 before the hash, so points differ. Larger rates run the plain hash, which gives
+      few distinct values until the rate reaches about 0.05. Amplitude and Noise Scale default to 0,
+      so nothing moves until they are set.
     - >-
       The falloff is max(0, 1 - (distance / radius) ^ tightness), measured from the FallOff Sphere
-      position. Invert falloff uses 1 minus that value. All three families displace X, Y and Z.
+      position. Invert falloff uses 1 minus that value.
   features:
     - title: Noise displacement
       desc: Each axis uses its own noise value, scaled by Amplitude and the falloff.
@@ -55,7 +56,7 @@ curated:
     scaleamount: Multiplies the point position before the noise lookup. Slider -1 to 1, default 0.
     nosie_rate: >-
       Length of the modulo applied to each coordinate in the noise lookup. Slider 0 to 1, default
-      0.001. Values below about 0.005 give the same noise for every point.
+      0.001. Below 0.0053 the coordinates are stretched to 0 to 1000 before the hash.
     amplitudeamount: Size of the displacement. Slider -1 to 1, default 0.
     sphere_X: X of the falloff sphere center. Slider -1 to 1, default 0.
     sphere_y: Y of the falloff sphere center. Slider -1 to 1, default 0.
@@ -69,16 +70,16 @@ curated:
     animspeed: Added to the noise lookup as this value times the render time. Slider 0 to 5, default 0.
 status:
   source: ai
-  state: reviewed
-  reviewed_hash: 45069381da6a
+  state: ai
+  reviewed_hash: null
   prompt_version: '1'
   note: >-
-    Rewritten against the fuse after fix batch F2 (branch fix/findings-f2 of vonk-ultra-mograph):
-    the ScriptVal and JSON fuses multiplied the X and Y noise by 0 and now displace X, Y and Z like
-    the Array fuse. Noise Rate is not a time offset as the old text said. It is the length used for
-    a modulo on each coordinate, so values below about 0.005 make the noise constant for every point
-    (0.7182 at the default). The noise value is between 0 and 1 and is never negative, so the
-    displacement is one-sided. The old text says the UI labels read "Nosie Scale" and "Nosie Rate";
-    in the fuse the labels are Noise Scale and Noise Rate and only the control ID nosie_rate has the
-    typo. Extra values after the third are dropped. Nothing was run in Fusion.
+    Rewritten against the fuse after fix batch F4 (branch fix/findings-f4 of vonk-ultra-mograph).
+    Noise Rate is the length used for a modulo on each coordinate. The hash floors x + 57 y + 131 z,
+    which is always 0 for a rate below about 0.0053, so every point got the same value (0.7182). For
+    a rate below 0.0053 the wrapped coordinates are now stretched to 0 to 1000 first, so the points
+    differ. Rates from 0.0053 up are unchanged, and those up to about 0.05 still give only a few
+    distinct values. A rate of 0 or less used to give NaN. The noise value is between 0 and 1 and is
+    never negative, so the displacement is one-sided. Only the control ID nosie_rate has the typo.
+    Extra values after the third are dropped. Nothing was run in Fusion.
 legacy_text: Displace XYZ positions using noise with spherical falloff
