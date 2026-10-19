@@ -28,11 +28,11 @@ Families: A = Array, S = ScriptVal, J = JSON. "All" means all three behave this 
 | ApplyMask | Trim Zeros removes any all-zero point, not only trailing ones. | All | No change, Trim Zeros kept |
 | Interpolate | Show Input only shows the Progress port. Arrays are trimmed to the shorter length. | All | No change, matches its labels |
 | AttractToMesh | JSON fuse has two inputs with main link 1 (Points and JSON Points); only JSON Points is read. Array/ScriptVal pass `(meshPts, false, true)` to buildSurfaceSamples, JSON passes one argument. | J differs | Fixed in F5 (LINK_Main removed from the unused Points input; same skipNormals argument in all families) |
-| ScaleFromMesh | Two point inputs: only Array Points is read, Points (ID Points) is not. | All | Open (FIXES.md F5: read both inputs, or hide the unused one) |
-| SlideOnMesh | Default direction 0, 0, 0 is turned into 0, 0, 1. | All | Open (FIXES.md F5: keep, or treat zero as no slide) |
+| ScaleFromMesh | Two point inputs: only Array Points is read, Points (ID Points) is not. | All | Decided in F5: Array Points is the input; unused Array "Points" input lost its main link |
+| SlideOnMesh | Default direction 0, 0, 0 is turned into 0, 0, 1. | All | Decided in F5: kept as is |
 | ProjectOnMesh | Closest Surface, Nearest Vertex and Face Center give the same result. | All | Fixed in F5 with Mesh Faces connected; without faces the three modes still give the same result |
 | ClampToMeshProx, MirrorThruMesh, SnapMeshVertex, SortByMeshProx | "Surface" and "Vertex" give the same result. The Surface-to-Vertex fallback in MirrorThruMesh never changes anything. | All | Fixed in F5 with Mesh Faces connected (Surface uses triangles, Vertex stays on vertices); without faces they still give the same result |
-| RelaxOnMesh | Moves each point toward the average of its 6 nearest points, which pulls points together. The registered description says it spreads them evenly. Output points are mesh vertices. | All | Open (FIXES.md F5: change the description, or write a spreading algorithm) |
+| RelaxOnMesh | Moves each point toward the average of its 6 nearest points, which pulls points together. The registered description says it spreads them evenly. Output points are mesh vertices. | All | Decided in F5: the registered description now matches the code |
 | JitterOnMesh, NoiseOnMesh (3D Reproject), SlideOnMesh | The result is replaced by the closest mesh vertex, so outputs are vertices. | All | Fixed in F5 with Mesh Faces connected (closest triangle point); without faces the output is still a vertex |
 | ClassifyByMesh | Normals point away from the centroid of all vertices, so concave shapes can misclassify. Offset Space visibility is updated inside Process(). | All | Fixed in F5: Offset Space visibility moved to NotifyChanged; with Mesh Faces connected the inside test counts ray hits through the triangles |
 | TextWrap | In Table mode the Text output holds `tostring(table)`. In String mode the TextTable output holds the string in its array field. | All | Text output fixed; TextTable kept |
@@ -314,7 +314,7 @@ The ray does not test faces. It tests the mesh vertices: a vertex counts as hit 
 
 ### RelaxOnMesh
 
-Each pass moves a point toward the average of its 6 nearest points, which pulls neighbors together, and then puts it on the closest mesh vertex. The old text and the registered description say the points spread out evenly; the code does not push points apart. Because of the snap, every output point is a mesh vertex (plus Surface Offset), and several points can end up on the same vertex. The cost grows with the square of the point count times Relax Iterations.
+Each pass moves a point toward the average of its 6 nearest points, which pulls neighbors together, and then puts it on the closest mesh vertex. The old text and the registered description said the points spread out evenly; the code does not push points apart, and since fix batch F5 the registered description says so too. Because of the snap, every output point is a mesh vertex (plus Surface Offset), and several points can end up on the same vertex. The cost grows with the square of the point count times Relax Iterations.
 
 ### RepeatTransform
 
@@ -338,7 +338,7 @@ Pass Thru is a hidden control and has no effect: it only changes a fallback valu
 
 ### ScaleFromMesh
 
-The node has two point inputs. The Array fuse reads only Array Points (the one that holds the points to scale); the input named Points (ID Points) is not read by Process(). The same holds for the ScriptVal and JSON fuses, where the one that is read is called X Points or Points with another ID. The distance is measured to the closest mesh vertex, so the result depends on how densely the mesh is sampled. With no mesh or no points the output is empty.
+The Array fuse has two point inputs: it reads only Array Points (the one that holds the points to scale), and the input named Points (ID Points) is not read by Process(). Since fix batch F5 the unused one no longer takes the main link. The ScriptVal and JSON fuses have a single Points input. The distance is measured to the closest mesh vertex, so the result depends on how densely the mesh is sampled. With no mesh or no points the output is empty.
 
 ### ScatterInstOnMesh
 
